@@ -4,3 +4,5 @@
 *.orig
 *.tmp
 .~lock*doc#
+
+public/
