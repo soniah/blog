@@ -1,0 +1,6 @@
+.DS_Store
+.*.sw*
+.sw*
+*.orig
+*.tmp
+.~lock*doc#
