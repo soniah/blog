@@ -1,0 +1,22 @@
+---
+title: password caching with sshpass
+author: Sonia Hamilton
+date: 2010-09-28
+url: /2010/09/28/password-caching-with-sshpass/
+jabber_published:
+  - 1285658036
+categories:
+  - Other-Tech
+---
+[sshpass][1] &#8211; a tool for *non-interactively performing password authentication with SSH&#8217;s so called &#8220;interactive keyboard password authentication&#8221;* &#8211; useful for automation scripts where you are unable to use ssh keys.
+
+Of course using ssh keys plus an ssh-agent or ssh keychain (even for [cron jobs][2]) is more secure. But I&#8217;m working with a proprietary, linux based system where some pointy-headed-boss decided that it&#8217;s safer to disable key based authentication, because, well, I don&#8217;t know (because they don&#8217;t understand key based authentication?).
+
+A work mate came across sshpass, and we use it by caching the password in an env variable. Slightly safer than the older version, where our [expect][3] scripts just pulled the password out of a file :-o
+
+[More ssh notes][4].
+
+ [1]: http://sourceforge.net/projects/sshpass/
+ [2]: http://blog.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/
+ [3]: http://www.nist.gov/mel/msid/expect.cfm
+ [4]: http://blog.snowfrog.net/tag/ssh/

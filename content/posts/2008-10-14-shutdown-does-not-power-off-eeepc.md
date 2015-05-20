@@ -1,0 +1,18 @@
+---
+title: Shutdown does not power off EeePC
+author: Sonia Hamilton
+date: 2008-10-13
+url: /2008/10/14/shutdown-does-not-power-off-eeepc/
+categories:
+  - Linux
+tags:
+  - EeePC
+  - Ubuntu
+---
+I&#8217;ve noticed that issuing a **sudo halt** on my [EeePC 701][1] shuts down the operating system ([eeeXubuntu][2]), but doesn&#8217;t power down the system. So I&#8217;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag &#8211; ouch!
+
+**Solution** ([Bug #239145][3]) &#8211; add **rmmod snd-hda-intel** to the stop section of **/etc/init.d/halt**.
+
+ [1]: http://www.asus.com/news_show.aspx?id=7317
+ [2]: http://www.eeeuser.com/
+ [3]: https://bugs.launchpad.net/ubuntu-eee/+bug/239145
