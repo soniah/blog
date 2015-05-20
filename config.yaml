@@ -7,4 +7,5 @@ indexes:
 baseurl: "http://blog2.snowfrog.net"
 title: "Sonia Hamilton - Blog"
 canonifyurls: true
+pygmentsstyle: "native"
 ...
