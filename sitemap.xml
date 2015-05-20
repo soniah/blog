@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://soniah.github.io/blog/</loc>
+    <loc>http://blog2.snowfrog.net/</loc>
     <lastmod>2012-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</loc>
     <lastmod>2012-03-05T00:00:00+00:00</lastmod>
   </url>
   

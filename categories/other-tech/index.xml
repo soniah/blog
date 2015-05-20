@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Other Tech on Sonia Hamilton - Blog</title>
-    <link>http://soniah.github.io/blog/categories/other-tech/</link>
+    <link>http://blog2.snowfrog.net/categories/other-tech/</link>
     <description>Recent content in Other Tech on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 05 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://soniah.github.io/blog/categories/other-tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog2.snowfrog.net/categories/other-tech/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Backup multiple MySQL databases into separate files – Windows</title>
-      <link>http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
       <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux). I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
 
 &lt;pre&gt;:: MySQl DB user
