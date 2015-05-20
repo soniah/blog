@@ -1,0 +1,21 @@
+---
+author: sonia
+comments: true
+date: 2009-10-19 07:06:19+00:00
+slug: ruby-1-9-shell-aliases
+title: Ruby 1.9 shell aliases
+wordpress_id: 584
+categories:
+- Other-Tech
+tags:
+- Ruby
+---
+
+I've started playing with Ruby 1.9 - the latest and greatest version of Ruby. On Ubuntu Jaunty, 1.8 is considered mainline and 1.9 experimental - here are the shell aliases if using 1.9:
+
+    
+    alias ri='/usr/bin/ri1.9'
+    alias irb='/usr/bin/irb1.9'
+    alias rdoc='/usr/bin/rdoc1.9'
+    alias ruby='/usr/bin/ruby1.9'
+    alias gem='/usr/bin/gem1.9' # belts-and-braces - gem 1.8 & 1.9 are the same version - 1.3.1

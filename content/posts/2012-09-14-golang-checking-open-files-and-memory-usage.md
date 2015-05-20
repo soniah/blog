@@ -1,0 +1,30 @@
+---
+author: sonia
+comments: true
+date: 2012-09-14 06:18:54+00:00
+slug: golang-checking-open-files-and-memory-usage
+title: 'Golang: checking open files and memory usage'
+wordpress_id: 1696
+categories:
+- Linux
+tags:
+- Golang
+---
+
+Notes to myself more than anything, and not really specific to Go (but that's where I was using it).
+
+To watch the memory usage of a process with pid PID:
+
+[sourcecode language="bash"]
+while [ 1 ] ; do
+  grep VmSize  /proc/PID/status ; sleep 10
+done
+[/sourcecode]
+
+To watch the number of file descriptors being used:
+
+[sourcecode language="bash"]
+while [ 1 ] ; do
+  sudo lsof -p PID | wc -l ; sleep 10
+done
+[/sourcecode]

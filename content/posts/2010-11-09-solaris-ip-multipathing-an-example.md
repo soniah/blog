@@ -1,0 +1,38 @@
+---
+author: sonia
+comments: true
+date: 2010-11-09 06:46:43+00:00
+slug: solaris-ip-multipathing-an-example
+title: Solaris IP Multipathing - an example
+wordpress_id: 768
+categories:
+- Other-Tech
+tags:
+- Networking
+- Solaris
+---
+
+An example of Solaris IP Multipathing, for future reference:
+
+    
+    # cat /etc/hostname.bge2
+    10.888.999.133 netmask + broadcast + mtu 1380 deprecated -failover group inner-prod up 
+     addif 10.888.999.132 netmask + broadcast + mtu 1380 group inner-prod up
+    # cat /etc/hostname.bge3
+    10.888.999.134 netmask + broadcast + mtu 1380 deprecated -failover standby group inner-prod up
+
+
+giving:
+
+    
+    # ifconfig bge2
+    bge2: flags=9040843<UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAILOVER> mtu 1380 index 4
+     inet 10.888.999.133 netmask fffffff0 broadcast 10.225.228.143
+     groupname inner-prod
+     ether 0:xx:xx:xx:xx:xx
+    # ifconfig bge3
+    bge3: flags=69040843<UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAILOVER,STANDBY,INACTIVE> mtu 1380 index 5
+     inet 10.888.999.134 netmask fffffff0 broadcast 10.888.999.143
+     groupname inner-prod
+     ether 0:xx:xx:xx:xx:xx
+    
