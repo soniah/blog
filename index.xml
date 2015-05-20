@@ -5,82 +5,338 @@
     <link>http://soniah.github.io/blog/</link>
     <description>Recent content on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 29 Mar 2014 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Mar 2012 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://soniah.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Just another sample post</title>
-      <link>http://soniah.github.io/blog/posts/newest/</link>
-      <pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate>
+      <title>Backup multiple MySQL databases into separate files – Windows</title>
+      <link>http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://soniah.github.io/blog/posts/newest/</guid>
-      <description>
+      <guid>http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux). I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
 
-&lt;h2 id=&#34;first-heading:912493bb798d2cf24137bef8b4adb6f6&#34;&gt;First Heading&lt;/h2&gt;
+&lt;pre&gt;:: MySQl DB user
+set dbuser=xxxx
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, consequatur aspernatur omnis iste. Voluptates, id inventore ea natus ab sed amet ipsa ratione sunt dignissimos. Soluta illum aliquid repellendus recusandae.&lt;/p&gt;
+:: MySQl DB users password
+set dbpass=xxxx
 
-&lt;h3 id=&#34;sub:912493bb798d2cf24137bef8b4adb6f6&#34;&gt;Sub&lt;/h3&gt;
+:: Switch to the MySQL data directory and collect the folder names
+pushd &#34;C:\Documents and Settings\All Users\Application Data\MySQL\MySQL Server 5.5\data&#34;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, perferendis saepe voluptatem a nesciunt architecto voluptas deleniti dolor tempora quasi quidem odit rem fugit magnam minima quam dolores vel id?&lt;/p&gt;
+:: Loop through the folders and use the fnames for the sql filenames, collects all databases automatically this way
 
-&lt;h2 id=&#34;conclusion:912493bb798d2cf24137bef8b4adb6f6&#34;&gt;Conclusion&lt;/h2&gt;
+echo &#34;hello&#34;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, numquam ipsa ad! Quasi, deleniti quae sint consequatur error corporis dicta inventore alias soluta dignissimos? Molestias, quia ab deserunt repellat ut.&lt;/p&gt;
+echo &#34;Pass each name to mysqldump.exe and output an individual .sql file for each&#34;
+
+FOR /D %%F IN (*) DO (
+&#34;C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe&#34; --user=%dbuser% --password=%dbpass% --databases %%F &amp;gt; &#34;C:\SQLBackup\%%F.%backupdate%.sql&#34;
+)&lt;/pre&gt;
 </description>
     </item>
     
     <item>
-      <title>Second Post</title>
-      <link>http://soniah.github.io/blog/posts/middle/</link>
-      <pubDate>Fri, 28 Mar 2014 00:00:00 +0000</pubDate>
+      <title>Vimdiff – refresh or update after changes</title>
+      <link>http://soniah.github.io/blog/2012/03/02/vimdiff-refresh-or-update-after-changes/</link>
+      <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://soniah.github.io/blog/posts/middle/</guid>
-      <description>
+      <guid>http://soniah.github.io/blog/2012/03/02/vimdiff-refresh-or-update-after-changes/</guid>
+      <description>&lt;p&gt;I little command I always have to search for when using vimdiff &amp;#8211; &lt;strong&gt;:diffupdate&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;sample-post-1:5d41645769bc0f1237f2300a661d7e18&#34;&gt;Sample Post 1&lt;/h2&gt;
+&lt;p&gt;After you&amp;#8217;ve made changes in vimdiff &lt;strong&gt;:diffupdate&lt;/strong&gt; will recalculate the diffs.&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
-
-&lt;h3 id=&#34;sub-heading:5d41645769bc0f1237f2300a661d7e18&#34;&gt;Sub-heading&lt;/h3&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, non, ratione, molestiae illo optio quia sequi id fuga natus nihil ad architecto dolor alias ex sunt iste aperiam eius itaque.&lt;/p&gt;
-
-&lt;h2 id=&#34;foo:5d41645769bc0f1237f2300a661d7e18&#34;&gt;foo&lt;/h2&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, neque, eveniet voluptate eos debitis illum qui nostrum eius maxime ratione assumenda suscipit impedit deserunt voluptatibus odio ducimus non. Ex, ratione.&lt;/p&gt;
+&lt;div class=&#34;wp-caption alignnone&#34; style=&#34;width: 610px&#34;&gt;
+  &lt;img title=&#34;Vimdiff in Action&#34; src=&#34;http://www.vim.org/images/vimdiff.png&#34; alt=&#34;Vimdiff in Action&#34; width=&#34;602&#34; height=&#34;430&#34; /&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Vimdiff in Action
+  &lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>First Post</title>
-      <link>http://soniah.github.io/blog/posts/oldest/</link>
-      <pubDate>Thu, 27 Mar 2014 00:00:00 +0000</pubDate>
+      <title>Sydney Stick Fighting – Meetup</title>
+      <link>http://soniah.github.io/blog/2012/02/29/sydney-stick-fighting-meetup/</link>
+      <pubDate>Wed, 29 Feb 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://soniah.github.io/blog/posts/oldest/</guid>
-      <description>
+      <guid>http://soniah.github.io/blog/2012/02/29/sydney-stick-fighting-meetup/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve setup a new Meetup.com group called &lt;a href=&#34;http://www.meetup.com/Sydney-Stick-Fighting/&#34;&gt;Sydney Stick Fighting&lt;/a&gt;. It&amp;#8217;s early days yet, I&amp;#8217;m still gathering email addresses and getting people to join up.&lt;/p&gt;
 
-&lt;h2 id=&#34;sample-post-1:5be75e971689338db5c820fd71089689&#34;&gt;Sample Post 1&lt;/h2&gt;
+&lt;p&gt;Here&amp;#8217;s the description of the group:&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;em&gt;A group for practitioners of the Filipino art of &lt;a href=&#34;http://en.wikipedia.org/wiki/Balintawak_Eskrima&#34;&gt;Balintawak Arnis&lt;/a&gt; (stick fighting). Arnis (also known as Esgrima or Kali) is a very practical martial art that involves sticks, striking, grappling or improvised weapons. It is becoming more popular (for example the &lt;a href=&#34;http://howtofightlikejasonbourne.com/&#34;&gt;Jason Bourne&lt;/a&gt; movies or &lt;a href=&#34;http://en.wikipedia.org/wiki/Eskrima_in_popular_culture&#34;&gt;other movies&lt;/a&gt;) and is usually practiced outdoors rather than in a gym. Beginners are always welcome, or you can just come along and watch the action!&lt;/em&gt;
+&lt;/p&gt;
 
-&lt;h3 id=&#34;sub-heading:5be75e971689338db5c820fd71089689&#34;&gt;Sub-heading&lt;/h3&gt;
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &lt;em&gt;Watch some &lt;a href=&#34;http://www.meetup.com/Sydney-Stick-Fighting/pages/Videos&#34;&gt;videos of stick fighting&lt;/a&gt;.&lt;/em&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Denyhosts for sshd – usernames dictionary</title>
+      <link>http://soniah.github.io/blog/2012/02/03/denyhosts-for-sshd-usernames-dictionary/</link>
+      <pubDate>Thu, 02 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/02/03/denyhosts-for-sshd-usernames-dictionary/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve just setup the venerable &lt;a href=&#34;http://denyhosts.sourceforge.net/&#34;&gt;denyhosts&lt;/a&gt; on one of my servers, to stop the usual script-kiddies from &lt;em&gt;filling up my logs&lt;/em&gt; (I&amp;#8217;m not particularly worried about them getting in&amp;#8230;).&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, non, ratione, molestiae illo optio quia sequi id fuga natus nihil ad architecto dolor alias ex sunt iste aperiam eius itaque.&lt;/p&gt;
+&lt;p&gt;Anyway, here is &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/02/restricted-usernames.gz&#34;&gt;restricted-usernames.gz&lt;/a&gt;, a list of denied usernames from the log &amp;#8211; handy to add to your denyhosts &lt;a href=&#34;http://denyhosts.sourceforge.net/faq.html#restricted&#34;&gt;restricted-usernames file&lt;/a&gt;. There&amp;#8217;s probably a better dictionary of usernames out there &amp;#8211; I&amp;#8217;ll attach it if I &lt;del&gt;find it&lt;/del&gt; stumble upon it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Previous Page Newer Posts</title>
+      <link>http://soniah.github.io/blog/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
+      <pubDate>Mon, 30 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
+      <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;#8211; you need to edit the following four files:&lt;/p&gt;
 
-&lt;h2 id=&#34;foo:5be75e971689338db5c820fd71089689&#34;&gt;foo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;archive.php&lt;/li&gt;
+&lt;li&gt;author.php&lt;/li&gt;
+&lt;li&gt;index.php&lt;/li&gt;
+&lt;li&gt;search.php&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, neque, eveniet voluptate eos debitis illum qui nostrum eius maxime ratione assumenda suscipit impedit deserunt voluptatibus odio ducimus non. Ex, ratione.&lt;/p&gt;
+&lt;p&gt;In these files, search for the lines that look like:&lt;/p&gt;
+
+&lt;pre&gt;posts_nav_link(&#39; &amp;#8212; &#39;, __(&#39;&amp;laquo; Previous Page&#39;),...&lt;/pre&gt;
+
+&lt;p&gt;Edit each file and change &lt;strong&gt;Previous Page&lt;/strong&gt; to &lt;strong&gt;Newer Posts&lt;/strong&gt;, and &lt;strong&gt;Next Page&lt;/strong&gt; to &lt;strong&gt;Older Posts&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alternatively if you&amp;#8217;ve got &lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; shell access (and you&amp;#8217;re hosted on a Unix-like environment eg Linux), you can run the following commands:&lt;/p&gt;
+
+&lt;pre&gt;cd /var/www/wp-content/themes/clear-line
+sed -i &#39;s/Previous Page/Newer Posts/&#39; archive.php author.php index.php search.php
+sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php search.php&lt;/pre&gt;
+
+&lt;p&gt;Of course before running these &lt;a href=&#34;http://en.wikipedia.org/wiki/Sed&#34;&gt;sed&lt;/a&gt; commands you should backup your files, in case anything goes wrong&amp;#8230;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</title>
+      <link>http://soniah.github.io/blog/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
+      <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
+      <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;#8220;Site Admin&amp;#8221;, &amp;#8220;Login&amp;#8221;, &amp;#8220;Entries RSS&amp;#8221;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;#8217;s a slight security risk (though hiding it won&amp;#8217;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;#8217;re running WordPress).&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s a couple of options for hiding the Meta Widget:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;don&amp;#8217;t display it at all. Go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt;, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the &lt;strong&gt;/wp-login.php&lt;/strong&gt; page. For example if your blog is &lt;strong&gt;&lt;a href=&#34;http://myblog.info&#34;&gt;http://myblog.info&lt;/a&gt;&lt;/strong&gt;, go to &lt;strong&gt;&lt;a href=&#34;http://myblog.info/wp-login.php&#34;&gt;http://myblog.info/wp-login.php&lt;/a&gt;&lt;/strong&gt; to login&lt;/li&gt;
+&lt;li&gt;make it smaller and barely visible (the option I prefer). First of all, go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt; and move/add a Meta Widget to the &lt;strong&gt;Footer Counters&lt;/strong&gt; Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the &lt;strong&gt;wp-includes/default-widgets.php&lt;/strong&gt; file. Search for the line that contains &lt;strong&gt;wp_register&lt;/strong&gt; (about line 293), then delete the three lines that contain &amp;#8216;rss2_url&amp;#8217;, &amp;#8216;comments_rss2_url&amp;#8217;, and &amp;#8216;wordpress.org&amp;#8217;, and remove the bulleting from &amp;#8216;wp_loginout&amp;#8217;. The changes are easier to see with some before and after code:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Before:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;?php wp_loginout(); ?&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;rss2_url&#39;); ?&amp;gt;&#34; title=...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;comments_rss2_url&#39;); ?...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;http://wordpress.org/&#34; title=&#34;&amp;lt;?php ec...
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;After:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;?php wp_loginout(); ?&amp;gt;
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you&amp;#8217;ll have a small Login link at the bottom right-hand corner of your blog!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Addendum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &amp;#8220;Site Admin&amp;#8221; link when logged in (at the bottom right of the page). You can fix this by editing the &lt;strong&gt;wp-includes/general-template.php&lt;/strong&gt; file. At about line 319, &lt;strong&gt;change:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = $before . &#39;&amp;lt;a href=&#34;&#39; . admin_url()...&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;to:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = &#39;&#39;;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Display Tags not Categories</title>
+      <link>http://soniah.github.io/blog/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
+      <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;#8217;t have a way of modifying it&amp;#8217;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
+
+&lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_category(&#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;with this:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_tags(&#39;&#39;, &#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;The path to the &lt;strong&gt;functions.php&lt;/strong&gt; file may be slightly different on your server; you can quickly locate it using &lt;strong&gt;find&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;find / -type f -name functions.php 2&amp;gt; /dev/null&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>More Balintawak Videos</title>
+      <link>http://soniah.github.io/blog/2012/01/17/more-balintawak-videos/</link>
+      <pubDate>Tue, 17 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/17/more-balintawak-videos/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve added some more &lt;a href=&#34;http://en.wikipedia.org/wiki/Balintawak_Eskrima&#34;&gt;Balintawak Arnis&lt;/a&gt; videos to my &lt;a href=&#34;http://www.youtube.com/user/savannacat&#34;&gt;Youtube page&lt;/a&gt;. They are edits of my training in the Philippines.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Some warmup drills:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;youtube&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;And Groups 1, 2, and 3 of the Balintawak &amp;#8220;Grouped Training System&amp;#8221;:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;youtube&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;youtube&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;youtube&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Migrating from Palm to Android</title>
+      <link>http://soniah.github.io/blog/2012/01/17/migrating-from-palm-to-android/</link>
+      <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/17/migrating-from-palm-to-android/</guid>
+      <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;#8217;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;#8217;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
+
+&lt;p&gt;Some tricks and tools I&amp;#8217;ve find useful in my migration from Palm to Android:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.synthesis.ch/&#34;&gt;Synthesis SyncML clients&lt;/a&gt; are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.&lt;/li&gt;
+&lt;li&gt;for a SyncML server I&amp;#8217;m using &lt;a href=&#34;https://www.memotoo.com/&#34;&gt;Memotoo&lt;/a&gt;. I could&amp;#8217;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works&amp;#8230;&lt;/li&gt;
+&lt;li&gt;on the Android Market there&amp;#8217;s a &lt;a href=&#34;http://gnukeyring.sourceforge.net/&#34;&gt;Keyring&lt;/a&gt; client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&amp;#8217;m yet to work out how I&amp;#8217;m going to back this up, but probably something with Memotoo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, I&amp;#8217;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the &lt;a href=&#34;http://www.jpilot.org/images/jpilot-address.png&#34;&gt;JPilot desktop&lt;/a&gt; (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&amp;#8217;m almost migrated!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>First Day at Google – Floating Fish</title>
+      <link>http://soniah.github.io/blog/2012/01/12/first-day-at-google-floating-fish/</link>
+      <pubDate>Wed, 11 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/12/first-day-at-google-floating-fish/</guid>
+      <description>&lt;p&gt;My first day at Google &amp;#8211; a fish floated through the kitchen&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;youtube&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Balintawak Arnis Cebu</title>
+      <link>http://soniah.github.io/blog/2011/11/16/balintawak-arnis-cebu/</link>
+      <pubDate>Wed, 16 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/11/16/balintawak-arnis-cebu/</guid>
+      <description>&lt;p&gt;I&amp;#8217;m in Cebu, the Philippines at the moment, learning Balintawak Arnis (stick fighting). A little video of my training &amp;#8211; I&amp;#8217;m still very much a beginner&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;youtube&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh – DISPLAY is not set – Failed to allocate internet-domain X11 display socket</title>
+      <link>http://soniah.github.io/blog/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</link>
+      <pubDate>Sun, 06 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</guid>
+      <description>&lt;p&gt;A little ssh error I came across while trying to work remotely on an Ubuntu machine. &lt;a href=&#34;http://tldp.org/HOWTO/XDMCP-HOWTO/ssh.html&#34;&gt;ssh X Display Forwarding&lt;/a&gt; wasn&amp;#8217;t working, and I was getting an error:&lt;/p&gt;
+
+&lt;pre&gt;DISPLAY is not set&lt;/pre&gt;
+
+&lt;p&gt;Digging through /var/log/auth.log, I also noticed this error:&lt;/p&gt;
+
+&lt;pre&gt;Failed to allocate internet-domain X11 display socket&lt;/pre&gt;
+
+&lt;p&gt;After much Googling, it seems that IPv6 was causing the problem. It was solved by adding:&lt;/p&gt;
+
+&lt;pre&gt;AddressFamily inet&lt;/pre&gt;
+
+&lt;p&gt;to &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt;, and restarting the ssh server.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>reload mutt configuration</title>
+      <link>http://soniah.github.io/blog/2011/10/20/reload-mutt-configuration/</link>
+      <pubDate>Thu, 20 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/10/20/reload-mutt-configuration/</guid>
+      <description>&lt;p&gt;To reload your &lt;a href=&#34;http://www.mutt.org/&#34;&gt;mutt&lt;/a&gt; configuration (for example after editing muttrc):&lt;/p&gt;
+
+&lt;pre&gt;:source /path/to/muttrc&lt;/pre&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;:source /home/sonia/.muttrc&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RFC 1178 and server naming</title>
+      <link>http://soniah.github.io/blog/2011/10/04/rfc-1178-and-server-naming/</link>
+      <pubDate>Tue, 04 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/10/04/rfc-1178-and-server-naming/</guid>
+      <description>&lt;p&gt;Whenever I come across servers with names like &lt;strong&gt;chpvuat01&lt;/strong&gt;, I&amp;#8217;m reminded of &lt;a href=&#34;http://tools.ietf.org/html/rfc1178&#34;&gt;RFC 1178&lt;/a&gt; &amp;#8220;Choosing a name for your computer&amp;#8221;. Especially when &lt;strong&gt;ch&lt;/strong&gt; stands for &lt;strong&gt;crack house&lt;/strong&gt;, &lt;strong&gt;pv&lt;/strong&gt; stands for &lt;strong&gt;paid verbiage&lt;/strong&gt;, but &lt;strong&gt;uat&lt;/strong&gt; &lt;em&gt;doesn&amp;#8217;t&lt;/em&gt; stand for &lt;strong&gt;user acceptance testing&lt;/strong&gt;: the box used to be in UAT, was moved to SIT (System Integration Testing), but &lt;em&gt;kept it&amp;#8217;s old name because renaming it would be too hard&amp;#8230;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;From the RFC:&lt;br /&gt;
+&lt;em&gt;Using a word that has strong semantic implications in the current context will cause confusion.** Don&amp;#8217;t choose a name after a project unique to that machine.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Name machines after &lt;a href=&#34;http://en.wikipedia.org/wiki/Dungeons_%26_Dragons&#34;&gt;D&amp;amp;D&lt;/a&gt; characters, &lt;a href=&#34;http://en.wikipedia.org/wiki/The_Lord_of_the_Rings&#34;&gt;LOTR&lt;/a&gt; characters, planets, flowers, animals, whatever, but not their function!**&lt;br /&gt;
+**&lt;/p&gt;
+
+&lt;p&gt;(Hostname has been obfuscated to protect the not-so-innocent, though the project may as well be called &lt;em&gt;crack house&lt;/em&gt;).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Midnight Commandar mc notes</title>
+      <link>http://soniah.github.io/blog/2011/09/27/midnight-commandar-mc-notes/</link>
+      <pubDate>Tue, 27 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/09/27/midnight-commandar-mc-notes/</guid>
+      <description>&lt;p&gt;Midnight Commander (mc) is mostly obvious, but there&amp;#8217;s a few things I regularly forget and have to look up.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to select (or &amp;#8220;tag&amp;#8221;) multiple items, use the &lt;strong&gt;Insert&lt;/strong&gt; key, or &lt;strong&gt;ctrl-t&lt;/strong&gt; (eg when on a Macbook)&lt;/li&gt;
+&lt;li&gt;use &lt;strong&gt;@&lt;/strong&gt; to do an operation on tagged files (or F2 menu, @). For example tag some files, reverse the selection (***** or F9, File, Reverse Selection), then @ &lt;strong&gt;git rm&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;any sort of compressed or package file (.deb, .tgz, .iso, .rpm, etc):
+
+&lt;ul&gt;
+&lt;li&gt;F3 (view) to get an overview of the package&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enter&lt;/strong&gt; to browse the package contents, then eg F3 to view the file or F5 to copy the file out&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;to jump back and forth to the command line (&amp;#8220;subshell support&amp;#8221;), use &lt;strong&gt;ctrl-o&lt;/strong&gt; to hide mc, then &lt;strong&gt;ctrl-o&lt;/strong&gt; to return from the subshell to mc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Taken from &lt;a href=&#34;http://www.trembath.co.za/mctutorial.html&#34;&gt;Jane Tembath&amp;#8217;s MC Tutorial&lt;/a&gt;. See also the &lt;a href=&#34;https://www.midnight-commander.org/wiki/doc/faq&#34;&gt;mc faq&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

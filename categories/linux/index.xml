@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Sonia Hamilton - Blog</title>
+    <link>http://soniah.github.io/blog/categories/linux/</link>
+    <description>Recent content in Linux on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 02 Mar 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://soniah.github.io/blog/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Vimdiff – refresh or update after changes</title>
+      <link>http://soniah.github.io/blog/2012/03/02/vimdiff-refresh-or-update-after-changes/</link>
+      <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/03/02/vimdiff-refresh-or-update-after-changes/</guid>
+      <description>&lt;p&gt;I little command I always have to search for when using vimdiff &amp;#8211; &lt;strong&gt;:diffupdate&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After you&amp;#8217;ve made changes in vimdiff &lt;strong&gt;:diffupdate&lt;/strong&gt; will recalculate the diffs.&lt;/p&gt;
+
+&lt;div class=&#34;wp-caption alignnone&#34; style=&#34;width: 610px&#34;&gt;
+  &lt;img title=&#34;Vimdiff in Action&#34; src=&#34;http://www.vim.org/images/vimdiff.png&#34; alt=&#34;Vimdiff in Action&#34; width=&#34;602&#34; height=&#34;430&#34; /&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Vimdiff in Action
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Denyhosts for sshd – usernames dictionary</title>
+      <link>http://soniah.github.io/blog/2012/02/03/denyhosts-for-sshd-usernames-dictionary/</link>
+      <pubDate>Thu, 02 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/02/03/denyhosts-for-sshd-usernames-dictionary/</guid>
+      <description>&lt;p&gt;I&amp;#8217;ve just setup the venerable &lt;a href=&#34;http://denyhosts.sourceforge.net/&#34;&gt;denyhosts&lt;/a&gt; on one of my servers, to stop the usual script-kiddies from &lt;em&gt;filling up my logs&lt;/em&gt; (I&amp;#8217;m not particularly worried about them getting in&amp;#8230;).&lt;/p&gt;
+
+&lt;p&gt;Anyway, here is &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/02/restricted-usernames.gz&#34;&gt;restricted-usernames.gz&lt;/a&gt;, a list of denied usernames from the log &amp;#8211; handy to add to your denyhosts &lt;a href=&#34;http://denyhosts.sourceforge.net/faq.html#restricted&#34;&gt;restricted-usernames file&lt;/a&gt;. There&amp;#8217;s probably a better dictionary of usernames out there &amp;#8211; I&amp;#8217;ll attach it if I &lt;del&gt;find it&lt;/del&gt; stumble upon it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh – DISPLAY is not set – Failed to allocate internet-domain X11 display socket</title>
+      <link>http://soniah.github.io/blog/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</link>
+      <pubDate>Sun, 06 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</guid>
+      <description>&lt;p&gt;A little ssh error I came across while trying to work remotely on an Ubuntu machine. &lt;a href=&#34;http://tldp.org/HOWTO/XDMCP-HOWTO/ssh.html&#34;&gt;ssh X Display Forwarding&lt;/a&gt; wasn&amp;#8217;t working, and I was getting an error:&lt;/p&gt;
+
+&lt;pre&gt;DISPLAY is not set&lt;/pre&gt;
+
+&lt;p&gt;Digging through /var/log/auth.log, I also noticed this error:&lt;/p&gt;
+
+&lt;pre&gt;Failed to allocate internet-domain X11 display socket&lt;/pre&gt;
+
+&lt;p&gt;After much Googling, it seems that IPv6 was causing the problem. It was solved by adding:&lt;/p&gt;
+
+&lt;pre&gt;AddressFamily inet&lt;/pre&gt;
+
+&lt;p&gt;to &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt;, and restarting the ssh server.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>reload mutt configuration</title>
+      <link>http://soniah.github.io/blog/2011/10/20/reload-mutt-configuration/</link>
+      <pubDate>Thu, 20 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/10/20/reload-mutt-configuration/</guid>
+      <description>&lt;p&gt;To reload your &lt;a href=&#34;http://www.mutt.org/&#34;&gt;mutt&lt;/a&gt; configuration (for example after editing muttrc):&lt;/p&gt;
+
+&lt;pre&gt;:source /path/to/muttrc&lt;/pre&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;:source /home/sonia/.muttrc&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RFC 1178 and server naming</title>
+      <link>http://soniah.github.io/blog/2011/10/04/rfc-1178-and-server-naming/</link>
+      <pubDate>Tue, 04 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/10/04/rfc-1178-and-server-naming/</guid>
+      <description>&lt;p&gt;Whenever I come across servers with names like &lt;strong&gt;chpvuat01&lt;/strong&gt;, I&amp;#8217;m reminded of &lt;a href=&#34;http://tools.ietf.org/html/rfc1178&#34;&gt;RFC 1178&lt;/a&gt; &amp;#8220;Choosing a name for your computer&amp;#8221;. Especially when &lt;strong&gt;ch&lt;/strong&gt; stands for &lt;strong&gt;crack house&lt;/strong&gt;, &lt;strong&gt;pv&lt;/strong&gt; stands for &lt;strong&gt;paid verbiage&lt;/strong&gt;, but &lt;strong&gt;uat&lt;/strong&gt; &lt;em&gt;doesn&amp;#8217;t&lt;/em&gt; stand for &lt;strong&gt;user acceptance testing&lt;/strong&gt;: the box used to be in UAT, was moved to SIT (System Integration Testing), but &lt;em&gt;kept it&amp;#8217;s old name because renaming it would be too hard&amp;#8230;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;From the RFC:&lt;br /&gt;
+&lt;em&gt;Using a word that has strong semantic implications in the current context will cause confusion.** Don&amp;#8217;t choose a name after a project unique to that machine.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Name machines after &lt;a href=&#34;http://en.wikipedia.org/wiki/Dungeons_%26_Dragons&#34;&gt;D&amp;amp;D&lt;/a&gt; characters, &lt;a href=&#34;http://en.wikipedia.org/wiki/The_Lord_of_the_Rings&#34;&gt;LOTR&lt;/a&gt; characters, planets, flowers, animals, whatever, but not their function!**&lt;br /&gt;
+**&lt;/p&gt;
+
+&lt;p&gt;(Hostname has been obfuscated to protect the not-so-innocent, though the project may as well be called &lt;em&gt;crack house&lt;/em&gt;).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Midnight Commandar mc notes</title>
+      <link>http://soniah.github.io/blog/2011/09/27/midnight-commandar-mc-notes/</link>
+      <pubDate>Tue, 27 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/09/27/midnight-commandar-mc-notes/</guid>
+      <description>&lt;p&gt;Midnight Commander (mc) is mostly obvious, but there&amp;#8217;s a few things I regularly forget and have to look up.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to select (or &amp;#8220;tag&amp;#8221;) multiple items, use the &lt;strong&gt;Insert&lt;/strong&gt; key, or &lt;strong&gt;ctrl-t&lt;/strong&gt; (eg when on a Macbook)&lt;/li&gt;
+&lt;li&gt;use &lt;strong&gt;@&lt;/strong&gt; to do an operation on tagged files (or F2 menu, @). For example tag some files, reverse the selection (***** or F9, File, Reverse Selection), then @ &lt;strong&gt;git rm&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;any sort of compressed or package file (.deb, .tgz, .iso, .rpm, etc):
+
+&lt;ul&gt;
+&lt;li&gt;F3 (view) to get an overview of the package&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enter&lt;/strong&gt; to browse the package contents, then eg F3 to view the file or F5 to copy the file out&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;to jump back and forth to the command line (&amp;#8220;subshell support&amp;#8221;), use &lt;strong&gt;ctrl-o&lt;/strong&gt; to hide mc, then &lt;strong&gt;ctrl-o&lt;/strong&gt; to return from the subshell to mc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Taken from &lt;a href=&#34;http://www.trembath.co.za/mctutorial.html&#34;&gt;Jane Tembath&amp;#8217;s MC Tutorial&lt;/a&gt;. See also the &lt;a href=&#34;https://www.midnight-commander.org/wiki/doc/faq&#34;&gt;mc faq&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git patch add</title>
+      <link>http://soniah.github.io/blog/2011/09/13/git-patch-add/</link>
+      <pubDate>Tue, 13 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/09/13/git-patch-add/</guid>
+      <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
+
+&lt;pre&gt;git add -p&lt;/pre&gt;
+
+&lt;p&gt;It&amp;#8217;s like doing an interactive add, then choosing &amp;#8216;p&amp;#8217; for patching. From the manual:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;       -p, &amp;#8211;patch&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to** the index.&lt;/em&gt; &lt;em&gt;This effectively runs add &amp;#8211;interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See “Interactive mode” for details.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby, blocks and procs</title>
+      <link>http://soniah.github.io/blog/2011/08/30/ruby-blocks-and-procs/</link>
+      <pubDate>Tue, 30 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/08/30/ruby-blocks-and-procs/</guid>
+      <description>
+
+&lt;p&gt;Some notes on ruby, blocks, and procs.&lt;/p&gt;
+
+&lt;h1 id=&#34;manually-creating-blocks:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Manually creating blocks&lt;/h1&gt;
+
+&lt;p&gt;Ruby has three ways of manually creating blocks: &lt;strong&gt;Proc.new&lt;/strong&gt;, &lt;strong&gt;lambda&lt;/strong&gt;, and &lt;strong&gt;proc&lt;/strong&gt;. They have slightly different behaviour, and the behaviour also varies between Ruby 1.8 and 1.9!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;lambda&lt;/strong&gt; checks that the number of arguments passed matches the number of block parameters&lt;/li&gt;
+&lt;li&gt;whereas &lt;strong&gt;Proc.new&lt;/strong&gt; doesn&amp;#8217;t check (however the block may raise an error, depending on it&amp;#8217;s code)**&lt;/li&gt;
+&lt;li&gt;and &lt;strong&gt;proc&lt;/strong&gt; behaves like &lt;strong&gt;lambda&lt;/strong&gt; in Ruby 1.8, and like &lt;strong&gt;Proc.new&lt;/strong&gt; in Ruby 1.9. So, avoid using proc!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A bit of code to demonstrate this:&lt;/p&gt;
+
+&lt;pre&gt;multiplier_l = lambda   { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+multiplier_p = Proc.new { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+
+multiplier_l.call( 3,4,5 )
+ArgumentError: wrong number of arguments (3 for 2)
+
+multiplier_p.call( 3,4,5 )
+a * b is: 12
+&amp;gt; multiplier_p.call( 1 )
+TypeError: nil can&#39;t be coerced into Fixnum            # in this case, Proc handled one param, but block errored&lt;/pre&gt;
+
+&lt;p&gt;And now using &lt;a href=&#34;http://beginrescueend.com/&#34;&gt;rvm&lt;/a&gt; to switch between Ruby versions:&lt;/p&gt;
+
+&lt;pre&gt;RUBY_VERSION
+=&amp;gt; &#34;1.8.7&#34;
+multiplier_p = proc { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+multiplier_p.call( 3,4,5 )
+ArgumentError: wrong number of arguments (3 for 2)
+
+RUBY_VERSION
+=&amp;gt; &#34;1.9.2&#34;
+multiplier_p = proc { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+multiplier_p.call( 3,4,5 )
+a * b is: 12&lt;/pre&gt;
+
+&lt;h1 id=&#34;scoping:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Scoping&lt;/h1&gt;
+
+&lt;p&gt;In Ruby 1.8, block parameters can &lt;strong&gt;overwrite&lt;/strong&gt; parameters of the same name in the current scope; in Ruby 1.9 they&amp;#8217;re protected.&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; hello = &#34;hello&#34;
+&amp;gt; def frenchy
+&amp;gt;   x = &#34;bonjour&#34;
+&amp;gt;   yield x
+&amp;gt; end
+&amp;gt; puts hello
+hello
+&amp;gt; frenchy { |hello| puts hello }
+bonjour                             # as expected
+&amp;gt; puts hello
+bonjour                             # ouch! In 1.9 you&#39;d get &#34;hello&#34;&lt;/pre&gt;
+
+&lt;h1 id=&#34;block:b67fac248bcabce1d05c80b639d2374d&#34;&gt;&amp;amp;block&lt;/h1&gt;
+
+&lt;p&gt;Some of the Rails and Ruby library code define methods with &lt;strong&gt;&amp;amp;block&lt;/strong&gt; as the last parameter to capture an anonymous block.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;anonymous blocks are ignored if they&amp;#8217;re not used, and &lt;strong&gt;&amp;amp;block&lt;/strong&gt; is an &lt;em&gt;optional&lt;/em&gt; parameter that must appear as the &lt;em&gt;last&lt;/em&gt; parameter&lt;/li&gt;
+&lt;li&gt;it&amp;#8217;s effectively a &lt;em&gt;type-checked&lt;/em&gt; parameter &amp;#8211; it will only accept an anonymous block or a proc (if proceeded with &lt;strong&gt;&amp;amp;&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;the block can be called with &lt;strong&gt;call&lt;/strong&gt; or &lt;strong&gt;yield&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;you can check if a block was passed using &lt;strong&gt;block_given?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;amp;block&lt;/strong&gt; is sort of an &amp;#8220;invisible parameter&amp;#8221; at the end of all methods. But by explicitly using &lt;strong&gt;&amp;amp;block&lt;/strong&gt;, callers get more flexibility when using your method ie they can pass in a &lt;strong&gt;proc&lt;/strong&gt; (perhaps defined elsewhere and used multiple times)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Anonymous blocks are ignored if they&amp;#8217;re not used:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a)
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt; end
+&amp;gt; foo(1)
+a is 1
+&amp;gt; foo(1) { puts &#34;2&#34; }
+a is 1&lt;/pre&gt;
+
+&lt;p&gt;Conversely if &lt;strong&gt;&amp;amp;block&lt;/strong&gt; is declared as a parameter, using it is optional:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a, &amp;block)
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt; end
+&amp;gt; foo(1)
+a is 1&lt;/pre&gt;
+
+&lt;p&gt;Procs can be called with &lt;strong&gt;call&lt;/strong&gt;; anonymous blocks can be &lt;strong&gt;call&lt;/strong&gt;ed or &lt;strong&gt;yield&lt;/strong&gt;ed to.&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; hello = lambda { puts &#34;good bye&#34; }      # define a proc for later use
+&amp;gt; def foo(a, b, &amp;block)
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt;   b.call                                # proc with call
+&amp;gt;   block.call                            # block with call
+&amp;gt;   yield                                 # block with yield
+&amp;gt; end
+&amp;gt; foo(1, hello) { puts &#34;fred&#34; }           # with an anonymous block
+a is 1
+good bye
+fred
+fred
+&amp;gt; foo(1, hello, &amp;hello)                   # with a proc; notice &amp; syntax
+a is 1
+good bye
+good bye
+good bye&lt;/pre&gt;
+
+&lt;p&gt;You can check if an anonymous block was supplied using &lt;strong&gt;block_given?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a, &amp;block)
+&amp;gt;    puts &#34;a is #{a}&#34;
+&amp;gt;    block.call if block_given?
+&amp;gt;    yield      if block_given?
+&amp;gt; end
+&amp;gt; foo(1) { puts &#34;mary&#34; }
+a is 1
+mary
+mary
+&amp;gt; def foo(a)                              # or, without defining the block parameter
+&amp;gt;    puts &#34;a is #{a}&#34;
+&amp;gt;    yield      if block_given?           # therefore can only yield not call
+&amp;gt; end&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;amp;block&lt;/strong&gt; is sort of an &amp;#8220;invisible parameter&amp;#8221; at the end of all methods. But by explicitly using &lt;strong&gt;&amp;amp;block&lt;/strong&gt;, callers get more flexibility when using your method:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a)                                         # no &amp;block defined in parameters
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt;   yield if block_given?
+&amp;gt; end
+&amp;gt; foo(1) { puts &#34;john&#34; }                             # works as expected
+a is 1
+john
+&amp;gt; foo(1, hello)
+ArgumentError: wrong number of arguments (2 for 1)   # dang! I can&#39;t use my super-duper hello proc&lt;/pre&gt;
+
+&lt;h1 id=&#34;precedence:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Precedence&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;do .. end&lt;/strong&gt; has weaker precedence than &lt;strong&gt;{ }&lt;/strong&gt;. For example, if &lt;strong&gt;foo&lt;/strong&gt; and &lt;strong&gt;bar&lt;/strong&gt; are both methods:&lt;/p&gt;
+
+&lt;p&gt;These are both the same ie the method &lt;strong&gt;foo&lt;/strong&gt; receives two parameters, &lt;strong&gt;bar&lt;/strong&gt; and a &lt;strong&gt;block&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;foo bar  do |s| puts(s) end
+foo(bar) do |s| puts(s) end&lt;/pre&gt;
+
+&lt;p&gt;And these are both the same ie &lt;strong&gt;foo&lt;/strong&gt; and &lt;strong&gt;bar&lt;/strong&gt; both receive one parameter; &lt;strong&gt;foo&lt;/strong&gt; the call to &lt;strong&gt;bar&lt;/strong&gt;, and &lt;strong&gt;bar&lt;/strong&gt; a &lt;strong&gt;block&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;foo  bar { |s| puts(s) }
+foo( bar { |s| puts(s) } )&lt;/pre&gt;
+
+&lt;p&gt;Of course the moral of story is not to rely on obscure precedence rules, rather use parentheses whenever something is unclear &amp;#8211; as always, in any language.&lt;/p&gt;
+
+&lt;h1 id=&#34;closures:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Closures&lt;/h1&gt;
+
+&lt;p&gt;Blocks are closures ie they store or carry the value local variables from the the original scope into a different scope. They&amp;#8217;re another way of reusing the same logic with slightly different values. For example:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def build_header( level )
+&amp;gt;   return lambda { |text| &#34;&amp;lt;#{level}&amp;gt;#{text}&amp;lt;/#{level}&amp;gt;&#34; }
+&amp;gt; end
+&amp;gt; h1 = build_header(&#34;h1&#34;)
+&amp;gt; h1.call(&#34;Examples&#34;)
+&amp;lt;h1&amp;gt;Examples&amp;lt;/h1&amp;gt;
+&amp;gt; h2 = build_header(&#34;h2&#34;)
+&amp;gt; h2.call(&#34;Details&#34;)
+&amp;lt;h2&amp;gt;Details&amp;lt;/h2&amp;gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git – make an existing git branch track a remote branch</title>
+      <link>http://soniah.github.io/blog/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</link>
+      <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</guid>
+      <description>&lt;p&gt;A script to make an existing git branch track a remote branch. For example when you&amp;#8217;ve cloned from somewhere else and now want to track your normal remote.&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/bin/gittrack
+#!/bin/bash
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+current_branch=$(git symbolic-ref -q HEAD)
+current_branch=${current_branch##refs/heads/}
+current_branch=${current_branch:-HEAD}
+
+if [ $current_branch = &#39;HEAD&#39; ] ; then
+    echo
+    echo &#34;On a detached head. Exiting...&#34;
+    exit 1
+fi
+
+remote=${1:-origin}
+
+git branch --set-upstream $current_branch $remote/$current_branch&lt;/pre&gt;
+
+&lt;p&gt;Of course your global gitconfig should also have autosetupmerge (below), but this script handles situations where you want to setup/change the tracking branch.&lt;/p&gt;
+
+&lt;pre&gt;[branch]
+        autosetupmerge = true&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setting up Gitweb on your Ubuntu workstation</title>
+      <link>http://soniah.github.io/blog/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</link>
+      <pubDate>Tue, 02 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</guid>
+      <description>
+
+&lt;p&gt;If you work in an IT environment, it&amp;#8217;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http. Unfortunately, a lot of the posts out there on &amp;#8220;how to setup Gitweb on Ubuntu&amp;#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&amp;#8217;s how I did it on Ubuntu 11.04 (Natty).&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-setup:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;Basic Setup&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;#8217;s start with a simple git repository:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;sudo aptitude install git-all apache2
+cd ; git init foo ; cd foo
+echo &#34;hello world&#34; &amp;gt; file1.txt
+git add . ; git commit -m &#34;initial commit&#34;
+&lt;/pre&gt;
+
+&lt;p&gt;You probably only want to share out &lt;em&gt;some&lt;/em&gt; of your repositories, not all of ${HOME}! So, do a bare clone of foo repository to /var/www:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;cd /var/www
+sudo git clone --bare ~/foo foo.git
+&lt;/pre&gt;
+
+&lt;p&gt;Next, a little gotcha. You need to enable the &lt;strong&gt;post-update&lt;/strong&gt; hook, so that the required info is generated for the http server. The &amp;#8220;gotcha&amp;#8221; is that you need to enable the hook &lt;strong&gt;then&lt;/strong&gt; do a push to your server repository, otherwise the server info isn&amp;#8217;t updated:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;cd ~/foo/.git/hooks
+mv post-update.sample post-update
+git remote add web /var/www/foo.git
+## do a test push
+cd ~/foo
+echo &#34;test update&#34; &amp;gt;&amp;gt; file1.txt
+git add . ; git commit -m &#34;test update&#34;
+sudo git push web
+&lt;/pre&gt;
+
+&lt;p&gt;Now, if you browse to &lt;a href=&#34;http://localhost&#34;&gt;http://localhost&lt;/a&gt; you should see foo.git listed, and your workmates can now easily clone your work:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;otherpc$ git clone http://yourpc/foo.git
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;gitweb:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;Gitweb&lt;/h2&gt;
+
+&lt;p&gt;The next step is to setup &lt;strong&gt;gitweb&lt;/strong&gt;, so your workmates can easily browse your code, search for commits, etc. Gitweb is already installed as part of &lt;strong&gt;git-all&lt;/strong&gt;, or you can do:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;sudo aptitude install gitweb
+&lt;/pre&gt;
+
+&lt;p&gt;The only change to make is to edit &lt;strong&gt;/etc/gitweb.conf&lt;/strong&gt; to point to &lt;strong&gt;/var/www&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;sudo vi /etc/gitweb.conf
+...
+## $projectroot = &#34;/var/cache/git&#34;;
+$projectroot = &#34;/var/www&#34;;
+...
+&lt;/pre&gt;
+
+&lt;p&gt;And that&amp;#8217;s it! Part of the gitweb install on Ubuntu adds in &lt;strong&gt;/etc/apache2/conf.d/gitweb&lt;/strong&gt;, so there&amp;#8217;s no other files to edit (unlike what &lt;a href=&#34;http://blog.jeffreyforman.net/2009/07/21/configuring-gitweb-on-ubuntu/&#34;&gt;blog1&lt;/a&gt;, &lt;a href=&#34;http://blog.phlegx.com/2010/03/07/install-and-setup-gitweb-in-ubuntu-9-10-on-apache/&#34;&gt;blog2&lt;/a&gt;, or &lt;a href=&#34;http://gideontsang.wordpress.com/2009/10/13/gitweb-on-ubuntujaunty/&#34;&gt;blog3&lt;/a&gt; say).&lt;/p&gt;
+
+&lt;p&gt;Browse to &lt;a href=&#34;http://localhost/gitweb/&#34;&gt;http://localhost/gitweb/&lt;/a&gt;, and there&amp;#8217;s your browse-able, search-able, git repository :-D&lt;/p&gt;
+
+&lt;h2 id=&#34;but-wait-there-8217-s-more-8211-automatically-push-your-changes-8230:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;But wait, there&amp;#8217;s more &amp;#8211; automatically push your changes&amp;#8230;&lt;/h2&gt;
+
+&lt;p&gt;As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that&amp;#8217;s boring &amp;#8211; automate it:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;% cd ~/foo ; cat git.web.push
+#!/bin/bash
+cd ${HOME}/foo
+git remote add web /var/www/foo.git &amp;gt;&amp; /dev/null
+sudo git push -f web
+&lt;/pre&gt;
+
+&lt;p&gt;&amp;#8230;and automate it:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;crontab -l
+* * * * * ${HOME}/foo/git.web.push
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;and-finally-8230:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;And finally&amp;#8230;&lt;/h2&gt;
+
+&lt;p&gt;Make the layout pretty. Edit &lt;strong&gt;~/foo/.git/description&lt;/strong&gt;, add an index.html, a custom theme, some javascript, &amp;#8230;&lt;/p&gt;
+
+&lt;h2 id=&#34;update:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;Update&lt;/h2&gt;
+
+&lt;p&gt;Brian (comments) has added some improvements to my instructions &amp;#8211; see below. Thanks Brian!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>rsyncp – provide ssh password to rsync using expect</title>
+      <link>http://soniah.github.io/blog/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
+      <pubDate>Thu, 28 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
+      <description>&lt;p&gt;A script I wrote &amp;#8211; rsyncp. It allows you to provide a password to rsync over ssh, when you&amp;#8217;re unable to use ssh key-based authentication:&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/bin/rsyncp
+#!/usr/bin/expect
+eval spawn rsync $argv
+expect  &#34;*?assword:&#34; { send &#34;secretstuffr&#34;}
+expect eof&lt;/pre&gt;
+
+&lt;p&gt;You can then use rsyncp in another script, like this:&lt;/p&gt;
+
+&lt;pre&gt;for h in foo bar ; do
+  rsyncp -av --progress srcdir/ $h:dstdir/
+done&lt;/pre&gt;
+
+&lt;p&gt;And before you add a comment saying &lt;em&gt;use &lt;a href=&#34;http://blog.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/&#34;&gt;ssh keys&lt;/a&gt; or &lt;a href=&#34;http://blog.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/&#34;&gt;keychain&lt;/a&gt;, this is totally insecure&lt;/em&gt;, I agree with you! Key based authentication is disabled on the target server, and I&amp;#8217;m still trying to resolve the &lt;em&gt;politics&lt;/em&gt; around this at my current company, and &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;sshpass&lt;/a&gt; seems broken &lt;sigh&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>shell – all parameters – $* vs $@</title>
+      <link>http://soniah.github.io/blog/2011/07/19/shell-all-parameters/</link>
+      <pubDate>Tue, 19 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/07/19/shell-all-parameters/</guid>
+      <description>&lt;p&gt;Both &lt;strong&gt;$&lt;/strong&gt;* and &lt;strong&gt;$@&lt;/strong&gt; expand to &amp;#8220;all positional parameters&amp;#8221;; in a nutshell &amp;#8211; &lt;strong&gt;&amp;#8220;$@&amp;#8221;&lt;/strong&gt; is &lt;em&gt;often&lt;/em&gt; desired as it handles spaces correctly; see man bash &amp;#8220;Special Parameters&amp;#8221;.&lt;/p&gt;
+
+&lt;pre&gt;% ls my*     
+myfoo  my foo  myqux
+
+----------------
+
+% ./star_test my*
+$*
+myfoo
+my     :-(
+foo    :-(
+myqux
+
+$@
+myfoo
+my     :-(
+foo    :-(
+myqux
+
+&#34;$*&#34;
+myfoo my foo myqux    &amp;lt;-- probably not desired :-|
+
+&#34;$@&#34;
+myfoo
+my foo  :-)
+myqux
+
+----------------
+
+% cat star_test
+#!/bin/bash
+echo &#39;$*&#39;
+./pargs $*
+echo
+
+echo &#39;$@&#39;
+./pargs $@
+echo
+
+echo &#39;&#34;$*&#34;&#39;
+./pargs &#34;$*&#34;
+echo
+
+echo &#39;&#34;$@&#34;&#39;
+./pargs &#34;$@&#34;
+
+----------------
+
+% cat pargs
+#!/bin/bash
+for i ; do
+    echo $i
+done&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git – rebase and push script</title>
+      <link>http://soniah.github.io/blog/2011/07/18/git-rebase-and-push-script/</link>
+      <pubDate>Mon, 18 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/07/18/git-rebase-and-push-script/</guid>
+      <description>&lt;p&gt;For development projects, I use the standard git workflow ie master is my main branch, and I do development in branches (read more about this recommended workflow at &lt;a href=&#34;http://nvie.com/posts/a-successful-git-branching-model/&#34;&gt;A successful Git branching model&lt;/a&gt;**).&lt;/p&gt;
+
+&lt;p&gt;(** this site also suggests always using &lt;strong&gt;&amp;#8211;no-ff&lt;/strong&gt; with merge &amp;#8211; a practice I now follow &amp;#8211; it certainly makes reading history easier)&lt;/p&gt;
+
+&lt;div id=&#34;attachment_1086&#34; class=&#34;wp-caption aligncenter&#34; style=&#34;width: 608px&#34;&gt;
+  &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1086&#34; title=&#34;branch-model&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34; alt=&#34;nvie.com - A successful Git branching model&#34; width=&#34;600&#34; height=&#34;262&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    nvie.com - A successful Git branching model
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When I&amp;#8217;m happy with my work in a dev branch I cherry-pick or merge into master. I&amp;#8217;ll then want to rebase my other dev branches against master, and push all branches to a &amp;#8220;backup&amp;#8221; server (ie a bare git repository). On my dev branches I&amp;#8217;m frequently rewriting history with &lt;strong&gt;git reset&lt;/strong&gt;, &lt;strong&gt;git commit &amp;#8211;amend&lt;/strong&gt;, and &lt;strong&gt;git rebase -i&lt;/strong&gt;, but on my master branch I never rewrite history (ie only ever use &lt;strong&gt;git revert&lt;/strong&gt;). So when I push dev branches I&amp;#8217;m going to need to do a &lt;strong&gt;git push -f&lt;/strong&gt;, whereas on the master a &lt;strong&gt;git push&lt;/strong&gt; will suffice.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m doing this regularly, and it&amp;#8217;s boring and error prone. So I&amp;#8217;ve written a script to automate the whole process ie rebase each dev branch against master, and push all local branches somewhere else. If you have branches off (non-master) branches, this script won&amp;#8217;t work. But I&amp;#8217;ve found in my day-to-day development as a sysadmin (&lt;a href=&#34;http://devopsdownunder.org/&#34;&gt;devop&lt;/a&gt;?) my branching isn&amp;#8217;t that complicated, so this script is adequate.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_1084&#34; class=&#34;wp-caption aligncenter&#34; style=&#34;width: 869px&#34;&gt;
+  &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1084  &#34; title=&#34;branching&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34; alt=&#34;If you branch off (non-master) branches, don&#39;t use this script! (image: Jon Loelger, &amp;quot;Version Control with Git&amp;quot;)&#34; width=&#34;861&#34; height=&#34;272&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    If you branch off (non-master) branches, don&#39;t use this script! (image: Jon Loelger, &#34;Version Control with Git&#34;)
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;% cat rebase.and.push
+#!/bin/bash
+
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+# rebase all local branches against master, then force push
+# them to supplied remote. Also push master
+
+original_branch=$(git symbolic-ref -q HEAD)
+original_branch=${original_branch##refs/heads/}
+original_branch=${original_branch:-HEAD}
+
+if [ $original_branch = &#39;HEAD&#39; ] ; then
+    echo
+    echo &#34;On a detached head. Exiting...&#34;
+    exit 1
+fi
+
+remote=${1:-origin}
+
+# find all local branches
+locals=`git br | sed &#39;s/^  |* //&#39; | grep -v master`
+
+# rebase against master
+for branch in $locals ; do
+    echo
+    echo &#34;rebasing against master - $branch ...&#34;
+    git co $branch
+    if ! [ $? -eq 0 ] ; then
+        echo &#34;Unable to checkout $branch. Exiting...&#34;
+        exit 1
+    fi
+    git rebase master
+    if ! [ $? -eq 0 ] ; then
+        echo &#34;Exiting. Rebase failed...&#34;
+        exit 1
+    fi
+    git push -f $remote $branch
+done
+
+echo
+echo &#34;push master...&#34;
+git co master
+if ! [ $? -eq 0 ] ; then
+    echo &#34;Unable to checkout master. Exiting...&#34;
+    exit 1
+fi
+git push $remote master
+
+echo
+echo &#34;Returning to original branch...&#34;
+git co $original_branch&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 10.10 (Maverick Meerkat) Download</title>
+      <link>http://soniah.github.io/blog/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</link>
+      <pubDate>Wed, 18 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</guid>
+      <description>&lt;p&gt;Opinions around the latest Ubuntu (11.04) range from &amp;#8220;interesting&amp;#8221; (as in the curse &amp;#8220;may you live in interesting times&amp;#8221;) to &amp;#8220;it sucks&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Anyway, there no longer appears to be a link to the previous version (10.10 Maverick) on the main Ubuntu page &amp;#8211; marketing droids seem to have finally taken over Ubuntu. It can be downloaded from &lt;a href=&#34;http://releases.ubuntu.com/maverick/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;No rocket science &amp;#8211; I just don&amp;#8217;t want to have to look for the location in future.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python-iView</title>
+      <link>http://soniah.github.io/blog/2011/04/11/python-iview/</link>
+      <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/04/11/python-iview/</guid>
+      <description>&lt;p&gt;A nice tool written by Jeremy Visser &amp;#8211; &lt;a href=&#34;https://launchpad.net/~jeremy-visser/+archive/python-iview&#34;&gt;Python-iView&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As Jeremy &lt;a href=&#34;https://jeremy.visser.name/2009/08/30/python-iview/&#34;&gt;says&lt;/a&gt; on his blog: &amp;#8220;Python-iView is an alternative frontend to ABC iView, which &amp;#8230; is an awesome ABC TV programme catchup service that lets you watch most ABC programs from the last month in your browser&amp;#8230; However, the iView website has some major problems&amp;#8230; To address this, I wrote the open source (GPLv3) application Python-iView, which &amp;#8230; allows you to download episodes to your hard drive in their original FLV format.&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Thanks Jeremy!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

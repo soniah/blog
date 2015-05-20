@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other Tech on Sonia Hamilton - Blog</title>
+    <link>http://soniah.github.io/blog/categories/other-tech/</link>
+    <description>Recent content in Other Tech on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Mar 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://soniah.github.io/blog/categories/other-tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Backup multiple MySQL databases into separate files – Windows</title>
+      <link>http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux). I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
+
+&lt;pre&gt;:: MySQl DB user
+set dbuser=xxxx
+
+:: MySQl DB users password
+set dbpass=xxxx
+
+:: Switch to the MySQL data directory and collect the folder names
+pushd &#34;C:\Documents and Settings\All Users\Application Data\MySQL\MySQL Server 5.5\data&#34;
+
+:: Loop through the folders and use the fnames for the sql filenames, collects all databases automatically this way
+
+echo &#34;hello&#34;
+
+echo &#34;Pass each name to mysqldump.exe and output an individual .sql file for each&#34;
+
+FOR /D %%F IN (*) DO (
+&#34;C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe&#34; --user=%dbuser% --password=%dbpass% --databases %%F &amp;gt; &#34;C:\SQLBackup\%%F.%backupdate%.sql&#34;
+)&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Previous Page Newer Posts</title>
+      <link>http://soniah.github.io/blog/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
+      <pubDate>Mon, 30 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
+      <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;#8211; you need to edit the following four files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;archive.php&lt;/li&gt;
+&lt;li&gt;author.php&lt;/li&gt;
+&lt;li&gt;index.php&lt;/li&gt;
+&lt;li&gt;search.php&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In these files, search for the lines that look like:&lt;/p&gt;
+
+&lt;pre&gt;posts_nav_link(&#39; &amp;#8212; &#39;, __(&#39;&amp;laquo; Previous Page&#39;),...&lt;/pre&gt;
+
+&lt;p&gt;Edit each file and change &lt;strong&gt;Previous Page&lt;/strong&gt; to &lt;strong&gt;Newer Posts&lt;/strong&gt;, and &lt;strong&gt;Next Page&lt;/strong&gt; to &lt;strong&gt;Older Posts&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alternatively if you&amp;#8217;ve got &lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; shell access (and you&amp;#8217;re hosted on a Unix-like environment eg Linux), you can run the following commands:&lt;/p&gt;
+
+&lt;pre&gt;cd /var/www/wp-content/themes/clear-line
+sed -i &#39;s/Previous Page/Newer Posts/&#39; archive.php author.php index.php search.php
+sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php search.php&lt;/pre&gt;
+
+&lt;p&gt;Of course before running these &lt;a href=&#34;http://en.wikipedia.org/wiki/Sed&#34;&gt;sed&lt;/a&gt; commands you should backup your files, in case anything goes wrong&amp;#8230;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</title>
+      <link>http://soniah.github.io/blog/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
+      <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
+      <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;#8220;Site Admin&amp;#8221;, &amp;#8220;Login&amp;#8221;, &amp;#8220;Entries RSS&amp;#8221;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;#8217;s a slight security risk (though hiding it won&amp;#8217;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;#8217;re running WordPress).&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s a couple of options for hiding the Meta Widget:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;don&amp;#8217;t display it at all. Go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt;, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the &lt;strong&gt;/wp-login.php&lt;/strong&gt; page. For example if your blog is &lt;strong&gt;&lt;a href=&#34;http://myblog.info&#34;&gt;http://myblog.info&lt;/a&gt;&lt;/strong&gt;, go to &lt;strong&gt;&lt;a href=&#34;http://myblog.info/wp-login.php&#34;&gt;http://myblog.info/wp-login.php&lt;/a&gt;&lt;/strong&gt; to login&lt;/li&gt;
+&lt;li&gt;make it smaller and barely visible (the option I prefer). First of all, go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt; and move/add a Meta Widget to the &lt;strong&gt;Footer Counters&lt;/strong&gt; Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the &lt;strong&gt;wp-includes/default-widgets.php&lt;/strong&gt; file. Search for the line that contains &lt;strong&gt;wp_register&lt;/strong&gt; (about line 293), then delete the three lines that contain &amp;#8216;rss2_url&amp;#8217;, &amp;#8216;comments_rss2_url&amp;#8217;, and &amp;#8216;wordpress.org&amp;#8217;, and remove the bulleting from &amp;#8216;wp_loginout&amp;#8217;. The changes are easier to see with some before and after code:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Before:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;?php wp_loginout(); ?&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;rss2_url&#39;); ?&amp;gt;&#34; title=...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;comments_rss2_url&#39;); ?...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;http://wordpress.org/&#34; title=&#34;&amp;lt;?php ec...
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;After:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;?php wp_loginout(); ?&amp;gt;
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you&amp;#8217;ll have a small Login link at the bottom right-hand corner of your blog!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Addendum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &amp;#8220;Site Admin&amp;#8221; link when logged in (at the bottom right of the page). You can fix this by editing the &lt;strong&gt;wp-includes/general-template.php&lt;/strong&gt; file. At about line 319, &lt;strong&gt;change:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = $before . &#39;&amp;lt;a href=&#34;&#39; . admin_url()...&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;to:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = &#39;&#39;;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Display Tags not Categories</title>
+      <link>http://soniah.github.io/blog/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
+      <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;#8217;t have a way of modifying it&amp;#8217;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
+
+&lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_category(&#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;with this:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_tags(&#39;&#39;, &#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;The path to the &lt;strong&gt;functions.php&lt;/strong&gt; file may be slightly different on your server; you can quickly locate it using &lt;strong&gt;find&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;find / -type f -name functions.php 2&amp;gt; /dev/null&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Migrating from Palm to Android</title>
+      <link>http://soniah.github.io/blog/2012/01/17/migrating-from-palm-to-android/</link>
+      <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2012/01/17/migrating-from-palm-to-android/</guid>
+      <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;#8217;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;#8217;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
+
+&lt;p&gt;Some tricks and tools I&amp;#8217;ve find useful in my migration from Palm to Android:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.synthesis.ch/&#34;&gt;Synthesis SyncML clients&lt;/a&gt; are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.&lt;/li&gt;
+&lt;li&gt;for a SyncML server I&amp;#8217;m using &lt;a href=&#34;https://www.memotoo.com/&#34;&gt;Memotoo&lt;/a&gt;. I could&amp;#8217;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works&amp;#8230;&lt;/li&gt;
+&lt;li&gt;on the Android Market there&amp;#8217;s a &lt;a href=&#34;http://gnukeyring.sourceforge.net/&#34;&gt;Keyring&lt;/a&gt; client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&amp;#8217;m yet to work out how I&amp;#8217;m going to back this up, but probably something with Memotoo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, I&amp;#8217;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the &lt;a href=&#34;http://www.jpilot.org/images/jpilot-address.png&#34;&gt;JPilot desktop&lt;/a&gt; (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&amp;#8217;m almost migrated!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh, sudo, tty, shell</title>
+      <link>http://soniah.github.io/blog/2011/07/14/ssh-sudo-tty-shell/</link>
+      <pubDate>Thu, 14 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/07/14/ssh-sudo-tty-shell/</guid>
+      <description>&lt;p&gt;A nice little script snippet I like to remember for automating quick stuff across multiple hosts. &lt;strong&gt;-t&lt;/strong&gt; forces tty (so sudo will work); &lt;strong&gt;-q&lt;/strong&gt; quiet &amp;#8211; disable banners; &lt;strong&gt;-c&lt;/strong&gt; script (&amp;#8220;command&amp;#8221;) to su. Presumes sudo doesn&amp;#8217;t prompt for a password; otherwise, see &lt;a href=&#34;http://www.nist.gov/el/msid/expect.cfm&#34;&gt;Expect&lt;/a&gt; and &lt;a href=&#34;http://oreilly.com/catalog/9781565920903&#34;&gt;Exploring Expect&lt;/a&gt; :-)&lt;/p&gt;
+
+&lt;pre&gt;for h in $hosts ; do
+  echo -e &#34;nnhost: $hn------------------------------------&#34;
+  ssh -t -q $h &#34;sudo su - -c &#34;magic_stuff&#34; &#34;
+done&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Clustering setup</title>
+      <link>http://soniah.github.io/blog/2011/07/06/clustering-setup/</link>
+      <pubDate>Wed, 06 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/07/06/clustering-setup/</guid>
+      <description>&lt;p&gt;A nice &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2011/06/msg00014.html&#34;&gt;post&lt;/a&gt; from Jake on the SLUG list where he asks about a small clustering setup:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&amp;#8217;m setting up some new hardware for a client of mine. Basically 2 new &lt;a href=&#34;http://www.dell.com/au/business/p/poweredge-r210-2/pd&#34;&gt;Dell PowerEdge R210 IIs&lt;/a&gt; &amp;#8211; nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (&lt;a href=&#34;http://www.linux-kvm.org/page/Main_Page&#34;&gt;kvm&lt;/a&gt;) for a handfull of guests, file/domain server (&lt;a href=&#34;http://www.zentyal.org/&#34;&gt;ebox&lt;/a&gt;), PBX (&lt;a href=&#34;http://pbxinaflash.net/&#34;&gt;piaf&lt;/a&gt;), mail server web server, &amp;#8220;magic windows only application&amp;#8221; server etc. As the guests run everything in the ofice some kind of HA is needed.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&amp;#8217;m thinking &lt;a href=&#34;http://code.google.com/p/ganeti/&#34;&gt;ganeti&lt;/a&gt; is the way to manage it all as it takes care of &lt;a href=&#34;http://www.drbd.org/&#34;&gt;DRBD&lt;/a&gt; and failover giving me a nice HA-ish setup without too much work.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  The questions. How should I setup my disks?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&amp;#8217;m tossing up between, (all the below assume a small raid 1 partition for /, this is for the storage pool) RAID 1 with mdadm giving me 1 disk read speed but the ability to read 2 streams. RAID 1 with mdadm and fancyness giving me 2x read speed for a single stream, but normal behaviour for multiple streams and 1x write.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  RAID 0 with mdadm 2x read, 2x write and trust DRBD to look after my data ;-&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  no RAID, set up as 2 separate drives use DRBD to look after data and get &amp;#8220;more spindles&amp;#8221; into the mix (so say file server lives on one disk and mail server on another)
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  What deb based distro should I use for my host (or present a *really* compelling argument for something else)? I would use ubuntu as i&amp;#8217;m most familiar with it but the recent debacle with unity has really hurt my confidence with them.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Should i go to debian and if so which version?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Networking&lt;br /&gt; each server has 2 gbit ports on it.&lt;br /&gt; should I&lt;br /&gt; team the nics, then run a vlan for drbd and another for regular coms&lt;br /&gt; dedicated nic for drbd and one for general coms.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Any other suggestions or gotchas to look out for?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I have my own answers to these questions, but I&amp;#8217;d really like to hear any advice from the crowd (its like &amp;#8220;the cloud&amp;#8221; but open source and P2P ;-&gt;)
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby and Rails – Time, Date, DateTime, TZInfo</title>
+      <link>http://soniah.github.io/blog/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
+      <pubDate>Wed, 29 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
+      <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;#8211; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;#8211; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &gt;&gt; Time vs Date vs DateTime vs TZInfo (vs ActiveSupport::TimeZone). Which&lt;br /&gt; &gt;&gt; do I use and when?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  Time is a timestamp and can represent a moment in time no matter where&lt;br /&gt; it occurred in the world, agnostic of timezone. Think UNIX timestamps.&lt;br /&gt; Date is a thing on a calendar that might mean a different moment in&lt;br /&gt; time to different people depending on their timezone. Think of Date&lt;br /&gt; for things like recording your birthday. DateTime subclasses Date and&lt;br /&gt; adds hour, minute, second and timezone information to a Date so it&lt;br /&gt; becomes a lot like Time, but that makes me unsure when to use DateTime&lt;br /&gt; and when to use Time, to be honest.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  Time has timezone capabilities built in. TZInfo has a different set of&lt;br /&gt; timezone capabilities and operates with Time objects, but seems to&lt;br /&gt; ignore their built-in timezone settings. I&amp;#8217;m still not sure why.
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OSX, iPhone, iTunes – finer grained syncing</title>
+      <link>http://soniah.github.io/blog/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</link>
+      <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
+      <description>&lt;p&gt;iTunes&amp;#8217; syncing of movies and podcasts is a big lame &amp;#8211; there&amp;#8217;s not enough fine grained control. For example, you can&amp;#8217;t say &amp;#8220;sync only this category of movies&amp;#8221;, or &amp;#8220;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;#8217;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;#8220;. And at the moment I don&amp;#8217;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;#8217;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
+
+&lt;p&gt;One work around I&amp;#8217;ve found is to categorise as much media as possible as either &amp;#8220;Music&amp;#8221; or &amp;#8220;Music Videos&amp;#8221;. You can then work with playlists and &amp;#8220;smart&amp;#8221; (sic) playlists to get a bit more control.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh – fix long login times – disable Kerberos</title>
+      <link>http://soniah.github.io/blog/2011/06/23/ssh-fix-long-login-times-disable-kerberos/</link>
+      <pubDate>Thu, 23 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/06/23/ssh-fix-long-login-times-disable-kerberos/</guid>
+      <description>&lt;p&gt;If ssh logins are taking a long time (but are ultimately successful), it may be because Kerberos (gssapi) is being attempted as an authentication method, and the destination is incorrectly configured (often seems to be CentOS or RHEL):&lt;/p&gt;
+
+&lt;pre&gt;% ssh -v foo
+...
+debug1: Authentications that can continue: publickey,gssapi-with-mic,password
+                                                     ^^^^^^^^^^^^^^^&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Quick fix:&lt;/strong&gt; disable Kerberos on the client:&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/.ssh/config
+...
+GSSAPIAuthentication no&lt;/pre&gt;
+
+&lt;p&gt;Of course the problem could also be DNS or other network issues. Thanks to &lt;a href=&#34;http://linuxsysadminblog.com/2009/07/waiting-for-ssh-login-prompt/&#34;&gt;Waiting for SSH login prompt&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git hooks – prepare-commit-msg</title>
+      <link>http://soniah.github.io/blog/2011/06/22/git-hooks-prepare-commit-msg/</link>
+      <pubDate>Wed, 22 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/06/22/git-hooks-prepare-commit-msg/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; foo commented that this was a &amp;#8220;bad idea&amp;#8221; (bordering on wrong?) and suggested I use options like &lt;strong&gt;git log &amp;#8211;stat&lt;/strong&gt; instead. See the comments below. Thanks foo!&lt;/p&gt;
+
+&lt;p&gt;When I&amp;#8217;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a &lt;strong&gt;git log&lt;/strong&gt;, rather than getting this:&lt;/p&gt;
+
+&lt;pre&gt;commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3
+Author: Sonia Hamilton
+Date:   Fri Jun 17 21:15:53 2011 +1000
+
+    dotjilot code changes&lt;/pre&gt;
+
+&lt;p&gt;I get a nice message like this:&lt;/p&gt;
+
+&lt;pre&gt;commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3
+Author: Sonia Hamilton
+Date:   Fri Jun 17 21:15:53 2011 +1000
+
+    dotjilot code changes
+        modified:   setuplinux
+        modified:   funcs&lt;/pre&gt;
+
+&lt;p&gt;I used to manually edit the commit message on each commit, but git has a system of hooks that allows you to automate this sort of thing (look in the &lt;strong&gt;repo/.git/hooks&lt;/strong&gt; directory for some examples). Here&amp;#8217;s a script to automatically uncomment all changes in the commit message:&lt;/p&gt;
+
+&lt;pre&gt;% cat prepare-commit-msg
+#!/bin/sh
+# use case statement for future flexibility - see prepare-commit-msg.sample
+case &#34;$2,$3&#34; in
+  *)
+    /usr/bin/perl -i.bak -ne &#39;s/^#// if /modified:|new file:|deleted:|renamed:/; print&#39; &#34;$1&#34; ;;
+esac&lt;/pre&gt;
+
+&lt;p&gt;And here&amp;#8217;s a quick script for setting this up across all your local repos. Remember &amp;#8211; hooks aren&amp;#8217;t synced between repos, so you need to do this on each machine you work on.&lt;/p&gt;
+
+&lt;pre&gt;#!/bin/bash
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+gitdirs=&#34;foo bar baz&#34;
+for d in $gitdirs ; do
+    if [ -d ${HOME}/${d} ] ; then
+        cp prepare-commit-msg ${HOME}/${d}/.git/hooks
+    fi
+done&lt;/pre&gt;
+
+&lt;p&gt;There&amp;#8217;s only one disadvantage to doing this. Usually, you can just exit without saving the commit message and git will cancel the commit. But because the script modifies the message, there&amp;#8217;s no nice way of telling git you want to back out (unless someone can tell me how&amp;#8230;). I get around this by saving the message and doing a &lt;strong&gt;git reset &amp;#8211;soft HEAD^&lt;/strong&gt; at the command line.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Solaris – max of 100 cron jobs</title>
+      <link>http://soniah.github.io/blog/2011/05/09/solaris-max-of-100-cron-jobs/</link>
+      <pubDate>Mon, 09 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/05/09/solaris-max-of-100-cron-jobs/</guid>
+      <description>&lt;p&gt;I stumbled across a &lt;s&gt;limitation&lt;/s&gt; &lt;s&gt;feature&lt;/s&gt; behaviour of Solaris over the weekend &amp;#8211; by default it only allows you to run a maximum of 100 cron jobs at once. I suppose this to protect against &amp;#8220;shooting oneself in the head&amp;#8221;, but aaaarghhh&amp;#8230; Reminds me why I love Monday mornings.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the file to edit is &lt;strong&gt;/etc/cron.d/queuedefs&lt;/strong&gt;, see &lt;strong&gt;man queuedefs&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&#34;//solaristipsandtricks.blogspot.com/2010/05/solaris-10-cron-and-maxrun.html&#34;&gt;Solaris Tips&lt;/a&gt; for pointing me in the right direction.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LISP – downloading SICP videos, JRuby</title>
+      <link>http://soniah.github.io/blog/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
+      <pubDate>Thu, 05 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
+      <description>&lt;p&gt;I&amp;#8217;m busy learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Lisp_%28programming_language%29&#34;&gt;LISP&lt;/a&gt;/&lt;a href=&#34;http://en.wikipedia.org/wiki/Scheme_%28programming_language%29&#34;&gt;Scheme&lt;/a&gt; at the moment (in order to later move on to &lt;a href=&#34;http://clojure.org/&#34;&gt;Clojure&lt;/a&gt;). And, improving my programming learning LISP is :-)&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m following along with the &lt;a href=&#34;http://mitpress.mit.edu/sicp/&#34;&gt;MIT&lt;/a&gt; &lt;a href=&#34;http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs&#34;&gt;SICP&lt;/a&gt; videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &amp;#8211; &lt;a href=&#34;https://github.com/soniah/get_sicp&#34;&gt;get_sicp&lt;/a&gt;. Next, a script for the &lt;a href=&#34;http://inst.eecs.berkeley.edu/~cs61a/sp11/&#34;&gt;UC Berkeley SICP videos&lt;/a&gt; (getting through the flash player should be a learning experience).&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;#8211; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;#8217;t litter /usr. Good: Ruby &amp;#8211; fun, Python &amp;#8211; &lt;snore&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git amend</title>
+      <link>http://soniah.github.io/blog/2011/04/28/git-amend/</link>
+      <pubDate>Thu, 28 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/04/28/git-amend/</guid>
+      <description>&lt;p&gt;A nice git option I stumbled upon today &amp;#8211; &lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#fixing-a-mistake-by-rewriting-history&#34;&gt;amend&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Typical scenario &amp;#8211; you&amp;#8217;ve done a local check-in, then notice there&amp;#8217;s a typo in your code comments. Fix up the typo, then use &lt;strong&gt;&amp;#8211; &amp;#8211; amend&lt;/strong&gt; to re-check-in, without having to do a reset/revert. For example:&lt;/p&gt;
+
+&lt;pre&gt;git add foo.file
+git ci -m &#34;added the frob feature to the whiz-bang&#34;
+...
+notice and fix typo in foo.file
+...
+git add foo.file
+git ci --amend&lt;/pre&gt;
+
+&lt;p&gt;When you do the amend check-in, your editor will pop up, allowing you to re-edit the commit message if desired.&lt;/p&gt;
+
+&lt;p&gt;Obviously, if you&amp;#8217;ve done a commit to a remote/public repository, amend has issues, similar to reset.&lt;/p&gt;
+
+&lt;p&gt;Also, I have entries like this in my .gitconfig, hence &amp;#8220;git ci&amp;#8221; rather than &amp;#8220;git commit&amp;#8221;.&lt;/p&gt;
+
+&lt;pre&gt;[alias]
+        ci = commit
+        co = checkout
+        st = status
+        br = branch&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python, Lambda, Closures</title>
+      <link>http://soniah.github.io/blog/2011/04/05/python-lambda-closures/</link>
+      <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://soniah.github.io/blog/2011/04/05/python-lambda-closures/</guid>
+      <description>&lt;p&gt;(apologies to &lt;a href=&#34;http://planet.slug.org.au/&#34;&gt;slug planeteers&lt;/a&gt; for the duplicate info).&lt;/p&gt;
+
+&lt;p&gt;A very interesting &lt;a href=&#34;http://algorithm.com.au/blog/files/immutability-blocks-lambdas-closures.php#unique-entry-id-613&#34;&gt;post&lt;/a&gt; from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&amp;#8217;m playing with Lisp and Python at the moment&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Some links from his blog, in case the original post ever disappears:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;http://stackoverflow.com/questions/938429/scope-of-python-lambda-functions-and-their-parameters&#34;&gt;question and responses&lt;/a&gt; on stackoverflow&lt;/li&gt;
+&lt;li&gt;an &lt;a href=&#34;http://mail.python.org/pipermail/python-dev/2005-September/056669.html&#34;&gt;example&lt;/a&gt; of the perils of Python&amp;#8217;s scoping rules with for/while/if&lt;/li&gt;
+&lt;li&gt;Wikipedia &amp;#8211; &lt;a href=&#34;http://en.wikipedia.org/wiki/Closure_%28computer_science%29#Differences_in_semantics&#34;&gt;differences in semantics of closures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A nice snippet of code to remind me of the issues:&lt;/p&gt;
+
+&lt;pre&gt;def callback(msg):
+    print msg
+funcList=[]
+for m in (&#39;do&#39;, &#39;re&#39;, &#39;mi&#39;):
+    # funcList.append(lambda: callback(m))
+    funcList.append(lambda m=m: callback(m))
+for f in funcList:
+    f()&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
