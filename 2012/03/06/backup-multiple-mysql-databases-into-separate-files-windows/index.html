@@ -1,0 +1,146 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://soniah.github.io/blog/">
+    <title> Backup multiple MySQL databases into separate files – Windows </title>
+    <link rel="canonical" href="http://soniah.github.io/blog/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/">
+    
+
+<link rel="stylesheet" href="http://soniah.github.io/blog/css/poole.css">
+<link rel="stylesheet" href="http://soniah.github.io/blog/css/syntax.css">
+<link rel="stylesheet" href="http://soniah.github.io/blog/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://soniah.github.io/blog/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://soniah.github.io/blog/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://soniah.github.io/blog/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Backup multiple MySQL databases into separate files – Windows</h1>
+        <section id="main">
+          <h5 id="date"> Mon Mar 5, 2012 </h5>
+          <p>Years ago I wrote a post on how to <a href="http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/">Backup multiple MySQL databases into separate files</a> (Linux). I get a lot of questions about how to do the same on Windows; here&#8217;s a script submitted by one of my readers:</p>
+
+<pre>:: MySQl DB user
+set dbuser=xxxx
+
+:: MySQl DB users password
+set dbpass=xxxx
+
+:: Switch to the MySQL data directory and collect the folder names
+pushd "C:\Documents and Settings\All Users\Application Data\MySQL\MySQL Server 5.5\data"
+
+:: Loop through the folders and use the fnames for the sql filenames, collects all databases automatically this way
+
+echo "hello"
+
+echo "Pass each name to mysqldump.exe and output an individual .sql file for each"
+
+FOR /D %%F IN (*) DO (
+"C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe" --user=%dbuser% --password=%dbpass% --databases %%F &gt; "C:\SQLBackup\%%F.%backupdate%.sql"
+)</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://soniah.github.io/blog/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://soniah.github.io/blog/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
