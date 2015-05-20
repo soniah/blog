@@ -1,0 +1,190 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> howto rip Real Audio streams to mp3 on Ubuntu </title>
+    <link rel="canonical" href="http://localhost:1313/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">howto rip Real Audio streams to mp3 on Ubuntu</h1>
+        <section id="main">
+          <h5 id="date"> Mon Apr 14, 2008 </h5>
+          <p>I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&#8217;m writing my own). But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS&#8217;s Beard!</p>
+
+<p>There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&#8217;s how I got it going on Ubuntu 7.10:</p>
+
+<p>First of all I installed Real Player using instructions <a href="https://help.ubuntu.com/community/HowToRipRealaudioStreamsToMp3">here</a> and <a href="https://help.ubuntu.com/community/RealPlayerInstallationMethods?action=show&amp;redirect=RealplayerInstallationMethods">here</a>, and checked I could listen to a stream using the GUI tool &#8211; a quick sanity check for firewalls, etc.</p>
+
+<ul>
+<li>add repo <strong>deb <a href="http://archive.canonical.com/ubuntu">http://archive.canonical.com/ubuntu</a> feisty partner</strong></li>
+<li>sudo aptitude install realplay</li>
+</ul>
+
+<p>Then I installed mplayer and lame: <strong>sudo aptitude install mplayer lame</strong>. I got the source for a stream by right clicking a link, saving it as file, extracting the rstp:// url out of the file, and tested downloading:</p>
+
+<p>$ mplayer rtsp://xyz.net.uk/foo.ra -ao pcm:file=audiofile.wav -vc dummy -vo null</p>
+
+<p>And it failed with these errors:</p>
+
+<p>Opening audio decoder: [realaud] RealAudio decoder<br />
+Error: /usr/lib/win32/sipr.so.6.0: cannot open shared object file: No such file or directory<br />
+Win32 LoadLibrary failed to load: sipr.so.6.0, /usr/lib/win32/sipr.so.6.0, /usr/local/lib/win32/sipr.so.6.0</p>
+
+<p>So I located the <strong>sipr.so</strong> library, and based on the error message and digging around in mplayer using <strong>strings</strong> I linked the installed realplayer codecs to /usr/lib/win32:</p>
+
+<p>$ sudo find / -type f -name &#8220;sipr.so&#8221;<br />
+$ strings /usr/bin/mplayer | grep usr<br />
+$ sudo ln -s /usr/lib/realplay-10.0.9/codecs /usr/lib/win32</p>
+
+<p>I repeated the above mplayer command (which worked) then converted to mp3:</p>
+
+<p>$ mplayer rtsp://xyz.net.uk/foo.ra -ao pcm:file=audiofile.wav -vc dummy -vo null<br />
+$ lame -h -b 128 audiofile.wav audiofile.mp3</p>
+
+<p>Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file &#8211; here&#8217;s how to find the .ram file:</p>
+
+<ul>
+<li>click on the link and start playback the embedded Real Player in Firefox</li>
+<li>a file called <strong>~/.realplayerrc</strong> will be created &#8211; towards the end of the file there will be a section like this:
+<pre>[recent_urls]</pre></li>
+</ul>
+
+<pre>url0=file:///tmp/foo.ram</pre>
+
+<ul>
+<li>cat the <strong>/tmp/foo.ram</strong> file, and copy the <strong>rstp://</strong> link &#8211; ignore the part after the ? (the UID, etc)</li>
+<li>follow the above instructions for ripping :-)</li>
+</ul>
+
+<p><strong>Links</strong></p>
+
+<ul>
+<li><a href="http://crashrecovery.org/mp3-ripkit/utils/realaudio-to-mp3.html">Convert Real audio to MP3 using Linux</a></li>
+<li><a href="http://stommel.tamu.edu/~baum/linux-music.html#realaudio">Converting Real Audio Streams to MP3</a></li>
+<li><a href="http://grimthing.com/archives/2004/05/20/recording-streaming-audio-with-mplayer/">Recording streaming audio with MPlayer</a></li>
+<li><a href="http://ubuntuforums.org/showthread.php?t=624643">Problems with streaming Real Audio files</a></li>
+<li><a href="http://ubuntuforums.org/archive/index.php/t-447200.html">BBC RealPlayer &#8211; make your voice heard!</a></li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/">Dell Latitude D830 No volume control GStreamer plugins and/or devices found</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2008/04/01/ubuntu-repositories-explained-security-etc/"> &nbsp; Ubuntu Repositories Explained – gutsy-security, gutsy-updates, etc</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

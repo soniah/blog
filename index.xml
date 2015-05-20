@@ -2,78 +2,651 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2015 00:10:58 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Backup multiple MySQL databases into separate files – Windows</title>
-      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
-      <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
+      <title>Devops and Old Git Branches</title>
+      <link>http://localhost:1313/posts/devops-and-old-git-branches/</link>
+      <pubDate>Wed, 25 Mar 2015 00:10:58 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
-      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux). I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
+      <guid>http://localhost:1313/posts/devops-and-old-git-branches/</guid>
+      <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
 
-&lt;pre&gt;:: MySQl DB user
-set dbuser=xxxx
+&lt;p&gt;When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and R10K&lt;/a&gt; for your configuration management you can end up having hundreds of old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on. Which branches to cleanup, which to keep? How to easily cleanup the old branches? This article demonstrates some git configurations and scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;/p&gt;
 
-:: MySQl DB users password
-set dbpass=xxxx
-
-:: Switch to the MySQL data directory and collect the folder names
-pushd &#34;C:\Documents and Settings\All Users\Application Data\MySQL\MySQL Server 5.5\data&#34;
-
-:: Loop through the folders and use the fnames for the sql filenames, collects all databases automatically this way
-
-echo &#34;hello&#34;
-
-echo &#34;Pass each name to mysqldump.exe and output an individual .sql file for each&#34;
-
-FOR /D %%F IN (*) DO (
-&#34;C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe&#34; --user=%dbuser% --password=%dbpass% --databases %%F &amp;gt; &#34;C:\SQLBackup\%%F.%backupdate%.sql&#34;
-)&lt;/pre&gt;
+&lt;p&gt;Go to &lt;a href=&#34;http://www.icesystems.com.au/devops-and-old-git-branches/&#34;&gt;Devops and Old Git Branches&lt;/a&gt; to read the full article.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Vimdiff – refresh or update after changes</title>
-      <link>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</link>
-      <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
+      <title>SaltStack Ubuntu Hostname</title>
+      <link>http://localhost:1313/posts/saltstack-ubuntu-hostname/</link>
+      <pubDate>Sun, 18 Jan 2015 11:56:03 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</guid>
-      <description>&lt;p&gt;I little command I always have to search for when using vimdiff &amp;#8211; &lt;strong&gt;:diffupdate&lt;/strong&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/saltstack-ubuntu-hostname/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
-&lt;p&gt;After you&amp;#8217;ve made changes in vimdiff &lt;strong&gt;:diffupdate&lt;/strong&gt; will recalculate the diffs.&lt;/p&gt;
+&lt;p&gt;[sourcecode lang=&amp;ldquo;text&amp;rdquo;]
+system:
+    network.system:
+      - enabled: True
+      - hostname: server1.example.com
+[/sourcecode]&lt;/p&gt;
 
-&lt;div class=&#34;wp-caption alignnone&#34; style=&#34;width: 610px&#34;&gt;
-  &lt;img title=&#34;Vimdiff in Action&#34; src=&#34;http://www.vim.org/images/vimdiff.png&#34; alt=&#34;Vimdiff in Action&#34; width=&#34;602&#34; height=&#34;430&#34; /&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Vimdiff in Action
-  &lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a little shell script I wrote, to get around this problem:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+% cat set_hostname.sh
+#!/bin/bash&lt;/p&gt;
+
+&lt;p&gt;hn=$1
+hostname $hn
+echo $hn &amp;gt; /etc/hostname
+sed -i &amp;ldquo;1s/.*/127.0.0.1 localhost $hn/&amp;rdquo; /etc/hosts
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then apply it using cmd.script, for example:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;text&amp;rdquo;]
+foo-hostname:
+  cmd.script:
+    - source: salt://soe/set_hostname.sh
+    - args: foo.bar.com
+    - unless: grep -q &amp;ldquo;foo.bar.com&amp;rdquo; /etc/hosts
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terraform Presentation</title>
+      <link>http://localhost:1313/posts/terraform-presentation/</link>
+      <pubDate>Tue, 13 Jan 2015 11:18:01 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/terraform-presentation/</guid>
+      <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building the development version of Terraform</title>
+      <link>http://localhost:1313/posts/building-the-development-version-of-terraform/</link>
+      <pubDate>Wed, 03 Dec 2014 23:29:07 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/building-the-development-version-of-terraform/</guid>
+      <description>
+
+&lt;p&gt;Instructions on how to build the development version of &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+#!/bin/bash&lt;/p&gt;
+
+&lt;h2 id=&#34;install-go:ae8e081b54f0d6ea18e50e2f636b39b8&#34;&gt;install go&lt;/h2&gt;
+
+&lt;p&gt;tgz=go1.3.3.linux-amd64.tar.gz
+url=&lt;a href=&#34;https://storage.googleapis.com/golang/$tgz&#34;&gt;https://storage.googleapis.com/golang/$tgz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;if ! [ -f /var/tmp/$tgz ] ; then
+    cd /var/tmp
+    wget $url
+fi&lt;/p&gt;
+
+&lt;p&gt;if ! [ -d /usr/local/go ] ; then
+    sudo tar -C /usr/local -xzf /var/tmp/$tgz
+fi&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-dev-directory-structure:ae8e081b54f0d6ea18e50e2f636b39b8&#34;&gt;setup dev directory structure&lt;/h2&gt;
+
+&lt;p&gt;mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src}&lt;/p&gt;
+
+&lt;p&gt;cd ~/go/thirdparty/src
+#&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&lt;/p&gt;
+
+&lt;p&gt;read -p &amp;ldquo;Install third party repos? (go-bindata, lint)&amp;rdquo;
+if [[ $REPLY =~ &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;$ ]] ; then
+    if ! [ -d github.com/jteeuwen/go-bindata ] ; then
+        go get github.com/jteeuwen/go-bindata/&amp;hellip;
+        cp ~/go/thirdparty/bin/go-bindata ~/bin
+    fi&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if ! [ -d github.com/golang/lint ] ; then
+    go get github.com/golang/lint/golint
+    cp ~/go/thirdparty/bin/golint ~/bin
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fi&lt;/p&gt;
+
+&lt;p&gt;cd ~/go/sonia/src
+#&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-&lt;/p&gt;
+
+&lt;p&gt;read -p &amp;ldquo;Install soniah repos? (gosnmp, evaler)&amp;rdquo;
+if [[ $REPLY =~ &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;$ ]] ; then
+    # do &amp;lsquo;git clone&amp;rsquo; not &amp;lsquo;go get&amp;rsquo; so origin is writeable
+    dir=github.com/soniah
+    if ! [ -d $dir/evaler ] ; then
+        mkdir -p $dir
+        cd $dir
+        git clone git@github.com:soniah/evaler.git
+        cd -
+    fi&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dir=github.com/soniah
+if ! [ -d $dir/gosnmp ] ; then
+    mkdir -p $dir
+    cd $dir
+    git clone git@github.com:soniah/gosnmp.git
+    cd -
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fi
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+export GOPATH=~/go/thirdparty:~/go/sonia&lt;br /&gt;
+export PATH=${GOPATH//://bin:}/bin:$PATH
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then you need to follow the &lt;a href=&#34;https://github.com/hashicorp/terraform&#34;&gt;Terraform instructions&lt;/a&gt; for building, that is:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+$ cd ~/go/thirdparty/src
+$ go get -u github.com/mitchellh/gox
+$ cd ~/go/thirdparty/src/github.com/hashicorp/terraform
+$ make updatedeps
+$ make dev&lt;/p&gt;
+
+&lt;h1 id=&#34;put-the-binaries-somewhere-in-your-path-eg-usr-local-bin:ae8e081b54f0d6ea18e50e2f636b39b8&#34;&gt;put the binaries somewhere in your path, eg /usr/local/bin&lt;/h1&gt;
+
+&lt;p&gt;$ sudo cp bin/terraform* /usr/local/bin
+[/sourcecode]&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;Yy &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;Yy &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>Sydney Stick Fighting – Meetup</title>
-      <link>http://blog2.snowfrog.net/2012/02/29/sydney-stick-fighting-meetup/</link>
-      <pubDate>Wed, 29 Feb 2012 00:00:00 +0000</pubDate>
+      <title>Git and mercurial abort: revision cannot be pushed</title>
+      <link>http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
+      <pubDate>Mon, 29 Sep 2014 00:34:34 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/02/29/sydney-stick-fighting-meetup/</guid>
-      <description>&lt;p&gt;I&amp;#8217;ve setup a new Meetup.com group called &lt;a href=&#34;http://www.meetup.com/Sydney-Stick-Fighting/&#34;&gt;Sydney Stick Fighting&lt;/a&gt;. It&amp;#8217;s early days yet, I&amp;#8217;m still gathering email addresses and getting people to join up.&lt;/p&gt;
+      <guid>http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
+      <description>
 
-&lt;p&gt;Here&amp;#8217;s the description of the group:&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.&lt;/p&gt;
 
-&lt;p style=&#34;padding-left: 30px;&#34;&gt;
-  &lt;em&gt;A group for practitioners of the Filipino art of &lt;a href=&#34;http://en.wikipedia.org/wiki/Balintawak_Eskrima&#34;&gt;Balintawak Arnis&lt;/a&gt; (stick fighting). Arnis (also known as Esgrima or Kali) is a very practical martial art that involves sticks, striking, grappling or improvised weapons. It is becoming more popular (for example the &lt;a href=&#34;http://howtofightlikejasonbourne.com/&#34;&gt;Jason Bourne&lt;/a&gt; movies or &lt;a href=&#34;http://en.wikipedia.org/wiki/Eskrima_in_popular_culture&#34;&gt;other movies&lt;/a&gt;) and is usually practiced outdoors rather than in a gym. Beginners are always welcome, or you can just come along and watch the action!&lt;/em&gt;
-&lt;/p&gt;
+&lt;p&gt;First install the &lt;a href=&#34;http://hg-git.github.io/&#34;&gt;hg-git&lt;/a&gt; tools; for example on Ubuntu:&lt;/p&gt;
 
-&lt;p style=&#34;padding-left: 30px;&#34;&gt;
-  &lt;em&gt;Watch some &lt;a href=&#34;http://www.meetup.com/Sydney-Stick-Fighting/pages/Videos&#34;&gt;videos of stick fighting&lt;/a&gt;.&lt;/em&gt;
-&lt;/p&gt;
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo aptitude install python-setuptools python-dev
+sudo easy_install hg-git
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Make sure the following is in your ~/.hgrc:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+[extensions]
+hgext.bookmarks =
+hggit =
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then, in your existing mercurial repository, add a new remote that points to the git repository. For example for a BitBucket repository:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd &lt;mercurial repository&gt;
+cat .hg/hgrc
+[paths]&lt;/p&gt;
+
+&lt;h1 id=&#34;the-original-hg-repository:33244ccf98c3384a766b4a593c1bd113&#34;&gt;the original hg repository&lt;/h1&gt;
+
+&lt;p&gt;default = &lt;a href=&#34;https://username@abcde.org/foo/barhg&#34;&gt;https://username@abcde.org/foo/barhg&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;the-git-version-on-bitbucket-in-this-case:33244ccf98c3384a766b4a593c1bd113&#34;&gt;the git version (on BitBucket in this case)&lt;/h1&gt;
+
+&lt;p&gt;bbgit   = git+ssh://git@bitbucket.org:foo/bar.git
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then you can go an &lt;em&gt;hg push bbgit&lt;/em&gt; to push from your local hg repository to the remote git repository.&lt;/p&gt;
+
+&lt;h3 id=&#34;mercurial-abort-revision-cannot-be-pushed:33244ccf98c3384a766b4a593c1bd113&#34;&gt;mercurial abort: revision cannot be pushed&lt;/h3&gt;
+
+&lt;p&gt;You may get the error &lt;em&gt;mercurial abort: revision cannot be pushed since it doesn&amp;rsquo;t have a ref&lt;/em&gt; when pushing from hg to git, or you might notice that your hg work isn&amp;rsquo;t being pushed. The solution here is to reset the hg bookmark for git&amp;rsquo;s master branch:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+hg book -f -r tip master
+hg push bbgit
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;If you find yourself doing this regularly, this small shell function (in your ~/.bashrc) will help:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+hggitpush () {
+   # $1 is hg remote name in hgrc for repo
+   # $2 is branch (defaults to master)
+   hg book -f -r tip ${2:-master}
+   hg push $1
+}
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then from your shell you can run commands like:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+hggitpush bbgit dev
+hggitpush foogit      # defaults to pushing to master
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SaltStack Essential Reading</title>
+      <link>http://localhost:1313/posts/saltstack-essential-reading/</link>
+      <pubDate>Tue, 23 Sep 2014 05:48:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/saltstack-essential-reading/</guid>
+      <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html&#34;&gt;How Do I Use Salt State&lt;/a&gt;s,  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/states_pt1.html&#34;&gt;States tutorial&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html&#34;&gt;Pillar Walkthrough&lt;/a&gt; - the tutorials&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/highstate.html&#34;&gt;Highstate data structure definitions&lt;/a&gt; and  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/yaml/index.html&#34;&gt;Understanding YAML&lt;/a&gt; - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/requisites.html&#34;&gt;Requisites and Other Global State Arguments&lt;/a&gt; - do something before something else, restart a service if a file changes, etc&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html&#34;&gt;salt.states.file&lt;/a&gt; - most config management is going to involve working with files&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.jinja.html&#34;&gt;salt.renderers.jinja&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/best_practices.html&#34;&gt;Salt Best Practices&lt;/a&gt; - working with Jinja&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setup Arduino on Debian</title>
+      <link>http://localhost:1313/posts/setup-arduino-on-debian/</link>
+      <pubDate>Wed, 26 Feb 2014 22:17:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/setup-arduino-on-debian/</guid>
+      <description>
+
+&lt;p&gt;Some notes on setting up Arduino on Debian.&lt;/p&gt;
+
+&lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo adduser $USER dialout
+sudo adduser $USER tty
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Confirm the port &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt; is being used by Arduino - tail messages then plug in the Arduino.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo tail -f /var/log/messages&lt;/p&gt;
+
+&lt;h1 id=&#34;you-should-see-something-like:a87367d6c0b9eb429a7dc766a2d1aee1&#34;&gt;you should see something like:&lt;/h1&gt;
+
+&lt;p&gt;FTDI USB Serial Device converter now attached to ttyUSB0&lt;/p&gt;
+
+&lt;h1 id=&#34;out-of-interest-inspect-permissions-on-port:a87367d6c0b9eb429a7dc766a2d1aee1&#34;&gt;out of interest, inspect permissions on port&lt;/h1&gt;
+
+&lt;p&gt;ls -al /dev/ttyUSB0
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Logout and login (or run a login shell). Confirm permissions.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+zsh -l
+id&lt;/p&gt;
+
+&lt;h1 id=&#34;you-should-see-something-like-1:a87367d6c0b9eb429a7dc766a2d1aee1&#34;&gt;you should see something like:&lt;/h1&gt;
+
+&lt;p&gt;groups=1000(sonia),5(tty),20(dialout),&amp;hellip;
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Install Arduino pre-requisites.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo aptitude install arduino arduino-core
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd ~/arduino-1.0.5
+./arduino&amp;amp;
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hello World&lt;/strong&gt; - upload Blink (File -&amp;gt; Examples -&amp;gt; 01.Basics -&amp;gt; Blink) to your Arduino, go crazy with that flashing LED!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Split() function for Microsoft MSSQL</title>
+      <link>http://localhost:1313/posts/split-function-for-microsoft-mssql/</link>
+      <pubDate>Tue, 07 Jan 2014 01:01:23 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/split-function-for-microsoft-mssql/</guid>
+      <description>
+
+&lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote. It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;sql&amp;rdquo;]
+CREATE FUNCTION [dbo].&lt;a href=&#34;@string varchar(MAX&#34;&gt;split&lt;/a&gt;,
+    @delimiter CHAR(1),
+    @pos INT
+)
+RETURNS varchar(255)
+AS
+BEGIN
+    DECLARE @start INT, @end INT, @count INT
+    SELECT @start = 1, @end = CHARINDEX(@delimiter, @string), @count = 1
+    WHILE @start &amp;lt; LEN(@string) + 1 BEGIN
+        IF @end = 0
+            SET @end = LEN(@string) + 1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    IF @count = @pos
+        RETURN SUBSTRING(@string, @start, @end - @start)
+
+    SET @start = @end + 1 
+    SET @end = CHARINDEX(@delimiter, @string, @start)
+    SET @count = @count + 1 
+
+END 
+RETURN &#39;&#39; -- not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;END&lt;/p&gt;
+
+&lt;p&gt;select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 0)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 1)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 2)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 3)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 4)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;               # 0: zero length string
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;1-row-s-affected:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;p&gt;aa                 # 1&lt;/p&gt;
+
+&lt;h2 id=&#34;1-row-s-affected-1:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;p&gt;bb                 # 2&lt;/p&gt;
+
+&lt;h2 id=&#34;1-row-s-affected-2:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;p&gt;cc                 # 3&lt;/p&gt;
+
+&lt;h2 id=&#34;1-row-s-affected-3:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;               # 4: zero length string
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(1 row(s) affected)
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
+      <link>http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/</link>
+      <pubDate>Mon, 06 Jan 2014 06:34:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt; function. Here&amp;rsquo;s a version I _quickly _implemented, called &amp;ldquo;my_substring_index&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Limitations:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;only accepts strings up to 255 chars long&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;sql&amp;rdquo;]
+SET ANSI_NULLS ON;
+GO&lt;/p&gt;
+
+&lt;p&gt;SET QUOTED_IDENTIFIER ON;
+GO&lt;/p&gt;
+
+&lt;p&gt;CREATE FUNCTION [dbo].&lt;a href=&#34;@str VARCHAR (255&#34;&gt;my_substring_index&lt;/a&gt;, @delim VARCHAR (1), @count INT)
+RETURNS VARCHAR (255)
+AS
+BEGIN
+    DECLARE @result AS VARCHAR (255), @posn AS INT, @loop AS INT,
+            @found AS INT, @reversed AS INT;
+    SET @loop = 0;
+    SET @posn = -1;
+    SET @found = 0;
+    SET @reversed = 0;
+    IF @count &amp;lt; 0
+        BEGIN
+            SET @reversed = 1;
+            SET @count = @count * -1;
+            SET @str = REVERSE(@str);
+        END
+    WHILE @loop &amp;lt; @count
+        BEGIN
+            SET @posn = charindex(@delim, @str, @posn + 1);
+            IF @posn &amp;gt; 0
+                SET @found = 1;
+            ELSE
+                IF @found = 1 AND @reversed = 0
+                    RETURN @str; &amp;ndash; ie mimic mysql behaviour
+                ELSE
+                    IF @found = 1 AND @reversed = 1
+                        RETURN REVERSE(@str); &amp;ndash; ie mimic mysql behaviour
+            SET @loop = @loop + 1;
+        END
+    IF @posn &amp;gt;= 0 AND @reversed = 0
+        RETURN SUBSTRING(@str, 0, @posn);
+    ELSE
+        IF @posn &amp;gt;= 0 AND @reversed = 1
+            RETURN REVERSE(SUBSTRING(@str, 0, @posn));
+    RETURN &amp;ldquo;;
+END&lt;/p&gt;
+
+&lt;h2 id=&#34;select-dbo-my-substring-index-www-mysql-com-1:d47614a0ef72eb787dd2cb9eeb638917&#34;&gt;SELECT dbo.my_substring_index(&amp;lsquo;www.mysql.com&amp;rsquo;, &amp;lsquo;.&amp;rsquo;, -1)&lt;/h2&gt;
+
+&lt;p&gt;com
+(1 row(s) affected)
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
+      <link>http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/</link>
+      <pubDate>Tue, 24 Dec 2013 02:55:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/</guid>
+      <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption password&amp;rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields.&lt;/p&gt;
+
+&lt;p&gt;Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why force a tablet interface down my throat? Sort of reminds me of Ubuntu Unity). Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;sql&amp;rdquo;]
+sp_configure &amp;lsquo;show advanced options&amp;rsquo;, 1;
+GO
+RECONFIGURE;
+GO
+sp_configure &amp;lsquo;clr enabled&amp;rsquo;, 1;
+GO
+RECONFIGURE;
+GO
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Change default editor in Debian</title>
+      <link>http://localhost:1313/posts/change-default-editor-in-debian/</link>
+      <pubDate>Tue, 24 Dec 2013 02:33:38 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/change-default-editor-in-debian/</guid>
+      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</title>
+      <link>http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
+      <pubDate>Sun, 22 Dec 2013 11:10:07 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
+      <description>&lt;p&gt;When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&amp;rsquo;ll get an error in the console log like:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unable to copy file foo to /var/private/bar&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The solution comes from the &lt;a href=&#34;https://groups.google.com/forum/#!msg/tunnelblick-discuss/Gp6OJn_8NxI/nAuvDP1RMxIJ&#34;&gt;TunnelBlick forum&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk. When you double-click that &amp;ldquo;outer&amp;rdquo; .tblk, you should be asked once if you want to install &amp;ldquo;n&amp;rdquo; configurations.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd ~/Desktop/foo.tblk
+for f in * ; do
+  g=&lt;code&gt;basename $f&lt;/code&gt;
+  mkdir $g.tblk
+  mv $f $g.tblk
+done
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Also, the .ovpn files will have &amp;ldquo;com.apple.quarantine&amp;rdquo; xattr&amp;rsquo;s. This may or may not cause problems. I removed them in this way:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+for f in * ; do
+  echo $f
+  xattr -d com.apple.quarantine $f
+done
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Also, to &lt;a href=&#34;https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo&#34;&gt;remove old private configuration files&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd ~/Library/Application\ Support/Tunnelblick/Configurations
+rm -rf *
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;(or, click on VPN icon top right of screen, select &amp;lsquo;VPN Details&amp;rsquo;, +/- in the &amp;lsquo;Configurations&amp;rsquo; tab).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ZFS List Snapshots, Create and Destroy Clones</title>
+      <link>http://localhost:1313/posts/zfs-list-snapshots-create-and-destroy-clones/</link>
+      <pubDate>Sat, 14 Dec 2013 02:45:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/zfs-list-snapshots-create-and-destroy-clones/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m using &lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, &lt;a href=&#34;http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line&#34;&gt;as always the shell is faster&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some notes for me on listing ZFS snapshots, and creating and destroying clones.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd /mnt/vol01/bjj
+zfs list -t snapshot | grep bjj | grep -v vobs
+zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
+cd auto-20131214.12d&lt;/p&gt;
+
+&lt;h1 id=&#34;after-recovery-tasks-umount-snapshot:5a8468aa7d7fdba8cad13061f8c8ab92&#34;&gt;after recovery tasks, umount snapshot&lt;/h1&gt;
+
+&lt;p&gt;cd /mnt/vol01/bjj
+umount auto-20131214.12d
+rmdir auto-20131214.12d&lt;/p&gt;
+
+&lt;h1 id=&#34;usually-want-to-umount-not-destroy-as-a:5a8468aa7d7fdba8cad13061f8c8ab92&#34;&gt;usually want to umount not destroy, as a&lt;/h1&gt;
+
+&lt;h1 id=&#34;destroy-may-cascade-delete-other-dependent-snapshots:5a8468aa7d7fdba8cad13061f8c8ab92&#34;&gt;destroy may cascade delete other dependent snapshots&lt;/h1&gt;
+
+&lt;p&gt;zfs destroy vol01/bjj/foo
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tricks for Learning Foreign Languages</title>
+      <link>http://localhost:1313/posts/tricks-for-learning-foreign-languages/</link>
+      <pubDate>Wed, 11 Dec 2013 02:06:10 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/tricks-for-learning-foreign-languages/</guid>
+      <description>
+
+&lt;p&gt;I &lt;em&gt;get by&lt;/em&gt; in a few foreign languages (Spanish mostly, some Portuguese and French). People&amp;rsquo;s first response to this is &amp;ldquo;oh that sounds so hard&amp;rdquo; quickly followed by &amp;ldquo;I&amp;rsquo;m going to learn languageX next year&amp;rdquo;. As if learning is a language is something you can quickly tick off your bucket list, to be followed by &amp;ldquo;go sky diving&amp;rdquo;, &amp;ldquo;see the Pyramids&amp;rdquo; and &amp;ldquo;walk Kokoda&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s always more to learn in a foreign language, and sitting down and doing grammar and exercises is &lt;em&gt;&lt;strong&gt;boring&lt;/strong&gt;&lt;/em&gt;. Here are a few tricks I&amp;rsquo;ve learned over the years:&lt;/p&gt;
+
+&lt;h3 id=&#34;music:855c0023b1954a46e74a7147312c52c3&#34;&gt;Music&lt;/h3&gt;
+
+&lt;p&gt;Music is the easiest one - listen while you&amp;rsquo;re driving or working and just &amp;ldquo;pick up&amp;rdquo; phrases.&lt;/p&gt;
+
+&lt;p&gt;But what music to listen too? The latest hip-hop full of street slang isn&amp;rsquo;t going to help you&amp;hellip; I search for &amp;ldquo;top 100 albums languageX&amp;rdquo; and start from there. Older ballad-based music is usually best - the equivalent of Neil Diamond or Simon and Garfunkel in English. Sure your foreign friends will wrinkle their nose at your &amp;ldquo;music for oldies&amp;rdquo;, but it&amp;rsquo;s easy to understand.&lt;/p&gt;
+
+&lt;h3 id=&#34;films:855c0023b1954a46e74a7147312c52c3&#34;&gt;&lt;strong&gt;Films&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Foreign films are another good tool, especially when you &lt;strong&gt;do&lt;/strong&gt; want to learn street slang. But the trick is to download the subtitles &lt;em&gt;in the foreign language&lt;/em&gt; rather than English subtitles, and &lt;em&gt;slow down the dialogue&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, one of my favorite films is &lt;a href=&#34;http://en.wikipedia.org/wiki/Elite_Squad&#34;&gt;Tropa de Elite&lt;/a&gt; (Brazilian Portuguese). Lot&amp;rsquo;s of fast dialogue and street slang. So I download the Portuguese subtitles from &lt;a href=&#34;http://www.subtitleseeker.com/&#34;&gt;subseeker.com&lt;/a&gt;, load them into VLC, and set the playback speed to 80%. Instant enjoyable learning.&lt;/p&gt;
+
+&lt;p&gt;Sometimes the subtitles aren&amp;rsquo;t synched with the film - tools like &lt;a href=&#34;http://home.gna.org/subtitleeditor/&#34;&gt;subtitleeditor&lt;/a&gt; or &lt;a href=&#34;http://gnome-subtitles.sourceforge.net/&#34;&gt;gnome-subtitles&lt;/a&gt; can help you fix them up.&lt;/p&gt;
+
+&lt;h3 id=&#34;news:855c0023b1954a46e74a7147312c52c3&#34;&gt;News&lt;/h3&gt;
+
+&lt;p&gt;First thing in the morning don&amp;rsquo;t read the news in English, read it in your new language; for example I regularly read &lt;a href=&#34;http://elpais.com/&#34;&gt;El Pais&lt;/a&gt; or &lt;a href=&#34;http://www.sinembargo.mx/&#34;&gt;Sin Embargo&lt;/a&gt; (Spanish). The good thing about news is that you probably already have a general idea of world news, so you can get the jist of the article even if you miss a few sentences. And the language in most newspapers is usually pretty easy (about year 10 level), so it&amp;rsquo;s going to be easier than reading a novel.&lt;/p&gt;
+
+&lt;h3 id=&#34;learn-related-languages:855c0023b1954a46e74a7147312c52c3&#34;&gt;Learn Related Languages&lt;/h3&gt;
+
+&lt;p&gt;My languages (Spanish, Portuguese and French) are latin-based languages. So learning in one of these languages often helps in the other languages. For example last night at &lt;a href=&#34;http://en.wikipedia.org/wiki/Brazilian_jiu-jitsu&#34;&gt;BJJ&lt;/a&gt; training I asked my Brazilian instructor how you say &amp;ldquo;too late&amp;rdquo; in Portuguese (as in &amp;ldquo;you should&amp;rsquo;ve gone for that &lt;a href=&#34;http://en.wikipedia.org/wiki/Armlock&#34;&gt;armbar&lt;/a&gt;, but too late!&amp;ldquo;). He said that it&amp;rsquo;s &amp;ldquo;&lt;a href=&#34;http://translation.babylon.com/portuguese/demorou!/&#34;&gt;demorou&lt;/a&gt;!&amp;ldquo;, which is the same verb as in Spanish (&lt;a href=&#34;http://www.spanishdict.com/translate/demorar&#34;&gt;demorar&lt;/a&gt;). And not a phrase as in French or English &lt;a href=&#34;http://en.bab.la/dictionary/french-english/trop-tard&#34;&gt;trop tard&lt;/a&gt;/too late.&lt;/p&gt;
+
+&lt;p&gt;Similarly, if you were good in Japanese, Korean and Mandarin would be easier languages to pickup than (say) Russian.&lt;/p&gt;
+
+&lt;h3 id=&#34;have-fun:855c0023b1954a46e74a7147312c52c3&#34;&gt;Have Fun&lt;/h3&gt;
+
+&lt;p&gt;Languages are fun once you get past the boring beginner stuff. All those new films to watch, all that new music, new food, new ways of looking at the world. Happy learning and &amp;ldquo;que te vaya bien&amp;rdquo; (good luck in Spanish).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>convert LibreOffice (OpenOffice) .ods files to .csv command line</title>
+      <link>http://localhost:1313/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
+      <pubDate>Mon, 04 Nov 2013 03:05:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
+      <description>&lt;p&gt;How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;soffice --headless --convert-to csv test.ods&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;From &lt;a href=&#34;http://ask.libreoffice.org/en/question/21916/cli-convert-ods-to-csv-with-semicolon-as-delimiter/&#34;&gt;CLI - convert ods to csv with semicolon as delimiter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;No rocket science, just a handy note for myself&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     

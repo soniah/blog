@@ -1,0 +1,254 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> The Scheduling of BJJ Competitions </title>
+    <link rel="canonical" href="http://localhost:1313/2011/02/20/the-scheduling-of-bjj-competitions/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">The Scheduling of BJJ Competitions</h1>
+        <section id="main">
+          <h5 id="date"> Sat Feb 19, 2011 </h5>
+          
+
+<p>I participated in another <a href="http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu">Brazilian Jiu Jitsu</a> (BJJ) competition today (the <a href="http://www.abudhabiproaustralia.com/">Abu Dhabi trials</a>). I won a match (happy face) and lost a match (sad face), which was disappointing &#8211; otherwise I would&#8217;ve been flying off to Abu Dhabi to compete in the World Professional Jiu Jitsu Championships next month &#8211; only 3 women in my weight bracket.</p>
+
+<p>But what was really disappointing was the typical disorganisation of the event ie it was running hours late. This is really frustrating as a competitor &#8211; you don&#8217;t know when to eat, when to start warming up, or even what time to turn up. Given that these events can run from 9am to 8pm, it&#8217;s a long day in a hot gymnasium.</p>
+
+<p><em>Warning: (simple) arithmetic ahead&#8230;</em></p>
+
+<p>It shouldn&#8217;t be too hard to work out the scheduling of these events, it&#8217;s a simple arithmetic calculation, why can&#8217;t the organisers get it right? This is how long it takes to run a bracket at an event:</p>
+
+<p style="text-align: center;">
+  <strong>number of fights  X  duration of each fight  X  a fudge factor</strong>
+</p>
+
+<p>For example:</p>
+
+<p style="text-align: center;">
+  <strong>7 fights  X 5 mins per fight X 1.2 (fudge factor) = 42 minutes</strong>
+</p>
+
+<h2 id="the-fudge-factor:36e374784eb984f81c76d8dd3a879891">The fudge factor</h2>
+
+<p>What is the &#8220;fudge factor&#8221;? It is simply the extra time you add to each fight to allow for the fact that fights aren&#8217;t going to run immediately one after another. I&#8217;ve guessed 1.2, but you might allow 1.4 or even 1.6 for a busy competition. Put another way, fights are supposed to last 5 minutes (or 6-10 minutes), but only two things make them shorter:</p>
+
+<ul>
+<li>a withdrawal or no-show by a competitor</li>
+<li>a fight finishing early due to a tap out</li>
+</ul>
+
+<p>However, these things make each fight last longer:</p>
+
+<ul>
+<li>weigh ins</li>
+<li>mats are empty while a new bracket starts</li>
+<li>mats are empty while judges get ready (or go missing!)</li>
+<li>mats are empty while judges have to chase up competitors</li>
+<li>time outs &#8211; competitors pushed off mats, redoing kimono, etc</li>
+<li>injuries requiring medical assistance</li>
+<li>and the general time wasting that goes on at competitions</li>
+</ul>
+
+<p>So, I&#8217;ve erred towards a longer fudge factor (&gt;1) rather than a shorter fudge factor (&lt;1).</p>
+
+<h2 id="how-many-fights:36e374784eb984f81c76d8dd3a879891">How Many Fights?</h2>
+
+<p>If you&#8217;ve got 8 competitors in a &#8220;<a href="http://en.wikipedia.org/wiki/Single_elimination_tournament">sudden death tournament</a>&#8220;, how many fights will there be? Google gives the <a href="http://wiki.answers.com/Q/What_the_formula_of_single_elimination_tournament">answer</a>:</p>
+
+<p style="text-align: center;">
+  <strong>N-1</strong>
+</p>
+
+<p>ie for 8 competitors, there will be 7 fights. That was hard&#8230;**<br />
+**</p>
+
+<h2 id="a-ready-reckoner:36e374784eb984f81c76d8dd3a879891">A ready reckoner</h2>
+
+<p>Given that most people dislike arithmetic, here&#8217;s a table that allows you to look up how long a 5 minute fight bracket will take in hours and minutes, for a given number of competitors and a given fudge factor. Notice how with a fudge factor of 1.2, it only takes 11 competitors for a bracket to last 1 hour. And it explains why today&#8217;s tournament was so late, they only allowed 1.5 hours for 51 competitors instead of 5 hours&#8230;</p>
+
+<pre>Competitors    1.2 1.4 1.6
+ 2      00:06   00:07   00:08
+ 3      00:12   00:14   00:16
+ 4      00:18   00:21   00:24
+ 5      00:24   00:28   00:32
+ 6      00:30   00:35   00:40
+ 7      00:36   00:42   00:48
+ 8      00:42   00:49   00:56
+ 9      00:48   00:56   01:04
+10      00:54   01:03   01:12
+11      01:00   01:10   01:20
+12      01:06   01:17   01:28
+13      01:12   01:24   01:36
+14      01:18   01:31   01:44
+15      01:24   01:38   01:52
+16      01:30   01:45   02:00
+17      01:36   01:52   02:08
+18      01:42   01:59   02:16
+19      01:48   02:06   02:24
+20      01:54   02:13   02:32
+21      02:00   02:20   02:40
+22      02:06   02:27   02:48
+23      02:12   02:34   02:56
+24      02:18   02:41   03:04
+25      02:24   02:48   03:12
+26      02:30   02:55   03:20
+27      02:36   03:02   03:28
+28      02:42   03:09   03:36
+29      02:48   03:16   03:44
+30      02:54   03:23   03:52
+31      03:00   03:30   04:00
+32      03:06   03:37   04:08
+33      03:12   03:44   04:16
+34      03:18   03:51   04:24
+35      03:24   03:58   04:32
+36      03:30   04:05   04:40
+37      03:36   04:12   04:48
+38      03:42   04:19   04:56
+39      03:48   04:26   05:04
+40      03:54   04:33   05:12
+41      04:00   04:40   05:20
+42      04:06   04:47   05:28
+43      04:12   04:54   05:36
+44      04:18   05:01   05:44
+45      04:24   05:08   05:52
+46      04:30   05:15   06:00
+47      04:36   05:22   06:08
+48      04:42   05:29   06:16
+49      04:48   05:36   06:24
+50      04:54   05:43   06:32
+51      05:00   05:50   06:40
+52      05:06   05:57   06:48
+53      05:12   06:04   06:56
+54      05:18   06:11   07:04
+55      05:24   06:18   07:12
+56      05:30   06:25   07:20
+57      05:36   06:32   07:28
+58      05:42   06:39   07:36
+59      05:48   06:46   07:44
+60      05:54   06:53   07:52</pre>
+
+<p>No, I couldn&#8217;t sleep :-)</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/03/01/configuring-redhat-up2date/">Configuring RedHat up2date</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2011/02/18/solaris-convert-a-single-root-ufs-to-a-root-zfs-mirror/"> &nbsp; Solaris – convert a single root UFS to a root ZFS mirror</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/martial-arts">Martial Arts</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

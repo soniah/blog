@@ -1,0 +1,246 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> sharing application data on a dual boot laptop </title>
+    <link rel="canonical" href="http://localhost:1313/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">sharing application data on a dual boot laptop</h1>
+        <section id="main">
+          <h5 id="date"> Tue Jun 20, 2006 </h5>
+          
+
+<p>I dual boot my laptop between Linux and Windows &#8211; mostly Linux, but occasionally Windows. Here&#8217;s how to make applications like Firefox, Thunderbird, etc share their configuration &#8211; especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is <em>sonia</em> and your user id is <em>1000</em> (check by running the <strong>id</strong> function). It also presumes that you can see system folders in Windows &#8211; setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click <em>Apply to All Folders</em>.</p>
+
+<h3 id="create-a-shared-partition:2b63aabf1d8adf5b13fd969a76428dfa">Create a Shared Partition</h3>
+
+<p>First you need a filesystem that will be shared between both Linux and Windows &#8211; it has to be FAT, as this is the only filesystem that both operating systems (easily) read. This may involve shrinking an existing filesystem and partition. (You could of course lose data doing this, so check your backups first).</p>
+
+<p>The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Reiserfs or Ext3) located inside. To shrink a partition, the filesystem needs to be shrunk first; the easiest way to do this is to shrink the filesystem too small, delete the partition and recreate it smaller, then expand the filesystem to fit the newly shrunk partition:</p>
+
+<ul>
+<li><p>boot off Knoppix</p></li>
+
+<li><p>shrink the <em>filesystem</em> before the <em>partition</em>. For example if using ReiserFS and hda6:</p></li>
+</ul>
+
+<pre>resize_reiserfs -s 10G /dev/hda6
+</pre>
+
+<ul>
+<li>using fdisk/cfdisk, resize the <em>partition</em> by deleting the existing partition and recreating it with a smaller size. Ensure the new <em>partition</em> is <strong>larger</strong> than the resized <em>filesystem</em>.</li>
+<li>expand the previous <em>filesystem</em> so it fills the shrunk <em>partition</em>:</li>
+</ul>
+
+<pre>resize_reiserfs /dev/hda6
+</pre>
+
+<ul>
+<li>check and mount the shrunk partition before creating the new partition and filesystem, in case you&#8217;ve made a mistake</li>
+</ul>
+
+<pre>reiserfsck /dev/hda6
+ mount /dev/hda6
+</pre>
+
+<ul>
+<li>in fdisk/cfdisk, also create the new partition (/dev/hda7 in this case), set the type to 0C (Windows FAT LBA)</li>
+<li>create the new shared <em>filesystem</em>:</li>
+</ul>
+
+<pre>mkfs.vfat /dev/hda7
+</pre>
+
+<h3 id="mount-the-shared-partition-in-linux-p:2b63aabf1d8adf5b13fd969a76428dfa">Mount the Shared Partition in Linux</p></h3>
+
+<ul>
+<li>create a mount directory</li>
+</ul>
+
+<pre>cd /
+ sudo mkdir /configs
+ sudo chown 1000. /configs
+</pre>
+
+<ul>
+<li>add an entry to /etc/fstab to mount at boot:</li>
+</ul>
+
+<pre>/dev/hda7       /configs        vfat    defaults,uid=1000,gid=1000        0       0
+</pre>
+
+<ul>
+<li>reboot to linux and check the partition mounts OK by trying to create a test file in /configs <em>using your normal user account</em>, not root</li>
+</ul>
+
+<h3 id="get-firefox-to-locate-configuration-in-linux:2b63aabf1d8adf5b13fd969a76428dfa">Get Firefox to Locate Configuration in Linux</h3>
+
+<ul>
+<li>close Firefox and move your profile &#8211; it&#8217;ll be a directory named something like <em>123456.default</em>:</li>
+</ul>
+
+<pre>mkdir -p /configs/.mozilla/firefox
+ mv ~/.mozilla/123456.default /configs/.mozilla/firefox
+</pre>
+
+<ul>
+<li>config Firefox to use the new location; change these settings in ~/.mozilla/firefox/profiles.ini:</li>
+</ul>
+
+<pre>IsRelative=0
+ Path=/configs/.mozilla/firefox/123456.default
+</pre>
+
+<ul>
+<li>check Firefox runs OK &#8211; if the Profiles screen pops up, you&#8217;ve got some sort of error</li>
+</ul>
+
+<h3 id="mount-the-shared-partition-in-windows-p:2b63aabf1d8adf5b13fd969a76428dfa">Mount the Shared Partition in Windows</p></h3>
+
+<ul>
+<li>boot into Windows. The partition should be located automatically, you may want to change the drive letter (to say Z:) using Computer Management</li>
+</ul>
+
+<h3 id="get-firefox-to-locate-configuration-in-windows:2b63aabf1d8adf5b13fd969a76428dfa">Get Firefox to Locate Configuration in Windows</h3>
+
+<ul>
+<li>edit the file profiles.ini, located in the directory C:Documents and SettingssoniaApplication DataMozillaFirefox</li>
+<li>change the following settings</li>
+</ul>
+
+<pre>IsRelative=0
+ Path=Z:.mozillafirefox123456.default
+
+</pre>
+
+<h3 id="thunderbird:2b63aabf1d8adf5b13fd969a76428dfa">Thunderbird</h3>
+
+<p>The process is similar for Thunderbird. Under Linux the file is <em>~/mozilla-thunderbird/profiles.ini</em>, under Windows <em>C:Documents and SettingssoniaApplication DataThunderbirdprofiles.ini</em>.</p>
+
+<h3 id="notes:2b63aabf1d8adf5b13fd969a76428dfa">Notes</h3>
+
+<p>Notes taken from Linux Journal article, June 2006</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2006/06/20/visual-diff-tools/">visual diff tools</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2006/06/17/ubuntudebian-runlevels/"> &nbsp; ubuntu/debian runlevels</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

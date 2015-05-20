@@ -1,0 +1,154 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> I love handbrakecli (and dd_rescue) </title>
+    <link rel="canonical" href="http://localhost:1313/2010/02/17/i-love-handbrakecli-and-dd_rescue/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">I love handbrakecli (and dd_rescue)</h1>
+        <section id="main">
+          <h5 id="date"> Wed Feb 17, 2010 </h5>
+          <p>I watch lots of (martial arts) instructional videos. Something I&#8217;ve always wanted to do is &#8220;mashup&#8221; my own videos ie take a few chapters from one video, a few chapters from another video. Now I know how &#8211; <a href="http://trac.handbrake.fr/wiki/CLIGuide">handbreakcli</a>:</p>
+
+<p>First, rip the vobs off the dvd. You can work directly off the dvd with handbreak, but working from the hard-disk is often easier. I use dd_rescue for unencrypted dvds. (For scratched dvds, I&#8217;ve been using motorbike visor cleaner to remove the scratches, and <a href="http://myrescue.sourceforge.net/">myrescue</a>).</p>
+
+<pre>for i in /media/cdrom/VIDEO_TS/* ; do
+  j=`basename $i`
+  dd_rescue $i $j
+done</pre>
+
+<p>Use handbrakecli to scan the disk to find the titles and chapters:</p>
+
+<pre>./handbrake -i cd1/VIDEO_TS -t 0</pre>
+
+<p>Then convert to mp4&#8217;s split on chapters (in this case I&#8217;m taking chapters 2-18 from title 2, as individual files):</p>
+
+<pre>for i in `seq 2 18` ; do
+  ./handbrake -i cd1/VIDEO_TS/ -t 2 -c $i -o cd1.t2.c${i}.mp4
+done</pre>
+
+<p>Thanks to <a href="http://www.engagemedia.org">EngageMedia</a> for their great articles. Another good site is <a href="http://www.videohelp.com">videohelp.com</a></p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2010/02/26/serial-port-access-on-osx-to-cisco-devices/">Serial Port Access on OSX to Cisco devices</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2010/02/09/bjj-for-women/"> &nbsp; BJJ for women</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

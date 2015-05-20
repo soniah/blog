@@ -2,29 +2,872 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/categories/linux/</link>
+    <link>http://localhost:1313/categories/linux/</link>
     <description>Recent content in Linux on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 02 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Mar 2015 00:10:58 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Vimdiff – refresh or update after changes</title>
-      <link>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</link>
-      <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
+      <title>Devops and Old Git Branches</title>
+      <link>http://localhost:1313/posts/devops-and-old-git-branches/</link>
+      <pubDate>Wed, 25 Mar 2015 00:10:58 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</guid>
-      <description>&lt;p&gt;I little command I always have to search for when using vimdiff &amp;#8211; &lt;strong&gt;:diffupdate&lt;/strong&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/devops-and-old-git-branches/</guid>
+      <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
 
-&lt;p&gt;After you&amp;#8217;ve made changes in vimdiff &lt;strong&gt;:diffupdate&lt;/strong&gt; will recalculate the diffs.&lt;/p&gt;
+&lt;p&gt;When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and R10K&lt;/a&gt; for your configuration management you can end up having hundreds of old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on. Which branches to cleanup, which to keep? How to easily cleanup the old branches? This article demonstrates some git configurations and scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;/p&gt;
 
-&lt;div class=&#34;wp-caption alignnone&#34; style=&#34;width: 610px&#34;&gt;
-  &lt;img title=&#34;Vimdiff in Action&#34; src=&#34;http://www.vim.org/images/vimdiff.png&#34; alt=&#34;Vimdiff in Action&#34; width=&#34;602&#34; height=&#34;430&#34; /&gt;
-  
-  &lt;p class=&#34;wp-caption-text&#34;&gt;
-    Vimdiff in Action
-  &lt;/p&gt;
+&lt;p&gt;Go to &lt;a href=&#34;http://www.icesystems.com.au/devops-and-old-git-branches/&#34;&gt;Devops and Old Git Branches&lt;/a&gt; to read the full article.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SaltStack Ubuntu Hostname</title>
+      <link>http://localhost:1313/posts/saltstack-ubuntu-hostname/</link>
+      <pubDate>Sun, 18 Jan 2015 11:56:03 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/saltstack-ubuntu-hostname/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;text&amp;rdquo;]
+system:
+    network.system:
+      - enabled: True
+      - hostname: server1.example.com
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a little shell script I wrote, to get around this problem:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+% cat set_hostname.sh
+#!/bin/bash&lt;/p&gt;
+
+&lt;p&gt;hn=$1
+hostname $hn
+echo $hn &amp;gt; /etc/hostname
+sed -i &amp;ldquo;1s/.*/127.0.0.1 localhost $hn/&amp;rdquo; /etc/hosts
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then apply it using cmd.script, for example:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;text&amp;rdquo;]
+foo-hostname:
+  cmd.script:
+    - source: salt://soe/set_hostname.sh
+    - args: foo.bar.com
+    - unless: grep -q &amp;ldquo;foo.bar.com&amp;rdquo; /etc/hosts
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terraform Presentation</title>
+      <link>http://localhost:1313/posts/terraform-presentation/</link>
+      <pubDate>Tue, 13 Jan 2015 11:18:01 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/terraform-presentation/</guid>
+      <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building the development version of Terraform</title>
+      <link>http://localhost:1313/posts/building-the-development-version-of-terraform/</link>
+      <pubDate>Wed, 03 Dec 2014 23:29:07 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/building-the-development-version-of-terraform/</guid>
+      <description>
+
+&lt;p&gt;Instructions on how to build the development version of &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+#!/bin/bash&lt;/p&gt;
+
+&lt;h2 id=&#34;install-go:ae8e081b54f0d6ea18e50e2f636b39b8&#34;&gt;install go&lt;/h2&gt;
+
+&lt;p&gt;tgz=go1.3.3.linux-amd64.tar.gz
+url=&lt;a href=&#34;https://storage.googleapis.com/golang/$tgz&#34;&gt;https://storage.googleapis.com/golang/$tgz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;if ! [ -f /var/tmp/$tgz ] ; then
+    cd /var/tmp
+    wget $url
+fi&lt;/p&gt;
+
+&lt;p&gt;if ! [ -d /usr/local/go ] ; then
+    sudo tar -C /usr/local -xzf /var/tmp/$tgz
+fi&lt;/p&gt;
+
+&lt;h2 id=&#34;setup-dev-directory-structure:ae8e081b54f0d6ea18e50e2f636b39b8&#34;&gt;setup dev directory structure&lt;/h2&gt;
+
+&lt;p&gt;mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src}&lt;/p&gt;
+
+&lt;p&gt;cd ~/go/thirdparty/src
+#&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&lt;/p&gt;
+
+&lt;p&gt;read -p &amp;ldquo;Install third party repos? (go-bindata, lint)&amp;rdquo;
+if [[ $REPLY =~ &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;$ ]] ; then
+    if ! [ -d github.com/jteeuwen/go-bindata ] ; then
+        go get github.com/jteeuwen/go-bindata/&amp;hellip;
+        cp ~/go/thirdparty/bin/go-bindata ~/bin
+    fi&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if ! [ -d github.com/golang/lint ] ; then
+    go get github.com/golang/lint/golint
+    cp ~/go/thirdparty/bin/golint ~/bin
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fi&lt;/p&gt;
+
+&lt;p&gt;cd ~/go/sonia/src
+#&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-&lt;/p&gt;
+
+&lt;p&gt;read -p &amp;ldquo;Install soniah repos? (gosnmp, evaler)&amp;rdquo;
+if [[ $REPLY =~ &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;$ ]] ; then
+    # do &amp;lsquo;git clone&amp;rsquo; not &amp;lsquo;go get&amp;rsquo; so origin is writeable
+    dir=github.com/soniah
+    if ! [ -d $dir/evaler ] ; then
+        mkdir -p $dir
+        cd $dir
+        git clone git@github.com:soniah/evaler.git
+        cd -
+    fi&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dir=github.com/soniah
+if ! [ -d $dir/gosnmp ] ; then
+    mkdir -p $dir
+    cd $dir
+    git clone git@github.com:soniah/gosnmp.git
+    cd -
+fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fi
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+export GOPATH=~/go/thirdparty:~/go/sonia&lt;br /&gt;
+export PATH=${GOPATH//://bin:}/bin:$PATH
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then you need to follow the &lt;a href=&#34;https://github.com/hashicorp/terraform&#34;&gt;Terraform instructions&lt;/a&gt; for building, that is:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+$ cd ~/go/thirdparty/src
+$ go get -u github.com/mitchellh/gox
+$ cd ~/go/thirdparty/src/github.com/hashicorp/terraform
+$ make updatedeps
+$ make dev&lt;/p&gt;
+
+&lt;h1 id=&#34;put-the-binaries-somewhere-in-your-path-eg-usr-local-bin:ae8e081b54f0d6ea18e50e2f636b39b8&#34;&gt;put the binaries somewhere in your path, eg /usr/local/bin&lt;/h1&gt;
+
+&lt;p&gt;$ sudo cp bin/terraform* /usr/local/bin
+[/sourcecode]&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;Yy &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;Yy &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:ae8e081b54f0d6ea18e50e2f636b39b8:Yy&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git and mercurial abort: revision cannot be pushed</title>
+      <link>http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
+      <pubDate>Mon, 29 Sep 2014 00:34:34 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.&lt;/p&gt;
+
+&lt;p&gt;First install the &lt;a href=&#34;http://hg-git.github.io/&#34;&gt;hg-git&lt;/a&gt; tools; for example on Ubuntu:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo aptitude install python-setuptools python-dev
+sudo easy_install hg-git
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Make sure the following is in your ~/.hgrc:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+[extensions]
+hgext.bookmarks =
+hggit =
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then, in your existing mercurial repository, add a new remote that points to the git repository. For example for a BitBucket repository:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd &lt;mercurial repository&gt;
+cat .hg/hgrc
+[paths]&lt;/p&gt;
+
+&lt;h1 id=&#34;the-original-hg-repository:33244ccf98c3384a766b4a593c1bd113&#34;&gt;the original hg repository&lt;/h1&gt;
+
+&lt;p&gt;default = &lt;a href=&#34;https://username@abcde.org/foo/barhg&#34;&gt;https://username@abcde.org/foo/barhg&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;the-git-version-on-bitbucket-in-this-case:33244ccf98c3384a766b4a593c1bd113&#34;&gt;the git version (on BitBucket in this case)&lt;/h1&gt;
+
+&lt;p&gt;bbgit   = git+ssh://git@bitbucket.org:foo/bar.git
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then you can go an &lt;em&gt;hg push bbgit&lt;/em&gt; to push from your local hg repository to the remote git repository.&lt;/p&gt;
+
+&lt;h3 id=&#34;mercurial-abort-revision-cannot-be-pushed:33244ccf98c3384a766b4a593c1bd113&#34;&gt;mercurial abort: revision cannot be pushed&lt;/h3&gt;
+
+&lt;p&gt;You may get the error &lt;em&gt;mercurial abort: revision cannot be pushed since it doesn&amp;rsquo;t have a ref&lt;/em&gt; when pushing from hg to git, or you might notice that your hg work isn&amp;rsquo;t being pushed. The solution here is to reset the hg bookmark for git&amp;rsquo;s master branch:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+hg book -f -r tip master
+hg push bbgit
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;If you find yourself doing this regularly, this small shell function (in your ~/.bashrc) will help:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+hggitpush () {
+   # $1 is hg remote name in hgrc for repo
+   # $2 is branch (defaults to master)
+   hg book -f -r tip ${2:-master}
+   hg push $1
+}
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then from your shell you can run commands like:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+hggitpush bbgit dev
+hggitpush foogit      # defaults to pushing to master
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SaltStack Essential Reading</title>
+      <link>http://localhost:1313/posts/saltstack-essential-reading/</link>
+      <pubDate>Tue, 23 Sep 2014 05:48:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/saltstack-essential-reading/</guid>
+      <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html&#34;&gt;How Do I Use Salt State&lt;/a&gt;s,  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/states_pt1.html&#34;&gt;States tutorial&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html&#34;&gt;Pillar Walkthrough&lt;/a&gt; - the tutorials&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/highstate.html&#34;&gt;Highstate data structure definitions&lt;/a&gt; and  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/yaml/index.html&#34;&gt;Understanding YAML&lt;/a&gt; - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/requisites.html&#34;&gt;Requisites and Other Global State Arguments&lt;/a&gt; - do something before something else, restart a service if a file changes, etc&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html&#34;&gt;salt.states.file&lt;/a&gt; - most config management is going to involve working with files&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.jinja.html&#34;&gt;salt.renderers.jinja&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/best_practices.html&#34;&gt;Salt Best Practices&lt;/a&gt; - working with Jinja&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setup Arduino on Debian</title>
+      <link>http://localhost:1313/posts/setup-arduino-on-debian/</link>
+      <pubDate>Wed, 26 Feb 2014 22:17:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/setup-arduino-on-debian/</guid>
+      <description>
+
+&lt;p&gt;Some notes on setting up Arduino on Debian.&lt;/p&gt;
+
+&lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo adduser $USER dialout
+sudo adduser $USER tty
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Confirm the port &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt; is being used by Arduino - tail messages then plug in the Arduino.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo tail -f /var/log/messages&lt;/p&gt;
+
+&lt;h1 id=&#34;you-should-see-something-like:a87367d6c0b9eb429a7dc766a2d1aee1&#34;&gt;you should see something like:&lt;/h1&gt;
+
+&lt;p&gt;FTDI USB Serial Device converter now attached to ttyUSB0&lt;/p&gt;
+
+&lt;h1 id=&#34;out-of-interest-inspect-permissions-on-port:a87367d6c0b9eb429a7dc766a2d1aee1&#34;&gt;out of interest, inspect permissions on port&lt;/h1&gt;
+
+&lt;p&gt;ls -al /dev/ttyUSB0
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Logout and login (or run a login shell). Confirm permissions.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+zsh -l
+id&lt;/p&gt;
+
+&lt;h1 id=&#34;you-should-see-something-like-1:a87367d6c0b9eb429a7dc766a2d1aee1&#34;&gt;you should see something like:&lt;/h1&gt;
+
+&lt;p&gt;groups=1000(sonia),5(tty),20(dialout),&amp;hellip;
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Install Arduino pre-requisites.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+sudo aptitude install arduino arduino-core
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd ~/arduino-1.0.5
+./arduino&amp;amp;
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hello World&lt;/strong&gt; - upload Blink (File -&amp;gt; Examples -&amp;gt; 01.Basics -&amp;gt; Blink) to your Arduino, go crazy with that flashing LED!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Change default editor in Debian</title>
+      <link>http://localhost:1313/posts/change-default-editor-in-debian/</link>
+      <pubDate>Tue, 24 Dec 2013 02:33:38 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/change-default-editor-in-debian/</guid>
+      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ZFS List Snapshots, Create and Destroy Clones</title>
+      <link>http://localhost:1313/posts/zfs-list-snapshots-create-and-destroy-clones/</link>
+      <pubDate>Sat, 14 Dec 2013 02:45:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/zfs-list-snapshots-create-and-destroy-clones/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m using &lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, &lt;a href=&#34;http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line&#34;&gt;as always the shell is faster&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some notes for me on listing ZFS snapshots, and creating and destroying clones.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd /mnt/vol01/bjj
+zfs list -t snapshot | grep bjj | grep -v vobs
+zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
+cd auto-20131214.12d&lt;/p&gt;
+
+&lt;h1 id=&#34;after-recovery-tasks-umount-snapshot:5a8468aa7d7fdba8cad13061f8c8ab92&#34;&gt;after recovery tasks, umount snapshot&lt;/h1&gt;
+
+&lt;p&gt;cd /mnt/vol01/bjj
+umount auto-20131214.12d
+rmdir auto-20131214.12d&lt;/p&gt;
+
+&lt;h1 id=&#34;usually-want-to-umount-not-destroy-as-a:5a8468aa7d7fdba8cad13061f8c8ab92&#34;&gt;usually want to umount not destroy, as a&lt;/h1&gt;
+
+&lt;h1 id=&#34;destroy-may-cascade-delete-other-dependent-snapshots:5a8468aa7d7fdba8cad13061f8c8ab92&#34;&gt;destroy may cascade delete other dependent snapshots&lt;/h1&gt;
+
+&lt;p&gt;zfs destroy vol01/bjj/foo
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>convert LibreOffice (OpenOffice) .ods files to .csv command line</title>
+      <link>http://localhost:1313/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
+      <pubDate>Mon, 04 Nov 2013 03:05:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
+      <description>&lt;p&gt;How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;soffice --headless --convert-to csv test.ods&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;From &lt;a href=&#34;http://ask.libreoffice.org/en/question/21916/cli-convert-ods-to-csv-with-semicolon-as-delimiter/&#34;&gt;CLI - convert ods to csv with semicolon as delimiter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;No rocket science, just a handy note for myself&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>debfoster - keeping a Debian system small</title>
+      <link>http://localhost:1313/posts/debfoster-keeping-a-debian-system-small/</link>
+      <pubDate>Sun, 21 Jul 2013 02:12:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/debfoster-keeping-a-debian-system-small/</guid>
+      <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;. I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;debfoster has a more elaborate approach, very similar to aptitude&amp;rsquo;s: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation. If new packages appear on the system and if debfoster doesn&amp;rsquo;t know them as required packages, they will be shown on the screen together with a list of their dependencies. The program then offers a choice: remove the package (possibly together with those that depend on it), mark it as explicitly required, or ignore it temporarily.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Other useful tools are &lt;strong&gt;dpigs&lt;/strong&gt; (from the package debian-goodies) and &lt;strong&gt;wajig large&lt;/strong&gt;. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% dpigs
+88963 libgl1-mesa-dri
+78624 linux-image-3.2.0-4-486
+42613 gimp-data
+42128 smbclient
+33224 freepats
+28731 xulrunner-17.0
+26400 vlc-data
+23332 libwebkitgtk-1.0-0
+22368 vim-runtime
+21723 libicu48
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The commandlinefu.com topic &lt;a href=&#34;http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu&#34;&gt;List your largest installed packages (on Debian/Ubuntu)&lt;/a&gt; has some useful commands:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+% sed -ne &amp;lsquo;/^Package: (.&lt;em&gt;)/{s//\1/;h;};/^Installed-Size: (.&lt;/em&gt;)/{s//\1/;G;s/\n/ /;p;}&amp;rsquo;\
+  /var/lib/dpkg/status | sort -rn&lt;/p&gt;
+
+&lt;p&gt;% dpkg-query -Wf &amp;lsquo;${Installed-Size}\t${Package}\n&amp;rsquo; | sort -n&lt;/p&gt;
+
+&lt;p&gt;% dpkg &amp;ndash;get-selections | cut -f1 | while read pkg; do dpkg -L $pkg | xargs -I&amp;rsquo;{}&amp;rsquo; bash -c \
+  &amp;lsquo;if [ ! -d &amp;ldquo;{}&amp;rdquo; ]; then echo &amp;ldquo;{}&amp;rdquo;; fi&amp;rsquo; | tr &amp;lsquo;\n&amp;rsquo; &amp;lsquo;\000&amp;rsquo; | du -c &amp;ndash;files0-from - |\
+   tail -1 | sed &amp;ldquo;s/total/$pkg/&amp;rdquo;; done&lt;/p&gt;
+
+&lt;p&gt;% awk &amp;lsquo;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;ldquo;%9d %s\n&amp;rdquo;, $2, p)}&amp;rsquo; \
+   /var/lib/dpkg/status | sort -n | tail
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.auroraos.org/release/eeebuntu&#34;&gt;download sources for Eeebuntu&lt;/a&gt; seem to be broken, and nowadays I&amp;rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&amp;rsquo;m running &lt;a href=&#34;http://wiki.debian.org/LXDE&#34;&gt;Debian with LXDE&lt;/a&gt; - it seems to work well.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ASUS_Eee_PC_PIC_0971.JPG/220px-ASUS_Eee_PC_PIC_0971.JPG&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang - building with Makefile and Jenkins</title>
+      <link>http://localhost:1313/posts/golang-building-with-makefile-and-jenkins/</link>
+      <pubDate>Tue, 18 Jun 2013 01:30:01 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/golang-building-with-makefile-and-jenkins/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins. I was unfamiliar with Jenkins, and there didn&amp;rsquo;t seem to be any documentation around on how to build Go executables.&lt;/p&gt;
+
+&lt;h3 id=&#34;project-structure:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Project Structure&lt;/h3&gt;
+
+&lt;p&gt;First of all an aside on project structure. For my first project I had a &lt;strong&gt;GOPATH&lt;/strong&gt; of &lt;strong&gt;~/go&lt;/strong&gt; and the following directory structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/go
+  |--bin
+  |--pkg
+  |--src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But as I wrote more Go projects, it made more sense to separate each project into it&amp;rsquo;s own directory structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/go
+  |--project1
+    |--bin
+    |--pkg
+    |--src
+  |--project2
+    |--bin
+    |--pkg
+    |--src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this directory structure I set &lt;strong&gt;GOPATH&lt;/strong&gt; on the command line or in a Makefile:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+% cd ~go/project2/src/github.com/soniah/gosnmp
+% GOPATH=~go/project2 go build
+[/sourcecode]&lt;/p&gt;
+
+&lt;h3 id=&#34;makefile:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Makefile&lt;/h3&gt;
+
+&lt;p&gt;For smaller projects you can just produce a binary using &lt;strong&gt;go run&lt;/strong&gt; or &lt;strong&gt;go build&lt;/strong&gt;. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+GOROOT := /usr/lib/go
+GOPATH := /var/lib/jenkins/workspace/go/project2&lt;/p&gt;
+
+&lt;p&gt;myhostname := $(shell hostname)
+ifeq (${myhostname}, laptop)
+    GOPATH := /home/sonia/go/project2
+else ifeq (${myhostname}, testmachine)
+    GOPATH := /home/u1234/go/project2
+    GOROOT := /usr/local/go
+endif&lt;/p&gt;
+
+&lt;p&gt;build: build-stamp
+build-stamp: file1.go file2.go file3.go
+    # always format code
+    GOPATH=$(GOPATH) go fmt $^
+    # binary
+    GOPATH=$(GOPATH) go build -o project2 -v $^
+    # docs
+    markdown README.mkd &amp;gt; README.html
+    help2man &amp;ndash;no-info &amp;ndash;include=help2man.roff &amp;ndash;name &amp;ldquo;Project2&amp;rdquo; ./project2 &amp;gt; project2.roff
+    man -Tps -l project2.roff &amp;gt; project2-man.ps
+    ps2pdf project2-man.ps project2-man.pdf
+    # mark as done
+    touch $@
+[/sourcecode]&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkins:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Jenkins&lt;/h3&gt;
+
+&lt;p&gt;With a working Makefile, building under Jenkins will now be easier. The objective is to have Jenkins automatically build a new binary/package whenever a developer pushes to one of the git/mercurial/bzr repos that makeup the various components of your project.&lt;/p&gt;
+
+&lt;p&gt;However if your project contains multiple components, you&amp;rsquo;ll soon come across a problem. For example Project2 was using &lt;strong&gt;github.com/droundy/goopt&lt;/strong&gt; and &lt;strong&gt;github.com/mattn/go-sqlite3&lt;/strong&gt;. To see the problem, create a New Job using &lt;strong&gt;Build a free-style software project&lt;/strong&gt;. Under &lt;strong&gt;Source Code Management&lt;/strong&gt;, choose something like &lt;strong&gt;Git&lt;/strong&gt;. Under the second Advanced button, you&amp;rsquo;ll need to change the option &lt;strong&gt;Local subdirectory for repo (optional)&lt;/strong&gt; to point to the path of a component&amp;rsquo;s repo. &lt;strong&gt;But&lt;/strong&gt; this setting is a global setting for all git repos - so the build won&amp;rsquo;t work as you add a second and third component.&lt;/p&gt;
+
+&lt;p&gt;The solution is to install to Jenkins the &lt;a href=&#34;http://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin&#34;&gt;Multiple SCMs Plugin&lt;/a&gt;. Then in your Jenkins Job you&amp;rsquo;ll be able to set the local subdirectory for each component. For example in Project2:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the &lt;strong&gt;goopt&lt;/strong&gt; local subdirectory was set to &lt;strong&gt;project2/src/github.com/droundy/goopt&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the &lt;strong&gt;go-sqlite3&lt;/strong&gt; local subdirectory was set to &lt;strong&gt;project2/src/github.com/mattn/go-sqlite3&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;other-jenkins-settings:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Other Jenkins  Settings&lt;/h3&gt;
+
+&lt;p&gt;Here are some other useful setting for building Go projects on Jenkins:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;if you&amp;rsquo;re building 32 and 64 bit binaries (on different build servers), use the setting &lt;strong&gt;Restrict where this project can be run&lt;/strong&gt; with something like &amp;ldquo;32bit&amp;amp;&amp;amp;precise&amp;amp;&amp;amp;ubuntu&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;separate out your Go code from other languages - &lt;strong&gt;Advanced Project Options&lt;/strong&gt;, &lt;strong&gt;Use custom workspace&lt;/strong&gt;, &amp;ldquo;/var/lib/jenkins/workspace/go&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang - profiling libraries and GoSNMP for SNMP</title>
+      <link>http://localhost:1313/posts/golang-profiling-libraries-and-gosnmp-for-snmp/</link>
+      <pubDate>Mon, 03 Jun 2013 01:52:09 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/golang-profiling-libraries-and-gosnmp-for-snmp/</guid>
+      <description>
+
+&lt;p&gt;There is already a great article on &lt;a href=&#34;blog.golang.org/2011/06/profiling-go-programs.html&#34;&gt;Profiling Go Programs&lt;/a&gt;. However that article only discusses how to profile a standalone binary - what about a library?&lt;/p&gt;
+
+&lt;p&gt;For example, I&amp;rsquo;ve been working on the &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;GoSNMP SNMP library&lt;/a&gt;, here&amp;rsquo;s how I profiled it (it wasn&amp;rsquo;t obvious):&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]&lt;/p&gt;
+
+&lt;h1 id=&#34;produce-cpu-profiling-information-from-the-tests-this-part-was-well-documented:aa3324cd444d3308732887be1aa8bd8d&#34;&gt;produce cpu profiling information from the tests - this part was well documented&lt;/h1&gt;
+
+&lt;p&gt;% go test -cpuprofile cpu.out&lt;/p&gt;
+
+&lt;h1 id=&#34;compile-the-test-binary-to-pkg-test-but-do-not-run-it-from-go-help-test:aa3324cd444d3308732887be1aa8bd8d&#34;&gt;compile the test binary to pkg.test but do not run it (from &lt;code&gt;go help test&lt;/code&gt;)&lt;/h1&gt;
+
+&lt;h1 id=&#34;this-part-wasn-t-obvious:aa3324cd444d3308732887be1aa8bd8d&#34;&gt;this part wasn&amp;rsquo;t obvious&lt;/h1&gt;
+
+&lt;p&gt;% go test -c&lt;/p&gt;
+
+&lt;h1 id=&#34;now-run-pprof-using-go-teste-c-output:aa3324cd444d3308732887be1aa8bd8d&#34;&gt;now run pprof using &lt;code&gt;go teste -c&lt;/code&gt; output&lt;/h1&gt;
+
+&lt;h1 id=&#34;using-gosnmp-test-this-part-wasn-t-obvious:aa3324cd444d3308732887be1aa8bd8d&#34;&gt;using gosnmp.test - this part wasn&amp;rsquo;t obvious&lt;/h1&gt;
+
+&lt;p&gt;% go tool pprof gosnmp.test cpu.out
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Doing a memory profile was similar:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+% go test -memprofile mem.out
+% go test -c
+% go tool pprof gosnmp.test mem.out
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu - HowTo Recover Encrypted Home Directory</title>
+      <link>http://localhost:1313/posts/ubuntu-howto-recover-encrypted-home-directory/</link>
+      <pubDate>Mon, 03 Jun 2013 01:42:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/ubuntu-howto-recover-encrypted-home-directory/</guid>
+      <description>
+
+&lt;p&gt;There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below). These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.&lt;/p&gt;
+
+&lt;p&gt;Start by booting from an Ubuntu Live CD.&lt;/p&gt;
+
+&lt;h2 id=&#34;passwords:33ade79a5747fd03584f84a543a518de&#34;&gt;Passwords&lt;/h2&gt;
+
+&lt;p&gt;Three different &amp;ldquo;passwords&amp;rdquo; are referred to when recovering:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;boot password ie the password used when your laptop is first booted and the partitions are decrypted&lt;/li&gt;
+&lt;li&gt;user password ie your unix account password&lt;/li&gt;
+&lt;li&gt;mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn&amp;rsquo;t write down when prompted to do so&amp;hellip; See &amp;ldquo;Recovering Your Mount Passphrase&amp;rdquo; &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;partitions-and-disk-layout:33ade79a5747fd03584f84a543a518de&#34;&gt;Partitions and Disk Layout&lt;/h2&gt;
+
+&lt;p&gt;If you selected the default Ubuntu encryption setup, the partitions will be laid out like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/dev/sda1 * 2048 499711 248832 83 Linux
+/dev/sda2 501758 976771071 488134657 5 Extended
+/dev/sda5 501760 976771071 488134656 83 Linux
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;/dev/sda1 contains /boot ie kernel and grub&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;/dev/sda5 is an encrypted partition (crypto_LUKS) that contains LVM. The Logical Volumes will be for /root, /home and swap. /home will be encrypted with a second level of encryption if you chose &amp;ldquo;encrypt home directory&amp;rdquo; during installation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mounting-encrypted-lvm-partition:33ade79a5747fd03584f84a543a518de&#34;&gt;Mounting Encrypted LVM Partition&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;confirm /dev/sda5 is the correct partition [1]:&lt;/p&gt;
+
+&lt;p&gt;cryptsetup -v luksDump /dev/sda5&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;mount the encrypted partition containing the LVM volumes:&lt;/p&gt;
+
+&lt;p&gt;cryptsetup -v luksOpen /dev/sda5 sda5_crypt
+ vgdisplay
+ (you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)
+ lvdisplay | less
+ mkdir /mnt/home
+ mount -t ext4 /dev/vg/home /mnt/home&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mounting-encrypted-home-luks-vs-ecryptfs:33ade79a5747fd03584f84a543a518de&#34;&gt;Mounting Encrypted Home, LUKS vs eCryptfs&lt;/h2&gt;
+
+&lt;p&gt;The partition was encrypted with LUKS, and /home will be encrypted with a second level of encryption (eCryptfs) if you chose &amp;ldquo;encrypt home directory&amp;rdquo; during installation.&lt;/p&gt;
+
+&lt;p&gt;Note for future installs: you&amp;rsquo;d only want to have both if multiple people were using the same machine. Otherwise use only LUKS especially for laptops; eCryptfs is an extra hurdle during recovery and doesn&amp;rsquo;t give extra security. Also, using only LUKS is more secure than only encrypting your home directory using eCryptfs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;it will encrypt other things beside /home eg swap, /tmp&lt;/li&gt;
+&lt;li&gt;you&amp;rsquo;ll only type in your long LUKS passphrase occasionally (ie at reboot), whereas the eCryptfs password will be typed in every time you login or unlock the screen ie will be more vulnerable to shoulder-surfing, and more likely to be too short&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;However, eCryptfs does have some advantages (&lt;a href=&#34;http://www.privacydusk.com/tag/ecryptfs-vs-luks/):&#34;&gt;http://www.privacydusk.com/tag/ecryptfs-vs-luks/):&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All the cryptographic metadata is stored in the header of the file. This means that the encrypted file can be copied and moved from one location to another not leaving any metadata behind&lt;/li&gt;
+&lt;li&gt;Files can be encrypted with multiple keys so that multiple different users can have access to encrypted but shared files. You can have different files encrypted by different users and each user can access only his files&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;automated-approach-2:33ade79a5747fd03584f84a543a518de&#34;&gt;Automated Approach [2]&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;ldquo;remount&amp;rdquo; /mnt/home on home:
+umount /mnt/home
+mount -t ext4 /dev/vg/home /home&lt;/p&gt;
+
+&lt;h1 id=&#34;add-a-user-with-the-same-name-as-the-broken-system:33ade79a5747fd03584f84a543a518de&#34;&gt;add a user with the same name as the broken system&lt;/h1&gt;
+
+&lt;p&gt;adduser &amp;ndash;no-create-home sonia
+su sonia
+ecryptfs-mount-private&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;manual-approach-3:33ade79a5747fd03584f84a543a518de&#34;&gt;Manual Approach [3]&lt;/h2&gt;
+
+&lt;p&gt;The Ubuntu documentation on EncryptedPrivateDirectory has lots of information [4]. These commands are copied from there, in case the page moves or disappears.&lt;/p&gt;
+
+&lt;p&gt;(((
+sudo ecryptfs-add-passphrase &amp;ndash;fnek&lt;/p&gt;
+
+&lt;p&gt;Passphrase: (Enter the mount passphrase you recorded when you setup the mount&amp;ndash;this passphrase is different from your login passphrase.)&lt;/p&gt;
+
+&lt;p&gt;You should now get two lines looking like this:&lt;/p&gt;
+
+&lt;p&gt;Inserted auth tok with sig [9986ad986f986af7] into the user session keyring&lt;/p&gt;
+
+&lt;p&gt;Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)&lt;/p&gt;
+
+&lt;p&gt;mkdir /mnt/Private&lt;/p&gt;
+
+&lt;p&gt;mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private&lt;/p&gt;
+
+&lt;p&gt;Selection: 3 (use a passphrase key type)&lt;/p&gt;
+
+&lt;p&gt;Passphrase: (Enter the mount passphrase you recorded when you setup the mount&amp;ndash;this passphrase is different from your login passphrase.)&lt;/p&gt;
+
+&lt;p&gt;Selection: aes (use the aes cipher)&lt;/p&gt;
+
+&lt;p&gt;Selection: 16 (use a 16 byte key)&lt;/p&gt;
+
+&lt;p&gt;Enable plaintext passthrough: n&lt;/p&gt;
+
+&lt;p&gt;Enable filename encryption: y (This and the following options only apply if you are using filename encryption)&lt;/p&gt;
+
+&lt;p&gt;Filename Encryption Key (FNEK) Signature: (the value you wrote down from the second line above)
+)))&lt;/p&gt;
+
+&lt;h2 id=&#34;see-also:33ade79a5747fd03584f84a543a518de&#34;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;[1] &lt;a href=&#34;http://blog.miketoscano.com/?p=72&#34;&gt;http://blog.miketoscano.com/?p=72&lt;/a&gt;
+[2] &lt;a href=&#34;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&#34;&gt;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&lt;/a&gt;
+[3] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory&lt;/a&gt;
+[4] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git bisect run - example</title>
+      <link>http://localhost:1313/posts/git-bisect-run-example/</link>
+      <pubDate>Thu, 14 Mar 2013 23:55:06 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/git-bisect-run-example/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html&#34;&gt;Git bisect&lt;/a&gt; is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&amp;rsquo;s an example of automating the process using &lt;strong&gt;git bisect run&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;tl-dr:1dca976519824c917954d37e9d104a12&#34;&gt;tl;dr&lt;/h2&gt;
+
+&lt;p&gt;Using &lt;strong&gt;git bisect run&lt;/strong&gt; is easy if you&amp;rsquo;ve make small atomic commits and you have good tests. &lt;strong&gt;run&lt;/strong&gt; makes a large debug easier (compared to manually doing &lt;strong&gt;git bisect good&lt;/strong&gt; and &lt;strong&gt;git bisect bad&lt;/strong&gt;) - you&amp;rsquo;re less likely to make errors due to boredom. And run means you can use an iterative process - use rebase to split bad commits then just run again.&lt;/p&gt;
+
+&lt;h2 id=&#34;example:1dca976519824c917954d37e9d104a12&#34;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was &lt;strong&gt;good&lt;/strong&gt;, but I&amp;rsquo;d added more features since good and now results were &lt;strong&gt;bad&lt;/strong&gt;. The first step was to write a shell script to be called from &lt;strong&gt;git bisect run&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
+% cat bisect.sh
+#!/bin/bash&lt;/p&gt;
+
+&lt;h1 id=&#34;copy-this-to-before-running-with-git-bisect-run-bisect-sh:1dca976519824c917954d37e9d104a12&#34;&gt;copy this to ~ before running with &lt;code&gt;git bisect run ~/bisect.sh&lt;/code&gt;&lt;/h1&gt;
+
+&lt;p&gt;cp ~/Makefile .
+make clean&lt;/p&gt;
+
+&lt;h1 id=&#34;make-modifies-manpage-output-so-stash-after-build:1dca976519824c917954d37e9d104a12&#34;&gt;make modifies manpage output, so stash after build&lt;/h1&gt;
+
+&lt;p&gt;if make &amp;amp;&amp;gt; /dev/null ; then
+    git stash
+    git stash clear
+else
+    git stash
+    git stash clear
+    exit 125
+fi&lt;/p&gt;
+
+&lt;p&gt;sudo cat /var/tmp/empty &amp;gt; /var/log/abc/abc-poller.log
+sudo ./abc-poller &amp;ndash;tmp &amp;ndash;once -d 2 -c 150 || exit 125
+echo &amp;ldquo;=== poller finished&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;percent=&lt;code&gt;godir=/var/tmp/data/abcmon/poll_queue/new ~/checker | \
+  tail -1 | awk &#39;{print $5}&#39; | awk -F. &#39;{print $1}&#39;&lt;/code&gt;
+echo &amp;ldquo;=== percent is $percent&amp;rdquo;
+(( percent &amp;lt; 5 ))
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Things that make writing the test script easier:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;first get it working outside of &lt;strong&gt;git bisect run&lt;/strong&gt; - usually means echoing results along the way&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;already having a test suite that produces a quantified pass/fail output, In my case the I had already written the checker program, whose last line of output contained a &amp;ldquo;percentage failure&amp;rdquo; figure&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next step was having an abbreviated log of commits to refer to:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
+% git log &amp;ndash;oneline
+f00f232 sql.go - better debugging       # bad&lt;br /&gt;
+9780d44 dummy .gitignore, so out dir preserved
+0de0796 Makefile for nsch1abcs01
+a2f6c96 defaults - 20 workers, udp 15
+b8ee3d9 GOMAXPROCS()
+04f21ba start v0.0.2
+dbc6a60 Makefile: Jenkins as default for env vars
+557a5e3 more work on stats
+ef6a453 remove excessive debugging
+ccc4644 remove file buffering - wasn&amp;rsquo;t writing..???
+98bf4b1 stats write failing
+9a9682d move type queue_t struct
+467aeed buffered writes for queue file
+148a8cc stats: + device_run, device_ok
+c61be42 done chan *Stats_t; calculate_value() bool
+0e41461 debugging - print out device_id as %5s
+7cbe167 default workers 5000, correct stop/start commands
+544e8d7 gather statistics
+6990cf2 rename data chan to device_id
+5e8562b rename sql -&amp;gt; sqlconn; global var
+fd52d89 remove dead code
+4d7b9b1 device_for() - err if count != 1
+6ceb305 deb: fail if version main.go isn&amp;rsquo;t same changelog
+5ce1855 deb: rules producing abc-poller_0.0.1_amd64.deb
+db5bff4 deb: cleaned up Makefile, roffs
+76674c2 JSON -&amp;gt; SQL; version 0.0.1
+4cf198e deb: basic removal of 64 references
+d980f26 deb: rename 64 to vanilla
+b933570 deb: remove 32 bit stuff
+970bd82 current debug level is 2; adjust output
+70f8921 Revert &amp;ldquo;deb build - don&amp;rsquo;t init, cron while testing&amp;rdquo;
+855ce00 default debug is 2; misc tidy
+f3d80e1 remove timeoutOpt - no longer used
+48ced38 misc tidys before release
+a3fe13c runonceOpt, revert cycling code  # good
+24cd998 use passed in udpOpt
+5ca1830 remove stash/sender.old.go
+06b9566 remove gsnmpgo; use gosnmp
+bffd430 rules: add note about &amp;ldquo;too many open files&amp;rdquo;
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Mark bad and good, start the run, go and have a coffee :-)&lt;/p&gt;
+
+&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
+% git bisect start f00f232 a3fe13c
+% git bisect run ~/bisect.sh&lt;/p&gt;
+
+&lt;h1 id=&#34;lots-of-output:1dca976519824c917954d37e9d104a12&#34;&gt;lots of output&lt;/h1&gt;
+
+&lt;p&gt;[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;I get the result that the ominously named &lt;strong&gt;557a5e3 more work on stats&lt;/strong&gt; is the first bad commit - I remember it as one of those large &amp;ldquo;kitchen sink&amp;rdquo; commits done at the end of the day. So &amp;ldquo;first rule of fightclub git&amp;rdquo; remembered - &lt;strong&gt;always do small atomic commits&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have a useful shell function &lt;strong&gt;gri()&lt;/strong&gt; - I used that to interactively rebase and break up 557a5e3 into many small commits:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
+gri () {
+  git rebase -i HEAD~${1:-7}
+}
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;After rebasing git log looked like this - notice the many small commits named &amp;ldquo;bisect1&amp;rdquo; etc:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
+382b3ee defaults - 20 workers, udp 15
+11db314 GOMAXPROCS()
+4b547ea start v0.0.2
+c92feef Makefile: Jenkins as default for env vars
+8fcc595 bisect6: calc/noncalc
+ad3a18f bisect5: tweak debug msgs
+311bb8d bisect4: mv stats init
+957c234 bisect3: remove stats from send_gosnmp()
+3c01d62 bisect2: use Add(); Calcs/NonCalcs
+947cb27 bisect1: move Stats_t; Add()
+ef6a453 remove excessive debugging
+ccc4644 remove file buffering - wasn&amp;rsquo;t writing..???
+98bf4b1 stats write failing
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s the real win of writing bisect.sh - you can just keep rebasing and running until you&amp;rsquo;ve narrowed down the bad code to a few lines:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
+=== poller finished
+=== percent is 49
+947cb27fd57642dc545ee23090d7ae8fd8b14b3f is the first bad commit
+commit 947cb27fd57642dc545ee23090d7ae8fd8b14b3f
+Author: Sonia Hamilton &lt;a href=&#34;mailto:sonia@snowfrog.net&#34;&gt;sonia@snowfrog.net&lt;/a&gt;
+Date:   Thu Mar 14 10:02:42 2013 +1100&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bisect1: move Stats_t; Add()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;I do another interactive rebase, fix the logic error, and then HEAD is good.&lt;/p&gt;
 </description>
     </item>
     

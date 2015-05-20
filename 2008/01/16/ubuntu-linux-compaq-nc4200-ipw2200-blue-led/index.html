@@ -1,0 +1,145 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Ubuntu Linux Compaq nc4200 ipw2200 blue LED </title>
+    <link rel="canonical" href="http://localhost:1313/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Ubuntu Linux Compaq nc4200 ipw2200 blue LED</h1>
+        <section id="main">
+          <h5 id="date"> Wed Jan 16, 2008 </h5>
+          <p>A couple of notes on working with the ipw2200 wireless card on a Compaq nc4200 running Ubuntu (7.04 and 7.10), including how to get the blue LED to work:</p>
+
+<ul>
+<li>check the module has been loaded: <strong>lsmod | grep ipw</strong> &#8211; should display ipw2200</li>
+<li>check for any errors on boot, especially &#8216;radio off&rsquo;: <strong>dmesg | grep ipw</strong></li>
+<li>also check if radio is off via <strong>iwconfig eth1</strong></li>
+<li>remember to turn the radio on via the small hardware switch on the left side (just past the usb slot)</li>
+<li>get the blue status LED to display by creating a file called <strong>/etc/modprobe.d/ipw2200 **with contents **options ipw2200 led=1</strong> (the blue LED will then display after a reboot)</li>
+</ul>
+
+<p>Notes taken from Ubuntu Forums, &#8220;<a href="http://ubuntuforums.org/showthread.php?t=360735">Compaq nc4200 ipw2200 wireless card is off</a>&#8220;.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/">Using ndiswrapper with Ubuntu 64 on a Presario V6000 with a Dell 1390 mini-PCI wireless card</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2008/01/11/how-to-recognise-a-good-programmer-and-system-adminstrator/"> &nbsp; how to recognise a good programmer (and system adminstrator)</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

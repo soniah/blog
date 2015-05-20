@@ -1,0 +1,206 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Linux ACLs </title>
+    <link rel="canonical" href="http://localhost:1313/2007/10/22/linux-acls/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Linux ACLs</h1>
+        <section id="main">
+          <h5 id="date"> Mon Oct 22, 2007 </h5>
+          
+
+<p>Linux <strong>ACL</strong>s (Access Control Lists) can be a bit difficult at first &#8211; here&#8217;s my understanding of how they work:</p>
+
+<p><strong>Commands:</strong></p>
+
+<ul>
+<li>There&#8217;s only 2 commands needed &#8211; <strong><em>getfacl</em></strong> and <strong><em>setfacl</em></strong> &#8211; display and change acls</li>
+</ul>
+
+<p><strong>Files:</strong></p>
+
+<p>When you do a <strong><em>getfacl</em></strong> on a file, you&#8217;ll get this sort of entry:<br />
+`<br />
+$ ls -al index.html<br />
+-rw-rw-r&ndash;+ 1 root siteadm 0 Nov 30  2005 index.html<br />
+.<br />
+$ getfacl &ndash;all-effective index.html<br /></p>
+
+<h1 id="file-index-html-br:edaa2ed3cbd523740d057998d3747d01">file: index.html<br /></h1>
+
+<h1 id="owner-root-br:edaa2ed3cbd523740d057998d3747d01">owner: root<br /></h1>
+
+<h1 id="group-siteadm-br:edaa2ed3cbd523740d057998d3747d01">group: siteadm<br /></h1>
+
+<p>user::rw-<br />
+user:apache:rw-                 #effective:rw-<br />
+group::r&ndash;                      #effective:r&ndash;<br />
+mask::rw-<br />
+other::r&ndash;<br />
+`</p>
+
+<ul>
+<li><p>Notice the</p>
+
+<p><strong>+</strong> at the end of the <strong><em>ls -al</em></strong> entry &#8211; indicating <strong><em>acls</em></strong>, and the use of the <strong>&#8211;all-effective</strong> option with <strong>getfacl</strong></p></li>
+
+<li><p>The <em>first</em> and <em>last</em> entries <em>always always always</em> correspond to normal user/owner and other file permissions eg user/owner has read/write and other has read:
+<code>&lt;br /&gt;
+user::rw-      -&gt;    -rw (for user/owner)&lt;br /&gt;
+other::r--    -&gt;    -rw (for other)&lt;br /&gt;
+</code></p></li>
+
+<li><p>For applications that <strong><em>do</em></strong> understand acls, permissions are exactly as listed in the middle bunch of entries, masked by the mask entry ie the user apache will get rw-, the group (siteadm in this case) will get r&#8211;:
+<code>&lt;br /&gt;
+user:apache:rw-&lt;br /&gt;
+group::r--&lt;br /&gt;
+mask::rw-&lt;br /&gt;
+</code></p></li>
+
+<li><p>For applications that <strong><em>don&#8217;t</em></strong> understand acls, permissions correspond to the <strong><em>mask</em></strong> ie rw-, to ensure that non-acl aware applications will keep working. Notice how the ls -al output displays the mask entry in the group area:
+<code>&lt;br /&gt;
+-rw-rw-r--+ 1 root siteadm 0 Nov 30  2005 index.html&lt;br /&gt;
+mask::rw-&lt;br /&gt;
+</code></ul></p></li>
+</ul>
+
+<p>To change acls you use the <strong><em>setacl</em></strong> command, which is pretty straighforward. For example:<br />
+<code>&lt;br /&gt;
+$ setfacl -m u:apache:rw- foo.txt&lt;br /&gt;
+$ setfacl -m user:jan:rwx,group:mysql:rwx bar.txt&lt;br /&gt;
+</code><br />
+<strong>Directories:</strong></p>
+
+<p>Acls need to be considered for directories <em>themselves</em> (eg can user fred delete a particular directory?) and for all objects <em>underneath</em> a directory.</p>
+
+<ul>
+<li>for directories <em>themselves,</em> setting and getting acls is just the same as for files</li>
+<li>for all objects underneath a directory, you have to consider the &#8220;Default ACL&#8221; &#8211; a special kind of acl that defines the access permissions of all <em>new</em> objects created under a folder. Note &#8211; it doesn&#8217;t effect <em>existing</em> objects!</li>
+<li><strong><em>setfacl</em></strong> uses the <strong><em>-d flag</em></strong> to create default acl entries</li>
+<li>the same rules apply for all <strong>default</strong> entries as they do for normal entries: ie the first and last (user and other) entries are directly used, the middle bunch of entries interact with the mask, etc, etc.</li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/10/23/mysql-replication-notes/">MySQL Replication Notes</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/10/15/mysql-security/"> &nbsp; MySQL Security</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

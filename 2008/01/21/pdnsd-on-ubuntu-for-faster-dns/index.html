@@ -1,0 +1,172 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> pdnsd on Ubuntu for faster dns </title>
+    <link rel="canonical" href="http://localhost:1313/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">pdnsd on Ubuntu for faster dns</h1>
+        <section id="main">
+          <h5 id="date"> Tue Jan 22, 2008 </h5>
+          <p>Whilst traveling through Mexico and Guatemala, I&#8217;ve had various problems with slow and/or faulty dns resolution. Here&#8217;s how to install pdnsd, in order to cache dns entries locally and speed up internet access in general (whether or not you&#8217;re in Guatemala&#8230;):</p>
+
+<ul>
+<li><strong>LANG= ; sudo apt-get update; sudo aptitude install pdnsd</strong></li>
+
+<li><p><strong>sudo vi /etc/pdnsd.conf</strong>, add the following lines:
+<code>&lt;br /&gt;
+server {&lt;br /&gt;
+label=OpenDNS;&lt;br /&gt;
+ip=208.67.222.222;&lt;br /&gt;
+ip=208.67.220.220;&lt;br /&gt;
+timeout=30;&lt;br /&gt;
+interval=30;&lt;br /&gt;
+uptest=ping;&lt;br /&gt;
+ping_timeout=50;&lt;br /&gt;
+purge_cache=off;&lt;br /&gt;
+}&lt;br /&gt;
+</code></p></li>
+
+<li><p>in the same file, comment out the resolvconf server:
+<code>&lt;br /&gt;
+/*&lt;br /&gt;
+server {&lt;br /&gt;
+label=&quot;resolvconf&quot;;&lt;br /&gt;
+}&lt;br /&gt;
+*/&lt;br /&gt;
+</code></p></li>
+
+<li><p><strong>sudo vi /etc/dhcp3/dhclient.conf</strong>, and uncomment the line that says <strong>prepend domain-name-servers 127.0.0.1</strong>;</p></li>
+
+<li><p>to prevent rebooting, <strong>sudo vi /etc/resolv.conf</strong> and insert as the first line <strong>nameserver 127.0.0.1</strong>. Otherwise just reboot</p></li>
+
+<li><p><strong>sudo /etc/init.d/pdnsd restart</strong> (if not rebooting)</p></li>
+
+<li><p>check name resolution using the host command eg <strong>host google.com</strong> should return about 6 lines of output &#8211; 3 lines saying google.com has address&#8230; and 3 lines saying google.mail is handled by&#8230;</p></li>
+</ul>
+
+<p>Taken initially from bmt&#8217;s excellent <a href="http://ubuntuforums.org/showthread.php?t=331850">article</a> on Ubuntu Forums; I&#8217;ve written my own article as I want to add my own customisation as I understand the interactions between dhclient, resolvconf and NetworkManager. See also <a href="http://www.debian-administration.org/articles/390">Steve&#8217;s article</a> on Debian Administration.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2008/01/25/troubleshooting-ubuntu-networkmanager/">Troubleshooting Ubuntu NetworkManager</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/"> &nbsp; Using ndiswrapper with Ubuntu 64 on a Presario V6000 with a Dell 1390 mini-PCI wireless card</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

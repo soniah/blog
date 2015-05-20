@@ -1,0 +1,237 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Telstra evdo MiniMax on Ubuntu </title>
+    <link rel="canonical" href="http://localhost:1313/2006/03/09/telstra-evdo-minimax-on-ubuntu/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Telstra evdo MiniMax on Ubuntu</h1>
+        <section id="main">
+          <h5 id="date"> Fri Mar 10, 2006 </h5>
+          
+
+<p>A while ago I bought a <a href="http://www.telstra.com/countrywide/telstramobility/default.asp?sn=9&amp;vp=1322&amp;SMSESSION=NO">account</a> from Telstra for roaming wireless on my laptop &#8211; it uses a Maxon MiniMax <a href="http://www.maxon.com.au/products/consumers/consumers-minimax-home.asp">MM-5500U</a> to connect on the CDMA phone network. I got this rather than other wireless products as I was going to be doing some work in Perth, and this was the only network that had coverage.</p>
+
+<p>Getting it going on Ubuntu Breezy was really easy, thanks to Quozl&#8217;s Maxon <a href="http://quozl.linux.org.au/mm-5100/">page</a>:</p>
+
+<ul>
+<li>I plugged it in, and the <strong>cdc_acm</strong> module was automatically loaded</li>
+<li>I ran <strong>sudo pppconfig</strong>, entered these settings:
+
+<ul>
+<li>connection name: evdo (or whatever you prefer)</li>
+<li>static dns: 203.50.2.71, 139.130.4.4 (more reliable &#8211; sometimes dynamic doesn&#8217;t work&#8230;)</li>
+<li>authentication: pap</li>
+<li>user: user@telstra.pcpack</li>
+<li>password: telstra</li>
+<li>speed: default, tone</li>
+<li>phone number: 777</li>
+<li>config method: manual</li>
+<li>tty: /dev/ttyACM0</li>
+</ul></li>
+<li>in pppconfig, I went into the advanced settings:
+
+<ul>
+<li>modem initialisation string of <strong>AT+CRM=150</strong></li>
+<li>add-user: sonia (or whoever can <strong>pon</strong> connect without sudo)</li>
+</ul></li>
+<li>saved my config, typed in <strong>pon evdo</strong>, and was on</li>
+</ul>
+
+<p>A few things to be aware of:</p>
+
+<ul>
+<li>I&#8217;ve found the MiniMax works best with the extra USB powerboost cable, even in the middle of a suburban area</li>
+<li>the default route setting in ppp didn&#8217;t work when I had an existing ethernet connection &#8211; I don&#8217;t know if this is a <em>feature</em> of ppp</li>
+</ul>
+
+<p>Written using my laptop connected over Telstra Evdo :-)</p>
+
+<h3 id="ip-configuration-under-windows:980731129fec94d16098c082fed96508">IP Configuration Under Windows</h3>
+
+<pre>Windows IP Configuration
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+    Connection-specific DNS Suffix  . :
+    IP Address. . . . . . . . . . . . : 192.168.133.1
+    Subnet Mask . . . . . . . . . . . : 255.255.255.0
+    Default Gateway . . . . . . . . . :
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+    Connection-specific DNS Suffix  . :
+    IP Address. . . . . . . . . . . . : 192.168.186.1
+    Subnet Mask . . . . . . . . . . . : 255.255.255.0
+    Default Gateway . . . . . . . . . :
+
+PPP adapter Maxon MiniMax Connection:
+
+    Connection-specific DNS Suffix  . :
+    IP Address. . . . . . . . . . . . : 10.244.62.222
+    Subnet Mask . . . . . . . . . . . : 255.255.255.255
+    Default Gateway . . . . . . . . . : 10.244.62.222</pre>
+
+<h3 id="route-under-windows:980731129fec94d16098c082fed96508">Route Under Windows</h3>
+
+<pre>===========================================================================
+Interface List
+0x1 ........................... MS TCP Loopback interface
+0x2 ...00 50 56 c0 00 08 ...... VMware Virtual Ethernet Adapter for VMnet8
+0x3 ...00 50 56 c0 00 01 ...... VMware Virtual Ethernet Adapter for VMnet1
+0x4 ...00 12 f0 b6 e2 02 ...... Intel(R) PRO/Wireless
+  2915ABG Network Connection - Packet Scheduler Miniport
+0x10006 ...00 0f b0 77 5f 41 ...... Broadcom NetXtreme
+  Gigabit Ethernet - Packet Scheduler Miniport
+0x20007 ...00 53 45 00 00 00 ...... WAN (PPP/SLIP) Interface
+===========================================================================
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0    10.244.62.222   10.244.62.222   1
+    10.244.62.222  255.255.255.255        127.0.0.1       127.0.0.1   50
+   10.255.255.255  255.255.255.255    10.244.62.222   10.244.62.222   50
+        127.0.0.0        255.0.0.0        127.0.0.1       127.0.0.1   1
+    144.135.83.69  255.255.255.255    10.244.62.222   10.244.62.222   1
+    192.168.133.0    255.255.255.0    192.168.133.1   192.168.133.1   20
+    192.168.133.1  255.255.255.255        127.0.0.1       127.0.0.1   20
+  192.168.133.255  255.255.255.255    192.168.133.1   192.168.133.1   20
+    192.168.186.0    255.255.255.0    192.168.186.1   192.168.186.1   20
+    192.168.186.1  255.255.255.255        127.0.0.1       127.0.0.1   20
+  192.168.186.255  255.255.255.255    192.168.186.1   192.168.186.1   20
+        224.0.0.0        240.0.0.0    192.168.133.1   192.168.133.1   20
+        224.0.0.0        240.0.0.0    192.168.186.1   192.168.186.1   20
+        224.0.0.0        240.0.0.0    10.244.62.222   10.244.62.222   1
+  255.255.255.255  255.255.255.255    10.244.62.222               4   1
+  255.255.255.255  255.255.255.255    10.244.62.222           10006   1
+  255.255.255.255  255.255.255.255    10.244.62.222   10.244.62.222   1
+  255.255.255.255  255.255.255.255    192.168.133.1   192.168.133.1   1
+  255.255.255.255  255.255.255.255    192.168.186.1   192.168.186.1   1
+Default Gateway:     10.244.62.222
+===========================================================================
+Persistent Routes:
+  None</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/">Seting up an LDAP address book on Ubuntu</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2006/03/03/ubuntuliteorg/"> &nbsp; ubuntulite.org</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

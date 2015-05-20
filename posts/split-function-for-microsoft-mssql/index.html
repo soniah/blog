@@ -1,0 +1,195 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Split() function for Microsoft MSSQL </title>
+    <link rel="canonical" href="http://localhost:1313/posts/split-function-for-microsoft-mssql/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Split() function for Microsoft MSSQL</h1>
+        <section id="main">
+          <h5 id="date"> Tue Jan 7, 2014 </h5>
+          
+
+<p>Microsoft MSSQL doesn&rsquo;t have a split() function (like in <a href="http://ruby-doc.org/core-1.9.3/String.html#method-i-split">Ruby</a>, <a href="http://perldoc.perl.org/functions/split.html">Perl</a>), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item.</p>
+
+<p>[sourcecode lang=&ldquo;sql&rdquo;]
+CREATE FUNCTION [dbo].<a href="@string varchar(MAX">split</a>,
+    @delimiter CHAR(1),
+    @pos INT
+)
+RETURNS varchar(255)
+AS
+BEGIN
+    DECLARE @start INT, @end INT, @count INT
+    SELECT @start = 1, @end = CHARINDEX(@delimiter, @string), @count = 1
+    WHILE @start &lt; LEN(@string) + 1 BEGIN
+        IF @end = 0
+            SET @end = LEN(@string) + 1</p>
+
+<pre><code>    IF @count = @pos
+        RETURN SUBSTRING(@string, @start, @end - @start)
+
+    SET @start = @end + 1 
+    SET @end = CHARINDEX(@delimiter, @string, @start)
+    SET @count = @count + 1 
+
+END 
+RETURN '' -- not found
+</code></pre>
+
+<p>END</p>
+
+<p>select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 0)
+select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 1)
+select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 2)
+select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 3)
+select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 4)</p>
+
+<hr />
+
+<pre><code>               # 0: zero length string
+</code></pre>
+
+<h2 id="1-row-s-affected:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
+
+<p>aa                 # 1</p>
+
+<h2 id="1-row-s-affected-1:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
+
+<p>bb                 # 2</p>
+
+<h2 id="1-row-s-affected-2:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
+
+<p>cc                 # 3</p>
+
+<h2 id="1-row-s-affected-3:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
+
+<pre><code>               # 4: zero length string
+</code></pre>
+
+<p>(1 row(s) affected)
+[/sourcecode]</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/posts/setup-arduino-on-debian/">Setup Arduino on Debian</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/"> &nbsp; MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

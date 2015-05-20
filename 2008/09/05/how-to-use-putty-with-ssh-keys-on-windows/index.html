@@ -1,0 +1,202 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> How to use putty with ssh keys on Windows </title>
+    <link rel="canonical" href="http://localhost:1313/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">How to use putty with ssh keys on Windows</h1>
+        <section id="main">
+          <h5 id="date"> Fri Sep 5, 2008 </h5>
+          <p><a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a> is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like <a href="http://monkey.org/~dugsong/dsniff/">dsniff</a>). Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&#8217;ve only ever used Windows).</p>
+
+<p>So here&#8217;s how you do it using putty&#8230;</p>
+
+<ul>
+<li>download putty.exe, pscp.exe, pageant.exe, and puttygen.exe from <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">chiark.greenend.org.uk</a>, and put them into an easily accessible folder (eg My Documents\putty, or c:\putty if you want to use putty from the command line)</li>
+</ul>
+
+<p><strong>Generating your SSH Key</strong></p>
+
+<p>If you need to generate a key, do this first. If you have been supplied with a key, skip down to <strong>Changing your Password</strong> and <strong>Using your SSH Key</strong> (below).</p>
+
+<ul>
+<li>run puttygen.exe to generate your key, and save it in the putty folder:
+
+<ul>
+<li>for <strong>Type of Key to generate</strong>, choose SSH2-DSA, 2048 bits, click <strong>Generate</strong>, and wave your mouse around to generate randomness</li>
+<li>once finished generating, put your name in the <strong>comment</strong> (eg firstname.lastname)</li>
+<li>put a good password on your key in the <strong>Key Passphrase **field (and repeat in the **confirm</strong> field)</li>
+<li>click <strong>Save Public Key</strong>, save to putty folder; call the file firstname.lastname</li>
+<li>click <strong>Save Private Key</strong>, save to putty folder; call the file firstname.lastname (.ppk extension will be added)</li>
+<li>your Linux sysadmin will have asked you to provide them with <strong>your public key</strong>, and this is where problems come up. Putty uses a different key format than OpenSSH, so don&#8217;t send the public key file from the putty folder. Instead, paste into an email the field called <strong>Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you&#8217;ve accidently sent the putty format file, you can re-run puttygen.exe, click the **Load</strong> button to load your existing private key, and then copy and paste the OpenSSH format into an email.</li>
+</ul></li>
+</ul>
+
+<p><a href="http://blog.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png"><img class="alignnone size-full wp-image-155" title="putty_openssh" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png" alt="" width="480" height="467" /></a></p>
+
+<p><strong>Changing the Password on your SSH Key</strong></p>
+
+<ul>
+<li>run <strong>puttygen.exe</strong>, and load your key by clicking the <strong>Load</strong> button and browsing to your private key (the file without the .ppk extension). You will be prompted for your old password when loading the key</li>
+<li>put in a new password in the two passphrase fields</li>
+<li>click on <strong>Save private key</strong> &#8211; save it on top of your existing private key</li>
+</ul>
+
+<p><strong>Using Your SSH Key:</strong></p>
+
+<ul>
+<li>if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &#8216;load your key&#8217;</li>
+<li>once your sysadmin has setup your account, there&#8217;s three ways you can use your key
+
+<ul>
+<li>the <strong>painful</strong> way. Run putty.exe, enter the hostname/ip, put your username in <strong>Connection, Data</strong>,** Auto-login username<strong>, load your key in **Connection, SSH, Auth</strong>, <strong>Private key file for authentication</strong>, then click <strong>Open</strong> to connect</li>
+<li>the <strong>better</strong> way &#8211; caching your key in memory. Run pageant.exe &#8211; you&#8217;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). <a href="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png"><img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" /></a> Right click on this icon, choose <strong>Add Key</strong>, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the <strong>Saved Sessions</strong> field, put your username in <strong>Connection, Data</strong>,** Auto-login username<strong>, then click the **Save</strong> button. You can then right click on the pageant icon, <strong>Saved Sessions</strong>, choose your saved session, and rapidly login to your target system</li>
+<li>the <strong>best</strong> way &#8211; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)</li>
+</ul></li>
+</ul>
+
+<p><strong>Troubleshooting</strong></p>
+
+<p>From experience, I&#8217;ve found most problems connecting with ssh servers come from network/firewall settings:</p>
+
+<ul>
+<li>check basic connectivity using the ping command &#8211; Start, Run, cmd, ping 1.2.3.4</li>
+
+<li><p>check a firewall isn&#8217;t blocking port 22 (ssh) by trying to telnet on port 22 &#8211; Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
+<pre>telnet 1.2.3.4 22
+Trying 1.2.3.4&hellip;
+Connected to foo.bar.com.au.
+Escape character is &lsquo;^]&rsquo;.
+SSH-1.99-OpenSSH_3.9p1</pre></p></li>
+
+<li><p>if using *nix, use <strong>ssh -vvv</strong> to get more verbose output &#8211; often you can see why the key exchange is failing</p></li>
+</ul>
+
+<p><strong>Next steps&#8230;</strong></p>
+
+<p>After using putty on Windows for a while, you may want to investigate <a href="http://www.cygwin.com/">Cygwin</a> &#8211; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> with ssh is handy &#8211; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my <a href="http://blog.snowfrog.net/tag/ssh/">other posts on ssh tools</a>.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/">Ruby on Rails – Foreign Key Constraints in MySQL</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2008/09/04/useful-tool-socat/"> &nbsp; useful tool – socat</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

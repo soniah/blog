@@ -1,0 +1,163 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> tcpdump notes </title>
+    <link rel="canonical" href="http://localhost:1313/2007/11/11/tcpdump-notes/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">tcpdump notes</h1>
+        <section id="main">
+          <h5 id="date"> Mon Nov 12, 2007 </h5>
+          <p>Examples:</p>
+
+<pre class="brush: bash; title: ; notranslate" title="">tcpdump host 172.26.24.58 and (port 20 or port 21)
+tcpdump host 172.26.24.58 and not arp
+tcpdump -s0 -w foo -i eth0 # whole packet not 96 bytes, write to file foo, listen on eth0)
+tcpdump -s 0 -i eth6 -w snmpget.pcap host 1.2.3.4 and port 161 # capture snmp traffic
+</pre>
+
+<p>Three Way Handshake (from</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment">Wikipedia</a>):</p>
+
+<ol>
+<li>The initiating host (client) sends a synchronization packet (SYN flag set to 1) to initiate a connection. It sets the packet&#8217;s sequence number to a random value <span class="texhtml"><em>x</em></span>.</li>
+<li>The other host receives the packet, records the sequence number <span class="texhtml"><em>x</em></span> from the client, and replies with an acknowledgment and synchronization (SYN-ACK). The Acknowledgment is a 32-bit field in TCP segment header. It contains the next sequence number that this host is expecting to receive <span class="texhtml">(<em>x</em> + 1)</span>. The host also initiates a return session. This includes a TCP segment with its own initial Sequence Number of value <span class="texhtml"><em>y</em></span>.</li>
+<li>The initiating host responds with the next Sequence Number <span class="texhtml">(<em>x</em> + 1)</span> and a simple Acknowledgment Number value of <span class="texhtml"><em>y</em> + 1</span>, which is the Sequence Number value of the other host + 1.</li>
+</ol>
+
+<p>This ssh example:</p>
+
+<p>soniah.local.36126 &gt; 172.31.144.98.ssh: S <strong>4193395019</strong>:4193395019(0)<br />
+win 5840 <mss 1460,sackOK,timestamp 3073372 0,nop,wscale 6></p>
+
+<p>172.31.144.98.ssh &gt; soniah.local.36126: S 4235467031:4235467031(0)<br />
+ack <strong>4193395020</strong> win 5792 <mss 1460,sackOK,timestamp 1343461014 3073372,nop,wscale 2></p>
+
+<p>soniah.local.36126 &gt; 172.31.144.98.ssh: . ack 1 win 92 <nop,nop,timestamp 3073372 1343461014></p>
+
+<p>The first line contains a SYN (S) followed by a sequence number of <strong>&#8230;19</strong>. The second line contains a SYN <strong>S</strong> followed by an <strong>ack</strong> incremented by 1 to <strong>&#8230;20</strong>. The third line contains an <strong>ack</strong>, but tcpdump has renumbered it to 1 to make the subsequent packets easier to follow.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/11/14/expect-notes/">expect notes</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/11/08/howto-display-home-icon-on-desktop-in-ubuntu/"> &nbsp; howto display home icon on desktop in Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

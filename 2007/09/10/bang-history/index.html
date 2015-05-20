@@ -1,0 +1,214 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> bang history </title>
+    <link rel="canonical" href="http://localhost:1313/2007/09/10/bang-history/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">bang history</h1>
+        <section id="main">
+          <h5 id="date"> Tue Sep 11, 2007 </h5>
+          <p>There are three fields (separated by colons) that can be manipulated using the bang history command:</p>
+
+<p><code>EventDesignator:WordDesignator:Modifier</code></p>
+
+<p><strong>Event Designator</strong></p>
+
+<p>An event designator is a reference to a command line entry in the history list &#8211; <code>man bash</code> for more.</p>
+
+<p><code>!n</code> &#8211; Refer to command line n.<br />
+<code>!-n</code> &#8211; Refer to the current command line minus n.<br />
+<code>!!</code> &#8211; Refers to the previous command (synonym for ‘!-1) &#8211; useful if you after typing a command you release you need to add sudo: <tt>vi /etc/apt/source.list, error, sudo !!</tt></p>
+
+<p><em>For example:</em><br />
+<code>&lt;br /&gt;
+$ history | tail -3&lt;br /&gt;
+195  echo foo&lt;br /&gt;
+196  echo bar&lt;br /&gt;
+197  history | tail -3&lt;br /&gt;
+$ !195&lt;br /&gt;
+echo foo&lt;br /&gt;
+foo&lt;br /&gt;
+$ !-3&lt;br /&gt;
+echo bar&lt;br /&gt;
+bar</code></p>
+
+<p><strong>Word Designator</strong></p>
+
+<p>Word designators are used to select desired words from the event- <code>man bash</code> for more. An event designator such as !! is followed by a colon then a word designator.</p>
+
+<p><code>Numbers</code>, where 0 is the command name and 1 the first argument, 2 the second arg, etc<br />
+<code>*</code> for everything except the command name<br />
+<code>^</code> for the first argument, $ for the last argument<br />
+<code>x-y</code> for a range, where x and y can be numbers or ^,$<br />
+<code>-y, x*, x-</code> and other combinations</p>
+
+<p><em>For example:</em><br />
+<code>&lt;br /&gt;
+$ echo foo bar qux&lt;br /&gt;
+foo bar qux&lt;br /&gt;
+$ echo !!:0&lt;br /&gt;
+echo echo&lt;br /&gt;
+echo&lt;br /&gt;
+$ echo foo bar qux&lt;br /&gt;
+foo bar qux&lt;br /&gt;
+$ echo !!:1-2&lt;br /&gt;
+echo foo bar&lt;br /&gt;
+foo bar&lt;br /&gt;
+$ echo foo bar qux&lt;br /&gt;
+foo bar qux&lt;br /&gt;
+$ echo !!:2-$&lt;br /&gt;
+echo bar qux&lt;br /&gt;
+bar qux</code></p>
+
+<p><strong>Modifier</strong></p>
+
+<p>Modifies the word picked out so far &#8211; <code>man bash</code> for more.</p>
+
+<p><code>h</code> &#8211; remove a trailing file name component, leaving only the head.<br />
+<code>t</code> &#8211; remove all leading file name components, leaving the tail.<br />
+<code>r</code> &#8211; remove a trailing suffix of the form .xxx, leaving the basename.<br />
+<em>etc&#8230;</em></p>
+
+<p><em>For example:</em><br />
+<code>&lt;br /&gt;
+$ ls /etc/apt/sources.list&lt;br /&gt;
+/etc/apt/sources.list&lt;br /&gt;
+$ cd !:1:h&lt;br /&gt;
+cd /etc/apt&lt;br /&gt;
+$ cat !-2:1:t&lt;br /&gt;
+cat sources.list&lt;br /&gt;
+$ cd; ls /etc/apt/sources.list&lt;br /&gt;
+/etc/apt/sources.list&lt;br /&gt;
+$ ls !:1:r&lt;br /&gt;
+ls /etc/apt/sources&lt;br /&gt;
+$ ls !:1:t:r&lt;br /&gt;
+ls sources&lt;br /&gt;
+!:s/apt/foo/&lt;br /&gt;
+ls /etc/foo/sources.list&lt;br /&gt;
+</code><br />
+Notice how multiple operators can be combined, and how <strong>!!</strong> can be replaced with <strong>!</strong> if immediately followed by a <strong>colon</strong>.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/09/12/multiple-mysql-versions-on-same-machine/">multiple mysql versions on same machine</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/09/09/usrsharefonts-failed-to-write-cache/"> &nbsp; /usr/share/fonts: failed to write cache</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

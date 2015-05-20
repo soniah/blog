@@ -1,0 +1,180 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Emacs Paredit Notes for OSX </title>
+    <link rel="canonical" href="http://localhost:1313/posts/emacs-paredit-notes-for-osx/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Emacs Paredit Notes for OSX</h1>
+        <section id="main">
+          <h5 id="date"> Sat Jun 2, 2012 </h5>
+          <p>Some notes on <a href="http://emacswiki.org/emacs/ParEdit">Emacs&rsquo; Paredit mode</a>. More so I can stop fighting with Paredit and do some <strong>Clojure</strong> programming than show any expertise - see <a href="http://www.slideshare.net/mudphone/paredit-preso">Mudphone&rsquo;s Paredit Preso</a> for the real deal, as well as <a href="http://p.hagelb.org/paredit-screencast.html">hagelb&rsquo;s Paredit screencast notes</a> and the <a href="http://www.emacswiki.org/pics/static/PareditCheatsheet.png">Paredit Cheat Sheet</a>.</p>
+
+<ul>
+<li><p><strong>M-(</strong>  wrap parens around something. Also for { [ &ldquo;</p></li>
+
+<li><p><strong>M-s</strong>  remove parens from something</p></li>
+
+<li><p><strong>M-S-s</strong>  split sexpr into two</p></li>
+
+<li><p><strong>M-S-j</strong>  join sexprs</p></li>
+
+<li><p><strong>C-q ♦</strong>  just do what I say, dammit! force insert of paren or bracket ♦</p></li>
+
+<li><p><strong>C-u DEL</strong>  force delete paren or bracket</p></li>
+</ul>
+
+<p>&ldquo;Barfage and slurpage&rdquo; ie moving parens left and right.  I had some trouble getting this going on OSX, as the terminal doesn&rsquo;t seem to map control key sequences correctly. After modifying emacs (see below), I got these going:</p>
+
+<ul>
+<li><p><strong>C-<right>, C-<left></strong>  move right paren right or left</p></li>
+
+<li><p><strong>ESC C-<right>, ESC C-<left></strong> move left paren right or left</p></li>
+</ul>
+
+<p>I wrote this elisp for my <strong>~/.emacs.d/sonia.el</strong> (I&rsquo;m using <a href="http://github.com/technomancy/emacs-starter-kit">Technomancy&rsquo;s Emacs Starter Kit</a>):</p>
+
+<p><a href="when (eq system-type 'darwin">sourcecode language=&ldquo;clojure&rdquo;</a>
+  (eval-after-load &lsquo;paredit
+    &lsquo;(progn
+       ;; C-left
+       (define-key paredit-mode-map (kbd &ldquo;M-[ 5 d&rdquo;)
+                   &lsquo;paredit-forward-barf-sexp)
+       ;; C-right
+       (define-key paredit-mode-map (kbd &ldquo;M-[ 5 c&rdquo;)
+                   &lsquo;paredit-forward-slurp-sexp)
+       ;; ESC-C-left
+       (define-key paredit-mode-map (kbd &ldquo;ESC M-[ 5 d&rdquo;)
+                   &lsquo;paredit-backward-slurp-sexp)
+       ;; ESC-C-right
+       (define-key paredit-mode-map (kbd &ldquo;ESC M-[ 5 c&rdquo;)
+                   &lsquo;paredit-backward-barf-sexp)
+     )))
+[/sourcecode]</p>
+
+<p><img src="http://imgs.xkcd.com/comics/lisp_cycles.png" alt="Lisp Parens" />
+</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/posts/4clojure-63-group-a-sequence/">4clojure 63 Group a Sequence</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/posts/learning-clojure-my-books/"> &nbsp; Learning Clojure - my books</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

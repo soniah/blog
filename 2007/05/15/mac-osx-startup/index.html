@@ -1,0 +1,198 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Mac OSX Startup </title>
+    <link rel="canonical" href="http://localhost:1313/2007/05/15/mac-osx-startup/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Mac OSX Startup</h1>
+        <section id="main">
+          <h5 id="date"> Wed May 16, 2007 </h5>
+          
+
+<p>Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process&#8230;</p>
+
+<h3 id="links:8c5fb99d0417af129f926e289e08e42d">Links</h3>
+
+<ul>
+<li><a href="http://developer.apple.com/documentation/MacOSX/Conceptual/BPSystemStartup/index.html">&#8220;The Boot Process&#8221;, Developer Connection</a></li>
+</ul>
+
+<h3 id="bootrom:8c5fb99d0417af129f926e289e08e42d">BootROM</h3>
+
+<ul>
+<li>POST (Power On Self Test) is done &#8211; checks hardware and initialises components; errors (eg RAM) will cause varying numbers of beeps (or flashing LEDs on some systems)</li>
+<li>on PPC machines <strong>Open Firmware</strong> is run</li>
+<li>on Intel machines <strong>EFI</strong> (Extended Firmware Interface) is run</li>
+<li><strong>Command-Option-O-F</strong> will start PPCs and Intels in Open Firmware Mode prompt. Five commands can be used: <strong>mac-boot, shut-down, reset-all, reset-nvram, eject cd</strong></li>
+</ul>
+
+<h3 id="bootx:8c5fb99d0417af129f926e289e08e42d">BootX</h3>
+
+<ul>
+<li>BootX loads the kernel (similar to <strong>Grub/LILO</strong> in Linux, <strong>ntldr</strong> in Windows) as well as drivers needed to access I/O busses</li>
+<li>various icons are displayed (Metallic Apple, Circle with Slash, Globe, etc) indicating whether Open Firmware has found BootX or had problems, or is looking for BootX over the network. See <strong>KB 58042</strong></li>
+<li>device drivers are loaded from a previously built cache, or from** System/Library/Extensions** if cache is missing/corrupt</li>
+</ul>
+
+<h3 id="kernel:8c5fb99d0417af129f926e289e08e42d">Kernel</h3>
+
+<ul>
+<li>the kernel file is <strong>mach_kernel</strong></li>
+<li>the kernel launches <strong>I/O kit</strong>, which loads drivers for I/O devices</li>
+<li>the kernel launches launchd &#8211; similar to <strong>init</strong> in Linux</li>
+</ul>
+
+<h3 id="launchd:8c5fb99d0417af129f926e289e08e42d">launchd</h3>
+
+<ul>
+<li><strong>launchd</strong> manages both <em>system</em> and <em>user</em> daemons, and is configured using plist (xml) files. It also replaces the functionality of **crond **on Linux systems ie it can be used to periodically launch daemons</li>
+<li>these locations are searched:
+
+<ul>
+<li><strong>/System/Library/LaunchAgents</strong></li>
+<li><strong>/System/Library/LaunchDaemons</strong></li>
+<li><strong>/Library/LaunchDaemons</strong></li>
+<li><strong>/Library/LaunchAgents</strong></li>
+<li><strong>~/Library/LaunchAgents</strong></li>
+</ul></li>
+<li>during <strong>Safe Boot</strong> (Shift key), only items in <strong>/System/Library</strong> are started</li>
+<li>launchd then runs any scripts in **/etc/rc **&#8211; one of which is **SystemStarter **, which starts items in **/System/Library/StartupItems **and **/Library/StartupItems **(below)</li>
+<li>launchd then starts <strong>loginwindow</strong></li>
+</ul>
+
+<h3 id="startup-scripts-startup-items:8c5fb99d0417af129f926e289e08e42d">Startup Scripts, Startup Items</h3>
+
+<ul>
+<li>items here are being replaced by <strong>launchd</strong></li>
+<li>**/System/Library/StartupItems **&#8211; when troubleshooting, rename rather than delete things from here</li>
+<li>*<em>/Library/StartupItems **&#8211; can use this to for example manually map a drive. When troubleshooting, this should *usually</em> be empty &#8211; move items to Desktop rather than deleting</li>
+</ul>
+
+<h3 id="loginwindow:8c5fb99d0417af129f926e289e08e42d">loginwindow</h3>
+
+<h3 id="user-environment-setup:8c5fb99d0417af129f926e289e08e42d">User Environment Setup</h3>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/05/20/split-mp3-music-files-mp3splt/">Split mp3 Music Files – mp3splt</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/05/04/howto-setup-3-broadband-wireless-on-ubuntu-linux/"> &nbsp; HowTo Setup 3 Broadband Wireless on Ubuntu Linux</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

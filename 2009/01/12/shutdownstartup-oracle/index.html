@@ -1,0 +1,379 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Shutdown/Startup Oracle </title>
+    <link rel="canonical" href="http://localhost:1313/2009/01/12/shutdownstartup-oracle/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Shutdown/Startup Oracle</h1>
+        <section id="main">
+          <h5 id="date"> Sun Jan 11, 2009 </h5>
+          <p>Some notes on shutting down and starting up Oracle, taken from an email.</p>
+
+<div dir="ltr">
+  <span style="font-family:tahoma;font-size:x-small;">Please be corrected in Note Section if you do need to do abort shutdown.</span>
+</div>
+
+<div dir="ltr">
+  <span style="font-family:tahoma;font-size:x-small;">After abort shutdown, we do need to startup and shutdown database again. </span>
+</div>
+
+<div dir="ltr">
+  <span style="font-family:tahoma;font-size:x-small;">Then second shutdown will bring database down cleanly.</span>
+</div>
+
+<div dir="ltr">
+  <span style="font-family:tahoma;font-size:x-small;">After that you can backup database files.</span>
+</div>
+
+<div>
+  Logon UNIX as &#8220;oracle&#8221;
+</div>
+
+<div>
+  <span style="color:#ff0000;">================</span>
+</div>
+
+<div>
+  <span style="color:#ff0000;"><strong>TO STOP DATABASE</strong></span>
+</div>
+
+<div>
+  <span style="color:#ff0000;">================</span>
+</div>
+
+<div>
+  1. Invoke SQL*Plus
+</div>
+
+<div>
+  $ <span style="color:#ff0000;">sqlplus &#8221; / as sysdba&#8221;</span>
+</div>
+
+<div>
+  SQL > <span style="color:#ff0000;">shutdown immediate;</span>
+</div>
+
+<div>
+  &#8230;
+</div>
+
+<div>
+  &#8230;
+</div>
+
+<div>
+  Shutdown messages
+</div>
+
+<div>
+  &#8230;
+</div>
+
+<div>
+  Database closed.
+</div>
+
+<div>
+  SQL > <span style="color:#ff0000;">exit;</span>
+</div>
+
+<div>
+  <span style="color:#ff0000;"> </span>
+</div>
+
+<div>
+  <em>Note : If there are connections to DB, Oracle may take some</em><em> time</em><em> to rollback each connection</em><em>&#8216;s</em><em> job and then </em><em>close the session</em><em>. Once all connect</em><em>ions are disconnected</em><em>, it will bring database down.</em>
+</div>
+
+<div>
+  <em>During shutting down, Oracle will write</em><em> message to</em><em> in log file.</em><em> </em>
+</div>
+
+<div>
+  <em>Please tail </em><em>the</em><em> file to see progression messages.</em>
+</div>
+
+<div>
+  <em>tail -f /opt/oracle/db_1020/admin/psms01/bdump/alert_psms01.log</em>
+</div>
+
+<div>
+  <em>If database is not down at reasonable time, you can terminate </em><em>command</em><em> by Ctrl+C,</em><em> </em><em>t</em><em>hen</em>
+</div>
+
+<div>
+  <em>SQL> exit;</em>
+</div>
+
+<div>
+  <em>$ sqlplus &#8221; / as sysdba&#8221;</em>
+</div>
+
+<div>
+  <em>SQL > shutdown abort;</em>
+</div>
+
+<div>
+  <em>SQL > exit;</em>
+</div>
+
+<div>
+  <em>$ sqlplus &#8221; / as sysdba&#8221;</em>
+</div>
+
+<div>
+  <em>SQL > shutdown immediate;</em>
+</div>
+
+<div>
+  <em>SQL > exit;</em>
+</div>
+
+<div>
+  <em>The above steps should be done as </em><em>the </em><em>last choice and only </em><em>when<br /> </em><em>database is not</em><em> </em><em>down as normal.</em>
+</div>
+
+<div>
+  2. Shutdown Database Listener
+</div>
+
+<div>
+  $ <span style="color:#ff0000;">lsnrctl stop </span>
+</div>
+
+<div>
+  3. Verify Oracle Processes
+</div>
+
+<div>
+  $ ps -ef |grep pmon
+</div>
+
+<div>
+  $ ps -ef |grep tnslsnr
+</div>
+
+<div>
+  No such process shown if step 1 & 2 are successfully done.
+</div>
+
+<div>
+  <span style="color:#339966;">=================</span>
+</div>
+
+<div>
+  <span style="color:#339966;"><strong>TO ST</strong><strong>ART</strong><strong> DATABASE</strong></span>
+</div>
+
+<div>
+  <span style="color:#339966;">=================</span>
+</div>
+
+<div>
+  1. Start Database Listener
+</div>
+
+<div>
+  $ <span style="color:#339966;">lsnrctl st</span><span style="color:#339966;">art</span>
+</div>
+
+<div>
+  2. Invoke SQL*Plus
+</div>
+
+<div>
+  $ <span style="color:#339966;">sqlplus &#8221; / as sysdba&#8221;</span>
+</div>
+
+<div>
+  SQL > <span style="color:#339966;">startup</span><span style="color:#339966;">;</span>
+</div>
+
+<div>
+  &#8230;
+</div>
+
+<div>
+  &#8230;
+</div>
+
+<div>
+  Starting up messages
+</div>
+
+<div>
+  &#8230;
+</div>
+
+<div>
+  Database open.
+</div>
+
+<div>
+  SQL > <span style="color:#339966;">exit;</span>
+</div>
+
+<div>
+  3. Verify Oracle Processes
+</div>
+
+<div>
+  $ ps -ef |grep pmon
+</div>
+
+<div>
+  $ ps -ef |grep tnslsnr
+</div>
+
+<div>
+  One process is expected for each &#8216;ps&#8217; command.
+</div>
+
+<div>
+  4. Test Connnection
+</div>
+
+<div>
+  $ <span style="color:#339966;">sqlplus &#8221; / as sysdba&#8221;</span>
+</div>
+
+<div>
+  SQL > <span style="color:#339966;">select </span><span style="color:#339966;">instance_name, host_name, </span>
+</div>
+
+<div>
+  <span style="color:#339966;"> to_char(startup_time, &#8216;DD-MON-YY HH24:MI&#8217;), status </span>
+</div>
+
+<div>
+  <span style="color:#339966;"> from v$instance;</span>
+</div>
+
+<div>
+  Status must be OPEN.
+</div>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/">Prevent auto-indenting when pasting code into Vim</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/"> &nbsp; JPilot – Change First Day of Week on Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

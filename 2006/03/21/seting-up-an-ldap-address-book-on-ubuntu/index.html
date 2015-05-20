@@ -1,0 +1,214 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Seting up an LDAP address book on Ubuntu </title>
+    <link rel="canonical" href="http://localhost:1313/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Seting up an LDAP address book on Ubuntu</h1>
+        <section id="main">
+          <h5 id="date"> Wed Mar 22, 2006 </h5>
+          <p>Quick and dirty on installing OpenLDAP as an addressbook server.</p>
+
+<ul>
+<li>install</li>
+</ul>
+
+<pre>sudo aptitude install slapd ldap-utils</pre>
+
+<ul>
+<li>configure (if needed)</li>
+</ul>
+
+<pre>sudo dpkg-reconfigure -plow slapd</pre>
+
+<ul>
+<li>edit /etc/ldap/slapd.conf</li>
+</ul>
+
+<pre>#include         /etc/ldap/schema/nis.schema
+ suffix          "dc=snowfrog, dc=net"
+ rootdn          "cn=admin,dc=snowfrog,dc=net"
+ rootpw          secret</pre>
+
+<ul>
+<li>edit /etc/ldap/ldap.conf</li>
+</ul>
+
+<pre>$ cat ldap.conf
+ HOST    127.0.0.1
+ BASE    dc=snowfrog,dc=net
+ URI     ldap://localhost</pre>
+
+<ul>
+<li>check working</li>
+</ul>
+
+<pre>ldapsearch -x</pre>
+
+<ul>
+<li>create a file that creates address book OU, and import</li>
+</ul>
+
+<pre>$ cat foo
+ dn: dc=snowfrog, dc=net
+ objectclass: top
+ objectclass: dcObject
+ objectclass: organization
+ o: snowfrog
+ dc: snowfrog
+ dn: ou=addressbook, dc=snowfrog, dc=net
+ objectclass: top
+ objectclass: organizationalUnit
+ ou: addressbook
+ $ ldapadd -x -W -D 'cn=admin,dc=snowfrog, dc=net' -f foo -H "ldap://sandia.snowfrog.net"</pre>
+
+<ul>
+<li>in Thunderbird, export addresses to addr.ldif, then convert dumped address book to importable format</li>
+</ul>
+
+<pre>sed 's/^givenName:/displayName:/; /mozillaAbPersonObsolete/d; /modifytimestamp:/d; /dn:
+ cn=/s/mail=.*/ou=addressbook,dc=snowfrog,dc=net/' addr.ldif &gt; addr2.ldif</pre>
+
+<ul>
+<li>convert .muttrc aliases</li>
+</ul>
+
+<pre>sed -n '/^alias/p' .muttrc | awk '$2 !~ /^z/ {print "#commentndn: cn=" $2
+ ",ou=addressbook,dc=snowfrog,dc=netncn: " $2 "nsn: " $2 "nmail: " $3 "ndisplayName: " $2
+ "nobjectClass: topnobjectClass: personnobjectClass: organizationalPersonnobjectClass:
+ inetOrgPersonn"  }' &gt; /etc/ldap/addr2.ldif</pre>
+
+<ul>
+<li>import to OpenLDAP server</li>
+</ul>
+
+<pre>ldapadd -c -x -W -D 'cn=admin,dc=snowfrog, dc=net' -f addr2.ldif -H "ldap://sandia.snowfrog.net"</pre>
+
+<ul>
+<li>connect to LDAP server using Evolution; Thunderbird doesn&#8217;t have enough options</li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2006/05/14/rsync-notes/">rsync notes</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2006/03/09/telstra-evdo-minimax-on-ubuntu/"> &nbsp; Telstra evdo MiniMax on Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

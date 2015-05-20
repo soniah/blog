@@ -1,0 +1,197 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Notes on Branch Management with Subversion </title>
+    <link rel="canonical" href="http://localhost:1313/2009/02/24/notes-on-branch-management-wit-subversion/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Notes on Branch Management with Subversion</h1>
+        <section id="main">
+          <h5 id="date"> Tue Feb 24, 2009 </h5>
+          <p>Some notes on branch management with Subversion (more for my own learning purposes than anything):</p>
+
+<ul>
+<li>create branch: <strong>svn cp foo foo-branch</strong></li>
+<li>develop new feature in foo-branch, whilst doing any bug fixes in trunk</li>
+<li>merge some changes from trunk into branch &#8211; keep branch up-to-date as possible
+
+<ul>
+<li>commit any changes first, so can easily revert if desired: <strong>cd foo-branch; svn up; svn ci -m &#8220;pre merge in trunk&#8221;</strong></li>
+<li>find where branch occured (if not noted in a log message &#8211; duh): <strong>svn log &#8211;verbose &#8211;stop-on-copy foo-branch</strong> (eg 123)</li>
+<li>preview changes succinctly: <strong>cd foo-branch; **</strong>svn merge &#8211;dry-run -r 123:HEAD**</li>
+<li>preview changes verbosely: <strong>cd foo-branch; **</strong>svn diff &#8211;notice-ancestry -r 123:HEAD &#8230;**</li>
+<li>apply changes: <strong>cd foo-branch; **</strong>svn merge -r 123:HEAD svn+ssh://myrepo.com/foo/bar**</li>
+<li>check changes: <strong>svn st; svn diff, **if problems: **svn revert</strong></li>
+<li>commit changes: <strong>svn ci -m &#8220;merged trunk changes into branch (flubbed the widgets) r123:129&#8243;</strong></li>
+</ul></li>
+<li>keep working in foo-branch, merge in some more changes
+
+<ul>
+<li>ditto previous</li>
+<li><strong>svn merge -r 130:HEAD svn+ssh://myrepo.com/foo/bar</strong> (<em>previously merged up to 129, so start on 130</em>)</li>
+</ul></li>
+<li>merge all changes from branch into trunk &#8211; new feature finished
+
+<ul>
+<li>ditto previous</li>
+<li><strong>cd foo; svn merge -r 123:HEAD <a href="https://myrepo.com/foo-branch">https://myrepo.com/foo-branch</a></strong></li>
+<li><strong>svn ci -m &#8220;merged foo-branch into trunk (feature x) r123:145&#8243;</strong></li>
+</ul></li>
+</ul>
+
+<p>An alternative (and often easier) approach is to branch on the server, then just switch the working copy for the subdirectory (or individual file) being worked on:</p>
+
+<ul>
+<li><strong>svn cp https://</strong><strong>myrepo.com/foo **</strong>https://**<strong>myrepo.com/foo-branch</strong></li>
+<li><strong>cd foo</strong></li>
+<li><strong>svn info bar | grep URL</strong></li>
+<li><strong>cd bar; svn switch **</strong>https://****myrepo.com/foo-branch/bar; cd ..<br />
+**</li>
+<li><strong>svn info bar | grep URL</strong></li>
+<li>merge changes as above</li>
+</ul>
+
+<p>Tags:</p>
+
+<ul>
+<li>tags are just copies (usually put in the tags directory): <strong>svn cp https://</strong><strong>myrepo.com/foo/foo **</strong>https://**<strong>myrepo.com/foo/tags/foo-1.0</strong>. Tags aren&#8217;t read-only, but any changes can of course be reverted.</li>
+</ul>
+
+<p>Directory structure:</p>
+
+<ul>
+<li>the canonical way of structuring directories is:
+
+<ul>
+<li><strong>/foo/trunk</strong> (or <strong>/foo/foo</strong> so name of trunk dir corresponds to project when checked out)</li>
+<li><strong>/foo/branches</strong></li>
+<li><strong>/foo/tags</strong></li>
+</ul></li>
+<li>I used to ignore this and just do /foo &amp; /foo-branch, but this gets messy quickly and it&#8217;s easy to make mistakes or have problems when doing svn moves of  large directories if you want to reorganise things later. Also, when working with branches I tend to want to just switch a subdirectory rather than checkout the whole branch, and this directory structure seems to logically help with this</li>
+</ul>
+
+<p>Notes from <a href="http://svnbook.red-bean.com/">Version Control with Subversion</a>.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2009/02/25/troubleshooting-linux-ha-high-availability/">Troubleshooting Linux HA (High Availability)</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2009/02/23/dpkg-reconfigure-debconf/"> &nbsp; dpkg-reconfigure debconf</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

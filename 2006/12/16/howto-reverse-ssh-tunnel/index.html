@@ -1,0 +1,161 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> howto reverse ssh tunnel </title>
+    <link rel="canonical" href="http://localhost:1313/2006/12/16/howto-reverse-ssh-tunnel/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">howto reverse ssh tunnel</h1>
+        <section id="main">
+          <h5 id="date"> Sun Dec 17, 2006 </h5>
+          <p>I recently (15-Dec-06) asked this question on the <a href="http://lists.slug.org.au/listinfo/slug">SLUG email list</a> &#8211; thanks to everyone for all the replies I got, especially Dave, The Reverend, Michael K, Erik, Tongmaster, Alex S, Tigger, David K&#8230;</p>
+
+<pre>&gt; Is there a way of configuring ssh, so that if someone ssh's into my
+ &gt; machine, I can connect back and get into their machine? (Linux to
+ &gt; Linux).</pre>
+
+<ul>
+<li><p>get him to ssh to you: <strong>ssh -R 2222:localhost:22 <your server></strong>. Once he&#8217;s logged in, you can just <strong>ssh -p 2222 localhost</strong>. You may have trouble binding to ports 1024 or lower on the other side (which is why I used 2222 as an example), and you may have to enable an option in the sshd config of the other side. There&#8217;s an article on TechRepublic <a href="http://articles.techrepublic.com.com/5100-10879-5779944.html?tag=nl.e011">Setting up a reverse SSH tunnel</a>.</p></li>
+
+<li><p>once he&#8217;s ssh&#8217;d to me, I could get him to run apps and display on my machine ie <strong>type export DISPLAY=xxx.xxx.xxx.xxx:0.0</strong>, then run <strong>xterm &amp;</strong> (or another program if it needed configuring)</p></li>
+
+<li><p>him ssh&#8217;ing to me could be made easier by setting up an icon on their desktop that has <strong>ssh -R 1200:localhost:22 foo@bar.com</strong> (install his public key on bar.com). This can also be setup to access the ADSL modem: <strong>ssh -p 1234 -R 1201:192.168.1.254:80 foo@bar.com</strong>, then browse <strong>localhost:1201</strong> to get the modem setup page.</p></li>
+
+<li><p><a href="http://www.harding.motd.ca/autossh/">autossh</a> is your friend. Just get it to set up <em>permanent</em> tunnels to your box, so you can always get through whenever you need to.</p></li>
+
+<li><p>use <a href="http://openvpn.net/">OpenVPN</a> or <a href="http://www.hamachi.cc/">Hamachi</a> to setup a VPN, then just ssh to the local vpn endpoint. Samba shares could also be setup across the vpn, allowing easy filesharing.</p></li>
+
+<li><p>VNC can also be run over ssh &#8211; see <a href="http://www.vanemery.com/Linux/VNC/vnc-over-ssh.html">VNC over SSH2 &#8211; A TightVNC Tutorial</a></p></li>
+
+<li><p>if they run windows, I find <a href="https://secure.logmein.com/home.asp">logmein</a> as the best remote support thing by far, penetrates nat etc pretty well. See <a href="https://secure.logmein.com/go.asp?page=support_faq#basics-04">here</a>. Client runs on linux, but server (on target PC) is windows only unfortunately.</p></li>
+</ul>
+
+<p>(28/Jan/2007)</p>
+
+<ul>
+<li><a href="http://www.debian-administration.org">Debian Administration</a> has an article entitled <a href="http://www.debian-administration.org/articles/487">SMTP via an SSH tunnel</a>, which also links thru to <a href="http://cg.scs.carleton.ca/~morin/misc/laptopmail/">HOWTO: Sending Email from a Laptop</a> and J. Franken&#8217;s excellent <a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh2_inhalt.en.html">SSH-tunneling HOWTO</a>.</li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/01/27/pgp-tools/">pgp tools</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2006/11/22/howto-disable-session-restore-in-firefox-20/"> &nbsp; HowTo Disable Session Restore in Firefox 2.0</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,298 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Ruby, blocks and procs </title>
+    <link rel="canonical" href="http://localhost:1313/2011/08/30/ruby-blocks-and-procs/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Ruby, blocks and procs</h1>
+        <section id="main">
+          <h5 id="date"> Tue Aug 30, 2011 </h5>
+          
+
+<p>Some notes on ruby, blocks, and procs.</p>
+
+<h1 id="manually-creating-blocks:b67fac248bcabce1d05c80b639d2374d">Manually creating blocks</h1>
+
+<p>Ruby has three ways of manually creating blocks: <strong>Proc.new</strong>, <strong>lambda</strong>, and <strong>proc</strong>. They have slightly different behaviour, and the behaviour also varies between Ruby 1.8 and 1.9!</p>
+
+<ul>
+<li><strong>lambda</strong> checks that the number of arguments passed matches the number of block parameters</li>
+<li>whereas <strong>Proc.new</strong> doesn&#8217;t check (however the block may raise an error, depending on it&#8217;s code)**</li>
+<li>and <strong>proc</strong> behaves like <strong>lambda</strong> in Ruby 1.8, and like <strong>Proc.new</strong> in Ruby 1.9. So, avoid using proc!</li>
+</ul>
+
+<p>A bit of code to demonstrate this:</p>
+
+<pre>multiplier_l = lambda   { |a, b| puts "a * b is: #{a*b}" }
+multiplier_p = Proc.new { |a, b| puts "a * b is: #{a*b}" }
+
+multiplier_l.call( 3,4,5 )
+ArgumentError: wrong number of arguments (3 for 2)
+
+multiplier_p.call( 3,4,5 )
+a * b is: 12
+&gt; multiplier_p.call( 1 )
+TypeError: nil can't be coerced into Fixnum            # in this case, Proc handled one param, but block errored</pre>
+
+<p>And now using <a href="http://beginrescueend.com/">rvm</a> to switch between Ruby versions:</p>
+
+<pre>RUBY_VERSION
+=&gt; "1.8.7"
+multiplier_p = proc { |a, b| puts "a * b is: #{a*b}" }
+multiplier_p.call( 3,4,5 )
+ArgumentError: wrong number of arguments (3 for 2)
+
+RUBY_VERSION
+=&gt; "1.9.2"
+multiplier_p = proc { |a, b| puts "a * b is: #{a*b}" }
+multiplier_p.call( 3,4,5 )
+a * b is: 12</pre>
+
+<h1 id="scoping:b67fac248bcabce1d05c80b639d2374d">Scoping</h1>
+
+<p>In Ruby 1.8, block parameters can <strong>overwrite</strong> parameters of the same name in the current scope; in Ruby 1.9 they&#8217;re protected.</p>
+
+<pre>&gt; hello = "hello"
+&gt; def frenchy
+&gt;   x = "bonjour"
+&gt;   yield x
+&gt; end
+&gt; puts hello
+hello
+&gt; frenchy { |hello| puts hello }
+bonjour                             # as expected
+&gt; puts hello
+bonjour                             # ouch! In 1.9 you'd get "hello"</pre>
+
+<h1 id="block:b67fac248bcabce1d05c80b639d2374d">&amp;block</h1>
+
+<p>Some of the Rails and Ruby library code define methods with <strong>&amp;block</strong> as the last parameter to capture an anonymous block.</p>
+
+<ul>
+<li>anonymous blocks are ignored if they&#8217;re not used, and <strong>&amp;block</strong> is an <em>optional</em> parameter that must appear as the <em>last</em> parameter</li>
+<li>it&#8217;s effectively a <em>type-checked</em> parameter &#8211; it will only accept an anonymous block or a proc (if proceeded with <strong>&amp;</strong>)</li>
+<li>the block can be called with <strong>call</strong> or <strong>yield</strong></li>
+<li>you can check if a block was passed using <strong>block_given?</strong></li>
+<li><strong>&amp;block</strong> is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using <strong>&amp;block</strong>, callers get more flexibility when using your method ie they can pass in a <strong>proc</strong> (perhaps defined elsewhere and used multiple times)</li>
+</ul>
+
+<p>Anonymous blocks are ignored if they&#8217;re not used:</p>
+
+<pre>&gt; def foo(a)
+&gt;   puts "a is #{a}"
+&gt; end
+&gt; foo(1)
+a is 1
+&gt; foo(1) { puts "2" }
+a is 1</pre>
+
+<p>Conversely if <strong>&amp;block</strong> is declared as a parameter, using it is optional:</p>
+
+<pre>&gt; def foo(a, &block)
+&gt;   puts "a is #{a}"
+&gt; end
+&gt; foo(1)
+a is 1</pre>
+
+<p>Procs can be called with <strong>call</strong>; anonymous blocks can be <strong>call</strong>ed or <strong>yield</strong>ed to.</p>
+
+<pre>&gt; hello = lambda { puts "good bye" }      # define a proc for later use
+&gt; def foo(a, b, &block)
+&gt;   puts "a is #{a}"
+&gt;   b.call                                # proc with call
+&gt;   block.call                            # block with call
+&gt;   yield                                 # block with yield
+&gt; end
+&gt; foo(1, hello) { puts "fred" }           # with an anonymous block
+a is 1
+good bye
+fred
+fred
+&gt; foo(1, hello, &hello)                   # with a proc; notice & syntax
+a is 1
+good bye
+good bye
+good bye</pre>
+
+<p>You can check if an anonymous block was supplied using <strong>block_given?</strong></p>
+
+<pre>&gt; def foo(a, &block)
+&gt;    puts "a is #{a}"
+&gt;    block.call if block_given?
+&gt;    yield      if block_given?
+&gt; end
+&gt; foo(1) { puts "mary" }
+a is 1
+mary
+mary
+&gt; def foo(a)                              # or, without defining the block parameter
+&gt;    puts "a is #{a}"
+&gt;    yield      if block_given?           # therefore can only yield not call
+&gt; end</pre>
+
+<p><strong>&amp;block</strong> is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using <strong>&amp;block</strong>, callers get more flexibility when using your method:</p>
+
+<pre>&gt; def foo(a)                                         # no &block defined in parameters
+&gt;   puts "a is #{a}"
+&gt;   yield if block_given?
+&gt; end
+&gt; foo(1) { puts "john" }                             # works as expected
+a is 1
+john
+&gt; foo(1, hello)
+ArgumentError: wrong number of arguments (2 for 1)   # dang! I can't use my super-duper hello proc</pre>
+
+<h1 id="precedence:b67fac248bcabce1d05c80b639d2374d">Precedence</h1>
+
+<p><strong>do .. end</strong> has weaker precedence than <strong>{ }</strong>. For example, if <strong>foo</strong> and <strong>bar</strong> are both methods:</p>
+
+<p>These are both the same ie the method <strong>foo</strong> receives two parameters, <strong>bar</strong> and a <strong>block</strong>.</p>
+
+<pre>foo bar  do |s| puts(s) end
+foo(bar) do |s| puts(s) end</pre>
+
+<p>And these are both the same ie <strong>foo</strong> and <strong>bar</strong> both receive one parameter; <strong>foo</strong> the call to <strong>bar</strong>, and <strong>bar</strong> a <strong>block</strong>:</p>
+
+<pre>foo  bar { |s| puts(s) }
+foo( bar { |s| puts(s) } )</pre>
+
+<p>Of course the moral of story is not to rely on obscure precedence rules, rather use parentheses whenever something is unclear &#8211; as always, in any language.</p>
+
+<h1 id="closures:b67fac248bcabce1d05c80b639d2374d">Closures</h1>
+
+<p>Blocks are closures ie they store or carry the value local variables from the the original scope into a different scope. They&#8217;re another way of reusing the same logic with slightly different values. For example:</p>
+
+<pre>&gt; def build_header( level )
+&gt;   return lambda { |text| "&lt;#{level}&gt;#{text}&lt;/#{level}&gt;" }
+&gt; end
+&gt; h1 = build_header("h1")
+&gt; h1.call("Examples")
+&lt;h1&gt;Examples&lt;/h1&gt;
+&gt; h2 = build_header("h2")
+&gt; h2.call("Details")
+&lt;h2&gt;Details&lt;/h2&gt;</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/09/13/git-patch-add/">git patch add</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/"> &nbsp; git – make an existing git branch track a remote branch</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

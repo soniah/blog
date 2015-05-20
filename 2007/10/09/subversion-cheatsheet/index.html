@@ -1,0 +1,213 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Subversion Cheatsheet </title>
+    <link rel="canonical" href="http://localhost:1313/2007/10/09/subversion-cheatsheet/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Subversion Cheatsheet</h1>
+        <section id="main">
+          <h5 id="date"> Tue Oct 9, 2007 </h5>
+          <ul>
+<li>See also: <a href="http://linux.byexamples.com/archives/255/svn-command-line-tutorial-for-beginners-1/">svn command line tutorial for beginners 1 </a>
+
+<ul>
+<li>Notes from: <a href="http://svnbook.red-bean.com/">Version Control with Subversion</a></li>
+<li>Tsavo&#8217;s great <a href="http://jwamicha.wordpress.com/2008/05/29/subversion-a-summary-cheat-sheet-learn-svn-in-10-minutes/">svn cheatsheet</a></li>
+</ul></li>
+</ul>
+
+<p><strong>Quickstart</strong></p>
+
+<p><tt>sudo aptitude install subversion</tt><br />
+<tt>svnserve -d</tt></p>
+
+<p>Create source project, splitting into trunk, tags and branches (latter 2 directories initially empty).</p>
+
+<p><strong>project</strong> is a dummy name that is just used to build repo, so actually use the name <strong>project</strong>, <strong>original</strong> is the name of the original code directory.</p>
+
+<p><tt>mkdir -p project/{trunk,tags,branches}</tt><br />
+<tt>mv ~/original ~/project/trunk</tt></p>
+
+<p>Using <em>trunk/tags/branches</em> for a small project is overkill &#8211; tags and branches can be added later. Therefore for a small project, just do:</p>
+
+<p><tt>mkdir -p project</tt><br />
+<tt>mv ~/original ~/project</tt></p>
+
+<p>Create subversion repository:</p>
+
+<p><tt>cd</tt><br />
+<tt>svnadmin create svnrepo</tt></p>
+
+<p>Import project into repository, and archive original data:</p>
+
+<p><tt>svn import project file:///home/sonia/svnrepo -m &ldquo;initial import&rdquo;</tt><br />
+<tt>mv project /tmp</tt></p>
+
+<p>After the repo is setup, you&#8217;ll probably want to add other directories eg to import <strong>projectb</strong>:</p>
+
+<p><tt>svn import projectb file:///home/sonia/svnrepo/trunk/projectb -m &ldquo;initial import&rdquo;</tt><br />
+<tt>mv projectb /tmp</tt></p>
+
+<p>Checkout a working copy:</p>
+
+<p><tt>svn checkout file:///home/sonia/svnrepo/trunk original</tt></p>
+
+<p>Make changes to working copy, then get a list of changes:<br />
+<tt></tt></p>
+
+<p><tt>svn status &ndash;show-updates &ndash;verbose foo</tt><br />
+<tt>svn diff</tt></p>
+
+<p>Finally, save changes back to repository:<br />
+<tt></tt></p>
+
+<p><tt>svn commit</tt></p>
+
+<p>Or, cancel some changes:<br />
+<tt></tt></p>
+
+<p><tt>svn revert foo</tt></p>
+
+<p><strong>Repository URLS</strong></p>
+
+<p><tt>file:///</tt><br />
+<tt>http://</tt><br />
+<tt>https://</tt><br />
+<tt>svn://</tt><br />
+<tt>svn+ssh://</tt></p>
+
+<p><strong>Get Help</strong></p>
+
+<p><tt>svn help foo</tt></p>
+
+<p><strong>Other Common Tasks</strong></p>
+
+<ul>
+<li>ignoring files <tt>svn propedit svn:ignore targetdir</tt> (see&#8221;<a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.ignore.html">Ignoring Unversioned Items</a>&#8220;)</li>
+<li>to always ignore files of type x (eg .mp3), edit <strong>~/.subversion/config</strong> or <strong>/etc/subversion/config</strong> and set <strong>global-ignores</strong> under <strong>[miscellany]</strong> (see <a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.confarea.html">Runtime Configuration Area</a>).</li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/10/10/the-life-of-american-vagabonds/">The Life of American Vagabonds</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/09/30/rip-audio-track-from-a-dvd/"> &nbsp; dvd ripping</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

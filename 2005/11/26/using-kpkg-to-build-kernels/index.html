@@ -1,0 +1,302 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> using kpkg to build kernels </title>
+    <link rel="canonical" href="http://localhost:1313/2005/11/26/using-kpkg-to-build-kernels/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">using kpkg to build kernels</h1>
+        <section id="main">
+          <h5 id="date"> Sun Nov 27, 2005 </h5>
+          
+
+<h3 id="using-kpkg-to-build-kernels:04f1df7e23dc332813cb6df950753b58">Using kpkg to Build Kernels</h3>
+
+<p>See also <a href="http://www.howtoforge.com/kernel_compilation_ubuntu">How To Compile A Kernel &#8211; The Ubuntu Way</a></p>
+
+<h3 id="preparation:04f1df7e23dc332813cb6df950753b58">Preparation</h3>
+
+<ul>
+<li>make backup floppy</li>
+</ul>
+
+<pre>mkboot /boot/kernel...</pre>
+
+<ul>
+<li>add myself to src group (logout &amp; login)</li>
+</ul>
+
+<pre>sudo adduser sonia src</pre>
+
+<ul>
+<li>check groups</li>
+</ul>
+
+<pre>groups</pre>
+
+<ul>
+<li>install pre-reqs</li>
+</ul>
+
+<pre>apt-get install gcc kernel-package debhelper
+ dpkg-dev libncurses5-dev fakeroot g++ build-essential devscripts</pre>
+
+<ul>
+<li>configure package compiler name, etc</li>
+</ul>
+
+<pre>vi /etc/kernel-pkg.conf</pre>
+
+<ul>
+<li>clean up old sources/links, if required</li>
+</ul>
+
+<pre>cd /usr/src
+ sudo rm -rf linux*</pre>
+
+<ul>
+<li>download &amp; install debian kernel source</li>
+</ul>
+
+<pre>sudo apt-get install linux-source-2.6.10
+ sudo tar jxvf linux-source-2.6.123.tar.bz
+ sudo chown -R root.src linux-source-2.6.123
+ sudo ln -s linux-source-2.6.123 linux</pre>
+
+<p>Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, linux-source comes from Ubuntu. All the dependencies haven&#8217;t been changed over yet, though, so if you get warnings about &#8220;uninstalled package kernel-source&#8221; even though linux-source is installed, you can safely ignore them. Can sometimes also just download linux-headers-`uname -r`</p>
+
+<ul>
+<li>check prereqs</li>
+</ul>
+
+<pre>cd /usr/src/linux/scripts
+ ./ver_linux</pre>
+
+<h3 id="configure:04f1df7e23dc332813cb6df950753b58">Configure</h3>
+
+<pre>cd /usr/src/linux
+ cp /boot/config_foo .config
+ make oldconfig (can also use --config oldconfig in make-kpkg)
+ make xconfig or make menuconfig</pre>
+
+<ul>
+<li>update debian/changelog (will appear after first build)</li>
+</ul>
+
+<pre>dch -i</pre>
+
+<h3 id="build-image:04f1df7e23dc332813cb6df950753b58">Build Image</h3>
+
+<pre>cd /usr/src/linux
+ make-kpkg clean
+ fakeroot make-kpkg --initrd --append-to-version=.sonia.001 kernel-image --config oldconfig
+ fakeroot make-kpkg --initrd --append-to-version=.sonia.001 kernel_image modules_image
+ fakeroot make-kpkg --initrd --append-to-version=.sonia.001 --added-modules=madwifi modules_image</pre>
+
+<p>or some combo of the above&#8230;<br />
+<strong>don&#8217;t use &#8211;revision</strong> &#8211; versions aren&#8217;t handled correctly</p>
+
+<h3 id="install:04f1df7e23dc332813cb6df950753b58">Install</h3>
+
+<pre>cd ..
+ dpkg -i kernel-image-2.6.....
+ dpkg -i modules...</pre>
+
+<ul>
+<li>hold kernel, so not accidently upgraded</li>
+</ul>
+
+<pre>aptitude, search for sonia</pre>
+
+<ul>
+<li>find current status</li>
+</ul>
+
+<p>(dpkg -l truncates) ?? gives wrong result&#8230;</p>
+
+<pre>dpkg --get-selections | grep kernel</pre>
+
+<p>backup config from /boot, and .deb files</p>
+
+<h2 id="distcc:04f1df7e23dc332813cb6df950753b58">distcc</h2>
+
+<p>&#8220;Note&#8221;<br />
+If distcc process killed whilst troubleshooting, etc, remove ~/.distcc check all gcc&#8217;s about the same version, with `gcc -v` (first 2 digits important)</p>
+
+<ul>
+<li>install pre-reqs (probably excessive)</li>
+</ul>
+
+<pre>apt-get install distcc gcc kernel-package debhelper dpkg-dev libncurses5-dev fakeroot</pre>
+
+<ul>
+<li>config /etc/default/distcc</li>
+</ul>
+
+<pre>ALLOWEDNETS="127.0.0.1 192.168.1.0/24"</pre>
+
+<ul>
+<li>setup &#8220;masquerade&#8221; directory</li>
+</ul>
+
+<pre>mkdir -p /usr/local/distcc/bin
+ cd /usr/local/distcc/bin
+ ln -s /usr/bin/distcc c++
+ ln -s /usr/bin/distcc cc
+ ln -s /usr/bin/distcc g++
+ ln -s /usr/bin/distcc gcc</pre>
+
+<ul>
+<li>configure environment</li>
+</ul>
+
+<pre>CONCURRENCY_LEVEL=40
+ DISTCC_HOSTS="localhost hp mango pomelo armada"
+ PATH="/usr/local/distcc/bin:${PATH}"
+
+ export CONCURRENCY_LEVEL DISTCC_HOSTS PATH</pre>
+
+<ul>
+<li>see</li>
+</ul>
+
+<p><a href="http://www.myrddin.org/howto/debian-distcc.php">http://www.myrddin.org/howto/debian-distcc.php</a><br />
+<a href="http://distcc.planetmirror.com/faq.html">http://distcc.planetmirror.com/faq.html</a></p>
+
+<h2 id="see-also:04f1df7e23dc332813cb6df950753b58">See also</h2>
+
+<p><a href="http://newbiedoc.sourceforge.net/system/kernel-pkg.html">http://newbiedoc.sourceforge.net/system/kernel-pkg.html</a></p>
+
+<p><a href="http://myrddin.org/howto/debian-kernel-recompile.php">http://myrddin.org/howto/debian-kernel-recompile.php</a></p>
+
+<p><a href="https://www.ubuntulinux.org/wiki/KernelBuildpackageDetailedHowto">https://www.ubuntulinux.org/wiki/KernelBuildpackageDetailedHowto</a></p>
+
+<p><a href="https://www.ubuntulinux.org/wiki/KernelBuildpackageHowto">https://www.ubuntulinux.org/wiki/KernelBuildpackageHowto</a></p>
+
+<p><a href="https://www.ubuntulinux.org/wiki/KernelByHandHowto">https://www.ubuntulinux.org/wiki/KernelByHandHowto</a></p>
+
+<p><a href="https://www.ubuntulinux.org/wiki/KernelCompileHowto">https://www.ubuntulinux.org/wiki/KernelCompileHowto</a></p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2005/11/27/ubuntu-sourceslist-generator/">ubuntu sources.list generator</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2005/11/22/guest-and-public/"> &nbsp; guest and public</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,189 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Perl – use, require, import, and do </title>
+    <link rel="canonical" href="http://localhost:1313/2009/05/09/perl-use-require-import-and-do/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Perl – use, require, import, and do</h1>
+        <section id="main">
+          <h5 id="date"> Sat May 9, 2009 </h5>
+          <p>Some notes on Perl&#8217;s <em>use, require, import</em> and *do. *Quick notes for me; not meant to be authoritative&#8230;</p>
+
+<ul>
+<li><strong>use</strong> is done at &#8216;compile-time&#8217; and <strong>require</strong> is done at &#8216;run-time&#8217; (ie can conditionally load modules)</li>
+<li><strong>require</strong> is the older method, but <strong>use</strong> uses require to do it&#8217;s work:</li>
+</ul>
+
+<pre class="brush: perl; title: ; notranslate" title="">use Foo;
+# equivalent to:
+require Foo; Foo-&gt;import();
+
+use Foo qw (foo bar);
+# equivalent to:
+require Foo; Foo-&gt;import(qw(foo bar));
+
+use Foo();
+# equivalent to:
+require Foo;
+# ie don't import anything, not even the default things
+</pre>
+
+<ul>
+<li>a <strong>Library</strong> is a just a file of code; a <strong>Module</strong> has <strong>package Foo</strong> in it (and usually other stuff)</li>
+<li><strong>use</strong> only works with modules, whereas <strong>require</strong> works with both modules and libraries. Corollary: <strong>use</strong> only works with module names (Foo), whereas <strong>require</strong> also works with paths (eg ~/lib/foo.pm)</li>
+<li><strong>require Foo</strong> will check if Foo has already been loaded, whereas **do Foo **will unconditionally reload Foo</li>
+<li>better practice is to write <strong>module</strong>s rather than <strong>library</strong>s, to prevent namespace pollution. A simple module:</li>
+</ul>
+
+<pre class="brush: perl; title: ; notranslate" title="">package Foo;                   # minimal. Usually add things like:
+use base qw (Exporter);
+our @EXPORT = qw(qux slarken); # keep this list small - namespace pollution
+</pre>
+
+<ul>
+<li>to use this module:</li>
+</ul>
+
+<pre class="brush: perl; title: ; notranslate" title="">use lib '~/lib';    # add this to %INC
+use Foo;            # loads module, imports symbols in @EXPORT
+Foo-&gt;bar();         # correct
+Foo::bar();         # works, but not for inherited methods
+qux();              # works, due to export
+bar();              # carks
+</pre>
+
+<p><strong>Some links:</strong></p>
+
+<ul>
+<li><a href="http://www.netalive.org/tinkering/serious-perl/">netalive.org &#8211; Writing Serious Perl</a></li>
+<li><a href="http://www.stonehenge.com/merlyn/PerlJournal/col13.html">Randal L. Schwartz &#8211; Hey use guys! import this!</a></li>
+<li><a href="http://www.perl.com/pub/a/2002/05/14/mod_perl.html?page=3">perl.com &#8211; The Perl You Need To Know &#8211; Part 3</a></li>
+<li><a href="http://hype-free.blogspot.com/2008/05/difference-between-use-and-require-in.html">hype-free &#8211; The difference between use and require in Perl</a></li>
+<li><a href="http://perldoc.perl.org/functions/use.html">perldoc &#8211; use</a></li>
+<li><a href="http://docstore.mik.ua/orelly/perl/cookbook/ch12_01.htm">Perl Cookbook &#8211; Packages, Libraries and Modules</a></li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2009/05/22/firewalling-on-solaris-10/">Firewalling on Solaris 10</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/"> &nbsp; Syncing Palm Pilot with JPilot and visor on Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

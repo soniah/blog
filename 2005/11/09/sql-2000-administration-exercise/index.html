@@ -1,0 +1,170 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> sql 2000 administration exercise </title>
+    <link rel="canonical" href="http://localhost:1313/2005/11/09/sql-2000-administration-exercise/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">sql 2000 administration exercise</h1>
+        <section id="main">
+          <h5 id="date"> Thu Nov 10, 2005 </h5>
+          
+
+<h3 id="scenario:027b04a4499e6a4172a6c8057001120d">Scenario</h3>
+
+<p>A complete install of a Microsoft Sql 2000 Server instance, and the creation of some additional objects.</p>
+
+<h3 id="members:027b04a4499e6a4172a6c8057001120d">Members</h3>
+
+<p>Work in groups of three. One member of each team will be nominated as the TEAM LEADER who will co-ordinate job responsibilities with the rest of the group.</p>
+
+<h3 id="time-limit:027b04a4499e6a4172a6c8057001120d">Time Limit</h3>
+
+<p>2 hours</p>
+
+<h3 id="budget:027b04a4499e6a4172a6c8057001120d">Budget</h3>
+
+<p>$200.00</p>
+
+<h3 id="consultancy-fee:027b04a4499e6a4172a6c8057001120d">Consultancy Fee</h3>
+
+<p>A $50.00 Consultancy Fee applies to each team that requires assistence from the Instructor; assistance can only be requested by the TEAM LEADER. A Penalty of $50 per uncompleted requirement also applies.</p>
+
+<h3 id="requirements:027b04a4499e6a4172a6c8057001120d">Requirements</h3>
+
+<ol>
+<li>each team has to install another instance of MS-SQL 2000 on their server</li>
+<li>each team has to create 2 login accounts using TSQL</li>
+<li>each team has to create 2 databases &#8211; any name will do &#8211; using TSQL</li>
+<li>each team has to create 2 user accounts each, for those databases using TSQL</li>
+<li>each team has to create a VIEW of your choice from the NORTHWIND database</li>
+<li>each team has to create a STORED PROCEDURE from the NORTHWIND database</li>
+<li>each team has to create a backup procedure of any user database created</li>
+<li>each team has send mail via SQL using <strong>xp_sendmail</strong></li>
+<li>each team has to create a Database Maintenance Plan copying any data from the Northwind database into a database that you have just newly created</li>
+<li>TWO MEMBERS of each team have to show ANY REPLICATION between them</li>
+</ol>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2005/11/14/mysql-notes/">MySQL notes</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2005/11/07/automatix-nice-ubuntu-tool/"> &nbsp; automatix – nice Ubuntu tool</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

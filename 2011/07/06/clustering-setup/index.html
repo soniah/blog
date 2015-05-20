@@ -1,0 +1,179 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Clustering setup </title>
+    <link rel="canonical" href="http://localhost:1313/2011/07/06/clustering-setup/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Clustering setup</h1>
+        <section id="main">
+          <h5 id="date"> Wed Jul 6, 2011 </h5>
+          <p>A nice <a href="http://lists.slug.org.au/archives/slug/2011/06/msg00014.html">post</a> from Jake on the SLUG list where he asks about a small clustering setup:</p>
+
+<p style="padding-left:30px;">
+  I&#8217;m setting up some new hardware for a client of mine. Basically 2 new <a href="http://www.dell.com/au/business/p/poweredge-r210-2/pd">Dell PowerEdge R210 IIs</a> &#8211; nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (<a href="http://www.linux-kvm.org/page/Main_Page">kvm</a>) for a handfull of guests, file/domain server (<a href="http://www.zentyal.org/">ebox</a>), PBX (<a href="http://pbxinaflash.net/">piaf</a>), mail server web server, &#8220;magic windows only application&#8221; server etc. As the guests run everything in the ofice some kind of HA is needed.
+</p>
+
+<p style="padding-left:30px;">
+  I&#8217;m thinking <a href="http://code.google.com/p/ganeti/">ganeti</a> is the way to manage it all as it takes care of <a href="http://www.drbd.org/">DRBD</a> and failover giving me a nice HA-ish setup without too much work.
+</p>
+
+<p style="padding-left:30px;">
+  The questions. How should I setup my disks?
+</p>
+
+<p style="padding-left:30px;">
+  I&#8217;m tossing up between, (all the below assume a small raid 1 partition for /, this is for the storage pool) RAID 1 with mdadm giving me 1 disk read speed but the ability to read 2 streams. RAID 1 with mdadm and fancyness giving me 2x read speed for a single stream, but normal behaviour for multiple streams and 1x write.
+</p>
+
+<p style="padding-left:30px;">
+  RAID 0 with mdadm 2x read, 2x write and trust DRBD to look after my data ;->
+</p>
+
+<p style="padding-left:30px;">
+  no RAID, set up as 2 separate drives use DRBD to look after data and get &#8220;more spindles&#8221; into the mix (so say file server lives on one disk and mail server on another)
+</p>
+
+<p style="padding-left:30px;">
+  What deb based distro should I use for my host (or present a *really* compelling argument for something else)? I would use ubuntu as i&#8217;m most familiar with it but the recent debacle with unity has really hurt my confidence with them.
+</p>
+
+<p style="padding-left:30px;">
+  Should i go to debian and if so which version?
+</p>
+
+<p style="padding-left:30px;">
+  Networking<br /> each server has 2 gbit ports on it.<br /> should I<br /> team the nics, then run a vlan for drbd and another for regular coms<br /> dedicated nic for drbd and one for general coms.
+</p>
+
+<p style="padding-left:30px;">
+  Any other suggestions or gotchas to look out for?
+</p>
+
+<p style="padding-left:30px;">
+  I have my own answers to these questions, but I&#8217;d really like to hear any advice from the crowd (its like &#8220;the cloud&#8221; but open source and P2P ;->)
+</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/">ssh, sudo, tty, shell</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/"> &nbsp; Ruby and Rails – Time, Date, DateTime, TZInfo</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

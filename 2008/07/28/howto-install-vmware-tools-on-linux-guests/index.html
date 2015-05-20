@@ -1,0 +1,147 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> HowTo Install VMWare Tools on Linux Guests </title>
+    <link rel="canonical" href="http://localhost:1313/2008/07/28/howto-install-vmware-tools-on-linux-guests/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">HowTo Install VMWare Tools on Linux Guests</h1>
+        <section id="main">
+          <h5 id="date"> Mon Jul 28, 2008 </h5>
+          <p>VMWare Tools need to be installed on guests to prevent approx 50% time loss. Here are the steps:</p>
+
+<ul>
+<li>on each guest: <code>yum install gcc gcc-c++</code></li>
+<li>edit guest config files on server to sync time (I usually do all at once): <code>cd /var/lib/vmware/Virtual Machines/ ; vi `find . -type f -name &quot;machine.vmx&quot;`</code> Add the line <code>tools.syncTime = &quot;TRUE&quot;</code></li>
+<li>scp VMTools plus kernel files that correspond to kernel (uname -a): <code>scp VMwareTools-1.0.5-80187.i386.rpm kernel-devel-2.6.18-92.1.6.el5.i686.rpm kernel-headers-2.6.18-92.1.6.el5.i386.rpm guest:.</code></li>
+<li>install rpms; force as sometimes other kernel headers are installed and -U or -i barfs: <code>rpm -ivh --force *rpm</code></li>
+<li>change root password; logon via VMWare GUI console; run <code>vmware-config-tools.pl</code> . Even though the kernel header files have been installed, sometimes the script doesn&#8217;t find them, so you need to manually <code>ln -s /usr/src/kernel/2.6.fubar/include /usr/src/linux/include</code></li>
+<li>halt each guest</li>
+<li>restart server (you could just restart all the VMWare processes, but restarting the server is more time efficient, and usually I&#8217;ve only got a short time window to get it right)</li>
+<li>start each guest via VMWare GUI console</li>
+<li>ssh back to each guest and reset root password</li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2008/08/28/creating-global-keyboard-shortcuts-in-gnome/">Creating global keyboard shortcuts in GNOME</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2008/06/12/ssh-socks-proxying-dns-proxying/"> &nbsp; Ssh SOCKS proxying, DNS proxying, Tunnelling</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

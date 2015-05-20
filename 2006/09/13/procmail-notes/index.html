@@ -1,0 +1,238 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> procmail notes </title>
+    <link rel="canonical" href="http://localhost:1313/2006/09/13/procmail-notes/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">procmail notes</h1>
+        <section id="main">
+          <h5 id="date"> Thu Sep 14, 2006 </h5>
+          
+
+<h3 id="good-procmail-sites:c2065c0a7f62eceaec8cb256685ef66a">Good procmail sites</h3>
+
+<ul>
+<li><a href="http://lipas.uwasa.fi/~ts/info/proctips.html">Timo&#8217;s procmail tips</a></li>
+<li><a href="http://www.ii.com/internet/robots/procmail/qs/">ii.com &#8211; procmail quickstart</a></li>
+<li><a href="http://pm-doc.sourceforge.net/pm-tips.html">procmail tips</a></li>
+<li><a href="http://www.inwa.net/~m3047/procmail/procmail-guide.html">Halcyon guide</a></li>
+<li><a href="http://partmaps.org/era/procmail/mini-faq.html">Partmaps procmail FAQ</a></li>
+<li><a href="http://www.stimpy.net/procmail/tutorial/formail.html">Stimpy&#8217;s formail tutorial</a></li>
+</ul>
+
+<h3 id="procmail-commands-can-consist-of-8230:c2065c0a7f62eceaec8cb256685ef66a">Procmail commands can consist of&#8230;</h3>
+
+<ul>
+<li>a statement</li>
+</ul>
+
+<pre>FOO=`formail ... | sed ...`</pre>
+
+<ul>
+<li>a recipe</li>
+</ul>
+
+<h3 id="a-recipe-consists-of-three-parts-8230:c2065c0a7f62eceaec8cb256685ef66a">A recipe consists of three parts&#8230;</h3>
+
+<ul>
+<li>a colon line</li>
+<li>zero or more condition lines</li>
+<li>an action section</li>
+</ul>
+
+<pre>:0
+ email_folder/</pre>
+
+<pre>:0
+ * From: ...
+ email_folder/</pre>
+
+<h3 id="an-action-is-one-of-8230:c2065c0a7f62eceaec8cb256685ef66a">An action is one of&#8230;</h3>
+
+<ul>
+<li>a folder</li>
+</ul>
+
+<pre>email_folder
+ email_folder/</pre>
+
+<ul>
+<li>a forward</li>
+</ul>
+
+<pre>!foo@bar</pre>
+
+<ul>
+<li>a pipe (with <strong>:0 fwh</strong> or <strong>:0 fwb</strong> colon flags)</li>
+</ul>
+
+<pre>| formail -I ...</pre>
+
+<ul>
+<li>a curly brace</li>
+</ul>
+
+<pre>{</pre>
+
+<h3 id="curly-braces:c2065c0a7f62eceaec8cb256685ef66a">Curly Braces</h3>
+
+<p>A curly brace starts a nesting block ie a recipe can be:</p>
+
+<ul>
+<li>a colon line, zero or more conditions, and curly brackets</li>
+</ul>
+
+<pre>:0
+ {
+     ...
+ }</pre>
+
+<pre>:0
+ * From: ...
+ {
+     ...
+ }</pre>
+
+<p>Inside curly brackets there must be one or more recipes.</p>
+
+<h3 id="how-to-do-if-else:c2065c0a7f62eceaec8cb256685ef66a">How to do if-else</h3>
+
+<p><em>Do if-else using the E colon line flag</em></p>
+
+<pre>:0
+ {
+     :0
+     * ^From: ...
+     # deliver to default destination (inbox)
+     ${DEFAULT}
+ }
+ :0E
+ {
+     # else
+     ...
+ }</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2006/09/14/sed-notes-2/">sed notes 2</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2006/09/03/session-management-ubuntu-dapper/"> &nbsp; session management Ubuntu Dapper</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

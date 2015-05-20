@@ -5,16 +5,16 @@
 <head>
     
     <meta charset="utf-8">
-    <base href="http://blog2.snowfrog.net">
+    <base href="http://localhost:1313/">
     <title>Sonia Hamilton - Blog</title>
-    <link rel="canonical" href="http://blog2.snowfrog.net/">
-    <link href="http://blog2.snowfrog.net/index.xml" rel="alternate" type="application/rss+xml" title="Sonia Hamilton - Blog" />
+    <link rel="canonical" href="http://localhost:1313/">
+    <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="Sonia Hamilton - Blog" />
 
     
 
-<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
-<link rel="stylesheet" href="http://blog2.snowfrog.net/css/syntax.css">
-<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
 </head>
@@ -29,9 +29,9 @@
 <div class="sidebar" id="sidebar">
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
 
-    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Blog</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +47,7 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="http://blog2.snowfrog.net/" title="Home">Home</a>
+            <a href="http://localhost:1313/" title="Home">Home</a>
           </h3>
         </div>
       </div>
@@ -78,13 +78,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/'> Backup multiple MySQL databases into separate files – Windows</a> </h2>
-      <div class="meta">Mon, Mar 5, 2012</div>
+      <h2><a href='http://localhost:1313/posts/devops-and-old-git-branches/'> Devops and Old Git Branches</a> </h2>
+      <div class="meta">Wed, Mar 25, 2015</div>
     </header>
 
-    Years ago I wrote a post on how to Backup multiple MySQL databases into separate files (Linux). I get a lot of questions about how to do the same on Windows; here&#8217;s a script submitted by one of my readers: :: MySQl DB user set dbuser=xxxx :: MySQl DB users password set dbpass=xxxx :: Switch to the MySQL data directory and collect the folder names pushd "C:\Documents and Settings\All Users\Application
+    A guest blog post I wrote on managing git branches when doing devops. When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using Puppet and R10K for your configuration management you can end up having hundreds of old branches lying around — branches like XYZ-123, XYZ-123.fixed, XYZ-123.fixed.old and so on.
     <footer>
-        <a href='http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/devops-and-old-git-branches/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -93,13 +93,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/'> Vimdiff – refresh or update after changes</a> </h2>
-      <div class="meta">Fri, Mar 2, 2012</div>
+      <h2><a href='http://localhost:1313/posts/saltstack-ubuntu-hostname/'> SaltStack Ubuntu Hostname</a> </h2>
+      <div class="meta">Sun, Jan 18, 2015</div>
     </header>
 
-    I little command I always have to search for when using vimdiff &#8211; :diffupdate After you&#8217;ve made changes in vimdiff :diffupdate will recalculate the diffs. Vimdiff in Action
+    SaltStack currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work: [sourcecode lang=&ldquo;text&rdquo;] system: network.system: - enabled: True - hostname: server1.example.com [/sourcecode] Here&rsquo;s a little shell script I wrote, to get around this problem: [sourcecode lang=&ldquo;shell&rdquo;] % cat set_hostname.sh #!/bin/bash hn=$1 hostname $hn echo $hn &gt; /etc/hostname sed -i &ldquo;1s/.*/127.0.0.1 localhost $hn/&rdquo; /etc/hosts [/sourcecode] Then apply it using cmd.script, for example: [sourcecode lang=&ldquo;text&rdquo;] foo-hostname: cmd.script: - source:
     <footer>
-        <a href='http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/saltstack-ubuntu-hostname/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -108,13 +108,118 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/2012/02/29/sydney-stick-fighting-meetup/'> Sydney Stick Fighting – Meetup</a> </h2>
-      <div class="meta">Wed, Feb 29, 2012</div>
+      <h2><a href='http://localhost:1313/posts/terraform-presentation/'> Terraform Presentation</a> </h2>
+      <div class="meta">Tue, Jan 13, 2015</div>
     </header>
 
-    I&#8217;ve setup a new Meetup.com group called Sydney Stick Fighting. It&#8217;s early days yet, I&#8217;m still gathering email addresses and getting people to join up. Here&#8217;s the description of the group: A group for practitioners of the Filipino art of Balintawak Arnis (stick fighting). Arnis (also known as Esgrima or Kali) is a very practical martial art that involves sticks, striking, grappling or improvised weapons. It is becoming more popular (for example the Jason Bourne movies or other movies) and is usually practiced outdoors rather than in a gym.
+    Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.
     <footer>
-        <a href='http://blog2.snowfrog.net/2012/02/29/sydney-stick-fighting-meetup/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/posts/terraform-presentation/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+              
+              
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/building-the-development-version-of-terraform/'> Building the development version of Terraform</a> </h2>
+      <div class="meta">Wed, Dec 3, 2014</div>
+    </header>
+
+    Instructions on how to build the development version of Terraform. First you need to install Go, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (go-bindata, lint) and my own projects (gosnmp, evaler). [sourcecode lang=&ldquo;shell&rdquo;] #!/bin/bash install go tgz=go1.3.3.linux-amd64.tar.gz url=https://storage.googleapis.com/golang/$tgz if ! [ -f /var/tmp/$tgz ] ; then cd /var/tmp wget $url fi if ! [ -d /usr/local/go ] ; then sudo tar -C /usr/local -xzf /var/tmp/$tgz fi setup dev directory structure mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src} cd ~/go/thirdparty/src #&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; read -p &ldquo;Install third party repos?
+    <footer>
+        <a href='http://localhost:1313/posts/building-the-development-version-of-terraform/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+              
+              
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'> Git and mercurial abort: revision cannot be pushed</a> </h2>
+      <div class="meta">Mon, Sep 29, 2014</div>
+    </header>
+
+    I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git. First install the hg-git tools; for example on Ubuntu: [sourcecode lang=&ldquo;shell&rdquo;] sudo aptitude install python-setuptools python-dev sudo easy_install hg-git [/sourcecode] Make sure the following is in your ~/.hgrc: [sourcecode lang=&ldquo;shell&rdquo;] [extensions] hgext.bookmarks = hggit = [/sourcecode] Then, in your existing mercurial repository, add a new remote that points to the git repository.
+    <footer>
+        <a href='http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+              
+              
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/saltstack-essential-reading/'> SaltStack Essential Reading</a> </h2>
+      <div class="meta">Tue, Sep 23, 2014</div>
+    </header>
+
+    A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others. How Do I Use Salt States, States tutorial and Pillar Walkthrough - the tutorials Highstate data structure definitions and Understanding YAML - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc Requisites and Other Global State Arguments - do something before something else,
+    <footer>
+        <a href='http://localhost:1313/posts/saltstack-essential-reading/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+              
+              
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/setup-arduino-on-debian/'> Setup Arduino on Debian</a> </h2>
+      <div class="meta">Wed, Feb 26, 2014</div>
+    </header>
+
+    Some notes on setting up Arduino on Debian. Add yourself to the required groups - dialout and tty. [sourcecode lang=&ldquo;shell&rdquo;] sudo adduser $USER dialout sudo adduser $USER tty [/sourcecode] Confirm the port /dev/ttyUSB0 is being used by Arduino - tail messages then plug in the Arduino. [sourcecode lang=&ldquo;shell&rdquo;] sudo tail -f /var/log/messages you should see something like: FTDI USB Serial Device converter now attached to ttyUSB0 out of interest, inspect permissions on port ls -al /dev/ttyUSB0 [/sourcecode] Logout and login (or run a login shell).
+    <footer>
+        <a href='http://localhost:1313/posts/setup-arduino-on-debian/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+              
+              
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/split-function-for-microsoft-mssql/'> Split() function for Microsoft MSSQL</a> </h2>
+      <div class="meta">Tue, Jan 7, 2014</div>
+    </header>
+
+    Microsoft MSSQL doesn&rsquo;t have a split() function (like in Ruby, Perl), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item. [sourcecode lang=&ldquo;sql&rdquo;] CREATE FUNCTION [dbo].split, @delimiter CHAR(1), @pos
+    <footer>
+        <a href='http://localhost:1313/posts/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+              
+              
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'> MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> </h2>
+      <div class="meta">Mon, Jan 6, 2014</div>
+    </header>
+
+    I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
+    <footer>
+        <a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+              
+              
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/'> Microsoft SQL 2012 SSIS Create Catalog Password</a> </h2>
+      <div class="meta">Tue, Dec 24, 2013</div>
+    </header>
+
+    Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &ldquo;enable CLR&rdquo; and provide an &ldquo;encryption password&rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields. Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&rsquo;m not using a tablet, so why force a tablet interface down my throat?
+    <footer>
+        <a href='http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -133,7 +238,7 @@
   <div>
     <p>
       <br>
-      Footer here. Link to <a href="http://blog2.snowfrog.net/">Home Page</a>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
       <br>
       
       <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.

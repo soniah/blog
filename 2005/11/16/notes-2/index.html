@@ -1,0 +1,286 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> MySQL notes 2 </title>
+    <link rel="canonical" href="http://localhost:1313/2005/11/16/notes-2/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">MySQL notes 2</h1>
+        <section id="main">
+          <h5 id="date"> Thu Nov 17, 2005 </h5>
+          
+
+<h3 id="remote-servers:dfd231c592f84dcde9a430fa40c2f15a">remote servers</h3>
+
+<ul>
+<li>comment out this line in /etc/mysql/my.cnf:</li>
+</ul>
+
+<pre>bind-address = 127.0.0.1
+ /etc/init.d/mysql restart</pre>
+
+<ul>
+<li>connect to remove server</li>
+</ul>
+
+<pre>$mysql -h foo.bar.com -u root -p</pre>
+
+<h3 id="useful-options:dfd231c592f84dcde9a430fa40c2f15a">useful options</h3>
+
+<ul>
+<li>q quit</li>
+<li>G display in vertical format (when queries wrap on screen). Think G instead of g (go):</li>
+</ul>
+
+<pre>select * from userG;</pre>
+
+<ul>
+<li>s status command &#8211; which database am I using, etc</li>
+<li>c cancel a partially entered query. May not work if prompt indicates waiting for a trailing &#8216; or &#8221; (&#8216;&gt; or &#8220;&gt;), in which case enter trailing character then c</li>
+<li># rehash table names for command line completion (if turned off in .my.cnf)</li>
+<li>. source a file of sql commands</li>
+<li>P turn on pager</li>
+<li>n turn off pager</li>
+<li>T turn on log (tee) file</li>
+<li>t turn off log (tee) file)</li>
+</ul>
+
+<h3 id="option-files:dfd231c592f84dcde9a430fa40c2f15a">option files</h3>
+
+<ul>
+<li>use option files (/etc/mysql/my.cnf or ~/.my.cnf) to save having to type in passwords, etc:</li>
+</ul>
+
+<pre># options for all clients
+[client]
+host=localhost
+user=root
+password=secret
+
+# program specific options
+[mysql]
+pager=/usr/bin/less
+no-auto-rehash
+
+[mysqladmin]
+
+[mysqlshow]</pre>
+
+<ul>
+<li>set permissions:</li>
+</ul>
+
+<pre>$ chmod 600 .my.cnf</pre>
+
+<h3 id="file-usage:dfd231c592f84dcde9a430fa40c2f15a">file usage</h3>
+
+<ul>
+<li>read queries from a file</li>
+</ul>
+
+<pre>$ mysql dbname &lt; file.sql</pre>
+
+<ul>
+<li>use a here document in scripts</li>
+</ul>
+
+<pre>msyql dbname &lt;&lt;FIN
+ SELECT * FROM tbl;
+ FIN</pre>
+
+<ul>
+<li>read in a file of commands whilst in mysql</li>
+</ul>
+
+<pre>mysql&gt; source file.sql, or
+ mysql&gt; . file.sql</pre>
+
+<ul>
+<li>pipe the results of a command into mysql
+
+<ul>
+<li>copy a database between machines:</li>
+</ul></li>
+</ul>
+
+<pre>msyql dump dbname | mysql -h foo.bar.com dbname</pre>
+:     * fill a db with test data:
+
+<pre>generate-test-data | mysql dbname</pre>
+
+<ul>
+<li>specify an SQL query at the command line: -e
+
+<ul>
+<li>-B or &#8211;batch produces tab delimited output (default when non-interactive)</li>
+<li>-t or &#8211;table produces tabular output (default when interactive)</li>
+<li>-H or &#8211;html produces html output</li>
+<li>-X or &#8211;xml produces xml output</li>
+<li>-N or &#8211;skip-column-names: don&#8217;t produce column headers</li>
+</ul></li>
+</ul>
+
+<pre>mysql -e "SHOW TABLES;DESCRIBE TABLES" dbname</pre>
+
+<h3 id="produce-csv-output:dfd231c592f84dcde9a430fa40c2f15a">produce csv output</h3>
+
+<pre>$ mysql db &lt; in.sql | csv.pl &gt; out.csv</pre>
+
+<p>Where csv.pl is:</p>
+
+<pre>#!/usr/bin/perl
+while (&lt;&gt;) {
+  s/"/""/g;
+  s/t/","/g;
+  s/^/"/g;
+  s/$/"/g;
+  print;
+}
+exit(0);</pre>
+
+<h3 id="using-a-pager:dfd231c592f84dcde9a430fa40c2f15a">using a pager</h3>
+
+<pre>$ mysql --pager=/usr/bin/less
+ $ mysql --pager (use $PAGER)</pre>
+
+<ul>
+<li>also pager=/usr/bin/less in .my.cnf</li>
+<li>also P (turn on) and n turn off</li>
+</ul>
+
+<h3 id="misc:dfd231c592f84dcde9a430fa40c2f15a">misc</h3>
+
+<ul>
+<li>keep a log of commands typed in</li>
+</ul>
+
+<pre>$ mysql --tee=out.txt dbname
+ mysql&gt; T out.txt</pre>
+
+<ul>
+<li>also, see ~/.mysql_history &#8211; which will contain passwords assigned to users :-(</li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2005/11/16/connect-to-mysql-from-network-using-ms-access/">Connect to MySQL across network using MS Access</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2005/11/16/reset-lost-root-password/"> &nbsp; Reset lost MySQL root password</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

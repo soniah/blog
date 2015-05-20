@@ -1,0 +1,201 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Perl - debug fork() with no X </title>
+    <link rel="canonical" href="http://localhost:1313/posts/perl-debug-fork-with-no-x/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Perl - debug fork() with no X</h1>
+        <section id="main">
+          <h5 id="date"> Fri Aug 3, 2012 </h5>
+          
+
+<p>Here&rsquo;s how to debug a Perl program that&rsquo;s running remotely on a server that doesn&rsquo;t have X. It&rsquo;s pretty simple, these are just notes for me&hellip;</p>
+
+<p>You&rsquo;ve ssh&rsquo;d into a remote server (headless), to debug a perl script that forks:</p>
+
+<p>[sourcecode language=&ldquo;perl&rdquo;]
+$SIG{CHLD} = sub {
+  while (1) {
+    my $nino = waitpid(-1, WNOHANG);
+    last if $nino &lt;= 0;
+    if ($?) {
+      &amp;log(&ldquo;ERROR: Child process $nino exited with $?&ldquo;);
+    }
+    $children&ndash;;
+  }</p>
+
+<h1 id="let-s-fork:bea5398f6e3bad7de942149e82e23512">let&rsquo;s fork!</h1>
+
+<p>my $pid = fork();
+if (not defined $pid) {
+  &amp;log(&ldquo;ERROR: fork(): resources not available&rdquo;);
+}
+elsif ($pid &gt; 0) {
+  # parent
+  $children++;
+  next;
+}
+else {
+  # child
+  $SIG{CHLD} = $SIG{TERM} = $SIG{INT} = &lsquo;DEFAULT&rsquo;;
+  do_stuff($arg1, $arg2);
+  exit;
+}
+[/sourcecode]</p>
+
+<p>But when you start debugging, you get output like this (which tells you what to do):</p>
+
+<p>[sourcecode language=&ldquo;perl&rdquo;]
+######### Forked, but do not know how to create a new TTY. #########
+  Since two debuggers fight for the same TTY, input is severely entangled.</p>
+
+<p>I know how to switch the output to a different window in xterms, OS/2
+  consoles, and Mac OS X Terminal.app only.  For a manual switch, put the name
+  of the created TTY in $DB::fork_TTY, or define a function
+  DB::get_fork_TTY() returning this.</p>
+
+<p>On UNIX-like systems one can get the name of a TTY for the given window
+  by typing tty, and disconnect the shell from TTY by sleep 1000000.
+[/sourcecode]</p>
+
+<p>The easiest solution is to install a minimal X on the target server, then reconnect via ssh, check your DISPLAY variable, then start up the debugger in xterm.</p>
+
+<p>[sourcecode language=&ldquo;bash&rdquo;]
+server% sudo aptitude install xinit xterm</p>
+
+<p>client% ssh -X server                # reconnect, to setup DISPLAY</p>
+
+<p>server% env | grep -i disp
+DISPLAY=localhost:11.0               # DISPLAY is good</p>
+
+<p>server% xterm &amp;                      # an xterm should display locally</p>
+
+<p>server% perl -d foo.pl               # start debugging
+[/sourcecode]</p>
+
+<p>After forking, one or more additional xterms will display for each child, allowing you to debug.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/posts/git-push-to-non-bare-repo-warning-updating-the-current-branch/">git push to non-bare repo: warning: updating the current branch</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/posts/balintawak-video/"> &nbsp; Balintawak Video</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

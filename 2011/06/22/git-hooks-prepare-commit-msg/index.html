@@ -1,0 +1,177 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> git hooks – prepare-commit-msg </title>
+    <link rel="canonical" href="http://localhost:1313/2011/06/22/git-hooks-prepare-commit-msg/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">git hooks – prepare-commit-msg</h1>
+        <section id="main">
+          <h5 id="date"> Wed Jun 22, 2011 </h5>
+          <p><strong>Update:</strong> foo commented that this was a &#8220;bad idea&#8221; (bordering on wrong?) and suggested I use options like <strong>git log &#8211;stat</strong> instead. See the comments below. Thanks foo!</p>
+
+<p>When I&#8217;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a <strong>git log</strong>, rather than getting this:</p>
+
+<pre>commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3
+Author: Sonia Hamilton
+Date:   Fri Jun 17 21:15:53 2011 +1000
+
+    dotjilot code changes</pre>
+
+<p>I get a nice message like this:</p>
+
+<pre>commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3
+Author: Sonia Hamilton
+Date:   Fri Jun 17 21:15:53 2011 +1000
+
+    dotjilot code changes
+        modified:   setuplinux
+        modified:   funcs</pre>
+
+<p>I used to manually edit the commit message on each commit, but git has a system of hooks that allows you to automate this sort of thing (look in the <strong>repo/.git/hooks</strong> directory for some examples). Here&#8217;s a script to automatically uncomment all changes in the commit message:</p>
+
+<pre>% cat prepare-commit-msg
+#!/bin/sh
+# use case statement for future flexibility - see prepare-commit-msg.sample
+case "$2,$3" in
+  *)
+    /usr/bin/perl -i.bak -ne 's/^#// if /modified:|new file:|deleted:|renamed:/; print' "$1" ;;
+esac</pre>
+
+<p>And here&#8217;s a quick script for setting this up across all your local repos. Remember &#8211; hooks aren&#8217;t synced between repos, so you need to do this on each machine you work on.</p>
+
+<pre>#!/bin/bash
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+gitdirs="foo bar baz"
+for d in $gitdirs ; do
+    if [ -d ${HOME}/${d} ] ; then
+        cp prepare-commit-msg ${HOME}/${d}/.git/hooks
+    fi
+done</pre>
+
+<p>There&#8217;s only one disadvantage to doing this. Usually, you can just exit without saving the commit message and git will cancel the commit. But because the script modifies the message, there&#8217;s no nice way of telling git you want to back out (unless someone can tell me how&#8230;). I get around this by saving the message and doing a <strong>git reset &#8211;soft HEAD^</strong> at the command line.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/06/23/ssh-fix-long-login-times-disable-kerberos/">ssh – fix long login times – disable Kerberos</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2011/05/23/spain-the-country-that-breaks-the-eu/"> &nbsp; Spain – the country that breaks the EU?</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

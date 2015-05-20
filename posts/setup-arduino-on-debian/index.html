@@ -1,0 +1,186 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Setup Arduino on Debian </title>
+    <link rel="canonical" href="http://localhost:1313/posts/setup-arduino-on-debian/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Setup Arduino on Debian</h1>
+        <section id="main">
+          <h5 id="date"> Wed Feb 26, 2014 </h5>
+          
+
+<p>Some notes on setting up Arduino on Debian.</p>
+
+<p>Add yourself to the required groups - dialout and tty.</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+sudo adduser $USER dialout
+sudo adduser $USER tty
+[/sourcecode]</p>
+
+<p>Confirm the port <strong>/dev/ttyUSB0</strong> is being used by Arduino - tail messages then plug in the Arduino.</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+sudo tail -f /var/log/messages</p>
+
+<h1 id="you-should-see-something-like:a87367d6c0b9eb429a7dc766a2d1aee1">you should see something like:</h1>
+
+<p>FTDI USB Serial Device converter now attached to ttyUSB0</p>
+
+<h1 id="out-of-interest-inspect-permissions-on-port:a87367d6c0b9eb429a7dc766a2d1aee1">out of interest, inspect permissions on port</h1>
+
+<p>ls -al /dev/ttyUSB0
+[/sourcecode]</p>
+
+<p>Logout and login (or run a login shell). Confirm permissions.</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+zsh -l
+id</p>
+
+<h1 id="you-should-see-something-like-1:a87367d6c0b9eb429a7dc766a2d1aee1">you should see something like:</h1>
+
+<p>groups=1000(sonia),5(tty),20(dialout),&hellip;
+[/sourcecode]</p>
+
+<p>Install Arduino pre-requisites.</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+sudo aptitude install arduino arduino-core
+[/sourcecode]</p>
+
+<p>If preferred, download the <strong>latest</strong> Arduino environment, run the shell script to start it.</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+cd ~/arduino-1.0.5
+./arduino&amp;
+[/sourcecode]</p>
+
+<p>Set the serial port (Tools -&gt; Serial Port) to <strong>/dev/ttyUSB0</strong>. Any problems doing this, edit the serial port setting in  <strong>~/.arduino/preferences.txt</strong></p>
+
+<p><strong>Hello World</strong> - upload Blink (File -&gt; Examples -&gt; 01.Basics -&gt; Blink) to your Arduino, go crazy with that flashing LED!</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/posts/saltstack-essential-reading/">SaltStack Essential Reading</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/posts/split-function-for-microsoft-mssql/"> &nbsp; Split() function for Microsoft MSSQL</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

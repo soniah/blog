@@ -1,0 +1,156 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Python, Lambda, Closures </title>
+    <link rel="canonical" href="http://localhost:1313/2011/04/05/python-lambda-closures/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Python, Lambda, Closures</h1>
+        <section id="main">
+          <h5 id="date"> Tue Apr 5, 2011 </h5>
+          <p>(apologies to <a href="http://planet.slug.org.au/">slug planeteers</a> for the duplicate info).</p>
+
+<p>A very interesting <a href="http://algorithm.com.au/blog/files/immutability-blocks-lambdas-closures.php#unique-entry-id-613">post</a> from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&#8217;m playing with Lisp and Python at the moment&#8230;</p>
+
+<p>Some links from his blog, in case the original post ever disappears:</p>
+
+<ul>
+<li>the <a href="http://stackoverflow.com/questions/938429/scope-of-python-lambda-functions-and-their-parameters">question and responses</a> on stackoverflow</li>
+<li>an <a href="http://mail.python.org/pipermail/python-dev/2005-September/056669.html">example</a> of the perils of Python&#8217;s scoping rules with for/while/if</li>
+<li>Wikipedia &#8211; <a href="http://en.wikipedia.org/wiki/Closure_%28computer_science%29#Differences_in_semantics">differences in semantics of closures</a></li>
+</ul>
+
+<p>A nice snippet of code to remind me of the issues:</p>
+
+<pre>def callback(msg):
+    print msg
+funcList=[]
+for m in ('do', 're', 'mi'):
+    # funcList.append(lambda: callback(m))
+    funcList.append(lambda m=m: callback(m))
+for f in funcList:
+    f()</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/04/11/python-iview/">Python-iView</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2011/03/27/lisp-and-python/"> &nbsp; Lisp and Python</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

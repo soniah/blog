@@ -1,0 +1,164 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> mysql, localhost, and ssh work-around </title>
+    <link rel="canonical" href="http://localhost:1313/2008/06/05/mysql-localhost-and-ssh-work-around/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">mysql, localhost, and ssh work-around</h1>
+        <section id="main">
+          <h5 id="date"> Thu Jun 5, 2008 </h5>
+          <p>I use ssh to tunnel all the time, especially to get around brain-dead firewalls. But this doesn&#8217;t work easily for mysql &#8211; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost&#8217; and try to connect via the local socket. Very broken &#8211; there&#8217;s bugs lodged <a href="http://bugs.mysql.com/bug.php?id=27361">here</a> and <a href="http://bugs.mysql.com/bug.php?id=31577">here</a> about this (and lots of chest beating and wailing, too).</p>
+
+<p><strong>Solution:</strong> tunnel ssh via an intermediate machine. For example:</p>
+
+<pre>intermediate$ ssh -o GatewayPorts=yes -L 3306:targetdb:3306 targetdb
+localhost$ mysql -h intermediate -P 3306</pre>
+
+<p>GatewayPorts &#8211; dangerous yes &#8211; but so is life&#8230;</p>
+
+<p><strong>Update</strong></p>
+
+<p>The problem seems to have been fixed; either that or I was having a very blond moment last time I tried using <strong>&#8211; &#8211; protocol</strong>.</p>
+
+<pre>localhost$ mysql --version
+localhost$ mysql  Ver 14.12 Distrib 5.0.51a, for debian-linux-gnu (i486) using readline 5.2
+localhost$ ssh -fN -L3306:targetdb:3306 targetdb
+localhost$ mysql --protocol=tcp -hlocalhost -uroot
+Welcome to the MySQL monitor.  Commands end with ; or g.
+Your MySQL connection id is 14788104
+Server version: 4.0.21-Max-log
+Type 'help;' or 'h' for help. Type 'c' to clear the buffer.
+mysql&gt;</pre>
+
+<p><strong>Update 2</strong></p>
+
+<p>However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don&#8217;t obey the &#8211; &#8211; protocol=tcp flag or don&#8217;t have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh&#8230;.</p>
+
+<p><strong>Update 3</strong></p>
+
+<p>Using 127.0.0.1 instead of localhost works for OpenOffice &#8211; yay.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/">Connect to mysql from OpenOffice using ODBC</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2008/04/17/disable-evolution-notifications-in-ubuntu/"> &nbsp; Disable Evolution notifications in Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

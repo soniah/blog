@@ -1,0 +1,193 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> ssh, ssh-agent, keychain and cron notes </title>
+    <link rel="canonical" href="http://localhost:1313/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">ssh, ssh-agent, keychain and cron notes</h1>
+        <section id="main">
+          <h5 id="date"> Fri Nov 16, 2007 </h5>
+          <p><strong>Summary</strong></p>
+
+<p>To setup <strong>ssh</strong> and <strong>keychain</strong> to allow ssh related jobs to run from cron:</p>
+
+<ul>
+<li>generate keys <em>with a password</em> (<strong>ssh-keygen -t dsa</strong>) and install keychain. Do only on <em>secure machines</em> ie ones that only you (or a small number of trusted admins) can logon to as root &#8211; typically your laptop/desktop and a secure admin server</li>
+<li>add the following lines to your <strong>~/.profile</strong>:</li>
+</ul>
+
+<blockquote>
+<ul>
+<li>some sites say <strong>.bash_profile</strong>, but I use .profile as I use both bash and zsh (don&#8217;t have both as then only .bash_profile will be read)</li>
+<li>I check keychain is executable with -x as I have the same .profile on all machines (synced via a script)</li>
+<li>I use rsa keys as I work with older ssh1 machines; dsa keys are preferable.</li>
+</ul>
+</blockquote>
+
+<p><code>export HOSTNAME=`hostname` # HOSTNAME not set some machines</code><br />
+<code>if [ -x /usr/bin/keychain -a -f $HOME/.keychain/${HOSTNAME}-sh ] ; then</code><br />
+<code>/usr/bin/keychain $HOME/.ssh/id_rsa</code><br />
+<code>source $HOME/.keychain/${HOSTNAME}-sh</code><br />
+<code>fi</code></p>
+
+<ul>
+<li><p>on machines where others are able to login as root (and hence possibly piggyback onto your private key), keychain should be started with &#8211;clear in .profile and ssh-agent shouldn&#8217;t be run. Use &#8211;nocolor on non-VT100 compat terminals</p></li>
+
+<li><p>unless <strong>~/.hushlogin</strong> exists, keychain will display a colourful message showing known keys being loaded on login:</p></li>
+</ul>
+
+<p><code>Copyright 2002-2004 Gentoo Foundation; Distributed under the GPL</code><br />
+<code>* Found existing ssh-agent (11703)</code><br />
+<code>* Known ssh key: /home/shamilton/.ssh/id_rsa</code></p>
+
+<ul>
+<li>any ssh-using scripts started from crontab on keychain&#8217;d machines should include the following lines at the start:</li>
+</ul>
+
+<p><code>source $HOME/.keychain/${HOSTNAME}-sh</code></p>
+
+<p>[Off Topic] To manually load keys into ssh-agent, typically on admin servers or non-X machines when not using keychain:</p>
+
+<ul>
+<li>eval `ssh-agent`</li>
+<li>ssh-add</li>
+</ul>
+
+<p>[Off Topic] When ssh&#8217;ing between multiple machines, <strong>ForwardAgent Yes</strong> must be set in <strong>/etc/ssh/ssh_config</strong>. Otherwise add to <strong>~/.ssh/config</strong> or startup ssh as <strong>ssh -A</strong>.</p>
+
+<p><strong>See also:</strong></p>
+
+<ul>
+<li>gentoo homepage for <a href="http://www.gentoo.org/proj/en/keychain/">keychain</a></li>
+<li>ibm developer works series on <a href="http://www.ibm.com/developerworks/library/l-keyc.html">key management and keychain</a></li>
+<li>oceanpark on <a href="http://oceanpark.com/notes/howto_ssh_keychain_public_key_authentication_forwarding.html">passwordless connections</a></li>
+<li>reflux on <a href="http://rephlux.sourceforge.net/running.rephlux.php">notes on keychain</a></li>
+<li>my <a href="http://blog.snowfrog.net/2007/10/29/ssh-notes/">ssh-notes</a> on tunnelling</li>
+<li>Troy Johnson&#8217;s notes on <a href="http://troy.jdmz.net/rsync/index.html">Using RSync and SSH: Keys, Validating and Automation</a></li>
+<li>sshpass &#8211; <a href="http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">rsync + ssh keys</a></li>
+</ul>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/">Troubleshooting mac addresses in Ubuntu</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/11/14/expect-notes/"> &nbsp; expect notes</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

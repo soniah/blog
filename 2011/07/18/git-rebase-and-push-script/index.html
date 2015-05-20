@@ -1,0 +1,210 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> git – rebase and push script </title>
+    <link rel="canonical" href="http://localhost:1313/2011/07/18/git-rebase-and-push-script/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">git – rebase and push script</h1>
+        <section id="main">
+          <h5 id="date"> Mon Jul 18, 2011 </h5>
+          <p>For development projects, I use the standard git workflow ie master is my main branch, and I do development in branches (read more about this recommended workflow at <a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a>**).</p>
+
+<p>(** this site also suggests always using <strong>&#8211;no-ff</strong> with merge &#8211; a practice I now follow &#8211; it certainly makes reading history easier)</p>
+
+<div id="attachment_1086" class="wp-caption aligncenter" style="width: 608px">
+  <a href="http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png"><img class="size-full wp-image-1086" title="branch-model" src="http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png" alt="nvie.com - A successful Git branching model" width="600" height="262" /></a>
+  
+  <p class="wp-caption-text">
+    nvie.com - A successful Git branching model
+  </p>
+</div>
+
+<p>When I&#8217;m happy with my work in a dev branch I cherry-pick or merge into master. I&#8217;ll then want to rebase my other dev branches against master, and push all branches to a &#8220;backup&#8221; server (ie a bare git repository). On my dev branches I&#8217;m frequently rewriting history with <strong>git reset</strong>, <strong>git commit &#8211;amend</strong>, and <strong>git rebase -i</strong>, but on my master branch I never rewrite history (ie only ever use <strong>git revert</strong>). So when I push dev branches I&#8217;m going to need to do a <strong>git push -f</strong>, whereas on the master a <strong>git push</strong> will suffice.</p>
+
+<p>I&#8217;m doing this regularly, and it&#8217;s boring and error prone. So I&#8217;ve written a script to automate the whole process ie rebase each dev branch against master, and push all local branches somewhere else. If you have branches off (non-master) branches, this script won&#8217;t work. But I&#8217;ve found in my day-to-day development as a sysadmin (<a href="http://devopsdownunder.org/">devop</a>?) my branching isn&#8217;t that complicated, so this script is adequate.</p>
+
+<div id="attachment_1084" class="wp-caption aligncenter" style="width: 869px">
+  <a href="http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png"><img class="size-full wp-image-1084  " title="branching" src="http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png" alt="If you branch off (non-master) branches, don't use this script! (image: Jon Loelger, &quot;Version Control with Git&quot;)" width="861" height="272" /></a>
+  
+  <p class="wp-caption-text">
+    If you branch off (non-master) branches, don't use this script! (image: Jon Loelger, "Version Control with Git")
+  </p>
+</div>
+
+<pre>% cat rebase.and.push
+#!/bin/bash
+
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+# rebase all local branches against master, then force push
+# them to supplied remote. Also push master
+
+original_branch=$(git symbolic-ref -q HEAD)
+original_branch=${original_branch##refs/heads/}
+original_branch=${original_branch:-HEAD}
+
+if [ $original_branch = 'HEAD' ] ; then
+    echo
+    echo "On a detached head. Exiting..."
+    exit 1
+fi
+
+remote=${1:-origin}
+
+# find all local branches
+locals=`git br | sed 's/^  |* //' | grep -v master`
+
+# rebase against master
+for branch in $locals ; do
+    echo
+    echo "rebasing against master - $branch ..."
+    git co $branch
+    if ! [ $? -eq 0 ] ; then
+        echo "Unable to checkout $branch. Exiting..."
+        exit 1
+    fi
+    git rebase master
+    if ! [ $? -eq 0 ] ; then
+        echo "Exiting. Rebase failed..."
+        exit 1
+    fi
+    git push -f $remote $branch
+done
+
+echo
+echo "push master..."
+git co master
+if ! [ $? -eq 0 ] ; then
+    echo "Unable to checkout master. Exiting..."
+    exit 1
+fi
+git push $remote master
+
+echo
+echo "Returning to original branch..."
+git co $original_branch</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/07/19/shell-all-parameters/">shell – all parameters – $* vs $@</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/"> &nbsp; ssh, sudo, tty, shell</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,186 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Oracle RMAN backups </title>
+    <link rel="canonical" href="http://localhost:1313/2009/06/29/oracle-rman-backups/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Oracle RMAN backups</h1>
+        <section id="main">
+          <h5 id="date"> Mon Jun 29, 2009 </h5>
+          <p>More notes on Oracle RMAN backups, see also <a href="http://blog.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/">Oracle – how to purge old RMAN backups</a>. Thanks Raoul for your email&#8230;</p>
+
+<pre><pre>Are the backups being deleted using RMAN or simply 'rm'?
+
+Oracle's RMAN can be set up to manage this for you based on RETENTION POLICY.  Eg, set retention policy to recovery window of 14 days and
+it will regard any backups older than 14 days to be OBSOLETE. Obsolete backups can be removed regularly using this:
+ DELETE NOPROMPT OBSOLETE;
+in a script that RMAN runs, for example, the daily backup script.
+
+Here's a quick rundown of the rman commands you might find useful:
+
+-- list all configuration parameters
+SHOW ALL;
+
+-- check for spurious files in FRA (backup location)
+-- typically, these can be safely deleted
+-- but check messages/output first.
+CATALOG RECOVERY AREA NOPROMPT;
+
+-- check to see what backups are available in the backup
+-- destination area (refresh with what's available)
+-- missing ones are marked as EXPIRED
+CROSSCHECK BACKUPSET;
+CROSSCHECK COPY;
+
+-- delete all obsolete backups
+-- this physically removes the backup pieces from the backup
+-- destination and removes knowledge of them from the control
+-- file this is performed based on the RETENTION policy
+DELETE NOPROMPT OBSOLETE;
+
+-- delete all expired backups, etc
+-- this is clearing the knowledge of such EXPIRED (missing)
+-- backups from the control file
+DELETE NOPROMPT EXPIRED BACKUP;
+DELETE NOPROMPT EXPIRED COPY;
+
+Once you've set the retention policy, then the following backup script (or one like it) will remove old backups automatically.
+
+-- full back, deleting archive logs after backing them up
+backup device type disk tag '%TAG' database;
+backup device type disk tag '%TAG' archivelog all not backed up delete all input;
+allocate channel for maintenance type disk;
+delete noprompt obsolete device type disk;
+release channel;
+
+Example of what to do if system runs out of disk space due to archive logs:
+
+crosscheck archivelog all;
+delete expired archivelog all;
+backup archivelog all delete input;
+backup database;</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2009/07/02/firefox-default-paper-size-a4/">Firefox – default paper size A4</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2009/06/17/another-year-another-sydney-film-festival/"> &nbsp; Another year, another Sydney Film Festival</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

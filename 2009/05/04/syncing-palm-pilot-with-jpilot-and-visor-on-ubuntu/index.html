@@ -1,0 +1,185 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Syncing Palm Pilot with JPilot and visor on Ubuntu </title>
+    <link rel="canonical" href="http://localhost:1313/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Syncing Palm Pilot with JPilot and visor on Ubuntu</h1>
+        <section id="main">
+          <h5 id="date"> Mon May 4, 2009 </h5>
+          
+
+<p>(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&#8217;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10. Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cleaned up version:</p>
+
+<ul>
+<li>load visor module <strong>sudo modprobe visor</strong> and check loaded <strong>lsmod | grep visor</strong></li>
+<li>add visor module to <strong>/etc/modules</strong></li>
+<li>click sync button on Palm Pilot and check USB devices are being created:
+
+<ul>
+<li>in one terminal, <strong>tail -f /var/log/syslog <s>/var/log/messages</s></strong></li>
+<li>in a second terminal, check the ownership of links <strong>ls -al /dev/ttyUSB</strong>* and check you are a member of the appropriate group (usually dialout) <strong>grep dialout /etc/group</strong></li>
+</ul></li>
+<li><strong>sudo aptitude install jpilot</strong> and start JPilot</li>
+<li><em>read this step carefully:</em> no need to change the Serial Port setting in Preferences &#8211; JPilot will pick up the correct one on the first sync (which is now unexpectedly <em>Other</em> rather than <em>/dev/ttyUSBO</em> or <em>usb:</em>)</li>
+<li><em>read this step carefully:</em> from jpilot <strong>File &gt; Install User</strong>, click sync button on Palm Pilot, count to 5, then click <strong>Install User</strong> button in JPilot dialog box</li>
+<li>click sync button on Palm Pilot, count to 5, then click <strong>Sync</strong> in JPilot</li>
+<li>if syncing isn&#8217;t working (especially on a machine that&#8217;s been upgraded from an older version of Ubuntu), try closing JPilot, <strong>mv .jpilot .jpilot.bak</strong>, restarting JPilot, then doing the <strong>Install User</strong> steps again</li>
+</ul>
+
+<h3 id="span-style-text-decoration-underline-see-also-span:30acd8bf1d7677c6c7fe94558b2bfaa7"><span style="text-decoration: underline;">See also:</span></h3>
+
+<ul>
+<li>(totally off-topic): <a href="http://www.computechgroup.com/?p=381">HOWTO: Import iCalendar (ics) Appointments Into JPilot</a></li>
+<li>some pages mention installing pilot-link &#8211; this isn&#8217;t required</li>
+<li>some pages mention modifying files in<strong>/etc/udev/rules.d</strong> &#8211; this no longer seems required</li>
+</ul>
+
+<p><a href="http://www.linuxquestions.org/questions/showthread.php?t=79965">http://www.linuxquestions.org/questions/showthread.php?t=79965</a></p>
+
+<p><a href="http://ask.slashdot.org/article.pl?sid=05/05/13/0234225">http://ask.slashdot.org/article.pl?sid=05/05/13/0234225</a></p>
+
+<p><a href="http://www.linuxmuse.com/articles.php?action=printerf&amp;article=29">http://www.linuxmuse.com/articles.php?action=printerf&amp;article=29</a></p>
+
+<p><a href="http://www.linuxquestions.org/questions/showthread.php?t=177780">http://www.linuxquestions.org/questions/showthread.php?t=177780</a></p>
+
+<p><a href="http://www.linuxquestions.org/questions/showthread.php?t=221854">http://www.linuxquestions.org/questions/showthread.php?t=221854</a></p>
+
+<p><a href="http://www.rockhopper.dk/linux/hardware/pda.html#chap5_sect1">http://www.rockhopper.dk/linux/hardware/pda.html#chap5_sect1</a></p>
+
+<p><a href="http://archives.mandrivalinux.com/expert/2003-02/msg02508.php">http://archives.mandrivalinux.com/expert/2003-02/msg02508.php</a></p>
+
+<p><a href="http://www.faqs.org/docs/Linux-HOWTO/PalmOS-HOWTO.html#PC-CONNECT-USB">http://www.faqs.org/docs/Linux-HOWTO/PalmOS-HOWTO.html#PC-CONNECT-USB</a></p>
+
+<p><a href="http://pilot-link.org/README.usb">http://pilot-link.org/README.usb</a></p>
+
+<p><a href="http://www.clasohm.com/blog/one-entry?entry%5fid=12096">Carsten Clasohm&#8217;s Blog : USB Palm and Fedora Core 3</a></p>
+
+<p><a href="http://www.reactivated.net/writing_udev_rules.html">Writing udev rules by Daniel Drake</a></p>
+
+<p><a href="http://www.linux-mag.com/id/2617">Linux Magazine &#8211; The Linux Device Model</a></p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2009/05/09/perl-use-require-import-and-do/">Perl – use, require, import, and do</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/"> &nbsp; apt sources.list for old versions of Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

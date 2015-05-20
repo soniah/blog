@@ -1,0 +1,294 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> HowTo Setup 3 Broadband Wireless on Ubuntu Linux </title>
+    <link rel="canonical" href="http://localhost:1313/2007/05/04/howto-setup-3-broadband-wireless-on-ubuntu-linux/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">HowTo Setup 3 Broadband Wireless on Ubuntu Linux</h1>
+        <section id="main">
+          <h5 id="date"> Sat May 5, 2007 </h5>
+          <p>**HOWTO setup Novatel Merlin XU870 for 3&#8217;s wireless broadband, on Ubuntu Linux<br />
+**</p>
+
+<p>I&#8217;ve recently bought a wireless broadband modem from 3, which I&#8217;m really happy with &#8211; good speed, reliable, and fairly cheap ($AU50/month for 1G). Here are some instructions on how to get it working on Ubuntu Linux.</p>
+
+<p>Compile the <em>Airprime</em> drivers into your kernel, using the instructions at <a href="http://samat.org/weblog/20070127-high-speed-cellular-wireless-modems-in-ubuntu-linux-6-10.html">samat.org</a>, or upgrade/install Ubuntu Feisty (7.04) or later &#8211; the drivers are included in the kernel. If you upgrade, check that your kernel has beenupgraded to 2.6.20 or later:</p>
+
+<p><code>$ uname -r&lt;br /&gt;
+2.6.20-15-386</code></p>
+
+<p>Open several terminal windows (see instructions at <a href="http://www.novatelwireless.com/support/merlin-xu870-linux.html">novatel</a>). In one of them, follow /var/log/messages:<br />
+<code>&lt;br /&gt;
+$ tail -f /var/log/messages</code></p>
+
+<p>Insert the modem into your laptop. You should get lines like this showing the airprime driver being loaded (a full log file is included at the end of this howto).</p>
+
+<p><code>May  4 13:01:39 localhost kernel: [ 2707.948000] airprime 5-1:1.0: airprime converter detected&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.948000] usb 5-1: airprime converter now attached to ttyUSB0</code><br />
+Copy this file to /etc/ppp/peers:</p>
+
+<p><code>$ ls -al /etc/ppp/peers/3&lt;br /&gt;
+-rw-r----- 1 root dip 196 2007-05-04 13:26 /etc/ppp/peers/3&lt;br /&gt;
+$ cat /etc/ppp/peers/3&lt;br /&gt;
+debug 10&lt;br /&gt;
+/dev/ttyUSB0 230400&lt;br /&gt;
+crtscts&lt;br /&gt;
+holdoff 1&lt;br /&gt;
+connect &quot;/usr/sbin/chat -v -f /etc/chatscripts/3&quot;&lt;br /&gt;
+asyncmap 00000000&lt;br /&gt;
+user 3netaccess&lt;br /&gt;
+password 3netaccess&lt;br /&gt;
+usepeerdns&lt;br /&gt;
+defaultroute&lt;br /&gt;
+lcp-echo-interval 0</code></p>
+
+<p>Copy this file to /etc/chatscripts/3:</p>
+
+<p><code>$ ls -al /etc/chatscripts/3&lt;br /&gt;
+-rw-r----- 1 root dip 105 2007-05-04 13:24 /etc/chatscripts/3&lt;br /&gt;
+$ cat /etc/chatscripts/3&lt;br /&gt;
+ABORT &quot;BUSY&quot;&lt;br /&gt;
+ABORT &quot;NO CARRIER&quot;&lt;br /&gt;
+&quot;&quot; &quot;at&quot;&lt;br /&gt;
+OK 'AT+CGDCONT=1,&quot;IP&quot;,&quot;3netaccess&quot;'&lt;br /&gt;
+OK &quot;atd *99#&quot;&lt;br /&gt;
+CONNECT &quot;dc&quot;</code></p>
+
+<p>In another terminal window, connect using pon:</p>
+
+<p><code>$ pon 3</code></p>
+
+<p>If you connect OK, you&#8217;ll see log messages like this:<br />
+<code>&lt;br /&gt;
+May  4 13:27:00 localhost pppd[9247]: Connect: ppp0 &lt;--&gt; /dev/ttyUSB0&lt;br /&gt;
+May  4 13:27:01 localhost pppd[9247]: CHAP authentication succeeded</code></p>
+
+<p>Here&#8217;s a <strong>full set of log messages</strong>, showing the modem being inserted, running pon, then disconnecting using poff:</p>
+
+<p><code>May  4 13:01:34 localhost kernel: [ 2703.564000] pccard: CardBus card inserted into slot 0&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.652000] PCI: Enabling device 0000:03:00.0 (0000 -&gt; 0002)&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.652000] ACPI: PCI Interrupt 0000:03:00.0[A] -&gt; GSI 18 (level, low) -&gt; IRQ 18&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.652000] ohci_hcd 0000:03:00.0: OHCI Host Controller&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.652000] ohci_hcd 0000:03:00.0: new USB bus registered, assigned bus number 5&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.652000] ohci_hcd 0000:03:00.0: irq 18, io mem 0x44000000&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.736000] usb usb5: configuration #1 chosen from 1 choice&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.736000] hub 5-0:1.0: USB hub found&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.736000] hub 5-0:1.0: 3 ports detected&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.840000] PCI: Enabling device 0000:03:00.1 (0000 -&gt; 0002)&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.840000] ACPI: PCI Interrupt 0000:03:00.1[B] -&gt; GSI 18 (level, low) -&gt; IRQ 18&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.840000] ohci_hcd 0000:03:00.1: OHCI Host Controller&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.840000] ohci_hcd 0000:03:00.1: new USB bus registered, assigned bus number 6&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.840000] ohci_hcd 0000:03:00.1: irq 18, io mem 0x44001000&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.924000] usb usb6: configuration #1 chosen from 1 choice&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.924000] hub 6-0:1.0: USB hub found&lt;br /&gt;
+May  4 13:01:35 localhost kernel: [ 2703.924000] hub 6-0:1.0: 2 ports detected&lt;br /&gt;
+May  4 13:01:38 localhost kernel: [ 2707.580000] usb 5-1: new full speed USB device using ohci_hcd and address 2&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.792000] usb 5-1: configuration #1 chosen from 1 choice&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.896000] usbcore: registered new interface driver usbserial&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.896000] drivers/usb/serial/usb-serial.c: USB Serial support registered for generic&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.896000] usbcore: registered new interface driver usbserial_generic&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.896000] drivers/usb/serial/usb-serial.c: USB Serial Driver core&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.948000] drivers/usb/serial/usb-serial.c: USB Serial support registered for airprime&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.948000] airprime 5-1:1.0: airprime converter detected&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.948000] usb 5-1: airprime converter now attached to ttyUSB0&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.948000] usb 5-1: airprime converter now attached to ttyUSB1&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.948000] usb 5-1: airprime converter now attached to ttyUSB2&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.952000] airprime 5-1:1.1: airprime converter detected&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.952000] usb 5-1: airprime converter now attached to ttyUSB3&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.952000] usb 5-1: airprime converter now attached to ttyUSB4&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.952000] usb 5-1: airprime converter now attached to ttyUSB5&lt;br /&gt;
+May  4 13:01:39 localhost kernel: [ 2707.952000] usbcore: registered new interface driver airprime&lt;br /&gt;
+May  4 13:26:57 localhost kernel: [ 4225.860000] PPP generic driver version 2.4.2&lt;br /&gt;
+May  4 13:26:57 localhost pppd[9247]: pppd 2.4.4 started by root, uid 0&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: abort on (BUSY)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: abort on (NO CARRIER)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: send (at^M)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: expect (OK)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: at^M^M&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: OK&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]:  -- got it&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: send (AT+CGDCONT=1,&quot;IP&quot;,&quot;3netaccess&quot;^M)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: expect (OK)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: ^M&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: AT+CGDCONT=1,&quot;IP&quot;,&quot;3netaccess&quot;^M^M&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: OK&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]:  -- got it&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: send (atd *99#^M)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: expect (CONNECT)&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: ^M&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: atd *99#^M^M&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: CONNECT&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]:  -- got it&lt;br /&gt;
+May  4 13:26:58 localhost chat[9250]: send (d)&lt;br /&gt;
+May  4 13:26:59 localhost pppd[9247]: Serial connection established.&lt;br /&gt;
+May  4 13:27:00 localhost pppd[9247]: Using interface ppp0&lt;br /&gt;
+May  4 13:27:00 localhost pppd[9247]: Connect: ppp0 &lt;--&gt; /dev/ttyUSB0&lt;br /&gt;
+May  4 13:27:01 localhost pppd[9247]: CHAP authentication succeeded&lt;br /&gt;
+May  4 13:27:01 localhost pppd[9247]: CHAP authentication succeeded&lt;br /&gt;
+May  4 13:27:01 localhost kernel: [ 4229.616000] PPP BSD Compression module registered&lt;br /&gt;
+May  4 13:27:01 localhost kernel: [ 4229.668000] PPP Deflate Compression module registered&lt;br /&gt;
+May  4 13:27:03 localhost pppd[9247]: local  IP address 202.124.67.36&lt;br /&gt;
+May  4 13:27:03 localhost pppd[9247]: remote IP address 202.124.64.162&lt;br /&gt;
+May  4 13:27:03 localhost pppd[9247]: primary   DNS address 202.124.65.2&lt;br /&gt;
+May  4 13:27:03 localhost pppd[9247]: secondary DNS address 202.124.68.130&lt;br /&gt;
+May  4 13:27:04 localhost kernel: [ 4232.552000] ip_tables: (C) 2000-2006 Netfilter Core Team&lt;br /&gt;
+May  4 13:27:04 localhost pppd[9247]: Connect time 0.1 minutes.&lt;br /&gt;
+May  4 13:27:04 localhost pppd[9247]: Sent 325 bytes, received 10 bytes.&lt;br /&gt;
+May  4 13:27:04 localhost pppd[9247]: local  IP address 202.124.67.36&lt;br /&gt;
+May  4 13:27:04 localhost pppd[9247]: remote IP address 202.124.64.162&lt;br /&gt;
+May  4 13:27:04 localhost pppd[9247]: primary   DNS address 202.124.65.2&lt;br /&gt;
+May  4 13:27:04 localhost pppd[9247]: secondary DNS address 202.124.68.130&lt;br /&gt;
+May  4 13:33:07 localhost pppd[9247]: Terminating on signal 15&lt;br /&gt;
+May  4 13:33:07 localhost pppd[9247]: Connect time 6.1 minutes.&lt;br /&gt;
+May  4 13:33:07 localhost pppd[9247]: Sent 69547 bytes, received 68454 bytes.&lt;br /&gt;
+May  4 13:33:07 localhost pppd[9247]: Connection terminated.&lt;br /&gt;
+May  4 13:33:07 localhost pppd[9247]: Exit.</code></p>
+
+<p><strong>Update Nov 2007</strong></p>
+
+<p>(The newer 3 devices use the  HUAWEI chipset)</p>
+
+<p>This is what you need:<br />
+<a href="http://oozie.fm.interia.pl/pro/huawei-e220/"> http://oozie.fm.interia.pl/pro/huawei-e220/</a></p>
+
+<p>from the page:</p>
+
+<p>HUAWEI E220 Workaround for kernels &lt; 2.6.20</p>
+
+<p>HUAWEI E220 is supported natively by Linux, over usbserial.ko<br />
+(usbserial-generic) interface. Linux kernel versions prior to 2.6.20<br />
+have some problems with it, as the SCSI CDROM fakevolume with drivers<br />
+for Microsoft systems gets automounted by usbstorage.ko module,<br />
+preventing serial device /dev/ttyUSB0 from working properly. Go ahead<br />
+and try out my workaround-kit!<br />
+&#8212;&#8212;&#8212;-<br />
+I have used it on dapper pretty successfully and even have a script that<br />
+keeps the connection alive quite nicely. it works pretty damn well actually.<br />
+data is a bit expensive though of course.</p>
+
+<p>Thanks to Dave K, SLUG List.</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/05/15/mac-osx-startup/">Mac OSX Startup</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/02/23/esr-gives-up-on-fedora-moves-to-ubuntu/"> &nbsp; ESR gives up on Fedora, moves to Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

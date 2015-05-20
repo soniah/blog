@@ -2,18 +2,331 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Other Tech on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/categories/other-tech/</link>
+    <link>http://localhost:1313/categories/other-tech/</link>
     <description>Recent content in Other Tech on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/categories/other-tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jan 2014 01:01:23 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/other-tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Split() function for Microsoft MSSQL</title>
+      <link>http://localhost:1313/posts/split-function-for-microsoft-mssql/</link>
+      <pubDate>Tue, 07 Jan 2014 01:01:23 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/split-function-for-microsoft-mssql/</guid>
+      <description>
+
+&lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote. It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;sql&amp;rdquo;]
+CREATE FUNCTION [dbo].&lt;a href=&#34;@string varchar(MAX&#34;&gt;split&lt;/a&gt;,
+    @delimiter CHAR(1),
+    @pos INT
+)
+RETURNS varchar(255)
+AS
+BEGIN
+    DECLARE @start INT, @end INT, @count INT
+    SELECT @start = 1, @end = CHARINDEX(@delimiter, @string), @count = 1
+    WHILE @start &amp;lt; LEN(@string) + 1 BEGIN
+        IF @end = 0
+            SET @end = LEN(@string) + 1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    IF @count = @pos
+        RETURN SUBSTRING(@string, @start, @end - @start)
+
+    SET @start = @end + 1 
+    SET @end = CHARINDEX(@delimiter, @string, @start)
+    SET @count = @count + 1 
+
+END 
+RETURN &#39;&#39; -- not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;END&lt;/p&gt;
+
+&lt;p&gt;select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 0)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 1)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 2)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 3)
+select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 4)&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;               # 0: zero length string
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;1-row-s-affected:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;p&gt;aa                 # 1&lt;/p&gt;
+
+&lt;h2 id=&#34;1-row-s-affected-1:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;p&gt;bb                 # 2&lt;/p&gt;
+
+&lt;h2 id=&#34;1-row-s-affected-2:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;p&gt;cc                 # 3&lt;/p&gt;
+
+&lt;h2 id=&#34;1-row-s-affected-3:79520c69ab9d24986b131f06e1e6b406&#34;&gt;(1 row(s) affected)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;               # 4: zero length string
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(1 row(s) affected)
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
+      <link>http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/</link>
+      <pubDate>Mon, 06 Jan 2014 06:34:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt; function. Here&amp;rsquo;s a version I _quickly _implemented, called &amp;ldquo;my_substring_index&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Limitations:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;only accepts strings up to 255 chars long&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;sql&amp;rdquo;]
+SET ANSI_NULLS ON;
+GO&lt;/p&gt;
+
+&lt;p&gt;SET QUOTED_IDENTIFIER ON;
+GO&lt;/p&gt;
+
+&lt;p&gt;CREATE FUNCTION [dbo].&lt;a href=&#34;@str VARCHAR (255&#34;&gt;my_substring_index&lt;/a&gt;, @delim VARCHAR (1), @count INT)
+RETURNS VARCHAR (255)
+AS
+BEGIN
+    DECLARE @result AS VARCHAR (255), @posn AS INT, @loop AS INT,
+            @found AS INT, @reversed AS INT;
+    SET @loop = 0;
+    SET @posn = -1;
+    SET @found = 0;
+    SET @reversed = 0;
+    IF @count &amp;lt; 0
+        BEGIN
+            SET @reversed = 1;
+            SET @count = @count * -1;
+            SET @str = REVERSE(@str);
+        END
+    WHILE @loop &amp;lt; @count
+        BEGIN
+            SET @posn = charindex(@delim, @str, @posn + 1);
+            IF @posn &amp;gt; 0
+                SET @found = 1;
+            ELSE
+                IF @found = 1 AND @reversed = 0
+                    RETURN @str; &amp;ndash; ie mimic mysql behaviour
+                ELSE
+                    IF @found = 1 AND @reversed = 1
+                        RETURN REVERSE(@str); &amp;ndash; ie mimic mysql behaviour
+            SET @loop = @loop + 1;
+        END
+    IF @posn &amp;gt;= 0 AND @reversed = 0
+        RETURN SUBSTRING(@str, 0, @posn);
+    ELSE
+        IF @posn &amp;gt;= 0 AND @reversed = 1
+            RETURN REVERSE(SUBSTRING(@str, 0, @posn));
+    RETURN &amp;ldquo;;
+END&lt;/p&gt;
+
+&lt;h2 id=&#34;select-dbo-my-substring-index-www-mysql-com-1:d47614a0ef72eb787dd2cb9eeb638917&#34;&gt;SELECT dbo.my_substring_index(&amp;lsquo;www.mysql.com&amp;rsquo;, &amp;lsquo;.&amp;rsquo;, -1)&lt;/h2&gt;
+
+&lt;p&gt;com
+(1 row(s) affected)
+[/sourcecode]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
+      <link>http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/</link>
+      <pubDate>Tue, 24 Dec 2013 02:55:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/</guid>
+      <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption password&amp;rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields.&lt;/p&gt;
+
+&lt;p&gt;Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why force a tablet interface down my throat? Sort of reminds me of Ubuntu Unity). Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;sql&amp;rdquo;]
+sp_configure &amp;lsquo;show advanced options&amp;rsquo;, 1;
+GO
+RECONFIGURE;
+GO
+sp_configure &amp;lsquo;clr enabled&amp;rsquo;, 1;
+GO
+RECONFIGURE;
+GO
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</title>
+      <link>http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
+      <pubDate>Sun, 22 Dec 2013 11:10:07 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
+      <description>&lt;p&gt;When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&amp;rsquo;ll get an error in the console log like:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unable to copy file foo to /var/private/bar&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The solution comes from the &lt;a href=&#34;https://groups.google.com/forum/#!msg/tunnelblick-discuss/Gp6OJn_8NxI/nAuvDP1RMxIJ&#34;&gt;TunnelBlick forum&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk. When you double-click that &amp;ldquo;outer&amp;rdquo; .tblk, you should be asked once if you want to install &amp;ldquo;n&amp;rdquo; configurations.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd ~/Desktop/foo.tblk
+for f in * ; do
+  g=&lt;code&gt;basename $f&lt;/code&gt;
+  mkdir $g.tblk
+  mv $f $g.tblk
+done
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Also, the .ovpn files will have &amp;ldquo;com.apple.quarantine&amp;rdquo; xattr&amp;rsquo;s. This may or may not cause problems. I removed them in this way:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+for f in * ; do
+  echo $f
+  xattr -d com.apple.quarantine $f
+done
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;Also, to &lt;a href=&#34;https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo&#34;&gt;remove old private configuration files&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;[sourcecode lang=&amp;ldquo;shell&amp;rdquo;]
+cd ~/Library/Application\ Support/Tunnelblick/Configurations
+rm -rf *
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;(or, click on VPN icon top right of screen, select &amp;lsquo;VPN Details&amp;rsquo;, +/- in the &amp;lsquo;Configurations&amp;rsquo; tab).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Change your passwords</title>
+      <link>http://localhost:1313/posts/change-your-passwords/</link>
+      <pubDate>Wed, 13 Jun 2012 01:55:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/change-your-passwords/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve written this post for the non-technical people I do &amp;ldquo;tech support&amp;rdquo; for.&lt;/p&gt;
+
+&lt;p&gt;Do you use the &lt;em&gt;same&lt;/em&gt; password on different websites? Or, the same password with &lt;em&gt;slight variations&lt;/em&gt; (for example &lt;strong&gt;secret-abc&lt;/strong&gt; on website &lt;strong&gt;abc.com&lt;/strong&gt; and &lt;strong&gt;secret-xyz&lt;/strong&gt; on website &lt;strong&gt;xyz.com&lt;/strong&gt;). Or, do you make your password &amp;ldquo;secure&amp;rdquo; (it&amp;rsquo;s not) by changing one of the letters for a number or symbol (eg &lt;strong&gt;secret&lt;/strong&gt; becomes &lt;strong&gt;s3cret&lt;/strong&gt;, &lt;strong&gt;password&lt;/strong&gt; becomes &lt;strong&gt;p@ssword&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;Well, you should change all your passwords &lt;em&gt;right now&lt;/em&gt;! &lt;a href=&#34;http://www.net-security.org/article.php?id=1727&amp;amp;p=3&#34;&gt;None of these methods are secure&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Why not? Hackers (crackers) are regularly breaking into public websites (recently &lt;a href=&#34;http://www.mediabistro.com/mediajobsdaily/linkedin-posts-update-to-last-weeks-6-5-million-hacked-passwords_b11275&#34;&gt;LinkedIn&lt;/a&gt;, &lt;a href=&#34;http://arstechnica.com/security/2012/06/another-hack-last-fm-warns-users-to-change-their-passwords/&#34;&gt;Last.Fm&lt;/a&gt;, &lt;a href=&#34;http://arstechnica.com/tech-policy/2011/06/sony-hacked-yet-again-plaintext-passwords-posted/&#34;&gt;Sony&lt;/a&gt;, &lt;a href=&#34;http://www.dailymail.co.uk/sciencetech/article-2083118/Facebook-hacked-Ramnit-worm-stolen-passwords-45-000-users.html&#34;&gt;Facebook&lt;/a&gt;) and stealing the encrypted password database. Unfortunately, due to computers getting faster and programming errors, hackers are easily &amp;ldquo;reverse engineer&amp;rdquo; these passwords, especially if you&amp;rsquo;ve used &lt;em&gt;a word that appears in a dictionary&lt;/em&gt; (&lt;strong&gt;any&lt;/strong&gt; dictionary - English, a foreign language, a slang word).&lt;/p&gt;
+
+&lt;p&gt;Well why is that a problem? Let&amp;rsquo;s imagine you are &lt;strong&gt;Fred Smith&lt;/strong&gt; and you have a username/password &lt;strong&gt;fredsmith&lt;/strong&gt; and &lt;strong&gt;s3cret&lt;/strong&gt; on a website. A hacker breaks into this website, steals all the encrypted passwords. After about 6 hours they&amp;rsquo;ve cracked your password as it&amp;rsquo;s based on a dictionary word. The hacker will then &lt;a href=&#34;http://www.net-security.org/article.php?id=1727&amp;amp;p=3&#34;&gt;automatically try this username/password (and variations) against lots of other websites&lt;/a&gt;. Your username/password on Facebook is &lt;strong&gt;fsmith&lt;/strong&gt; and &lt;strong&gt;s3cret&lt;/strong&gt; -  account stolen. Your username/password on Hotmail is &lt;strong&gt;fredsmith&lt;/strong&gt; and &lt;strong&gt;secret!&lt;/strong&gt; - account stolen. Etc, etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;So what do I do?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Two steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;use good passwords generated by a password generator or tool&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;store your passwords in some sort of &amp;ldquo;password vault&amp;rdquo;, and protect that vault really well&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Using a password generator&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Generating &lt;em&gt;good&lt;/em&gt; passwords is &lt;strong&gt;hard&lt;/strong&gt; - you need to make sure they &lt;a href=&#34;https://www.grc.com/haystack.htm&#34;&gt;contain upper and lower case letters, numbers, and symbols, and are long&lt;/a&gt;. But you want them to be easy to remember. You can take the first letters of a song or saying and convert it into a password (for example &lt;strong&gt;Sydney rains all the time I&amp;rsquo;m tired of getting wet&lt;/strong&gt; becomes &lt;strong&gt;SrattItogw&lt;/strong&gt;). But that&amp;rsquo;s hard work too - all those different websites to generate passwords for!&lt;/p&gt;
+
+&lt;p&gt;So don&amp;rsquo;t - use a password generation tool instead - for example &lt;a href=&#34;http://strongpasswordgenerator.com/&#34;&gt;Strong Password Generator&lt;/a&gt; [1]. Or &lt;a href=&#34;https://www.google.com.au/search?sugexp=chrome,mod=19&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&amp;amp;q=password+generator&#34;&gt;Google for Password Generator&lt;/a&gt;. Don&amp;rsquo;t use sites &lt;a href=&#34;http://angel.net/~nic/passwd.html&#34;&gt;like this this one that ask for the site name too&lt;/a&gt; - duh!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Using a Password Vault&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Remembering all these passwords like &lt;strong&gt;iI&amp;amp;[-7;F&amp;amp;3@}$4R&lt;/strong&gt; and &lt;strong&gt;T&amp;rdquo;7c3+-,t,3}}P@&lt;/strong&gt; is &lt;strong&gt;hard&lt;/strong&gt; too!&lt;/p&gt;
+
+&lt;p&gt;So don&amp;rsquo;t - use a &lt;a href=&#34;https://www.google.com.au/search?aq=f&amp;amp;sugexp=chrome,mod=19&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&amp;amp;q=password+vault&#34;&gt;password vault&lt;/a&gt; like &lt;a href=&#34;https://lastpass.com/&#34;&gt;Lastpass&lt;/a&gt; (and install it as a plugin in your browser: &lt;a href=&#34;https://chrome.google.com/webstore/detail/hdokiejnpimakedhajhdlcegeplioahd&#34;&gt;Chrome ($free)&lt;/a&gt;, &lt;a href=&#34;https://addons.mozilla.org/en-US/firefox/addon/lastpass-password-manager/&#34;&gt;Firefox ($free)&lt;/a&gt;, &lt;a href=&#34;http://helpdesk.lastpass.com/upgrading-to-premium/ie-anywhere/&#34;&gt;Internet Explorer ($costs)&lt;/a&gt;). Make sure your password vault is backed up and use a really strong password for  your vault. And even better, install &lt;a href=&#34;http://code.google.com/p/google-authenticator/&#34;&gt;Google Authenticator&lt;/a&gt; on your phone (&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;amp;hl=en&#34;&gt;Android&lt;/a&gt;, &lt;a href=&#34;http://itunes.apple.com/au/app/google-authenticator/id388497605?mt=8&#34;&gt;iPhone&lt;/a&gt;) and use it to protect your LastPass vault.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;[1] ideally you would install a password generator tool on your laptop, but a website is better than nothing&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;LastPass has a tool called “Security Check” – it will check all your passwords, look for duplicates, weak passwords, etc. Great!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Emacs Paredit Notes for OSX</title>
+      <link>http://localhost:1313/posts/emacs-paredit-notes-for-osx/</link>
+      <pubDate>Sat, 02 Jun 2012 10:58:47 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/emacs-paredit-notes-for-osx/</guid>
+      <description>&lt;p&gt;Some notes on &lt;a href=&#34;http://emacswiki.org/emacs/ParEdit&#34;&gt;Emacs&amp;rsquo; Paredit mode&lt;/a&gt;. More so I can stop fighting with Paredit and do some &lt;strong&gt;Clojure&lt;/strong&gt; programming than show any expertise - see &lt;a href=&#34;http://www.slideshare.net/mudphone/paredit-preso&#34;&gt;Mudphone&amp;rsquo;s Paredit Preso&lt;/a&gt; for the real deal, as well as &lt;a href=&#34;http://p.hagelb.org/paredit-screencast.html&#34;&gt;hagelb&amp;rsquo;s Paredit screencast notes&lt;/a&gt; and the &lt;a href=&#34;http://www.emacswiki.org/pics/static/PareditCheatsheet.png&#34;&gt;Paredit Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-(&lt;/strong&gt;  wrap parens around something. Also for { [ &amp;ldquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-s&lt;/strong&gt;  remove parens from something&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-S-s&lt;/strong&gt;  split sexpr into two&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-S-j&lt;/strong&gt;  join sexprs&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-q ♦&lt;/strong&gt;  just do what I say, dammit! force insert of paren or bracket ♦&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-u DEL&lt;/strong&gt;  force delete paren or bracket&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;ldquo;Barfage and slurpage&amp;rdquo; ie moving parens left and right.  I had some trouble getting this going on OSX, as the terminal doesn&amp;rsquo;t seem to map control key sequences correctly. After modifying emacs (see below), I got these going:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-&lt;right&gt;, C-&lt;left&gt;&lt;/strong&gt;  move right paren right or left&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;ESC C-&lt;right&gt;, ESC C-&lt;left&gt;&lt;/strong&gt; move left paren right or left&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I wrote this elisp for my &lt;strong&gt;~/.emacs.d/sonia.el&lt;/strong&gt; (I&amp;rsquo;m using &lt;a href=&#34;http://github.com/technomancy/emacs-starter-kit&#34;&gt;Technomancy&amp;rsquo;s Emacs Starter Kit&lt;/a&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;when (eq system-type &#39;darwin&#34;&gt;sourcecode language=&amp;ldquo;clojure&amp;rdquo;&lt;/a&gt;
+  (eval-after-load &amp;lsquo;paredit
+    &amp;lsquo;(progn
+       ;; C-left
+       (define-key paredit-mode-map (kbd &amp;ldquo;M-[ 5 d&amp;rdquo;)
+                   &amp;lsquo;paredit-forward-barf-sexp)
+       ;; C-right
+       (define-key paredit-mode-map (kbd &amp;ldquo;M-[ 5 c&amp;rdquo;)
+                   &amp;lsquo;paredit-forward-slurp-sexp)
+       ;; ESC-C-left
+       (define-key paredit-mode-map (kbd &amp;ldquo;ESC M-[ 5 d&amp;rdquo;)
+                   &amp;lsquo;paredit-backward-slurp-sexp)
+       ;; ESC-C-right
+       (define-key paredit-mode-map (kbd &amp;ldquo;ESC M-[ 5 c&amp;rdquo;)
+                   &amp;lsquo;paredit-backward-barf-sexp)
+     )))
+[/sourcecode]&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp_cycles.png&#34; alt=&#34;Lisp Parens&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Backup multiple MySQL databases into separate files – Windows</title>
-      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <link>http://localhost:1313/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <guid>http://localhost:1313/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
       <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux). I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
 
 &lt;pre&gt;:: MySQl DB user
@@ -34,6 +347,234 @@ echo &#34;Pass each name to mysqldump.exe and output an individual .sql file for
 FOR /D %%F IN (*) DO (
 &#34;C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe&#34; --user=%dbuser% --password=%dbpass% --databases %%F &amp;gt; &#34;C:\SQLBackup\%%F.%backupdate%.sql&#34;
 )&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Previous Page Newer Posts</title>
+      <link>http://localhost:1313/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
+      <pubDate>Mon, 30 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
+      <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;#8211; you need to edit the following four files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;archive.php&lt;/li&gt;
+&lt;li&gt;author.php&lt;/li&gt;
+&lt;li&gt;index.php&lt;/li&gt;
+&lt;li&gt;search.php&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In these files, search for the lines that look like:&lt;/p&gt;
+
+&lt;pre&gt;posts_nav_link(&#39; &amp;#8212; &#39;, __(&#39;&amp;laquo; Previous Page&#39;),...&lt;/pre&gt;
+
+&lt;p&gt;Edit each file and change &lt;strong&gt;Previous Page&lt;/strong&gt; to &lt;strong&gt;Newer Posts&lt;/strong&gt;, and &lt;strong&gt;Next Page&lt;/strong&gt; to &lt;strong&gt;Older Posts&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alternatively if you&amp;#8217;ve got &lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; shell access (and you&amp;#8217;re hosted on a Unix-like environment eg Linux), you can run the following commands:&lt;/p&gt;
+
+&lt;pre&gt;cd /var/www/wp-content/themes/clear-line
+sed -i &#39;s/Previous Page/Newer Posts/&#39; archive.php author.php index.php search.php
+sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php search.php&lt;/pre&gt;
+
+&lt;p&gt;Of course before running these &lt;a href=&#34;http://en.wikipedia.org/wiki/Sed&#34;&gt;sed&lt;/a&gt; commands you should backup your files, in case anything goes wrong&amp;#8230;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</title>
+      <link>http://localhost:1313/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
+      <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
+      <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;#8220;Site Admin&amp;#8221;, &amp;#8220;Login&amp;#8221;, &amp;#8220;Entries RSS&amp;#8221;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;#8217;s a slight security risk (though hiding it won&amp;#8217;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;#8217;re running WordPress).&lt;/p&gt;
+
+&lt;p&gt;There&amp;#8217;s a couple of options for hiding the Meta Widget:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;don&amp;#8217;t display it at all. Go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt;, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the &lt;strong&gt;/wp-login.php&lt;/strong&gt; page. For example if your blog is &lt;strong&gt;&lt;a href=&#34;http://myblog.info&#34;&gt;http://myblog.info&lt;/a&gt;&lt;/strong&gt;, go to &lt;strong&gt;&lt;a href=&#34;http://myblog.info/wp-login.php&#34;&gt;http://myblog.info/wp-login.php&lt;/a&gt;&lt;/strong&gt; to login&lt;/li&gt;
+&lt;li&gt;make it smaller and barely visible (the option I prefer). First of all, go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt; and move/add a Meta Widget to the &lt;strong&gt;Footer Counters&lt;/strong&gt; Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the &lt;strong&gt;wp-includes/default-widgets.php&lt;/strong&gt; file. Search for the line that contains &lt;strong&gt;wp_register&lt;/strong&gt; (about line 293), then delete the three lines that contain &amp;#8216;rss2_url&amp;#8217;, &amp;#8216;comments_rss2_url&amp;#8217;, and &amp;#8216;wordpress.org&amp;#8217;, and remove the bulleting from &amp;#8216;wp_loginout&amp;#8217;. The changes are easier to see with some before and after code:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Before:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;?php wp_loginout(); ?&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;rss2_url&#39;); ?&amp;gt;&#34; title=...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;comments_rss2_url&#39;); ?...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;http://wordpress.org/&#34; title=&#34;&amp;lt;?php ec...
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;After:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;?php wp_loginout(); ?&amp;gt;
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you&amp;#8217;ll have a small Login link at the bottom right-hand corner of your blog!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Addendum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &amp;#8220;Site Admin&amp;#8221; link when logged in (at the bottom right of the page). You can fix this by editing the &lt;strong&gt;wp-includes/general-template.php&lt;/strong&gt; file. At about line 319, &lt;strong&gt;change:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = $before . &#39;&amp;lt;a href=&#34;&#39; . admin_url()...&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;to:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = &#39;&#39;;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Display Tags not Categories</title>
+      <link>http://localhost:1313/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
+      <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;#8217;t have a way of modifying it&amp;#8217;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
+
+&lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_category(&#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;with this:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_tags(&#39;&#39;, &#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;The path to the &lt;strong&gt;functions.php&lt;/strong&gt; file may be slightly different on your server; you can quickly locate it using &lt;strong&gt;find&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;find / -type f -name functions.php 2&amp;gt; /dev/null&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Migrating from Palm to Android</title>
+      <link>http://localhost:1313/2012/01/17/migrating-from-palm-to-android/</link>
+      <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2012/01/17/migrating-from-palm-to-android/</guid>
+      <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;#8217;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;#8217;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
+
+&lt;p&gt;Some tricks and tools I&amp;#8217;ve find useful in my migration from Palm to Android:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.synthesis.ch/&#34;&gt;Synthesis SyncML clients&lt;/a&gt; are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.&lt;/li&gt;
+&lt;li&gt;for a SyncML server I&amp;#8217;m using &lt;a href=&#34;https://www.memotoo.com/&#34;&gt;Memotoo&lt;/a&gt;. I could&amp;#8217;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works&amp;#8230;&lt;/li&gt;
+&lt;li&gt;on the Android Market there&amp;#8217;s a &lt;a href=&#34;http://gnukeyring.sourceforge.net/&#34;&gt;Keyring&lt;/a&gt; client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&amp;#8217;m yet to work out how I&amp;#8217;m going to back this up, but probably something with Memotoo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, I&amp;#8217;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the &lt;a href=&#34;http://www.jpilot.org/images/jpilot-address.png&#34;&gt;JPilot desktop&lt;/a&gt; (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&amp;#8217;m almost migrated!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh, sudo, tty, shell</title>
+      <link>http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/</link>
+      <pubDate>Thu, 14 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/</guid>
+      <description>&lt;p&gt;A nice little script snippet I like to remember for automating quick stuff across multiple hosts. &lt;strong&gt;-t&lt;/strong&gt; forces tty (so sudo will work); &lt;strong&gt;-q&lt;/strong&gt; quiet &amp;#8211; disable banners; &lt;strong&gt;-c&lt;/strong&gt; script (&amp;#8220;command&amp;#8221;) to su. Presumes sudo doesn&amp;#8217;t prompt for a password; otherwise, see &lt;a href=&#34;http://www.nist.gov/el/msid/expect.cfm&#34;&gt;Expect&lt;/a&gt; and &lt;a href=&#34;http://oreilly.com/catalog/9781565920903&#34;&gt;Exploring Expect&lt;/a&gt; :-)&lt;/p&gt;
+
+&lt;pre&gt;for h in $hosts ; do
+  echo -e &#34;nnhost: $hn------------------------------------&#34;
+  ssh -t -q $h &#34;sudo su - -c &#34;magic_stuff&#34; &#34;
+done&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Clustering setup</title>
+      <link>http://localhost:1313/2011/07/06/clustering-setup/</link>
+      <pubDate>Wed, 06 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2011/07/06/clustering-setup/</guid>
+      <description>&lt;p&gt;A nice &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2011/06/msg00014.html&#34;&gt;post&lt;/a&gt; from Jake on the SLUG list where he asks about a small clustering setup:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&amp;#8217;m setting up some new hardware for a client of mine. Basically 2 new &lt;a href=&#34;http://www.dell.com/au/business/p/poweredge-r210-2/pd&#34;&gt;Dell PowerEdge R210 IIs&lt;/a&gt; &amp;#8211; nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (&lt;a href=&#34;http://www.linux-kvm.org/page/Main_Page&#34;&gt;kvm&lt;/a&gt;) for a handfull of guests, file/domain server (&lt;a href=&#34;http://www.zentyal.org/&#34;&gt;ebox&lt;/a&gt;), PBX (&lt;a href=&#34;http://pbxinaflash.net/&#34;&gt;piaf&lt;/a&gt;), mail server web server, &amp;#8220;magic windows only application&amp;#8221; server etc. As the guests run everything in the ofice some kind of HA is needed.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&amp;#8217;m thinking &lt;a href=&#34;http://code.google.com/p/ganeti/&#34;&gt;ganeti&lt;/a&gt; is the way to manage it all as it takes care of &lt;a href=&#34;http://www.drbd.org/&#34;&gt;DRBD&lt;/a&gt; and failover giving me a nice HA-ish setup without too much work.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  The questions. How should I setup my disks?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&amp;#8217;m tossing up between, (all the below assume a small raid 1 partition for /, this is for the storage pool) RAID 1 with mdadm giving me 1 disk read speed but the ability to read 2 streams. RAID 1 with mdadm and fancyness giving me 2x read speed for a single stream, but normal behaviour for multiple streams and 1x write.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  RAID 0 with mdadm 2x read, 2x write and trust DRBD to look after my data ;-&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  no RAID, set up as 2 separate drives use DRBD to look after data and get &amp;#8220;more spindles&amp;#8221; into the mix (so say file server lives on one disk and mail server on another)
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  What deb based distro should I use for my host (or present a *really* compelling argument for something else)? I would use ubuntu as i&amp;#8217;m most familiar with it but the recent debacle with unity has really hurt my confidence with them.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Should i go to debian and if so which version?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Networking&lt;br /&gt; each server has 2 gbit ports on it.&lt;br /&gt; should I&lt;br /&gt; team the nics, then run a vlan for drbd and another for regular coms&lt;br /&gt; dedicated nic for drbd and one for general coms.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Any other suggestions or gotchas to look out for?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I have my own answers to these questions, but I&amp;#8217;d really like to hear any advice from the crowd (its like &amp;#8220;the cloud&amp;#8221; but open source and P2P ;-&gt;)
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby and Rails – Time, Date, DateTime, TZInfo</title>
+      <link>http://localhost:1313/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
+      <pubDate>Wed, 29 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
+      <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;#8211; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;#8211; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &gt;&gt; Time vs Date vs DateTime vs TZInfo (vs ActiveSupport::TimeZone). Which&lt;br /&gt; &gt;&gt; do I use and when?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  Time is a timestamp and can represent a moment in time no matter where&lt;br /&gt; it occurred in the world, agnostic of timezone. Think UNIX timestamps.&lt;br /&gt; Date is a thing on a calendar that might mean a different moment in&lt;br /&gt; time to different people depending on their timezone. Think of Date&lt;br /&gt; for things like recording your birthday. DateTime subclasses Date and&lt;br /&gt; adds hour, minute, second and timezone information to a Date so it&lt;br /&gt; becomes a lot like Time, but that makes me unsure when to use DateTime&lt;br /&gt; and when to use Time, to be honest.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  Time has timezone capabilities built in. TZInfo has a different set of&lt;br /&gt; timezone capabilities and operates with Time objects, but seems to&lt;br /&gt; ignore their built-in timezone settings. I&amp;#8217;m still not sure why.
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OSX, iPhone, iTunes – finer grained syncing</title>
+      <link>http://localhost:1313/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</link>
+      <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
+      <description>&lt;p&gt;iTunes&amp;#8217; syncing of movies and podcasts is a big lame &amp;#8211; there&amp;#8217;s not enough fine grained control. For example, you can&amp;#8217;t say &amp;#8220;sync only this category of movies&amp;#8221;, or &amp;#8220;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;#8217;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;#8220;. And at the moment I don&amp;#8217;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;#8217;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
+
+&lt;p&gt;One work around I&amp;#8217;ve found is to categorise as much media as possible as either &amp;#8220;Music&amp;#8221; or &amp;#8220;Music Videos&amp;#8221;. You can then work with playlists and &amp;#8220;smart&amp;#8221; (sic) playlists to get a bit more control.&lt;/p&gt;
 </description>
     </item>
     

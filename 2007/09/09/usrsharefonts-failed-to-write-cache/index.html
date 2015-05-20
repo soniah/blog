@@ -1,0 +1,170 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> /usr/share/fonts: failed to write cache </title>
+    <link rel="canonical" href="http://localhost:1313/2007/09/09/usrsharefonts-failed-to-write-cache/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">/usr/share/fonts: failed to write cache</h1>
+        <section id="main">
+          <h5 id="date"> Mon Sep 10, 2007 </h5>
+          
+
+<p>After doing a fresh install of Ubuntu 7.04 and installing all pending updates via Update Manager, I get an error that starts like this:<br />
+<code>&lt;br /&gt;
+Setting up ttf-opensymbol (2.2.0-1ubuntu4) ...&lt;br /&gt;
+Updating fontconfig cache...&lt;br /&gt;
+/usr/share/fonts: failed to write cache&lt;br /&gt;
+/usr/share/fonts/X11: failed to write cache&lt;br /&gt;
+</code></p>
+
+<p>I&#8217;ve had this occur on several machines, and the md5 on the .iso checks out ok, so it&#8217;s a bug (<a href="https://bugs.launchpad.net/ubuntu/+source/fontconfig/+bug/104553" title="Bug 104553">Bug 104553</a>, <a href="https://bugs.launchpad.net/ubuntu/+source/openoffice.org/+bug/122976" title="Bug 122976">Bug 122976</a>) caused by incorrect dates on the font cache. There&#8217;s a solution documented <a href="http://ubuntuforums.org/showpost.php?p=2401087&amp;postcount=4">here</a>, but it needs a bit of fixing:<br />
+`<br />
+$ sudo bash<br /></p>
+
+<h1 id="wget-o-folder-list-txt-http-ubuntuforums-org-attachment-php-attachmentid-28956-d-1175696100-br:d0c2197dd64f6cf0b6ef6d3fd589e42e">wget -O folder_list.txt <a href="http://ubuntuforums.org/attachment.php?attachmentid=28956&amp;d=1175696100">http://ubuntuforums.org/attachment.php?attachmentid=28956&amp;d=1175696100</a><br /></h1>
+
+<h1 id="cat-folder-list-txt-xargs-touch-br:d0c2197dd64f6cf0b6ef6d3fd589e42e">cat folder_list.txt | xargs touch<br /></h1>
+
+<h1 id="cd-usr-share-fonts-truetype-br:d0c2197dd64f6cf0b6ef6d3fd589e42e">cd /usr/share/fonts/truetype<br /></h1>
+
+<h1 id="for-i-in-do-touch-i-done-br:d0c2197dd64f6cf0b6ef6d3fd589e42e">for i in * ; do touch ${i}; done<br /></h1>
+
+<h1 id="cd-var-lib-defoma-fontconfig-d-br:d0c2197dd64f6cf0b6ef6d3fd589e42e">cd /var/lib/defoma/fontconfig.d<br /></h1>
+
+<h1 id="for-i-in-do-touch-i-done-br-1:d0c2197dd64f6cf0b6ef6d3fd589e42e">for i in * ; do touch ${i}; done<br /></h1>
+
+<h1 id="apt-get-dist-upgrade-br:d0c2197dd64f6cf0b6ef6d3fd589e42e">apt-get dist-upgrade<br /></h1>
+
+<p><code>
+Another post suggests this simpler solution:  
+</code><br />
+$ sudo bash<br /></p>
+
+<h1 id="find-usr-share-fonts-usr-local-share-fonts-var-lib-defoma-fontconfig-d-type-d-print0-xargs-null-touch-br:d0c2197dd64f6cf0b6ef6d3fd589e42e">find /usr/share/fonts /usr/local/share/fonts /var/lib/defoma/fontconfig.d -type d -print0 | xargs &ndash;null touch<br /></h1>
+
+<p>`</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2007/09/10/bang-history/">bang history</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2007/08/19/howto-search-slug-archives/"> &nbsp; HowTo Search SLUG Archives</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

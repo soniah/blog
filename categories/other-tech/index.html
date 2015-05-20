@@ -7,14 +7,14 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <base href="http://blog2.snowfrog.net">
+    <base href="http://localhost:1313/">
     <title> Other Tech </title>
-    <link rel="canonical" href="http://blog2.snowfrog.net/categories/other-tech/">
+    <link rel="canonical" href="http://localhost:1313/categories/other-tech/">
     
 
-<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
-<link rel="stylesheet" href="http://blog2.snowfrog.net/css/syntax.css">
-<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
 </head>
@@ -30,9 +30,9 @@
 <div class="sidebar" id="sidebar">
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
 
-    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Blog</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
   </nav>
 
   <div class="sidebar-item">
@@ -48,7 +48,7 @@
     <div class="masthead">
       <div class="container">
         <h3 class="masthead-title">
-          <a href="http://blog2.snowfrog.net/posts" title="Blog">Blog Posts</a>
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
         </h3>
       </div>
     </div>
@@ -58,20 +58,2345 @@
       <h1 class="post-title">Recent Posts</h1>
         <section id="main">
           <div>
-            <h5><a href="http://blog2.snowfrog.net/categories">Full Category Index</a></h5>
+            <h5><a href="http://localhost:1313/categories">Full Category Index</a></h5>
             <h2>Posts in &ldquo;Other Tech&rdquo;</h2>
             
             
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/'> Backup multiple MySQL databases into separate files – Windows</a> </h2>
+      <h2><a href='http://localhost:1313/posts/split-function-for-microsoft-mssql/'> Split() function for Microsoft MSSQL</a> </h2>
+      <div class="meta">Tue, Jan 7, 2014</div>
+    </header>
+
+    Microsoft MSSQL doesn&rsquo;t have a split() function (like in Ruby, Perl), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item. [sourcecode lang=&ldquo;sql&rdquo;] CREATE FUNCTION [dbo].split, @delimiter CHAR(1), @pos
+    <footer>
+        <a href='http://localhost:1313/posts/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'> MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> </h2>
+      <div class="meta">Mon, Jan 6, 2014</div>
+    </header>
+
+    I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
+    <footer>
+        <a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/'> Microsoft SQL 2012 SSIS Create Catalog Password</a> </h2>
+      <div class="meta">Tue, Dec 24, 2013</div>
+    </header>
+
+    Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &ldquo;enable CLR&rdquo; and provide an &ldquo;encryption password&rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields. Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&rsquo;m not using a tablet, so why force a tablet interface down my throat?
+    <footer>
+        <a href='http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/'> OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</a> </h2>
+      <div class="meta">Sun, Dec 22, 2013</div>
+    </header>
+
+    When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&rsquo;ll get an error in the console log like: Unable to copy file foo to /var/private/bar&hellip; The solution comes from the TunnelBlick forum: There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk.
+    <footer>
+        <a href='http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/change-your-passwords/'> Change your passwords</a> </h2>
+      <div class="meta">Wed, Jun 13, 2012</div>
+    </header>
+
+    I&rsquo;ve written this post for the non-technical people I do &ldquo;tech support&rdquo; for. Do you use the same password on different websites? Or, the same password with slight variations (for example secret-abc on website abc.com and secret-xyz on website xyz.com). Or, do you make your password &ldquo;secure&rdquo; (it&rsquo;s not) by changing one of the letters for a number or symbol (eg secret becomes s3cret, password becomes p@ssword). Well, you should change all your passwords right now!
+    <footer>
+        <a href='http://localhost:1313/posts/change-your-passwords/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/posts/emacs-paredit-notes-for-osx/'> Emacs Paredit Notes for OSX</a> </h2>
+      <div class="meta">Sat, Jun 2, 2012</div>
+    </header>
+
+    Some notes on Emacs&rsquo; Paredit mode. More so I can stop fighting with Paredit and do some Clojure programming than show any expertise - see Mudphone&rsquo;s Paredit Preso for the real deal, as well as hagelb&rsquo;s Paredit screencast notes and the Paredit Cheat Sheet. M-( wrap parens around something. Also for { [ &ldquo; M-s remove parens from something M-S-s split sexpr into two M-S-j join sexprs C-q ♦ just do what I say, dammit!
+    <footer>
+        <a href='http://localhost:1313/posts/emacs-paredit-notes-for-osx/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/'> Backup multiple MySQL databases into separate files – Windows</a> </h2>
       <div class="meta">Mon, Mar 5, 2012</div>
     </header>
 
     Years ago I wrote a post on how to Backup multiple MySQL databases into separate files (Linux). I get a lot of questions about how to do the same on Windows; here&#8217;s a script submitted by one of my readers: :: MySQl DB user set dbuser=xxxx :: MySQl DB users password set dbpass=xxxx :: Switch to the MySQL data directory and collect the folder names pushd "C:\Documents and Settings\All Users\Application
     <footer>
-        <a href='http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/'><nobr>Read more →</nobr></a>
+        <a href='http://localhost:1313/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/'> WordPress Clear Line Theme – Previous Page Newer Posts</a> </h2>
+      <div class="meta">Mon, Jan 30, 2012</div>
+    </header>
+
+    The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to Previous Page and Next Page. Changing them to say something like Newer Posts and Older Posts is easy &#8211; you need to edit the following four files: archive.php author.php index.php search.php In these files, search for the lines that look like: posts_nav_link(' &#8212; ', __('&laquo; Previous Page'),... Edit each file and change Previous Page to Newer Posts, and Next Page to Older Posts.
+    <footer>
+        <a href='http://localhost:1313/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/'> WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</a> </h2>
+      <div class="meta">Sun, Jan 29, 2012</div>
+    </header>
+
+    The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &#8220;Site Admin&#8221;, &#8220;Login&#8221;, &#8220;Entries RSS&#8221;, etc. This is called the Meta Widget. Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&#8217;s a slight security risk (though hiding it won&#8217;t stop evildoers from working out that you&#8217;re running WordPress). There&#8217;s a couple of options for hiding the Meta Widget: don&#8217;t display it at all.
+    <footer>
+        <a href='http://localhost:1313/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/'> WordPress Clear Line Theme – Display Tags not Categories</a> </h2>
+      <div class="meta">Thu, Jan 19, 2012</div>
+    </header>
+
+    The WordPress Clearline theme displays categories not tags for posts, and doesn&#8217;t have a way of modifying it&#8217;s behaviour through the settings area. This is easily fixed with a one line code change: Edit the file /var/www/wp-content/themes/clear-line/functions.php, and at approximately line 340 replace: &lt;?php the_category(', '); ?&gt; with this: &lt;?php the_tags('', ', '); ?&gt; The path to the functions.php file may be slightly different on your server; you can quickly
+    <footer>
+        <a href='http://localhost:1313/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2012/01/17/migrating-from-palm-to-android/'> Migrating from Palm to Android</a> </h2>
+      <div class="meta">Mon, Jan 16, 2012</div>
+    </header>
+
+    My venerable Palm Treo 550 is showing it&#8217;s age (as is the company), so I&#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&#8217;m now working for Google, Android is the obvious choice (dog-fooding and all that). Some tricks and tools I&#8217;ve find useful in my migration from Palm to Android: Synthesis SyncML clients are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.
+    <footer>
+        <a href='http://localhost:1313/2012/01/17/migrating-from-palm-to-android/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/'> ssh, sudo, tty, shell</a> </h2>
+      <div class="meta">Thu, Jul 14, 2011</div>
+    </header>
+
+    A nice little script snippet I like to remember for automating quick stuff across multiple hosts. -t forces tty (so sudo will work); -q quiet &#8211; disable banners; -c script (&#8220;command&#8221;) to su. Presumes sudo doesn&#8217;t prompt for a password; otherwise, see Expect and Exploring Expect :-) for h in $hosts ; do echo -e "nnhost: $hn------------------------------------" ssh -t -q $h "sudo su - -c "magic_stuff" " done
+    <footer>
+        <a href='http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/07/06/clustering-setup/'> Clustering setup</a> </h2>
+      <div class="meta">Wed, Jul 6, 2011</div>
+    </header>
+
+    A nice post from Jake on the SLUG list where he asks about a small clustering setup: I&#8217;m setting up some new hardware for a client of mine. Basically 2 new Dell PowerEdge R210 IIs &#8211; nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (kvm) for a handfull of guests, file/domain server (ebox), PBX (piaf), mail server web server, &#8220;magic windows only application&#8221; server etc.
+    <footer>
+        <a href='http://localhost:1313/2011/07/06/clustering-setup/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/'> Ruby and Rails – Time, Date, DateTime, TZInfo</a> </h2>
+      <div class="meta">Wed, Jun 29, 2011</div>
+    </header>
+
+    From a discussion (Ruby &#8211; The Non-awesome parts) on the RORO email list &#8211; the differences between Time, Date, DateTime and TZInfo: Time vs Date vs DateTime vs TZInfo (vs ActiveSupport::TimeZone). Which do I use and when? Time is a timestamp and can represent a moment in time no matter where it occurred in the world, agnostic of timezone. Think UNIX timestamps. Date is a thing on a calendar that might mean a different moment in time to different people depending on their timezone.
+    <footer>
+        <a href='http://localhost:1313/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/06/28/osx-iphone-itunes-finer-grained-syncing/'> OSX, iPhone, iTunes – finer grained syncing</a> </h2>
+      <div class="meta">Tue, Jun 28, 2011</div>
+    </header>
+
+    iTunes&#8217; syncing of movies and podcasts is a big lame &#8211; there&#8217;s not enough fine grained control. For example, you can&#8217;t say &#8220;sync only this category of movies&#8221;, or &#8220;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&#8217;ve been listened to twice&#8220;. And at the moment I don&#8217;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&#8217;m stuck with iTunes/OSX.
+    <footer>
+        <a href='http://localhost:1313/2011/06/28/osx-iphone-itunes-finer-grained-syncing/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/06/23/ssh-fix-long-login-times-disable-kerberos/'> ssh – fix long login times – disable Kerberos</a> </h2>
+      <div class="meta">Thu, Jun 23, 2011</div>
+    </header>
+
+    If ssh logins are taking a long time (but are ultimately successful), it may be because Kerberos (gssapi) is being attempted as an authentication method, and the destination is incorrectly configured (often seems to be CentOS or RHEL): % ssh -v foo ... debug1: Authentications that can continue: publickey,gssapi-with-mic,password ^^^^^^^^^^^^^^^ Quick fix: disable Kerberos on the client: % cat ~/.ssh/config ... GSSAPIAuthentication no Of course the problem could also be DNS or other network issues.
+    <footer>
+        <a href='http://localhost:1313/2011/06/23/ssh-fix-long-login-times-disable-kerberos/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/06/22/git-hooks-prepare-commit-msg/'> git hooks – prepare-commit-msg</a> </h2>
+      <div class="meta">Wed, Jun 22, 2011</div>
+    </header>
+
+    Update: foo commented that this was a &#8220;bad idea&#8221; (bordering on wrong?) and suggested I use options like git log &#8211;stat instead. See the comments below. Thanks foo! When I&#8217;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a git log, rather than getting this: commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3 Author: Sonia Hamilton Date: Fri Jun 17 21:15:53 2011 +1000 dotjilot code changes I get a nice message like this: commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3 Author: Sonia Hamilton Date: Fri Jun 17 21:15:53 2011 +1000 dotjilot code changes modified: setuplinux modified: funcs I used to manually edit the commit message on each commit, but git has a system of hooks that allows you to automate this sort of thing (look in the repo/.git/hooks directory for some examples).
+    <footer>
+        <a href='http://localhost:1313/2011/06/22/git-hooks-prepare-commit-msg/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/05/09/solaris-max-of-100-cron-jobs/'> Solaris – max of 100 cron jobs</a> </h2>
+      <div class="meta">Mon, May 9, 2011</div>
+    </header>
+
+    I stumbled across a limitation feature behaviour of Solaris over the weekend &#8211; by default it only allows you to run a maximum of 100 cron jobs at once. I suppose this to protect against &#8220;shooting oneself in the head&#8221;, but aaaarghhh&#8230; Reminds me why I love Monday mornings. Anyway, the file to edit is /etc/cron.d/queuedefs, see man queuedefs. Thanks to Solaris Tips for pointing me in the right direction.
+    <footer>
+        <a href='http://localhost:1313/2011/05/09/solaris-max-of-100-cron-jobs/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/05/05/lisp-downloading-sicp-videos-jruby/'> LISP – downloading SICP videos, JRuby</a> </h2>
+      <div class="meta">Thu, May 5, 2011</div>
+    </header>
+
+    I&#8217;m busy learning LISP/Scheme at the moment (in order to later move on to Clojure). And, improving my programming learning LISP is :-) I&#8217;m following along with the MIT SICP videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &#8211; get_sicp. Next, a script for the UC Berkeley SICP videos (getting through the flash player should be a learning experience).
+    <footer>
+        <a href='http://localhost:1313/2011/05/05/lisp-downloading-sicp-videos-jruby/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/04/28/git-amend/'> git amend</a> </h2>
+      <div class="meta">Thu, Apr 28, 2011</div>
+    </header>
+
+    A nice git option I stumbled upon today &#8211; amend. Typical scenario &#8211; you&#8217;ve done a local check-in, then notice there&#8217;s a typo in your code comments. Fix up the typo, then use &#8211; &#8211; amend to re-check-in, without having to do a reset/revert. For example: git add foo.file git ci -m "added the frob feature to the whiz-bang" ... notice and fix typo in foo.file ... git add foo.file git ci --amend When you do the amend check-in, your editor will pop up, allowing you to re-edit the commit message if desired.
+    <footer>
+        <a href='http://localhost:1313/2011/04/28/git-amend/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/04/05/python-lambda-closures/'> Python, Lambda, Closures</a> </h2>
+      <div class="meta">Tue, Apr 5, 2011</div>
+    </header>
+
+    (apologies to slug planeteers for the duplicate info). A very interesting post from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&#8217;m playing with Lisp and Python at the moment&#8230; Some links from his blog, in case the original post ever disappears: the question and responses on stackoverflow an example of the perils of Python&#8217;s scoping rules with for/while/if
+    <footer>
+        <a href='http://localhost:1313/2011/04/05/python-lambda-closures/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/03/27/lisp-and-python/'> Lisp and Python</a> </h2>
+      <div class="meta">Sun, Mar 27, 2011</div>
+    </header>
+
+    I&#8217;m bored, so I&#8217;m going to learn Lisp. Why am I bored? I hurt my knee at BJJ and have to take a week or two off training :-( Fortunately it&#8217;s not too bad and I&#8217;ll be back getting beaten up (and beating up) soon! I came across this fun looking book that inspired me &#8211; Land of Lisp &#8211; I started reading it in Dymocks and couldn&#8217;t put it down.
+    <footer>
+        <a href='http://localhost:1313/2011/03/27/lisp-and-python/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/03/21/making-java-fun-with-mirah/'> Making Java Fun with Mirah</a> </h2>
+      <div class="meta">Mon, Mar 21, 2011</div>
+    </header>
+
+    A SlashDot linked article on Mirah &#8211; Java with Ruby syntax (different from JRuby). So when is someone going to do this to Perl? Or is that Perl6? Or Ruby just the &#8220;new Perl&#8221;?
+    <footer>
+        <a href='http://localhost:1313/2011/03/21/making-java-fun-with-mirah/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/02/18/solaris-convert-a-single-root-ufs-to-a-root-zfs-mirror/'> Solaris – convert a single root UFS to a root ZFS mirror</a> </h2>
+      <div class="meta">Fri, Feb 18, 2011</div>
+    </header>
+
+    Scenario: the current Solaris Sparc system is booting off a single UFS disk (eg when cloned from an image). You want to convert to a ZFS mirror. Assumes that ZFS is already supported; if not install the ZFS package first. See also: Managing ZFS Boot Environments with Solaris Live Upgrade, in Solaris 10 ZFS Essentials Notes on OpenSolaris: ZFS boot mirror HOWTO: Migrate a UFS Root Filesystem to ZFS Connect to the console, login, examine the disk layout: -&gt; start /SP/console root@foo # uname -a SunOS foo 5.10 Generic_142900-11 sun4v sparc SUNW,Sun-Blade-T6320 root@foo # mount | fgrep '/dev/dsk' / on /dev/dsk/c0t0d0s0 read/write/setuid/devices/intr/largefiles/logging/xattr/onerr or=panic/dev=800008 on Thu Feb 17 12:04:28 2011 root@foo # echo | format Searching for disks...done AVAILABLE DISK SELECTIONS: 0.
+    <footer>
+        <a href='http://localhost:1313/2011/02/18/solaris-convert-a-single-root-ufs-to-a-root-zfs-mirror/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/02/14/resize-terminal-in-solaris/'> Resize Terminal in Solaris</a> </h2>
+      <div class="meta">Sun, Feb 13, 2011</div>
+    </header>
+
+    Sometimes when connecting into a Solaris box via multiple jumps eg Citrix to putty to jumphost to target host, the terminal can get confused about screen size and scramble the output. Use this command to update environment variables with the current terminal size: eval `resize` or if $PATH is munged: eval `/usr/openwin/bin/resize` Thanks to PeterK.
+    <footer>
+        <a href='http://localhost:1313/2011/02/14/resize-terminal-in-solaris/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/01/25/firefox-3-6-new-tab-opening-order-fix/'> Firefox 3.6 – new tab opening order – fix</a> </h2>
+      <div class="meta">Mon, Jan 24, 2011</div>
+    </header>
+
+    &#8230; in Firefox 3.6 however only new tabs are opened at the far right of the tabbar while new tabs that are opened from existing tabs, e.g. by middle-clicking a link in an already open tab, are opened next to the tab containing the link &#8230; about:config &#8230; filter for the term tabs.insertRelatedAfterCurrent. The default value of the parameter is true which simply means that related tabs are opened after the current and not at the end.
+    <footer>
+        <a href='http://localhost:1313/2011/01/25/firefox-3-6-new-tab-opening-order-fix/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/'> Solaris – increase tmpfs /tmp on the fly</a> </h2>
+      <div class="meta">Mon, Jan 24, 2011</div>
+    </header>
+
+    <p>A useful [script ][1]from BigAdmin for increasing the size of a tmpfs /tmp without rebooting. See also [SoftPanorama][2], [Talking about RAM disks in the Solaris OS][3].</p>
+
+    <footer>
+        <a href='http://localhost:1313/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/01/14/the-raid5-write-hole/'> The RAID5 Write Hole</a> </h2>
+      <div class="meta">Fri, Jan 14, 2011</div>
+    </header>
+
+    The latest edition of the venerable UNIX and Linux System Administration Handbook (Nemeth et al) has a good section discussing the &#8220;RAID5 Write Hole&#8221;: Finally, RAID 5 is vulnerable to corruption in certain circumstances. Its incremental updating of parity data is more efficient than reading the entire stripe and recalculating the stripe’s parity based on the original data. On the other hand, it means that at no point is parity data ever validated or recalculated.
+    <footer>
+        <a href='http://localhost:1313/2011/01/14/the-raid5-write-hole/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2011/01/12/using-zfs-on-solaris-to-rapidly-build-systems/'> Using ZFS on Solaris to rapidly build systems</a> </h2>
+      <div class="meta">Tue, Jan 11, 2011</div>
+    </header>
+
+    A work colleagues used an interesting technique to rapidly build some Solaris systems. We usually use Jumpstart but due to the large number of identical systems to be built, he had to use a faster method. In a nutshell: build the first system onto a single disk with a root zfs partition export the root partition onto a second hard disk on subsequent machines insert this second hard disk, import then re-export the root zfs partition when finished, add a second hard disk to all machines and zfs mirror the root partition.
+    <footer>
+        <a href='http://localhost:1313/2011/01/12/using-zfs-on-solaris-to-rapidly-build-systems/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/11/09/solaris-ip-multipathing-an-example/'> Solaris IP Multipathing – an example</a> </h2>
+      <div class="meta">Tue, Nov 9, 2010</div>
+    </header>
+
+    An example of Solaris IP Multipathing, for future reference: # cat /etc/hostname.bge2 10.888.999.133 netmask + broadcast + mtu 1380 deprecated -failover group inner-prod up addif 10.888.999.132 netmask + broadcast + mtu 1380 group inner-prod up # cat /etc/hostname.bge3 10.888.999.134 netmask + broadcast + mtu 1380 deprecated -failover standby group inner-prod up giving: # ifconfig bge2 bge2: flags=9040843&lt;UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAILOVER&gt; mtu 1380 index 4 inet 10.888.999.133 netmask fffffff0 broadcast 10.225.228.143 groupname inner-prod ether
+    <footer>
+        <a href='http://localhost:1313/2010/11/09/solaris-ip-multipathing-an-example/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/10/25/numbering-lines-in-a-file/'> Numbering lines in a file</a> </h2>
+      <div class="meta">Mon, Oct 25, 2010</div>
+    </header>
+
+    Note to brain: line numbering in a file can be done using nl &#8211; easier than using sed&#8230; % nl -p -n rz /tmp/foo.txt &gt; /tmp/bar.txt -p Specify that line numbering should not be restarted at logical page delimiters -n format Specify the line numbering output format.
+    <footer>
+        <a href='http://localhost:1313/2010/10/25/numbering-lines-in-a-file/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/10/16/squid-notes/'> Squid Notes</a> </h2>
+      <div class="meta">Sat, Oct 16, 2010</div>
+    </header>
+
+    Some quick Squid notes, from O&#8217;Reilly&#8217;s &#8220;Squid The Definitive Guide&#8220;** ** Debugging # check config file changes: % squid -k parse # load conf file changes: % squid -k reconfigure # start in foreground, display debug info: % squid -N -d1 -&gt; look for "Ready to serve requests" message Edit your squid.conf file and set the debug_options line to this: debug_options ALL,1 33,2 Now, Squid writes a message to cache.log for each client request and another for each reply.
+    <footer>
+        <a href='http://localhost:1313/2010/10/16/squid-notes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/09/28/password-caching-with-sshpass/'> password caching with sshpass</a> </h2>
+      <div class="meta">Tue, Sep 28, 2010</div>
+    </header>
+
+    sshpass &#8211; a tool for non-interactively performing password authentication with SSH&#8217;s so called &#8220;interactive keyboard password authentication&#8221; &#8211; useful for automation scripts where you are unable to use ssh keys. Of course using ssh keys plus an ssh-agent or ssh keychain (even for cron jobs) is more secure. But I&#8217;m working with a proprietary, linux based system where some pointy-headed-boss decided that it&#8217;s safer to disable key based authentication, because, well, I don&#8217;t know (because they don&#8217;t understand key based authentication?).
+    <footer>
+        <a href='http://localhost:1313/2010/09/28/password-caching-with-sshpass/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/08/18/resetting-alom-password-on-solaris/'> Resetting ALOM password on Solaris</a> </h2>
+      <div class="meta">Wed, Aug 18, 2010</div>
+    </header>
+
+    Or, after RTFM&#8217;ing, an easier way: SunDocs Recovering ALOM passwords: connect to serial console, remove power cords, wait a few seconds plugin, press escape repeatedly until it drops to the &#8220;ALOM menu&#8221; e to erase ALOM NVRAM (will return everything to defaults) r to return to boot process machine will then reboot, drop into ALOM prompt as admin with no password ~ ~ ~ Some notes on how to reset the ALOM password on Solaris (done on a VT240).
+    <footer>
+        <a href='http://localhost:1313/2010/08/18/resetting-alom-password-on-solaris/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/07/20/exiting-from-consoles-attached-to-solaris-zones/'> Exiting from consoles attached to Solaris zones</a> </h2>
+      <div class="meta">Tue, Jul 20, 2010</div>
+    </header>
+
+    (More of a &#8220;note-to-brain&#8221; than a &#8220;how-to&#8221;). When creating a new Solaris zone, one of the steps involves connecting to the zone&#8217;s console for the initial configuration: # zlogin -C examplezone The zone then runs through the sys-unconfig script, asking questions about hostname, timezone, etc. When this is finished, the doco says to exit from the console using the &#8220;~.&#8221; combination. But of course ssh grabs the &#8220;~&#8221; escape character and kills the entire ssh connection &#8211; aargghhh&#8230; Solution: different escape characters for the different ssh connections: % ssh windows -e @ # jump host for Cisco vpn, @ escape character % ssh shamilton@1.2.3.4 -p 8022 -e % # connect to HP-NA, % escape character NA&gt;connect ts01 # connect to terminal server ts01#telnet fubar.com # connect to console of target server - finally do stuff, then ~.
+    <footer>
+        <a href='http://localhost:1313/2010/07/20/exiting-from-consoles-attached-to-solaris-zones/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/06/23/windows-autologon/'> Windows autologon</a> </h2>
+      <div class="meta">Wed, Jun 23, 2010</div>
+    </header>
+
+    The only time I use Windows is as a virtual machine &#8220;appliance&#8221; ie it&#8217;s running some application that I have to run, that only runs on Windows. Often I want the VM to just logon automagically; here&#8217;s a registry file to do so. Save it as foo.reg and double click on it: Windows Registry Editor Version 5.00 [HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows NTCurrentVersionWinlogon] "DefaultUserName"="sonia" "DefaultPassword"="secret" "AutoAdminLogon"="1" No rocket science, I&#8217;m just blogging it so
+    <footer>
+        <a href='http://localhost:1313/2010/06/23/windows-autologon/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/06/10/solaris-ps-output-truncated-at-80-columns/'> Solaris ps output truncated at 80 columns</a> </h2>
+      <div class="meta">Thu, Jun 10, 2010</div>
+    </header>
+
+    When running the ps command on Solaris, the output is truncated at 80 columns &#8211; really annoying when the command line to start up a process (typically a daemon) is really long. This has been annoying me for ages, and I finally found a (sort of) solution &#8211; use a different ps, and run as root: # uname -a SunOS fubar 5.9 Generic_118558-24 sun4u sparc SUNW,UltraAX-i2 # which ps /usr/bin/ps # /usr/ucb/ps auxwww 2&gt; /dev/null | grep 22480 root 22480 0.0 0.1 1896 1232 ?
+    <footer>
+        <a href='http://localhost:1313/2010/06/10/solaris-ps-output-truncated-at-80-columns/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/04/30/solaris-rbac-creating-limited-accounts/'> Solaris RBAC – creating limited accounts</a> </h2>
+      <div class="meta">Fri, Apr 30, 2010</div>
+    </header>
+
+    Solaris has a feature called RBAC, that allows you to provide role-based security (I believe this is similar to SELinux). All the documentation and examples I&#8217;ve seen explain how to setup up a role that allows a normal user to do a higher privileged command (eg manage log files, manage printers). But I haven&#8217;t been able to find an example of how to create a limited account, one that is only allowed to run a fixed number of commands.
+    <footer>
+        <a href='http://localhost:1313/2010/04/30/solaris-rbac-creating-limited-accounts/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/03/30/vim-folding/'> vim folding</a> </h2>
+      <div class="meta">Tue, Mar 30, 2010</div>
+    </header>
+
+    A concise article on Linux.com (that I keep referring back to) about vim folding. I&#8217;ve been using vi/vim for years and vi keystrokes just &#8220;happen&#8221;, but it&#8217;s always nice to learn a few more tricks, especially when working with larger scripts. A brief summary of folding: highlight some text using v visual mode, zf to fold, zo to unfold (ie open) put cursor on an opening curly bracket, and zfa} to fold until closing curly bracket (or zfa) or zfa] for parentheses, square brackets) add this to your .vimrc to remember folds: au BufWinLeave * mkview au BufWinEnter * silent loadview Lots more commands in the article.
+    <footer>
+        <a href='http://localhost:1313/2010/03/30/vim-folding/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/02/26/problem-braindead-screensaver-timeouts/'> Problem: braindead screensaver timeouts</a> </h2>
+      <div class="meta">Fri, Feb 26, 2010</div>
+    </header>
+
+    Problem: You work in an organisation with locked down desktops that have stupidly short screensaver timeouts. And you&#8217;re connected via multiple rdp&#8217;s to a process that you want to keep running all day, but the timeouts keep halting the process. Solution: an optical mouse on top of an analog watch (that has a second hand): Take that Group Policy! (Tip of the Hat to Stu).
+    <footer>
+        <a href='http://localhost:1313/2010/02/26/problem-braindead-screensaver-timeouts/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2010/02/26/serial-port-access-on-osx-to-cisco-devices/'> Serial Port Access on OSX to Cisco devices</a> </h2>
+      <div class="meta">Fri, Feb 26, 2010</div>
+    </header>
+
+    How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN). Googling, everyone says to use zterm, but I couldn&#8217;t get it to work (and zterm looks and feels like a toy). This probably isn&#8217;t the &#8220;Mac way&#8221; of doing things, but &#8230; Install PL2303 USB to Serial Driver for Mac OS X, restart :-( sudo port selfupdate sudo port upgrade outdated sudo port install minicom Work out tty of USB-Serial converter: ls /dev/tty* &gt; pre Plug in USB-Serial converter.
+    <footer>
+        <a href='http://localhost:1313/2010/02/26/serial-port-access-on-osx-to-cisco-devices/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/'> cygwin: zsh: zsh compinit: insecure directories</a> </h2>
+      <div class="meta">Thu, Nov 19, 2009</div>
+    </header>
+
+    Using cygwin under Windows, I&#8217;ve setup my shell as zsh by editing the launch script: @echo off C: chdir C:cygwinbin zsh -l -i Unfortunately, this gives a nasty error everytime the shell is started up, due to Cygwin installing zsh incorrectly: zsh compinit: insecure directories, run compaudit for list. Ignore insecure directories and continue [y] or abort compinit [n]? y Solution, thanks to wezm.net: compaudit | xargs chmod g-w
+    <footer>
+        <a href='http://localhost:1313/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/11/19/macports-git-upload-pack-command-not-found/'> macports: git-upload-pack: command not found</a> </h2>
+      <div class="meta">Thu, Nov 19, 2009</div>
+    </header>
+
+    When doing a git clone from a repo hosted on a Mac OSX machine (installed using macports), I get this error on the client (Linux, cygwin, whatever): git-upload-pack: command not found Solution is to do this on the OSX machine: cd /usr/bin sudo ln -s /opt/local/bin/git* . Obviously some $PATH funkiness is going on somewhere on the Mac, and I should find a better fix. My personal $PATH on the
+    <footer>
+        <a href='http://localhost:1313/2009/11/19/macports-git-upload-pack-command-not-found/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/11/12/deltacopy-rsync-for-windows/'> DeltaCopy – rsync for Windows</a> </h2>
+      <div class="meta">Thu, Nov 12, 2009</div>
+    </header>
+
+    A nice little tool I came across &#8211; DeltaCopy &#8211; for when you have to work with Windows desktops and want to rsync (and don&#8217;t want to install Cygwin). I haven&#8217;t had time to play with it yet, but apparently the DeltaCopy client will connect to an rsync server. Out of interest, there&#8217;s also a SourceForge package for installing a minimal ssh server on Windows, rather than the full Cygwin.
+    <footer>
+        <a href='http://localhost:1313/2009/11/12/deltacopy-rsync-for-windows/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/10/29/monitoring-disk-activity-using-block_dump/'> Monitoring disk activity using block_dump</a> </h2>
+      <div class="meta">Thu, Oct 29, 2009</div>
+    </header>
+
+    A couple of good links [1][2] came up on the Axxs collective email list about monitoring disk activity under Linux using block_dump. In a nutshell: kern.debug setup in syslog.conf (it often is; if sync is used disk activity will obviously be greater) echo 1 &gt;/proc/sys/vm/block_dump wait n seconds echo 0 &gt;/proc/sys/vm/block_dump Do various grep'ing on /var/log/debug for READ, WRITE, inode, block, etc Thanks to Andrew Mc &amp; Torrance.
+    <footer>
+        <a href='http://localhost:1313/2009/10/29/monitoring-disk-activity-using-block_dump/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/10/23/why-require-rubygems-is-wrong/'> Why “require ‘rubygems&#39;” Is Wrong</a> </h2>
+      <div class="meta">Fri, Oct 23, 2009</div>
+    </header>
+
+    A link off the RORO list about Why &#8220;require &#8216;rubygems&rsquo;&#8221; Is Wrong. In a nutshell, the environment variable RUBYOPT should include rubygems eg export RUBYOPT="rubygems"
+    <footer>
+        <a href='http://localhost:1313/2009/10/23/why-require-rubygems-is-wrong/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/10/19/ruby-1-9-shell-aliases/'> Ruby 1.9 shell aliases</a> </h2>
+      <div class="meta">Mon, Oct 19, 2009</div>
+    </header>
+
+    I&#8217;ve started playing with Ruby 1.9 &#8211; the latest and greatest version of Ruby. On Ubuntu Jaunty, 1.8 is considered mainline and 1.9 experimental &#8211; here are the shell aliases if using 1.9: alias ri='/usr/bin/ri1.9' alias irb='/usr/bin/irb1.9' alias rdoc='/usr/bin/rdoc1.9' alias ruby='/usr/bin/ruby1.9' alias gem='/usr/bin/gem1.9' # belts-and-braces - gem 1.8 & 1.9 are the same version - 1.3.1
+    <footer>
+        <a href='http://localhost:1313/2009/10/19/ruby-1-9-shell-aliases/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/10/10/ruby-struct-openstruct-hashes/'> Ruby, Struct, OpenStruct, hashes</a> </h2>
+      <div class="meta">Sat, Oct 10, 2009</div>
+    </header>
+
+    An interesting Ruby example of an easy way to setup classes that are really just for passing around data using Struct &#8211; essentially a neat wrapper around a hash of values: class Node &lt; Struct.new( :level, :tag, :data, :refid ) def initialize( line=nil ) ...various mungings of line omitted... super level, tag.downcase, data, refid end end Now I can do stuff like: node = Node.new( line ) print node.level rather than node = {} ...various munging of data into node hash...
+    <footer>
+        <a href='http://localhost:1313/2009/10/10/ruby-struct-openstruct-hashes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/10/02/ruby-argv-options-and-optionparser/'> Ruby ARGV, options and OptionParser</a> </h2>
+      <div class="meta">Fri, Oct 2, 2009</div>
+    </header>
+
+    A nice Ruby example (for my reference) showing how to parse commandline options; the results are put in a hash called options (created on line 3). Interestingly, the ARGV array is automatically extended to include the options method even before require &#8216;optparse&#8217; is run. See also ri OptionParser and stderr.org. From Pragmattic Programmers&#8217; Best of Ruby Quiz: if __FILE__ == $0 require 'optparse' options = { :size =&gt; 2 } number = ARGV.pop ARGV.options do |opts| script_name = File.basename($0) opts.banner = "Usage: ruby #{script_name} [options] number" opts.separator "" opts.on("-s", "--size size", Numeric, "Specify the size of line segments.", "Default: 2" ) { |options[:size]| } opts.separator "" opts.on("-h", "--help", "Show this help message.") { puts opts; exit } opts.parse!
+    <footer>
+        <a href='http://localhost:1313/2009/10/02/ruby-argv-options-and-optionparser/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/10/01/ruby-testunit-assertions/'> Ruby Test::Unit Assertions</a> </h2>
+      <div class="meta">Thu, Oct 1, 2009</div>
+    </header>
+
+    A good summary (for my reference) of the assertions that can be used with Test::Unit (from Pragmatic Programmers&#8217; Programming Ruby).
+    <footer>
+        <a href='http://localhost:1313/2009/10/01/ruby-testunit-assertions/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/10/01/ruby-here-document-example/'> Ruby here document example</a> </h2>
+      <div class="meta">Thu, Oct 1, 2009</div>
+    </header>
+
+    A nice ruby example (for my reference) of using here documents to load data/logic. From Pragmattic Programmers&#8217; Best of Ruby Quiz: DIGITS = &lt;&lt;END_DIGITS.split("n").map { |row| row.split(" # ") }.transpose - # # - # - # # - # - # - # - # - | | # | # | # | # | | # | # | # | # | | # | |
+    <footer>
+        <a href='http://localhost:1313/2009/10/01/ruby-here-document-example/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/09/15/ruby-rcov-rexml-error/'> Ruby rcov rexml error</a> </h2>
+      <div class="meta">Tue, Sep 15, 2009</div>
+    </header>
+
+    Ruby&#8217;s rcov had a workaround for a breakage in the rexml library, but the workaround broke. This causes no implicit conversion from nil to integer on stderr. Quick solution: rcov-0.8.1.2.0/lib/rcov/report.rb -if RUBY_VERSION == "1.8.6" && defined? REXML::Formatters::Transitive +if ( RUBY_VERSION == "1.8.6" || RUBY_VERSION == "1.8.7" ) && defined? REXML::Formatters::Transitive Versions: % cat /etc/issue.net Ubuntu 9.04 % ruby --version ruby 1.8.7 (2008-08-11 patchlevel 72) [i486-linux] % gem list --local rcov
+    <footer>
+        <a href='http://localhost:1313/2009/09/15/ruby-rcov-rexml-error/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/08/28/git-branch-management-scripts/'> git branch management scripts</a> </h2>
+      <div class="meta">Thu, Aug 27, 2009</div>
+    </header>
+
+    A couple of scripts I (very) quickly wrote for managing git branches, so I don&#8217;t have to keep reading git cheat. No error checking or intelligence in the scripts &#8211; YMMV. Delete a tracking branch both locally and remotely: % cat gitkillbranch #!/bin/bash asksure() { echo -n "Are you sure (Y/N)? " while read -r -n 1 -s answer; do if [[ $answer = [YyNn] ]]; then [[ $answer = [Yy] ]] && retval=0 [[ $answer = [Nn] ]] && retval=1 break fi done echo return $retval } echo echo "*********************************************************" echo "This will delete the branch $1 both locally and remotely."
+    <footer>
+        <a href='http://localhost:1313/2009/08/28/git-branch-management-scripts/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/'> git – ignore vim temporary files in all directories</a> </h2>
+      <div class="meta">Fri, Jul 24, 2009</div>
+    </header>
+
+    Up until a few weeks ago I was using subversion for all my personal stuff. But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I&#8217;ve moved to git. Yay, no more central repository to go down&#8230; To ignore files in git you use .gitignore, eg for a rails project: % cat .gitignore log/*.log tmp/**/* But how to ignore files in all directories?
+    <footer>
+        <a href='http://localhost:1313/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/07/16/netapp-disabling-and-deleting-snapshots/'> netapp – disabling and deleting snapshots</a> </h2>
+      <div class="meta">Thu, Jul 16, 2009</div>
+    </header>
+
+    Netapp volumes by default are created with snapshots turned on; if the volume is being used for backups (for example), the snapshots just use up space. Here&#8217;s how to delete them: df vm_dev # see space usage for vm_dev volume snap sched vm_dev # see the current snapshot schedule snap sched vm_dev 0 0 0 # zero out the current schedule vol options vm_dev nosnap on # disable snapshots (not required, but "belts and braces") snap delete -a vm_dev # delete all old snapshots On a multi terabyte volume, the actual deletion can take a while &#8211; don&#8217;t expect the space to return immediately&#8230; See Netapp&#8217;s &#8220;Data Protection Online Backup and Recovery Guide&#8221; for more details.
+    <footer>
+        <a href='http://localhost:1313/2009/07/16/netapp-disabling-and-deleting-snapshots/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/07/02/firefox-default-paper-size-a4/'> Firefox – default paper size A4</a> </h2>
+      <div class="meta">Wed, Jul 1, 2009</div>
+    </header>
+
+    A bug that has been dragging on for years &#8211; Firefox under Ubuntu (and other distros) doesn&#8217;t respect the locale setting, and defaults to printing in US Letter size &#8211; grrrr&#8230; Firefox: Guide for the Perplexed seems to suggest: about:config print.postscript.paper_size set to &#8220;A4&#8243; Now to see if it holds, and work out a way to script this (I have a set of bash scripts that keeps all my Ubuntu desktops the same).
+    <footer>
+        <a href='http://localhost:1313/2009/07/02/firefox-default-paper-size-a4/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/06/29/oracle-rman-backups/'> Oracle RMAN backups</a> </h2>
+      <div class="meta">Mon, Jun 29, 2009</div>
+    </header>
+
+    More notes on Oracle RMAN backups, see also Oracle – how to purge old RMAN backups. Thanks Raoul for your email&#8230; Are the backups being deleted using RMAN or simply 'rm'? Oracle's RMAN can be set up to manage this for you based on RETENTION POLICY. Eg, set retention policy to recovery window of 14 days and it will regard any backups older than 14 days to be OBSOLETE. Obsolete backups can be removed regularly using this: DELETE NOPROMPT OBSOLETE; in a script that RMAN runs, for example, the daily backup script.
+    <footer>
+        <a href='http://localhost:1313/2009/06/29/oracle-rman-backups/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/06/09/source-keychain-credentials-in-perl/'> Source keychain credentials in Perl</a> </h2>
+      <div class="meta">Tue, Jun 9, 2009</div>
+    </header>
+
+    I use keychain for securely caching my ssh key credentials when running scripts from cron. Here&#8217;s how to use keychain with Perl scripts: Create a wrapper script: source ~/.keychain/hostname-sh run_perl_program.pl To run a one-off command do: system("source ~/.keychain/hostname-sh; cmd");
+    <footer>
+        <a href='http://localhost:1313/2009/06/09/source-keychain-credentials-in-perl/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/06/05/ruby-gem-server/'> ruby gem server</a> </h2>
+      <div class="meta">Fri, Jun 5, 2009</div>
+    </header>
+
+    I&#8217;m back to Rails development after a few months doing other things. Note to brain: the ruby gem server is now started using gem server &amp; rather than gem_server &amp;, like it used to be&#8230; Offline rdoc gem documentation in Ruby
+    <footer>
+        <a href='http://localhost:1313/2009/06/05/ruby-gem-server/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/06/02/perl-inc/'> Perl – @INC</a> </h2>
+      <div class="meta">Mon, Jun 1, 2009</div>
+    </header>
+
+    @INC &#8211; like $PATH for do, require, use Display existing @INC: perl -V | tail perl -le &#8216;print for @INC&#8217; Modify @INC: in a script: unshift @INC, &#8220;/home/sonia/lib/perl&#8221; better: use lib &#8216;/home/sonia/lib/perl/&lsquo;; for shell: export PERL5LIB=/home/sonia/lib/perl onetime at command line: perl** -I**/home/sonia/lib/perl foo Also: perldoc perlrun perldoc lib Intermediate Perl
+    <footer>
+        <a href='http://localhost:1313/2009/06/02/perl-inc/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/05/22/firewalling-on-solaris-10/'> Firewalling on Solaris 10</a> </h2>
+      <div class="meta">Fri, May 22, 2009</div>
+    </header>
+
+    Firewalling on Solaris 10: config file: /etc/ipf/ipf.conf flush all rules: ipf -Fa reload: ipf -f /etc/ipf/ipf.conf Email from Julian: The native firewall that comes with Solaris is &#8220;ipf&#8221;. Configuration files are in the directory /etc/ipf and the file is &#8220;ipf.conf&#8221;, NAT rules in &#8220;ipnat.conf&#8221;. Unlike iptables, where the configuration file is a series of &#8220;iptable&#8221; commands, &#8220;ipf.conf&#8221; is purely a configuration file. Traffiic must be enabled on each interface, so you have &#8220;pass in&#8221; to allow traffic in on interface A and a &#8220;pass out&#8221; to allow traffic out on interface B, if it is acting as a firewall, obviously this is not.
+    <footer>
+        <a href='http://localhost:1313/2009/05/22/firewalling-on-solaris-10/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/05/22/perl-my-use-vars-our-local-use-strict/'> Perl – my, use vars, our, local, use strict</a> </h2>
+      <div class="meta">Fri, May 22, 2009</div>
+    </header>
+
+    Some notes for me as I attempt to get a better understanding of Perl&#8217;s variable scoping rules. A work in progress&#8230; Perl has 2 separate &#8216;namespaces&#8217; for variables &#8211; package aka global (Perl 4) and my aka private aka lexical scoping (Perl 5) the default package is main, this can be changed with the statement package foo; which then applies to all subsequent code until another package statement is encountered lexical scoping is done with {} (either via subroutines/operators or &#8216;naked blocks&#8217;); the top level is the file itself (&#8216;file level&#8217;).
+    <footer>
+        <a href='http://localhost:1313/2009/05/22/perl-my-use-vars-our-local-use-strict/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/05/09/perl-use-require-import-and-do/'> Perl – use, require, import, and do</a> </h2>
+      <div class="meta">Sat, May 9, 2009</div>
+    </header>
+
+    Some notes on Perl&#8217;s use, require, import and *do. *Quick notes for me; not meant to be authoritative&#8230; use is done at &#8216;compile-time&#8217; and require is done at &#8216;run-time&#8217; (ie can conditionally load modules) require is the older method, but use uses require to do it&#8217;s work: use Foo; # equivalent to: require Foo; Foo-&gt;import(); use Foo qw (foo bar); # equivalent to: require Foo; Foo-&gt;import(qw(foo bar)); use Foo(); # equivalent to: require Foo; # ie don't import anything, not even the default things a Library is a just a file of code; a Module has package Foo in it (and usually other stuff) use only works with modules, whereas require works with both modules and libraries.
+    <footer>
+        <a href='http://localhost:1313/2009/05/09/perl-use-require-import-and-do/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/04/14/rotate-jpeg-images-using-jpegtran/'> Rotate JPEG images using jpegtran</a> </h2>
+      <div class="meta">Tue, Apr 14, 2009</div>
+    </header>
+
+    A quick note on how to rotate jpeg images, not because it&#8217;s earth-shatteringly smart but so I don&#8217;t keep having to think every time I want to do it: sudo aptitude install libjpeg-progs (contains jpegran on Ubuntu) for i in *jpg; do jpegtran -rotate 180 $i &gt; rotated/$i ; done This can probably be done with other tools (eg imagemagick), but jpegtran has a small manpage :-)
+    <footer>
+        <a href='http://localhost:1313/2009/04/14/rotate-jpeg-images-using-jpegtran/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/03/05/parameter-passing-in-ruby/'> Parameter passing in Ruby</a> </h2>
+      <div class="meta">Thu, Mar 5, 2009</div>
+    </header>
+
+    Just a small script I wrote to play around with various ways of passing parameters in Ruby: #!/usr/bin/ruby def restaurant1(meal, food = {}) meat = (food[:meat] || "chicken") veg = (food[:veg] || "broccoli") puts "For #{meal} you are having grilled #{meat} with steamed #{veg}." end restaurant1 "lunch", {:meat =&gt; "beef", :veg =&gt; "asparagus"} # can omit curly brackets if last arg is a hash restaurant1 "lunch", :meat =&gt; "beef", :veg =&gt; "asparagus" def restaurant2(meal, *food) # food is an array meat = food.shift veg = food.shift puts "For #{meal} you are having grilled #{meat} with steamed #{veg}."
+    <footer>
+        <a href='http://localhost:1313/2009/03/05/parameter-passing-in-ruby/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/03/02/ruby-on-rails-select_tag-default-value/'> Ruby on Rails select_tag default value</a> </h2>
+      <div class="meta">Mon, Mar 2, 2009</div>
+    </header>
+
+    When using the Rails helper select_tag, the selected value (ie highlighted value) is a parameter to options_for_select, not select_tag. Eg: Number of Rows: &lt;%= select_tag(:numrows, options_for_select(%w{10 20 50 100 200 500}, session[:numrows])) %&gt; (much head-banging-against-wall went into working this out&#8230;)
+    <footer>
+        <a href='http://localhost:1313/2009/03/02/ruby-on-rails-select_tag-default-value/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/02/25/troubleshooting-linux-ha-high-availability/'> Troubleshooting Linux HA (High Availability)</a> </h2>
+      <div class="meta">Wed, Feb 25, 2009</div>
+    </header>
+
+    When Linux HA (High Availability) is setup, each machine will have a physical address, and one machine should also have the virtual address. This can be checked via ip addr: machine 1 2: eth0: &lt;BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast qlen 1000 link/ether 00:09:3d:12:af:77 brd ff:ff:ff:ff:ff:ff inet 999.99.133.12/23 brd 211.29.133.255 scope global eth0 machine 2 2: eth0: &lt;BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast qlen 1000 link/ether 00:09:3d:12:ba:ef brd ff:ff:ff:ff:ff:ff inet 999.99.133.13/23 brd 211.29.133.255 scope global eth0 inet 999.99.133.19/23 brd 211.29.133.255 scope global secondary eth0:1 If this isn&#8217;t the case, do a hb_takeover on the appropriate machine (depending on the status of the underlying application).
+    <footer>
+        <a href='http://localhost:1313/2009/02/25/troubleshooting-linux-ha-high-availability/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/02/24/notes-on-branch-management-wit-subversion/'> Notes on Branch Management with Subversion</a> </h2>
+      <div class="meta">Tue, Feb 24, 2009</div>
+    </header>
+
+    Some notes on branch management with Subversion (more for my own learning purposes than anything): create branch: svn cp foo foo-branch develop new feature in foo-branch, whilst doing any bug fixes in trunk merge some changes from trunk into branch &#8211; keep branch up-to-date as possible commit any changes first, so can easily revert if desired: cd foo-branch; svn up; svn ci -m &#8220;pre merge in trunk&#8221; find where branch occured (if not noted in a log message &#8211; duh): svn log &#8211;verbose &#8211;stop-on-copy foo-branch (eg 123) preview changes succinctly: cd foo-branch; **svn merge &#8211;dry-run -r 123:HEAD** preview changes verbosely: cd foo-branch; **svn diff &#8211;notice-ancestry -r 123:HEAD &#8230;** apply changes: cd foo-branch; **svn merge -r 123:HEAD svn+ssh://myrepo.com/foo/bar** check changes: svn st; svn diff, **if problems: **svn revert commit changes: svn ci -m &#8220;merged trunk changes into branch (flubbed the widgets) r123:129&#8243; keep working in foo-branch, merge in some more changes ditto previous svn merge -r 130:HEAD svn+ssh://myrepo.com/foo/bar (previously merged up to 129, so start on 130) merge all changes from branch into trunk &#8211; new feature finished ditto previous cd foo; svn merge -r 123:HEAD https://myrepo.com/foo-branch svn ci -m &#8220;merged foo-branch into trunk (feature x) r123:145&#8243; An alternative (and often easier) approach is to branch on the server, then just switch the working copy for the subdirectory (or individual file) being worked on: svn cp https://myrepo.com/foo **https://**myrepo.com/foo-branch cd foo svn info bar | grep URL cd bar; svn switch **https://****myrepo.com/foo-branch/bar; cd ..
+    <footer>
+        <a href='http://localhost:1313/2009/02/24/notes-on-branch-management-wit-subversion/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/02/23/gnome-session-management/'> Gnome Session Management</a> </h2>
+      <div class="meta">Mon, Feb 23, 2009</div>
+    </header>
+
+    A nice article I came across while trying to remotely solve a gnome-session issue. In a nutshell: Gnome 2.24 now uses a new mechanism for specifying startup programs &#8211; .desktop files in $HOME/.config/autostart and /usr/share/gnome/autostart/
+    <footer>
+        <a href='http://localhost:1313/2009/02/23/gnome-session-management/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/01/12/shutdownstartup-oracle/'> Shutdown/Startup Oracle</a> </h2>
+      <div class="meta">Sun, Jan 11, 2009</div>
+    </header>
+
+    Some notes on shutting down and starting up Oracle, taken from an email. Please be corrected in Note Section if you do need to do abort shutdown. After abort shutdown, we do need to startup and shutdown database again. Then second shutdown will bring database down cleanly. After that you can backup database files. Logon UNIX as &#8220;oracle&#8221; ================ TO STOP DATABASE ================ 1. Invoke SQL*Plus $ sqlplus &#8221; / as sysdba&#8221; SQL shutdown immediate; &#8230; &#8230; Shutdown messages &#8230; Database closed.
+    <footer>
+        <a href='http://localhost:1313/2009/01/12/shutdownstartup-oracle/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/'> JPilot – Change First Day of Week on Ubuntu</a> </h2>
+      <div class="meta">Sat, Jan 10, 2009</div>
+    </header>
+
+    I still use JPilot for syncing with my Palm Treo &#8211; an old app but I like it, especially because of JPilot-Keyring. But there&#8217;s no way of changing the first day of the week in JPilot, and consequently the first day of the week appears as Sunday rather than Monday &#8211; yikes, Christianity! The solution is to change the first day of the week in Gnome, and JPilot then picks it up.
+    <footer>
+        <a href='http://localhost:1313/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/12/18/oracle-how-to-purge-old-rman-backups/'> Oracle – how to purge old RMAN backups</a> </h2>
+      <div class="meta">Thu, Dec 18, 2008</div>
+    </header>
+
+    Oracle runs on Linux, therefore I must be an Oracle expert (so goes management thinking). Here&#8217;s how to correctly purge old RMAN backups when storage runs out of space (thanks Nakrob): Do not use rm to remove files. You must do it via RMAN. $ export NLS_DATE_FORMAT='DD-MM-YY HH24:MI' $ rman target / NOCATALOG RMAN &gt; crosscheck backupset; This command will verify whether backup file is still on media. If it is unavailable, RMAN will mark it as UNAVAILABLE or EXPIRED.
+    <footer>
+        <a href='http://localhost:1313/2008/12/18/oracle-how-to-purge-old-rman-backups/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/12/10/autossh-automatically-restart-ssh-tunnels/'> autossh – automatically restart SSH tunnels</a> </h2>
+      <div class="meta">Wed, Dec 10, 2008</div>
+    </header>
+
+    A tool I&#8217;d forgotten about &#8211; autossh. Also an article here. Thanks Dean. Some links on getting autossh going: Cygwin to Linux: Matt&#8217;s stuff
+    <footer>
+        <a href='http://localhost:1313/2008/12/10/autossh-automatically-restart-ssh-tunnels/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/12/03/disk-mtbf-mean-time-between-failures/'> Disk MTBF – Mean Time Between Failures</a> </h2>
+      <div class="meta">Wed, Dec 3, 2008</div>
+    </header>
+
+    A good article on disk MTBF (Mean Time Between Failures), that clarified my understanding (thanks Jarek). The key paragraph: &#8220;To be interpreted properly, the MTBF figure is intended to be used in conjunction with the useful service life of the drive, the typical amount of time before the drive enters the period where failures due to component wear-out increase. MTBF only applies to the aggregate analysis of large numbers of drives; it says nothing about a particular unit.
+    <footer>
+        <a href='http://localhost:1313/2008/12/03/disk-mtbf-mean-time-between-failures/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/10/07/how-to-configure-central-sysloging-on-solaris/'> How to configure central syslog’ing on Solaris</a> </h2>
+      <div class="meta">Tue, Oct 7, 2008</div>
+    </header>
+
+    Quick notes; see Solaris: Logging to a separate loghost, the easy way. edit /etc/inet/hosts, add in an alias for loghost eg 1.2.3.4 loghost /etc/init.d/syslog restart (Solaris 8), svcadm on later versions Other useful links for &#8216;the Solaris way&#8217; (vs Linux): Rosetta Stone for Unix Some Solaris Knowledge (thanks Lindsay)
+    <footer>
+        <a href='http://localhost:1313/2008/10/07/how-to-configure-central-sysloging-on-solaris/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/'> Ruby on Rails – Foreign Key Constraints in MySQL</a> </h2>
+      <div class="meta">Wed, Oct 1, 2008</div>
+    </header>
+
+    <p>As an ex-DBA, one of the things that annoys me about Rails is that migrations don&#8217;t have a way of setting up referential integrity (I&#8217;m still using Rails 1.2.3, so this may have changed). But apart from that, I lurv Rails :-)</p>
+
+<p>Here&#8217;s some code I wrote to for adding and removing foreign key constraints on MySQL (using InnoDB, of course). There&#8217;s other code out there to do the same thing, but they didn&#8217;t do what I wanted, or required installing a plugin.</p>
+
+    <footer>
+        <a href='http://localhost:1313/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/'> How to use putty with ssh keys on Windows</a> </h2>
+      <div class="meta">Fri, Sep 5, 2008</div>
+    </header>
+
+    <p>[ssh][1] is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like [dsniff][2]). Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&#8217;ve only ever used Windows).</p>
+
+<p>So here&#8217;s how you do it using putty&#8230;</p>
+
+    <footer>
+        <a href='http://localhost:1313/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/08/28/creating-global-keyboard-shortcuts-in-gnome/'> Creating global keyboard shortcuts in GNOME</a> </h2>
+      <div class="meta">Thu, Aug 28, 2008</div>
+    </header>
+
+    Good post on Debian Administration about Creating global keyboard shortcuts in GNOME. In a nutshell, in gconf-editor navigate to apps, metacity, keybinding_commands and edit stuff.
+    <footer>
+        <a href='http://localhost:1313/2008/08/28/creating-global-keyboard-shortcuts-in-gnome/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/06/12/ssh-socks-proxying-dns-proxying/'> Ssh SOCKS proxying, DNS proxying, Tunnelling</a> </h2>
+      <div class="meta">Thu, Jun 12, 2008</div>
+    </header>
+
+    Mary Gardiner answered one of Voytek Eymont&#8217;s questions on the SLUG list by referring to the ssh socks proxying post on Ubuntu Blog. I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes: setup via $ssh -D 9999 username@ip-address-of-ssh-server, configure web browser **socks 5 host **(not http proxy) to localhost:9999 (On Firefox: Preferences, Advanced, Network, Settings, Manual, SOCKS Host.
+    <footer>
+        <a href='http://localhost:1313/2008/06/12/ssh-socks-proxying-dns-proxying/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/'> Connect to mysql from OpenOffice using ODBC</a> </h2>
+      <div class="meta">Thu, Jun 5, 2008</div>
+    </header>
+
+    There&#8217;s an article here that explains how to connect to a mysql database from OpenOffice.org Base using odbc, but the author makes it sound like rocket science. It&#8217;s easy &#8211; summary: sudo aptitude install unixodbc libmyodbc unixodbc-bin sudo ODBCConfig driver is /usr/lib/odbc/libmyodbc.so setup is /usr/lib/odbc/libodbcmyS.so run the wizard, connect using the saved odbc configuration
+    <footer>
+        <a href='http://localhost:1313/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/06/05/mysql-localhost-and-ssh-work-around/'> mysql, localhost, and ssh work-around</a> </h2>
+      <div class="meta">Thu, Jun 5, 2008</div>
+    </header>
+
+    I use ssh to tunnel all the time, especially to get around brain-dead firewalls. But this doesn&#8217;t work easily for mysql &#8211; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost&#8217; and try to connect via the local socket. Very broken &#8211; there&#8217;s bugs lodged here and here about this (and lots of chest beating and wailing, too). Solution: tunnel ssh via an intermediate machine.
+    <footer>
+        <a href='http://localhost:1313/2008/06/05/mysql-localhost-and-ssh-work-around/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/'> howto rip Real Audio streams to mp3 on Ubuntu</a> </h2>
+      <div class="meta">Mon, Apr 14, 2008</div>
+    </header>
+
+    I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&#8217;m writing my own). But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS&#8217;s Beard! There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&#8217;s how I got it going on Ubuntu 7.10: First of all I installed Real Player using instructions here and here, and checked I could listen to a stream using the GUI tool &#8211; a quick sanity check for firewalls, etc.
+    <footer>
+        <a href='http://localhost:1313/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/04/01/ubuntu-repositories-explained-security-etc/'> Ubuntu Repositories Explained – gutsy-security, gutsy-updates, etc</a> </h2>
+      <div class="meta">Tue, Apr 1, 2008</div>
+    </header>
+
+    Copied verbatim from Jeff Waugh&#8217;s post on SLUG: &gt; But anything worthy of going into ${ubuntu_release}-updates is surely &gt; worth putting straight into ${ubuntu_release} ? Or is it just me? Post-release, that archive is never touched. It means that users get to choose how much damage they&rsquo;re willing to accept: * release: Don&rsquo;t touch it, I like consistency, even with my bugs. * release-security: I&rsquo;ll accept patches to existing versions (and very rare version upgrades if absolutely necessary) in the process of keeping my system secure.
+    <footer>
+        <a href='http://localhost:1313/2008/04/01/ubuntu-repositories-explained-security-etc/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/03/28/installing-cpan-as-non-root/'> Installing CPAN as non-root</a> </h2>
+      <div class="meta">Fri, Mar 28, 2008</div>
+    </header>
+
+    (todo &#8211; test/verify/summarize these links:) http://www.cpan.org/modules/by-module/LWP/ general articles from http://sial.org/howto/perl/life-with-cpan/ http://linuxgazette.net/139/okopnik.html http://theoryx5.uwinnipeg.ca/CPAN/perl/lib/CPAN.html#faq &#8211; question 5
+    <footer>
+        <a href='http://localhost:1313/2008/03/28/installing-cpan-as-non-root/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/03/07/remastering-ubuntu-live-cds/'> Remastering Ubuntu Live CDs</a> </h2>
+      <div class="meta">Sat, Mar 8, 2008</div>
+    </header>
+
+    A good thread recently on SLUG about how to remaster an Ubuntu Live CD: how to strip out the installer: Expand the squashfs from the cd to a live ext3 file system, chroot into it and remove ubiquity. Then recompress, generate a new iso with the new squashfs, and you&#8217;re good to go (Ken Caldwell) How to Customize the Ubuntu Desktop CD Ubuntu Live CD Creator Ubuntu Construction Kit
+    <footer>
+        <a href='http://localhost:1313/2008/03/07/remastering-ubuntu-live-cds/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/02/21/huawei-e220-on-ubuntu-gutsy-for-vodafone-australia/'> Huawei E220 on Ubuntu Gutsy for Vodafone Australia</a> </h2>
+      <div class="meta">Thu, Feb 21, 2008</div>
+    </header>
+
+    if running a recent kernel, just plugin and check option module is being loaded $ lsmod | grep option also look in /var/log/messages $ less /var/log/messages option 5-2:1.0: GSM modem (1-port) converter detected usb 5-2: GSM modem (1-port) converter now attached to ttyUSB0 option 5-2:1.1: GSM modem (1-port) converter detected usb 5-2: GSM modem (1-port) converter now attached to ttyUSB1 use this /etc/wvdial.conf [Dialer hsdpa] Phone = *99***1# Username =
+    <footer>
+        <a href='http://localhost:1313/2008/02/21/huawei-e220-on-ubuntu-gutsy-for-vodafone-australia/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/'> Setup a forwarding caching-only DNS Server on Ubuntu</a> </h2>
+      <div class="meta">Sat, Feb 2, 2008</div>
+    </header>
+
+    <p>A quick cheatsheet for setting up a forwarding, caching-only DNS Server on Ubuntu.</p>
+
+    <footer>
+        <a href='http://localhost:1313/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/31/gnu-screen-screenrc-tricks/'> Gnu Screen .screenrc tricks</a> </h2>
+      <div class="meta">Thu, Jan 31, 2008</div>
+    </header>
+
+    Here&#8217;s a variety of tricks I&#8217;ve picked up for Gnu screen and .screenrc from the Screen Users Email List to have a screen change to a different directory when launched, use the chdir command (not cd): chdir $HOME/rails screen -t &ldquo;rails&rdquo; to change back to a particular screen, after creating a whole lot in .screenrc, and preset the &#8216;other&#8217; screen: select 3 (for example) select 5 to search backwards in scrollback mode &#8211; ?.
+    <footer>
+        <a href='http://localhost:1313/2008/01/31/gnu-screen-screenrc-tricks/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/30/convert-english-language-ubuntu-to-spanish/'> Convert English language Ubuntu to Spanish</a> </h2>
+      <div class="meta">Wed, Jan 30, 2008</div>
+    </header>
+
+    To convert an Ubuntu installed with English to Spanish, install the following packages: language-pack-es language-pack-es-base language-pack-gnome-es language-pack-gnome-es-base language-support-es manpages-es manpages-es-extra Here it is as one long line, for copying and pasting: sudo aptitude install language-pack-es language-pack-es-base language-pack-gnome-es language-pack-gnome-es-base language-support-es manpages-es manpages-es-extra See also: Acentos y carácteres especiales
+    <footer>
+        <a href='http://localhost:1313/2008/01/30/convert-english-language-ubuntu-to-spanish/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/29/howto-setup-nomachinenx-on-ubuntu/'> HowTo setup NoMachineNX on Ubuntu</a> </h2>
+      <div class="meta">Wed, Jan 30, 2008</div>
+    </header>
+
+    <p>The instructions given by NoMachine for setting up on Linux are a bit thin; here&#8217;s my own version:</p>
+
+    <footer>
+        <a href='http://localhost:1313/2008/01/29/howto-setup-nomachinenx-on-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/'> iAudio mp3 player mount errors Ubuntu Gutsy</a> </h2>
+      <div class="meta">Wed, Jan 30, 2008</div>
+    </header>
+
+    gconf-editor /system/storage/default_options/vfat/mount_options remove the &#8220;usefree&#8221; option from the list See Launchpad Bug 151025.
+    <footer>
+        <a href='http://localhost:1313/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/25/troubleshooting-ubuntu-networkmanager/'> Troubleshooting Ubuntu NetworkManager</a> </h2>
+      <div class="meta">Fri, Jan 25, 2008</div>
+    </header>
+
+    NetworkManager: &#8220;When I&#8217;m good, I&#8217;m really really good. But when I&#8217;m bad&#8230;&#8221;. Some tricks I&#8217;ve found for troubleshooting NetworkManager: no network interfaces (except for lo) should be listed in /etc/network/interfaces. Any that are won&#8217;t be managed by NetworkManager remove old wireless configuration information by running gconf-editor &amp;, and removing them from /system/networking/wireless/networks. Or, from the shell run this command to unset all at once: gconftool-2 &#8211;recursive-unset /system/networking/wireless/networks. Some useful links:
+    <footer>
+        <a href='http://localhost:1313/2008/01/25/troubleshooting-ubuntu-networkmanager/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/'> pdnsd on Ubuntu for faster dns</a> </h2>
+      <div class="meta">Tue, Jan 22, 2008</div>
+    </header>
+
+    <p>Whilst traveling through Mexico and Guatemala, I&#8217;ve had various problems with slow and/or faulty dns resolution. Here&#8217;s how to install pdnsd, in order to cache dns entries locally and speed up internet access in general (whether or not you&#8217;re in Guatemala&#8230;):</p>
+
+    <footer>
+        <a href='http://localhost:1313/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/'> Using ndiswrapper with Ubuntu 64 on a Presario V6000 with a Dell 1390 mini-PCI wireless card</a> </h2>
+      <div class="meta">Mon, Jan 21, 2008</div>
+    </header>
+
+    <p>My first <em>task</em> in Guatemala was to get Jesus&#8217;s wireless going. He&#8217;s running Ubuntu Feisty 64 on a Compaq Presario V6000 (AMD Turion 64 x2). The wireless card is a <em>Dell 1390 mini-PCI</em> (wireless chipset bcm43xx).</p>
+
+<p>Inspired by [these instructions][1] for Ultima Linux, I did the following as root:</p>
+
+    <footer>
+        <a href='http://localhost:1313/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/'> Ubuntu Linux Compaq nc4200 ipw2200 blue LED</a> </h2>
+      <div class="meta">Wed, Jan 16, 2008</div>
+    </header>
+
+    <p>A couple of notes on working with the ipw2200 wireless card on a Compaq nc4200 running Ubuntu (7.04 and 7.10), including how to get the blue LED to work:</p>
+
+    <footer>
+        <a href='http://localhost:1313/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/11/how-to-recognise-a-good-programmer-and-system-adminstrator/'> how to recognise a good programmer (and system adminstrator)</a> </h2>
+      <div class="meta">Sat, Jan 12, 2008</div>
+    </header>
+
+    KDan (via Slashdot) has a great post on how to recognise a good programmer; I think many of his points also apply to system administrators. Some of the key points: passionate about technology, will talk your ear off on a technical subject if encouraged; technology isn&#8217;t a day job but a lifestyle learns new technologies on their own, and doesn&#8217;t say &#8220;send me on a course to learn that&#8221; very uncomfortable about the idea of working with a technology they don&#8217;t believe to be “right” has some hidden “icebergs”, large personal projects under the CV radar All-in-all a really great article &#8211; I suggest you read it.
+    <footer>
+        <a href='http://localhost:1313/2008/01/11/how-to-recognise-a-good-programmer-and-system-adminstrator/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2008/01/09/multiuser-gnu-screen/'> multiuser gnu screen</a> </h2>
+      <div class="meta">Wed, Jan 9, 2008</div>
+    </header>
+
+    A good post on debian-administration on multi-user screen. The key points: when in screen, type ^A:multiuser on[RET] the other user(s) connect to the server, then join using the command screen -x
+    <footer>
+        <a href='http://localhost:1313/2008/01/09/multiuser-gnu-screen/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/12/21/mysql-backups/'> MySQL Backups</a> </h2>
+      <div class="meta">Fri, Dec 21, 2007</div>
+    </header>
+
+    See Also: igvita.com: Hands on MySQL Backup &amp; Migration How-To Forge: How to perform a point in time restoration using ZRM for MySQL How-To Forge: MySQL Backup And Recovery With mysql-zrm On Debian Sarge
+    <footer>
+        <a href='http://localhost:1313/2007/12/21/mysql-backups/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/12/04/svn-over-an-ssh-tunnel/'> svn over an ssh tunnel</a> </h2>
+      <div class="meta">Wed, Dec 5, 2007</div>
+    </header>
+
+    Often a subversion server is on an internal server that can&#8217;t be reached by a DMZ server, and ssh+svn isn&#8217;t setup. Here&#8217;s a quick recipe for ssh tunnelling from the subversion server to the DMZ server and using svn. &lt;br /&gt; root@svnserver$ ssh -R dmzserver 3690:svnserver:3690&lt;br /&gt; root@dmzserver$ svn co --username sonia svn://localhost/unix/trunk/foo/ # so root not used&lt;br /&gt; root@dmzserver$ svn ci --username sonia --password secret&lt;br /&gt;
+    <footer>
+        <a href='http://localhost:1313/2007/12/04/svn-over-an-ssh-tunnel/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/'> Troubleshooting mac addresses in Ubuntu</a> </h2>
+      <div class="meta">Thu, Nov 29, 2007</div>
+    </header>
+
+    <p>As far as /etc/iftab goes, this is not used in Ubuntu 7.10<br />
+anymore&#8230;.this functionality is moved to hotplug,. and maybe causing<br />
+your prob.</p>
+
+    <footer>
+        <a href='http://localhost:1313/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/'> ssh, ssh-agent, keychain and cron notes</a> </h2>
+      <div class="meta">Fri, Nov 16, 2007</div>
+    </header>
+
+    <p><strong>Summary</strong></p>
+
+<p>To setup <strong>ssh</strong> and <strong>keychain</strong> to allow ssh related jobs to run from cron:</p>
+
+<ul>
+<li>generate keys <em>with a password</em> (<strong>ssh-keygen -t dsa</strong>) and install keychain. Do only on <em>secure machines</em> ie ones that only you (or a small number of trusted admins) can logon to as root &#8211; typically your laptop/desktop and a secure admin server</li>
+<li>add the following lines to your <strong>~/.profile</strong>:</li>
+</ul>
+
+<blockquote>
+<ul>
+<li>some sites say <strong>.bash_profile</strong>, but I use .profile as I use both bash and zsh (don&#8217;t have both as then only .bash_profile will be read)</li>
+<li>I check keychain is executable with -x as I have the same .profile on all machines (synced via a script)</li>
+<li>I use rsa keys as I work with older ssh1 machines; dsa keys are preferable.</li>
+</ul>
+</blockquote>
+
+<p><code>export HOSTNAME=`hostname` # HOSTNAME not set some machines</code><br />
+<code>if [ -x /usr/bin/keychain -a -f $HOME/.keychain/${HOSTNAME}-sh ] ; then</code><br />
+<code>/usr/bin/keychain $HOME/.ssh/id_rsa</code><br />
+<code>source $HOME/.keychain/${HOSTNAME}-sh</code><br />
+<code>fi</code></p>
+
+<ul>
+<li></li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/11/14/expect-notes/'> expect notes</a> </h2>
+      <div class="meta">Thu, Nov 15, 2007</div>
+    </header>
+
+    <p>(draft)</p>
+
+<p>[Expect Language][1], [Expect Book][2].</p>
+
+<p><strong>Summary</strong></p>
+
+<ul>
+<li>set timeout x (in seconds)</li>
+<li>spawn</li>
+<li>expect</li>
+<li>send</li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2007/11/14/expect-notes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/11/11/tcpdump-notes/'> tcpdump notes</a> </h2>
+      <div class="meta">Mon, Nov 12, 2007</div>
+    </header>
+
+    <p>Examples:</p>
+
+<pre class="brush: bash; title: ; notranslate" title="">tcpdump host 172.26.24.58 and (port 20 or port 21)
+tcpdump host 172.26.24.58 and not arp
+tcpdump -s0 -w foo -i eth0 # whole packet not 96 bytes, write to file foo, listen on eth0)
+tcpdump -s 0 -i eth6 -w snmpget.pcap host 1.2.3.4 and port 161 # capture snmp traffic
+</pre>
+
+    <footer>
+        <a href='http://localhost:1313/2007/11/11/tcpdump-notes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/11/08/howto-display-home-icon-on-desktop-in-ubuntu/'> howto display home icon on desktop in Ubuntu</a> </h2>
+      <div class="meta">Fri, Nov 9, 2007</div>
+    </header>
+
+    run gconf-editor change /apps/nautilus/desktop/home_icon_visible to true The visibility of other icons (such as the network, computer) can also be changed here.
+    <footer>
+        <a href='http://localhost:1313/2007/11/08/howto-display-home-icon-on-desktop-in-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/10/24/mysql-logging-and-logrotation/'> MySQL Logging and LogRotation</a> </h2>
+      <div class="meta">Thu, Oct 25, 2007</div>
+    </header>
+
+    dev.msql.com logging documentation On Debian based systems, MySQL logging (and logrotation) is setup automatically so I&#8217;ve never had to worry about it. Unfortunately, I&#8217;m not using Debian at the moment&#8230; The options used to start MySQL can be gleaned from ps ax | grep mysql ; in particular this will show the &#8211;datadir setting, which is where logs are created by default. Troubleshooting Logs &#8211;log &#8211; the general query log &#8211; when clients connect and disconnect and all sql statements.
+    <footer>
+        <a href='http://localhost:1313/2007/10/24/mysql-logging-and-logrotation/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/10/23/mysql-replication-notes/'> MySQL Replication Notes</a> </h2>
+      <div class="meta">Tue, Oct 23, 2007</div>
+    </header>
+
+    <p>dev.mysql.com [replication documentation][1]. Replication on MySQL is similar to <em>Log Shipping</em> on MS SQL; the default is <em>statement level</em> replication, but newer versions also offer <em>row-based</em> replication.</p>
+
+<p>See also:</p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql">https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql</a></p>
+
+<p><strong>Setting Up</strong></p>
+
+<p>On the Master:</p>
+
+<ul>
+<li><p>create the account that will be used by each slave for replication:
+<pre class="brush: bash; title: ; notranslate" title="">&gt; create user &lsquo;repl&rsquo;@&lsquo;%&rsquo; identified by &lsquo;secret&rsquo;;
+&gt; grant replication slave on <em>.</em> to &lsquo;repl&rsquo;@&lsquo;%&rsquo;;
+&gt; flush privileges;
+</pre></p></li>
+
+<li><p>enable for replication by editing modify <strong>/etc/my.cnf</strong> (fuller example below):</p></li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2007/10/23/mysql-replication-notes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/10/15/mysql-security/'> MySQL Security</a> </h2>
+      <div class="meta">Mon, Oct 15, 2007</div>
+    </header>
+
+    <p>Some guidelines for understanding MySQL security:</p>
+
+<ul>
+<li>security tables have a dual primary key of <em>username + host</em> &#8211; ie if there are two entries, <strong>fred@localhost</strong> and <strong>fred@%</strong>, *they are different users to mysql<br />
+*</li>
+<li>more specific entries are considered before less specific entries ie <strong>localhost</strong> before <strong>%.fubar.com</strong> before <strong>%</strong>, <strong>fred</strong> before <strong>[blank]</strong>. A % host entry is considered last, as is a blank username</li>
+<li>host entries are considered before username entries. If there&#8217;s a tie eg <strong>[blank]@localhost</strong> versus <strong>fred@%</strong>, the hostname entry wins ie <strong>[blank]@localhost</strong> wins over <strong>fred@%</strong>. This is a <strong><em>Big Gotcha!!</em></strong> (especially since MySQL creates a [blank]@localhost entry by default) Solution: delete all entries except root@localhost (or root@%), then only have one entry per user.</li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2007/10/15/mysql-security/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/09/12/multiple-mysql-versions-on-same-machine/'> multiple mysql versions on same machine</a> </h2>
+      <div class="meta">Thu, Sep 13, 2007</div>
+    </header>
+
+    Examples of working with multiple mysql versions on the same machine: /usr/local/mysql/bin/mysqldump -uroot --sock=/tmp/mysql5.sock directaccesscms &gt; directaccesscms_tpldb1.sql mysqldump -uroot --sock=/tmp/mysql5.sock directaccesscms &gt; directaccesscms_tpldb1.sql /root/mysql-5.0.37-solaris8-sparc/bin/mysql --sock=/tmp/mysql5.sock /root/mysql-5.0.37-solaris8-sparc/bin/mysql --sock=/tmp/mysql5.sock seonodes &lt; seonodes.sql
+    <footer>
+        <a href='http://localhost:1313/2007/09/12/multiple-mysql-versions-on-same-machine/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/09/10/bang-history/'> bang history</a> </h2>
+      <div class="meta">Tue, Sep 11, 2007</div>
+    </header>
+
+    <p>There are three fields (separated by colons) that can be manipulated using the bang history command:</p>
+
+<p><code>EventDesignator:WordDesignator:Modifier</code></p>
+
+    <footer>
+        <a href='http://localhost:1313/2007/09/10/bang-history/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/09/09/usrsharefonts-failed-to-write-cache/'> /usr/share/fonts: failed to write cache</a> </h2>
+      <div class="meta">Mon, Sep 10, 2007</div>
+    </header>
+
+    <p>After doing a fresh install of Ubuntu 7.04 and installing all pending updates via Update Manager, I get an error that starts like this:<br />
+<code>&lt;br /&gt;
+Setting up ttf-opensymbol (2.2.0-1ubuntu4) ...&lt;br /&gt;
+Updating fontconfig cache...&lt;br /&gt;
+/usr/share/fonts: failed to write cache&lt;br /&gt;
+/usr/share/fonts/X11: failed to write cache&lt;br /&gt;
+</code></p>
+
+    <footer>
+        <a href='http://localhost:1313/2007/09/09/usrsharefonts-failed-to-write-cache/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/08/16/reconfigure-xorg-on-ubuntu/'> Reconfigure X.org on Ubuntu</a> </h2>
+      <div class="meta">Fri, Aug 17, 2007</div>
+    </header>
+
+    dpkg-reconfigure --priority=high xserver-xorg Thanks to Geoff W, SLUG list.
+    <footer>
+        <a href='http://localhost:1313/2007/08/16/reconfigure-xorg-on-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/'> libdvdcss2 and w32codecs for Ubuntu</a> </h2>
+      <div class="meta">Wed, Aug 8, 2007</div>
+    </header>
+
+    Ubuntu Blog{.undefined} has a good article on enabling libdvdcss2 and w32codecs for Ubuntu. In a nutshell, add the medibuntu repositories, then apt-get install w32codecs libdvdcss2. See also Ubuntu Guy&#8216;s article. See also Medibuntu
+    <footer>
+        <a href='http://localhost:1313/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/06/13/ms-sql-resources/'> MSSQL Resources</a> </h2>
+      <div class="meta">Wed, Jun 13, 2007</div>
+    </header>
+
+    <h3 id="web-sites:4e759e81631f36b33ee0de448f9ae23e">Web Sites</h3>
+
+<ul>
+<li>[SQL Server Central][1], especially the [links][2] section</li>
+<li>[SQL Junkies][3]. Good article on [Troubleshooting Endpoints][4]</li>
+<li>[SQL Skills.com (Kimberley Tripp)][5] &#8211; especially the Resources section &#8211; whitepapers, articles, etc</li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2007/06/13/ms-sql-resources/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/05/24/mssql-2005-adventureworks-schemas/'> MSSQL 2005 AdventureWorks Schemas</a> </h2>
+      <div class="meta">Fri, May 25, 2007</div>
+    </header>
+
+    Here are schema diagrams for the Microsoft SQL 2005 AdventureWorks sample database: Human Resources Schema Person Schema Production Schema Purchasing Schema Sales Schema
+    <footer>
+        <a href='http://localhost:1313/2007/05/24/mssql-2005-adventureworks-schemas/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/05/15/mac-osx-startup/'> Mac OSX Startup</a> </h2>
+      <div class="meta">Wed, May 16, 2007</div>
+    </header>
+
+    <p>Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process&#8230;</p>
+
+<h3 id="links:8c5fb99d0417af129f926e289e08e42d">Links</h3>
+
+<ul>
+<li>[&#8220;The Boot Process&#8221;, Developer Connection][1]</li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2007/05/15/mac-osx-startup/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/02/23/esr-gives-up-on-fedora-moves-to-ubuntu/'> ESR gives up on Fedora, moves to Ubuntu</a> </h2>
+      <div class="meta">Sat, Feb 24, 2007</div>
+    </header>
+
+    The title says it all. ESR has given up on Fedora and moved to Ubuntu. Thanks to BarraPunto.
+    <footer>
+        <a href='http://localhost:1313/2007/02/23/esr-gives-up-on-fedora-moves-to-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2007/01/27/misc-cheat-sheets/'> misc cheat sheets</a> </h2>
+      <div class="meta">Sun, Jan 28, 2007</div>
+    </header>
+
+    BlueWin Cheat Sheets Tech Target Cheat Sheets econsultant Top 119 Cheat Sheets Tutorials Round-Up &#8211; miscellaneous cheat sheets and tutorials, covering Ajax through to XML, web programming and scripting. m4 cookbook (pdf version) Perl Juerd&#8217;s perldoc perlcheat (dupe of previous) Golden Ink pack/unpack. See also Peteris&#8217; excellent articles on Downloading YouTube Videos and Perls&#8217; Special Variables. pkturner
+    <footer>
+        <a href='http://localhost:1313/2007/01/27/misc-cheat-sheets/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/12/16/howto-reverse-ssh-tunnel/'> howto reverse ssh tunnel</a> </h2>
+      <div class="meta">Sun, Dec 17, 2006</div>
+    </header>
+
+    <p>I recently (15-Dec-06) asked this question on the [SLUG email list][1] &#8211; thanks to everyone for all the replies I got, especially Dave, The Reverend, Michael K, Erik, Tongmaster, Alex S, Tigger, David K&#8230;</p>
+
+<p><pre>&gt; Is there a way of configuring ssh, so that if someone ssh&rsquo;s into my
+ &gt; machine, I can connect back and get into their machine? (Linux to
+ &gt; Linux).</p>
+
+    <footer>
+        <a href='http://localhost:1313/2006/12/16/howto-reverse-ssh-tunnel/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/09/14/sed-notes-2/'> sed notes 2</a> </h2>
+      <div class="meta">Fri, Sep 15, 2006</div>
+    </header>
+
+    Sed Sites Sed &#8211; An Introduction and Tutorial &#8211; Bruce Barnett sed FAQ &#8211; alt.comp.editors.batch sed FAQ &#8211; DREAMWVR.COM Sed One Liners &#8211; sourceforge.net &#8211; Eric Pement See Also FreeComputerBooks.com Linux Magazine &#8211; (Very) Small Editors &#8211; ed, ex, sed
+    <footer>
+        <a href='http://localhost:1313/2006/09/14/sed-notes-2/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/09/03/session-management-ubuntu-dapper/'> session management Ubuntu Dapper</a> </h2>
+      <div class="meta">Mon, Sep 4, 2006</div>
+    </header>
+
+    use gnome-session-save devilspie eg for firefox the config looks like this: ~/.devilspie/firefox.ds (if (matches (window_name) "Firefox") (begin (set_workspace 2) (maximize) ) ) I then only need add devilspie as a start up program using the sessions dialog. Thanks hal at gmail, SLUG list --- Despite that, if you want to try the upstream style logout stuff, you can do so by changing an Ubuntu-local gconf key: /apps/panel/global/upstream_session = true Thanks
+    <footer>
+        <a href='http://localhost:1313/2006/09/03/session-management-ubuntu-dapper/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/08/25/log-shipping-hints/'> log shipping hints</a> </h2>
+      <div class="meta">Sat, Aug 26, 2006</div>
+    </header>
+
+    select * from msdb..log_shipping_databases&lt;br /&gt; select * from msdb..log_shipping_plans&lt;br /&gt; select * from msdb..log_shipping_primaries&lt;br /&gt; select * from msdb..log_shipping_secondaries&lt;br /&gt; sp_get_log_shipping_monitor_info sp_delete_log_shipping_secondary&lt;br /&gt; sp_delete_log_shipping_primary&lt;br /&gt; sp_delete_log_shipping_database
+    <footer>
+        <a href='http://localhost:1313/2006/08/25/log-shipping-hints/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/08/24/exercise-move-system-databases/'> exercise – move system databases</a> </h2>
+      <div class="meta">Fri, Aug 25, 2006</div>
+    </header>
+
+    <p>In this exerise, you are required to move two of the system databases (<strong>master</strong> and <strong>model</strong>) to <strong>c:data</strong>. Here are some web pages that may help:</p>
+
+<ul>
+<li>[KB224071][1]</li>
+<li>[sql-server-performance.com SQL Startup Parameters][2]</li>
+</ul>
+
+<p><strong>Steps:</strong></p>
+
+<ol>
+<li>move <strong>master</strong>
+
+<ul>
+<li>change the startup properties for the server, to point to a different location for master</li>
+<li>stop the server using Administrative Tools, Services</li>
+<li>manually move master&#8217;s database files using Windows Explorer to c:data</li>
+<li>start the server using Administrative Tools, Services</li>
+<li>in Enterprise Manager, check the properties of the master database, to ensure that master is running from the new location</li>
+</ul></li>
+</ol>
+
+    <footer>
+        <a href='http://localhost:1313/2006/08/24/exercise-move-system-databases/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/'> howto get Flash sound working in Ubuntu Dapper</a> </h2>
+      <div class="meta">Wed, Aug 23, 2006</div>
+    </header>
+
+    When I upgraded to Ubuntu Dapper, Flash sound stopped working in Firefox &#8211; oh no, no more YouTube! An easy fix: sudo aptitude install alsa-oss sudo vi /etc/firefox/firefoxrc FIREFOX_DSP=u201daossu201d Thanks to macewan.org
+    <footer>
+        <a href='http://localhost:1313/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/08/22/howto-move-sql-server-system-databases/'> howto move sql server system databases</a> </h2>
+      <div class="meta">Wed, Aug 23, 2006</div>
+    </header>
+
+    Here&#8217;s a couple of links on how to move the MS SQL Server system databases: KB224071 sql-server-performance.com SQL Startup Parameters In a nutshell: for master, change startup parameters in Server Properties, stop SQL Server, move files, start SQL Server for other system databases, restart SQL Server using Trace Flag 3608 (-T3608 startup param), use sp_detach_db and sp_attach_db, restart without Trace Flag if SQL Server won&#8217;t start because of an error
+    <footer>
+        <a href='http://localhost:1313/2006/08/22/howto-move-sql-server-system-databases/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/07/04/windows-recovery-tools/'> Windows recovery tools</a> </h2>
+      <div class="meta">Wed, Jul 5, 2006</div>
+    </header>
+
+    Here are some useful tools for troubleshooting/recovering windows systems: look up events at eventid.net Ultimate Boot CD Ultimate Boot CD for Windows SpinRite. The same guy also has a useful tool called &#8216;Shields Up&#8217;, and a podcast called Security Now! BootDisks.Com has a collection of prebuilt boot disks you can download ERD Commander allows you to repair unbootable or locked-out systems, restore lost data, remove malware from infected systems while the system is safely offline using your existing antivirus software, and diagnose system and network issues all tools from Sysinternals.Com Linux tools (and religion&#8230;): Knoppix is a CD bootable Linux distribution, that is The Swiss Army Chainsaw of distros &#8211; it does everything.
+    <footer>
+        <a href='http://localhost:1313/2006/07/04/windows-recovery-tools/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/05/14/rsync-notes/'> rsync notes</a> </h2>
+      <div class="meta">Mon, May 15, 2006</div>
+    </header>
+
+    Summary $ rsync -av -e ssh --delete --force source_host:source_dir/ dest_dir $ rsync -av -e ssh --delete --force source dest_host:dest_dir/ eg $ rsync -av -e ssh sandia:stripes/music/spanish-french/ spanish-french/ $ rsync -av -e ssh --delete --force sandia:stripes/music/spanish-french/ spanish-french/ Using SSH Use rsync over ssh with the -e flag: $ rsync -av -e ssh source dest_host:dest_dir To automate rsync over ssh backups, use keychain. For example, for a user called backupuser: $ cat ~sonia/bin/rsyncup.sh #!/bin/bash .
+    <footer>
+        <a href='http://localhost:1313/2006/05/14/rsync-notes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/'> Seting up an LDAP address book on Ubuntu</a> </h2>
+      <div class="meta">Wed, Mar 22, 2006</div>
+    </header>
+
+    <p>Quick and dirty on installing OpenLDAP as an addressbook server.</p>
+
+<ul>
+<li>install</li>
+</ul>
+
+<pre>sudo aptitude install slapd ldap-utils</pre>
+
+<ul>
+<li>configure (if needed)</li>
+</ul>
+
+<pre>sudo dpkg-reconfigure -plow slapd</pre>
+
+<ul>
+<li>edit /etc/ldap/slapd.conf</li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/'> Unofficial Ubuntu 5.10 (Breezy Badger) Starter Guide</a> </h2>
+      <div class="meta">Sat, Mar 4, 2006</div>
+    </header>
+
+    This guide was started by Chua Wen Kiat (Kuala Lumpur, Malaysia). It is now being maintained by the Linux Center of University of Latvia, and everyone else who is willing to contribute. See also: EasyUbuntu &#8211; an easy to use script that gives the Ubuntu user the most commonly requested apps, codecs, and tweaks that are not found in the base distribution &#8211; all of this with a few clicks of your mouse.
+    <footer>
+        <a href='http://localhost:1313/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/03/03/ubuntuliteorg/'> ubuntulite.org</a> </h2>
+      <div class="meta">Sat, Mar 4, 2006</div>
+    </header>
+
+    The idea of Ubuntu Lite is to bring the power of Ubuntu across to the users of Legacy systems&#8230;
+    <footer>
+        <a href='http://localhost:1313/2006/03/03/ubuntuliteorg/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/02/25/installing-vmware-on-ubuntu/'> installing VMWare on Ubuntu</a> </h2>
+      <div class="meta">Sun, Feb 26, 2006</div>
+    </header>
+
+    See also How To Forge How To Install VMware Server On Ubuntu Install prereqs: sudo apt-get install build-essential sudo apt-get install linux-headers-`uname -r` Find version of gcc used to compile kernel: cat /proc/version ls /usr/bin/gcc* Install right version of gcc if required: sudo apt-get install gcc-3.4 sudo apt-get install g++-3.4 Compile with environment variable pointing to gcc: export CC=/usr/bin/gcc-3.4 sudo ./vmware-install.pl Useful links: UbuntuWiki1, UbuntuWiki2 (and search https://wiki.ubuntu.com on VMWare)
+    <footer>
+        <a href='http://localhost:1313/2006/02/25/installing-vmware-on-ubuntu/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2006/02/23/atheros-wireless/'> atheros wireless</a> </h2>
+      <div class="meta">Fri, Feb 24, 2006</div>
+    </header>
+
+    install linux-restricted-modules-* edit /etc/network/interfaces auto ath0 iface ath0 inet dhcp wireless_essid network_name
+    <footer>
+        <a href='http://localhost:1313/2006/02/23/atheros-wireless/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/12/14/multiserver-jobs-exercise/'> multiserver jobs exercise</a> </h2>
+      <div class="meta">Thu, Dec 15, 2005</div>
+    </header>
+
+    <h3 id="exercise:c1ebe2bed5f700f88af474a522edbdf4">Exercise</h3>
+
+<ol>
+<li>Have a second instance of SQL Server running, either by:
+
+<ul>
+<li>installing a second instance of SQL Server</li>
+<li>starting up a second Virtual PC</li>
+</ul></li>
+<li>If using Virtual PC&#8217;s, check that you have network connectivity between both VPC&#8217;s:
+
+<ul>
+<li>ipconfig</li>
+<li>ping</li>
+</ul></li>
+</ol>
+
+    <footer>
+        <a href='http://localhost:1313/2005/12/14/multiserver-jobs-exercise/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/27/ubuntu-sourceslist-generator/'> ubuntu sources.list generator</a> </h2>
+      <div class="meta">Mon, Nov 28, 2005</div>
+    </header>
+
+    Site to generate an ubuntu sources.list for your preferred set of repositories. Just tick all repositories you want; the default set is selected automatically. source-o-matic
+    <footer>
+        <a href='http://localhost:1313/2005/11/27/ubuntu-sourceslist-generator/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/22/guest-and-public/'> guest and public</a> </h2>
+      <div class="meta">Wed, Nov 23, 2005</div>
+    </header>
+
+    guest = valid login but no account guest is created (but disabled) by default; to enable run GRANT CONNECT TO GUEST guest gets the permissions of the public role (as does everyone) by default public has no permissions Northwind: permissions are granted to public pubs: permissions are granted to guest
+    <footer>
+        <a href='http://localhost:1313/2005/11/22/guest-and-public/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/16/backup-multiple-databases-into-separate-files/'> Backup multiple MySQL databases into separate files</a> </h2>
+      <div class="meta">Thu, Nov 17, 2005</div>
+    </header>
+
+    Update: want to know how to do this on Windows? See my post Backup multiple MySQL databases into separate files – Windows. #!/bin/bash # sonia 16-nov-05 # backup each mysql db into a different file, rather than one big file # as with --all-databases - will make restores easier USER="root" PASSWORD="secret" OUTPUTDIR="/var/lib/bacula" MYSQLDUMP="/usr/bin/mysqldump" MYSQL="/usr/bin/mysql" # clean up any old backups - save space rm "$OUTPUTDIR/*bak" &gt; /dev/null 2&gt;&1 # get
+    <footer>
+        <a href='http://localhost:1313/2005/11/16/backup-multiple-databases-into-separate-files/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/16/connect-to-mysql-from-network-using-ms-access/'> Connect to MySQL across network using MS Access</a> </h2>
+      <div class="meta">Thu, Nov 17, 2005</div>
+    </header>
+
+    <ul>
+<li><p>comment out line in /etc/mysql/my.cnf that reads:
+<pre>bind-address = 127.0.0.1</pre></p>
+
+<ul>
+<li><p>grant root access across network (see [MySQL Documentation][1])
+<pre>mysql&gt; use mysql;
+mysql&gt; select Host, User, Password from user;
+mysql&gt; update user set host=&lsquo;%&rsquo; where user = &lsquo;root&rsquo;;
+mysql&gt; q</pre></p></li>
+
+<li><p>restart</p></li>
+</ul></li>
+</ul>
+
+    <footer>
+        <a href='http://localhost:1313/2005/11/16/connect-to-mysql-from-network-using-ms-access/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/16/notes-2/'> MySQL notes 2</a> </h2>
+      <div class="meta">Thu, Nov 17, 2005</div>
+    </header>
+
+    <h3 id="remote-servers:dfd231c592f84dcde9a430fa40c2f15a">remote servers</h3>
+
+<ul>
+<li>comment out this line in /etc/mysql/my.cnf:</li>
+</ul>
+
+<pre>bind-address = 127.0.0.1
+ /etc/init.d/mysql restart</pre>
+
+<ul>
+<li>connect to remove server</li>
+</ul>
+
+<pre>$mysql -h foo.bar.com -u root -p</pre>
+
+    <footer>
+        <a href='http://localhost:1313/2005/11/16/notes-2/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/16/reset-lost-root-password/'> Reset lost MySQL root password</a> </h2>
+      <div class="meta">Thu, Nov 17, 2005</div>
+    </header>
+
+    stop mysql, and start in mode that ignores permissions /etc/init.d/mysqld stop /usr/sbin/mysqld --skip-grant-tables & login as root mysql -u root mysql change root password (note: SET PASSWORD won&#8217;t work, due to &#8211;skip-grant-tables) mysql&gt; use mysql; mysql&gt; update user set password=password('secret') where user='root';mysql&gt; q stop mysql by killing processes, restart the database as normal killall mysqld /etc/init.d/mysqld start
+    <footer>
+        <a href='http://localhost:1313/2005/11/16/reset-lost-root-password/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/14/mysql-notes/'> MySQL notes</a> </h2>
+      <div class="meta">Tue, Nov 15, 2005</div>
+    </header>
+
+    <h3 id="cheat-sheets:ef403304ddd061f711cd05afd20963ae">Cheat Sheets</h3>
+
+<ul>
+<li>[Neal Parikh][1]</li>
+</ul>
+
+<h3 id="notes:ef403304ddd061f711cd05afd20963ae">Notes</h3>
+
+<ul>
+<li>connect after initial install</li>
+</ul>
+
+<pre>$ mysql</pre>
+
+<ul>
+<li>change root password</li>
+</ul>
+
+<p><pre></p>
+
+    <footer>
+        <a href='http://localhost:1313/2005/11/14/mysql-notes/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/09/sql-2000-administration-exercise/'> sql 2000 administration exercise</a> </h2>
+      <div class="meta">Thu, Nov 10, 2005</div>
+    </header>
+
+    <h3 id="scenario:027b04a4499e6a4172a6c8057001120d">Scenario</h3>
+
+<p>A complete install of a Microsoft Sql 2000 Server instance, and the creation of some additional objects.</p>
+
+<h3 id="members:027b04a4499e6a4172a6c8057001120d">Members</h3>
+
+<p>Work in groups of three. One member of each team will be nominated as the TEAM LEADER who will co-ordinate job responsibilities with the rest of the group.</p>
+
+    <footer>
+        <a href='http://localhost:1313/2005/11/09/sql-2000-administration-exercise/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://localhost:1313/2005/11/07/automatix-nice-ubuntu-tool/'> automatix – nice Ubuntu tool</a> </h2>
+      <div class="meta">Tue, Nov 8, 2005</div>
+    </header>
+
+    Automatix &#8211; sets up all the additional non-free things you want in Ubuntu, like codecs, truetype fonts, etc.
+    <footer>
+        <a href='http://localhost:1313/2005/11/07/automatix-nice-ubuntu-tool/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -92,7 +2417,7 @@
   <div>
     <p>
       <br>
-      Footer here. Link to <a href="http://blog2.snowfrog.net/">Home Page</a>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
       <br>
       
       <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.

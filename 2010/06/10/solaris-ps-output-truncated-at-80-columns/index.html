@@ -1,0 +1,166 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> Solaris ps output truncated at 80 columns </title>
+    <link rel="canonical" href="http://localhost:1313/2010/06/10/solaris-ps-output-truncated-at-80-columns/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Solaris ps output truncated at 80 columns</h1>
+        <section id="main">
+          <h5 id="date"> Thu Jun 10, 2010 </h5>
+          <p>When running the ps command on Solaris, the output is truncated at 80 columns &#8211; really annoying when the command line to start up a process (typically a daemon) is really long. This has been annoying me for ages, and I finally found a (sort of) solution &#8211; use a different ps, and run as root:</p>
+
+<pre># uname -a
+SunOS fubar 5.9 Generic_118558-24 sun4u sparc SUNW,UltraAX-i2
+
+# which ps
+/usr/bin/ps
+
+# /usr/ucb/ps auxwww 2&gt; /dev/null | grep 22480
+root     22480  0.0  0.1 1896 1232 ?        S 10:22:11  0:00 ptymonitor --oob-fd 49 --stderr-mode MUX
+--pty --term screen --rows 47 --cols 177
+--termios 38400:38400:3.1C.7F.15.4.FF.FF.11.13.1A.100.12.17.16.100.100.100.F:B40:E3B:544505:8
+--ttlg --gid 0 --uid 0 --wait-time 60 bash --rcfile /home/fubar/deployment/bin/dotbashrc_install.sh
+</pre>
+
+<p>This can also be made to work for non-root users by granting the account the proc_owner privilege. For example, for the user fred:</p>
+
+<pre>/etc/security/prof_attr
+Process Query:::Query Processes as Root:
+
+/etc/security/exec_attr
+Process Query:suser:cmd:::/usr/ucb/ps:privs=proc_owner;uid=0;euid=0;gid=0;egid=0
+
+/etc/user_attr
+fred::::type=normal;profiles=Process Query
+
+passwd -e fred
+/usr/bin/pfksh
+
+cd ~fred
+echo "export PS1='% '" &gt;&gt; .profile
+</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2010/06/23/windows-autologon/">Windows autologon</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2010/04/30/solaris-rbac-creating-limited-accounts/"> &nbsp; Solaris RBAC – creating limited accounts</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

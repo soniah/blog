@@ -1,0 +1,191 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> 4clojure 100 Least Common Multiple </title>
+    <link rel="canonical" href="http://localhost:1313/posts/4clojure-100-least-common-multiple/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">4clojure 100 Least Common Multiple</h1>
+        <section id="main">
+          <h5 id="date"> Thu Jul 5, 2012 </h5>
+          <p><a href="http://www.4clojure.com/problem/100">4clojure problem 100</a> - calculate the <a href="http://en.wikipedia.org/wiki/Least_common_multiple">Least Common Multiple (LCM)</a> of two or more numbers.</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/en/math/c/b/0/cb0d245e78e328c29095b9522fd16200.png" alt="LCM Example" />
+</p>
+
+<p>Here&rsquo;s how I worked it out in the REPL, warts and all&hellip;.</p>
+
+<p>I first thought about using the meaning of LCM to solve this (as given in Wikipedia), ie for two numbers a and b (eg 4 and 6), find all the multiples of a (an infinite sequence), find all the multiples of b (an infinite sequence), and find the first match. But I was impatient and didn&rsquo;t want to work out how to find the first match between lists, so I decided to use the GCD definition:</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/en/math/5/b/3/5b3f3c62dd59cc5594af7b2ece3798fb.png" alt="LCM from GCD" />
+</p>
+
+<p>From there it was just a matter of balancing parentheses (thanks <a href="http://blog.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/">paredit</a>) by breaking up the problem into stages, starting with calculating the GCD of two numbers:</p>
+
+<p><a href="defn gcd [a b]
+  (cond
+   (= b 0">sourcecode language=&ldquo;clojure&rdquo;</a> a
+   (= a 0) b
+   (&gt; a b) (gcd b (mod a b))
+   (&gt; b a) (gcd a (mod b a))))
+(gcd 15 5)
+==&gt; 5
+[/sourcecode]</p>
+
+<p>Now get LCM working for two arguments:</p>
+
+<p><a href="defn lcm [x y]
+  (/ (* x y">sourcecode language=&ldquo;clojure&rdquo;</a> (gcd x y)))
+(lcm 4 6)
+==&gt; 12
+[/sourcecode]</p>
+
+<p>Now get LCM working for more than two arguments. I remembered seeing multiple arities used to solve other 4clojure problems, so I thought I&rsquo;d use the <a href="http://blog.darevay.com/2011/08/briefly-the-arity-reduce-pattern-in-clojure/">Arity-Reduce &ldquo;pattern&rdquo;</a> (well I&rsquo;m using apply, same idea):</p>
+
+<p><a href="defn lcm2
+  ([x y] (/ (* x y">sourcecode language=&ldquo;clojure&rdquo;</a> (gcd x y)))
+  (<a href="apply lcm2 (lcm2 x y">x y &amp; rest</a> rest)))
+(lcm2 5 3 7)
+==&gt; 105
+[/sourcecode]</p>
+
+<p>4clojure doesn&rsquo;t allow <strong>defn</strong>, so I then used <strong>letfn</strong> to nest my definition of GCD inside LCM:</p>
+
+<p><a href="fn lcm3
+  ([x y]
+     (letfn [(gcd2 [a b]
+               (cond
+                (= b 0">sourcecode language=&ldquo;clojure&rdquo;</a> a
+                (&gt; a b) (gcd2 b (mod a b))
+                (&gt; b a) (gcd2 a (mod b a))))]
+       (/ (* x y) (gcd2 x y))))
+  (<a href="apply lcm3 (lcm3 x y">x y &amp; rest</a> rest)))
+(lcm3 5 3 7)
+==&gt; 105
+[/sourcecode]</p>
+
+<p>So my solution worked, but it wasn&rsquo;t very elegant - Dacquiri wins the prize for that, again :-)</p>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/posts/vnc-ssh-tunnel-for-remote-graphical-support/">vnc ssh tunnel for remote graphical support</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/posts/git-ignore-whitespace/"> &nbsp; Git - ignore whitespace</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

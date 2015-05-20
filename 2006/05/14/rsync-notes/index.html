@@ -1,0 +1,233 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://localhost:1313/">
+    <title> rsync notes </title>
+    <link rel="canonical" href="http://localhost:1313/2006/05/14/rsync-notes/">
+    
+
+<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-08">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
+
+    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Blog</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">rsync notes</h1>
+        <section id="main">
+          <h5 id="date"> Mon May 15, 2006 </h5>
+          
+
+<h3 id="summary:187f524daa2701b883332f74025b41f5">Summary</h3>
+
+<pre>$ rsync -av -e ssh --delete --force source_host:source_dir/ dest_dir
+ $ rsync -av -e ssh --delete --force source dest_host:dest_dir/</pre>
+
+<p><strong>eg</strong></p>
+
+<pre>$ rsync -av -e ssh                  sandia:stripes/music/spanish-french/ spanish-french/
+ $ rsync -av -e ssh --delete --force sandia:stripes/music/spanish-french/ spanish-french/</pre>
+
+<h3 id="using-ssh:187f524daa2701b883332f74025b41f5">Using SSH</h3>
+
+<p>Use rsync over ssh with the <strong>-e</strong> flag:</p>
+
+<pre>$ rsync -av -e ssh source dest_host:dest_dir</pre>
+
+<p>To automate rsync over ssh backups, use <strong>keychain</strong>. For example, for a user called <em>backupuser</em>:</p>
+
+<pre>$ cat ~sonia/bin/rsyncup.sh
+ #!/bin/bash
+ . /home/backupuser/.keychain/$HOSTNAME-sh
+ rsync -av -e ssh  --delete --force /home /etc dest_host:home-etc-backup/</pre>
+
+<pre>$ crontab -l
+ 1 4 * * * ~sonia/bin/rsyncup.sh</pre>
+
+<h3 id="trailing-slash:187f524daa2701b883332f74025b41f5">Trailing Slash</h3>
+
+<p><em>Summary</em> &#8211; these are equivalent:</p>
+
+<pre>rsync $myflags sandia:stripes/books/     books/
+ rsync $myflags sandia:stripes/books      .</pre>
+
+<p>A <strong>trailing slash</strong> on the source directory syncs the directory contents, <em>but not the directory itself</em>; without a trailing slash the source directory itself will be synced. The trailing slash has no affect on the destination directory.</p>
+
+<p>For example, with this source directory structure:</p>
+
+<pre>~/a
+ ~/a/dir1
+ ~/a/dir2</pre>
+
+<pre>$ rsync -av --stats ~/a/ destination_dir
+ $ ls -F destination_dir
+ dir1/ dir2/                 # ie synced as destination_dir/dir1</pre>
+
+<pre>$ rsync -av --stats ~/a destination_dir
+ $ ls -F destination_dir
+ a/
+ $ ls -F destination_dir/a
+ dir1/ dir2/                 # ie synced as destination_dir/a/dir1</pre>
+
+<h3 id="limiting-bandwidth:187f524daa2701b883332f74025b41f5">Limiting Bandwidth</h3>
+
+<p>Limit bandwidth used by rsync with the <strong>&#8211;bwlimit</strong> option; the value is in kilobytes/s (many network speeds are measured in kilobits, which are 1/8th of kilobytes).</p>
+
+<pre>$ rsync -av --bwlimit=256 src1 src2 dest</pre>
+
+<h3 id="deleting-files:187f524daa2701b883332f74025b41f5">Deleting Files</h3>
+
+<p>If files are deleted from the source directory, they will only be deleted from the destination directory if the <strong>&#8211;delete</strong> option is used:</p>
+
+<pre>$ rsync -av --delete ~/a/ destination_dir</pre>
+
+<h3 id="file-selection:187f524daa2701b883332f74025b41f5">File Selection</h3>
+
+<p>Files can be included or excluded from syncing using <strong>&#8211;include-from</strong> or <strong>&#8211;exclude-from</strong>; it&#8217;s better not to use both as things can get rather confusing&#8230;</p>
+
+<pre>$ cat exclude.txt
+ *tmp
+ /etc/skel</pre>
+
+<pre>$ rsync -av src1 src2 --exclude-from=exclude.txt dest_host:dest_dir</pre>
+
+<h3 id="filepaths:187f524daa2701b883332f74025b41f5">Filepaths</h3>
+
+<p>You can specify that directories specified in the source path be created at the destination using the <strong>-R</strong> option (usually <strong>not</strong> desired):</p>
+
+<pre>$ rsync -av -e ssh src_host:/var/www /dest
+ $ ls -F /dest
+ www/                     # notice /dest/var not created</pre>
+
+<pre>$ rsync -avR -e ssh src_host:/var/www /dest
+ $ ls -F /dest
+ var/
+ $ ls -F /dest/var
+ www/                    # ie synced as /dest/var/www, not /dest/www</pre>
+
+<h3 id="rsync-on-windows:187f524daa2701b883332f74025b41f5">Rsync on Windows</h3>
+
+<ul>
+<li>on Windows, install Cygwin, rsync, OpenSSH, vim</li>
+<li>add <strong>c:cygwinbin</strong> to the PATH system environment variable</li>
+<li><em>either</em> get into a bash shell and run rsync normally, by running cmd then <strong>c:cygwincygwin.bat</strong>, <em>or</em></li>
+<li>run rsync directly from the Windows command prompt:</li>
+</ul>
+
+<pre>c:cygwinbinrsync -av -e ssh src dest_host:dest_dir</pre>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2006/06/17/ubuntudebian-runlevels/">ubuntu/debian runlevels</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://localhost:1313/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/"> &nbsp; Seting up an LDAP address book on Ubuntu</a> &raquo;
+    </span>
+  
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p>
+      <br>
+      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
+      <br>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
