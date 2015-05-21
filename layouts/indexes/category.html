@@ -33,11 +33,9 @@
 
   <!-- Show summary of all posts in a category -->
     <div class="container content">
-      <h1 class="post-title">Recent Posts</h1>
         <section id="main">
           <div>
-            <h5><a href="/categories">Full Category Index</a></h5>
-            <h2>Posts in &ldquo;{{ .Title }}&rdquo;</h2>
+            <h1 class="post-title">Posts in &ldquo;{{ .Title }}&rdquo;</h2>
             {{ range .Data.Pages }}
             {{ .Render "summary"}}
             {{ end }}
