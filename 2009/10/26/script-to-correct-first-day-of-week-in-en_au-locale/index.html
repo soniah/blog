@@ -32,6 +32,7 @@
     <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +48,7 @@
     <div class="masthead">
       <div class="container">
         <h3 class="masthead-title">
-          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+          <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
         </h3>
       </div>
     </div>
@@ -56,7 +57,7 @@
     <div class="container content">
       <h1 class="post-title">Script to correct first day of week in en_AU locale</h1>
         <section id="main">
-          <h5 id="date"> Sun Oct 25, 2009 </h5>
+          <h5 id="date"> 25 Oct 2009 </h5>
           <p>I blogged <a href="http://blog.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/">previously</a> about how the Australian locale in Ubuntu incorrectly uses Sunday rather than Monday as the first day of the week, and how to manually fix it. Unfortunately, whenever the locale gets updated (eg via one of Ubuntu&#8217;s regular package updates), the locale reverts and you have to manually fix it again.</p>
 
 <p>So I&#8217;ve written a script that fixes the locale, and also hooked it into dpkg:</p>
@@ -106,6 +107,7 @@ fi
     <em>Next: </em><a class="next" href="http://localhost:1313/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/"> &nbsp; Howto install Virtualbox on Ubuntu Jaunty</a> &raquo;
     </span>
   
+  <br />
 </div>
 
   <br />
@@ -115,6 +117,17 @@ fi
     <li><em>Categories: </em></li>
     
       <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://localhost:1313/tags/ubuntu">Ubuntu</a> </li>
     
   </ul>
 </div>
@@ -131,6 +144,7 @@ fi
     <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>

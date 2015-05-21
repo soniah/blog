@@ -32,6 +32,7 @@
     <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +48,7 @@
     <div class="masthead">
       <div class="container">
         <h3 class="masthead-title">
-          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+          <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
         </h3>
       </div>
     </div>
@@ -56,7 +57,7 @@
     <div class="container content">
       <h1 class="post-title">mysql, localhost, and ssh work-around</h1>
         <section id="main">
-          <h5 id="date"> Thu Jun 5, 2008 </h5>
+          <h5 id="date"> 5 Jun 2008 </h5>
           <p>I use ssh to tunnel all the time, especially to get around brain-dead firewalls. But this doesn&#8217;t work easily for mysql &#8211; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost&#8217; and try to connect via the local socket. Very broken &#8211; there&#8217;s bugs lodged <a href="http://bugs.mysql.com/bug.php?id=27361">here</a> and <a href="http://bugs.mysql.com/bug.php?id=31577">here</a> about this (and lots of chest beating and wailing, too).</p>
 
 <p><strong>Solution:</strong> tunnel ssh via an intermediate machine. For example:</p>
@@ -110,6 +111,7 @@ mysql&gt;</pre>
     <em>Next: </em><a class="next" href="http://localhost:1313/2008/04/17/disable-evolution-notifications-in-ubuntu/"> &nbsp; Disable Evolution notifications in Ubuntu</a> &raquo;
     </span>
   
+  <br />
 </div>
 
   <br />
@@ -119,6 +121,19 @@ mysql&gt;</pre>
     <li><em>Categories: </em></li>
     
       <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://localhost:1313/tags/mysql">MySQL</a> </li>
+    
+      <li><a href="http://localhost:1313/tags/ssh">Ssh</a> </li>
     
   </ul>
 </div>
@@ -135,6 +150,7 @@ mysql&gt;</pre>
     <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>

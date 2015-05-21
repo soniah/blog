@@ -32,6 +32,7 @@
     <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +48,7 @@
     <div class="masthead">
       <div class="container">
         <h3 class="masthead-title">
-          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+          <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
         </h3>
       </div>
     </div>
@@ -56,7 +57,7 @@
     <div class="container content">
       <h1 class="post-title">ssh – fix long login times – disable Kerberos</h1>
         <section id="main">
-          <h5 id="date"> Thu Jun 23, 2011 </h5>
+          <h5 id="date"> 23 Jun 2011 </h5>
           <p>If ssh logins are taking a long time (but are ultimately successful), it may be because Kerberos (gssapi) is being attempted as an authentication method, and the destination is incorrectly configured (often seems to be CentOS or RHEL):</p>
 
 <pre>% ssh -v foo
@@ -94,6 +95,7 @@ GSSAPIAuthentication no</pre>
     <em>Next: </em><a class="next" href="http://localhost:1313/2011/06/22/git-hooks-prepare-commit-msg/"> &nbsp; git hooks – prepare-commit-msg</a> &raquo;
     </span>
   
+  <br />
 </div>
 
   <br />
@@ -103,6 +105,17 @@ GSSAPIAuthentication no</pre>
     <li><em>Categories: </em></li>
     
       <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://localhost:1313/tags/ssh">Ssh</a> </li>
     
   </ul>
 </div>
@@ -119,6 +132,7 @@ GSSAPIAuthentication no</pre>
     <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>

@@ -32,6 +32,7 @@
     <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +48,7 @@
     <div class="masthead">
       <div class="container">
         <h3 class="masthead-title">
-          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+          <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
         </h3>
       </div>
     </div>
@@ -56,7 +57,7 @@
     <div class="container content">
       <h1 class="post-title">Solaris RBAC – creating limited accounts</h1>
         <section id="main">
-          <h5 id="date"> Fri Apr 30, 2010 </h5>
+          <h5 id="date"> 30 Apr 2010 </h5>
           <p>Solaris has a feature called <a href="http://en.wikipedia.org/wiki/Role-based_access_control">RBAC</a>, that allows you to provide role-based security (I believe this is similar to <a href="http://en.wikipedia.org/wiki/Selinux">SELinux</a>).</p>
 
 <p>All the documentation and examples I&#8217;ve seen explain how to setup up a role that allows a normal user to do a higher privileged command (eg manage log files, manage printers). But I haven&#8217;t been able to find an example of how to create a limited account, one that is <em>only</em> allowed to run a fixed number of commands. Here&#8217;s how I did it:</p>
@@ -153,6 +154,7 @@ solaris.device.cdrw,solaris.profmgr.read,solaris.jobs.users,solaris.mail.mailq,s
     <em>Next: </em><a class="next" href="http://localhost:1313/2010/03/30/bjj-black-eye/"> &nbsp; BJJ Black Eye</a> &raquo;
     </span>
   
+  <br />
 </div>
 
   <br />
@@ -162,6 +164,17 @@ solaris.device.cdrw,solaris.profmgr.read,solaris.jobs.users,solaris.mail.mailq,s
     <li><em>Categories: </em></li>
     
       <li><a href="http://localhost:1313/categories/other-tech">Other-Tech</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://localhost:1313/tags/solaris">Solaris</a> </li>
     
   </ul>
 </div>
@@ -178,6 +191,7 @@ solaris.device.cdrw,solaris.profmgr.read,solaris.jobs.users,solaris.mail.mailq,s
     <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>

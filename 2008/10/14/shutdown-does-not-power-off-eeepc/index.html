@@ -32,6 +32,7 @@
     <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +48,7 @@
     <div class="masthead">
       <div class="container">
         <h3 class="masthead-title">
-          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+          <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
         </h3>
       </div>
     </div>
@@ -56,7 +57,7 @@
     <div class="container content">
       <h1 class="post-title">Shutdown does not power off EeePC</h1>
         <section id="main">
-          <h5 id="date"> Mon Oct 13, 2008 </h5>
+          <h5 id="date"> 13 Oct 2008 </h5>
           <p>I&#8217;ve noticed that issuing a <strong>sudo halt</strong> on my <a href="http://www.asus.com/news_show.aspx?id=7317">EeePC 701</a> shuts down the operating system (<a href="http://www.eeeuser.com/">eeeXubuntu</a>), but doesn&#8217;t power down the system. So I&#8217;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag &#8211; ouch!</p>
 
 <p><strong>Solution</strong> (<a href="https://bugs.launchpad.net/ubuntu-eee/+bug/239145">Bug #239145</a>) &#8211; add <strong>rmmod snd-hda-intel</strong> to the stop section of <strong>/etc/init.d/halt</strong>.</p>
@@ -83,6 +84,7 @@
     <em>Next: </em><a class="next" href="http://localhost:1313/2008/10/07/how-to-configure-central-sysloging-on-solaris/"> &nbsp; How to configure central syslog’ing on Solaris</a> &raquo;
     </span>
   
+  <br />
 </div>
 
   <br />
@@ -92,6 +94,19 @@
     <li><em>Categories: </em></li>
     
       <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://localhost:1313/tags/eeepc">EeePC</a> </li>
+    
+      <li><a href="http://localhost:1313/tags/ubuntu">Ubuntu</a> </li>
     
   </ul>
 </div>
@@ -108,6 +123,7 @@
     <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>

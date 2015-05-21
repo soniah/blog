@@ -32,6 +32,7 @@
     <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +48,7 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="http://localhost:1313/" title="Home">Home</a>
+            <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
           </h3>
         </div>
       </div>
@@ -64,7 +65,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/devops-and-old-git-branches/'> Devops and Old Git Branches</a> </h2>
-      <div class="meta">Wed, Mar 25, 2015</div>
+      <div class="meta">25 Mar 2015</div>
     </header>
 
     A guest blog post I wrote on managing git branches when doing devops. When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using Puppet and R10K for your configuration management you can end up having hundreds of old branches lying around — branches like XYZ-123, XYZ-123.fixed, XYZ-123.fixed.old and so on.
@@ -79,7 +80,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/saltstack-ubuntu-hostname/'> SaltStack Ubuntu Hostname</a> </h2>
-      <div class="meta">Sun, Jan 18, 2015</div>
+      <div class="meta">18 Jan 2015</div>
     </header>
 
     SaltStack currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work: [sourcecode lang=&ldquo;text&rdquo;] system: network.system: - enabled: True - hostname: server1.example.com [/sourcecode] Here&rsquo;s a little shell script I wrote, to get around this problem: [sourcecode lang=&ldquo;shell&rdquo;] % cat set_hostname.sh #!/bin/bash hn=$1 hostname $hn echo $hn &gt; /etc/hostname sed -i &ldquo;1s/.*/127.0.0.1 localhost $hn/&rdquo; /etc/hosts [/sourcecode] Then apply it using cmd.script, for example: [sourcecode lang=&ldquo;text&rdquo;] foo-hostname: cmd.script: - source:
@@ -94,7 +95,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/terraform-presentation/'> Terraform Presentation</a> </h2>
-      <div class="meta">Tue, Jan 13, 2015</div>
+      <div class="meta">13 Jan 2015</div>
     </header>
 
     Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.
@@ -109,7 +110,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/building-the-development-version-of-terraform/'> Building the development version of Terraform</a> </h2>
-      <div class="meta">Wed, Dec 3, 2014</div>
+      <div class="meta">3 Dec 2014</div>
     </header>
 
     Instructions on how to build the development version of Terraform. First you need to install Go, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (go-bindata, lint) and my own projects (gosnmp, evaler). [sourcecode lang=&ldquo;shell&rdquo;] #!/bin/bash install go tgz=go1.3.3.linux-amd64.tar.gz url=https://storage.googleapis.com/golang/$tgz if ! [ -f /var/tmp/$tgz ] ; then cd /var/tmp wget $url fi if ! [ -d /usr/local/go ] ; then sudo tar -C /usr/local -xzf /var/tmp/$tgz fi setup dev directory structure mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src} cd ~/go/thirdparty/src #&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; read -p &ldquo;Install third party repos?
@@ -124,7 +125,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'> Git and mercurial abort: revision cannot be pushed</a> </h2>
-      <div class="meta">Mon, Sep 29, 2014</div>
+      <div class="meta">29 Sep 2014</div>
     </header>
 
     I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git. First install the hg-git tools; for example on Ubuntu: [sourcecode lang=&ldquo;shell&rdquo;] sudo aptitude install python-setuptools python-dev sudo easy_install hg-git [/sourcecode] Make sure the following is in your ~/.hgrc: [sourcecode lang=&ldquo;shell&rdquo;] [extensions] hgext.bookmarks = hggit = [/sourcecode] Then, in your existing mercurial repository, add a new remote that points to the git repository.
@@ -139,7 +140,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/saltstack-essential-reading/'> SaltStack Essential Reading</a> </h2>
-      <div class="meta">Tue, Sep 23, 2014</div>
+      <div class="meta">23 Sep 2014</div>
     </header>
 
     A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others. How Do I Use Salt States, States tutorial and Pillar Walkthrough - the tutorials Highstate data structure definitions and Understanding YAML - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc Requisites and Other Global State Arguments - do something before something else,
@@ -154,7 +155,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/setup-arduino-on-debian/'> Setup Arduino on Debian</a> </h2>
-      <div class="meta">Wed, Feb 26, 2014</div>
+      <div class="meta">26 Feb 2014</div>
     </header>
 
     Some notes on setting up Arduino on Debian. Add yourself to the required groups - dialout and tty. [sourcecode lang=&ldquo;shell&rdquo;] sudo adduser $USER dialout sudo adduser $USER tty [/sourcecode] Confirm the port /dev/ttyUSB0 is being used by Arduino - tail messages then plug in the Arduino. [sourcecode lang=&ldquo;shell&rdquo;] sudo tail -f /var/log/messages you should see something like: FTDI USB Serial Device converter now attached to ttyUSB0 out of interest, inspect permissions on port ls -al /dev/ttyUSB0 [/sourcecode] Logout and login (or run a login shell).
@@ -169,7 +170,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/split-function-for-microsoft-mssql/'> Split() function for Microsoft MSSQL</a> </h2>
-      <div class="meta">Tue, Jan 7, 2014</div>
+      <div class="meta">7 Jan 2014</div>
     </header>
 
     Microsoft MSSQL doesn&rsquo;t have a split() function (like in Ruby, Perl), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item. [sourcecode lang=&ldquo;sql&rdquo;] CREATE FUNCTION [dbo].split, @delimiter CHAR(1), @pos
@@ -184,7 +185,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'> MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> </h2>
-      <div class="meta">Mon, Jan 6, 2014</div>
+      <div class="meta">6 Jan 2014</div>
     </header>
 
     I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
@@ -199,7 +200,7 @@
 <article class="post">
     <header>
       <h2><a href='http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/'> Microsoft SQL 2012 SSIS Create Catalog Password</a> </h2>
-      <div class="meta">Tue, Dec 24, 2013</div>
+      <div class="meta">24 Dec 2013</div>
     </header>
 
     Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &ldquo;enable CLR&rdquo; and provide an &ldquo;encryption password&rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields. Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&rsquo;m not using a tablet, so why force a tablet interface down my throat?
@@ -237,6 +238,7 @@
     <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>

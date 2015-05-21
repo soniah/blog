@@ -32,6 +32,7 @@
     <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
     <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -47,7 +48,7 @@
     <div class="masthead">
       <div class="container">
         <h3 class="masthead-title">
-          <a href="http://localhost:1313/posts" title="Blog">Blog Posts</a>
+          <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
         </h3>
       </div>
     </div>
@@ -56,7 +57,7 @@
     <div class="container content">
       <h1 class="post-title">sfdisk, RAID</h1>
         <section id="main">
-          <h5 id="date"> Thu Dec 4, 2008 </h5>
+          <h5 id="date"> 4 Dec 2008 </h5>
           <p>A useful tool I came across last night (thanks Rodrigo) &#8211; <strong>sfdisk</strong> &#8211; &#8220;Partition table manipulator for Linux&#8221;.  Good for copying partition tables when replacing a failed hard disk in a (md Linux Software Raid) RAID. For example, to copy the partition table from sdb to sda:</p>
 
 <pre>sfdisk –d /dev/sdb | sed –e s/sdb/sda/ |  sfdisk /dev/sda</pre>
@@ -92,6 +93,7 @@ grub&gt; quit</pre>
     <em>Next: </em><a class="next" href="http://localhost:1313/2008/12/03/disk-mtbf-mean-time-between-failures/"> &nbsp; Disk MTBF – Mean Time Between Failures</a> &raquo;
     </span>
   
+  <br />
 </div>
 
   <br />
@@ -101,6 +103,15 @@ grub&gt; quit</pre>
     <li><em>Categories: </em></li>
     
       <li><a href="http://localhost:1313/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
     
   </ul>
 </div>
@@ -117,6 +128,7 @@ grub&gt; quit</pre>
     <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
     <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>
