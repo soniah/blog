@@ -18,6 +18,9 @@
       {{ range .Params.categories }}
         <li><a href="/categories/{{ . | urlize }}">{{ . }}</a> </li>
       {{ end }}
+      {{ range .Params.tags }}
+        <li><a href="/tags/{{ . | urlize }}">{{ . }}</a> </li>
+      {{ end }}
     </ul>
   </span>
 

@@ -1,0 +1,12 @@
+<!--
+  This file is a template that is included various places to have a list of
+  that particular posts tags generated.
+-->
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    {{ range .Params.tags }}
+      <li><a href="/tags/{{ . | urlize }}">{{ . }}</a> </li>
+    {{ end }}
+  </ul>
+</div>
