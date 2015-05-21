@@ -171,6 +171,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .sidebar-item p:last-child {
   margin-bottom: 0;
+  font-size: 10px;
 }
 
 /* Sidebar nav */
@@ -470,12 +471,12 @@ a.pagination-item:hover {
 .theme-base-0b .sidebar,
 .theme-base-0b .sidebar-toggle:active,
 .theme-base-0b #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #90a959;
+  background-color: #014421;
 }
 .theme-base-0b .container a,
 .theme-base-0b .sidebar-toggle,
 .theme-base-0b .related-posts li a:hover {
-  color: #90a959;
+  color: #014421;
 }
 
 /* Cyan */

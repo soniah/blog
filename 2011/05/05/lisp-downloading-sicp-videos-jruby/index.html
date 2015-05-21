@@ -12,14 +12,14 @@
     
 
 <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
-<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+
 <link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
 </head>
 
 
-<body class="theme-base-08">
+<body class="theme-base-0b">
   
 
 
@@ -64,6 +64,7 @@
 <p>I&#8217;ve also been getting good mileage out of JRuby. I was <a href="http://blog.snowfrog.net/2011/03/27/lisp-and-python/">complaining</a> a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &#8211; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&#8217;t litter /usr. Good: Ruby &#8211; fun, Python &#8211; <snore>.</p>
 
         </section>
+
     </div>
   </div>
 
@@ -73,10 +74,9 @@
 
 <div class="container">
   <hr />
-  <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/05/09/books-are-better/">Books are better?</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://localhost:1313/2011/05/09/solaris-max-of-100-cron-jobs/">Solaris – max of 100 cron jobs</a>
     </span>
   
 
@@ -106,12 +106,11 @@
 <div class="container content">
 <footer>
   <div>
-    <p>
-      <br>
-      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
-      <br>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    <p class="right credit">
+    <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>
 </footer>
@@ -131,7 +130,10 @@
 </script>
 
 
-</body>
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>
 
 

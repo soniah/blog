@@ -448,12 +448,12 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2011/05/09/solaris-max-of-100-cron-jobs/</loc>
+    <loc>http://localhost:1313/2011/05/09/books-are-better/</loc>
     <lastmod>2011-05-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2011/05/09/books-are-better/</loc>
+    <loc>http://localhost:1313/2011/05/09/solaris-max-of-100-cron-jobs/</loc>
     <lastmod>2011-05-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -788,12 +788,12 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
+    <loc>http://localhost:1313/2009/05/22/firewalling-on-solaris-10/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2009/05/22/firewalling-on-solaris-10/</loc>
+    <loc>http://localhost:1313/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -853,22 +853,22 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2009/03/10/tool-to-edit-ubuntugnome-menus/</loc>
-    <lastmod>2009-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/2009/03/09/howto-upgrade-ubuntu-with-cds-to-save-bandwidth/</loc>
     <lastmod>2009-03-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2009/03/05/parameter-passing-in-ruby/</loc>
-    <lastmod>2009-03-05T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/2009/03/10/tool-to-edit-ubuntugnome-menus/</loc>
+    <lastmod>2009-03-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://localhost:1313/2009/03/06/cityfail-does-it-again/</loc>
+    <lastmod>2009-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/2009/03/05/parameter-passing-in-ruby/</loc>
     <lastmod>2009-03-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -928,12 +928,12 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
+    <loc>http://localhost:1313/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
+    <loc>http://localhost:1313/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -1088,12 +1088,12 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
+    <loc>http://localhost:1313/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
+    <loc>http://localhost:1313/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1258,12 +1258,12 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
+    <loc>http://localhost:1313/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
+    <loc>http://localhost:1313/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -1273,12 +1273,12 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2007/08/02/useful-tool-for-converting-audio-files/</loc>
+    <loc>http://localhost:1313/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
+    <loc>http://localhost:1313/2007/08/02/useful-tool-for-converting-audio-files/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -1393,12 +1393,12 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
+    <loc>http://localhost:1313/2006/08/22/howto-move-sql-server-system-databases/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/2006/08/22/howto-move-sql-server-system-databases/</loc>
+    <loc>http://localhost:1313/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   

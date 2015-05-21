@@ -12,14 +12,14 @@
     
 
 <link rel="stylesheet" href="http://localhost:1313/css/poole.css">
-<link rel="stylesheet" href="http://localhost:1313/css/syntax.css">
+
 <link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
 </head>
 
 
-<body class="theme-base-08">
+<body class="theme-base-0b">
   
 
 
@@ -74,6 +74,7 @@ done</pre>
 <p>And before you add a comment saying <em>use <a href="http://blog.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/">ssh keys</a> or <a href="http://blog.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/">keychain</a>, this is totally insecure</em>, I agree with you! Key based authentication is disabled on the target server, and I&#8217;m still trying to resolve the <em>politics</em> around this at my current company, and <a href="http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">sshpass</a> seems broken <sigh></p>
 
         </section>
+
     </div>
   </div>
 
@@ -82,7 +83,6 @@ done</pre>
   
 
 <div class="container">
-  <hr />
   <hr />
   
     <span class="left">
@@ -116,12 +116,11 @@ done</pre>
 <div class="container content">
 <footer>
   <div>
-    <p>
-      <br>
-      Footer here. Link to <a href="http://localhost:1313/">Home Page</a>
-      <br>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">blog.snowfrog.net</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://blog.snowfrog.net" property="cc:attributionName" rel="cc:attributionURL">Sonia Hamilton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://blog.snowfrog.net" rel="dct:source">http://blog.snowfrog.net</a>.
+    <p class="right credit">
+    <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>
 </footer>
@@ -141,7 +140,10 @@ done</pre>
 </script>
 
 
-</body>
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>
 
 
