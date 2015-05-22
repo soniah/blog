@@ -3,8 +3,6 @@ title: BJJ for women
 author: Sonia Hamilton
 date: 2010-02-09
 url: /2010/02/09/bjj-for-women/
-email_notification:
-  - 1265676898
 categories:
   - Martial Arts
 tags:

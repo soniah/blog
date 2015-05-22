@@ -3,8 +3,6 @@ title: Salary vs Contract Rates
 author: Sonia Hamilton
 date: 2010-01-19
 url: /2010/01/19/salary-vs-contract-rates/
-email_notification:
-  - 1263859809
 categories:
   - Misc
 tags:
