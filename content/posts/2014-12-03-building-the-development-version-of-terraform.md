@@ -81,7 +81,7 @@ fi
 A common pattern in Go (which my setup script demonstrates) is to [split your code from thirdparty code](http://code.google.com/p/go-wiki/wiki/GOPATH). This requires configuring your shell (~/.zshrc, ~/.bashrc):
 
 {{< highlight shell >}}
-export GOPATH=~/go/thirdparty:~/go/sonia                                          
+export GOPATH=~/go/thirdparty:~/go/sonia
 export PATH=${GOPATH//://bin:}/bin:$PATH
 {{< /highlight >}}
 
@@ -96,5 +96,3 @@ $ make dev
 # put the binaries somewhere in your path, eg /usr/local/bin
 $ sudo cp bin/terraform* /usr/local/bin
 {{< /highlight >}}
-
-
