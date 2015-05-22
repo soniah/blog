@@ -4,7 +4,6 @@ comments: true
 date: 2012-07-07
 url: /2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/
 title: vnc ssh tunnel for remote graphical support
-wordpress_id: 1589
 categories:
 - Linux
 tags:

@@ -4,7 +4,6 @@ comments: true
 date: 2012-07-28
 url: /2012/07/28/balintawak-video/
 title: Balintawak Video
-wordpress_id: 1648
 categories:
 - Martial Arts
 tags:

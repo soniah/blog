@@ -4,7 +4,6 @@ comments: true
 date: 2012-11-20
 url: /2012/11/20/vim-bufexplorer/
 title: vim - bufexplorer
-wordpress_id: 1746
 categories:
 - Linux
 tags:

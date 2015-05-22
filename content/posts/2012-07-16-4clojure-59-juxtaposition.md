@@ -4,7 +4,6 @@ comments: true
 date: 2012-07-16
 url: /2012/07/16/4clojure-59-juxtaposition/
 title: 4Clojure 59 Juxtaposition
-wordpress_id: 1634
 categories:
 - Linux
 tags:

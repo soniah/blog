@@ -4,7 +4,6 @@ comments: true
 date: 2013-12-24
 url: /2013/12/24/change-default-editor-in-debian/
 title: Change default editor in Debian
-wordpress_id: 1925
 categories:
 - Linux
 tags:

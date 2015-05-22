@@ -4,7 +4,6 @@ comments: true
 date: 2012-07-05
 url: /2012/07/05/4clojure-100-least-common-multiple/
 title: 4clojure 100 Least Common Multiple
-wordpress_id: 1574
 categories:
 - Linux
 tags:

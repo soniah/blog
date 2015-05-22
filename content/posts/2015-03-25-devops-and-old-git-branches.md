@@ -4,7 +4,6 @@ comments: true
 date: 2015-03-25
 url: /2015/03/25/devops-and-old-git-branches/
 title: Devops and Old Git Branches
-wordpress_id: 2057
 categories:
 - Linux
 tags:

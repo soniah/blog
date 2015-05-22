@@ -4,7 +4,6 @@ comments: true
 date: 2012-11-30
 url: /2012/11/30/linux-filename-suffixes/
 title: Linux filename suffixes
-wordpress_id: 1760
 categories:
 - Linux
 ---

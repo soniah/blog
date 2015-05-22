@@ -4,7 +4,6 @@ comments: true
 date: 2012-10-02
 url: /2012/10/02/golang-setup-and-producing-debs/
 title: Golang - setup and producing .debs
-wordpress_id: 1703
 categories:
 - Linux
 tags:

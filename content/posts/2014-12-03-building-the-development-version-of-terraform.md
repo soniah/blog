@@ -4,7 +4,6 @@ comments: true
 date: 2014-12-03
 url: /2014/12/03/building-the-development-version-of-terraform/
 title: Building the development version of Terraform
-wordpress_id: 2038
 categories:
 - Linux
 tags:

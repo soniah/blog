@@ -4,7 +4,6 @@ comments: true
 date: 2012-05-11
 url: /2012/05/11/learning-clojure-my-books/
 title: Learning Clojure - my books
-wordpress_id: 1485
 categories:
 - Linux
 tags:

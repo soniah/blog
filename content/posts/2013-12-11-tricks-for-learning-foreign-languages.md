@@ -4,7 +4,6 @@ comments: true
 date: 2013-12-11
 url: /2013/12/11/tricks-for-learning-foreign-languages/
 title: Tricks for Learning Foreign Languages
-wordpress_id: 1909
 categories:
 - Misc
 tags:

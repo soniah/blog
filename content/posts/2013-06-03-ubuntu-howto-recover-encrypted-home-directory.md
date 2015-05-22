@@ -4,7 +4,6 @@ comments: true
 date: 2013-06-03
 url: /2013/06/03/ubuntu-howto-recover-encrypted-home-directory/
 title: Ubuntu - HowTo Recover Encrypted Home Directory
-wordpress_id: 1840
 categories:
 - Linux
 tags:

@@ -4,7 +4,6 @@ comments: true
 date: 2012-08-03
 url: /2012/08/03/perl-debug-fork-with-no-x/
 title: Perl - debug fork() with no X
-wordpress_id: 1657
 categories:
 - Linux
 tags:

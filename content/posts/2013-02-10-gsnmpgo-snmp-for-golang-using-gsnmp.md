@@ -4,7 +4,6 @@ comments: true
 date: 2013-02-10
 url: /2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/
 title: gsnmpgo - SNMP for Golang using gsnmp
-wordpress_id: 1787
 categories:
 - Linux
 tags:

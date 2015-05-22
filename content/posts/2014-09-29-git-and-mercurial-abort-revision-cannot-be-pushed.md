@@ -4,7 +4,6 @@ comments: true
 date: 2014-09-29
 url: /2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/
 title: 'Git and mercurial abort: revision cannot be pushed'
-wordpress_id: 2023
 categories:
 - Linux
 tags:

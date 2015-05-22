@@ -4,7 +4,6 @@ comments: true
 date: 2012-11-30
 url: /2012/11/30/brawl-video-self-defence-lessons/
 title: Brawl Video - Self Defence Lessons
-wordpress_id: 1755
 categories:
 - Martial Arts
 tags:

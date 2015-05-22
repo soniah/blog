@@ -4,7 +4,6 @@ comments: true
 date: 2013-01-23
 url: /2013/01/23/bokken-and-sword-training/
 title: Bokken and Sword Training
-wordpress_id: 1781
 categories:
 - Martial Arts
 tags:

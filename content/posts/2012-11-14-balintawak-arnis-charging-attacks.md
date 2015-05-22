@@ -4,7 +4,6 @@ comments: true
 date: 2012-11-14
 url: /2012/11/14/balintawak-arnis-charging-attacks/
 title: Balintawak Arnis - Charging Attacks
-wordpress_id: 1742
 categories:
 - Martial Arts
 tags:

@@ -4,7 +4,6 @@ comments: true
 date: 2012-03-29
 url: /2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/
 title: Ghostscript ImageMagick RHEL libgs.so errors
-wordpress_id: 1469
 categories:
 - Linux
 tags:

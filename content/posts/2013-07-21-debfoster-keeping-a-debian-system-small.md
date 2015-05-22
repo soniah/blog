@@ -4,7 +4,6 @@ comments: true
 date: 2013-07-21
 url: /2013/07/21/debfoster-keeping-a-debian-system-small/
 title: debfoster - keeping a Debian system small
-wordpress_id: 1886
 categories:
 - Linux
 tags:

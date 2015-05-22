@@ -4,7 +4,6 @@ comments: true
 date: 2012-09-05
 url: /2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/
 title: 'Linux, Ubuntu: how to tell if 32 or 64 bit installed'
-wordpress_id: 1681
 categories:
 - Linux
 tags:

@@ -4,7 +4,6 @@ comments: true
 date: 2012-04-26
 url: /2012/04/26/vim-buffers-cheatsheet/
 title: Vim Buffers Cheatsheet
-wordpress_id: 1474
 categories:
 - Linux
 tags:

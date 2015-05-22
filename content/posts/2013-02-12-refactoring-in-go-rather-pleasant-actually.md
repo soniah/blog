@@ -4,7 +4,6 @@ comments: true
 date: 2013-02-12
 url: /2013/02/12/refactoring-in-go-rather-pleasant-actually/
 title: refactoring in Go - rather pleasant actually...
-wordpress_id: 1790
 categories:
 - Linux
 tags:
