@@ -29,7 +29,7 @@ Using **git bisect run** is easy if you've make small atomic commits and you hav
 
 So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was **good**, but I'd added more features since good and now results were **bad**. The first step was to write a shell script to be called from **git bisect run**:
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 % cat bisect.sh
 #!/bin/bash
 # copy this to ~ before running with `git bisect run ~/bisect.sh`
@@ -55,7 +55,7 @@ percent=`godir=/var/tmp/data/abcmon/poll_queue/new ~/checker | \
   tail -1 | awk '{print $5}' | awk -F. '{print $1}'`
 echo "=== percent is $percent"
 (( percent < 5 ))
-[/sourcecode]
+{{< /highlight >}}
 
 Things that make writing the test script easier:
 
@@ -71,7 +71,7 @@ Things that make writing the test script easier:
 
 Next step was having an abbreviated log of commits to refer to:
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 % git log --oneline
 f00f232 sql.go - better debugging       # bad                                                                                                                                                        
 9780d44 dummy .gitignore, so out dir preserved
@@ -112,29 +112,29 @@ a3fe13c runonceOpt, revert cycling code  # good
 5ca1830 remove stash/sender.old.go
 06b9566 remove gsnmpgo; use gosnmp
 bffd430 rules: add note about "too many open files"
-[/sourcecode]
+{{< /highlight >}}
 
 Mark bad and good, start the run, go and have a coffee :-)
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 % git bisect start f00f232 a3fe13c
 % git bisect run ~/bisect.sh
 # lots of output
-[/sourcecode]
+{{< /highlight >}}
 
 I get the result that the ominously named **557a5e3 more work on stats** is the first bad commit - I remember it as one of those large "kitchen sink" commits done at the end of the day. So "first rule of fightclub git" remembered - **always do small atomic commits**.
 
 I have a useful shell function **gri()** - I used that to interactively rebase and break up 557a5e3 into many small commits:
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 gri () {
   git rebase -i HEAD~${1:-7}
 }
-[/sourcecode]
+{{< /highlight >}}
 
 After rebasing git log looked like this - notice the many small commits named "bisect1" etc:
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 382b3ee defaults - 20 workers, udp 15
 11db314 GOMAXPROCS()
 4b547ea start v0.0.2
@@ -148,11 +148,11 @@ ad3a18f bisect5: tweak debug msgs
 ef6a453 remove excessive debugging
 ccc4644 remove file buffering - wasn't writing..???
 98bf4b1 stats write failing
-[/sourcecode]
+{{< /highlight >}}
 
 And here's the real win of writing bisect.sh - you can just keep rebasing and running until you've narrowed down the bad code to a few lines:
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 === poller finished
 === percent is 49
 947cb27fd57642dc545ee23090d7ae8fd8b14b3f is the first bad commit
@@ -161,7 +161,7 @@ Author: Sonia Hamilton <sonia@snowfrog.net>
 Date:   Thu Mar 14 10:02:42 2013 +1100
 
     bisect1: move Stats_t; Add()
-[/sourcecode]
+{{< /highlight >}}
 
 I do another interactive rebase, fix the logic error, and then HEAD is good.
 

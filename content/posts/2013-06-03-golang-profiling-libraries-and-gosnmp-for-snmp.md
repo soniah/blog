@@ -16,7 +16,7 @@ There is already a great article on [Profiling Go Programs](blog.golang.org/2011
 
 For example, I've been working on the [GoSNMP SNMP library](http://github.com/soniah/gosnmp), here's how I profiled it (it wasn't obvious):
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 # produce cpu profiling information from the tests - this part was well documented
 % go test -cpuprofile cpu.out
 
@@ -27,13 +27,13 @@ For example, I've been working on the [GoSNMP SNMP library](http://github.com/so
 # now run pprof using `go teste -c` output
 # using gosnmp.test - this part wasn't obvious
 % go tool pprof gosnmp.test cpu.out
-[/sourcecode]
+{{< /highlight >}}
 
 Doing a memory profile was similar:
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 % go test -memprofile mem.out
 % go test -c
 % go tool pprof gosnmp.test mem.out
-[/sourcecode]
+{{< /highlight >}}
 

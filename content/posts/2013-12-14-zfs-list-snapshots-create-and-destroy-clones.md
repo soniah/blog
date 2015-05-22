@@ -18,7 +18,7 @@ I'm using [FreeNAS](http://www.freenas.org/) for my storage at home, liking it a
 
 Some notes for me on listing ZFS snapshots, and creating and destroying clones.
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 cd /mnt/vol01/bjj
 zfs list -t snapshot | grep bjj | grep -v vobs
 zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
@@ -32,4 +32,4 @@ rmdir auto-20131214.12d
 # usually want to umount not destroy, as a
 # destroy may cascade delete other dependent snapshots
 zfs destroy vol01/bjj/foo
-[/sourcecode]
+{{< /highlight >}}

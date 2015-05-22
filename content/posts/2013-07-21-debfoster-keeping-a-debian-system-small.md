@@ -40,7 +40,7 @@ Other useful tools are **dpigs** (from the package debian-goodies) and **wajig l
 
 The commandlinefu.com topic [List your largest installed packages (on Debian/Ubuntu)](http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu) has some useful commands:
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 % sed -ne '/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}'\
   /var/lib/dpkg/status | sort -rn
 
@@ -52,7 +52,7 @@ The commandlinefu.com topic [List your largest installed packages (on Debian/Ubu
 
 % awk '{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf("%9d %s\n", $2, p)}' \
    /var/lib/dpkg/status | sort -n | tail
-[/sourcecode]
+{{< /highlight >}}
 
 The [download sources for Eeebuntu](http://www.auroraos.org/release/eeebuntu) seem to be broken, and nowadays I'm generally preferring Debian over Ubuntu, so on my eeePC I'm running [Debian with LXDE](http://wiki.debian.org/LXDE) - it seems to work well.
 

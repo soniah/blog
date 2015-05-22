@@ -16,7 +16,7 @@ Microsoft MSSQL doesn't have a split() function (like in [Ruby](http://ruby-doc.
 
 It's different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n'th split item.
 
-[sourcecode lang="sql"]
+{{< highlight sql >}}
 CREATE FUNCTION [dbo].[split]
 (
     @string varchar(MAX),
@@ -65,5 +65,5 @@ cc                 # 3
 --------------
                    # 4: zero length string
 (1 row(s) affected)
-[/sourcecode]
+{{< /highlight >}}
 

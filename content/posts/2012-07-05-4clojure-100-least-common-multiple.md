@@ -24,7 +24,7 @@ I first thought about using the meaning of LCM to solve this (as given in Wikipe
 
 From there it was just a matter of balancing parentheses (thanks [paredit](http://blog.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/)) by breaking up the problem into stages, starting with calculating the GCD of two numbers:
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn gcd [a b]
   (cond
    (= b 0) a
@@ -33,30 +33,30 @@ From there it was just a matter of balancing parentheses (thanks [paredit](http:
    (> b a) (gcd a (mod b a))))
 (gcd 15 5)
 ==> 5
-[/sourcecode]
+{{< /highlight >}}
 
 Now get LCM working for two arguments:
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn lcm [x y]
   (/ (* x y) (gcd x y)))
 (lcm 4 6)
 ==> 12
-[/sourcecode]
+{{< /highlight >}}
 
 Now get LCM working for more than two arguments. I remembered seeing multiple arities used to solve other 4clojure problems, so I thought I'd use the [Arity-Reduce "pattern"](http://blog.darevay.com/2011/08/briefly-the-arity-reduce-pattern-in-clojure/) (well I'm using apply, same idea):
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn lcm2
   ([x y] (/ (* x y) (gcd x y)))
   ([x y & rest] (apply lcm2 (lcm2 x y) rest)))
 (lcm2 5 3 7)
 ==> 105
-[/sourcecode]
+{{< /highlight >}}
 
 4clojure doesn't allow **defn**, so I then used **letfn** to nest my definition of GCD inside LCM:
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (fn lcm3
   ([x y]
      (letfn [(gcd2 [a b]
@@ -68,6 +68,6 @@ Now get LCM working for more than two arguments. I remembered seeing multiple ar
   ([x y & rest] (apply lcm3 (lcm3 x y) rest)))
 (lcm3 5 3 7)
 ==> 105
-[/sourcecode]
+{{< /highlight >}}
 
 So my solution worked, but it wasn't very elegant - Dacquiri wins the prize for that, again :-)

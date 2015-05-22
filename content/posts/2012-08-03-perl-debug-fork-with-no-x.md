@@ -16,7 +16,7 @@ Here's how to debug a Perl program that's running remotely on a server that does
 
 You've ssh'd into a remote server (headless), to debug a perl script that forks:
 
-[sourcecode language="perl"]
+{{< highlight perl >}}
 $SIG{CHLD} = sub {
   while (1) {
     my $nino = waitpid(-1, WNOHANG);
@@ -43,11 +43,11 @@ else {
   do_stuff($arg1, $arg2);
   exit;
 }
-[/sourcecode]
+{{< /highlight >}}
 
 But when you start debugging, you get output like this (which tells you what to do):
 
-[sourcecode language="perl"]
+{{< highlight perl >}}
 ######### Forked, but do not know how to create a new TTY. #########
   Since two debuggers fight for the same TTY, input is severely entangled.
 
@@ -58,11 +58,11 @@ But when you start debugging, you get output like this (which tells you what to 
 
   On UNIX-like systems one can get the name of a TTY for the given window
   by typing tty, and disconnect the shell from TTY by sleep 1000000.
-[/sourcecode]
+{{< /highlight >}}
 
 The easiest solution is to install a minimal X on the target server, then reconnect via ssh, check your DISPLAY variable, then start up the debugger in xterm.
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 server% sudo aptitude install xinit xterm
 
 client% ssh -X server                # reconnect, to setup DISPLAY
@@ -73,7 +73,7 @@ DISPLAY=localhost:11.0               # DISPLAY is good
 server% xterm &                      # an xterm should display locally
 
 server% perl -d foo.pl               # start debugging
-[/sourcecode]
+{{< /highlight >}}
 
 After forking, one or more additional xterms will display for each child, allowing you to debug.
 

@@ -18,7 +18,7 @@ tags:
 
 **My solution:**
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn pascal [n]
   (if (= n 1)
     [1]
@@ -28,11 +28,11 @@ tags:
 
 (pascal 5)
 user=> (1 4 6 4 1)
-[/sourcecode]
+{{< /highlight >}}
 
 A negative - my solution doesn't use tail recursion; on my laptop it works up to about n = 760:
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (pascal 10e4)
 user=> java.lang.StackOverflowError (NO_SOURCE_FILE:0) 
-[/sourcecode]
+{{< /highlight >}}

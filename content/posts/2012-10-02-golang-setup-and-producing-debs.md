@@ -18,22 +18,22 @@ Here's the setup I use for compiling Go binaries, as well as for writing .deb's 
 
 Install build pre-requisites:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 sudo aptitude install gcc libc6-dev libc6-dev-i386 make \
   markdown build-essential debhelper dh-make fakeroot devscripts
-[/sourcecode]
+{{< /highlight >}}
 
 Install Go from source (so can cross-compile). Download from [Go Downloads](http://code.google.com/p/go/downloads/list) eg go1.0.2.src.tar.gz
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz ; cd /usr/local/go/src
 sudo GOARCH=amd64 ./all.bash ; sudo GOARCH=386 ./all.bash
-[/sourcecode]
+{{< /highlight >}}
 
 Add to /etc/profile, source or re-login:
-[sourcecode language="bash"]
+{{< highlight bash >}}
 export GOROOT="/usr/local/go"
 export PATH="$GOROOT/bin:$PATH"
-[/sourcecode]
+{{< /highlight >}}
 
 

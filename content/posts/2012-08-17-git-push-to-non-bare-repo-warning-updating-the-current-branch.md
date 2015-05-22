@@ -16,7 +16,7 @@ Some doco for my work mates, and others learners of git...
 
 When I was starting with git (many moons ago), learning to pull from a remote repository was easy. But [the book I read](http://pragprog.com/book/tsgit/pragmatic-version-control-using-git) didn't explain how to push to a remote repository. There was [lots of doco on pushing to github](https://help.github.com/), but I wanted to push and pull between my own repositories. When I pushed, I got messages saying **warning: updating the current branch**, and sometimes I'd have to manually clean up the remote branch - yuk.
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 localbox% git push remotebox master
 Counting objects: 1, done.
 Writing objects: 100% (1/1), 252 bytes, done.
@@ -24,23 +24,23 @@ Total 1 (delta 0), reused 0 (delta 0)
 remote: warning: updating the current branch
 To sonia@remotebox.net:/home/sonia/dotfiles
    f387640..13740c5  master -> master
-[/sourcecode]
+{{< /highlight >}}
 
 Then I learned about [bare repositories](http://www.kernel.org/pub/software/scm/git/docs/git-clone.html). Sweet, now I could cleanly push to (bare) remote repositories:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 # convention with bare repositories is .git suffix
 
 remotebox% git clone --bare dotfiles dotfiles.git
 Cloning into bare repository 'dotfiles.git'...
 done.
-[/sourcecode]
+{{< /highlight >}}
 
 But what if you **want to push to a non-bare repo**? Firewalls mean you often have to hop across several machines using ssh tunnels, and setting up bare repositories all over the place is 'non-optimal'. Or, you want to push between laptops. Or, whatever...
 
 Here's a recipe - just push to a dummy branch (I usually call it 'push'), then do a normal merge on the remote:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 # I'm on localbox and I want to push to remotebox, which isn't bare
 # git br -a shows me all the remote branches:
 
@@ -66,11 +66,11 @@ To sonia@remotebox.net:/home/sonia/dotfiles
                             to
 
 # ie I'm pushing from master branch to the push branch on remotebox
-[/sourcecode]
+{{< /highlight >}}
 
 On the remotebox, merge in the push:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 remotebox% git br -a               # check all my branches
 * master
   foo
@@ -80,7 +80,7 @@ remotebox% git br -a               # check all my branches
 remotebox% git co master           # checkout master
 remotebox% git merge push          # merge push into master
 remotebox% git br -d push          # cleanup
-[/sourcecode]
+{{< /highlight >}}
 
 Et Voilà! Done.
 
@@ -90,7 +90,7 @@ After a bit more reading on git, I realised that there is another solution. You 
 
 **PS** I have lots of shortcuts in my ~/.gitconfig, like **co** and **br**. Saves typing!
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 [color]
     ui = auto
 [color "branch"]
@@ -117,4 +117,4 @@ After a bit more reading on git, I realised that there is another solution. You 
     default = matching
 [receive]
     denyCurrentBranch = warn
-[/sourcecode]
+{{< /highlight >}}

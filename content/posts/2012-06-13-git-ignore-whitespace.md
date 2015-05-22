@@ -15,10 +15,10 @@ My new favourite git option:
 
 <!--more-->
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 
 % git diff -w
 
-[/sourcecode]
+{{< /highlight >}}
 
 Ignore white space in diffs. Unfortunately, [there doesn't seem to be an option for just ignoring whitespace changes at the start of  line](http://stackoverflow.com/questions/4350678/git-diff-w-ignore-whitespace-only-at-start-end-of-lines) - would be handy for Python.

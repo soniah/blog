@@ -27,30 +27,30 @@ _There is a way to install multiple configurations all at once: use a .tblk fold
 
 For example:
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 cd ~/Desktop/foo.tblk
 for f in * ; do
   g=`basename $f`
   mkdir $g.tblk
   mv $f $g.tblk
 done
-[/sourcecode]
+{{< /highlight >}}
 
 Also, the .ovpn files will have "com.apple.quarantine" xattr's. This may or may not cause problems. I removed them in this way:
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 for f in * ; do
   echo $f
   xattr -d com.apple.quarantine $f
 done
-[/sourcecode]
+{{< /highlight >}}
 
 Also, to [remove old private configuration files](https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo):
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 cd ~/Library/Application\ Support/Tunnelblick/Configurations
 rm -rf *
-[/sourcecode]
+{{< /highlight >}}
 
 (or, click on VPN icon top right of screen, select 'VPN Details', +/- in the 'Configurations' tab).
 

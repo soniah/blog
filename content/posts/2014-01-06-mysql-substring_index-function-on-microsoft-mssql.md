@@ -27,7 +27,7 @@ Limitations:
 
 
 
-[sourcecode lang="sql"]
+{{< highlight sql >}}
 SET ANSI_NULLS ON;
 GO
 
@@ -76,7 +76,7 @@ SELECT dbo.my_substring_index('www.mysql.com', '.', -1)
 --------------------------------------------------------
 com
 (1 row(s) affected)
-[/sourcecode]
+{{< /highlight >}}
 
 
 

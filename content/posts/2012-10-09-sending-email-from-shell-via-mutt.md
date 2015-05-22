@@ -14,14 +14,14 @@ A quick example of sending email from the shell via mutt.
 
 <!--more-->
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 % cat msg.txt 
 pdf attached. Sonia.
 
 for i in *.pdf ; do              
   mutt -s "pdf - $i" -a $i -- 'foo@hotmail.com' < msg.txt
 done
-[/sourcecode]
+{{< /highlight >}}
 
 No rocket science, just saving me from RTFM'ing next time...
 

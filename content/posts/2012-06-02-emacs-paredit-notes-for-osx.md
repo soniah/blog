@@ -49,7 +49,7 @@ More so I can stop fighting with Paredit and do some **Clojure** programming tha
 
 I wrote this elisp for my **~/.emacs.d/sonia.el** (I'm using [Technomancy's Emacs Starter Kit](http://github.com/technomancy/emacs-starter-kit)):
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (when (eq system-type 'darwin)
   (eval-after-load 'paredit
     '(progn
@@ -66,6 +66,6 @@ I wrote this elisp for my **~/.emacs.d/sonia.el** (I'm using [Technomancy's Emac
        (define-key paredit-mode-map (kbd "ESC M-[ 5 c")
                    'paredit-backward-barf-sexp)
      )))
-[/sourcecode]
+{{< /highlight >}}
 
 ![Lisp Parens](http://imgs.xkcd.com/comics/lisp_cycles.png)

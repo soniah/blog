@@ -16,7 +16,7 @@ A question I get regularly from other sysadmins - how to tell if you're running 
 
 Here's one way - use the file command on /sbin/init:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 
 # on a 32 bit install
 % file /sbin/init
@@ -25,7 +25,7 @@ Here's one way - use the file command on /sbin/init:
 # on a 64 bit install
 % file /sbin/init
 /sbin/init: ELF 64-bit LSB shared object, x86-64...
-[/sourcecode]
+{{< /highlight >}}
 
 **Update**
 
@@ -35,9 +35,9 @@ I got a few comments on this (thank you) saying that I was wrong or "haven't you
 
 One comment said I was wrong and should use grep against the cpu info:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 $ grep ^flags /proc/cpuinfo | grep lm
-[/sourcecode]
+{{< /highlight >}}
 
 Unfortunately the commenter hadn't read my post correctly - I'm interested in whether the _operating system_ is 32/64 bit, not the _cpu_.
 
@@ -45,7 +45,7 @@ Unfortunately the commenter hadn't read my post correctly - I'm interested in wh
 
 Other comments said I should use uname with particular flags (as if I'd never heard of uname before....). Unfortunately the manpage for uname is a good example of [manpage considered harmful](http://en.wikipedia.org/wiki/Considered_harmful). Let's have a look at what it says for the various options:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 % man uname
 ...
 -m, --machine
@@ -57,7 +57,7 @@ Other comments said I should use uname with particular flags (as if I'd never he
 -i, --hardware-platform
     print the hardware platform or "unknown"
 ...
-[/sourcecode]
+{{< /highlight >}}
 
 What is the difference between the "machine hardware name", the "processor type", and the "hardware platform"? Googling doesn't turn up a good explanation. I could look at the source code for uname, or run uname on a machine I which already has known hardware and interpret the results, then work out the flags to use on the target machine. Or I could just rote-memorise **uname -m** and not know what it means.
 

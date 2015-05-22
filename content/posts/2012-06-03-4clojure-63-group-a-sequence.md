@@ -16,83 +16,83 @@ My first attempt at writing up one of my [4clojure](http://www.4clojure.com/) so
 
 _Given a function f and a sequence s, write a function which returns a map. The keys should be the values of f applied to each item in s. The value at each key should be a vector of corresponding items in the order they appear in s._
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (= (__ #(> % 5) [1 3 6 8]) {false [1 3], true [6 8]})
-[/sourcecode]
+{{< /highlight >}}
 
 Here's how I worked it out in the REPL, warts and all...
 
 ;; map seems a good start here
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 ((map #(> % 5) [1 3 6 8])
 ;; (false false true true)
-[/sourcecode]
+{{< /highlight >}}
 
 ;; so I'm getting the values of fn here, I want the inputs too
 ;; I can't think of a clever way to do this, I'll just use for and list
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn foo [f xs] (for [x xs :let [y (f x)]] (list y x)))
 (foo #(> % 5) [1 3 6 8])
 ;; ((false 1) (false 3) (true 6) (true 8))
-[/sourcecode]
+{{< /highlight >}}
 
 ;; the for loop can be tightend up, I don't need the :let
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn foo [f xs] (for [x xs] (list (f x) x)))
 (foo #(> % 5) [1 3 6 8])
 ;; ((false 1) (false 3) (true 6) (true 8))
-[/sourcecode]
+{{< /highlight >}}
 
 ;; I know I want my results as maps, so use a map instead
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn foo [f xs] (for [x xs] {(f x) x}))
 (foo #(> % 5) [1 3 6 8])
 ;; ({false 1} {false 3} {true 6} {true 8})
-[/sourcecode]
+{{< /highlight >}}
 
 ;; now I'm stuck; how do I moosh the results together?
 ;; I read thru all the map change fn's in the clj cheatsheet
 ;; hmmm, merge-with looks promising
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn foo [f xs] (merge-with concat (for [x xs] {(f x) x})))
 (foo #(> % 5) [1 3 6 8])
 ;; ({false 1} {false 3} {true 6} {true 8})
-[/sourcecode]
+{{< /highlight >}}
 
 ;; WTF? same results. Re-RTFM on merge-with. Well, I'm going to
 ;; need vectors in my results to be able to concat them...
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn foo [f xs] (merge-with concat (for [x xs] {(f x) [x]})))
 (foo #(> % 5) [1 3 6 8])
 ;; ({false [1]} {false [3]} {true [6]} {true [8]})
-[/sourcecode]
+{{< /highlight >}}
 
 ;; WTF? still not mooshing together. Uh duh, fn signature takes
 ;; "maps" not a list. Use the "list stripper" - apply!
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (defn foo [f xs] (apply merge-with concat (for [x xs] {(f x) [x]})))
 (foo #(> % 5) [1 3 6 8])
 ;; {true (6 8), false (1 3)}
-[/sourcecode]
+{{< /highlight >}}
 
 ;; ha, sweetness and light! Remove the defn and submit:
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 (fn [f xs] (apply merge-with concat (for [x xs] {(f x) [x]})))
-[/sourcecode]
+{{< /highlight >}}
 
 ;; look at other's solutions. Dacquiri as usual has a more elegant
 ;; solution, with a reader macro. What's his golf handicap?!?!
 
-[sourcecode language="clojure"]
+{{< highlight clojure >}}
 #(apply merge-with concat (for [x %2] {(% x) [x]}))
-[/sourcecode]
+{{< /highlight >}}
 
 _Mooshing_ is an advanced programming technique, that can only be used after years of study and practice...

@@ -16,16 +16,16 @@ Notes to myself more than anything, and not really specific to Go (but that's wh
 
 To watch the memory usage of a process with pid PID:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 while [ 1 ] ; do
   grep VmSize  /proc/PID/status ; sleep 10
 done
-[/sourcecode]
+{{< /highlight >}}
 
 To watch the number of file descriptors being used:
 
-[sourcecode language="bash"]
+{{< highlight bash >}}
 while [ 1 ] ; do
   sudo lsof -p PID | wc -l ; sleep 10
 done
-[/sourcecode]
+{{< /highlight >}}

@@ -41,15 +41,15 @@ Finish rather sooner than expected, run tests, smile in knowledge program is wor
 
 To quickly setup the **make** command for Go, type this in a Vim window:
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 :setlocal makeprg=go\ build\ \.
-[/sourcecode]
+{{< /highlight >}}
 
 Or even better configure vim via your ~/.vimrc, for example:
 
-[sourcecode language="shell"]
+{{< highlight shell >}}
 autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
 autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
-[/sourcecode]
+{{< /highlight >}}
 
 Thanks Martin for the comment!

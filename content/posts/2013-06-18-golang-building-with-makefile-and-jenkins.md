@@ -47,10 +47,10 @@ But as I wrote more Go projects, it made more sense to separate each project int
 
 With this directory structure I set **GOPATH** on the command line or in a Makefile:
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 % cd ~go/project2/src/github.com/soniah/gosnmp
 % GOPATH=~go/project2 go build
-[/sourcecode]
+{{< /highlight >}}
 
 
 ### Makefile
@@ -58,7 +58,7 @@ With this directory structure I set **GOPATH** on the command line or in a Makef
 
 For smaller projects you can just produce a binary using **go run** or **go build**. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.
 
-[sourcecode lang="shell"]
+{{< highlight shell >}}
 GOROOT := /usr/lib/go
 GOPATH := /var/lib/jenkins/workspace/go/project2
 
@@ -83,7 +83,7 @@ build-stamp: file1.go file2.go file3.go
     ps2pdf project2-man.ps project2-man.pdf
     # mark as done
     touch $@
-[/sourcecode]
+{{< /highlight >}}
 
 
 ### Jenkins

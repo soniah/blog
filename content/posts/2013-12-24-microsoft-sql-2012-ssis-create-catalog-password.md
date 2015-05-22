@@ -16,7 +16,7 @@ Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug 
 
 Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I'm not using a tablet, so why force a tablet interface down my throat? Sort of reminds me of Ubuntu Unity). Anyway, the solution is to first enable CLR using SQL:
 
-[sourcecode lang="sql"]
+{{< highlight sql >}}
 sp_configure 'show advanced options', 1;
 GO
 RECONFIGURE;
@@ -25,6 +25,6 @@ sp_configure 'clr enabled', 1;
 GO
 RECONFIGURE;
 GO
-[/sourcecode]
+{{< /highlight >}}
 
 Then the password field will be enabled when creating a catalog.
