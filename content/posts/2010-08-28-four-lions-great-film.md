@@ -3,8 +3,6 @@ title: Four Lions – great film
 author: Sonia Hamilton
 date: 2010-08-28
 url: /2010/08/28/four-lions-great-film/
-jabber_published:
-  - 1282992799
 categories:
   - Misc
 tags:

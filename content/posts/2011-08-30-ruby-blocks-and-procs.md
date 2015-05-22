@@ -3,8 +3,6 @@ title: Ruby, blocks and procs
 author: Sonia Hamilton
 date: 2011-08-30
 url: /2011/08/30/ruby-blocks-and-procs/
-jabber_published:
-  - 1314674148
 categories:
   - Linux
 tags:

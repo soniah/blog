@@ -3,8 +3,6 @@ title: Ubuntu 10.10 (Maverick Meerkat) Download
 author: Sonia Hamilton
 date: 2011-05-18
 url: /2011/05/18/ubuntu-10-10-maverick-meerkat-download/
-jabber_published:
-  - 1305684623
 categories:
   - Linux
 tags:

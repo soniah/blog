@@ -3,8 +3,6 @@ title: git patch add
 author: Sonia Hamilton
 date: 2011-09-13
 url: /2011/09/13/git-patch-add/
-jabber_published:
-  - 1315875894
 categories:
   - Linux
 tags:

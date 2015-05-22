@@ -3,8 +3,6 @@ title: Solaris ps output truncated at 80 columns
 author: Sonia Hamilton
 date: 2010-06-10
 url: /2010/06/10/solaris-ps-output-truncated-at-80-columns/
-jabber_published:
-  - 1276131356
 categories:
   - Other-Tech
 tags:

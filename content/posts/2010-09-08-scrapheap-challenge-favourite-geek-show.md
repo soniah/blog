@@ -3,8 +3,6 @@ title: Scrapheap Challenge – Favourite Geek Show
 author: Sonia Hamilton
 date: 2010-09-08
 url: /2010/09/08/scrapheap-challenge-favourite-geek-show/
-jabber_published:
-  - 1283933275
 categories:
   - Misc
 tags:

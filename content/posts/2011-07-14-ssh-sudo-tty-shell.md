@@ -3,8 +3,6 @@ title: ssh, sudo, tty, shell
 author: Sonia Hamilton
 date: 2011-07-14
 url: /2011/07/14/ssh-sudo-tty-shell/
-jabber_published:
-  - 1310616572
 categories:
   - Other-Tech
 tags:

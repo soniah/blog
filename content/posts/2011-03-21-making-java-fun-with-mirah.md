@@ -3,8 +3,6 @@ title: Making Java Fun with Mirah
 author: Sonia Hamilton
 date: 2011-03-21
 url: /2011/03/21/making-java-fun-with-mirah/
-jabber_published:
-  - 1300673439
 categories:
   - Other-Tech
 tags:

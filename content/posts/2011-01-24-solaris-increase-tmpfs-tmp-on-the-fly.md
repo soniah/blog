@@ -3,8 +3,6 @@ title: Solaris – increase tmpfs /tmp on the fly
 author: Sonia Hamilton
 date: 2011-01-24
 url: /2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/
-jabber_published:
-  - 1295847986
 categories:
   - Other-Tech
 tags:

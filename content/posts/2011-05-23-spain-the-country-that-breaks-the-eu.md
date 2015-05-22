@@ -3,8 +3,6 @@ title: Spain – the country that breaks the EU?
 author: Sonia Hamilton
 date: 2011-05-23
 url: /2011/05/23/spain-the-country-that-breaks-the-eu/
-jabber_published:
-  - 1306126195
 categories:
   - Misc
 ---

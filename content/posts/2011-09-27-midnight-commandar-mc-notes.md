@@ -3,8 +3,6 @@ title: Midnight Commandar mc notes
 author: Sonia Hamilton
 date: 2011-09-27
 url: /2011/09/27/midnight-commandar-mc-notes/
-jabber_published:
-  - 1317083295
 categories:
   - Linux
 tags:

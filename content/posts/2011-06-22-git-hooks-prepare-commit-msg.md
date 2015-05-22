@@ -3,8 +3,6 @@ title: git hooks – prepare-commit-msg
 author: Sonia Hamilton
 date: 2011-06-22
 url: /2011/06/22/git-hooks-prepare-commit-msg/
-jabber_published:
-  - 1308711789
 categories:
   - Other-Tech
 tags:

@@ -3,8 +3,6 @@ title: OSX, iPhone, iTunes – finer grained syncing
 author: Sonia Hamilton
 date: 2011-06-28
 url: /2011/06/28/osx-iphone-itunes-finer-grained-syncing/
-jabber_published:
-  - 1309221587
 categories:
   - Other-Tech
 tags:

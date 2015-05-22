@@ -3,8 +3,6 @@ title: ssh – fix long login times – disable Kerberos
 author: Sonia Hamilton
 date: 2011-06-23
 url: /2011/06/23/ssh-fix-long-login-times-disable-kerberos/
-jabber_published:
-  - 1308794712
 categories:
   - Other-Tech
 tags:

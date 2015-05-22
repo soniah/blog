@@ -3,8 +3,6 @@ title: Exiting from consoles attached to Solaris zones
 author: Sonia Hamilton
 date: 2010-07-20
 url: /2010/07/20/exiting-from-consoles-attached-to-solaris-zones/
-jabber_published:
-  - 1279610258
 categories:
   - Other-Tech
 tags:

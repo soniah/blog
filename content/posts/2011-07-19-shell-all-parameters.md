@@ -3,8 +3,6 @@ title: 'shell – all parameters – $* vs $@'
 author: Sonia Hamilton
 date: 2011-07-19
 url: /2011/07/19/shell-all-parameters/
-jabber_published:
-  - 1311055728
 categories:
   - Linux
 tags:

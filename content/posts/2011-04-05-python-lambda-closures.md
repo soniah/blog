@@ -3,8 +3,6 @@ title: Python, Lambda, Closures
 author: Sonia Hamilton
 date: 2011-04-05
 url: /2011/04/05/python-lambda-closures/
-jabber_published:
-  - 1301972597
 categories:
   - Other-Tech
 tags:

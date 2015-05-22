@@ -3,8 +3,6 @@ title: Squid Notes
 author: Sonia Hamilton
 date: 2010-10-16
 url: /2010/10/16/squid-notes/
-jabber_published:
-  - 1287233278
 categories:
   - Other-Tech
 tags:

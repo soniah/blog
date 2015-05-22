@@ -3,8 +3,6 @@ title: Books are better?
 author: Sonia Hamilton
 date: 2011-05-09
 url: /2011/05/09/books-are-better/
-jabber_published:
-  - 1304920805
 categories:
   - Misc
 tags:

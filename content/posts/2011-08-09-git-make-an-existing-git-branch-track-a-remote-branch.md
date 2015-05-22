@@ -3,8 +3,6 @@ title: git – make an existing git branch track a remote branch
 author: Sonia Hamilton
 date: 2011-08-08
 url: /2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/
-jabber_published:
-  - 1312847649
 categories:
   - Linux
 tags:

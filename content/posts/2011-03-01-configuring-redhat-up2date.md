@@ -3,8 +3,6 @@ title: Configuring RedHat up2date
 author: Sonia Hamilton
 date: 2011-03-01
 url: /2011/03/01/configuring-redhat-up2date/
-jabber_published:
-  - 1298943129
 categories:
   - Linux
 ---

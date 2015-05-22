@@ -3,8 +3,6 @@ title: Windows autologon
 author: Sonia Hamilton
 date: 2010-06-23
 url: /2010/06/23/windows-autologon/
-jabber_published:
-  - 1277270563
 categories:
   - Other-Tech
 tags:

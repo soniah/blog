@@ -3,8 +3,6 @@ title: Solaris – convert a single root UFS to a root ZFS mirror
 author: Sonia Hamilton
 date: 2011-02-18
 url: /2011/02/18/solaris-convert-a-single-root-ufs-to-a-root-zfs-mirror/
-jabber_published:
-  - 1298001999
 categories:
   - Other-Tech
 tags:

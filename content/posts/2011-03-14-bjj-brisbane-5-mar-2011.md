@@ -3,8 +3,6 @@ title: BJJ – Brisbane 5 Mar 2011
 author: Sonia Hamilton
 date: 2011-03-14
 url: /2011/03/14/bjj-brisbane-5-mar-2011/
-jabber_published:
-  - 1300104816
 categories:
   - Martial Arts
 tags:

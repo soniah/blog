@@ -3,8 +3,6 @@ title: The Scheduling of BJJ Competitions
 author: Sonia Hamilton
 date: 2011-02-19
 url: /2011/02/20/the-scheduling-of-bjj-competitions/
-jabber_published:
-  - 1298128924
 categories:
   - Martial Arts
 tags:

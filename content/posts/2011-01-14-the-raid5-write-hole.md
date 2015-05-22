@@ -3,8 +3,6 @@ title: The RAID5 Write Hole
 author: Sonia Hamilton
 date: 2011-01-14
 url: /2011/01/14/the-raid5-write-hole/
-jabber_published:
-  - 1294981817
 categories:
   - Other-Tech
 tags:

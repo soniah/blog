@@ -3,8 +3,6 @@ title: Resetting ALOM password on Solaris
 author: Sonia Hamilton
 date: 2010-08-18
 url: /2010/08/18/resetting-alom-password-on-solaris/
-jabber_published:
-  - 1282119074
 categories:
   - Other-Tech
 tags:

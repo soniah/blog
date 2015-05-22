@@ -3,8 +3,6 @@ title: BJJ – Abu Dhabi Pro Australian Qualifier 19 Feb 2011
 author: Sonia Hamilton
 date: 2011-03-03
 url: /2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/
-jabber_published:
-  - 1299145189
 categories:
   - Martial Arts
 tags:

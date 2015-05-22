@@ -3,8 +3,6 @@ title: fuzzy rsync
 author: Sonia Hamilton
 date: 2011-03-03
 url: /2011/03/03/fuzzy-rsync/
-jabber_published:
-  - 1299154684
 categories:
   - Linux
 tags:

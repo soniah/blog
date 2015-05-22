@@ -3,8 +3,6 @@ title: Python-iView
 author: Sonia Hamilton
 date: 2011-04-11
 url: /2011/04/11/python-iview/
-jabber_published:
-  - 1302520909
 categories:
   - Linux
 tags:

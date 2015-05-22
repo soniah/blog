@@ -3,8 +3,6 @@ title: Using ZFS on Solaris to rapidly build systems
 author: Sonia Hamilton
 date: 2011-01-11
 url: /2011/01/12/using-zfs-on-solaris-to-rapidly-build-systems/
-jabber_published:
-  - 1294787971
 categories:
   - Other-Tech
 tags:

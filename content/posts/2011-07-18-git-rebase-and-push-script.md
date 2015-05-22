@@ -3,8 +3,6 @@ title: git – rebase and push script
 author: Sonia Hamilton
 date: 2011-07-18
 url: /2011/07/18/git-rebase-and-push-script/
-jabber_published:
-  - 1310968425
 categories:
   - Linux
 tags:

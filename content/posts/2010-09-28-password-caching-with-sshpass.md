@@ -3,8 +3,6 @@ title: password caching with sshpass
 author: Sonia Hamilton
 date: 2010-09-28
 url: /2010/09/28/password-caching-with-sshpass/
-jabber_published:
-  - 1285658036
 categories:
   - Other-Tech
 ---

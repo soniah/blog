@@ -3,8 +3,6 @@ title: Firefox 3.6 – new tab opening order – fix
 author: Sonia Hamilton
 date: 2011-01-24
 url: /2011/01/25/firefox-3-6-new-tab-opening-order-fix/
-jabber_published:
-  - 1295912416
 categories:
   - Other-Tech
 tags:

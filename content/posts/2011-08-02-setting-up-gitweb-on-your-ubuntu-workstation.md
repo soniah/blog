@@ -3,8 +3,6 @@ title: Setting up Gitweb on your Ubuntu workstation
 author: Sonia Hamilton
 date: 2011-08-02
 url: /2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/
-jabber_published:
-  - 1312269996
 categories:
   - Linux
 tags:

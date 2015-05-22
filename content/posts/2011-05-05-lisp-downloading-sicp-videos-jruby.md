@@ -3,8 +3,6 @@ title: LISP – downloading SICP videos, JRuby
 author: Sonia Hamilton
 date: 2011-05-05
 url: /2011/05/05/lisp-downloading-sicp-videos-jruby/
-jabber_published:
-  - 1304588051
 categories:
   - Other-Tech
 tags:

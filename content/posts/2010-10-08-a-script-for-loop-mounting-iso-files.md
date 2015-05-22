@@ -3,8 +3,6 @@ title: A script for loop mounting .iso files
 author: Sonia Hamilton
 date: 2010-10-08
 url: /2010/10/08/a-script-for-loop-mounting-iso-files/
-jabber_published:
-  - 1286504212
 categories:
   - Linux
 tags:

@@ -3,8 +3,6 @@ title: Blown my iPhone data usage…
 author: Sonia Hamilton
 date: 2011-01-04
 url: /2011/01/04/blown-my-iphone-data-usage/
-jabber_published:
-  - 1294118312
 tagazine-media:
   - 'a:7:{s:7:"primary";s:0:"";s:6:"images";a:0:{}s:6:"videos";a:0:{}s:11:"image_count";s:1:"0";s:6:"author";s:7:"1173694";s:7:"blog_id";s:7:"1724069";s:9:"mod_stamp";s:19:"2011-01-04 05:33:31";}'
 categories:

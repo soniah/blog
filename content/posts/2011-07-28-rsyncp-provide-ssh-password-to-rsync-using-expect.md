@@ -3,8 +3,6 @@ title: rsyncp – provide ssh password to rsync using expect
 author: Sonia Hamilton
 date: 2011-07-28
 url: /2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/
-jabber_published:
-  - 1311839150
 categories:
   - Linux
 tags:

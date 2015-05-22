@@ -3,8 +3,6 @@ title: Solaris IP Multipathing – an example
 author: Sonia Hamilton
 date: 2010-11-09
 url: /2010/11/09/solaris-ip-multipathing-an-example/
-jabber_published:
-  - 1289285203
 categories:
   - Other-Tech
 tags:

@@ -3,8 +3,6 @@ title: Lisp and Python
 author: Sonia Hamilton
 date: 2011-03-27
 url: /2011/03/27/lisp-and-python/
-jabber_published:
-  - 1301197877
 categories:
   - Other-Tech
 tags:

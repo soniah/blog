@@ -3,8 +3,6 @@ title: Solaris – max of 100 cron jobs
 author: Sonia Hamilton
 date: 2011-05-09
 url: /2011/05/09/solaris-max-of-100-cron-jobs/
-jabber_published:
-  - 1304910570
 categories:
   - Other-Tech
 tags:

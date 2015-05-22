@@ -3,8 +3,6 @@ title: Ruby and Rails – Time, Date, DateTime, TZInfo
 author: Sonia Hamilton
 date: 2011-06-29
 url: /2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/
-jabber_published:
-  - 1309391731
 categories:
   - Other-Tech
 tags:

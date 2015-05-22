@@ -3,8 +3,6 @@ title: Clustering setup
 author: Sonia Hamilton
 date: 2011-07-06
 url: /2011/07/06/clustering-setup/
-jabber_published:
-  - 1309924321
 categories:
   - Other-Tech
 tags:
