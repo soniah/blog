@@ -15,7 +15,7 @@ tags:
 
 <!--more-->
 
-{{< highlight text >}}
+{{< highlight yaml >}}
 system:
     network.system:
       - enabled: True
@@ -36,12 +36,10 @@ sed -i "1s/.*/127.0.0.1 localhost $hn/" /etc/hosts
 
 Then apply it using cmd.script, for example:
 
-{{< highlight text >}}
+{{< highlight yaml >}}
 foo-hostname:
   cmd.script:
     - source: salt://soe/set_hostname.sh
     - args: foo.bar.com
     - unless: grep -q "foo.bar.com" /etc/hosts
 {{< /highlight >}}
-
-
