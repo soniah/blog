@@ -64,6 +64,25 @@
 
 <article class="post">
     <header>
+      <h2><a href='http://localhost:1313/posts/haskell-hole-driven-development/'> Haskell Hole Driven Development</a> </h2>
+      <div class="meta">22 May 2015</div>
+    </header>
+
+    <p>I just finished attending the excellent <a href="http://lambdajam.yowconference.com.au/">Brisbane YOW! Lambda
+Jam</a>. One of the really useful
+things I learned was &ldquo;Hole Driven Development&rdquo; for Haskell - basically
+using the type system to help you write a function</p>
+
+    <footer>
+        <a href='http://localhost:1313/posts/haskell-hole-driven-development/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
       <h2><a href='http://localhost:1313/posts/devops-and-old-git-branches/'> Devops and Old Git Branches</a> </h2>
       <div class="meta">25 Mar 2015</div>
     </header>
@@ -191,21 +210,6 @@
     I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
     <footer>
         <a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
-    </footer>
-</article>
-
-            
-            
-
-<article class="post">
-    <header>
-      <h2><a href='http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/'> Microsoft SQL 2012 SSIS Create Catalog Password</a> </h2>
-      <div class="meta">24 Dec 2013</div>
-    </header>
-
-    Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &ldquo;enable CLR&rdquo; and provide an &ldquo;encryption password&rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields. Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&rsquo;m not using a tablet, so why force a tablet interface down my throat?
-    <footer>
-        <a href='http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 

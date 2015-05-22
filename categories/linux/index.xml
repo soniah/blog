@@ -5,8 +5,57 @@
     <link>http://localhost:1313/categories/linux/</link>
     <description>Recent content in Linux on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 25 Mar 2015 00:10:58 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2015 00:09:49 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Haskell Hole Driven Development</title>
+      <link>http://localhost:1313/posts/haskell-hole-driven-development/</link>
+      <pubDate>Fri, 22 May 2015 00:09:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/haskell-hole-driven-development/</guid>
+      <description>&lt;p&gt;I just finished attending the excellent &lt;a href=&#34;http://lambdajam.yowconference.com.au/&#34;&gt;Brisbane YOW! Lambda
+Jam&lt;/a&gt;. One of the really useful
+things I learned was &amp;ldquo;Hole Driven Development&amp;rdquo; for Haskell - basically
+using the type system to help you write a function&lt;/p&gt;
+
+&lt;p&gt;Firstly, when writing a function, you can use placeholders that will
+allow code to compile (without producing error messages) while you&amp;rsquo;re
+working on other parts. The two placeholders are:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #bbbbbb&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;todo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(or&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;any&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;undefined&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The &amp;ldquo;hole driven&amp;rdquo; part involves using the underscore to get the
+compiler to print types:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;_undefined&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;_x&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;_foo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;For example if I used &lt;code&gt;_x&lt;/code&gt; then re-loaded my code in ghci, I would get
+output like:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;Found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hole&lt;/span&gt; &lt;span style=&#34;color: #a61717; background-color: #e3d2d2&#34;&gt;‘&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;_x&lt;/span&gt;&lt;span style=&#34;color: #a61717; background-color: #e3d2d2&#34;&gt;’&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;type:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;...&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;g2&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;31&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;s2&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;28&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;g1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;18&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;s1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;15&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Showing me that where I had &lt;code&gt;_x&lt;/code&gt; a type &lt;code&gt;a&lt;/code&gt; was expected, and that I already
+have functions &lt;code&gt;g2,s2,g1,s1&lt;/code&gt; that consume and produce (curry) given types.&lt;/p&gt;
+
+&lt;p&gt;See also the post and video by Matthew Brecknell &lt;a href=&#34;http://matthew.brecknell.net/post/hole-driven-haskell/&#34;&gt;Hole-driven
+Haskell&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Devops and Old Git Branches</title>
@@ -710,164 +759,6 @@ sudo ecryptfs-add-passphrase &amp;ndash;fnek&lt;/p&gt;
 [2] &lt;a href=&#34;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&#34;&gt;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&lt;/a&gt;
 [3] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory&lt;/a&gt;
 [4] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>git bisect run - example</title>
-      <link>http://localhost:1313/posts/git-bisect-run-example/</link>
-      <pubDate>Thu, 14 Mar 2013 23:55:06 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/git-bisect-run-example/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html&#34;&gt;Git bisect&lt;/a&gt; is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&amp;rsquo;s an example of automating the process using &lt;strong&gt;git bisect run&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;tl-dr:1dca976519824c917954d37e9d104a12&#34;&gt;tl;dr&lt;/h2&gt;
-
-&lt;p&gt;Using &lt;strong&gt;git bisect run&lt;/strong&gt; is easy if you&amp;rsquo;ve make small atomic commits and you have good tests. &lt;strong&gt;run&lt;/strong&gt; makes a large debug easier (compared to manually doing &lt;strong&gt;git bisect good&lt;/strong&gt; and &lt;strong&gt;git bisect bad&lt;/strong&gt;) - you&amp;rsquo;re less likely to make errors due to boredom. And run means you can use an iterative process - use rebase to split bad commits then just run again.&lt;/p&gt;
-
-&lt;h2 id=&#34;example:1dca976519824c917954d37e9d104a12&#34;&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was &lt;strong&gt;good&lt;/strong&gt;, but I&amp;rsquo;d added more features since good and now results were &lt;strong&gt;bad&lt;/strong&gt;. The first step was to write a shell script to be called from &lt;strong&gt;git bisect run&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
-% cat bisect.sh
-#!/bin/bash&lt;/p&gt;
-
-&lt;h1 id=&#34;copy-this-to-before-running-with-git-bisect-run-bisect-sh:1dca976519824c917954d37e9d104a12&#34;&gt;copy this to ~ before running with &lt;code&gt;git bisect run ~/bisect.sh&lt;/code&gt;&lt;/h1&gt;
-
-&lt;p&gt;cp ~/Makefile .
-make clean&lt;/p&gt;
-
-&lt;h1 id=&#34;make-modifies-manpage-output-so-stash-after-build:1dca976519824c917954d37e9d104a12&#34;&gt;make modifies manpage output, so stash after build&lt;/h1&gt;
-
-&lt;p&gt;if make &amp;amp;&amp;gt; /dev/null ; then
-    git stash
-    git stash clear
-else
-    git stash
-    git stash clear
-    exit 125
-fi&lt;/p&gt;
-
-&lt;p&gt;sudo cat /var/tmp/empty &amp;gt; /var/log/abc/abc-poller.log
-sudo ./abc-poller &amp;ndash;tmp &amp;ndash;once -d 2 -c 150 || exit 125
-echo &amp;ldquo;=== poller finished&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;percent=&lt;code&gt;godir=/var/tmp/data/abcmon/poll_queue/new ~/checker | \
-  tail -1 | awk &#39;{print $5}&#39; | awk -F. &#39;{print $1}&#39;&lt;/code&gt;
-echo &amp;ldquo;=== percent is $percent&amp;rdquo;
-(( percent &amp;lt; 5 ))
-[/sourcecode]&lt;/p&gt;
-
-&lt;p&gt;Things that make writing the test script easier:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;first get it working outside of &lt;strong&gt;git bisect run&lt;/strong&gt; - usually means echoing results along the way&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;already having a test suite that produces a quantified pass/fail output, In my case the I had already written the checker program, whose last line of output contained a &amp;ldquo;percentage failure&amp;rdquo; figure&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Next step was having an abbreviated log of commits to refer to:&lt;/p&gt;
-
-&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
-% git log &amp;ndash;oneline
-f00f232 sql.go - better debugging       # bad&lt;br /&gt;
-9780d44 dummy .gitignore, so out dir preserved
-0de0796 Makefile for nsch1abcs01
-a2f6c96 defaults - 20 workers, udp 15
-b8ee3d9 GOMAXPROCS()
-04f21ba start v0.0.2
-dbc6a60 Makefile: Jenkins as default for env vars
-557a5e3 more work on stats
-ef6a453 remove excessive debugging
-ccc4644 remove file buffering - wasn&amp;rsquo;t writing..???
-98bf4b1 stats write failing
-9a9682d move type queue_t struct
-467aeed buffered writes for queue file
-148a8cc stats: + device_run, device_ok
-c61be42 done chan *Stats_t; calculate_value() bool
-0e41461 debugging - print out device_id as %5s
-7cbe167 default workers 5000, correct stop/start commands
-544e8d7 gather statistics
-6990cf2 rename data chan to device_id
-5e8562b rename sql -&amp;gt; sqlconn; global var
-fd52d89 remove dead code
-4d7b9b1 device_for() - err if count != 1
-6ceb305 deb: fail if version main.go isn&amp;rsquo;t same changelog
-5ce1855 deb: rules producing abc-poller_0.0.1_amd64.deb
-db5bff4 deb: cleaned up Makefile, roffs
-76674c2 JSON -&amp;gt; SQL; version 0.0.1
-4cf198e deb: basic removal of 64 references
-d980f26 deb: rename 64 to vanilla
-b933570 deb: remove 32 bit stuff
-970bd82 current debug level is 2; adjust output
-70f8921 Revert &amp;ldquo;deb build - don&amp;rsquo;t init, cron while testing&amp;rdquo;
-855ce00 default debug is 2; misc tidy
-f3d80e1 remove timeoutOpt - no longer used
-48ced38 misc tidys before release
-a3fe13c runonceOpt, revert cycling code  # good
-24cd998 use passed in udpOpt
-5ca1830 remove stash/sender.old.go
-06b9566 remove gsnmpgo; use gosnmp
-bffd430 rules: add note about &amp;ldquo;too many open files&amp;rdquo;
-[/sourcecode]&lt;/p&gt;
-
-&lt;p&gt;Mark bad and good, start the run, go and have a coffee :-)&lt;/p&gt;
-
-&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
-% git bisect start f00f232 a3fe13c
-% git bisect run ~/bisect.sh&lt;/p&gt;
-
-&lt;h1 id=&#34;lots-of-output:1dca976519824c917954d37e9d104a12&#34;&gt;lots of output&lt;/h1&gt;
-
-&lt;p&gt;[/sourcecode]&lt;/p&gt;
-
-&lt;p&gt;I get the result that the ominously named &lt;strong&gt;557a5e3 more work on stats&lt;/strong&gt; is the first bad commit - I remember it as one of those large &amp;ldquo;kitchen sink&amp;rdquo; commits done at the end of the day. So &amp;ldquo;first rule of fightclub git&amp;rdquo; remembered - &lt;strong&gt;always do small atomic commits&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;I have a useful shell function &lt;strong&gt;gri()&lt;/strong&gt; - I used that to interactively rebase and break up 557a5e3 into many small commits:&lt;/p&gt;
-
-&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
-gri () {
-  git rebase -i HEAD~${1:-7}
-}
-[/sourcecode]&lt;/p&gt;
-
-&lt;p&gt;After rebasing git log looked like this - notice the many small commits named &amp;ldquo;bisect1&amp;rdquo; etc:&lt;/p&gt;
-
-&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
-382b3ee defaults - 20 workers, udp 15
-11db314 GOMAXPROCS()
-4b547ea start v0.0.2
-c92feef Makefile: Jenkins as default for env vars
-8fcc595 bisect6: calc/noncalc
-ad3a18f bisect5: tweak debug msgs
-311bb8d bisect4: mv stats init
-957c234 bisect3: remove stats from send_gosnmp()
-3c01d62 bisect2: use Add(); Calcs/NonCalcs
-947cb27 bisect1: move Stats_t; Add()
-ef6a453 remove excessive debugging
-ccc4644 remove file buffering - wasn&amp;rsquo;t writing..???
-98bf4b1 stats write failing
-[/sourcecode]&lt;/p&gt;
-
-&lt;p&gt;And here&amp;rsquo;s the real win of writing bisect.sh - you can just keep rebasing and running until you&amp;rsquo;ve narrowed down the bad code to a few lines:&lt;/p&gt;
-
-&lt;p&gt;[sourcecode language=&amp;ldquo;shell&amp;rdquo;]
-=== poller finished
-=== percent is 49
-947cb27fd57642dc545ee23090d7ae8fd8b14b3f is the first bad commit
-commit 947cb27fd57642dc545ee23090d7ae8fd8b14b3f
-Author: Sonia Hamilton &lt;a href=&#34;mailto:sonia@snowfrog.net&#34;&gt;sonia@snowfrog.net&lt;/a&gt;
-Date:   Thu Mar 14 10:02:42 2013 +1100&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;bisect1: move Stats_t; Add()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;[/sourcecode]&lt;/p&gt;
-
-&lt;p&gt;I do another interactive rebase, fix the logic error, and then HEAD is good.&lt;/p&gt;
 </description>
     </item>
     
