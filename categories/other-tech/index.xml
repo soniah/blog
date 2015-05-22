@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Other Tech on Sonia Hamilton - Blog</title>
-    <link>http://localhost:1313/categories/other-tech/</link>
+    <link>http://blog2.snowfrog.net/categories/other-tech/</link>
     <description>Recent content in Other Tech on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 07 Jan 2014 01:01:23 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/other-tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog2.snowfrog.net/categories/other-tech/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Split() function for Microsoft MSSQL</title>
-      <link>http://localhost:1313/posts/split-function-for-microsoft-mssql/</link>
+      <link>http://blog2.snowfrog.net/posts/split-function-for-microsoft-mssql/</link>
       <pubDate>Tue, 07 Jan 2014 01:01:23 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/split-function-for-microsoft-mssql/</guid>
+      <guid>http://blog2.snowfrog.net/posts/split-function-for-microsoft-mssql/</guid>
       <description>
 
 &lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote. It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
@@ -80,10 +80,10 @@ select dbo.split(&amp;lsquo;aa,bb,cc&amp;rsquo;, &amp;lsquo;,&amp;rsquo;, 4)&lt;
     
     <item>
       <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
-      <link>http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/</link>
+      <link>http://blog2.snowfrog.net/posts/mysql-substring_index-function-on-microsoft-mssql/</link>
       <pubDate>Mon, 06 Jan 2014 06:34:22 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/</guid>
+      <guid>http://blog2.snowfrog.net/posts/mysql-substring_index-function-on-microsoft-mssql/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt; function. Here&amp;rsquo;s a version I _quickly _implemented, called &amp;ldquo;my_substring_index&amp;rdquo;.&lt;/p&gt;
@@ -150,10 +150,10 @@ END&lt;/p&gt;
     
     <item>
       <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
-      <link>http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/</link>
+      <link>http://blog2.snowfrog.net/posts/microsoft-sql-2012-ssis-create-catalog-password/</link>
       <pubDate>Tue, 24 Dec 2013 02:55:41 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/microsoft-sql-2012-ssis-create-catalog-password/</guid>
+      <guid>http://blog2.snowfrog.net/posts/microsoft-sql-2012-ssis-create-catalog-password/</guid>
       <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption password&amp;rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields.&lt;/p&gt;
 
 &lt;p&gt;Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why force a tablet interface down my throat? Sort of reminds me of Ubuntu Unity). Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
@@ -175,10 +175,10 @@ GO
     
     <item>
       <title>OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</title>
-      <link>http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
+      <link>http://blog2.snowfrog.net/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
       <pubDate>Sun, 22 Dec 2013 11:10:07 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
+      <guid>http://blog2.snowfrog.net/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
       <description>&lt;p&gt;When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&amp;rsquo;ll get an error in the console log like:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Unable to copy file foo to /var/private/bar&amp;hellip;&lt;/em&gt;&lt;/p&gt;
@@ -220,10 +220,10 @@ rm -rf *
     
     <item>
       <title>Change your passwords</title>
-      <link>http://localhost:1313/posts/change-your-passwords/</link>
+      <link>http://blog2.snowfrog.net/posts/change-your-passwords/</link>
       <pubDate>Wed, 13 Jun 2012 01:55:35 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/change-your-passwords/</guid>
+      <guid>http://blog2.snowfrog.net/posts/change-your-passwords/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve written this post for the non-technical people I do &amp;ldquo;tech support&amp;rdquo; for.&lt;/p&gt;
 
 &lt;p&gt;Do you use the &lt;em&gt;same&lt;/em&gt; password on different websites? Or, the same password with &lt;em&gt;slight variations&lt;/em&gt; (for example &lt;strong&gt;secret-abc&lt;/strong&gt; on website &lt;strong&gt;abc.com&lt;/strong&gt; and &lt;strong&gt;secret-xyz&lt;/strong&gt; on website &lt;strong&gt;xyz.com&lt;/strong&gt;). Or, do you make your password &amp;ldquo;secure&amp;rdquo; (it&amp;rsquo;s not) by changing one of the letters for a number or symbol (eg &lt;strong&gt;secret&lt;/strong&gt; becomes &lt;strong&gt;s3cret&lt;/strong&gt;, &lt;strong&gt;password&lt;/strong&gt; becomes &lt;strong&gt;p@ssword&lt;/strong&gt;).&lt;/p&gt;
@@ -268,10 +268,10 @@ rm -rf *
     
     <item>
       <title>Emacs Paredit Notes for OSX</title>
-      <link>http://localhost:1313/posts/emacs-paredit-notes-for-osx/</link>
+      <link>http://blog2.snowfrog.net/posts/emacs-paredit-notes-for-osx/</link>
       <pubDate>Sat, 02 Jun 2012 10:58:47 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/emacs-paredit-notes-for-osx/</guid>
+      <guid>http://blog2.snowfrog.net/posts/emacs-paredit-notes-for-osx/</guid>
       <description>&lt;p&gt;Some notes on &lt;a href=&#34;http://emacswiki.org/emacs/ParEdit&#34;&gt;Emacs&amp;rsquo; Paredit mode&lt;/a&gt;. More so I can stop fighting with Paredit and do some &lt;strong&gt;Clojure&lt;/strong&gt; programming than show any expertise - see &lt;a href=&#34;http://www.slideshare.net/mudphone/paredit-preso&#34;&gt;Mudphone&amp;rsquo;s Paredit Preso&lt;/a&gt; for the real deal, as well as &lt;a href=&#34;http://p.hagelb.org/paredit-screencast.html&#34;&gt;hagelb&amp;rsquo;s Paredit screencast notes&lt;/a&gt; and the &lt;a href=&#34;http://www.emacswiki.org/pics/static/PareditCheatsheet.png&#34;&gt;Paredit Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -323,10 +323,10 @@ rm -rf *
     
     <item>
       <title>Backup multiple MySQL databases into separate files – Windows</title>
-      <link>http://localhost:1313/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
       <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux). I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
 
 &lt;pre&gt;:: MySQl DB user
@@ -352,10 +352,10 @@ FOR /D %%F IN (*) DO (
     
     <item>
       <title>WordPress Clear Line Theme – Previous Page Newer Posts</title>
-      <link>http://localhost:1313/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
+      <link>http://blog2.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
       <pubDate>Mon, 30 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
+      <guid>http://blog2.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
       <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;#8211; you need to edit the following four files:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -383,10 +383,10 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
     
     <item>
       <title>WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</title>
-      <link>http://localhost:1313/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
+      <link>http://blog2.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
       <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
+      <guid>http://blog2.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
       <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;#8220;Site Admin&amp;#8221;, &amp;#8220;Login&amp;#8221;, &amp;#8220;Entries RSS&amp;#8221;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;#8217;s a slight security risk (though hiding it won&amp;#8217;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;#8217;re running WordPress).&lt;/p&gt;
@@ -433,10 +433,10 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
     
     <item>
       <title>WordPress Clear Line Theme – Display Tags not Categories</title>
-      <link>http://localhost:1313/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
+      <link>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
       <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
+      <guid>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
       <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;#8217;t have a way of modifying it&amp;#8217;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
 
 &lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;
@@ -455,10 +455,10 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
     
     <item>
       <title>Migrating from Palm to Android</title>
-      <link>http://localhost:1313/2012/01/17/migrating-from-palm-to-android/</link>
+      <link>http://blog2.snowfrog.net/2012/01/17/migrating-from-palm-to-android/</link>
       <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2012/01/17/migrating-from-palm-to-android/</guid>
+      <guid>http://blog2.snowfrog.net/2012/01/17/migrating-from-palm-to-android/</guid>
       <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;#8217;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;#8217;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
 
 &lt;p&gt;Some tricks and tools I&amp;#8217;ve find useful in my migration from Palm to Android:&lt;/p&gt;
@@ -477,10 +477,10 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
     
     <item>
       <title>ssh, sudo, tty, shell</title>
-      <link>http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/</link>
+      <link>http://blog2.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</link>
       <pubDate>Thu, 14 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2011/07/14/ssh-sudo-tty-shell/</guid>
+      <guid>http://blog2.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</guid>
       <description>&lt;p&gt;A nice little script snippet I like to remember for automating quick stuff across multiple hosts. &lt;strong&gt;-t&lt;/strong&gt; forces tty (so sudo will work); &lt;strong&gt;-q&lt;/strong&gt; quiet &amp;#8211; disable banners; &lt;strong&gt;-c&lt;/strong&gt; script (&amp;#8220;command&amp;#8221;) to su. Presumes sudo doesn&amp;#8217;t prompt for a password; otherwise, see &lt;a href=&#34;http://www.nist.gov/el/msid/expect.cfm&#34;&gt;Expect&lt;/a&gt; and &lt;a href=&#34;http://oreilly.com/catalog/9781565920903&#34;&gt;Exploring Expect&lt;/a&gt; :-)&lt;/p&gt;
 
 &lt;pre&gt;for h in $hosts ; do
@@ -492,10 +492,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>Clustering setup</title>
-      <link>http://localhost:1313/2011/07/06/clustering-setup/</link>
+      <link>http://blog2.snowfrog.net/2011/07/06/clustering-setup/</link>
       <pubDate>Wed, 06 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2011/07/06/clustering-setup/</guid>
+      <guid>http://blog2.snowfrog.net/2011/07/06/clustering-setup/</guid>
       <description>&lt;p&gt;A nice &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2011/06/msg00014.html&#34;&gt;post&lt;/a&gt; from Jake on the SLUG list where he asks about a small clustering setup:&lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
@@ -546,10 +546,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>Ruby and Rails – Time, Date, DateTime, TZInfo</title>
-      <link>http://localhost:1313/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
+      <link>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
       <pubDate>Wed, 29 Jun 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
+      <guid>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
       <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;#8211; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;#8211; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
 
 &lt;p style=&#34;padding-left: 30px;&#34;&gt;
@@ -568,10 +568,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>OSX, iPhone, iTunes – finer grained syncing</title>
-      <link>http://localhost:1313/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</link>
+      <link>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</link>
       <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
+      <guid>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
       <description>&lt;p&gt;iTunes&amp;#8217; syncing of movies and podcasts is a big lame &amp;#8211; there&amp;#8217;s not enough fine grained control. For example, you can&amp;#8217;t say &amp;#8220;sync only this category of movies&amp;#8221;, or &amp;#8220;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;#8217;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;#8220;. And at the moment I don&amp;#8217;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;#8217;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
 
 &lt;p&gt;One work around I&amp;#8217;ve found is to categorise as much media as possible as either &amp;#8220;Music&amp;#8221; or &amp;#8220;Music Videos&amp;#8221;. You can then work with playlists and &amp;#8220;smart&amp;#8221; (sic) playlists to get a bit more control.&lt;/p&gt;

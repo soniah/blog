@@ -5,16 +5,16 @@
 <head>
     
     <meta charset="utf-8">
-    <base href="http://localhost:1313/">
+    <base href="http://blog2.snowfrog.net">
     <title>Sonia Hamilton - Blog</title>
-    <link rel="canonical" href="http://localhost:1313/">
-    <link href="http://localhost:1313/index.xml" rel="alternate" type="application/rss+xml" title="Sonia Hamilton - Blog" />
+    <link rel="canonical" href="http://blog2.snowfrog.net/">
+    <link href="http://blog2.snowfrog.net/index.xml" rel="alternate" type="application/rss+xml" title="Sonia Hamilton - Blog" />
 
     
 
-<link rel="stylesheet" href="http://localhost:1313/css/poole.css">
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
 
-<link rel="stylesheet" href="http://localhost:1313/css/lanyon.css">
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
 
 </head>
@@ -29,10 +29,10 @@
 <div class="sidebar" id="sidebar">
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item" href="http://localhost:1313/">Home</a>
-    <a class="sidebar-nav-item" href="http://localhost:1313/posts">Posts by Date</a>
-    <a class="sidebar-nav-item" href="http://localhost:1313/categories">Posts by Category</a>
-    <a class="sidebar-nav-item" href="http://localhost:1313/tags">Posts by Tag</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Posts by Date</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/tags">Posts by Tag</a>
   </nav>
 
   <div class="sidebar-item">
@@ -48,7 +48,7 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="http://localhost:1313/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+            <a href="http://blog2.snowfrog.net/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
           </h3>
         </div>
       </div>
@@ -64,7 +64,7 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/haskell-hole-driven-development/'> Haskell Hole Driven Development</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/haskell-hole-driven-development/'> Haskell Hole Driven Development</a> </h2>
       <div class="meta">22 May 2015</div>
     </header>
 
@@ -74,7 +74,7 @@ things I learned was &ldquo;Hole Driven Development&rdquo; for Haskell - basical
 using the type system to help you write a function</p>
 
     <footer>
-        <a href='http://localhost:1313/posts/haskell-hole-driven-development/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/haskell-hole-driven-development/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -83,13 +83,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/devops-and-old-git-branches/'> Devops and Old Git Branches</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/devops-and-old-git-branches/'> Devops and Old Git Branches</a> </h2>
       <div class="meta">25 Mar 2015</div>
     </header>
 
     A guest blog post I wrote on managing git branches when doing devops. When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using Puppet and R10K for your configuration management you can end up having hundreds of old branches lying around — branches like XYZ-123, XYZ-123.fixed, XYZ-123.fixed.old and so on.
     <footer>
-        <a href='http://localhost:1313/posts/devops-and-old-git-branches/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/devops-and-old-git-branches/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -98,13 +98,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/saltstack-ubuntu-hostname/'> SaltStack Ubuntu Hostname</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/saltstack-ubuntu-hostname/'> SaltStack Ubuntu Hostname</a> </h2>
       <div class="meta">18 Jan 2015</div>
     </header>
 
     SaltStack currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work: [sourcecode lang=&ldquo;text&rdquo;] system: network.system: - enabled: True - hostname: server1.example.com [/sourcecode] Here&rsquo;s a little shell script I wrote, to get around this problem: [sourcecode lang=&ldquo;shell&rdquo;] % cat set_hostname.sh #!/bin/bash hn=$1 hostname $hn echo $hn &gt; /etc/hostname sed -i &ldquo;1s/.*/127.0.0.1 localhost $hn/&rdquo; /etc/hosts [/sourcecode] Then apply it using cmd.script, for example: [sourcecode lang=&ldquo;text&rdquo;] foo-hostname: cmd.script: - source:
     <footer>
-        <a href='http://localhost:1313/posts/saltstack-ubuntu-hostname/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/saltstack-ubuntu-hostname/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -113,13 +113,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/terraform-presentation/'> Terraform Presentation</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/terraform-presentation/'> Terraform Presentation</a> </h2>
       <div class="meta">13 Jan 2015</div>
     </header>
 
     Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.
     <footer>
-        <a href='http://localhost:1313/posts/terraform-presentation/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/terraform-presentation/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -128,13 +128,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/building-the-development-version-of-terraform/'> Building the development version of Terraform</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/building-the-development-version-of-terraform/'> Building the development version of Terraform</a> </h2>
       <div class="meta">3 Dec 2014</div>
     </header>
 
     Instructions on how to build the development version of Terraform. First you need to install Go, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (go-bindata, lint) and my own projects (gosnmp, evaler). [sourcecode lang=&ldquo;shell&rdquo;] #!/bin/bash install go tgz=go1.3.3.linux-amd64.tar.gz url=https://storage.googleapis.com/golang/$tgz if ! [ -f /var/tmp/$tgz ] ; then cd /var/tmp wget $url fi if ! [ -d /usr/local/go ] ; then sudo tar -C /usr/local -xzf /var/tmp/$tgz fi setup dev directory structure mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src} cd ~/go/thirdparty/src #&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; read -p &ldquo;Install third party repos?
     <footer>
-        <a href='http://localhost:1313/posts/building-the-development-version-of-terraform/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/building-the-development-version-of-terraform/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -143,13 +143,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'> Git and mercurial abort: revision cannot be pushed</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'> Git and mercurial abort: revision cannot be pushed</a> </h2>
       <div class="meta">29 Sep 2014</div>
     </header>
 
     I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git. First install the hg-git tools; for example on Ubuntu: [sourcecode lang=&ldquo;shell&rdquo;] sudo aptitude install python-setuptools python-dev sudo easy_install hg-git [/sourcecode] Make sure the following is in your ~/.hgrc: [sourcecode lang=&ldquo;shell&rdquo;] [extensions] hgext.bookmarks = hggit = [/sourcecode] Then, in your existing mercurial repository, add a new remote that points to the git repository.
     <footer>
-        <a href='http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -158,13 +158,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/saltstack-essential-reading/'> SaltStack Essential Reading</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/saltstack-essential-reading/'> SaltStack Essential Reading</a> </h2>
       <div class="meta">23 Sep 2014</div>
     </header>
 
     A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others. How Do I Use Salt States, States tutorial and Pillar Walkthrough - the tutorials Highstate data structure definitions and Understanding YAML - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc Requisites and Other Global State Arguments - do something before something else,
     <footer>
-        <a href='http://localhost:1313/posts/saltstack-essential-reading/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/saltstack-essential-reading/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -173,13 +173,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/setup-arduino-on-debian/'> Setup Arduino on Debian</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/setup-arduino-on-debian/'> Setup Arduino on Debian</a> </h2>
       <div class="meta">26 Feb 2014</div>
     </header>
 
     Some notes on setting up Arduino on Debian. Add yourself to the required groups - dialout and tty. [sourcecode lang=&ldquo;shell&rdquo;] sudo adduser $USER dialout sudo adduser $USER tty [/sourcecode] Confirm the port /dev/ttyUSB0 is being used by Arduino - tail messages then plug in the Arduino. [sourcecode lang=&ldquo;shell&rdquo;] sudo tail -f /var/log/messages you should see something like: FTDI USB Serial Device converter now attached to ttyUSB0 out of interest, inspect permissions on port ls -al /dev/ttyUSB0 [/sourcecode] Logout and login (or run a login shell).
     <footer>
-        <a href='http://localhost:1313/posts/setup-arduino-on-debian/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/setup-arduino-on-debian/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -188,13 +188,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/split-function-for-microsoft-mssql/'> Split() function for Microsoft MSSQL</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/split-function-for-microsoft-mssql/'> Split() function for Microsoft MSSQL</a> </h2>
       <div class="meta">7 Jan 2014</div>
     </header>
 
     Microsoft MSSQL doesn&rsquo;t have a split() function (like in Ruby, Perl), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item. [sourcecode lang=&ldquo;sql&rdquo;] CREATE FUNCTION [dbo].split, @delimiter CHAR(1), @pos
     <footer>
-        <a href='http://localhost:1313/posts/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -203,13 +203,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'> MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/posts/mysql-substring_index-function-on-microsoft-mssql/'> MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> </h2>
       <div class="meta">6 Jan 2014</div>
     </header>
 
     I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
     <footer>
-        <a href='http://localhost:1313/posts/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/posts/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -239,10 +239,10 @@ using the type system to help you write a function</p>
 <footer>
   <div>
     <p class="right credit">
-    <a href="http://localhost:1313/">Home</a>&nbsp;&nbsp;
-    <a href="http://localhost:1313/posts">Posts by Date</a>&nbsp;&nbsp;
-    <a href="http://localhost:1313/categories">Posts by Category</a>&nbsp;&nbsp;
-    <a href="http://localhost:1313/tags">Posts by Tag</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/">Home</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/tags">Posts by Tag</a>&nbsp;&nbsp;
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
     </p>
   </div>
@@ -263,9 +263,6 @@ using the type system to help you write a function</p>
 </script>
 
 
-<script data-no-instant>document.write('<script src="http://'
-        + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10"></'
-        + 'script>')</script></body>
+</body>
 </html>
 

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Sonia Hamilton - Blog</title>
-    <link>http://localhost:1313/categories/linux/</link>
+    <link>http://blog2.snowfrog.net/categories/linux/</link>
     <description>Recent content in Linux on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 22 May 2015 00:09:49 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog2.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Haskell Hole Driven Development</title>
-      <link>http://localhost:1313/posts/haskell-hole-driven-development/</link>
+      <link>http://blog2.snowfrog.net/posts/haskell-hole-driven-development/</link>
       <pubDate>Fri, 22 May 2015 00:09:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/haskell-hole-driven-development/</guid>
+      <guid>http://blog2.snowfrog.net/posts/haskell-hole-driven-development/</guid>
       <description>&lt;p&gt;I just finished attending the excellent &lt;a href=&#34;http://lambdajam.yowconference.com.au/&#34;&gt;Brisbane YOW! Lambda
 Jam&lt;/a&gt;. One of the really useful
 things I learned was &amp;ldquo;Hole Driven Development&amp;rdquo; for Haskell - basically
@@ -59,10 +59,10 @@ Haskell&lt;/a&gt;.&lt;/p&gt;
     
     <item>
       <title>Devops and Old Git Branches</title>
-      <link>http://localhost:1313/posts/devops-and-old-git-branches/</link>
+      <link>http://blog2.snowfrog.net/posts/devops-and-old-git-branches/</link>
       <pubDate>Wed, 25 Mar 2015 00:10:58 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/devops-and-old-git-branches/</guid>
+      <guid>http://blog2.snowfrog.net/posts/devops-and-old-git-branches/</guid>
       <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
 
 &lt;p&gt;When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and R10K&lt;/a&gt; for your configuration management you can end up having hundreds of old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on. Which branches to cleanup, which to keep? How to easily cleanup the old branches? This article demonstrates some git configurations and scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;/p&gt;
@@ -73,10 +73,10 @@ Haskell&lt;/a&gt;.&lt;/p&gt;
     
     <item>
       <title>SaltStack Ubuntu Hostname</title>
-      <link>http://localhost:1313/posts/saltstack-ubuntu-hostname/</link>
+      <link>http://blog2.snowfrog.net/posts/saltstack-ubuntu-hostname/</link>
       <pubDate>Sun, 18 Jan 2015 11:56:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/saltstack-ubuntu-hostname/</guid>
+      <guid>http://blog2.snowfrog.net/posts/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
 &lt;p&gt;[sourcecode lang=&amp;ldquo;text&amp;rdquo;]
@@ -112,20 +112,20 @@ foo-hostname:
     
     <item>
       <title>Terraform Presentation</title>
-      <link>http://localhost:1313/posts/terraform-presentation/</link>
+      <link>http://blog2.snowfrog.net/posts/terraform-presentation/</link>
       <pubDate>Tue, 13 Jan 2015 11:18:01 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/terraform-presentation/</guid>
+      <guid>http://blog2.snowfrog.net/posts/terraform-presentation/</guid>
       <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Building the development version of Terraform</title>
-      <link>http://localhost:1313/posts/building-the-development-version-of-terraform/</link>
+      <link>http://blog2.snowfrog.net/posts/building-the-development-version-of-terraform/</link>
       <pubDate>Wed, 03 Dec 2014 23:29:07 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/building-the-development-version-of-terraform/</guid>
+      <guid>http://blog2.snowfrog.net/posts/building-the-development-version-of-terraform/</guid>
       <description>
 
 &lt;p&gt;Instructions on how to build the development version of &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;.&lt;/p&gt;
@@ -231,10 +231,10 @@ $ make dev&lt;/p&gt;
     
     <item>
       <title>Git and mercurial abort: revision cannot be pushed</title>
-      <link>http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
+      <link>http://blog2.snowfrog.net/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
       <pubDate>Mon, 29 Sep 2014 00:34:34 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
+      <guid>http://blog2.snowfrog.net/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.&lt;/p&gt;
@@ -303,10 +303,10 @@ hggitpush foogit      # defaults to pushing to master
     
     <item>
       <title>SaltStack Essential Reading</title>
-      <link>http://localhost:1313/posts/saltstack-essential-reading/</link>
+      <link>http://blog2.snowfrog.net/posts/saltstack-essential-reading/</link>
       <pubDate>Tue, 23 Sep 2014 05:48:30 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/saltstack-essential-reading/</guid>
+      <guid>http://blog2.snowfrog.net/posts/saltstack-essential-reading/</guid>
       <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -325,10 +325,10 @@ hggitpush foogit      # defaults to pushing to master
     
     <item>
       <title>Setup Arduino on Debian</title>
-      <link>http://localhost:1313/posts/setup-arduino-on-debian/</link>
+      <link>http://blog2.snowfrog.net/posts/setup-arduino-on-debian/</link>
       <pubDate>Wed, 26 Feb 2014 22:17:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/setup-arduino-on-debian/</guid>
+      <guid>http://blog2.snowfrog.net/posts/setup-arduino-on-debian/</guid>
       <description>
 
 &lt;p&gt;Some notes on setting up Arduino on Debian.&lt;/p&gt;
@@ -386,10 +386,10 @@ cd ~/arduino-1.0.5
     
     <item>
       <title>Change default editor in Debian</title>
-      <link>http://localhost:1313/posts/change-default-editor-in-debian/</link>
+      <link>http://blog2.snowfrog.net/posts/change-default-editor-in-debian/</link>
       <pubDate>Tue, 24 Dec 2013 02:33:38 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/change-default-editor-in-debian/</guid>
+      <guid>http://blog2.snowfrog.net/posts/change-default-editor-in-debian/</guid>
       <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
@@ -400,10 +400,10 @@ cd ~/arduino-1.0.5
     
     <item>
       <title>ZFS List Snapshots, Create and Destroy Clones</title>
-      <link>http://localhost:1313/posts/zfs-list-snapshots-create-and-destroy-clones/</link>
+      <link>http://blog2.snowfrog.net/posts/zfs-list-snapshots-create-and-destroy-clones/</link>
       <pubDate>Sat, 14 Dec 2013 02:45:56 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/zfs-list-snapshots-create-and-destroy-clones/</guid>
+      <guid>http://blog2.snowfrog.net/posts/zfs-list-snapshots-create-and-destroy-clones/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;m using &lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, &lt;a href=&#34;http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line&#34;&gt;as always the shell is faster&lt;/a&gt;.&lt;/p&gt;
@@ -433,10 +433,10 @@ rmdir auto-20131214.12d&lt;/p&gt;
     
     <item>
       <title>convert LibreOffice (OpenOffice) .ods files to .csv command line</title>
-      <link>http://localhost:1313/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
+      <link>http://blog2.snowfrog.net/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
       <pubDate>Mon, 04 Nov 2013 03:05:13 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
+      <guid>http://blog2.snowfrog.net/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
       <description>&lt;p&gt;How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;soffice --headless --convert-to csv test.ods&lt;/code&gt;&lt;/p&gt;
@@ -449,10 +449,10 @@ rmdir auto-20131214.12d&lt;/p&gt;
     
     <item>
       <title>debfoster - keeping a Debian system small</title>
-      <link>http://localhost:1313/posts/debfoster-keeping-a-debian-system-small/</link>
+      <link>http://blog2.snowfrog.net/posts/debfoster-keeping-a-debian-system-small/</link>
       <pubDate>Sun, 21 Jul 2013 02:12:41 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/debfoster-keeping-a-debian-system-small/</guid>
+      <guid>http://blog2.snowfrog.net/posts/debfoster-keeping-a-debian-system-small/</guid>
       <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;. I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;debfoster has a more elaborate approach, very similar to aptitude&amp;rsquo;s: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation. If new packages appear on the system and if debfoster doesn&amp;rsquo;t know them as required packages, they will be shown on the screen together with a list of their dependencies. The program then offers a choice: remove the package (possibly together with those that depend on it), mark it as explicitly required, or ignore it temporarily.&lt;/em&gt;&lt;/p&gt;
@@ -497,10 +497,10 @@ rmdir auto-20131214.12d&lt;/p&gt;
     
     <item>
       <title>Golang - building with Makefile and Jenkins</title>
-      <link>http://localhost:1313/posts/golang-building-with-makefile-and-jenkins/</link>
+      <link>http://blog2.snowfrog.net/posts/golang-building-with-makefile-and-jenkins/</link>
       <pubDate>Tue, 18 Jun 2013 01:30:01 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/golang-building-with-makefile-and-jenkins/</guid>
+      <guid>http://blog2.snowfrog.net/posts/golang-building-with-makefile-and-jenkins/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins. I was unfamiliar with Jenkins, and there didn&amp;rsquo;t seem to be any documentation around on how to build Go executables.&lt;/p&gt;
@@ -594,10 +594,10 @@ build-stamp: file1.go file2.go file3.go
     
     <item>
       <title>Golang - profiling libraries and GoSNMP for SNMP</title>
-      <link>http://localhost:1313/posts/golang-profiling-libraries-and-gosnmp-for-snmp/</link>
+      <link>http://blog2.snowfrog.net/posts/golang-profiling-libraries-and-gosnmp-for-snmp/</link>
       <pubDate>Mon, 03 Jun 2013 01:52:09 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/golang-profiling-libraries-and-gosnmp-for-snmp/</guid>
+      <guid>http://blog2.snowfrog.net/posts/golang-profiling-libraries-and-gosnmp-for-snmp/</guid>
       <description>
 
 &lt;p&gt;There is already a great article on &lt;a href=&#34;blog.golang.org/2011/06/profiling-go-programs.html&#34;&gt;Profiling Go Programs&lt;/a&gt;. However that article only discusses how to profile a standalone binary - what about a library?&lt;/p&gt;
@@ -635,10 +635,10 @@ build-stamp: file1.go file2.go file3.go
     
     <item>
       <title>Ubuntu - HowTo Recover Encrypted Home Directory</title>
-      <link>http://localhost:1313/posts/ubuntu-howto-recover-encrypted-home-directory/</link>
+      <link>http://blog2.snowfrog.net/posts/ubuntu-howto-recover-encrypted-home-directory/</link>
       <pubDate>Mon, 03 Jun 2013 01:42:46 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/ubuntu-howto-recover-encrypted-home-directory/</guid>
+      <guid>http://blog2.snowfrog.net/posts/ubuntu-howto-recover-encrypted-home-directory/</guid>
       <description>
 
 &lt;p&gt;There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below). These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.&lt;/p&gt;
