@@ -58,7 +58,9 @@
       <h1 class="post-title">Ruby on Rails select_tag default value</h1>
         <section id="main">
           <h5 id="date"> 2 Mar 2009 </h5>
-          <p>When using the Rails helper <strong>select_tag</strong>, the selected value (ie highlighted value) is a parameter to <strong>options_for_select</strong>, not select_tag. Eg:</p>
+          <p>When using the Rails helper <strong>select_tag</strong>, the selected value (ie highlighted value) is a parameter to <strong>options_for_select</strong>, not select_tag.</p>
+
+<p>Eg:</p>
 
 <pre>Number of Rows: &lt;%= select_tag(:numrows, options_for_select(%w{10 20 50 100 200 500}, session[:numrows])) %&gt;</pre>
 

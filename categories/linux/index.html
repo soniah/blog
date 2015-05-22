@@ -71,7 +71,7 @@
     <p>I just finished attending the excellent <a href="http://lambdajam.yowconference.com.au/">Brisbane YOW! Lambda
 Jam</a>. One of the really useful
 things I learned was &ldquo;Hole Driven Development&rdquo; for Haskell - basically
-using the type system to help you write a function</p>
+using the type system to help you write a function.</p>
 
     <footer>
         <a href='http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/'><nobr>Read more →</nobr></a>
@@ -398,7 +398,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">3 Dec 2012</div>
     </header>
 
-    Git has a &ldquo;force push&rdquo; option (git push -f remote branch), but it doesn&rsquo;t have a &ldquo;force pull&rdquo; option (like git pull -f remote branch). This works: [sourcecode language=&ldquo;shell&rdquo;] % git fetch remote branch % git reset &ndash;hard FETCH_HEAD % git clean -df [/sourcecode] Or, as a function for your bash/zsh config file: [sourcecode language=&ldquo;shell&rdquo;] gpuf () { # git pull -f $1 remote=${1:?&ldquo;need remote to force pull from&rdquo;} current_branch=$(git symbolic-ref -q HEAD) current_branch=${current_branch##refs/heads/} current_branch=${current_branch:-HEAD} if [ $current_branch = &lsquo;HEAD&rsquo; ] ; then echo echo &ldquo;On a detached head.
+    <p>Git has a &ldquo;force push&rdquo; option (<strong>git push -f remote branch</strong>), but it doesn&rsquo;t have a &ldquo;force pull&rdquo; option (like <strong>git pull -f remote branch</strong>).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/'><nobr>Read more →</nobr></a>
     </footer>
@@ -413,7 +414,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">30 Nov 2012</div>
     </header>
 
-    When creating files in Linux (and other OS&rsquo;s) there&rsquo;s the usual convention of .txt for text files, .c for C files, etc - you just pick them up as you go along. But there&rsquo;s actually a manpage that lists the common conventions - &ldquo;who knew&rdquo;? % man suffixes SUFFIXES(7) Linux Programmer's Manual SUFFIXES(7) NAME suffixes - list of file suffixes DESCRIPTION It is customary to indicate the contents of a file with the file suffix, which consists of a period, followed by one or more letters.
+    <p>When creating files in Linux (and other OS&rsquo;s) there&rsquo;s the usual convention of <strong>.txt</strong> for text files, <strong>.c</strong> for C files, etc - you just pick them up as you go along.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/11/30/linux-filename-suffixes/'><nobr>Read more →</nobr></a>
     </footer>
@@ -428,7 +430,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">22 Nov 2012</div>
     </header>
 
-    Update November 2012 On Ubuntu Precise (12.04.1) mobile broadband now &ldquo;just works&rdquo;. Plug in the device, right click on Network Manager, follow the configuration wizard for &ldquo;New Mobile Connection&rdquo;, choose your provider (eg Exetel) and the correct APN will be filled in (exetel1). **Original Article 2009 ** I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with Exetel&rsquo;s $5/month Zero Gig plan (uses the Optus network).
+    <p>I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with <a href="http://www.exetel.com.au/residential-hspa-pricing.php">Exetel&rsquo;s $5/month Zero Gig plan</a> (uses the Optus network). Great for when I&rsquo;m out and about and can&rsquo;t find a wireless signal to jump onto, or I&rsquo;m at some client who doesn&rsquo;t allow laptops onto their network.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/'><nobr>Read more →</nobr></a>
     </footer>
@@ -443,7 +446,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">20 Nov 2012</div>
     </header>
 
-    Bufexplorer - my new favourite add-on for vim. Why do I like it? It allows you to emulate the buffer list feature of emacs, as well as switch between horizontal/vertical buffer splits and find recently edited files. All this can already be done with vim buffers, but bufexplorer makes it easy. Why don&rsquo;t I just use emacs? Because as sysadmin/devop I&rsquo;m often working on other people&rsquo;s servers, and I don&rsquo;t want to go installing buckets of stuff everywhere - vim is usually installed.
+    <p><a href="http://www.vim.org/scripts/script.php?script_id=42">Bufexplorer</a> - my new favourite add-on for vim.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/'><nobr>Read more →</nobr></a>
     </footer>
@@ -458,7 +462,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">11 Nov 2012</div>
     </header>
 
-    I&rsquo;m tired of Ubuntu&rsquo;s latest desktop mess offering (Unity). I&rsquo;ve been trying lots of DE&rsquo;s (Desktop Environments) and WM&rsquo;s (Window Managers), and I&rsquo;ve finally settled on one I luuuuurv - Xmonad. On my next laptop build I was thinking of moving to Debian Netinst, but I like the Ubuntu ppa system. So my next laptop install will be Ubuntu Minimal + Xmonad; will also me a good motivation for learning Haskell.
+    <p>I&rsquo;m tired of Ubuntu&rsquo;s latest desktop <del>mess</del> offering (Unity). I&rsquo;ve been trying lots of DE&rsquo;s (Desktop Environments) and WM&rsquo;s (Window Managers), and I&rsquo;ve finally settled on one I luuuuurv - <a href="http://xmonad.org/">Xmonad</a>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/'><nobr>Read more →</nobr></a>
     </footer>
@@ -473,7 +478,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">9 Oct 2012</div>
     </header>
 
-    A quick example of sending email from the shell via mutt. [sourcecode language=&ldquo;shell&rdquo;] % cat msg.txt pdf attached. Sonia. for i in *.pdf ; do mutt -s &ldquo;pdf - $i&rdquo; -a $i &ndash; &lsquo;foo@hotmail.com&rsquo; &lt; msg.txt done [/sourcecode] No rocket science, just saving me from RTFM&rsquo;ing next time&hellip;
+    <p>A quick example of sending email from the shell via mutt.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/'><nobr>Read more →</nobr></a>
     </footer>
@@ -488,7 +494,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">2 Oct 2012</div>
     </header>
 
-    Here&rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&rsquo;s to package them and markdown for README&rsquo;s - notes for me. Install build pre-requisites: [sourcecode language=&ldquo;bash&rdquo;] sudo aptitude install gcc libc6-dev libc6-dev-i386 make \ markdown build-essential debhelper dh-make fakeroot devscripts [/sourcecode] Install Go from source (so can cross-compile). Download from Go Downloads eg go1.0.2.src.tar.gz [sourcecode language=&ldquo;bash&rdquo;] sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz ; cd /usr/local/go/src
+    <p>Here&rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&rsquo;s to package them and <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> for README&rsquo;s - <em>notes for me</em>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/'><nobr>Read more →</nobr></a>
     </footer>
@@ -503,7 +510,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">14 Sep 2012</div>
     </header>
 
-    Notes to myself more than anything, and not really specific to Go (but that&rsquo;s where I was using it). To watch the memory usage of a process with pid PID: [sourcecode language=&ldquo;bash&rdquo;] while [ 1 ] ; do grep VmSize /proc/PID/status ; sleep 10 done [/sourcecode] To watch the number of file descriptors being used: [sourcecode language=&ldquo;bash&rdquo;] while [ 1 ] ; do sudo lsof -p PID | wc -l
+    <p>Notes to myself more than anything, and not really specific to Go (but that&rsquo;s where I was using it).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/'><nobr>Read more →</nobr></a>
     </footer>
@@ -518,7 +526,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">5 Sep 2012</div>
     </header>
 
-    A question I get regularly from other sysadmins - how to tell if you&rsquo;re running a 32 or 64 bit install (vs CPU) of Linux? Here&rsquo;s one way - use the file command on /sbin/init: [sourcecode language=&ldquo;bash&rdquo;] on a 32 bit install % file /sbin/init /sbin/init: ELF 32-bit LSB executable&hellip;. on a 64 bit install % file /sbin/init /sbin/init: ELF 64-bit LSB shared object, x86-64&hellip; [/sourcecode] Update I got a few comments on this (thank you) saying that I was wrong or &ldquo;haven&rsquo;t you heard of uname?&rdquo;&hellip; 1.
+    <p>A question I get regularly from other sysadmins - how to tell if you&rsquo;re running a 32 or 64 bit <strong>install</strong> (vs <strong>CPU</strong>) of Linux?</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/'><nobr>Read more →</nobr></a>
     </footer>
@@ -533,7 +542,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">17 Aug 2012</div>
     </header>
 
-    Some doco for my work mates, and others learners of git&hellip; When I was starting with git (many moons ago), learning to pull from a remote repository was easy. But the book I read didn&rsquo;t explain how to push to a remote repository. There was lots of doco on pushing to github, but I wanted to push and pull between my own repositories. When I pushed, I got messages saying warning: updating the current branch, and sometimes I&rsquo;d have to manually clean up the remote branch - yuk.
+    <p>Some doco for my work mates, and others learners of git&hellip;</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/'><nobr>Read more →</nobr></a>
     </footer>
@@ -548,7 +558,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">3 Aug 2012</div>
     </header>
 
-    Here&rsquo;s how to debug a Perl program that&rsquo;s running remotely on a server that doesn&rsquo;t have X. It&rsquo;s pretty simple, these are just notes for me&hellip; You&rsquo;ve ssh&rsquo;d into a remote server (headless), to debug a perl script that forks: [sourcecode language=&ldquo;perl&rdquo;] $SIG{CHLD} = sub { while (1) { my $nino = waitpid(-1, WNOHANG); last if $nino &lt;= 0; if ($?) { &amp;log(&ldquo;ERROR: Child process $nino exited with $?&ldquo;); } $children&ndash;; } let&rsquo;s fork!
+    <p>Here&rsquo;s how to debug a Perl program that&rsquo;s running remotely on a server that doesn&rsquo;t have X. It&rsquo;s pretty simple, these are just notes for me&hellip;</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/'><nobr>Read more →</nobr></a>
     </footer>
@@ -563,7 +574,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">16 Jul 2012</div>
     </header>
 
-    4clojure problem 59 Juxtapostion - here&rsquo;s how I approached the problem (warts and all) in the hope that it helps others who are learning Clojure. A reminder of what the juxt function does: Takes a set of functions and returns a fn that is the juxtaposition of those fns. The returned fn takes a variable number of args, and returns a vector containing the result of applying each fn to the args (left-to-right).
+    <p><a href="http://www.4clojure.com/problem/59">4clojure problem 59 Juxtapostion</a> - here&rsquo;s how I approached the problem (warts and all) in the hope that it helps others who are learning <a href="http://en.wikipedia.org/wiki/Clojure">Clojure</a>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/'><nobr>Read more →</nobr></a>
     </footer>
@@ -578,7 +590,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">7 Jul 2012</div>
     </header>
 
-    I was doing remote internet support the other day for a friend in England (and noticing how cheap their internet access is eg a fast unlimited O2 package is £21 ($AU31) versus the $AU60-80 we pay in Australia). Here&rsquo;s how I connect remotely to the person&rsquo;s desktop in graphical mode, using vnc and an ssh tunnel. I setup a dyndns client (eg dyndns, tinydyndns, ez-ipupdate) so I can connect to the changing ip address of their machine by a dns name eg fredbox.dyndns.org [sourcecode language=&ldquo;bash&rdquo;] local% sudo apt-get install ez-ipupdate [/sourcecode] I copy my ssh key to their account - this way I&rsquo;ll always have access and they can change their password in the future: [sourcecode language=&ldquo;bash&rdquo;] local% ssh-copy-id fred@fredbox.dyndns.org [/sourcecode] I want to connect to vnc running on their desktop, so I can see what they see.
+    <p>I was doing remote internet support the other day for a friend in England - here&rsquo;s how I connect remotely to the person&rsquo;s desktop in graphical mode, using vnc and an ssh tunnel.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/'><nobr>Read more →</nobr></a>
     </footer>
@@ -593,7 +606,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">5 Jul 2012</div>
     </header>
 
-    4clojure problem 100 - calculate the Least Common Multiple (LCM) of two or more numbers. Here&rsquo;s how I worked it out in the REPL, warts and all&hellip;. I first thought about using the meaning of LCM to solve this (as given in Wikipedia), ie for two numbers a and b (eg 4 and 6), find all the multiples of a (an infinite sequence), find all the multiples of b (an infinite sequence), and find the first match.
+    <p><a href="http://www.4clojure.com/problem/100">4clojure problem 100</a> - calculate the <a href="http://en.wikipedia.org/wiki/Least_common_multiple">Least Common Multiple (LCM)</a> of two or more numbers.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/'><nobr>Read more →</nobr></a>
     </footer>
@@ -608,7 +622,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">13 Jun 2012</div>
     </header>
 
-    My new favourite git option: [sourcecode language=&ldquo;bash&rdquo;] % git diff -w [/sourcecode] Ignore white space in diffs. Unfortunately, there doesn&rsquo;t seem to be an option for just ignoring whitespace changes at the start of line - would be handy for Python.
+    <p>My new favourite git option:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/'><nobr>Read more →</nobr></a>
     </footer>
@@ -623,7 +638,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">4 Jun 2012</div>
     </header>
 
-    4clojure problem 97 Pascal&rsquo;s Triangle - calculate the nth row: My solution: sourcecode language=&ldquo;clojure&rdquo; 1 (partition 2 1 (concat 0) [0]))))) (pascal 5) user=&gt; (1 4 6 4 1) [/sourcecode] A negative - my solution doesn&rsquo;t use tail recursion; on my laptop it works up to about n = 760: sourcecode language=&ldquo;clojure&rdquo; user=&gt; java.lang.StackOverflowError (NO_SOURCE_FILE:0) [/sourcecode]
+    <p><a href="http://www.4clojure.com/">4clojure</a> problem 97 <strong>Pascal&rsquo;s Triangle</strong> - calculate the nth row:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/'><nobr>Read more →</nobr></a>
     </footer>
@@ -638,7 +654,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">3 Jun 2012</div>
     </header>
 
-    My first attempt at writing up one of my 4clojure solutions. Problem 63 &ldquo;Group a Sequence&rdquo; requires you to re-implement group-by. As always looking at the source code is cheating :-) Given a function f and a sequence s, write a function which returns a map. The keys should be the values of f applied to each item in s. The value at each key should be a vector of corresponding items in the order they appear in s.
+    <p>My first attempt at writing up one of my <a href="http://www.4clojure.com/">4clojure</a> solutions. Problem 63 &ldquo;Group a Sequence&rdquo; requires you to re-implement <strong>group-by</strong>. As always looking at the source code is cheating :-)</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/'><nobr>Read more →</nobr></a>
     </footer>
@@ -653,7 +670,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">11 May 2012</div>
     </header>
 
-    I&rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&rsquo;s a list of the books I&rsquo;ve read on my journey to Clojure enlightenment (I&rsquo;ve still got a long way to go&hellip;). My first Clojure book wasn&rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across Land of Lisp.
+    <p>I&rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&rsquo;s a list of the books I&rsquo;ve read on my journey to Clojure enlightenment (I&rsquo;ve still got a long way to go&hellip;).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/'><nobr>Read more →</nobr></a>
     </footer>
@@ -668,7 +686,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">26 Apr 2012</div>
     </header>
 
-    A small Vim Buffers cheatsheet: :bu &lt;tab&gt; - select a buffer :buN - select buffer N :ls - list buffers :sb tab - split screen on another buffer :sbN - split screen on buffer N :only - make this the only buffer (ie maximise) ^w^o - make this the only buffer (ie maximise) :ball - split screen on all buffers :hide - hide this buffer :bdel - remove buffer from
+    <p>A small Vim Buffers cheatsheet:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/'><nobr>Read more →</nobr></a>
     </footer>
@@ -683,7 +702,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">29 Mar 2012</div>
     </header>
 
-    A little problem I came across today. When you install ImageMagick (IM) on RHEL (or OEL or similar), IM fails when converting pdfs. You can see the problem (libgs.so) by logging the output of IM. For example, here&rsquo;s an attempted conversion of test.pdf to test.tif: % convert -debug all -log &quot;%u %m:%l %e&quot; test.pdf test.tif 2&gt;&amp;1 | less This gives errors like this: 0.000u module.c:1278 unable to load module `/usr/lib/ImageMagick-6.7.5&lt;wbr&gt;/modules-Q16/coders/&lt;a href=&quot;http://www.google.com/url?q=http%3A%2F%2Fpdf.la&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGP84_LsnHfS4qb4LezlUoLCScTAA&quot; target=&quot;_blank&quot;&gt;pdf.la&lt;/a&gt;': libgs.so.8: cannot open shared object file: No such file or directory&lt;/wbr&gt; So, I downloaded and unpacked a RHEL ghostscript rpm - it turns out that the rpms have symlinks to libgs.so in the package, but no libgs.so :-( /var/tmp/usr/lib # ls -al libgs.so* lrwxrwxrwx 1 root root 13 Mar 28 20:41 libgs.so -&gt; libgs.so.8.15 lrwxrwxrwx 1 root root 13 Mar 28 20:41 libgs.so.8 -&gt; libgs.so.8.15 Easy you think, just install something like libgs.123.rpm, and everything will work.
+    <p>A little problem I came across today. When you install ImageMagick (IM) on <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux">RHEL</a> (or <a href="http://en.wikipedia.org/wiki/Oracle_Enterprise_Linux">OEL</a> or similar), IM fails when converting pdfs.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/'><nobr>Read more →</nobr></a>
     </footer>
@@ -698,7 +718,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">20 Mar 2012</div>
     </header>
 
-    Up late tonight reading about Emacs Lisp, I came across Tour de Babel by Steve Yegge comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much. I&rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul: Anyway, Ruby stole everything good from Perl; &hellip; for the most part, Ruby took Perl&rsquo;s string processing and Unix integration as-is, meaning the syntax is identical, and so right there, before anything else happens, you already have the Best of Perl.
+    <p>Up late tonight reading about <a href="http://www.emacswiki.org/emacs/EmacsLisp">Emacs Lisp</a>, I came across <a href="https://sites.google.com/site/steveyegge2/tour-de-babel">Tour de Babel</a> by <a href="http://en.wikipedia.org/wiki/Steve_Yegge">Steve Yegge</a> comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/'><nobr>Read more →</nobr></a>
     </footer>
@@ -713,7 +734,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">18 Mar 2012</div>
     </header>
 
-    I&rsquo;ve been using GNU Screen for years, and I always wished it had a &ldquo;broadcast&rdquo; functionality like MultiXterm. Anyway, this morning I came across Terminator - it splits screens, has broadcasts, etc (probably old news for some people&hellip;). By the way, you can split screens in GNU Screen.
+    <p>I&rsquo;ve been using <a href="http://www.gnu.org/software/screen/manual/screen.html">GNU Screen</a> for years, and I always wished it had a &ldquo;broadcast&rdquo; functionality like <a href="http://expect.sourceforge.net/example/multixterm.man.html">MultiXterm</a>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/'><nobr>Read more →</nobr></a>
     </footer>
@@ -728,7 +750,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">18 Mar 2012</div>
     </header>
 
-    One of the features I&rsquo;ve always wished Gnu screen had was the ability to split a screen horizontally, so you can for example run a grep or mc in the top half of the terminal, and some commands in the bottom half. Well it turns out that you can split screens in Screen, here&rsquo;s how to you do it: C-a S to split C-a X to unsplit (and remove the current region) C-a Q to make the current region the only region Also, you can bind some keys to move between regions; add these settings to your ~/.screenrc: bind j focus down bind k focus up bind t focus top bind b focus bottom Then you can do things like C-a j to move down a region,** C-a k** to move up a region.
+    <p>One of the features I&rsquo;ve always wished <a href="http://www.gnu.org/software/screen/manual/screen.html">Gnu screen</a> had was the ability to split a screen horizontally, so you can for example run a grep or <a href="https://www.midnight-commander.org/">mc</a> in the top half of the terminal, and some commands in the bottom half.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/'><nobr>Read more →</nobr></a>
     </footer>
@@ -743,7 +766,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">2 Mar 2012</div>
     </header>
 
-    I little command I always have to search for when using vimdiff &#8211; :diffupdate After you&#8217;ve made changes in vimdiff :diffupdate will recalculate the diffs. Vimdiff in Action
+    <p>I little command I always have to search for when using vimdiff &#8211; <strong>:diffupdate</strong></p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/'><nobr>Read more →</nobr></a>
     </footer>
@@ -758,7 +782,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">2 Feb 2012</div>
     </header>
 
-    I&#8217;ve just setup the venerable denyhosts on one of my servers, to stop the usual script-kiddies from filling up my logs (I&#8217;m not particularly worried about them getting in&#8230;). Anyway, here is restricted-usernames.gz, a list of denied usernames from the log &#8211; handy to add to your denyhosts restricted-usernames file. There&#8217;s probably a better dictionary of usernames out there &#8211; I&#8217;ll attach it if I find it stumble upon it.
+    <p>I&#8217;ve just setup the venerable [denyhosts][1] on one of my servers, to stop the usual script-kiddies from <em>filling up my logs</em> (I&#8217;m not particularly worried about them getting in&#8230;).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2012/02/03/denyhosts-for-sshd-usernames-dictionary/'><nobr>Read more →</nobr></a>
     </footer>
@@ -773,7 +798,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">6 Nov 2011</div>
     </header>
 
-    A little ssh error I came across while trying to work remotely on an Ubuntu machine. ssh X Display Forwarding wasn&#8217;t working, and I was getting an error: DISPLAY is not set Digging through /var/log/auth.log, I also noticed this error: Failed to allocate internet-domain X11 display socket After much Googling, it seems that IPv6 was causing the problem. It was solved by adding: AddressFamily inet to /etc/ssh/sshd_config, and restarting the ssh server.
+    <p>A little ssh error I came across while trying to work remotely on an Ubuntu machine. [ssh X Display Forwarding][1] wasn&#8217;t working, and I was getting an error:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/'><nobr>Read more →</nobr></a>
     </footer>
@@ -788,7 +814,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">20 Oct 2011</div>
     </header>
 
-    To reload your mutt configuration (for example after editing muttrc): :source /path/to/muttrc For example: :source /home/sonia/.muttrc
+    <p>To reload your [mutt][1] configuration (for example after editing muttrc):</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/10/20/reload-mutt-configuration/'><nobr>Read more →</nobr></a>
     </footer>
@@ -803,7 +830,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">4 Oct 2011</div>
     </header>
 
-    Whenever I come across servers with names like chpvuat01, I&#8217;m reminded of RFC 1178 &#8220;Choosing a name for your computer&#8221;. Especially when ch stands for crack house, pv stands for paid verbiage, but uat doesn&#8217;t stand for user acceptance testing: the box used to be in UAT, was moved to SIT (System Integration Testing), but kept it&#8217;s old name because renaming it would be too hard&#8230; From the RFC: Using a word that has strong semantic implications in the current context will cause confusion.** Don&#8217;t choose a name after a project unique to that machine.
+    <p>Whenever I come across servers with names like <strong>chpvuat01</strong>, I&#8217;m reminded of [RFC 1178][1] &#8220;Choosing a name for your computer&#8221;. Especially when <strong>ch</strong> stands for <strong>crack house</strong>, <strong>pv</strong> stands for <strong>paid verbiage</strong>, but <strong>uat</strong> <em>doesn&#8217;t</em> stand for <strong>user acceptance testing</strong>: the box used to be in UAT, was moved to SIT (System Integration Testing), but <em>kept it&#8217;s old name because renaming it would be too hard&#8230;</em></p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/10/04/rfc-1178-and-server-naming/'><nobr>Read more →</nobr></a>
     </footer>
@@ -818,7 +846,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">27 Sep 2011</div>
     </header>
 
-    Midnight Commander (mc) is mostly obvious, but there&#8217;s a few things I regularly forget and have to look up. to select (or &#8220;tag&#8221;) multiple items, use the Insert key, or ctrl-t (eg when on a Macbook) use @ to do an operation on tagged files (or F2 menu, @). For example tag some files, reverse the selection (***** or F9, File, Reverse Selection), then @ git rm any sort of compressed or package file (.deb, .tgz, .iso, .rpm, etc): F3 (view) to get an overview of the package Enter to browse the package contents, then eg F3 to view the file or F5 to copy the file out to jump back and forth to the command line (&#8220;subshell support&#8221;), use ctrl-o to hide mc, then ctrl-o to return from the subshell to mc Taken from Jane Tembath&#8217;s MC Tutorial.
+    <p>Midnight Commander (mc) is mostly obvious, but there&#8217;s a few things I regularly forget and have to look up.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/09/27/midnight-commandar-mc-notes/'><nobr>Read more →</nobr></a>
     </footer>
@@ -833,7 +862,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">13 Sep 2011</div>
     </header>
 
-    My new favourite git option: git add -p It&#8217;s like doing an interactive add, then choosing &#8216;p&#8217; for patching. From the manual: -p, &#8211;patch Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to** the index. This effectively runs add &#8211;interactive, but bypasses the initial command menu and directly jumps to the patch subcommand.
+    <p>My new favourite git option:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/09/13/git-patch-add/'><nobr>Read more →</nobr></a>
     </footer>
@@ -848,7 +878,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">30 Aug 2011</div>
     </header>
 
-    Some notes on ruby, blocks, and procs. Manually creating blocks Ruby has three ways of manually creating blocks: Proc.new, lambda, and proc. They have slightly different behaviour, and the behaviour also varies between Ruby 1.8 and 1.9! lambda checks that the number of arguments passed matches the number of block parameters whereas Proc.new doesn&#8217;t check (however the block may raise an error, depending on it&#8217;s code)** and proc behaves like lambda in Ruby 1.8, and like Proc.new in Ruby 1.9.
+    <p>Some notes on ruby, blocks, and procs.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/08/30/ruby-blocks-and-procs/'><nobr>Read more →</nobr></a>
     </footer>
@@ -863,7 +894,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">8 Aug 2011</div>
     </header>
 
-    A script to make an existing git branch track a remote branch. For example when you&#8217;ve cloned from somewhere else and now want to track your normal remote. % cat ~/bin/gittrack #!/bin/bash # vim: ai ts=4 sts=4 et sw=4 ft=sh current_branch=$(git symbolic-ref -q HEAD) current_branch=${current_branch##refs/heads/} current_branch=${current_branch:-HEAD} if [ $current_branch = 'HEAD' ] ; then echo echo "On a detached head. Exiting..." exit 1 fi remote=${1:-origin} git branch --set-upstream $current_branch $remote/$current_branch Of course your global gitconfig should also have autosetupmerge (below), but this script handles situations where you want to setup/change the tracking branch.
+    <p>A script to make an existing git branch track a remote branch. For example when you&#8217;ve cloned from somewhere else and now want to track your normal remote.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/'><nobr>Read more →</nobr></a>
     </footer>
@@ -878,7 +910,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">2 Aug 2011</div>
     </header>
 
-    If you work in an IT environment, it&#8217;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http. Unfortunately, a lot of the posts out there on &#8220;how to setup Gitweb on Ubuntu&#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&#8217;s how I did it on Ubuntu 11.04 (Natty).
+    <p>If you work in an IT environment, it&#8217;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/'><nobr>Read more →</nobr></a>
     </footer>
@@ -893,7 +926,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">28 Jul 2011</div>
     </header>
 
-    A script I wrote &#8211; rsyncp. It allows you to provide a password to rsync over ssh, when you&#8217;re unable to use ssh key-based authentication: % cat ~/bin/rsyncp #!/usr/bin/expect eval spawn rsync $argv expect "*?assword:" { send "secretstuffr"} expect eof You can then use rsyncp in another script, like this: for h in foo bar ; do rsyncp -av --progress srcdir/ $h:dstdir/ done And before you add a comment saying use ssh keys or keychain, this is totally insecure, I agree with you!
+    <p>A script I wrote &#8211; rsyncp. It allows you to provide a password to rsync over ssh, when you&#8217;re unable to use ssh key-based authentication:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/'><nobr>Read more →</nobr></a>
     </footer>
@@ -908,7 +942,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">19 Jul 2011</div>
     </header>
 
-    Both $* and $@ expand to &#8220;all positional parameters&#8221;; in a nutshell &#8211; &#8220;$@&#8221; is often desired as it handles spaces correctly; see man bash &#8220;Special Parameters&#8221;. % ls my* myfoo my foo myqux ---------------- % ./star_test my* $* myfoo my :-( foo :-( myqux $@ myfoo my :-( foo :-( myqux "$*" myfoo my foo myqux &lt;-- probably not desired :-| "$@" myfoo my foo :-) myqux ---------------- %
+    <p>Both <strong>$</strong>* and <strong>$@</strong> expand to &#8220;all positional parameters&#8221;; in a nutshell &#8211; <strong>&#8220;$@&#8221;</strong> is <em>often</em> desired as it handles spaces correctly; see man bash &#8220;Special Parameters&#8221;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/07/19/shell-all-parameters/'><nobr>Read more →</nobr></a>
     </footer>
@@ -923,7 +958,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">18 Jul 2011</div>
     </header>
 
-    For development projects, I use the standard git workflow ie master is my main branch, and I do development in branches (read more about this recommended workflow at A successful Git branching model**). (** this site also suggests always using &#8211;no-ff with merge &#8211; a practice I now follow &#8211; it certainly makes reading history easier) nvie.com - A successful Git branching model When I&#8217;m happy with my work in a dev branch I cherry-pick or merge into master.
+    <p>For development projects, I use the standard git workflow ie master is my main branch, and I do development in branches (read more about this recommended workflow at [A successful Git branching model][1]**).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/07/18/git-rebase-and-push-script/'><nobr>Read more →</nobr></a>
     </footer>
@@ -938,7 +974,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">18 May 2011</div>
     </header>
 
-    Opinions around the latest Ubuntu (11.04) range from &#8220;interesting&#8221; (as in the curse &#8220;may you live in interesting times&#8221;) to &#8220;it sucks&#8221;. Anyway, there no longer appears to be a link to the previous version (10.10 Maverick) on the main Ubuntu page &#8211; marketing droids seem to have finally taken over Ubuntu. It can be downloaded from here. No rocket science &#8211; I just don&#8217;t want to have to look for the location in future.
+    <p>Opinions around the latest Ubuntu (11.04) range from &#8220;interesting&#8221; (as in the curse &#8220;may you live in interesting times&#8221;) to &#8220;it sucks&#8221;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/05/18/ubuntu-10-10-maverick-meerkat-download/'><nobr>Read more →</nobr></a>
     </footer>
@@ -953,7 +990,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">11 Apr 2011</div>
     </header>
 
-    A nice tool written by Jeremy Visser &#8211; Python-iView. As Jeremy says on his blog: &#8220;Python-iView is an alternative frontend to ABC iView, which &#8230; is an awesome ABC TV programme catchup service that lets you watch most ABC programs from the last month in your browser&#8230; However, the iView website has some major problems&#8230; To address this, I wrote the open source (GPLv3) application Python-iView, which &#8230; allows you to download episodes to your hard drive in their original FLV format.&#8221; Thanks Jeremy!
+    <p>A nice tool written by Jeremy Visser &#8211; [Python-iView][1].</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/04/11/python-iview/'><nobr>Read more →</nobr></a>
     </footer>
@@ -968,7 +1006,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">3 Mar 2011</div>
     </header>
 
-    A nice option I discovered in rsync &#8211; the &#8211;fuzzy option. If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &#8220;similar&#8221; algorithm is &#8220;identical size and modified time&#8221;, or &#8220;similarly-named&#8221;. For example: rsync foo/ example.com:video/foo/ --fuzzy --delete-delay ... sent 69712 bytes received 118992 bytes 75481.60 bytes/sec &lt;-- small amount of data xferred total size is 4966997090 speedup is 26321.63 &lt;-- woohoo!
+    <p>A nice option I discovered in [rsync][1] &#8211; the <strong>&#8211;fuzzy</strong> option.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/'><nobr>Read more →</nobr></a>
     </footer>
@@ -985,10 +1024,6 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
 
     <p>A nice little [snippet ][1]I came across yesterday on configuring RedHat up2date.</p>
 
-<p>The controlling configuration file is <strong>/etc/sysconfig/rhn/sources</strong> . Handy in a firewalled environment (aren&#8217;t they all?) and/or an an environment with poor infrastructure. It also mentions the (standard) disabling of the rhn plugin via <strong>/etc/yum/pluginconf.d/rhnplugin.conf</strong>.</p>
-
-<p>[Original post][1]:</p>
-
     <footer>
         <a href='http://blog2.snowfrog.net/2011/03/01/configuring-redhat-up2date/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1003,7 +1038,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">8 Oct 2010</div>
     </header>
 
-    Every time I go to loop mount an iso file, it&#8217;s long enough since I last did it that I have to &#8220;re-google&#8221;. Hence, a quick little script. No rocket science&#8230; % cat isomount #!/bin/bash if [ $# -eq 0 -o $# -gt 2 ] ; then echo "Usage: isomount foo.iso mountdir [defaults to /mnt]" exit 1 fi target=${2:-/mnt} if grep -q "$target.*iso9660" `mount` ; then echo "$target already mounted
+    <p>Every time I go to loop mount an iso file, it&#8217;s long enough since I last did it that I have to &#8220;re-google&#8221;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2010/10/08/a-script-for-loop-mounting-iso-files/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1018,7 +1054,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">17 Feb 2010</div>
     </header>
 
-    I watch lots of (martial arts) instructional videos. Something I&#8217;ve always wanted to do is &#8220;mashup&#8221; my own videos ie take a few chapters from one video, a few chapters from another video. Now I know how &#8211; handbreakcli: First, rip the vobs off the dvd. You can work directly off the dvd with handbreak, but working from the hard-disk is often easier. I use dd_rescue for unencrypted dvds. (For scratched dvds, I&#8217;ve been using motorbike visor cleaner to remove the scratches, and myrescue).
+    <p>I watch lots of (martial arts) instructional videos.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2010/02/17/i-love-handbrakecli-and-dd_rescue/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1033,7 +1070,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">10 Nov 2009</div>
     </header>
 
-    I&#8217;m using the Cisco VPN client, and it seems unreliable on Linux &#8211; it occasionally connects but often just gives up with &#8220;Remote peer is no longer responding&#8221;. Apart from the obvious firewall/nat checks [1][2], a solution seems to be to edit the .pcf file, bump up the timeout and force keepalives: PeerTimeout=180 ForceKeepAlive=1 &nbsp; &nbsp;
+    <p>I&#8217;m using the Cisco VPN client, and it seems unreliable on Linux &#8211; it occasionally connects but often just gives up with &#8220;Remote peer is no longer responding&#8221;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/11/10/linux-and-cisco-vpn-client-remote-peer-is-no-longer-responding/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1048,7 +1086,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">25 Oct 2009</div>
     </header>
 
-    I blogged previously about how the Australian locale in Ubuntu incorrectly uses Sunday rather than Monday as the first day of the week, and how to manually fix it. Unfortunately, whenever the locale gets updated (eg via one of Ubuntu&#8217;s regular package updates), the locale reverts and you have to manually fix it again. So I&#8217;ve written a script that fixes the locale, and also hooked it into dpkg: % cat fix_locale.sh #!/bin/bash LOCALE_FILE='/usr/share/i18n/locales/en_AU' if [ -f $LOCALE_FILE ] ; then sudo sed -i 's/^first_weekday.*/first_weekday 2/' $LOCALE_FILE sudo locale-gen killall gnome-panel fi To run this automatically, add a stanza like this to /etc/apt/apt.conf: APT { Update { Post-Invoke {"/home/sonia/bin/fix_locale.sh"; }; }; }; The script could be smarter ie check the existing value of first_weekday and only change it if it&#8217;s different, but I&#8217;ll fix that when I&#8217;ve got more time.
+    <p>I blogged [previously][1] about how the Australian locale in Ubuntu incorrectly uses Sunday rather than Monday as the first day of the week, and how to manually fix it. Unfortunately, whenever the locale gets updated (eg via one of Ubuntu&#8217;s regular package updates), the locale reverts and you have to manually fix it again.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1063,7 +1102,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">23 Oct 2009</div>
     </header>
 
-    Here&#8217;s how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are saying 2.2.0 is buggy). And now that Oracle owns Sun, Virtualbox may go the way of the dodo&#8230; No rocket science here &#8211; just saving myself time in future. sudo aptitude install virtualbox-ose virtualbox-ose-qt virtualbox-ose-source dkms virtualbox-guest-additions Applications -&gt; Accessories -&gt; VirtualBox OSE
+    <p>Here&#8217;s how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are [saying][1] 2.2.0 is buggy). And now that Oracle owns Sun, Virtualbox may go the way of the dodo&#8230;</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1078,7 +1118,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">17 Aug 2009</div>
     </header>
 
-    I&#8217;ve always used vim as my main editor, but I thought I&#8217;d try RadRails since so many Rails people rave about it. Installing it on Ubuntu Jaunty is a bit non-obvious: sudo aptitude install openjdk-6-jre (or your preferred jre) download and unpack aptana zip to ~/.aptana download and unpack xulrunner to ~/.xulrunner create a script like ~/bin/aptana: #!/bin/bash MOZILLA_FIVE_HOME=~/.xulrunner if [ $LD_LIBRARY_PATH ]; then LD_LIBRARY_PATH=$MOZILLA_FIVE_HOME:$LD_LIBRARY_PATH else LD_LIBRARY_PATH=$MOZILLA_FIVE_HOME fi export MOZILLA_FIVE_HOME
+    <p>I&#8217;ve always used vim as my main editor, but I thought I&#8217;d try RadRails since so many Rails people rave about it.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1093,7 +1134,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">7 Aug 2009</div>
     </header>
 
-    I recently bought a new laptop &#8211; a bottom of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up). I used to buy high-end laptops but my thinking was changed when my latest one got stolen and I started using an old one I&#8217;d (literally) dredged out of a rubbish bin. I mostly use shell/vi/ssh, Thunderbird and Firefox, don&#8217;t carry my laptop around with me, and all my stuff is backed up across multiple machines using git, so why shell out the big bucks?
+    <p>I recently bought a new laptop &#8211; a <em>bottom</em> of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/08/07/ubuntu-and-toshiba-satellite-pro-l300-fan/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1108,7 +1150,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">27 Jul 2009</div>
     </header>
 
-    Some good documentation on Troubleshooting Sound on Ubuntu. And a nice post on getting Amarok going on Jaunty &#8211; remove phonon-backend-gstreamer and install phonon-backend-xine (bug 349847). I can now go back to grooving to some laid-back Brazilian Reggae &#8211; Tribo de Jah &#8211; Ruinas de Babilonia: Veja a face sofrida dessa gente, Tanta gente sofrida, Buscando uma vida decente, Buscando um pouco de paz em suas vidas&#8230;
+    <p>Some good documentation on [Troubleshooting Sound on Ubuntu][1].</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1123,7 +1166,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">10 Jul 2009</div>
     </header>
 
-    ipcalc &#8211; a tool I used to use years ago but had forgotten about. sudo aptitude install ipcalc % ipcalc 192.168.1.0/26 Address: 192.168.1.0 11000000.10101000.00000001.00 000000 Netmask: 255.255.255.192 = 26 11111111.11111111.11111111.11 000000 Wildcard: 0.0.0.63 00000000.00000000.00000000.00 111111 =&gt; Network: 192.168.1.0/26 11000000.10101000.00000001.00 000000 HostMin: 192.168.1.1 11000000.10101000.00000001.00 000001 HostMax: 192.168.1.62 11000000.10101000.00000001.00 111110 Broadcast: 192.168.1.63 11000000.10101000.00000001.00 111111 Hosts/Net: 62 Class C, Private Internet
+    <p>ipcalc &#8211; a tool I used to use years ago but had forgotten about.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/07/10/ipcalc/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1138,7 +1182,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">4 May 2009</div>
     </header>
 
-    (Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&#8217;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10. Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cleaned up version: load visor module sudo modprobe visor and check loaded lsmod | grep visor add visor module to /etc/modules click sync button on Palm Pilot and check USB devices are being created: in one terminal,
+    <p>(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&#8217;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1153,7 +1198,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">1 May 2009</div>
     </header>
 
-    Discontinued versions of Ubuntu are mirrored under http://old-releases.ubuntu.com/ubuntu/, which can be used to setup apt&#8217;s sources.list. For example, for Gutsy (7.10), sources.list would look like: deb http://old-releases.ubuntu.com/ubuntu/ gutsy main restricted deb http://old-releases.ubuntu.com/ubuntu/ gutsy-updates main restricted deb http://old-releases.ubuntu.com/ubuntu/ gutsy universe deb http://old-releases.ubuntu.com/ubuntu/ gutsy-updates universe deb http://old-releases.ubuntu.com/ubuntu/ gutsy multiverse deb http://old-releases.ubuntu.com/ubuntu/ gutsy-updates multiverse deb http://old-releases.ubuntu.com/ubuntu/ gutsy-security main restricted deb http://old-releases.ubuntu.com/ubuntu/ gutsy-security universe deb http://old-releases.ubuntu.com/ubuntu/ gutsy-security multiverse Thanks to Marty, JohnF, and others on the SLUG list.
+    <p>Discontinued versions of Ubuntu are mirrored under <a href="http://old-releases.ubuntu.com/ubuntu/">http://old-releases.ubuntu.com/ubuntu/</a>, which can be used to setup apt&#8217;s sources.list.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1168,7 +1214,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">26 Mar 2009</div>
     </header>
 
-    I recently reinstalled Ubuntu Gutsy on one of my laptops, and the fonts in Firefox came up ugly. I can&#8217;t remember what I did last time to improve the fonts, but this techniques in this post made things a bit better. Also checkout this and this.
+    <p>I recently reinstalled Ubuntu Gutsy on one of my laptops, and the fonts in Firefox came up ugly.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/03/26/firefox-fonts-on-gutsy/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1183,7 +1230,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">14 Mar 2009</div>
     </header>
 
-    It&#8217;s years since I&#8217;ve dealt with apt-pinning, so all my knowledge on it has paged-out. But I want to use it again because I&#8217;ve backgraded to Ubuntu Gutsy to get my Palm Treo syncing, but I want a few new packages from Hardy or Intrepid. (It seems that Palm syncing using the visor module and JPilot still isn&#8217;t working, due to an unfixed regression in the kernel. Or maybe I just didn&#8217;t look hard enough.
+    <p>It&#8217;s years since I&#8217;ve dealt with apt-pinning, so all my knowledge on it has paged-out.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1198,7 +1246,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">14 Mar 2009</div>
     </header>
 
-    I got a pleasant surprise last night &#8211; well pleasant for the Spanish spea[]1king part of my brain, anyway. The vnc server on Ubuntu has been called vino for ages &#8211; Spanish (and Italian, Portuguese, etc) for wine. Ubuntu Hardy (8.04) onwards has a nice new application called Remote Desktop Viewer (Applications, Internet) &#8211; allows you to easily manage multiple vnc sessions, set bookmarks, etc. And this application is called vinagre &#8211; Spanish for vinegar.
+    <p>I got a pleasant surprise last night &#8211; well pleasant for the Spanish spea[][1]king part of my brain, anyway.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1213,7 +1262,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">9 Mar 2009</div>
     </header>
 
-    Notes from a recent post on SLUG: you need to use one of the &#8220;Alternate&#8221; versions of Ubuntu, rather than a &#8220;Live&#8221; version. To quote Jeff Waugh: Salient point that I managed to skip: The alternate CD has packages on it, while the Live CD is just a great big compressed image of a filesystem&#8230; so it won&#8217;t help with upgrades at all (yet 1). 1 Years ago there was some inspired brainstorming about ways to do this very cleverly, but I don&#8217;t imagine it&#8217;s on the agenda at the moment.
+    <p>Notes from a recent post on SLUG:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/03/09/howto-upgrade-ubuntu-with-cds-to-save-bandwidth/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1258,7 +1308,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">16 Feb 2009</div>
     </header>
 
-    A good article on Oracle and shmmax and shmall. In a nutshell: shmall it is not the maximum amount of memory which can be allocated, it is the maximum size of any shared memory chunk &#8211; how big a bite you want per bite from free memory. shmmax &#8211; its value determines the maximum amount of memory that ALL shared memory can take. the actual setting is derived… the maximum
+    <p>A [good article][1] on Oracle and shmmax and shmall. In a nutshell:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/02/16/oracleoracle-and-shmmax-and-shmall/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1288,7 +1339,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">3 Feb 2009</div>
     </header>
 
-    I&#8217;ve used putty.exe for doing ssh client work on Windows machines for years. But I always thought that any Windows ssh servers were commercial, so when I&#8217;ve really had to have Windows ssh access I&#8217;ve setup Cygwin. But here&#8217;s a free (as in speech and beer) .exe that installs just an ssh server &#8211; sshwindows. Probably been around forever, but since I use Windows so little nowadays I&#8217;ve haven&#8217;t heard about it until now.
+    <p>I&#8217;ve used [putty.exe][1] for doing ssh client work on Windows machines for years.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/02/03/openssh-server-for-windows/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1303,7 +1355,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">23 Jan 2009</div>
     </header>
 
-    When posting code into vim, it often auto-indents it in a staircase fashion off to the right &#8211; really annoying. To prevent this, use :set paste, and :set nopaste to turn it off. See also :help paste.
+    <p>When posting code into vim, it often auto-indents it in a staircase fashion off to the right &#8211; really annoying.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1318,7 +1371,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">10 Jan 2009</div>
     </header>
 
-    The Reverand Simon Rumble wrote a nice post on Mobile broadband over Bluetooth with Ubuntu 8.10 using Blueman. I&#8217;ve always wanted to get Bluetooth working on Ubuntu, but it was never at the top of my &#8216;todo&#8217; list and I&#8217;ve always had other things to do (thank PHB). But Blueman makes it so easy &#8211; thanks Simon. This article was also mentioned.
+    <p>The Reverand Simon Rumble wrote a nice post on [Mobile broadband over Bluetooth with Ubuntu 8.10][1] using [Blueman][2].</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1333,7 +1387,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">9 Jan 2009</div>
     </header>
 
-    A post a stumbled upon &#8211; Speed up Firefox on Linux &#8211; Disable IPv6 Lookups. I don&#8217;t know if it works but I&#8217;m trying it now. In a nutshell: about:config in the filter field, type “DNS” and hit enter double-click on “network.dns.disableIPv6″, changing its value from False to True See also my other post pdnsd on Ubuntu for faster dns
+    <p>A post a stumbled upon &#8211; [Speed up Firefox on Linux &#8211; Disable IPv6 Lookups][1].</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/01/09/speed-up-firefox-on-linux-disable-ipv6-lookups/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1348,7 +1403,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">8 Jan 2009</div>
     </header>
 
-    I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&#8217;s help. They&#8217;re called modelines. :help modeline brings up the documentation. Some typical modelines for copying and pasting: Go // // vim: tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab tw=72 // run 'go fmt' before checking in your code! // Text files # vim:tw=75 # vim:textwidth=75 Shell/Bash # vim: ai ts=2 sw=2 et sts=2 ft=sh
+    <p>I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&#8217;s help.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2009/01/08/vim-modelines/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1363,7 +1419,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">19 Dec 2008</div>
     </header>
 
-    A good post from Glen Turner on SLUG about udev, HAL, DBUS (in the context of GSM modems): - you insert the device - UDEV tells HAL that it has been inserted - HAL looks up a XML-based "information" file. These are where the rubber hits the road. The system files are in /usr/share/hal/fdi/ and any files you may write go into /etc/hal/fdi/ - HAL determines from the USB vendor/model codes it was handed that you've got a GSM modem.
+    <p>A good post from Glen Turner on SLUG about udev, HAL, DBUS (in the context of GSM modems):</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/12/19/udev-hal-dbus/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1378,7 +1435,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">4 Dec 2008</div>
     </header>
 
-    A useful tool I came across last night (thanks Rodrigo) &#8211; sfdisk &#8211; &#8220;Partition table manipulator for Linux&#8221;. Good for copying partition tables when replacing a failed hard disk in a (md Linux Software Raid) RAID. For example, to copy the partition table from sdb to sda: sfdisk –d /dev/sdb | sed –e s/sdb/sda/ | sfdisk /dev/sda Of course you&#8217;d also be doing the usual **mdadm &#8211;fail, &#8211;remove, physically swap disk, &#8211;add, cat /proc/mdstat, &#8211;detail, **and installing grub on the new hard drive: grub&gt; device (hd0) /dev/sdb grub&gt; root (hd0,0) grub&gt; setup (hd0) grub&gt; quit (Unmercifully plagiarised from Rodrigo&#8217;s notes).
+    <p>A useful tool I came across last night (thanks Rodrigo) &#8211; <strong>sfdisk</strong> &#8211; &#8220;Partition table manipulator for Linux&#8221;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/12/04/sfdisk-raid/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1393,7 +1451,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">25 Nov 2008</div>
     </header>
 
-    wicd &#8211; &#8220;an open source wired and wireless network manager&#8221; &#8211; a possible replacement for Ubuntu&#8217;s annoying Network Manager (Mangler?). Mentioned by Martin B on SLUG &#8211; thanks.
+    <p>[wicd][1] &#8211; &#8220;an open source wired and wireless network manager&#8221; &#8211; a possible replacement for Ubuntu&#8217;s annoying Network Manager (Mangler?).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1408,7 +1467,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">13 Oct 2008</div>
     </header>
 
-    I&#8217;ve noticed that issuing a sudo halt on my EeePC 701 shuts down the operating system (eeeXubuntu), but doesn&#8217;t power down the system. So I&#8217;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag &#8211; ouch! Solution (Bug #239145) &#8211; add rmmod snd-hda-intel to the stop section of /etc/init.d/halt.
+    <p>I&#8217;ve noticed that issuing a <strong>sudo halt</strong> on my [EeePC 701][1] shuts down the operating system ([eeeXubuntu][2]), but doesn&#8217;t power down the system.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/10/14/shutdown-does-not-power-off-eeepc/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1423,7 +1483,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">4 Sep 2008</div>
     </header>
 
-    A useful tool I&#8217;ve come across (thanks JB) &#8211; socat. As the homepage says, sort of netcat++. From the manpage: Socat is a command line based utility that establishes two bidirectional byte streams and transfers data between them&#8230; the streams can be constructed from a large set of different types of data sinks and sources (TCP, UDP, SOCKS, files, processes, pipes, file-descriptors, readline, &#8230;).
+    <p>A useful tool I&#8217;ve come across (thanks JB) &#8211; <strong>socat</strong>. As the [homepage][1] says, sort of netcat++.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/09/04/useful-tool-socat/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1438,7 +1499,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">28 Jul 2008</div>
     </header>
 
-    VMWare Tools need to be installed on guests to prevent approx 50% time loss. Here are the steps: on each guest: yum install gcc gcc-c++ edit guest config files on server to sync time (I usually do all at once): cd /var/lib/vmware/Virtual Machines/ ; vi `find . -type f -name &quot;machine.vmx&quot;` Add the line tools.syncTime = &quot;TRUE&quot; scp VMTools plus kernel files that correspond to kernel (uname -a): scp VMwareTools-1.0.5-80187.i386.rpm kernel-devel-2.6.18-92.1.6.el5.i686.rpm kernel-headers-2.6.18-92.1.6.el5.i386.rpm guest:.
+    <p>VMWare Tools need to be installed on guests to prevent approx 50% time loss. Here are the steps:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/07/28/howto-install-vmware-tools-on-linux-guests/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1453,7 +1515,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">16 Apr 2008</div>
     </header>
 
-    Update 17-Apr-2008 The steps below don&#8217;t seem to solve the problem. For the moment the easiest way to get rid of the Evolution letter icon (which appears in the notification_area) is to create a new panel, drag across the stuff you want, and delete the old panel (package update notifications will then appear on the Panel Menu &#8211; TODO check update-notifier is removed). I can see notification_area in gconf-editor at /apps/panel/applets, but can&#8217;t yet work out a way of deleting it &#8211; right clicking etc doesn&#8217;t work.
+    <p>I&#8217;ve just started using Evolution to access the hExchange server at work, and it keeps on popping up new email notifications (even though I&#8217;ve disabled it in Evolution and restarted X) &#8211; too much like Winblows for my likings.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/04/17/disable-evolution-notifications-in-ubuntu/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1468,7 +1531,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">15 Apr 2008</div>
     </header>
 
-    Solution: Gutsy Intel HD Audio Controller, &#8220;Method G&#8221; In a nutshell: enable backports sudo aptitude install linux-backports-modules-generic sudo vi /etc/modprobe.d/alsa-base add options snd-hda-intel model=dell-m42 to end of file reboot ($DEITY, that sounds so Window$)
+    <p>[Gutsy Intel HD Audio Controller][1], &#8220;Method G&#8221;</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1483,7 +1547,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">21 Mar 2008</div>
     </header>
 
-    (27-July-2007) A list of useful tools for network monitoring on Linux: iptraf &#8211; console tool with updating display tcpdump trafshow ngrep &#8211; good for getting user agent strings in HTTP headers ntop &#8211; though has been reported as unstable over longer periods ethereal for protocal analysis ettercap for arp cache spoofing &#8211; force traffic to come via your machine for analysis Thanks to Andy and AndrewMc for these pointers. (21-Mar-2008) Here are some more tools I&#8217;ve come across since then, some for network troubleshooting, some for general troubleshooting: mrt &#8211; an ncurses program that combines the functionality of the &#8216;traceroute&#8217; and &#8216;ping&#8217; programs in a single network diagnostic tool sysstat package &#8211; contains sar, iostat, mpstat, sadf and sa.
+    <p>A list of useful tools for network monitoring on Linux:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/03/21/network-monitoring-tools/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1498,7 +1563,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">19 Mar 2008</div>
     </header>
 
-    I&#8217;ve been going to a few job interviews recently. One the standard &#8216;tricky&#8216; (oooooh) Linux questions is &#8220;explain suid, sgid, sticky bit, etc&#8220;. I usually don&#8217;t rote learn this sort of stuff (that&#8217;s what manpages and Google are for), here&#8217;s my summary: 4000 (chmod u+s) is suid; for files execute as owning user (often root). 2000 (chmod g+s) is sgid; for files execute as owning group (often root); for directories the group on newly created files will be set to the directory&#8217;s group rather than the creator&#8217;s group.
+    <p>I&#8217;ve been going to a few job interviews recently. One the standard &#8216;<em>tricky</em>&#8216; (oooooh) Linux questions is &#8220;<em>explain suid, sgid, sticky bit, etc</em>&#8220;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/03/19/suid-sgid-sticky-bit-permissions/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1513,7 +1579,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">6 Feb 2008</div>
     </header>
 
-    Under the Australian locale, the first day of the week appears as Sunday rather than Monday, which is incorrect. To change it: check which locale is running, using the locale command (ie en_AU) sudo vi /usr/share/i18n/locales/en_AU and change first_weekday and first_workday to 2 regenerate the locale using sudo locale-gen get the calendar to reload using killall gnome-panel In another post, I also show how to automate this, so it doesn&#8217;t get reset by Ubuntu&#8217;s automatic updates.
+    <p>Under the Australian locale, the first day of the week appears as Sunday rather than Monday, which is incorrect. To change it:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1528,7 +1595,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">30 Nov 2007</div>
     </header>
 
-    Good article and comments on slashdot about Open Source Calendaring replacements for Exchange, et al. Suggestions are Chandler/Cosmo, CalDAV, Hula, Zimbra, Scalix, Citadel, but still none seem to be good enough.
+    <p>[Good article][1] and comments on slashdot about Open Source Calendaring replacements for Exchange, et al.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/11/29/open-source-calendaring/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1558,7 +1626,10 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">8 Nov 2007</div>
     </header>
 
-    change to the window you want to move type (for example) ^x:number 1 ^x is the host key (usually ^a on most machines) :number (typed literally) is the command 1 the number to move the current screen to See this post in gnu screen-users list.
+    <ul>
+<li>change to the window you want to move</li>
+</ul>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/11/07/howto-move-windows-in-gnu-screen/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1573,7 +1644,8 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
       <div class="meta">30 Oct 2007</div>
     </header>
 
-    Summary: $ ssh -fN -L localport:remoteserver:remoteport hopserver Optionally combined with agent forwarding and user/hostname mapping in .ssh/config; optionally combined with this in .ssh/config if drilling through a squid proxy: Host remoteserver Hostname remoteserver ProxyCommand connect-proxy -S dmzproxy.foo.com:1080 %h %p To setup an ssh tunnel (4 machines): &lt;br /&gt; hosta$ ssh -fN-o GateWayPorts=yes-L P:S:Wuser@B hostc$ some-app A:P&lt;br /&gt; -f &#8211; go into background after asking for a password -N &#8211; don&#8217;t execute a remote command -g &#8211; gateway (or -o GateWayPorts=yes) &#8211; may be required if doing double ssh (ie one tunnel feeding in to a second tunnel); will be required to allow connections to forwarded port from external hosts (ie not localhost) (image from O&#8217;Reilly&#8217;s excellent book &#8220;SSH Definitive Guide&#8221;) Data between C and A won&#8217;t be encrypted; data between A and B will be encrypted; data between B and S won&#8217;t be encrypted.
+    <p><span style="color:#00008b;"><span style="text-decoration:underline;">Summary:</span></span></p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/10/29/ssh-notes/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1590,38 +1662,6 @@ if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-dire
 
     <p>Linux <strong>ACL</strong>s (Access Control Lists) can be a bit difficult at first &#8211; here&#8217;s my understanding of how they work:</p>
 
-<p><strong>Commands:</strong></p>
-
-<ul>
-<li>There&#8217;s only 2 commands needed &#8211; <strong><em>getfacl</em></strong> and <strong><em>setfacl</em></strong> &#8211; display and change acls</li>
-</ul>
-
-<p><strong>Files:</strong></p>
-
-<p>When you do a <strong><em>getfacl</em></strong> on a file, you&#8217;ll get this sort of entry:<br />
-`<br />
-$ ls -al index.html<br />
--rw-rw-r&ndash;+ 1 root siteadm 0 Nov 30  2005 index.html<br />
-.<br />
-$ getfacl &ndash;all-effective index.html<br /></p>
-
-<h1 id="file-index-html-br:edaa2ed3cbd523740d057998d3747d01">file: index.html<br /></h1>
-
-<h1 id="owner-root-br:edaa2ed3cbd523740d057998d3747d01">owner: root<br /></h1>
-
-<h1 id="group-siteadm-br:edaa2ed3cbd523740d057998d3747d01">group: siteadm<br /></h1>
-
-<p>user::rw-<br />
-user:apache:rw-                 #effective:rw-<br />
-group::r&ndash;                      #effective:r&ndash;<br />
-mask::rw-<br />
-other::r&ndash;<br />
-`</p>
-
-<ul>
-<li></li>
-</ul>
-
     <footer>
         <a href='http://blog2.snowfrog.net/2007/10/22/linux-acls/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1636,19 +1676,7 @@ other::r&ndash;<br />
       <div class="meta">9 Oct 2007</div>
     </header>
 
-    <ul>
-<li>See also: [svn command line tutorial for beginners 1 ][1]
-
-<ul>
-<li>Notes from: [Version Control with Subversion][2]</li>
-<li>Tsavo&#8217;s great [svn cheatsheet][3]</li>
-</ul></li>
-</ul>
-
-<p><strong>Quickstart</strong></p>
-
-<p><tt>sudo aptitude install subversion</tt><br />
-<tt>svnserve -d</tt></p>
+    <p>Subversion Cheatsheet</p>
 
     <footer>
         <a href='http://blog2.snowfrog.net/2007/10/09/subversion-cheatsheet/'><nobr>Read more →</nobr></a>
@@ -1664,7 +1692,8 @@ other::r&ndash;<br />
       <div class="meta">30 Sep 2007</div>
     </header>
 
-    **Rip audio from a dvd ** mencoder dvd://2 -oac mp3lame -lameopts br=96:cbr:vol=6 -ovc frameno -o track2.mp3 for i in ../vobs/* ; do j=${i##*/} mencoder &quot;${i}&quot; -oac pcm -ovc frameno -o &quot;${j}&quot; done See also: http://axljab.homelinux.org/Mencoder_DVD_to_MPEG-4 http://f0rked.com/projects/simplerip http://gentoo-wiki.com/HOWTO_Rip_DVD_mencoder Rip entire dvd dd_rhelp + dd_rescue for i in /media/cdrom0/video_ts/* ; do j=${i##*/} dd_rhelp &quot;${i}&quot; &quot;${j}&quot; done vobcopy
+    <p>**Rip audio from a dvd **</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/09/30/rip-audio-track-from-a-dvd/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1679,19 +1708,7 @@ other::r&ndash;<br />
       <div class="meta">20 Sep 2007</div>
     </header>
 
-    <p><code>&lt;br /&gt;
-You should almost never use atime or ctime in find; mtime&lt;br /&gt;
-is almost always what you're after.  In particular, atime&lt;br /&gt;
-is useless if you do backups since it will always reflect&lt;br /&gt;
-the time of the last backup or greater.</code><br />
-<code>&lt;br /&gt;
-&gt; atime: When the file was last read or written to.&lt;br /&gt;
-&gt; ctime: when the inode (metadata) was last changed.  Metadata changes&lt;br /&gt;
-&gt;        that are tracked include file creation, change of ownership,&lt;br /&gt;
-&gt;        change of permissions.&lt;br /&gt;
-</code><code>&lt;br /&gt;
-A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt;
-</code></p>
+    <p>atime, ctime, mtime</p>
 
     <footer>
         <a href='http://blog2.snowfrog.net/2007/09/20/atime-ctime-mtime/'><nobr>Read more →</nobr></a>
@@ -1707,7 +1724,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">19 Aug 2007</div>
     </header>
 
-    Google search: foo site:http://lists.slug.org.au/archives/ Thanks to Rick, SLUG list.
+    <p>HowTo Search SLUG Archives</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/08/19/howto-search-slug-archives/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1722,7 +1740,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">8 Aug 2007</div>
     </header>
 
-    I&#8217;ve written a howto on HowToForge called Multisite CVS Drupal Installation on Ubuntu.
+    <p>Multisite CVS Drupal Installation on Ubuntu</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1737,7 +1756,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">5 Aug 2007</div>
     </header>
 
-    Here&#8217;s how to find the 50 biggest files on a partition: sudo find / -xdev -type f -printf &quot;%15s %pn&quot; |sort -nr | head -50 | less Thanks to Erik de Castro Lopo, SLUG list.
+    <p>Here&#8217;s how to find the 50 biggest files on a partition:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/08/05/find-50-biggest-files/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1752,7 +1772,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">3 Aug 2007</div>
     </header>
 
-    I used to write heaps of shell scripts for converting audio files from one format to another &#8211; here&#8217;s a useful tool that does it for you &#8211; pac (Perl Audio Converter).
+    <p>Useful tool for converting audio files</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/08/02/useful-tool-for-converting-audio-files/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1767,7 +1788,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">21 May 2007</div>
     </header>
 
-    A useful tool for splitting mp3 music files on Linux is mp3splt. To install it on Ubuntu or Debian based distributions, type: $ sudo aptitude install mp3splt Here&#8217;s an example of using it to split a collection of large mp3 files into 11 minute chunks; the -a option automatically finds silences near the 11 minute mark to split on: for i in ../origs/* ; do mp3splt -a -t 11.00 ./${i}
+    <p>A useful tool for splitting mp3 music files on Linux is <strong>mp3splt.</strong> To install it on Ubuntu or Debian based distributions, type:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/05/20/split-mp3-music-files-mp3splt/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1782,12 +1804,7 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">5 May 2007</div>
     </header>
 
-    <p>**HOWTO setup Novatel Merlin XU870 for 3&#8217;s wireless broadband, on Ubuntu Linux<br />
-**</p>
-
-<p>I&#8217;ve recently bought a wireless broadband modem from 3, which I&#8217;m really happy with &#8211; good speed, reliable, and fairly cheap ($AU50/month for 1G). Here are some instructions on how to get it working on Ubuntu Linux.</p>
-
-<p>Compile the <em>Airprime</em> drivers into your kernel, using the instructions at [samat.org][1], or upgrade/install Ubuntu Feisty (7.04) or later &#8211; the drivers are included in the kernel. If you upgrade, check that your kernel has beenupgraded to 2.6.20 or later:</p>
+    <p>HowTo Setup 3 Broadband Wireless on Ubuntu Linux</p>
 
     <footer>
         <a href='http://blog2.snowfrog.net/2007/05/04/howto-setup-3-broadband-wireless-on-ubuntu-linux/'><nobr>Read more →</nobr></a>
@@ -1803,7 +1820,9 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">23 Feb 2007</div>
     </header>
 
-    On Ubuntu Edgy I notice that when I do an &#8216;apt-get update&#8217; I get messages like this: Get:1 http://au.archive.ubuntu.com edgy Release.gpg 191B Ign http://au.archive.ubuntu.com edgy/main Translation-en_AU ^^^ ^^^^^^^^^^^^^^^^^ Solution is to unset language before doing updates: $ unset LANG LANGUAGE $ sudo apt-get update Thanks to Michael Fox, SLUG list, 13 Jan 07.
+    <p>On Ubuntu Edgy I notice that when I do an &#8216;apt-get update&#8217; I get<br />
+messages like this:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/02/22/apt-translation-en_au/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1818,7 +1837,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">4 Feb 2007</div>
     </header>
 
-    I blogged a while ago about using FuzzyOcr for detecting image spam. My FuzzyOcr isn&#8217;t working and at the moment I haven&#8217;t got time to fix it, so I wrote a procmail recipe to solve the problem instead: # test if body contains gif, html, etc, and get procmail score :0 Bc * 3.5^0 Content-Type: image/gif * 2^0 Content-Type: text/html /dev/null SCORE_PM=$= # pull out SA score and required; if 2 scores &gt; SA req'd, ISGT = 1 (true) SCORE_SA=`formail -c -xX-Spam-Status: | awk '{print $2}' | awk -F= '{print $2}'` REQD_SA=`formail -c -xX-Spam-Status: | awk '{print $3}' | awk -F= '{print $2}'` ISGT=`echo "${SCORE_SA} + ${SCORE_PM} &gt; ${REQD_SA}" | bc -l` # test if ISGT = 1, if so, spam prob :0 : * ISGT ??
+    <p>I blogged a while ago about [using FuzzyOcr for detecting image spam][1]. My FuzzyOcr isn&#8217;t working and at the moment I haven&#8217;t got time to fix it, so I wrote a procmail recipe to solve the problem instead:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2007/02/03/beat-image-spam-with-procmail/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1835,8 +1855,6 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
 
     <p>A useful collection of scripts for helping with pgp, including caff &#8211; <em>a script that helps you in keysigning</em> &#8211; <a href="http://pgp-tools.alioth.debian.org/">http://pgp-tools.alioth.debian.org/</a>. In Debian, these tools are included in the [signing-party][1] package. There&#8217;s also a writeup about how to use them effectively (addressed to the participants of LCA2006) [here][2].</p>
 
-<p>Download, install and configure the latest version (if distro&#8217;s version is old):</p>
-
     <footer>
         <a href='http://blog2.snowfrog.net/2007/01/27/pgp-tools/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1851,7 +1869,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">23 Nov 2006</div>
     </header>
 
-    Firefox 2.0 has a new feature called Session Restore; I find it annoying on my laptop as I&#8217;m always shutting down without closing Firefox correctly. Here&#8217;s how to disable it: Go to about:config Right click the list of items, go New -&gt; Boolean preference name should be: browser.sessionstore.enabled value False On more recent versions of Firefox 2, the preference is already included; just search for it and toggle it to false.
+    <p>HowTo Disable Session Restore in Firefox 2.0</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/11/22/howto-disable-session-restore-in-firefox-20/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1866,7 +1885,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">11 Nov 2006</div>
     </header>
 
-    To rebuild a package, I usually: apt-get source package cd package dch -i This will open debian/changelog , then you can increment the package version/release/etc, put in changelog info, etc dpkg-buildpackage -rfakeroot -uc -b This will only build the binary packages, no source stuff will be spat out. before you run this, make sure that package-name/debian/control is executable. At step 4, it might complain about unsatisfied build dependancies. I&#8217;m pretty sure there&#8217;s a nice apt/dpkg automatic way of doing this, but I can&#8217;t remember what is it.
+    <p>To rebuild a package, I usually:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/11/10/rebuild-a-deb-package/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1881,7 +1901,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">22 Oct 2006</div>
     </header>
 
-    sudo aptitude install checkinstall wget foo.tgz tar zxvf foo.tgz cd foo ./configure --prefix=/usr && make sudo checkinstall make install
+    <p>checkinstall – build .deb’s from .tar.gz’s</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1896,14 +1917,7 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">22 Oct 2006</div>
     </header>
 
-    <p>(tested on Fedora Core 3)</p>
-
-<ul>
-<li>copy all of DVD files to a directory, and export via NFS (more features for setups than ftp or http). For example:</li>
-</ul>
-
-<pre>$ cat /etc/exports
- /var/fc3 *(ro,sync)</pre>
+    <p>Using kickstart to automate Redhat/Fedora setups</p>
 
     <footer>
         <a href='http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/'><nobr>Read more →</nobr></a>
@@ -1919,7 +1933,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">28 Sep 2006</div>
     </header>
 
-    Useful link http://www.de-brauwer.be/wiki/wikka.php?wakka=LinuxTecraS2 Most importantly &#8211; how to deal with wireless hardware switch $ cat /sys/bus/pci/drivers/ipw2200/0000:06:02.0/rf_kill This code has the following meaning: 0 = RF kill not enabled (radio on) 1 = SW based RF kill active (radio off) 2 = HW based RF kill active (radio off) 3 = Both HW and SW RF kill active (radio off) To fix sudo rmmod ipw2200 press hardware radio switch sudo insmod
+    <p>ipw2200 wireless on linux</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/09/27/ipw2200-wireless-on-linux/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1934,7 +1949,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">14 Sep 2006</div>
     </header>
 
-    Good procmail sites Timo&#8217;s procmail tips ii.com &#8211; procmail quickstart procmail tips Halcyon guide Partmaps procmail FAQ Stimpy&#8217;s formail tutorial Procmail commands can consist of&#8230; a statement FOO=`formail ... | sed ...` a recipe A recipe consists of three parts&#8230; a colon line zero or more condition lines an action section :0 email_folder/ :0 * From: ... email_folder/ An action is one of&#8230; a folder email_folder email_folder/ a forward !foo@bar a pipe (with :0 fwh or :0 fwb colon flags) | formail -I ...
+    <p>procmail notes</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/09/13/procmail-notes/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1949,7 +1965,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">30 Aug 2006</div>
     </header>
 
-    pdf toolkit (debian package pdftk) can &#8220;join and split PDFs; pull single pages from a file; encrypt and decrypt PDF files; add, update, and export a PDF&#8217;s metadata; export bookmarks to a text file; add or remove attachments to a PDF; fix a damaged PDF; and fill out PDF forms&#8221;. See Manipulating PDFs with the PDF Toolkit. See also a topic I wrote on the Unofficial Ubuntu 6.06 (Dapper Drake) Starter Guide, called How to pull apart and combine pdf files.
+    <p>pdf toolkit</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/08/29/pdf-toolkit/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1964,7 +1981,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">14 Aug 2006</div>
     </header>
 
-    boot using Knoppix, Insert, etc mount required partition: mount -o dev,rw /mnt/hda1, or mount -o remount,dev,rw /mnt/hda1 restore grub: grub-install --root-directory=/mnt/hda1 /dev/hda, or chroot /mnt/hda1 grub-install /dev/hda if problems because of change of partition names, etc, boot using grub shell, then: vi /boot/grub/menu.lst update-grub
+    <p>howto fix broken grub</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/08/13/howto-fix-broken-grub/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1979,7 +1997,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">28 Jul 2006</div>
     </header>
 
-    ActiveCollab is a free (as in beer and speech) replacement for the BaseCamp project management tool/site. Background story here.
+    <p>ActiveCollab</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/07/27/activecollab/'><nobr>Read more →</nobr></a>
     </footer>
@@ -1994,7 +2013,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">17 Jul 2006</div>
     </header>
 
-    Screen is a really useful console tool that allows you to copy and paste text, scroll back through screen output, reattach if you lose your connection, and so on. One useful trick is sharing a screen between 2 or more users, so you can see what each other is doing whilsts typing &#8211; useful for learning or solving a difficult problem (see also LinuxQuestions.Org). To do this, all users need
+    <p>[Screen][1] is a really useful console tool that allows you to copy and paste text, scroll back through screen output, reattach if you lose your connection, and so on. One useful trick is sharing a screen between 2 or more users, so you can see what each other is doing whilsts typing &#8211; useful for learning or solving a difficult problem (see also [LinuxQuestions.Org][2]).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/07/16/share-a-screen-session/'><nobr>Read more →</nobr></a>
     </footer>
@@ -2009,7 +2029,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">30 Jun 2006</div>
     </header>
 
-    Useful tool: Monit Monit can start a process if it does not run, restart a process if it does not respond and stop a process if it uses to much resources. You can use monit to monitor files, directories and devices for changes, such as timestamp changes, checksum changes or size changes. You can also monitor remote hosts; monit can ping a remote host and can check TCP/IP port connections and server protocols&#8230; (Thanks to AndrewMc for this tip).
+    <p>Useful tool: [Monit][1]</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/06/29/useful-tool-monit/'><nobr>Read more →</nobr></a>
     </footer>
@@ -2024,7 +2045,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">21 Jun 2006</div>
     </header>
 
-    I usually use vimdiff to find the differences between two files; here are some gui tools that do the same thing: meld &#8211; though version 1.0.0 doesn&#8217;t allow line-by-line replacements (I&#8217;m told later versions do) mgdiff &#8211; doesn&#8217;t allow line-by-line replacements tkdiff &#8211; doesn&#8217;t allow line-by-line replacements kompare &#8211; allows line-by-line replacements, but the interface is a bit clunky (in that you can&#8217;t easily choose to take diffs from both
+    <p>I usually use <em>vimdiff</em> to find the differences between two files; here are some gui tools that do the same thing:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/06/20/visual-diff-tools/'><nobr>Read more →</nobr></a>
     </footer>
@@ -2039,7 +2061,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">20 Jun 2006</div>
     </header>
 
-    I dual boot my laptop between Linux and Windows &#8211; mostly Linux, but occasionally Windows. Here&#8217;s how to make applications like Firefox, Thunderbird, etc share their configuration &#8211; especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is sonia and your user id is 1000 (check by running the id function). It also presumes that you can see system folders in Windows &#8211; setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click Apply to All Folders.
+    <p>sharing application data on a dual boot laptop</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/'><nobr>Read more →</nobr></a>
     </footer>
@@ -2054,7 +2077,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">18 Jun 2006</div>
     </header>
 
-    Two useful tools for modifying Debian/Ubuntu runlevels (apart from just editing the links directly in /etc/rc?.d): update-rc.d rcconf &#8211; a frontend to update-rc.d
+    <p>Two useful tools for modifying Debian/Ubuntu runlevels (apart from just editing the links directly in /etc/rc?.d):</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/06/17/ubuntudebian-runlevels/'><nobr>Read more →</nobr></a>
     </footer>
@@ -2071,8 +2095,6 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
 
     <p>A while ago I bought a [account][1] from Telstra for roaming wireless on my laptop &#8211; it uses a Maxon MiniMax [MM-5500U][2] to connect on the CDMA phone network. I got this rather than other wireless products as I was going to be doing some work in Perth, and this was the only network that had coverage.</p>
 
-<p>Getting it going on Ubuntu Breezy was really easy, thanks to Quozl&#8217;s Maxon [page][3]:</p>
-
     <footer>
         <a href='http://blog2.snowfrog.net/2006/03/09/telstra-evdo-minimax-on-ubuntu/'><nobr>Read more →</nobr></a>
     </footer>
@@ -2087,7 +2109,8 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">8 Feb 2006</div>
     </header>
 
-    add ssh-add as a startup program under System, Preferences, Sessions (ssh-agent is started automatically by X) (Applications, Preferences, More Preferences, Session on Fedora) when logged in via ssh or console, run: eval `ssh-agent` ssh-add
+    <p>automatically load ssh key on login</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2006/02/07/automatically-load-ssh-key-on-login/'><nobr>Read more →</nobr></a>
     </footer>
@@ -2102,21 +2125,7 @@ A nice way to see the differences is to play with the 'stat' command:&lt;br /&gt
       <div class="meta">27 Nov 2005</div>
     </header>
 
-    <h3 id="using-kpkg-to-build-kernels:04f1df7e23dc332813cb6df950753b58">Using kpkg to Build Kernels</h3>
-
-<p>See also [How To Compile A Kernel &#8211; The Ubuntu Way][1]</p>
-
-<h3 id="preparation:04f1df7e23dc332813cb6df950753b58">Preparation</h3>
-
-<ul>
-<li>make backup floppy</li>
-</ul>
-
-<pre>mkboot /boot/kernel...</pre>
-
-<ul>
-<li>add myself to src group (logout &amp; login)</li>
-</ul>
+    <p>using kpkg to build kernels</p>
 
     <footer>
         <a href='http://blog2.snowfrog.net/2005/11/26/using-kpkg-to-build-kernels/'><nobr>Read more →</nobr></a>

@@ -58,7 +58,9 @@
       <h1 class="post-title">Ghostscript ImageMagick RHEL libgs.so errors</h1>
         <section id="main">
           <h5 id="date"> 29 Mar 2012 </h5>
-          <p>A little problem I came across today. When you install ImageMagick (IM) on <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux">RHEL</a> (or <a href="http://en.wikipedia.org/wiki/Oracle_Enterprise_Linux">OEL</a> or similar), IM fails when converting pdfs. You can see the problem (<strong>libgs.so</strong>) by logging the output of IM. For example, here&rsquo;s an attempted conversion of <strong>test.pdf</strong> to <strong>test.tif</strong>:</p>
+          <p>A little problem I came across today. When you install ImageMagick (IM) on <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux">RHEL</a> (or <a href="http://en.wikipedia.org/wiki/Oracle_Enterprise_Linux">OEL</a> or similar), IM fails when converting pdfs.</p>
+
+<p>You can see the problem (<strong>libgs.so</strong>) by logging the output of IM. For example, here&rsquo;s an attempted conversion of <strong>test.pdf</strong> to <strong>test.tif</strong>:</p>
 
 <pre><code>% convert -debug all -log &quot;%u %m:%l %e&quot; test.pdf test.tif 2&gt;&amp;1 | less
 </code></pre>

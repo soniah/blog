@@ -58,7 +58,9 @@
       <h1 class="post-title">mysql, localhost, and ssh work-around</h1>
         <section id="main">
           <h5 id="date"> 5 Jun 2008 </h5>
-          <p>I use ssh to tunnel all the time, especially to get around brain-dead firewalls. But this doesn&#8217;t work easily for mysql &#8211; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost&#8217; and try to connect via the local socket. Very broken &#8211; there&#8217;s bugs lodged <a href="http://bugs.mysql.com/bug.php?id=27361">here</a> and <a href="http://bugs.mysql.com/bug.php?id=31577">here</a> about this (and lots of chest beating and wailing, too).</p>
+          <p>I use ssh to tunnel all the time, especially to get around brain-dead firewalls.</p>
+
+<p>But this doesn&#8217;t work easily for mysql &#8211; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost&#8217; and try to connect via the local socket. Very broken &#8211; there&#8217;s bugs lodged <a href="http://bugs.mysql.com/bug.php?id=27361">here</a> and <a href="http://bugs.mysql.com/bug.php?id=31577">here</a> about this (and lots of chest beating and wailing, too).</p>
 
 <p><strong>Solution:</strong> tunnel ssh via an intermediate machine. For example:</p>
 
@@ -102,13 +104,13 @@ mysql&gt;</pre>
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/">Connect to mysql from OpenOffice using ODBC</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/">Ssh SOCKS proxying, DNS proxying, Tunnelling</a>
     </span>
   
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2008/04/17/disable-evolution-notifications-in-ubuntu/"> &nbsp; Disable Evolution notifications in Ubuntu</a> &raquo;
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/"> &nbsp; Connect to mysql from OpenOffice using ODBC</a> &raquo;
     </span>
   
   <br />

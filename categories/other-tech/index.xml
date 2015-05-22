@@ -274,7 +274,9 @@ rm -rf *
       <pubDate>Sat, 02 Jun 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</guid>
-      <description>&lt;p&gt;Some notes on &lt;a href=&#34;http://emacswiki.org/emacs/ParEdit&#34;&gt;Emacs&amp;rsquo; Paredit mode&lt;/a&gt;. More so I can stop fighting with Paredit and do some &lt;strong&gt;Clojure&lt;/strong&gt; programming than show any expertise - see &lt;a href=&#34;http://www.slideshare.net/mudphone/paredit-preso&#34;&gt;Mudphone&amp;rsquo;s Paredit Preso&lt;/a&gt; for the real deal, as well as &lt;a href=&#34;http://p.hagelb.org/paredit-screencast.html&#34;&gt;hagelb&amp;rsquo;s Paredit screencast notes&lt;/a&gt; and the &lt;a href=&#34;http://www.emacswiki.org/pics/static/PareditCheatsheet.png&#34;&gt;Paredit Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;Some notes on &lt;a href=&#34;http://emacswiki.org/emacs/ParEdit&#34;&gt;Emacs&amp;rsquo; Paredit mode&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;More so I can stop fighting with Paredit and do some &lt;strong&gt;Clojure&lt;/strong&gt; programming than show any expertise - see &lt;a href=&#34;http://www.slideshare.net/mudphone/paredit-preso&#34;&gt;Mudphone&amp;rsquo;s Paredit Preso&lt;/a&gt; for the real deal, as well as &lt;a href=&#34;http://p.hagelb.org/paredit-screencast.html&#34;&gt;hagelb&amp;rsquo;s Paredit screencast notes&lt;/a&gt; and the &lt;a href=&#34;http://www.emacswiki.org/pics/static/PareditCheatsheet.png&#34;&gt;Paredit Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;M-(&lt;/strong&gt;  wrap parens around something. Also for { [ &amp;ldquo;&lt;/p&gt;&lt;/li&gt;
@@ -329,7 +331,9 @@ rm -rf *
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
-      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux). I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
+      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
+
+&lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
 
 &lt;pre&gt;:: MySQl DB user
 set dbuser=xxxx
@@ -574,7 +578,9 @@ done&lt;/pre&gt;
       <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
-      <description>&lt;p&gt;iTunes&amp;#8217; syncing of movies and podcasts is a big lame &amp;#8211; there&amp;#8217;s not enough fine grained control. For example, you can&amp;#8217;t say &amp;#8220;sync only this category of movies&amp;#8221;, or &amp;#8220;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;#8217;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;#8220;. And at the moment I don&amp;#8217;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;#8217;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
+      <description>&lt;p&gt;iTunes&amp;#8217; syncing of movies and podcasts is a big lame &amp;#8211; there&amp;#8217;s not enough fine grained control.&lt;/p&gt;
+
+&lt;p&gt;For example, you can&amp;#8217;t say &amp;#8220;sync only this category of movies&amp;#8221;, or &amp;#8220;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;#8217;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;#8220;. And at the moment I don&amp;#8217;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;#8217;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
 
 &lt;p&gt;One work around I&amp;#8217;ve found is to categorise as much media as possible as either &amp;#8220;Music&amp;#8221; or &amp;#8220;Music Videos&amp;#8221;. You can then work with playlists and &amp;#8220;smart&amp;#8221; (sic) playlists to get a bit more control.&lt;/p&gt;
 </description>

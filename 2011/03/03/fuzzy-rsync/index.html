@@ -58,7 +58,9 @@
       <h1 class="post-title">fuzzy rsync</h1>
         <section id="main">
           <h5 id="date"> 3 Mar 2011 </h5>
-          <p>A nice option I discovered in <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> &#8211; the <strong>&#8211;fuzzy</strong> option. If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &#8220;similar&#8221; algorithm is &#8220;identical size and modified time&#8221;, or &#8220;similarly-named&#8221;. For example:</p>
+          <p>A nice option I discovered in <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> &#8211; the <strong>&#8211;fuzzy</strong> option.</p>
+
+<p>If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &#8220;similar&#8221; algorithm is &#8220;identical size and modified time&#8221;, or &#8220;similarly-named&#8221;. For example:</p>
 
 <pre>rsync foo/ example.com:video/foo/ --fuzzy --delete-delay
 ...

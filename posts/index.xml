@@ -17,7 +17,7 @@
       <description>&lt;p&gt;I just finished attending the excellent &lt;a href=&#34;http://lambdajam.yowconference.com.au/&#34;&gt;Brisbane YOW! Lambda
 Jam&lt;/a&gt;. One of the really useful
 things I learned was &amp;ldquo;Hole Driven Development&amp;rdquo; for Haskell - basically
-using the type system to help you write a function&lt;/p&gt;
+using the type system to help you write a function.&lt;/p&gt;
 
 &lt;p&gt;Firstly, when writing a function, you can use placeholders that will
 allow code to compile (without producing error messages) while you&amp;rsquo;re

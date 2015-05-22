@@ -58,7 +58,9 @@
       <h1 class="post-title">Ruby rcov rexml error</h1>
         <section id="main">
           <h5 id="date"> 15 Sep 2009 </h5>
-          <p>Ruby&#8217;s rcov had a workaround for a breakage in the rexml library, but the workaround <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=517112">broke</a>. This causes <em>no implicit conversion from nil to integer</em> on stderr. Quick solution:</p>
+          <p>Ruby&#8217;s rcov had a workaround for a breakage in the rexml library, but the workaround <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=517112">broke</a>.</p>
+
+<p>This causes <em>no implicit conversion from nil to integer</em> on stderr. Quick solution:</p>
 
 <pre>rcov-0.8.1.2.0/lib/rcov/report.rb
 -if RUBY_VERSION == "1.8.6" && defined? REXML::Formatters::Transitive

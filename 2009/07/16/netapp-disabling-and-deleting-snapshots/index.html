@@ -58,7 +58,9 @@
       <h1 class="post-title">netapp – disabling and deleting snapshots</h1>
         <section id="main">
           <h5 id="date"> 16 Jul 2009 </h5>
-          <p>Netapp volumes by default are created with snapshots turned on; if the volume is being used for backups (for example), the snapshots just use up space. Here&#8217;s how to delete them:</p>
+          <p>Netapp volumes by default are created with snapshots turned on; if the volume is being used for backups (for example), the snapshots just use up space.</p>
+
+<p>Here&#8217;s how to delete them:</p>
 
 <pre>df vm_dev                     # see space usage for vm_dev volume
 snap sched vm_dev             # see the current snapshot schedule
