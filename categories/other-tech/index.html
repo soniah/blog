@@ -68,7 +68,8 @@
       <div class="meta">7 Jan 2014</div>
     </header>
 
-    Microsoft MSSQL doesn&rsquo;t have a split() function (like in Ruby, Perl), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item. [sourcecode lang=&ldquo;sql&rdquo;] CREATE FUNCTION [dbo].split, @delimiter CHAR(1), @pos
+    <p>Microsoft MSSQL doesn&rsquo;t have a split() function (like in <a href="http://ruby-doc.org/core-1.9.3/String.html#method-i-split">Ruby</a>, <a href="http://perldoc.perl.org/functions/split.html">Perl</a>), so here&rsquo;s one I wrote.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>
@@ -83,7 +84,8 @@
       <div class="meta">6 Jan 2014</div>
     </header>
 
-    I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
+    <p>I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a <a href="http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index">SUBSTRING_INDEX</a> function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>
@@ -98,7 +100,8 @@
       <div class="meta">24 Dec 2013</div>
     </header>
 
-    Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &ldquo;enable CLR&rdquo; and provide an &ldquo;encryption password&rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields. Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&rsquo;m not using a tablet, so why force a tablet interface down my throat?
+    <p>Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &ldquo;enable CLR&rdquo; and provide an &ldquo;encryption password&rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/'><nobr>Read more →</nobr></a>
     </footer>
@@ -113,7 +116,8 @@
       <div class="meta">22 Dec 2013</div>
     </header>
 
-    When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&rsquo;ll get an error in the console log like: Unable to copy file foo to /var/private/bar&hellip; The solution comes from the TunnelBlick forum: There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk.
+    <p>When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&rsquo;ll get an error in the console log like:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/'><nobr>Read more →</nobr></a>
     </footer>

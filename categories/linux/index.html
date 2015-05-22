@@ -87,7 +87,16 @@ using the type system to help you write a function</p>
       <div class="meta">25 Mar 2015</div>
     </header>
 
-    A guest blog post I wrote on managing git branches when doing devops. When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using Puppet and R10K for your configuration management you can end up having hundreds of old branches lying around — branches like XYZ-123, XYZ-123.fixed, XYZ-123.fixed.old and so on.
+    <p>A guest blog post I wrote on managing git branches when doing devops.</p>
+
+<p>When doing Devops we all know that using source code control is a “good
+thing” — indeed it would be hard to imagine doing Devops without it. But
+if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/">Puppet and
+  R10K</a>
+  for your configuration management you can end up having hundreds of
+    old branches lying around — branches like <strong>XYZ-123</strong>,
+    <strong>XYZ-123.fixed</strong>, <strong>XYZ-123.fixed.old</strong> and so on.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/'><nobr>Read more →</nobr></a>
     </footer>
@@ -102,7 +111,8 @@ using the type system to help you write a function</p>
       <div class="meta">18 Jan 2015</div>
     </header>
 
-    SaltStack currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work: [sourcecode lang=&ldquo;text&rdquo;] system: network.system: - enabled: True - hostname: server1.example.com [/sourcecode] Here&rsquo;s a little shell script I wrote, to get around this problem: [sourcecode lang=&ldquo;shell&rdquo;] % cat set_hostname.sh #!/bin/bash hn=$1 hostname $hn echo $hn &gt; /etc/hostname sed -i &ldquo;1s/.*/127.0.0.1 localhost $hn/&rdquo; /etc/hosts [/sourcecode] Then apply it using cmd.script, for example: [sourcecode lang=&ldquo;text&rdquo;] foo-hostname: cmd.script: - source:
+    <p><a href="http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html">SaltStack</a> currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/'><nobr>Read more →</nobr></a>
     </footer>
@@ -132,7 +142,8 @@ using the type system to help you write a function</p>
       <div class="meta">3 Dec 2014</div>
     </header>
 
-    Instructions on how to build the development version of Terraform. First you need to install Go, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (go-bindata, lint) and my own projects (gosnmp, evaler). [sourcecode lang=&ldquo;shell&rdquo;] #!/bin/bash install go tgz=go1.3.3.linux-amd64.tar.gz url=https://storage.googleapis.com/golang/$tgz if ! [ -f /var/tmp/$tgz ] ; then cd /var/tmp wget $url fi if ! [ -d /usr/local/go ] ; then sudo tar -C /usr/local -xzf /var/tmp/$tgz fi setup dev directory structure mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src} cd ~/go/thirdparty/src #&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; read -p &ldquo;Install third party repos?
+    <p>Instructions on how to build the development version of <a href="https://www.terraform.io/">Terraform</a>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/'><nobr>Read more →</nobr></a>
     </footer>
@@ -147,7 +158,8 @@ using the type system to help you write a function</p>
       <div class="meta">29 Sep 2014</div>
     </header>
 
-    I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git. First install the hg-git tools; for example on Ubuntu: [sourcecode lang=&ldquo;shell&rdquo;] sudo aptitude install python-setuptools python-dev sudo easy_install hg-git [/sourcecode] Make sure the following is in your ~/.hgrc: [sourcecode lang=&ldquo;shell&rdquo;] [extensions] hgext.bookmarks = hggit = [/sourcecode] Then, in your existing mercurial repository, add a new remote that points to the git repository.
+    <p>I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/'><nobr>Read more →</nobr></a>
     </footer>
@@ -162,7 +174,8 @@ using the type system to help you write a function</p>
       <div class="meta">23 Sep 2014</div>
     </header>
 
-    A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others. How Do I Use Salt States, States tutorial and Pillar Walkthrough - the tutorials Highstate data structure definitions and Understanding YAML - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc Requisites and Other Global State Arguments - do something before something else,
+    <p>A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/'><nobr>Read more →</nobr></a>
     </footer>
@@ -177,7 +190,8 @@ using the type system to help you write a function</p>
       <div class="meta">26 Feb 2014</div>
     </header>
 
-    Some notes on setting up Arduino on Debian. Add yourself to the required groups - dialout and tty. [sourcecode lang=&ldquo;shell&rdquo;] sudo adduser $USER dialout sudo adduser $USER tty [/sourcecode] Confirm the port /dev/ttyUSB0 is being used by Arduino - tail messages then plug in the Arduino. [sourcecode lang=&ldquo;shell&rdquo;] sudo tail -f /var/log/messages you should see something like: FTDI USB Serial Device converter now attached to ttyUSB0 out of interest, inspect permissions on port ls -al /dev/ttyUSB0 [/sourcecode] Logout and login (or run a login shell).
+    <p>Some notes on setting up Arduino on Debian.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/'><nobr>Read more →</nobr></a>
     </footer>
@@ -192,7 +206,8 @@ using the type system to help you write a function</p>
       <div class="meta">24 Dec 2013</div>
     </header>
 
-    How to change the default editor in Debian (for root), as I keep forgetting: sudo update-alternatives --config editor My ~/.zshrc takes care of this for my personal account, but it&rsquo;s nice to change root&rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&rsquo;s crontab, /etc/sudoers (via visudo), and so on.
+    <p>How to change the default editor in Debian (for root), as I keep forgetting:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/'><nobr>Read more →</nobr></a>
     </footer>
@@ -207,7 +222,8 @@ using the type system to help you write a function</p>
       <div class="meta">14 Dec 2013</div>
     </header>
 
-    I&rsquo;m using FreeNAS for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, as always the shell is faster. Some notes for me on listing ZFS snapshots, and creating and destroying clones. [sourcecode lang=&ldquo;shell&rdquo;] cd /mnt/vol01/bjj zfs list -t snapshot | grep bjj | grep -v vobs zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d cd auto-20131214.12d after recovery tasks, umount snapshot cd
+    <p>I&rsquo;m using <a href="http://www.freenas.org/">FreeNAS</a> for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, <a href="http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line">as always the shell is faster</a>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/'><nobr>Read more →</nobr></a>
     </footer>
@@ -222,7 +238,8 @@ using the type system to help you write a function</p>
       <div class="meta">4 Nov 2013</div>
     </header>
 
-    How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X: soffice --headless --convert-to csv test.ods From CLI - convert ods to csv with semicolon as delimiter. No rocket science, just a handy note for myself&hellip;
+    <p>How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/'><nobr>Read more →</nobr></a>
     </footer>
@@ -237,7 +254,8 @@ using the type system to help you write a function</p>
       <div class="meta">21 Jul 2013</div>
     </header>
 
-    I recently came across a useful tool while reading The Debian Administrator&rsquo;s Handbook - debfoster. I use it on space constrained machines, like my venerable Asus eeePC 701 (which is great for travelling). As Raphaël Hertzog and Roland Mas explain: debfoster has a more elaborate approach, very similar to aptitude&rsquo;s: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation.
+    <p>I recently came across a useful tool while reading <a href="http://debian-handbook.info/">The Debian Administrator&rsquo;s Handbook</a> - <strong>debfoster</strong>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/'><nobr>Read more →</nobr></a>
     </footer>
@@ -252,7 +270,8 @@ using the type system to help you write a function</p>
       <div class="meta">18 Jun 2013</div>
     </header>
 
-    I&rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins. I was unfamiliar with Jenkins, and there didn&rsquo;t seem to be any documentation around on how to build Go executables. Project Structure First of all an aside on project structure. For my first project I had a GOPATH of ~/go and the following directory structure: ~/go |--bin |--pkg |--src But as I wrote more Go projects, it made more sense to separate each project into it&rsquo;s own directory structure: ~/go |--project1 |--bin |--pkg |--src |--project2 |--bin |--pkg |--src With this directory structure I set GOPATH on the command line or in a Makefile: [sourcecode lang=&ldquo;shell&rdquo;] % cd ~go/project2/src/github.com/soniah/gosnmp % GOPATH=~go/project2 go build [/sourcecode] Makefile For smaller projects you can just produce a binary using go run or go build.
+    <p>I&rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/'><nobr>Read more →</nobr></a>
     </footer>
@@ -267,7 +286,8 @@ using the type system to help you write a function</p>
       <div class="meta">3 Jun 2013</div>
     </header>
 
-    There is already a great article on Profiling Go Programs. However that article only discusses how to profile a standalone binary - what about a library? For example, I&rsquo;ve been working on the GoSNMP SNMP library, here&rsquo;s how I profiled it (it wasn&rsquo;t obvious): [sourcecode lang=&ldquo;shell&rdquo;] produce cpu profiling information from the tests - this part was well documented % go test -cpuprofile cpu.out compile the test binary to pkg.test
+    <p>There is already a great article on <a href="blog.golang.org/2011/06/profiling-go-programs.html">Profiling Go Programs</a>. However that article only discusses how to profile a standalone binary - what about a library?</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/'><nobr>Read more →</nobr></a>
     </footer>
@@ -282,7 +302,8 @@ using the type system to help you write a function</p>
       <div class="meta">3 Jun 2013</div>
     </header>
 
-    There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below). These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it. Start by booting from an Ubuntu Live CD. Passwords Three different &ldquo;passwords&rdquo; are referred to when recovering: boot password ie the password used when your laptop is first booted and the partitions are decrypted user password ie your unix account password mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1.
+    <p>There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/'><nobr>Read more →</nobr></a>
     </footer>
@@ -297,7 +318,8 @@ using the type system to help you write a function</p>
       <div class="meta">14 Mar 2013</div>
     </header>
 
-    Git bisect is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&rsquo;s an example of automating the process using git bisect run. tl;dr Using git bisect run is easy if you&rsquo;ve make small atomic commits and you have good tests. run makes a large debug easier (compared to manually doing git bisect good and git bisect bad) - you&rsquo;re less likely to make errors due to boredom.
+    <p><a href="http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html">Git bisect</a> is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&rsquo;s an example of automating the process using <strong>git bisect run</strong>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/'><nobr>Read more →</nobr></a>
     </footer>
@@ -312,7 +334,8 @@ using the type system to help you write a function</p>
       <div class="meta">11 Mar 2013</div>
     </header>
 
-    Today I released soniah/gosnmp - an update of alouca/gosnmp. Many, many thanks to Andreas Louca for writing alouca/gosnmp. The major difference between his version and soniah/gosnmp is that the latter has tests written. (However the code could do with refactoring). The tests were used to find and correct errors in the following SNMP BER Types: Counter32 Gauge32 Counter64 OctetString ObjectIdentifier IpAddress Also, this version contains functions for treating the returned
+    <p>Today I released <a href="http://github.com/soniah/gosnmp">soniah/gosnmp</a> - an update of <a href="http://github.com/alouca">alouca/gosnmp</a>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/'><nobr>Read more →</nobr></a>
     </footer>
@@ -327,7 +350,8 @@ using the type system to help you write a function</p>
       <div class="meta">12 Feb 2013</div>
     </header>
 
-    I&rsquo;ve just finished refactoring a large Go program, and the process was rather&hellip;. pleasant. Static typing catches all those obscure errors I wouldn&rsquo;t think about in a scripting language (Python, Perl, Ruby, etc). My process is: type :make in vim (I have a dummy Makefile in my Go project just for vim) vim jumps cursor to error (vim quickfix list) &ldquo;oh, I shouldn&rsquo;t do that&rdquo; - fix (type type type) start again Finish rather sooner than expected, run tests, smile in knowledge program is working properly.
+    <p>I&rsquo;ve just finished refactoring a large Go program, and the process was rather&hellip;. pleasant.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/'><nobr>Read more →</nobr></a>
     </footer>
@@ -342,7 +366,8 @@ using the type system to help you write a function</p>
       <div class="meta">10 Feb 2013</div>
     </header>
 
-    Update 8/Mar/13 Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use http://github.com/soniah/gosnmp instead. Previously&hellip; I recently released gsnmpgo - a Go/CGo snmp library using gsnmp. Pull requests welcome! From the gsnmpgo documentation, here&rsquo;s an example of usage: [sourcecode language=&ldquo;cpp&rdquo;] // do an snmp get; RFC 4088 is used for uris uri := snmp://public@192.168.1.10//(1.3.6.1.2.1.1.1.0) params := gsnmpgo.NewDefaultParams(uri) results, err := gsnmpgo.Query(params) if err
+    <p>Update 8/Mar/13. Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use <a href="http://github.com/soniah/gosnmp">http://github.com/soniah/gosnmp</a> instead.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/'><nobr>Read more →</nobr></a>
     </footer>
@@ -357,7 +382,8 @@ using the type system to help you write a function</p>
       <div class="meta">22 Jan 2013</div>
     </header>
 
-    (Just a summary of Stack Overflow &ldquo;How do you Remove an Invalid Remote Branch Reference from Git?&rdquo;). To delete a local tracking branch (without deleting the remote branch), do: [sourcecode language=&ldquo;shell&rdquo;] git branch -rd remote/branch [/sourcecode] And of course to delete the remote branch: [sourcecode language=&ldquo;shell&rdquo;] git push remote :branch [/sourcecode] Occasionally a gc will help, but usually shouldn&rsquo;t be used: [sourcecode language=&ldquo;shell&rdquo;] git gc &ndash;prune=now [/sourcecode] So, when would you want to use this?
+    <p>(Just a summary of <a href="http://stackoverflow.com/questions/1072171/how-do-you-remove-an-invalid-remote-branch-reference-from-git">Stack Overflow &ldquo;How do you Remove an Invalid Remote Branch Reference from Git?&rdquo;</a>).</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/'><nobr>Read more →</nobr></a>
     </footer>

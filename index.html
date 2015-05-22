@@ -87,7 +87,16 @@ using the type system to help you write a function</p>
       <div class="meta">25 Mar 2015</div>
     </header>
 
-    A guest blog post I wrote on managing git branches when doing devops. When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using Puppet and R10K for your configuration management you can end up having hundreds of old branches lying around — branches like XYZ-123, XYZ-123.fixed, XYZ-123.fixed.old and so on.
+    <p>A guest blog post I wrote on managing git branches when doing devops.</p>
+
+<p>When doing Devops we all know that using source code control is a “good
+thing” — indeed it would be hard to imagine doing Devops without it. But
+if you’re using <a href="http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/">Puppet and
+  R10K</a>
+  for your configuration management you can end up having hundreds of
+    old branches lying around — branches like <strong>XYZ-123</strong>,
+    <strong>XYZ-123.fixed</strong>, <strong>XYZ-123.fixed.old</strong> and so on.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/'><nobr>Read more →</nobr></a>
     </footer>
@@ -102,7 +111,8 @@ using the type system to help you write a function</p>
       <div class="meta">18 Jan 2015</div>
     </header>
 
-    SaltStack currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work: [sourcecode lang=&ldquo;text&rdquo;] system: network.system: - enabled: True - hostname: server1.example.com [/sourcecode] Here&rsquo;s a little shell script I wrote, to get around this problem: [sourcecode lang=&ldquo;shell&rdquo;] % cat set_hostname.sh #!/bin/bash hn=$1 hostname $hn echo $hn &gt; /etc/hostname sed -i &ldquo;1s/.*/127.0.0.1 localhost $hn/&rdquo; /etc/hosts [/sourcecode] Then apply it using cmd.script, for example: [sourcecode lang=&ldquo;text&rdquo;] foo-hostname: cmd.script: - source:
+    <p><a href="http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html">SaltStack</a> currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work:</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/'><nobr>Read more →</nobr></a>
     </footer>
@@ -132,7 +142,8 @@ using the type system to help you write a function</p>
       <div class="meta">3 Dec 2014</div>
     </header>
 
-    Instructions on how to build the development version of Terraform. First you need to install Go, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (go-bindata, lint) and my own projects (gosnmp, evaler). [sourcecode lang=&ldquo;shell&rdquo;] #!/bin/bash install go tgz=go1.3.3.linux-amd64.tar.gz url=https://storage.googleapis.com/golang/$tgz if ! [ -f /var/tmp/$tgz ] ; then cd /var/tmp wget $url fi if ! [ -d /usr/local/go ] ; then sudo tar -C /usr/local -xzf /var/tmp/$tgz fi setup dev directory structure mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src} cd ~/go/thirdparty/src #&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; read -p &ldquo;Install third party repos?
+    <p>Instructions on how to build the development version of <a href="https://www.terraform.io/">Terraform</a>.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/'><nobr>Read more →</nobr></a>
     </footer>
@@ -147,7 +158,8 @@ using the type system to help you write a function</p>
       <div class="meta">29 Sep 2014</div>
     </header>
 
-    I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git. First install the hg-git tools; for example on Ubuntu: [sourcecode lang=&ldquo;shell&rdquo;] sudo aptitude install python-setuptools python-dev sudo easy_install hg-git [/sourcecode] Make sure the following is in your ~/.hgrc: [sourcecode lang=&ldquo;shell&rdquo;] [extensions] hgext.bookmarks = hggit = [/sourcecode] Then, in your existing mercurial repository, add a new remote that points to the git repository.
+    <p>I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/'><nobr>Read more →</nobr></a>
     </footer>
@@ -162,7 +174,8 @@ using the type system to help you write a function</p>
       <div class="meta">23 Sep 2014</div>
     </header>
 
-    A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others. How Do I Use Salt States, States tutorial and Pillar Walkthrough - the tutorials Highstate data structure definitions and Understanding YAML - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc Requisites and Other Global State Arguments - do something before something else,
+    <p>A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/'><nobr>Read more →</nobr></a>
     </footer>
@@ -177,7 +190,8 @@ using the type system to help you write a function</p>
       <div class="meta">26 Feb 2014</div>
     </header>
 
-    Some notes on setting up Arduino on Debian. Add yourself to the required groups - dialout and tty. [sourcecode lang=&ldquo;shell&rdquo;] sudo adduser $USER dialout sudo adduser $USER tty [/sourcecode] Confirm the port /dev/ttyUSB0 is being used by Arduino - tail messages then plug in the Arduino. [sourcecode lang=&ldquo;shell&rdquo;] sudo tail -f /var/log/messages you should see something like: FTDI USB Serial Device converter now attached to ttyUSB0 out of interest, inspect permissions on port ls -al /dev/ttyUSB0 [/sourcecode] Logout and login (or run a login shell).
+    <p>Some notes on setting up Arduino on Debian.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/'><nobr>Read more →</nobr></a>
     </footer>
@@ -192,7 +206,8 @@ using the type system to help you write a function</p>
       <div class="meta">7 Jan 2014</div>
     </header>
 
-    Microsoft MSSQL doesn&rsquo;t have a split() function (like in Ruby, Perl), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item. [sourcecode lang=&ldquo;sql&rdquo;] CREATE FUNCTION [dbo].split, @delimiter CHAR(1), @pos
+    <p>Microsoft MSSQL doesn&rsquo;t have a split() function (like in <a href="http://ruby-doc.org/core-1.9.3/String.html#method-i-split">Ruby</a>, <a href="http://perldoc.perl.org/functions/split.html">Perl</a>), so here&rsquo;s one I wrote.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>
@@ -207,7 +222,8 @@ using the type system to help you write a function</p>
       <div class="meta">6 Jan 2014</div>
     </header>
 
-    I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
+    <p>I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a <a href="http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index">SUBSTRING_INDEX</a> function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;.</p>
+
     <footer>
         <a href='http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>

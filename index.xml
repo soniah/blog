@@ -65,7 +65,18 @@ Haskell&lt;/a&gt;.&lt;/p&gt;
       <guid>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</guid>
       <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
 
-&lt;p&gt;When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and R10K&lt;/a&gt; for your configuration management you can end up having hundreds of old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on. Which branches to cleanup, which to keep? How to easily cleanup the old branches? This article demonstrates some git configurations and scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;/p&gt;
+&lt;p&gt;When doing Devops we all know that using source code control is a “good
+thing” — indeed it would be hard to imagine doing Devops without it. But
+if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and
+  R10K&lt;/a&gt;
+  for your configuration management you can end up having hundreds of
+    old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;,
+    &lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Which branches to cleanup, which to keep? How to easily cleanup the
+old branches?  This article demonstrates some git configurations and
+scripts  that make working with hundreds of git branches easier...
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Go to &lt;a href=&#34;http://www.icesystems.com.au/devops-and-old-git-branches/&#34;&gt;Devops and Old Git Branches&lt;/a&gt; to read the full article.&lt;/p&gt;
 </description>
@@ -392,7 +403,9 @@ cd ~/arduino-1.0.5
       <guid>http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</guid>
       <description>
 
-&lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote. It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
+&lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
 
 &lt;p&gt;[sourcecode lang=&amp;ldquo;sql&amp;rdquo;]
 CREATE FUNCTION [dbo].&lt;a href=&#34;@string varchar(MAX&#34;&gt;split&lt;/a&gt;,
@@ -649,7 +662,9 @@ rmdir auto-20131214.12d&lt;/p&gt;
       <guid>http://blog2.snowfrog.net/2013/12/11/tricks-for-learning-foreign-languages/</guid>
       <description>
 
-&lt;p&gt;I &lt;em&gt;get by&lt;/em&gt; in a few foreign languages (Spanish mostly, some Portuguese and French). People&amp;rsquo;s first response to this is &amp;ldquo;oh that sounds so hard&amp;rdquo; quickly followed by &amp;ldquo;I&amp;rsquo;m going to learn languageX next year&amp;rdquo;. As if learning is a language is something you can quickly tick off your bucket list, to be followed by &amp;ldquo;go sky diving&amp;rdquo;, &amp;ldquo;see the Pyramids&amp;rdquo; and &amp;ldquo;walk Kokoda&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;I &lt;em&gt;get by&lt;/em&gt; in a few foreign languages (Spanish mostly, some Portuguese and French). People&amp;rsquo;s first response to this is &amp;ldquo;oh that sounds so hard&amp;rdquo; quickly followed by &amp;ldquo;I&amp;rsquo;m going to learn languageX next year&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;As if learning is a language is something you can quickly tick off your bucket list, to be followed by &amp;ldquo;go sky diving&amp;rdquo;, &amp;ldquo;see the Pyramids&amp;rdquo; and &amp;ldquo;walk Kokoda&amp;rdquo;.&lt;/p&gt;
 
 &lt;p&gt;There&amp;rsquo;s always more to learn in a foreign language, and sitting down and doing grammar and exercises is &lt;em&gt;&lt;strong&gt;boring&lt;/strong&gt;&lt;/em&gt;. Here are a few tricks I&amp;rsquo;ve learned over the years:&lt;/p&gt;
 

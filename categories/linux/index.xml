@@ -65,7 +65,18 @@ Haskell&lt;/a&gt;.&lt;/p&gt;
       <guid>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</guid>
       <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
 
-&lt;p&gt;When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and R10K&lt;/a&gt; for your configuration management you can end up having hundreds of old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on. Which branches to cleanup, which to keep? How to easily cleanup the old branches? This article demonstrates some git configurations and scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;/p&gt;
+&lt;p&gt;When doing Devops we all know that using source code control is a “good
+thing” — indeed it would be hard to imagine doing Devops without it. But
+if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and
+  R10K&lt;/a&gt;
+  for your configuration management you can end up having hundreds of
+    old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;,
+    &lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Which branches to cleanup, which to keep? How to easily cleanup the
+old branches?  This article demonstrates some git configurations and
+scripts  that make working with hundreds of git branches easier...
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Go to &lt;a href=&#34;http://www.icesystems.com.au/devops-and-old-git-branches/&#34;&gt;Devops and Old Git Branches&lt;/a&gt; to read the full article.&lt;/p&gt;
 </description>
@@ -453,7 +464,9 @@ rmdir auto-20131214.12d&lt;/p&gt;
       <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
-      <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;. I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
+      <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;debfoster has a more elaborate approach, very similar to aptitude&amp;rsquo;s: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation. If new packages appear on the system and if debfoster doesn&amp;rsquo;t know them as required packages, they will be shown on the screen together with a list of their dependencies. The program then offers a choice: remove the package (possibly together with those that depend on it), mark it as explicitly required, or ignore it temporarily.&lt;/em&gt;&lt;/p&gt;
 
@@ -503,7 +516,9 @@ rmdir auto-20131214.12d&lt;/p&gt;
       <guid>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</guid>
       <description>
 
-&lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins. I was unfamiliar with Jenkins, and there didn&amp;rsquo;t seem to be any documentation around on how to build Go executables.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins.&lt;/p&gt;
+
+&lt;p&gt;I was unfamiliar with Jenkins, and there didn&amp;rsquo;t seem to be any documentation around on how to build Go executables.&lt;/p&gt;
 
 &lt;h3 id=&#34;project-structure:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Project Structure&lt;/h3&gt;
 
@@ -641,7 +656,9 @@ build-stamp: file1.go file2.go file3.go
       <guid>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</guid>
       <description>
 
-&lt;p&gt;There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below). These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.&lt;/p&gt;
+&lt;p&gt;There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below).&lt;/p&gt;
+
+&lt;p&gt;These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.&lt;/p&gt;
 
 &lt;p&gt;Start by booting from an Ubuntu Live CD.&lt;/p&gt;
 
