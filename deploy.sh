@@ -65,10 +65,17 @@ function restore_head {
 	git reset --mixed
 }
 
+############
+### main ###
+############
+
 if ! git diff --exit-code --quiet --cached; then
 	echo Aborting due to uncommitted changes in the index >&2
 	exit 1
 fi
+
+rm -rf public
+hugo
 
 commit_title=`git log -n 1 --format="%s" HEAD`
 commit_hash=`git log -n 1 --format="%H" HEAD`
