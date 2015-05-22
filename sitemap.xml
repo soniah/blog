@@ -58,12 +58,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</loc>
+    <loc>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</loc>
     <lastmod>2013-12-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</loc>
+    <loc>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</loc>
     <lastmod>2013-12-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -173,12 +173,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -528,12 +528,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -648,12 +648,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -858,12 +858,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/09/howto-upgrade-ubuntu-with-cds-to-save-bandwidth/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/10/tool-to-edit-ubuntugnome-menus/</loc>
     <lastmod>2009-03-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/10/tool-to-edit-ubuntugnome-menus/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/09/howto-upgrade-ubuntu-with-cds-to-save-bandwidth/</loc>
     <lastmod>2009-03-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -1098,12 +1098,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
+    <loc>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
+    <loc>http://blog2.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1328,12 +1328,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -1513,17 +1513,17 @@
   </url>
   
   <url>
+    <loc>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</loc>
+    <lastmod>2005-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
-    <lastmod>2005-11-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
