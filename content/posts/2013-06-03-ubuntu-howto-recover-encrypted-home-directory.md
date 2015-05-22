@@ -18,64 +18,55 @@ These are merely notes for my future reference; they need tidying at there may b
 
 Start by booting from an Ubuntu Live CD.
 
-
 ## Passwords
-
 
 Three different "passwords" are referred to when recovering:
 
 * boot password ie the password used when your laptop is first booted and the partitions are decrypted
 * user password ie your unix account password
-* mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn't write down when prompted to do so... See "Recovering Your Mount Passphrase" https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase
-
+* mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn't write down when prompted to do so... See [Recovering Your Mount Passphrase](https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase)
 
 ## Partitions and Disk Layout
 
+If you selected the default Ubuntu encryption setup, the partitions will
+be laid out like this:
 
-If you selected the default Ubuntu encryption setup, the partitions will be laid out like this:
+{{< highlight shell >}}
+/dev/sda1 * 2048 499711 248832 83 Linux
+/dev/sda2 501758 976771071 488134657 5 Extended
+/dev/sda5 501760 976771071 488134656 83 Linux
+{{< /highlight >}}
 
-    
-    /dev/sda1 * 2048 499711 248832 83 Linux
-    /dev/sda2 501758 976771071 488134657 5 Extended
-    /dev/sda5 501760 976771071 488134656 83 Linux
-
-
-
-
-
-	
-  * /dev/sda1 contains /boot ie kernel and grub
-
-	
-  * /dev/sda5 is an encrypted partition (crypto_LUKS) that contains LVM. The Logical Volumes will be for /root, /home and swap. /home will be encrypted with a second level of encryption if you chose "encrypt home directory" during installation.
-
-
-
+* /dev/sda1 contains /boot ie kernel and grub
+* /dev/sda5 is an encrypted partition (`crypto_LUKS`) that contains
+    LVM. The Logical Volumes will be for /root, /home and swap. /home
+    will be encrypted with a second level of encryption if you chose
+    "encrypt home directory" during installation.
 
 ## Mounting Encrypted LVM Partition
 
-
 * confirm /dev/sda5 is the correct partition [1]:
 
-    
-    cryptsetup -v luksDump /dev/sda5
-
+{{< highlight shell >}}
+cryptsetup -v luksDump /dev/sda5
+{{< /highlight >}}
 
 * mount the encrypted partition containing the LVM volumes:
 
-    
-    cryptsetup -v luksOpen /dev/sda5 sda5_crypt
-     vgdisplay
-     (you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)
-     lvdisplay | less
-     mkdir /mnt/home
-     mount -t ext4 /dev/vg/home /mnt/home
+{{< highlight shell >}}
+cryptsetup -v luksOpen /dev/sda5 sda5_crypt
+vgdisplay
+{{< /highlight >}}
 
+(you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)
 
-
+{{< highlight shell >}}
+lvdisplay | less
+mkdir /mnt/home
+mount -t ext4 /dev/vg/home /mnt/home
+{{< /highlight >}}
 
 ## Mounting Encrypted Home, LUKS vs eCryptfs
-
 
 The partition was encrypted with LUKS, and /home will be encrypted with a second level of encryption (eCryptfs) if you chose "encrypt home directory" during installation.
 
@@ -94,21 +85,24 @@ However, eCryptfs does have some advantages (http://www.privacydusk.com/tag/ecry
 
 
 * "remount" /mnt/home on home:
+{{< highlight shell >}}
 umount /mnt/home
 mount -t ext4 /dev/vg/home /home
 # add a user with the same name as the broken system
 adduser --no-create-home sonia
 su sonia
 ecryptfs-mount-private
-
+{{< /highlight >}}
 
 ## Manual Approach [3]
 
+The Ubuntu documentation on EncryptedPrivateDirectory has lots of
+information [4]. These commands are copied from there, in case the page
+moves or disappears.
 
-The Ubuntu documentation on EncryptedPrivateDirectory has lots of information [4]. These commands are copied from there, in case the page moves or disappears.
-
-(((
+{{< highlight shell >}}
 sudo ecryptfs-add-passphrase --fnek
+{{< /highlight >}}
 
 Passphrase: (Enter the mount passphrase you recorded when you setup the mount--this passphrase is different from your login passphrase.)
 
@@ -118,9 +112,10 @@ Inserted auth tok with sig [9986ad986f986af7] into the user session keyring
 
 Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)
 
+{{< highlight shell >}}
 mkdir /mnt/Private
-
 mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private
+{{< /highlight >}}
 
 Selection: 3 (use a passphrase key type)
 
@@ -134,14 +129,13 @@ Enable plaintext passthrough: n
 
 Enable filename encryption: y (This and the following options only apply if you are using filename encryption)
 
-Filename Encryption Key (FNEK) Signature: (the value you wrote down from the second line above)
-)))
+Filename Encryption Key (FNEK) Signature: (the value you wrote down from
+the second line above)
 
 
 ## See Also
 
-
-[1] http://blog.miketoscano.com/?p=72
-[2] http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/
-[3] https://help.ubuntu.com/community/EncryptedPrivateDirectory
-[4] https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually
+* [1] http://blog.miketoscano.com/?p=72
+* [2] http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/
+* [3] https://help.ubuntu.com/community/EncryptedPrivateDirectory
+* [4] https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually

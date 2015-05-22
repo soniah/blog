@@ -18,20 +18,12 @@ I've just finished refactoring a large Go program, and the process was rather...
 
 <!--more-->
 
-Static typing catches all those obscure errors I wouldn't think about in a scripting language (Python, Perl, Ruby, etc). My process is:
+Static typing catches all those obscure errors I wouldn't think about in
+a scripting language (Python, Perl, Ruby, etc). My process is:
 
-
-
-	
   * type **:make** in vim (I have a dummy Makefile in my Go project just for vim)
-
-	
   * vim jumps cursor to error ([vim quickfix list](http://vimdoc.sourceforge.net/htmldoc/quickfix.html))
-
-	
   * "oh, I shouldn't do that" - fix (type type type)
-
-	
   * start again
 
 
@@ -41,15 +33,11 @@ Finish rather sooner than expected, run tests, smile in knowledge program is wor
 
 To quickly setup the **make** command for Go, type this in a Vim window:
 
-{{< highlight shell >}}
-:setlocal makeprg=go\ build\ \.
-{{< /highlight >}}
+    :setlocal makeprg=go\ build\ \.
 
 Or even better configure vim via your ~/.vimrc, for example:
 
-{{< highlight shell >}}
-autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
-autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
-{{< /highlight >}}
+    autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
+    autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
 
 Thanks Martin for the comment!

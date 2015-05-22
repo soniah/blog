@@ -11,21 +11,17 @@ tags:
 - MySQL
 ---
 
-I'm porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn't have a [SUBSTRING_INDEX](http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index) function. Here's a version I _quickly _implemented, called "my_substring_index".
+I'm porting some code from MySQL to Microsoft MSSQL, and unfortunately
+MSSQL doesn't have a [SUBSTRING_INDEX](http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index)
+function. Here's a version I quickly implemented, called
+__my_substring_index__.
 
 <!--more-->
 
 Limitations:
 
-
-
-	
-  * only accepts strings up to 255 chars long
-
-	
-  * only works with varchars - we speak ASCII here...
-
-
+* only accepts strings up to 255 chars long
+* only works with varchars - we speak ASCII here...
 
 {{< highlight sql >}}
 SET ANSI_NULLS ON;
@@ -77,6 +73,3 @@ SELECT dbo.my_substring_index('www.mysql.com', '.', -1)
 com
 (1 row(s) affected)
 {{< /highlight >}}
-
-
-

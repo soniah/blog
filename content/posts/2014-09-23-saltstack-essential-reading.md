@@ -19,5 +19,3 @@ A list of 'Essential Reading' for SaltStack. A collection of useful links, mostl
 * [Requisites and Other Global State Arguments](http://docs.saltstack.com/en/latest/ref/states/requisites.html) - do something before something else, restart a service if a file changes, etc
 * [salt.states.file](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html) - most config management is going to involve working with files...
 * [salt.renderers.jinja](http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.jinja.html) and [Salt Best Practices](http://docs.saltstack.com/en/latest/topics/best_practices.html) - working with Jinja
-
-

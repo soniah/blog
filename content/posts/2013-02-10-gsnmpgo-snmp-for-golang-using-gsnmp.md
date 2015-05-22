@@ -24,7 +24,7 @@ I recently released [gsnmpgo](http://github.com/soniah/gsnmpgo) - a Go/CGo snmp 
 
 From the [gsnmpgo documentation](http://godoc.org/github.com/soniah/gsnmpgo), here's an example of usage:
 
-{{< highlight cpp >}}
+{{< highlight go >}}
 // do an snmp get; RFC 4088 is used for uris
 uri := `snmp://public@192.168.1.10//(1.3.6.1.2.1.1.1.0)`
 params := gsnmpgo.NewDefaultParams(uri)

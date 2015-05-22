@@ -24,7 +24,6 @@ I was unfamiliar with Jenkins, and there didn't seem to be any documentation aro
 
 First of all an aside on project structure. For my first project I had a **GOPATH** of **~/go** and the following directory structure:
 
-    
     ~/go
       |--bin
       |--pkg
@@ -33,7 +32,6 @@ First of all an aside on project structure. For my first project I had a **GOPAT
 
 But as I wrote more Go projects, it made more sense to separate each project into it's own directory structure:
 
-    
     ~/go
       |--project1
         |--bin
