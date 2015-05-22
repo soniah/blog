@@ -10,9 +10,9 @@ tags:
   - Python
   - Slug
 ---
-(apologies to [slug planeteers][1] for the duplicate info).
-
 A very interesting [post][2] from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&#8217;m playing with Lisp and Python at the moment&#8230;
+
+<!--more-->
 
 Some links from his blog, in case the original post ever disappears:
 

@@ -8,7 +8,11 @@ categories:
 tags:
   - BJJ
 ---
-I competed in the [BJJ][1] [Abu Dhabi Pro Australian Qualifier][2] on the 19th of February in Sydney. I won my first fight and lost my second fight. A pity, otherwise I would&#8217;ve been flying off to Abu Dhabi to compete!
+I competed in the [BJJ][1] [Abu Dhabi Pro Australian Qualifier][2] on the 19th of February in Sydney.
+
+<!--more-->
+
+`I won my first fight and lost my second fight. A pity, otherwise I would&#8217;ve been flying off to Abu Dhabi to compete!
 
 The first fight. I gave in too easily to her pull to guard, and then took a while getting out. But then I passed to reverse half guard, half guard, side control, and back.
 

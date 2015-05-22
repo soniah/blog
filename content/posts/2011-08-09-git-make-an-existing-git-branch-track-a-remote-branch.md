@@ -10,6 +10,8 @@ tags:
 ---
 A script to make an existing git branch track a remote branch. For example when you&#8217;ve cloned from somewhere else and now want to track your normal remote.
 
+<!--more-->
+
 <pre>% cat ~/bin/gittrack
 #!/bin/bash
 # vim: ai ts=4 sts=4 et sw=4 ft=sh

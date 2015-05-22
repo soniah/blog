@@ -10,6 +10,8 @@ tags:
 ---
 Solaris has a feature called [RBAC][1], that allows you to provide role-based security (I believe this is similar to [SELinux][2]).
 
+<!--more-->
+
 All the documentation and examples I&#8217;ve seen explain how to setup up a role that allows a normal user to do a higher privileged command (eg manage log files, manage printers). But I haven&#8217;t been able to find an example of how to create a limited account, one that is *only* allowed to run a fixed number of commands. Here&#8217;s how I did it:
 
 (Solaris 10 10/09 s10x\_u8wos\_08a X86)

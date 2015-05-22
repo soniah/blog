@@ -10,6 +10,8 @@ tags:
 ---
 Results from the BJJ competition, Sat 5/Mar in Brisbane. I&#8217;ve left this too long, so a quick post.
 
+<!--more-->
+
 Also: Laura&#8217;s post &#8211; [2011 Queensland State Championships results][1]
 
 My first grapple (no-gi) I submitted my opponent (Cara Johnson) by footlock in about 15 seconds, got declared the winner, then got disqualified a few minutes later by the head referee! (making Cara the winner) Reason being I rolled inwards on the footlock rather than outwards, thus putting unnecessary pressure on her knee (as you can see below. And my Left Foot position is a bit dodgy too). A rule that hadn&#8217;t lodged in my brain &#8211; I&#8217;ll remember it now :-)

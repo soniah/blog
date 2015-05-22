@@ -8,7 +8,11 @@ categories:
 tags:
   - Git
 ---
-If you work in an IT environment, it&#8217;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http. Unfortunately, a lot of the posts out there on &#8220;how to setup Gitweb on Ubuntu&#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&#8217;s how I did it on Ubuntu 11.04 (Natty).
+If you work in an IT environment, it&#8217;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.
+
+<!--more-->
+
+Unfortunately, a lot of the posts out there on &#8220;how to setup Gitweb on Ubuntu&#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&#8217;s how I did it on Ubuntu 11.04 (Natty).
 
 ## Basic Setup
 

@@ -10,6 +10,8 @@ tags:
 ---
 Both **$*** and **$@** expand to &#8220;all positional parameters&#8221;; in a nutshell &#8211; **&#8220;$@&#8221;** is *often* desired as it handles spaces correctly; see man bash &#8220;Special Parameters&#8221;.
 
+<!--more-->
+
 <pre>% ls my*     
 myfoo  my foo  myqux
 

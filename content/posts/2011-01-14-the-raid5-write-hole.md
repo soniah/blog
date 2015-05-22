@@ -12,6 +12,9 @@ tags:
 ---
 The latest edition of the venerable [UNIX and Linux System Administration Handbook][1] (Nemeth et al) has a good section discussing the &#8220;RAID5 Write Hole&#8221;:
 
+
+<!--more-->
+
 *Finally, RAID 5 is vulnerable to corruption in certain circumstances. Its incremental updating of parity data is more efficient than reading the entire stripe and recalculating the stripe’s parity based on the original data. On the other hand, it means that at no point is parity data ever validated or recalculated. If any block in a stripe should fall out of sync with the parity block, that fact will never become evident in normal use; reads of the data blocks will still return the correct data.*
 
 ***Only when a disk fails does the problem become apparent. The parity block will likely have been rewritten many times since the occurrence of the original desynchronization. Therefore, the reconstructed data block on the replacement disk will consist of essentially random data.*

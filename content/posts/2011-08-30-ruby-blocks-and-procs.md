@@ -10,6 +10,8 @@ tags:
 ---
 Some notes on ruby, blocks, and procs.
 
+<!--more-->
+
 # Manually creating blocks
 
 Ruby has three ways of manually creating blocks: **Proc.new**, **lambda**, and **proc**. They have slightly different behaviour, and the behaviour also varies between Ruby 1.8 and 1.9!

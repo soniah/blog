@@ -8,6 +8,10 @@ categories:
 tags:
   - film
 ---
-My favourite geek show &#8211; Scrapheap Challenge &#8211; 6.30pm weekdays on ABC2. Two teams are let loose in a junkyard and they compete to build a something within 12 hours eg a engine propelled boat, a rocket, a diving suit. Second favourite &#8211; Mythbusters of course.
+My favourite geek show &#8211; Scrapheap Challenge &#8211; 6.30pm weekdays on ABC2.
+
+<!--more-->
+
+Two teams are let loose in a junkyard and they compete to build a something within 12 hours eg a engine propelled boat, a rocket, a diving suit. Second favourite &#8211; Mythbusters of course.
 
 Having a PVR makes these easy to record and watch at better times&#8230;

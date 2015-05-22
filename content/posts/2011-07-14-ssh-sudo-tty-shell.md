@@ -10,6 +10,8 @@ tags:
 ---
 A nice little script snippet I like to remember for automating quick stuff across multiple hosts. **-t** forces tty (so sudo will work); **-q** quiet &#8211; disable banners; **-c** script (&#8220;command&#8221;) to su. Presumes sudo doesn&#8217;t prompt for a password; otherwise, see [Expect][1] and [Exploring Expect][2] :-)
 
+<!--more-->
+
 <pre>for h in $hosts ; do
   echo -e "nnhost: $hn------------------------------------"
   ssh -t -q $h "sudo su - -c "magic_stuff" "

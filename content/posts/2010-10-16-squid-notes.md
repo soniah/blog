@@ -8,8 +8,9 @@ categories:
 tags:
   - Squid
 ---
-*Some quick Squid notes, from O&#8217;Reilly&#8217;s &#8220;[Squid The Definitive Guide][1]&#8220;***  
-**
+Some quick Squid notes, from O&#8217;Reilly&#8217;s &#8220;[Squid The Definitive Guide][1]&#8220;
+
+<!--more-->
 
 **Debugging**
 

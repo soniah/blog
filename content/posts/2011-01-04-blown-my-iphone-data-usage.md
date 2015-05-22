@@ -3,8 +3,6 @@ title: Blown my iPhone data usage…
 author: Sonia Hamilton
 date: 2011-01-04
 url: /2011/01/04/blown-my-iphone-data-usage/
-tagazine-media:
-  - 'a:7:{s:7:"primary";s:0:"";s:6:"images";a:0:{}s:6:"videos";a:0:{}s:11:"image_count";s:1:"0";s:6:"author";s:7:"1173694";s:7:"blog_id";s:7:"1724069";s:9:"mod_stamp";s:19:"2011-01-04 05:33:31";}'
 categories:
   - Misc
 tags:
@@ -12,6 +10,8 @@ tags:
   - iPhone
 ---
 Oops, I&#8217;ve blown my iPhone data usage over Xmas/New Year. Was watching too much pr0n (aka [Brazilian Jiu Jitu competitions][1]).
+
+<!--more-->
 
 The nice Telstra guy gave me a good tip &#8211; disable &#8220;Cellular Data&#8221; and &#8220;Enable 3G&#8221; in my network settings (until my next billing cycle), so as not to really blow out my usage and get a $1000 bill.
 

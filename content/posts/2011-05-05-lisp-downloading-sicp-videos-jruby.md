@@ -10,7 +10,11 @@ tags:
   - Lisp
   - Ruby
 ---
-I&#8217;m busy learning [LISP][1]/[Scheme][2] at the moment (in order to later move on to [Clojure][3]). And, improving my programming learning LISP is :-)
+I&#8217;m busy learning [LISP][1]/[Scheme][2] at the moment (in order to later move on to [Clojure][3]). 
+
+<!--more-->
+
+And, improving my programming learning LISP is :-)
 
 I&#8217;m following along with the [MIT][4] [SICP][5] videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &#8211; [get_sicp][6]. Next, a script for the [UC Berkeley SICP videos][7] (getting through the flash player should be a learning experience).
 

@@ -8,7 +8,11 @@ categories:
 tags:
   - Rsync
 ---
-A nice option I discovered in [rsync][1] &#8211; the **&#8211;fuzzy** option. If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &#8220;similar&#8221; algorithm is &#8220;identical size and modified time&#8221;, or &#8220;similarly-named&#8221;. For example:
+A nice option I discovered in [rsync][1] &#8211; the **&#8211;fuzzy** option.
+
+<!--more-->
+
+If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &#8220;similar&#8221; algorithm is &#8220;identical size and modified time&#8221;, or &#8220;similarly-named&#8221;. For example:
 
 <pre>rsync foo/ example.com:video/foo/ --fuzzy --delete-delay
 ...

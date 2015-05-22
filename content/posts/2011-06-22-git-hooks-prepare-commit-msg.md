@@ -8,6 +8,10 @@ categories:
 tags:
   - Git
 ---
+When I&#8217;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a **git log**, rather than getting this:
+
+<!--more-->
+
 **Update:** foo commented that this was a &#8220;bad idea&#8221; (bordering on wrong?) and suggested I use options like **git log &#8211;stat** instead. See the comments below. Thanks foo!
 
 When I&#8217;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a **git log**, rather than getting this:

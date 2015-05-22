@@ -10,6 +10,8 @@ tags:
 ---
 My new favourite git option:
 
+<!--more-->
+
 <pre>git add -p</pre>
 
 It&#8217;s like doing an interactive add, then choosing &#8216;p&#8217; for patching. From the manual:

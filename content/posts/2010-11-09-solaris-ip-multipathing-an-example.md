@@ -11,6 +11,8 @@ tags:
 ---
 An example of Solaris IP Multipathing, for future reference:
 
+<!--more-->
+
 <pre># cat /etc/hostname.bge2
 10.888.999.133 netmask + broadcast + mtu 1380 deprecated -failover group inner-prod up 
  addif 10.888.999.132 netmask + broadcast + mtu 1380 group inner-prod up

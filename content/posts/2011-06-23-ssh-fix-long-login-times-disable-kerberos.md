@@ -10,6 +10,8 @@ tags:
 ---
 If ssh logins are taking a long time (but are ultimately successful), it may be because Kerberos (gssapi) is being attempted as an authentication method, and the destination is incorrectly configured (often seems to be CentOS or RHEL):
 
+<!--more-->
+
 <pre>% ssh -v foo
 ...
 debug1: Authentications that can continue: publickey,gssapi-with-mic,password

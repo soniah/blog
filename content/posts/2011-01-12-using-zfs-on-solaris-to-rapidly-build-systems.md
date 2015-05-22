@@ -8,7 +8,11 @@ categories:
 tags:
   - Solaris
 ---
-A work colleagues used an interesting technique to rapidly build some Solaris systems. We usually use Jumpstart but due to the large number of identical systems to be built, he had to use a faster method. In a nutshell:
+A work colleagues used an interesting technique to rapidly build some Solaris systems. We usually use Jumpstart but due to the large number of identical systems to be built, he had to use a faster method.
+
+<!--more-->
+
+In a nutshell:
 
   * build the first system onto a single disk with a root zfs partition
   * export the root partition onto a second hard disk

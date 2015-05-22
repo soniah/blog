@@ -3,10 +3,6 @@ title: Serial Port Access on OSX to Cisco devices
 author: Sonia Hamilton
 date: 2010-02-26
 url: /2010/02/26/serial-port-access-on-osx-to-cisco-devices/
-email_notification:
-  - 1267144104
-tagazine-media:
-  - 'a:7:{s:7:"primary";s:0:"";s:6:"images";a:0:{}s:6:"videos";a:0:{}s:11:"image_count";s:1:"0";s:6:"author";s:7:"1173694";s:7:"blog_id";s:7:"1724069";s:9:"mod_stamp";s:19:"2010-03-01 06:07:57";}'
 categories:
   - Other-Tech
 tags:
@@ -15,7 +11,11 @@ tags:
   - OSX
   - Solaris
 ---
-How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN). Googling, everyone says to use zterm, but I couldn&#8217;t get it to work (and zterm looks and feels like a toy).
+How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).
+
+<!--more-->
+
+Googling, everyone says to use zterm, but I couldn&#8217;t get it to work (and zterm looks and feels like a toy).
 
 This probably isn&#8217;t the &#8220;Mac way&#8221; of doing things, but </whatever>&#8230;
 

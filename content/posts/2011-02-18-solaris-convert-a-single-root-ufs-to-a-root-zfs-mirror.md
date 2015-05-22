@@ -8,7 +8,11 @@ categories:
 tags:
   - Solaris
 ---
-**Scenario**: the current Solaris Sparc system is booting off a single UFS disk (eg when cloned from an image). You want to convert to a ZFS mirror**.** Assumes that ZFS is already supported; if not install the ZFS package first. See also:
+**Scenario**: the current Solaris Sparc system is booting off a single UFS disk (eg when cloned from an image).
+
+<!--more-->
+
+You want to convert to a ZFS mirror**.** Assumes that ZFS is already supported; if not install the ZFS package first. See also:
 
   * Managing ZFS Boot Environments with Solaris Live Upgrade, in [Solaris 10 ZFS Essentials][1]
   * [Notes on OpenSolaris: ZFS boot mirror][2]

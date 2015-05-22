@@ -8,6 +8,8 @@ categories:
 ---
 A nice little [snippet ][1]I came across yesterday on configuring RedHat up2date.
 
+<!--more-->
+
 The controlling configuration file is **/etc/sysconfig/rhn/sources** . Handy in a firewalled environment (aren&#8217;t they all?) and/or an an environment with poor infrastructure. It also mentions the (standard) disabling of the rhn plugin via **/etc/yum/pluginconf.d/rhnplugin.conf**.
 
 [Original post][1]:

@@ -10,6 +10,8 @@ From the[ Wall Street Journal][1]:
 
 *MADRID—Weekend elections that threaten to drive Spain&#8217;s ruling Socialist party from power in several regions and cities also promise a potentially nasty surprise: the revelation of piles of undisclosed debt in local governments that could undercut the country&#8217;s drive to avoid an international bailout*
 
+<!--more-->
+
 And in Spanish (El Pais): [Iceland arrives in Spain at 15/May demo][2]
 
 *Arrancó primero Nolesvotes, una iniciativa que insta a evitar llenar las urnas de papeletas de PP, PSOE y CiU acusándoles de aprovecharse de la ley electoral para perpetuarse en el Parlamento con unos &#8220;niveles de corrupción en España alarmantes&#8221;. &#8230; &#8220;¡De mayores queremos ser islandeses!&#8221;, clamó uno de los animadores de la organización durante la marcha del pasado domingo 15 de mayo ante una columna de jóvenes y no tan jóvenes, padres y niños, estudiantes y trabajadores, parados y jubilados.*

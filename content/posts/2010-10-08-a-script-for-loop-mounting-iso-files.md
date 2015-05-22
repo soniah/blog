@@ -10,6 +10,8 @@ tags:
 ---
 Every time I go to loop mount an iso file, it&#8217;s long enough since I last did it that I have to &#8220;re-google&#8221;.
 
+<!--more-->
+
 Hence, a quick little script. No rocket science&#8230;
 
 <pre>% cat isomount

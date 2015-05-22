@@ -10,6 +10,8 @@ tags:
 ---
 For development projects, I use the standard git workflow ie master is my main branch, and I do development in branches (read more about this recommended workflow at [A successful Git branching model][1]**).
 
+<!--more-->
+
 (** this site also suggests always using **&#8211;no-ff** with merge &#8211; a practice I now follow &#8211; it certainly makes reading history easier)
 
 <div id="attachment_1086" class="wp-caption aligncenter" style="width: 608px">

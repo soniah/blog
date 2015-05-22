@@ -8,9 +8,9 @@ categories:
 tags:
   - Solaris
 ---
-(More of a &#8220;note-to-brain&#8221; than a &#8220;how-to&#8221;).
-
 When creating a new Solaris zone, one of the steps involves connecting to the zone&#8217;s console for the initial configuration:
+
+<!--more-->
 
 <pre># zlogin -C examplezone
 </pre>

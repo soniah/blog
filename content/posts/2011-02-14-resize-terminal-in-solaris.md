@@ -8,7 +8,11 @@ categories:
 tags:
   - Solaris
 ---
-Sometimes when connecting into a Solaris box via multiple jumps eg Citrix to putty to jumphost to target host, the terminal can get confused about screen size and scramble the output. Use this command to update environment variables with the current terminal size:
+Sometimes when connecting into a Solaris box via multiple jumps eg Citrix to putty to jumphost to target host, the terminal can get confused about screen size and scramble the output.
+
+<!--more-->
+
+Use this command to update environment variables with the current terminal size:
 
 <pre>eval `resize`</pre>
 

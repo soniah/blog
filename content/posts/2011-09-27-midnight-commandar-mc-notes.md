@@ -10,6 +10,8 @@ tags:
 ---
 Midnight Commander (mc) is mostly obvious, but there&#8217;s a few things I regularly forget and have to look up.
 
+<!--more-->
+
   * to select (or &#8220;tag&#8221;) multiple items, use the **Insert** key, or **ctrl-t** (eg when on a Macbook)
   * use **@** to do an operation on tagged files (or F2 menu, @). For example tag some files, reverse the selection (***** or F9, File, Reverse Selection), then @ **git rm**
   * any sort of compressed or package file (.deb, .tgz, .iso, .rpm, etc): 

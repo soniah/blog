@@ -8,7 +8,11 @@ categories:
 tags:
   - Solaris
 ---
-A useful [script ][1]from BigAdmin for increasing the size of a tmpfs /tmp without rebooting. See also [SoftPanorama][2], [Talking about RAM disks in the Solaris OS][3].
+A useful [script ][1]from BigAdmin for increasing the size of a tmpfs /tmp without rebooting.
+
+<!--more-->
+
+See also [SoftPanorama][2], [Talking about RAM disks in the Solaris OS][3].
 
 <!--more-->
 

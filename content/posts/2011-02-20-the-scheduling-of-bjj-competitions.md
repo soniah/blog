@@ -8,7 +8,11 @@ categories:
 tags:
   - BJJ
 ---
-I participated in another [Brazilian Jiu Jitsu][1] (BJJ) competition today (the [Abu Dhabi trials][2]). I won a match (happy face) and lost a match (sad face), which was disappointing &#8211; otherwise I would&#8217;ve been flying off to Abu Dhabi to compete in the World Professional Jiu Jitsu Championships next month &#8211; only 3 women in my weight bracket.
+I participated in another [Brazilian Jiu Jitsu][1] (BJJ) competition today (the [Abu Dhabi trials][2]).
+
+<!--more-->
+
+I won a match (happy face) and lost a match (sad face), which was disappointing &#8211; otherwise I would&#8217;ve been flying off to Abu Dhabi to compete in the World Professional Jiu Jitsu Championships next month &#8211; only 3 women in my weight bracket.
 
 But what was really disappointing was the typical disorganisation of the event ie it was running hours late. This is really frustrating as a competitor &#8211; you don&#8217;t know when to eat, when to start warming up, or even what time to turn up. Given that these events can run from 9am to 8pm, it&#8217;s a long day in a hot gymnasium.
 

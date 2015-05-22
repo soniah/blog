@@ -8,7 +8,11 @@ categories:
 tags:
   - Windows
 ---
-The only time I use Windows is as a virtual machine &#8220;appliance&#8221; ie it&#8217;s running some application that I have to run, that only runs on Windows. Often I want the VM to just logon automagically; here&#8217;s a registry file to do so. Save it as foo.reg and double click on it:
+The only time I use Windows is as a virtual machine &#8220;appliance&#8221; ie it&#8217;s running some application that I have to run, that only runs on Windows.
+
+<!--more-->
+
+Often I want the VM to just logon automagically; here&#8217;s a registry file to do so. Save it as foo.reg and double click on it:
 
 <pre>Windows Registry Editor Version 5.00
 

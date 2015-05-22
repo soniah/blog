@@ -10,6 +10,8 @@ tags:
 ---
 Opinions around the latest Ubuntu (11.04) range from &#8220;interesting&#8221; (as in the curse &#8220;may you live in interesting times&#8221;) to &#8220;it sucks&#8221;.
 
+<!--more-->
+
 Anyway, there no longer appears to be a link to the previous version (10.10 Maverick) on the main Ubuntu page &#8211; marketing droids seem to have finally taken over Ubuntu. It can be downloaded from [here][1].
 
 No rocket science &#8211; I just don&#8217;t want to have to look for the location in future.

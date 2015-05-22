@@ -10,6 +10,8 @@ tags:
 ---
 Or, after RTFM&#8217;ing, an easier way: [SunDocs Recovering ALOM passwords][1]:
 
+<!--more-->
+
   * connect to serial console, remove power cords, wait a few seconds
   * plugin, press escape repeatedly until it drops to the &#8220;ALOM <esc> menu&#8221;
   * e to erase ALOM NVRAM (will return everything to defaults)

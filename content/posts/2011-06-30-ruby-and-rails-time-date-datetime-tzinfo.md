@@ -11,6 +11,8 @@ tags:
 ---
 From a discussion ([Ruby &#8211; The Non-awesome parts][1]) on the [RORO][2] email list &#8211; the differences between Time, Date, DateTime and TZInfo:
 
+<!--more-->
+
 <p style="padding-left: 30px;">
   >> Time vs Date vs DateTime vs TZInfo (vs ActiveSupport::TimeZone). Which<br /> >> do I use and when?
 </p>

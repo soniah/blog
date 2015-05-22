@@ -8,7 +8,11 @@ categories:
 tags:
   - Vim
 ---
-A concise [article][1] on Linux.com (that I keep referring back to) about vim folding. I&#8217;ve been using vi/vim for years and vi keystrokes just &#8220;happen&#8221;, but it&#8217;s always nice to learn a few more tricks, especially when working with larger scripts.
+A concise [article][1] on Linux.com (that I keep referring back to) about vim folding.
+
+<!--more-->
+
+I&#8217;ve been using vi/vim for years and vi keystrokes just &#8220;happen&#8221;, but it&#8217;s always nice to learn a few more tricks, especially when working with larger scripts.
 
 A brief summary of folding:
 
