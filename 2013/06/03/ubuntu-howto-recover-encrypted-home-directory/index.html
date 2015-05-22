@@ -1,0 +1,267 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://blog2.snowfrog.net">
+    <title> Ubuntu - HowTo Recover Encrypted Home Directory </title>
+    <link rel="canonical" href="http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/">
+    
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-0b">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Posts by Date</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/tags">Posts by Tag</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://blog2.snowfrog.net/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Ubuntu - HowTo Recover Encrypted Home Directory</h1>
+        <section id="main">
+          <h5 id="date"> 3 Jun 2013 </h5>
+          
+
+<p>There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below). These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.</p>
+
+<p>Start by booting from an Ubuntu Live CD.</p>
+
+<h2 id="passwords:33ade79a5747fd03584f84a543a518de">Passwords</h2>
+
+<p>Three different &ldquo;passwords&rdquo; are referred to when recovering:</p>
+
+<ul>
+<li>boot password ie the password used when your laptop is first booted and the partitions are decrypted</li>
+<li>user password ie your unix account password</li>
+<li>mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn&rsquo;t write down when prompted to do so&hellip; See &ldquo;Recovering Your Mount Passphrase&rdquo; <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase">https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase</a></li>
+</ul>
+
+<h2 id="partitions-and-disk-layout:33ade79a5747fd03584f84a543a518de">Partitions and Disk Layout</h2>
+
+<p>If you selected the default Ubuntu encryption setup, the partitions will be laid out like this:</p>
+
+<pre><code>/dev/sda1 * 2048 499711 248832 83 Linux
+/dev/sda2 501758 976771071 488134657 5 Extended
+/dev/sda5 501760 976771071 488134656 83 Linux
+</code></pre>
+
+<ul>
+<li><p>/dev/sda1 contains /boot ie kernel and grub</p></li>
+
+<li><p>/dev/sda5 is an encrypted partition (crypto_LUKS) that contains LVM. The Logical Volumes will be for /root, /home and swap. /home will be encrypted with a second level of encryption if you chose &ldquo;encrypt home directory&rdquo; during installation.</p></li>
+</ul>
+
+<h2 id="mounting-encrypted-lvm-partition:33ade79a5747fd03584f84a543a518de">Mounting Encrypted LVM Partition</h2>
+
+<ul>
+<li><p>confirm /dev/sda5 is the correct partition [1]:</p>
+
+<p>cryptsetup -v luksDump /dev/sda5</p></li>
+
+<li><p>mount the encrypted partition containing the LVM volumes:</p>
+
+<p>cryptsetup -v luksOpen /dev/sda5 sda5_crypt
+ vgdisplay
+ (you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)
+ lvdisplay | less
+ mkdir /mnt/home
+ mount -t ext4 /dev/vg/home /mnt/home</p></li>
+</ul>
+
+<h2 id="mounting-encrypted-home-luks-vs-ecryptfs:33ade79a5747fd03584f84a543a518de">Mounting Encrypted Home, LUKS vs eCryptfs</h2>
+
+<p>The partition was encrypted with LUKS, and /home will be encrypted with a second level of encryption (eCryptfs) if you chose &ldquo;encrypt home directory&rdquo; during installation.</p>
+
+<p>Note for future installs: you&rsquo;d only want to have both if multiple people were using the same machine. Otherwise use only LUKS especially for laptops; eCryptfs is an extra hurdle during recovery and doesn&rsquo;t give extra security. Also, using only LUKS is more secure than only encrypting your home directory using eCryptfs:</p>
+
+<ul>
+<li>it will encrypt other things beside /home eg swap, /tmp</li>
+<li>you&rsquo;ll only type in your long LUKS passphrase occasionally (ie at reboot), whereas the eCryptfs password will be typed in every time you login or unlock the screen ie will be more vulnerable to shoulder-surfing, and more likely to be too short</li>
+</ul>
+
+<p>However, eCryptfs does have some advantages (<a href="http://www.privacydusk.com/tag/ecryptfs-vs-luks/):">http://www.privacydusk.com/tag/ecryptfs-vs-luks/):</a></p>
+
+<ul>
+<li>All the cryptographic metadata is stored in the header of the file. This means that the encrypted file can be copied and moved from one location to another not leaving any metadata behind</li>
+<li>Files can be encrypted with multiple keys so that multiple different users can have access to encrypted but shared files. You can have different files encrypted by different users and each user can access only his files</li>
+</ul>
+
+<h2 id="automated-approach-2:33ade79a5747fd03584f84a543a518de">Automated Approach [2]</h2>
+
+<ul>
+<li><p>&ldquo;remount&rdquo; /mnt/home on home:
+umount /mnt/home
+mount -t ext4 /dev/vg/home /home</p>
+
+<h1 id="add-a-user-with-the-same-name-as-the-broken-system:33ade79a5747fd03584f84a543a518de">add a user with the same name as the broken system</h1>
+
+<p>adduser &ndash;no-create-home sonia
+su sonia
+ecryptfs-mount-private</p></li>
+</ul>
+
+<h2 id="manual-approach-3:33ade79a5747fd03584f84a543a518de">Manual Approach [3]</h2>
+
+<p>The Ubuntu documentation on EncryptedPrivateDirectory has lots of information [4]. These commands are copied from there, in case the page moves or disappears.</p>
+
+<p>(((
+sudo ecryptfs-add-passphrase &ndash;fnek</p>
+
+<p>Passphrase: (Enter the mount passphrase you recorded when you setup the mount&ndash;this passphrase is different from your login passphrase.)</p>
+
+<p>You should now get two lines looking like this:</p>
+
+<p>Inserted auth tok with sig [9986ad986f986af7] into the user session keyring</p>
+
+<p>Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)</p>
+
+<p>mkdir /mnt/Private</p>
+
+<p>mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private</p>
+
+<p>Selection: 3 (use a passphrase key type)</p>
+
+<p>Passphrase: (Enter the mount passphrase you recorded when you setup the mount&ndash;this passphrase is different from your login passphrase.)</p>
+
+<p>Selection: aes (use the aes cipher)</p>
+
+<p>Selection: 16 (use a 16 byte key)</p>
+
+<p>Enable plaintext passthrough: n</p>
+
+<p>Enable filename encryption: y (This and the following options only apply if you are using filename encryption)</p>
+
+<p>Filename Encryption Key (FNEK) Signature: (the value you wrote down from the second line above)
+)))</p>
+
+<h2 id="see-also:33ade79a5747fd03584f84a543a518de">See Also</h2>
+
+<p>[1] <a href="http://blog.miketoscano.com/?p=72">http://blog.miketoscano.com/?p=72</a>
+[2] <a href="http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/">http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/</a>
+[3] <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory">https://help.ubuntu.com/community/EncryptedPrivateDirectory</a>
+[4] <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually">https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually</a></p>
+
+        </section>
+
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/">Golang - profiling libraries and GoSNMP for SNMP</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/"> &nbsp; git bisect run - example</a> &raquo;
+    </span>
+  
+  <br />
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/ubuntu">Ubuntu</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p class="right credit">
+    <a href="http://blog2.snowfrog.net/">Home</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/tags">Posts by Tag</a>&nbsp;&nbsp;
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

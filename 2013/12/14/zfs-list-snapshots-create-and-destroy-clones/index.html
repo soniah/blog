@@ -1,0 +1,175 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://blog2.snowfrog.net">
+    <title> ZFS List Snapshots, Create and Destroy Clones </title>
+    <link rel="canonical" href="http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/">
+    
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-0b">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Posts by Date</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/tags">Posts by Tag</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://blog2.snowfrog.net/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">ZFS List Snapshots, Create and Destroy Clones</h1>
+        <section id="main">
+          <h5 id="date"> 14 Dec 2013 </h5>
+          
+
+<p>I&rsquo;m using <a href="http://www.freenas.org/">FreeNAS</a> for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, <a href="http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line">as always the shell is faster</a>.</p>
+
+<p>Some notes for me on listing ZFS snapshots, and creating and destroying clones.</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+cd /mnt/vol01/bjj
+zfs list -t snapshot | grep bjj | grep -v vobs
+zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
+cd auto-20131214.12d</p>
+
+<h1 id="after-recovery-tasks-umount-snapshot:5a8468aa7d7fdba8cad13061f8c8ab92">after recovery tasks, umount snapshot</h1>
+
+<p>cd /mnt/vol01/bjj
+umount auto-20131214.12d
+rmdir auto-20131214.12d</p>
+
+<h1 id="usually-want-to-umount-not-destroy-as-a:5a8468aa7d7fdba8cad13061f8c8ab92">usually want to umount not destroy, as a</h1>
+
+<h1 id="destroy-may-cascade-delete-other-dependent-snapshots:5a8468aa7d7fdba8cad13061f8c8ab92">destroy may cascade delete other dependent snapshots</h1>
+
+<p>zfs destroy vol01/bjj/foo
+[/sourcecode]</p>
+
+        </section>
+
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/">OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2013/12/11/tricks-for-learning-foreign-languages/"> &nbsp; Tricks for Learning Foreign Languages</a> &raquo;
+    </span>
+  
+  <br />
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/bsd">BSD</a> </li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/freebsd">FreeBSD</a> </li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/zfs">ZFS</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p class="right credit">
+    <a href="http://blog2.snowfrog.net/">Home</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/tags">Posts by Tag</a>&nbsp;&nbsp;
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

@@ -64,7 +64,7 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/haskell-hole-driven-development/'> Haskell Hole Driven Development</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/'> Haskell Hole Driven Development</a> </h2>
       <div class="meta">22 May 2015</div>
     </header>
 
@@ -74,7 +74,7 @@ things I learned was &ldquo;Hole Driven Development&rdquo; for Haskell - basical
 using the type system to help you write a function</p>
 
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/haskell-hole-driven-development/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -83,13 +83,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/devops-and-old-git-branches/'> Devops and Old Git Branches</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/'> Devops and Old Git Branches</a> </h2>
       <div class="meta">25 Mar 2015</div>
     </header>
 
     A guest blog post I wrote on managing git branches when doing devops. When doing Devops we all know that using source code control is a “good thing” — indeed it would be hard to imagine doing Devops without it. But if you’re using Puppet and R10K for your configuration management you can end up having hundreds of old branches lying around — branches like XYZ-123, XYZ-123.fixed, XYZ-123.fixed.old and so on.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/devops-and-old-git-branches/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -98,13 +98,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/saltstack-ubuntu-hostname/'> SaltStack Ubuntu Hostname</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/'> SaltStack Ubuntu Hostname</a> </h2>
       <div class="meta">18 Jan 2015</div>
     </header>
 
     SaltStack currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work: [sourcecode lang=&ldquo;text&rdquo;] system: network.system: - enabled: True - hostname: server1.example.com [/sourcecode] Here&rsquo;s a little shell script I wrote, to get around this problem: [sourcecode lang=&ldquo;shell&rdquo;] % cat set_hostname.sh #!/bin/bash hn=$1 hostname $hn echo $hn &gt; /etc/hostname sed -i &ldquo;1s/.*/127.0.0.1 localhost $hn/&rdquo; /etc/hosts [/sourcecode] Then apply it using cmd.script, for example: [sourcecode lang=&ldquo;text&rdquo;] foo-hostname: cmd.script: - source:
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/saltstack-ubuntu-hostname/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -113,13 +113,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/terraform-presentation/'> Terraform Presentation</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2015/01/13/terraform-presentation/'> Terraform Presentation</a> </h2>
       <div class="meta">13 Jan 2015</div>
     </header>
 
     Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/terraform-presentation/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2015/01/13/terraform-presentation/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -128,13 +128,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/building-the-development-version-of-terraform/'> Building the development version of Terraform</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/'> Building the development version of Terraform</a> </h2>
       <div class="meta">3 Dec 2014</div>
     </header>
 
     Instructions on how to build the development version of Terraform. First you need to install Go, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (go-bindata, lint) and my own projects (gosnmp, evaler). [sourcecode lang=&ldquo;shell&rdquo;] #!/bin/bash install go tgz=go1.3.3.linux-amd64.tar.gz url=https://storage.googleapis.com/golang/$tgz if ! [ -f /var/tmp/$tgz ] ; then cd /var/tmp wget $url fi if ! [ -d /usr/local/go ] ; then sudo tar -C /usr/local -xzf /var/tmp/$tgz fi setup dev directory structure mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src} cd ~/go/thirdparty/src #&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; read -p &ldquo;Install third party repos?
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/building-the-development-version-of-terraform/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -143,13 +143,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'> Git and mercurial abort: revision cannot be pushed</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/'> Git and mercurial abort: revision cannot be pushed</a> </h2>
       <div class="meta">29 Sep 2014</div>
     </header>
 
     I&rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git. First install the hg-git tools; for example on Ubuntu: [sourcecode lang=&ldquo;shell&rdquo;] sudo aptitude install python-setuptools python-dev sudo easy_install hg-git [/sourcecode] Make sure the following is in your ~/.hgrc: [sourcecode lang=&ldquo;shell&rdquo;] [extensions] hgext.bookmarks = hggit = [/sourcecode] Then, in your existing mercurial repository, add a new remote that points to the git repository.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/git-and-mercurial-abort-revision-cannot-be-pushed/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -158,13 +158,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/saltstack-essential-reading/'> SaltStack Essential Reading</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/'> SaltStack Essential Reading</a> </h2>
       <div class="meta">23 Sep 2014</div>
     </header>
 
     A list of &lsquo;Essential Reading&rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others. How Do I Use Salt States, States tutorial and Pillar Walkthrough - the tutorials Highstate data structure definitions and Understanding YAML - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc Requisites and Other Global State Arguments - do something before something else,
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/saltstack-essential-reading/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -173,13 +173,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/setup-arduino-on-debian/'> Setup Arduino on Debian</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/'> Setup Arduino on Debian</a> </h2>
       <div class="meta">26 Feb 2014</div>
     </header>
 
     Some notes on setting up Arduino on Debian. Add yourself to the required groups - dialout and tty. [sourcecode lang=&ldquo;shell&rdquo;] sudo adduser $USER dialout sudo adduser $USER tty [/sourcecode] Confirm the port /dev/ttyUSB0 is being used by Arduino - tail messages then plug in the Arduino. [sourcecode lang=&ldquo;shell&rdquo;] sudo tail -f /var/log/messages you should see something like: FTDI USB Serial Device converter now attached to ttyUSB0 out of interest, inspect permissions on port ls -al /dev/ttyUSB0 [/sourcecode] Logout and login (or run a login shell).
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/setup-arduino-on-debian/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -188,13 +188,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/change-default-editor-in-debian/'> Change default editor in Debian</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/'> Change default editor in Debian</a> </h2>
       <div class="meta">24 Dec 2013</div>
     </header>
 
     How to change the default editor in Debian (for root), as I keep forgetting: sudo update-alternatives --config editor My ~/.zshrc takes care of this for my personal account, but it&rsquo;s nice to change root&rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&rsquo;s crontab, /etc/sudoers (via visudo), and so on.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/change-default-editor-in-debian/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -203,13 +203,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/zfs-list-snapshots-create-and-destroy-clones/'> ZFS List Snapshots, Create and Destroy Clones</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/'> ZFS List Snapshots, Create and Destroy Clones</a> </h2>
       <div class="meta">14 Dec 2013</div>
     </header>
 
     I&rsquo;m using FreeNAS for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, as always the shell is faster. Some notes for me on listing ZFS snapshots, and creating and destroying clones. [sourcecode lang=&ldquo;shell&rdquo;] cd /mnt/vol01/bjj zfs list -t snapshot | grep bjj | grep -v vobs zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d cd auto-20131214.12d after recovery tasks, umount snapshot cd
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/zfs-list-snapshots-create-and-destroy-clones/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -218,13 +218,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/'> convert LibreOffice (OpenOffice) .ods files to .csv command line</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/'> convert LibreOffice (OpenOffice) .ods files to .csv command line</a> </h2>
       <div class="meta">4 Nov 2013</div>
     </header>
 
     How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X: soffice --headless --convert-to csv test.ods From CLI - convert ods to csv with semicolon as delimiter. No rocket science, just a handy note for myself&hellip;
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -233,13 +233,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/debfoster-keeping-a-debian-system-small/'> debfoster - keeping a Debian system small</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/'> debfoster - keeping a Debian system small</a> </h2>
       <div class="meta">21 Jul 2013</div>
     </header>
 
     I recently came across a useful tool while reading The Debian Administrator&rsquo;s Handbook - debfoster. I use it on space constrained machines, like my venerable Asus eeePC 701 (which is great for travelling). As Raphaël Hertzog and Roland Mas explain: debfoster has a more elaborate approach, very similar to aptitude&rsquo;s: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/debfoster-keeping-a-debian-system-small/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -248,13 +248,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/golang-building-with-makefile-and-jenkins/'> Golang - building with Makefile and Jenkins</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/'> Golang - building with Makefile and Jenkins</a> </h2>
       <div class="meta">18 Jun 2013</div>
     </header>
 
     I&rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins. I was unfamiliar with Jenkins, and there didn&rsquo;t seem to be any documentation around on how to build Go executables. Project Structure First of all an aside on project structure. For my first project I had a GOPATH of ~/go and the following directory structure: ~/go |--bin |--pkg |--src But as I wrote more Go projects, it made more sense to separate each project into it&rsquo;s own directory structure: ~/go |--project1 |--bin |--pkg |--src |--project2 |--bin |--pkg |--src With this directory structure I set GOPATH on the command line or in a Makefile: [sourcecode lang=&ldquo;shell&rdquo;] % cd ~go/project2/src/github.com/soniah/gosnmp % GOPATH=~go/project2 go build [/sourcecode] Makefile For smaller projects you can just produce a binary using go run or go build.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/golang-building-with-makefile-and-jenkins/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -263,13 +263,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/golang-profiling-libraries-and-gosnmp-for-snmp/'> Golang - profiling libraries and GoSNMP for SNMP</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/'> Golang - profiling libraries and GoSNMP for SNMP</a> </h2>
       <div class="meta">3 Jun 2013</div>
     </header>
 
     There is already a great article on Profiling Go Programs. However that article only discusses how to profile a standalone binary - what about a library? For example, I&rsquo;ve been working on the GoSNMP SNMP library, here&rsquo;s how I profiled it (it wasn&rsquo;t obvious): [sourcecode lang=&ldquo;shell&rdquo;] produce cpu profiling information from the tests - this part was well documented % go test -cpuprofile cpu.out compile the test binary to pkg.test
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/golang-profiling-libraries-and-gosnmp-for-snmp/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -278,13 +278,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/ubuntu-howto-recover-encrypted-home-directory/'> Ubuntu - HowTo Recover Encrypted Home Directory</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/'> Ubuntu - HowTo Recover Encrypted Home Directory</a> </h2>
       <div class="meta">3 Jun 2013</div>
     </header>
 
     There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below). These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it. Start by booting from an Ubuntu Live CD. Passwords Three different &ldquo;passwords&rdquo; are referred to when recovering: boot password ie the password used when your laptop is first booted and the partitions are decrypted user password ie your unix account password mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/ubuntu-howto-recover-encrypted-home-directory/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -293,13 +293,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/git-bisect-run-example/'> git bisect run - example</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/'> git bisect run - example</a> </h2>
       <div class="meta">14 Mar 2013</div>
     </header>
 
     Git bisect is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&rsquo;s an example of automating the process using git bisect run. tl;dr Using git bisect run is easy if you&rsquo;ve make small atomic commits and you have good tests. run makes a large debug easier (compared to manually doing git bisect good and git bisect bad) - you&rsquo;re less likely to make errors due to boredom.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/git-bisect-run-example/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -308,13 +308,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/gosnmp-snmp-for-golang/'> GoSnmp - SNMP for GoLang</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/'> GoSnmp - SNMP for GoLang</a> </h2>
       <div class="meta">11 Mar 2013</div>
     </header>
 
     Today I released soniah/gosnmp - an update of alouca/gosnmp. Many, many thanks to Andreas Louca for writing alouca/gosnmp. The major difference between his version and soniah/gosnmp is that the latter has tests written. (However the code could do with refactoring). The tests were used to find and correct errors in the following SNMP BER Types: Counter32 Gauge32 Counter64 OctetString ObjectIdentifier IpAddress Also, this version contains functions for treating the returned
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/gosnmp-snmp-for-golang/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -323,13 +323,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/refactoring-in-go-rather-pleasant-actually/'> refactoring in Go - rather pleasant actually...</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/'> refactoring in Go - rather pleasant actually...</a> </h2>
       <div class="meta">12 Feb 2013</div>
     </header>
 
     I&rsquo;ve just finished refactoring a large Go program, and the process was rather&hellip;. pleasant. Static typing catches all those obscure errors I wouldn&rsquo;t think about in a scripting language (Python, Perl, Ruby, etc). My process is: type :make in vim (I have a dummy Makefile in my Go project just for vim) vim jumps cursor to error (vim quickfix list) &ldquo;oh, I shouldn&rsquo;t do that&rdquo; - fix (type type type) start again Finish rather sooner than expected, run tests, smile in knowledge program is working properly.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/refactoring-in-go-rather-pleasant-actually/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -338,13 +338,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/gsnmpgo-snmp-for-golang-using-gsnmp/'> gsnmpgo - SNMP for Golang using gsnmp</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/'> gsnmpgo - SNMP for Golang using gsnmp</a> </h2>
       <div class="meta">10 Feb 2013</div>
     </header>
 
     Update 8/Mar/13 Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use http://github.com/soniah/gosnmp instead. Previously&hellip; I recently released gsnmpgo - a Go/CGo snmp library using gsnmp. Pull requests welcome! From the gsnmpgo documentation, here&rsquo;s an example of usage: [sourcecode language=&ldquo;cpp&rdquo;] // do an snmp get; RFC 4088 is used for uris uri := snmp://public@192.168.1.10//(1.3.6.1.2.1.1.1.0) params := gsnmpgo.NewDefaultParams(uri) results, err := gsnmpgo.Query(params) if err
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/gsnmpgo-snmp-for-golang-using-gsnmp/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -353,13 +353,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/git-delete-local-tracking-branches/'> git - delete local tracking branches</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/'> git - delete local tracking branches</a> </h2>
       <div class="meta">22 Jan 2013</div>
     </header>
 
     (Just a summary of Stack Overflow &ldquo;How do you Remove an Invalid Remote Branch Reference from Git?&rdquo;). To delete a local tracking branch (without deleting the remote branch), do: [sourcecode language=&ldquo;shell&rdquo;] git branch -rd remote/branch [/sourcecode] And of course to delete the remote branch: [sourcecode language=&ldquo;shell&rdquo;] git push remote :branch [/sourcecode] Occasionally a gc will help, but usually shouldn&rsquo;t be used: [sourcecode language=&ldquo;shell&rdquo;] git gc &ndash;prune=now [/sourcecode] So, when would you want to use this?
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/git-delete-local-tracking-branches/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -368,13 +368,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/git-pull-f-git-force-pull/'> git pull -f (git force pull)</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/'> git pull -f (git force pull)</a> </h2>
       <div class="meta">3 Dec 2012</div>
     </header>
 
     Git has a &ldquo;force push&rdquo; option (git push -f remote branch), but it doesn&rsquo;t have a &ldquo;force pull&rdquo; option (like git pull -f remote branch). This works: [sourcecode language=&ldquo;shell&rdquo;] % git fetch remote branch % git reset &ndash;hard FETCH_HEAD % git clean -df [/sourcecode] Or, as a function for your bash/zsh config file: [sourcecode language=&ldquo;shell&rdquo;] gpuf () { # git pull -f $1 remote=${1:?&ldquo;need remote to force pull from&rdquo;} current_branch=$(git symbolic-ref -q HEAD) current_branch=${current_branch##refs/heads/} current_branch=${current_branch:-HEAD} if [ $current_branch = &lsquo;HEAD&rsquo; ] ; then echo echo &ldquo;On a detached head.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/git-pull-f-git-force-pull/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -383,13 +383,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/linux-filename-suffixes/'> Linux filename suffixes</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/11/30/linux-filename-suffixes/'> Linux filename suffixes</a> </h2>
       <div class="meta">30 Nov 2012</div>
     </header>
 
     When creating files in Linux (and other OS&rsquo;s) there&rsquo;s the usual convention of .txt for text files, .c for C files, etc - you just pick them up as you go along. But there&rsquo;s actually a manpage that lists the common conventions - &ldquo;who knew&rdquo;? % man suffixes SUFFIXES(7) Linux Programmer's Manual SUFFIXES(7) NAME suffixes - list of file suffixes DESCRIPTION It is customary to indicate the contents of a file with the file suffix, which consists of a period, followed by one or more letters.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/linux-filename-suffixes/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/11/30/linux-filename-suffixes/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -398,13 +398,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/network-access-with-exetel-hspa-and-antenna/'> Network access with Exetel HSPA and Antenna</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/'> Network access with Exetel HSPA and Antenna</a> </h2>
       <div class="meta">22 Nov 2012</div>
     </header>
 
     Update November 2012 On Ubuntu Precise (12.04.1) mobile broadband now &ldquo;just works&rdquo;. Plug in the device, right click on Network Manager, follow the configuration wizard for &ldquo;New Mobile Connection&rdquo;, choose your provider (eg Exetel) and the correct APN will be filled in (exetel1). **Original Article 2009 ** I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with Exetel&rsquo;s $5/month Zero Gig plan (uses the Optus network).
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/network-access-with-exetel-hspa-and-antenna/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -413,13 +413,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/vim-bufexplorer/'> vim - bufexplorer</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/'> vim - bufexplorer</a> </h2>
       <div class="meta">20 Nov 2012</div>
     </header>
 
     Bufexplorer - my new favourite add-on for vim. Why do I like it? It allows you to emulate the buffer list feature of emacs, as well as switch between horizontal/vertical buffer splits and find recently edited files. All this can already be done with vim buffers, but bufexplorer makes it easy. Why don&rsquo;t I just use emacs? Because as sysadmin/devop I&rsquo;m often working on other people&rsquo;s servers, and I don&rsquo;t want to go installing buckets of stuff everywhere - vim is usually installed.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/vim-bufexplorer/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -428,13 +428,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/ubuntu-minimal-xmonad/'> Ubuntu Minimal &#43; Xmonad</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/'> Ubuntu Minimal &#43; Xmonad</a> </h2>
       <div class="meta">11 Nov 2012</div>
     </header>
 
     I&rsquo;m tired of Ubuntu&rsquo;s latest desktop mess offering (Unity). I&rsquo;ve been trying lots of DE&rsquo;s (Desktop Environments) and WM&rsquo;s (Window Managers), and I&rsquo;ve finally settled on one I luuuuurv - Xmonad. On my next laptop build I was thinking of moving to Debian Netinst, but I like the Ubuntu ppa system. So my next laptop install will be Ubuntu Minimal + Xmonad; will also me a good motivation for learning Haskell.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/ubuntu-minimal-xmonad/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -443,13 +443,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/sending-email-from-shell-via-mutt/'> Sending email from shell via mutt</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/'> Sending email from shell via mutt</a> </h2>
       <div class="meta">9 Oct 2012</div>
     </header>
 
     A quick example of sending email from the shell via mutt. [sourcecode language=&ldquo;shell&rdquo;] % cat msg.txt pdf attached. Sonia. for i in *.pdf ; do mutt -s &ldquo;pdf - $i&rdquo; -a $i &ndash; &lsquo;foo@hotmail.com&rsquo; &lt; msg.txt done [/sourcecode] No rocket science, just saving me from RTFM&rsquo;ing next time&hellip;
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/sending-email-from-shell-via-mutt/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -458,13 +458,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/golang-setup-and-producing-debs/'> Golang - setup and producing .debs</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/'> Golang - setup and producing .debs</a> </h2>
       <div class="meta">2 Oct 2012</div>
     </header>
 
     Here&rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&rsquo;s to package them and markdown for README&rsquo;s - notes for me. Install build pre-requisites: [sourcecode language=&ldquo;bash&rdquo;] sudo aptitude install gcc libc6-dev libc6-dev-i386 make \ markdown build-essential debhelper dh-make fakeroot devscripts [/sourcecode] Install Go from source (so can cross-compile). Download from Go Downloads eg go1.0.2.src.tar.gz [sourcecode language=&ldquo;bash&rdquo;] sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz ; cd /usr/local/go/src
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/golang-setup-and-producing-debs/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -473,13 +473,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/golang-checking-open-files-and-memory-usage/'> Golang: checking open files and memory usage</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/'> Golang: checking open files and memory usage</a> </h2>
       <div class="meta">14 Sep 2012</div>
     </header>
 
     Notes to myself more than anything, and not really specific to Go (but that&rsquo;s where I was using it). To watch the memory usage of a process with pid PID: [sourcecode language=&ldquo;bash&rdquo;] while [ 1 ] ; do grep VmSize /proc/PID/status ; sleep 10 done [/sourcecode] To watch the number of file descriptors being used: [sourcecode language=&ldquo;bash&rdquo;] while [ 1 ] ; do sudo lsof -p PID | wc -l
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/golang-checking-open-files-and-memory-usage/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -488,13 +488,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/'> Linux, Ubuntu: how to tell if 32 or 64 bit installed</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/'> Linux, Ubuntu: how to tell if 32 or 64 bit installed</a> </h2>
       <div class="meta">5 Sep 2012</div>
     </header>
 
     A question I get regularly from other sysadmins - how to tell if you&rsquo;re running a 32 or 64 bit install (vs CPU) of Linux? Here&rsquo;s one way - use the file command on /sbin/init: [sourcecode language=&ldquo;bash&rdquo;] on a 32 bit install % file /sbin/init /sbin/init: ELF 32-bit LSB executable&hellip;. on a 64 bit install % file /sbin/init /sbin/init: ELF 64-bit LSB shared object, x86-64&hellip; [/sourcecode] Update I got a few comments on this (thank you) saying that I was wrong or &ldquo;haven&rsquo;t you heard of uname?&rdquo;&hellip; 1.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -503,13 +503,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/git-push-to-non-bare-repo-warning-updating-the-current-branch/'> git push to non-bare repo: warning: updating the current branch</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/'> git push to non-bare repo: warning: updating the current branch</a> </h2>
       <div class="meta">17 Aug 2012</div>
     </header>
 
     Some doco for my work mates, and others learners of git&hellip; When I was starting with git (many moons ago), learning to pull from a remote repository was easy. But the book I read didn&rsquo;t explain how to push to a remote repository. There was lots of doco on pushing to github, but I wanted to push and pull between my own repositories. When I pushed, I got messages saying warning: updating the current branch, and sometimes I&rsquo;d have to manually clean up the remote branch - yuk.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/git-push-to-non-bare-repo-warning-updating-the-current-branch/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -518,13 +518,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/perl-debug-fork-with-no-x/'> Perl - debug fork() with no X</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/'> Perl - debug fork() with no X</a> </h2>
       <div class="meta">3 Aug 2012</div>
     </header>
 
     Here&rsquo;s how to debug a Perl program that&rsquo;s running remotely on a server that doesn&rsquo;t have X. It&rsquo;s pretty simple, these are just notes for me&hellip; You&rsquo;ve ssh&rsquo;d into a remote server (headless), to debug a perl script that forks: [sourcecode language=&ldquo;perl&rdquo;] $SIG{CHLD} = sub { while (1) { my $nino = waitpid(-1, WNOHANG); last if $nino &lt;= 0; if ($?) { &amp;log(&ldquo;ERROR: Child process $nino exited with $?&ldquo;); } $children&ndash;; } let&rsquo;s fork!
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/perl-debug-fork-with-no-x/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -533,13 +533,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/4clojure-59-juxtaposition/'> 4Clojure 59 Juxtaposition</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/'> 4Clojure 59 Juxtaposition</a> </h2>
       <div class="meta">16 Jul 2012</div>
     </header>
 
     4clojure problem 59 Juxtapostion - here&rsquo;s how I approached the problem (warts and all) in the hope that it helps others who are learning Clojure. A reminder of what the juxt function does: Takes a set of functions and returns a fn that is the juxtaposition of those fns. The returned fn takes a variable number of args, and returns a vector containing the result of applying each fn to the args (left-to-right).
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/4clojure-59-juxtaposition/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -548,13 +548,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/vnc-ssh-tunnel-for-remote-graphical-support/'> vnc ssh tunnel for remote graphical support</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/'> vnc ssh tunnel for remote graphical support</a> </h2>
       <div class="meta">7 Jul 2012</div>
     </header>
 
     I was doing remote internet support the other day for a friend in England (and noticing how cheap their internet access is eg a fast unlimited O2 package is £21 ($AU31) versus the $AU60-80 we pay in Australia). Here&rsquo;s how I connect remotely to the person&rsquo;s desktop in graphical mode, using vnc and an ssh tunnel. I setup a dyndns client (eg dyndns, tinydyndns, ez-ipupdate) so I can connect to the changing ip address of their machine by a dns name eg fredbox.dyndns.org [sourcecode language=&ldquo;bash&rdquo;] local% sudo apt-get install ez-ipupdate [/sourcecode] I copy my ssh key to their account - this way I&rsquo;ll always have access and they can change their password in the future: [sourcecode language=&ldquo;bash&rdquo;] local% ssh-copy-id fred@fredbox.dyndns.org [/sourcecode] I want to connect to vnc running on their desktop, so I can see what they see.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/vnc-ssh-tunnel-for-remote-graphical-support/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -563,13 +563,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/4clojure-100-least-common-multiple/'> 4clojure 100 Least Common Multiple</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/'> 4clojure 100 Least Common Multiple</a> </h2>
       <div class="meta">5 Jul 2012</div>
     </header>
 
     4clojure problem 100 - calculate the Least Common Multiple (LCM) of two or more numbers. Here&rsquo;s how I worked it out in the REPL, warts and all&hellip;. I first thought about using the meaning of LCM to solve this (as given in Wikipedia), ie for two numbers a and b (eg 4 and 6), find all the multiples of a (an infinite sequence), find all the multiples of b (an infinite sequence), and find the first match.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/4clojure-100-least-common-multiple/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -578,13 +578,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/git-ignore-whitespace/'> Git - ignore whitespace</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/'> Git - ignore whitespace</a> </h2>
       <div class="meta">13 Jun 2012</div>
     </header>
 
     My new favourite git option: [sourcecode language=&ldquo;bash&rdquo;] % git diff -w [/sourcecode] Ignore white space in diffs. Unfortunately, there doesn&rsquo;t seem to be an option for just ignoring whitespace changes at the start of line - would be handy for Python.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/git-ignore-whitespace/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -593,13 +593,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/4clojure-97-pascals-triangle/'> 4clojure 97 Pascal&#39;s Triangle</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/'> 4clojure 97 Pascal&#39;s Triangle</a> </h2>
       <div class="meta">4 Jun 2012</div>
     </header>
 
     4clojure problem 97 Pascal&rsquo;s Triangle - calculate the nth row: My solution: sourcecode language=&ldquo;clojure&rdquo; 1 (partition 2 1 (concat 0) [0]))))) (pascal 5) user=&gt; (1 4 6 4 1) [/sourcecode] A negative - my solution doesn&rsquo;t use tail recursion; on my laptop it works up to about n = 760: sourcecode language=&ldquo;clojure&rdquo; user=&gt; java.lang.StackOverflowError (NO_SOURCE_FILE:0) [/sourcecode]
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/4clojure-97-pascals-triangle/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -608,13 +608,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/4clojure-63-group-a-sequence/'> 4clojure 63 Group a Sequence</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/'> 4clojure 63 Group a Sequence</a> </h2>
       <div class="meta">3 Jun 2012</div>
     </header>
 
     My first attempt at writing up one of my 4clojure solutions. Problem 63 &ldquo;Group a Sequence&rdquo; requires you to re-implement group-by. As always looking at the source code is cheating :-) Given a function f and a sequence s, write a function which returns a map. The keys should be the values of f applied to each item in s. The value at each key should be a vector of corresponding items in the order they appear in s.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/4clojure-63-group-a-sequence/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -623,13 +623,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/learning-clojure-my-books/'> Learning Clojure - my books</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/'> Learning Clojure - my books</a> </h2>
       <div class="meta">11 May 2012</div>
     </header>
 
     I&rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&rsquo;s a list of the books I&rsquo;ve read on my journey to Clojure enlightenment (I&rsquo;ve still got a long way to go&hellip;). My first Clojure book wasn&rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across Land of Lisp.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/learning-clojure-my-books/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -638,13 +638,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/vim-buffers-cheatsheet/'> Vim Buffers Cheatsheet</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/'> Vim Buffers Cheatsheet</a> </h2>
       <div class="meta">26 Apr 2012</div>
     </header>
 
     A small Vim Buffers cheatsheet: :bu &lt;tab&gt; - select a buffer :buN - select buffer N :ls - list buffers :sb tab - split screen on another buffer :sbN - split screen on buffer N :only - make this the only buffer (ie maximise) ^w^o - make this the only buffer (ie maximise) :ball - split screen on all buffers :hide - hide this buffer :bdel - remove buffer from
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/vim-buffers-cheatsheet/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -653,13 +653,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/ghostscript-imagemagick-rhel-libgs-so-errors/'> Ghostscript ImageMagick RHEL libgs.so errors</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/'> Ghostscript ImageMagick RHEL libgs.so errors</a> </h2>
       <div class="meta">29 Mar 2012</div>
     </header>
 
     A little problem I came across today. When you install ImageMagick (IM) on RHEL (or OEL or similar), IM fails when converting pdfs. You can see the problem (libgs.so) by logging the output of IM. For example, here&rsquo;s an attempted conversion of test.pdf to test.tif: % convert -debug all -log &quot;%u %m:%l %e&quot; test.pdf test.tif 2&gt;&amp;1 | less This gives errors like this: 0.000u module.c:1278 unable to load module `/usr/lib/ImageMagick-6.7.5&lt;wbr&gt;/modules-Q16/coders/&lt;a href=&quot;http://www.google.com/url?q=http%3A%2F%2Fpdf.la&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNGP84_LsnHfS4qb4LezlUoLCScTAA&quot; target=&quot;_blank&quot;&gt;pdf.la&lt;/a&gt;': libgs.so.8: cannot open shared object file: No such file or directory&lt;/wbr&gt; So, I downloaded and unpacked a RHEL ghostscript rpm - it turns out that the rpms have symlinks to libgs.so in the package, but no libgs.so :-( /var/tmp/usr/lib # ls -al libgs.so* lrwxrwxrwx 1 root root 13 Mar 28 20:41 libgs.so -&gt; libgs.so.8.15 lrwxrwxrwx 1 root root 13 Mar 28 20:41 libgs.so.8 -&gt; libgs.so.8.15 Easy you think, just install something like libgs.123.rpm, and everything will work.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/ghostscript-imagemagick-rhel-libgs-so-errors/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -668,13 +668,13 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/ruby-lisp-python/'> Ruby, Lisp, Python</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/'> Ruby, Lisp, Python</a> </h2>
       <div class="meta">20 Mar 2012</div>
     </header>
 
     Up late tonight reading about Emacs Lisp, I came across Tour de Babel by Steve Yegge comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much. I&rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul: Anyway, Ruby stole everything good from Perl; &hellip; for the most part, Ruby took Perl&rsquo;s string processing and Unix integration as-is, meaning the syntax is identical, and so right there, before anything else happens, you already have the Best of Perl.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/ruby-lisp-python/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -683,28 +683,28 @@ using the type system to help you write a function</p>
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/gnu-screen-split-screens/'> Gnu Screen - split screens</a> </h2>
-      <div class="meta">18 Mar 2012</div>
-    </header>
-
-    One of the features I&rsquo;ve always wished Gnu screen had was the ability to split a screen horizontally, so you can for example run a grep or mc in the top half of the terminal, and some commands in the bottom half. Well it turns out that you can split screens in Screen, here&rsquo;s how to you do it: C-a S to split C-a X to unsplit (and remove the current region) C-a Q to make the current region the only region Also, you can bind some keys to move between regions; add these settings to your ~/.screenrc: bind j focus down bind k focus up bind t focus top bind b focus bottom Then you can do things like C-a j to move down a region,** C-a k** to move up a region.
-    <footer>
-        <a href='http://blog2.snowfrog.net/posts/gnu-screen-split-screens/'><nobr>Read more →</nobr></a>
-    </footer>
-</article>
-
-            
-            
-
-<article class="post">
-    <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/gnu-screen-alternative-terminator/'> GNU Screen Alternative - Terminator?</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/'> GNU Screen Alternative - Terminator?</a> </h2>
       <div class="meta">18 Mar 2012</div>
     </header>
 
     I&rsquo;ve been using GNU Screen for years, and I always wished it had a &ldquo;broadcast&rdquo; functionality like MultiXterm. Anyway, this morning I came across Terminator - it splits screens, has broadcasts, etc (probably old news for some people&hellip;). By the way, you can split screens in GNU Screen.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/gnu-screen-alternative-terminator/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/'><nobr>Read more →</nobr></a>
+    </footer>
+</article>
+
+            
+            
+
+<article class="post">
+    <header>
+      <h2><a href='http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/'> Gnu Screen - split screens</a> </h2>
+      <div class="meta">18 Mar 2012</div>
+    </header>
+
+    One of the features I&rsquo;ve always wished Gnu screen had was the ability to split a screen horizontally, so you can for example run a grep or mc in the top half of the terminal, and some commands in the bottom half. Well it turns out that you can split screens in Screen, here&rsquo;s how to you do it: C-a S to split C-a X to unsplit (and remove the current region) C-a Q to make the current region the only region Also, you can bind some keys to move between regions; add these settings to your ~/.screenrc: bind j focus down bind k focus up bind t focus top bind b focus bottom Then you can do things like C-a j to move down a region,** C-a k** to move up a region.
+    <footer>
+        <a href='http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 

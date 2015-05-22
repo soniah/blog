@@ -3,303 +3,303 @@
   
   <url>
     <loc>http://blog2.snowfrog.net/</loc>
-    <lastmod>2015-05-22T00:09:49+00:00</lastmod>
+    <lastmod>2015-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/haskell-hole-driven-development/</loc>
-    <lastmod>2015-05-22T00:09:49+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/</loc>
+    <lastmod>2015-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/devops-and-old-git-branches/</loc>
-    <lastmod>2015-03-25T00:10:58+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</loc>
+    <lastmod>2015-03-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/saltstack-ubuntu-hostname/</loc>
-    <lastmod>2015-01-18T11:56:03+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</loc>
+    <lastmod>2015-01-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/terraform-presentation/</loc>
-    <lastmod>2015-01-13T11:18:01+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</loc>
+    <lastmod>2015-01-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/building-the-development-version-of-terraform/</loc>
-    <lastmod>2014-12-03T23:29:07+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</loc>
+    <lastmod>2014-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/git-and-mercurial-abort-revision-cannot-be-pushed/</loc>
-    <lastmod>2014-09-29T00:34:34+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</loc>
+    <lastmod>2014-09-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/saltstack-essential-reading/</loc>
-    <lastmod>2014-09-23T05:48:30+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/</loc>
+    <lastmod>2014-09-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/setup-arduino-on-debian/</loc>
-    <lastmod>2014-02-26T22:17:49+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/</loc>
+    <lastmod>2014-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/split-function-for-microsoft-mssql/</loc>
-    <lastmod>2014-01-07T01:01:23+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</loc>
+    <lastmod>2014-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/mysql-substring_index-function-on-microsoft-mssql/</loc>
-    <lastmod>2014-01-06T06:34:22+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</loc>
+    <lastmod>2014-01-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/microsoft-sql-2012-ssis-create-catalog-password/</loc>
-    <lastmod>2013-12-24T02:55:41+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</loc>
+    <lastmod>2013-12-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/change-default-editor-in-debian/</loc>
-    <lastmod>2013-12-24T02:33:38+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</loc>
+    <lastmod>2013-12-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</loc>
-    <lastmod>2013-12-22T11:10:07+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</loc>
+    <lastmod>2013-12-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/zfs-list-snapshots-create-and-destroy-clones/</loc>
-    <lastmod>2013-12-14T02:45:56+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</loc>
+    <lastmod>2013-12-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/tricks-for-learning-foreign-languages/</loc>
-    <lastmod>2013-12-11T02:06:10+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/12/11/tricks-for-learning-foreign-languages/</loc>
+    <lastmod>2013-12-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</loc>
-    <lastmod>2013-11-04T03:05:13+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</loc>
+    <lastmod>2013-11-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/debfoster-keeping-a-debian-system-small/</loc>
-    <lastmod>2013-07-21T02:12:41+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</loc>
+    <lastmod>2013-07-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/msr-whisperlite-international-stove-fuel-types/</loc>
-    <lastmod>2013-07-14T05:19:22+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/07/14/msr-whisperlite-international-stove-fuel-types/</loc>
+    <lastmod>2013-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/golang-building-with-makefile-and-jenkins/</loc>
-    <lastmod>2013-06-18T01:30:01+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</loc>
+    <lastmod>2013-06-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/golang-profiling-libraries-and-gosnmp-for-snmp/</loc>
-    <lastmod>2013-06-03T01:52:09+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</loc>
+    <lastmod>2013-06-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/ubuntu-howto-recover-encrypted-home-directory/</loc>
-    <lastmod>2013-06-03T01:42:46+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</loc>
+    <lastmod>2013-06-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/git-bisect-run-example/</loc>
-    <lastmod>2013-03-14T23:55:06+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</loc>
+    <lastmod>2013-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/gosnmp-snmp-for-golang/</loc>
-    <lastmod>2013-03-11T01:19:54+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/</loc>
+    <lastmod>2013-03-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/refactoring-in-go-rather-pleasant-actually/</loc>
-    <lastmod>2013-02-12T01:12:32+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</loc>
+    <lastmod>2013-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/gsnmpgo-snmp-for-golang-using-gsnmp/</loc>
-    <lastmod>2013-02-10T10:02:40+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</loc>
+    <lastmod>2013-02-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/bokken-and-sword-training/</loc>
-    <lastmod>2013-01-23T07:01:51+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/01/23/bokken-and-sword-training/</loc>
+    <lastmod>2013-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/git-delete-local-tracking-branches/</loc>
-    <lastmod>2013-01-22T22:11:48+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/</loc>
+    <lastmod>2013-01-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/git-pull-f-git-force-pull/</loc>
-    <lastmod>2012-12-03T02:11:50+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/</loc>
+    <lastmod>2012-12-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/linux-filename-suffixes/</loc>
-    <lastmod>2012-11-30T10:32:15+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/11/30/brawl-video-self-defence-lessons/</loc>
+    <lastmod>2012-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/brawl-video-self-defence-lessons/</loc>
-    <lastmod>2012-11-30T01:24:54+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/11/30/linux-filename-suffixes/</loc>
+    <lastmod>2012-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/network-access-with-exetel-hspa-and-antenna/</loc>
-    <lastmod>2012-11-22T04:50:14+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</loc>
+    <lastmod>2012-11-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/vim-bufexplorer/</loc>
-    <lastmod>2012-11-20T08:33:30+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</loc>
+    <lastmod>2012-11-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/balintawak-arnis-charging-attacks/</loc>
-    <lastmod>2012-11-14T06:01:07+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/11/14/balintawak-arnis-charging-attacks/</loc>
+    <lastmod>2012-11-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/ubuntu-minimal-xmonad/</loc>
-    <lastmod>2012-11-11T22:50:29+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
+    <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/training-with-baseball-bats/</loc>
-    <lastmod>2012-11-11T08:33:46+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
+    <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/sending-email-from-shell-via-mutt/</loc>
-    <lastmod>2012-10-09T01:52:35+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/</loc>
+    <lastmod>2012-10-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/golang-setup-and-producing-debs/</loc>
-    <lastmod>2012-10-02T23:29:06+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</loc>
+    <lastmod>2012-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/golang-checking-open-files-and-memory-usage/</loc>
-    <lastmod>2012-09-14T06:18:54+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/</loc>
+    <lastmod>2012-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</loc>
-    <lastmod>2012-09-05T06:47:31+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</loc>
+    <lastmod>2012-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/git-push-to-non-bare-repo-warning-updating-the-current-branch/</loc>
-    <lastmod>2012-08-17T00:20:10+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/</loc>
+    <lastmod>2012-08-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/perl-debug-fork-with-no-x/</loc>
-    <lastmod>2012-08-03T05:26:57+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/</loc>
+    <lastmod>2012-08-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/balintawak-video/</loc>
-    <lastmod>2012-07-28T08:58:43+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/07/28/balintawak-video/</loc>
+    <lastmod>2012-07-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/4clojure-59-juxtaposition/</loc>
-    <lastmod>2012-07-16T13:42:25+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/</loc>
+    <lastmod>2012-07-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/balintawak-darwin-sunset/</loc>
-    <lastmod>2012-07-12T11:09:47+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/07/12/balintawak-darwin-sunset/</loc>
+    <lastmod>2012-07-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/balintawak-darwin/</loc>
-    <lastmod>2012-07-11T11:39:09+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/07/11/balintawak-darwin/</loc>
+    <lastmod>2012-07-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/new-balintawak-videos/</loc>
-    <lastmod>2012-07-08T12:14:33+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/07/08/new-balintawak-videos/</loc>
+    <lastmod>2012-07-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/vnc-ssh-tunnel-for-remote-graphical-support/</loc>
-    <lastmod>2012-07-07T09:34:05+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/</loc>
+    <lastmod>2012-07-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/4clojure-100-least-common-multiple/</loc>
-    <lastmod>2012-07-05T14:38:39+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/</loc>
+    <lastmod>2012-07-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/git-ignore-whitespace/</loc>
-    <lastmod>2012-06-13T04:45:18+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
+    <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/change-your-passwords/</loc>
-    <lastmod>2012-06-13T01:55:35+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
+    <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/4clojure-97-pascals-triangle/</loc>
-    <lastmod>2012-06-04T12:47:22+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/</loc>
+    <lastmod>2012-06-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/4clojure-63-group-a-sequence/</loc>
-    <lastmod>2012-06-03T14:06:23+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/</loc>
+    <lastmod>2012-06-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/emacs-paredit-notes-for-osx/</loc>
-    <lastmod>2012-06-02T10:58:47+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</loc>
+    <lastmod>2012-06-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/learning-clojure-my-books/</loc>
-    <lastmod>2012-05-11T01:25:06+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</loc>
+    <lastmod>2012-05-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/vim-buffers-cheatsheet/</loc>
-    <lastmod>2012-04-26T01:39:23+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</loc>
+    <lastmod>2012-04-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/ghostscript-imagemagick-rhel-libgs-so-errors/</loc>
-    <lastmod>2012-03-29T05:40:24+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/</loc>
+    <lastmod>2012-03-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/ruby-lisp-python/</loc>
-    <lastmod>2012-03-20T10:59:38+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</loc>
+    <lastmod>2012-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/gnu-screen-split-screens/</loc>
-    <lastmod>2012-03-18T23:07:52+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
+    <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/posts/gnu-screen-alternative-terminator/</loc>
-    <lastmod>2012-03-18T23:00:30+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
+    <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -613,12 +613,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -713,12 +713,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -848,18 +848,13 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
-    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/10/tool-to-edit-ubuntugnome-menus/</loc>
-    <lastmod>2009-03-09T00:00:00+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
+    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -868,12 +863,17 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/06/cityfail-does-it-again/</loc>
-    <lastmod>2009-03-05T00:00:00+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2009/03/10/tool-to-edit-ubuntugnome-menus/</loc>
+    <lastmod>2009-03-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2009/03/05/parameter-passing-in-ruby/</loc>
+    <lastmod>2009-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2009/03/06/cityfail-does-it-again/</loc>
     <lastmod>2009-03-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -933,12 +933,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -1093,12 +1093,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
+    <loc>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1148,12 +1148,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/11/29/troubleshooting-apache/</loc>
+    <loc>http://blog2.snowfrog.net/2007/11/29/open-source-calendaring/</loc>
     <lastmod>2007-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/11/29/open-source-calendaring/</loc>
+    <loc>http://blog2.snowfrog.net/2007/11/29/troubleshooting-apache/</loc>
     <lastmod>2007-11-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1263,12 +1263,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -1353,12 +1353,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
+    <loc>http://blog2.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
+    <loc>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -1463,12 +1463,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
+    <loc>http://blog2.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
+    <loc>http://blog2.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   

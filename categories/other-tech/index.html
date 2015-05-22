@@ -64,13 +64,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/split-function-for-microsoft-mssql/'> Split() function for Microsoft MSSQL</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/'> Split() function for Microsoft MSSQL</a> </h2>
       <div class="meta">7 Jan 2014</div>
     </header>
 
     Microsoft MSSQL doesn&rsquo;t have a split() function (like in Ruby, Perl), so here&rsquo;s one I wrote. It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item. [sourcecode lang=&ldquo;sql&rdquo;] CREATE FUNCTION [dbo].split, @delimiter CHAR(1), @pos
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -79,13 +79,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/mysql-substring_index-function-on-microsoft-mssql/'> MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/'> MySQL SUBSTRING_INDEX function on Microsoft MSSQL</a> </h2>
       <div class="meta">6 Jan 2014</div>
     </header>
 
     I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a SUBSTRING_INDEX function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;. Limitations: only accepts strings up to 255 chars long only works with varchars - we speak ASCII here&hellip; [sourcecode lang=&ldquo;sql&rdquo;] SET ANSI_NULLS ON; GO SET QUOTED_IDENTIFIER ON; GO CREATE FUNCTION [dbo].my_substring_index, @delim VARCHAR (1), @count INT) RETURNS VARCHAR (255) AS BEGIN DECLARE @result AS VARCHAR
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -94,13 +94,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/microsoft-sql-2012-ssis-create-catalog-password/'> Microsoft SQL 2012 SSIS Create Catalog Password</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/'> Microsoft SQL 2012 SSIS Create Catalog Password</a> </h2>
       <div class="meta">24 Dec 2013</div>
     </header>
 
     Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &ldquo;enable CLR&rdquo; and provide an &ldquo;encryption password&rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields. Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&rsquo;m not using a tablet, so why force a tablet interface down my throat?
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/microsoft-sql-2012-ssis-create-catalog-password/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -109,13 +109,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/'> OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/'> OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</a> </h2>
       <div class="meta">22 Dec 2013</div>
     </header>
 
     When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&rsquo;ll get an error in the console log like: Unable to copy file foo to /var/private/bar&hellip; The solution comes from the TunnelBlick forum: There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk.
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -124,13 +124,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/change-your-passwords/'> Change your passwords</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/06/13/change-your-passwords/'> Change your passwords</a> </h2>
       <div class="meta">13 Jun 2012</div>
     </header>
 
     I&rsquo;ve written this post for the non-technical people I do &ldquo;tech support&rdquo; for. Do you use the same password on different websites? Or, the same password with slight variations (for example secret-abc on website abc.com and secret-xyz on website xyz.com). Or, do you make your password &ldquo;secure&rdquo; (it&rsquo;s not) by changing one of the letters for a number or symbol (eg secret becomes s3cret, password becomes p@ssword). Well, you should change all your passwords right now!
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/change-your-passwords/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/06/13/change-your-passwords/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 
@@ -139,13 +139,13 @@
 
 <article class="post">
     <header>
-      <h2><a href='http://blog2.snowfrog.net/posts/emacs-paredit-notes-for-osx/'> Emacs Paredit Notes for OSX</a> </h2>
+      <h2><a href='http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/'> Emacs Paredit Notes for OSX</a> </h2>
       <div class="meta">2 Jun 2012</div>
     </header>
 
     Some notes on Emacs&rsquo; Paredit mode. More so I can stop fighting with Paredit and do some Clojure programming than show any expertise - see Mudphone&rsquo;s Paredit Preso for the real deal, as well as hagelb&rsquo;s Paredit screencast notes and the Paredit Cheat Sheet. M-( wrap parens around something. Also for { [ &ldquo; M-s remove parens from something M-S-s split sexpr into two M-S-j join sexprs C-q ♦ just do what I say, dammit!
     <footer>
-        <a href='http://blog2.snowfrog.net/posts/emacs-paredit-notes-for-osx/'><nobr>Read more →</nobr></a>
+        <a href='http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/'><nobr>Read more →</nobr></a>
     </footer>
 </article>
 

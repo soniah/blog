@@ -1,0 +1,239 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://blog2.snowfrog.net">
+    <title> Golang - building with Makefile and Jenkins </title>
+    <link rel="canonical" href="http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/">
+    
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-0b">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Posts by Date</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/tags">Posts by Tag</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://blog2.snowfrog.net/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Golang - building with Makefile and Jenkins</h1>
+        <section id="main">
+          <h5 id="date"> 18 Jun 2013 </h5>
+          
+
+<p>I&rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins. I was unfamiliar with Jenkins, and there didn&rsquo;t seem to be any documentation around on how to build Go executables.</p>
+
+<h3 id="project-structure:7f3127c9ec03bce3057a7fc0b9a55245">Project Structure</h3>
+
+<p>First of all an aside on project structure. For my first project I had a <strong>GOPATH</strong> of <strong>~/go</strong> and the following directory structure:</p>
+
+<pre><code>~/go
+  |--bin
+  |--pkg
+  |--src
+</code></pre>
+
+<p>But as I wrote more Go projects, it made more sense to separate each project into it&rsquo;s own directory structure:</p>
+
+<pre><code>~/go
+  |--project1
+    |--bin
+    |--pkg
+    |--src
+  |--project2
+    |--bin
+    |--pkg
+    |--src
+</code></pre>
+
+<p>With this directory structure I set <strong>GOPATH</strong> on the command line or in a Makefile:</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+% cd ~go/project2/src/github.com/soniah/gosnmp
+% GOPATH=~go/project2 go build
+[/sourcecode]</p>
+
+<h3 id="makefile:7f3127c9ec03bce3057a7fc0b9a55245">Makefile</h3>
+
+<p>For smaller projects you can just produce a binary using <strong>go run</strong> or <strong>go build</strong>. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.</p>
+
+<p>[sourcecode lang=&ldquo;shell&rdquo;]
+GOROOT := /usr/lib/go
+GOPATH := /var/lib/jenkins/workspace/go/project2</p>
+
+<p>myhostname := $(shell hostname)
+ifeq (${myhostname}, laptop)
+    GOPATH := /home/sonia/go/project2
+else ifeq (${myhostname}, testmachine)
+    GOPATH := /home/u1234/go/project2
+    GOROOT := /usr/local/go
+endif</p>
+
+<p>build: build-stamp
+build-stamp: file1.go file2.go file3.go
+    # always format code
+    GOPATH=$(GOPATH) go fmt $^
+    # binary
+    GOPATH=$(GOPATH) go build -o project2 -v $^
+    # docs
+    markdown README.mkd &gt; README.html
+    help2man &ndash;no-info &ndash;include=help2man.roff &ndash;name &ldquo;Project2&rdquo; ./project2 &gt; project2.roff
+    man -Tps -l project2.roff &gt; project2-man.ps
+    ps2pdf project2-man.ps project2-man.pdf
+    # mark as done
+    touch $@
+[/sourcecode]</p>
+
+<h3 id="jenkins:7f3127c9ec03bce3057a7fc0b9a55245">Jenkins</h3>
+
+<p>With a working Makefile, building under Jenkins will now be easier. The objective is to have Jenkins automatically build a new binary/package whenever a developer pushes to one of the git/mercurial/bzr repos that makeup the various components of your project.</p>
+
+<p>However if your project contains multiple components, you&rsquo;ll soon come across a problem. For example Project2 was using <strong>github.com/droundy/goopt</strong> and <strong>github.com/mattn/go-sqlite3</strong>. To see the problem, create a New Job using <strong>Build a free-style software project</strong>. Under <strong>Source Code Management</strong>, choose something like <strong>Git</strong>. Under the second Advanced button, you&rsquo;ll need to change the option <strong>Local subdirectory for repo (optional)</strong> to point to the path of a component&rsquo;s repo. <strong>But</strong> this setting is a global setting for all git repos - so the build won&rsquo;t work as you add a second and third component.</p>
+
+<p>The solution is to install to Jenkins the <a href="http://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin">Multiple SCMs Plugin</a>. Then in your Jenkins Job you&rsquo;ll be able to set the local subdirectory for each component. For example in Project2:</p>
+
+<ul>
+<li><p>the <strong>goopt</strong> local subdirectory was set to <strong>project2/src/github.com/droundy/goopt</strong></p></li>
+
+<li><p>the <strong>go-sqlite3</strong> local subdirectory was set to <strong>project2/src/github.com/mattn/go-sqlite3</strong></p></li>
+</ul>
+
+<h3 id="other-jenkins-settings:7f3127c9ec03bce3057a7fc0b9a55245">Other Jenkins  Settings</h3>
+
+<p>Here are some other useful setting for building Go projects on Jenkins:</p>
+
+<ul>
+<li><p>if you&rsquo;re building 32 and 64 bit binaries (on different build servers), use the setting <strong>Restrict where this project can be run</strong> with something like &ldquo;32bit&amp;&amp;precise&amp;&amp;ubuntu&rdquo;</p></li>
+
+<li><p>separate out your Go code from other languages - <strong>Advanced Project Options</strong>, <strong>Use custom workspace</strong>, &ldquo;/var/lib/jenkins/workspace/go&rdquo;</p></li>
+</ul>
+
+        </section>
+
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2013/07/14/msr-whisperlite-international-stove-fuel-types/">MSR Whisperlite International Stove - Fuel Types</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/"> &nbsp; Golang - profiling libraries and GoSNMP for SNMP</a> &raquo;
+    </span>
+  
+  <br />
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/golang">Golang</a> </li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/jenkins">Jenkins</a> </li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/make">Make</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p class="right credit">
+    <a href="http://blog2.snowfrog.net/">Home</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/tags">Posts by Tag</a>&nbsp;&nbsp;
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

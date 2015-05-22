@@ -1,0 +1,203 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://blog2.snowfrog.net">
+    <title> Linux, Ubuntu: how to tell if 32 or 64 bit installed </title>
+    <link rel="canonical" href="http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/">
+    
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-0b">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Posts by Date</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/tags">Posts by Tag</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://blog2.snowfrog.net/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Linux, Ubuntu: how to tell if 32 or 64 bit installed</h1>
+        <section id="main">
+          <h5 id="date"> 5 Sep 2012 </h5>
+          
+
+<p>A question I get regularly from other sysadmins - how to tell if you&rsquo;re running a 32 or 64 bit <strong>install</strong> (vs <strong>CPU</strong>) of Linux?</p>
+
+<p>Here&rsquo;s one way - use the file command on /sbin/init:</p>
+
+<p>[sourcecode language=&ldquo;bash&rdquo;]</p>
+
+<h1 id="on-a-32-bit-install:05d18f58b8191181d79df5c8deb83aae">on a 32 bit install</h1>
+
+<p>% file /sbin/init
+/sbin/init: ELF 32-bit LSB executable&hellip;.</p>
+
+<h1 id="on-a-64-bit-install:05d18f58b8191181d79df5c8deb83aae">on a 64 bit install</h1>
+
+<p>% file /sbin/init
+/sbin/init: ELF 64-bit LSB shared object, x86-64&hellip;
+[/sourcecode]</p>
+
+<p><strong>Update</strong></p>
+
+<p>I got a few comments on this (thank you) saying that I was wrong or &ldquo;haven&rsquo;t you heard of uname?&rdquo;&hellip;</p>
+
+<p><strong>1. CPU vs Kernel</strong></p>
+
+<p>One comment said I was wrong and should use grep against the cpu info:</p>
+
+<p>[sourcecode language=&ldquo;bash&rdquo;]
+$ grep ^flags /proc/cpuinfo | grep lm
+[/sourcecode]</p>
+
+<p>Unfortunately the commenter hadn&rsquo;t read my post correctly - I&rsquo;m interested in whether the <em>operating system</em> is <sup>32</sup>&frasl;<sub>64</sub> bit, not the <em>cpu</em>.</p>
+
+<p><strong>2. Use uname</strong></p>
+
+<p>Other comments said I should use uname with particular flags (as if I&rsquo;d never heard of uname before&hellip;.). Unfortunately the manpage for uname is a good example of <a href="http://en.wikipedia.org/wiki/Considered_harmful">manpage considered harmful</a>. Let&rsquo;s have a look at what it says for the various options:</p>
+
+<p>[sourcecode language=&ldquo;bash&rdquo;]
+% man uname
+&hellip;
+-m, &ndash;machine
+    print the machine hardware name</p>
+
+<p>-p, &ndash;processor
+    print the processor type or &ldquo;unknown&rdquo;</p>
+
+<p>-i, &ndash;hardware-platform
+    print the hardware platform or &ldquo;unknown&rdquo;
+&hellip;
+[/sourcecode]</p>
+
+<p>What is the difference between the &ldquo;machine hardware name&rdquo;, the &ldquo;processor type&rdquo;, and the &ldquo;hardware platform&rdquo;? Googling doesn&rsquo;t turn up a good explanation. I could look at the source code for uname, or run uname on a machine I which already has known hardware and interpret the results, then work out the flags to use on the target machine. Or I could just rote-memorise <strong>uname -m</strong> and not know what it means.</p>
+
+<p>Bzzt, fail. I know what the <strong>file</strong> command does, I use it regularly for cross-compiling stuff.</p>
+
+<p><strong>file /sbin/init</strong> is what I use.</p>
+
+        </section>
+
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/">Golang: checking open files and memory usage</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/"> &nbsp; git push to non-bare repo: warning: updating the current branch</a> &raquo;
+    </span>
+  
+  <br />
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/ubuntu">Ubuntu</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p class="right credit">
+    <a href="http://blog2.snowfrog.net/">Home</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/tags">Posts by Tag</a>&nbsp;&nbsp;
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

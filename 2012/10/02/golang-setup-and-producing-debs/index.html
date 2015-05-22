@@ -1,0 +1,172 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://blog2.snowfrog.net">
+    <title> Golang - setup and producing .debs </title>
+    <link rel="canonical" href="http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/">
+    
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
+
+<link rel="stylesheet" href="http://blog2.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+</head>
+
+
+<body class="theme-base-0b">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/posts">Posts by Date</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://blog2.snowfrog.net/tags">Posts by Tag</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015 Sonia Hamilton. Powered by <a href="http://hugo.spf13.com">Hugo</a>. Design adapted from <a href="http://lanyon.getpoole.com">Lanyon</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://blog2.snowfrog.net/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Golang - setup and producing .debs</h1>
+        <section id="main">
+          <h5 id="date"> 2 Oct 2012 </h5>
+          <p>Here&rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&rsquo;s to package them and <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> for README&rsquo;s - <em>notes for me</em>.</p>
+
+<p>Install build pre-requisites:</p>
+
+<p>[sourcecode language=&ldquo;bash&rdquo;]
+sudo aptitude install gcc libc6-dev libc6-dev-i386 make \
+  markdown build-essential debhelper dh-make fakeroot devscripts
+[/sourcecode]</p>
+
+<p>Install Go from source (so can cross-compile). Download from <a href="http://code.google.com/p/go/downloads/list">Go Downloads</a> eg go1.0.2.src.tar.gz</p>
+
+<p>[sourcecode language=&ldquo;bash&rdquo;]
+sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz ; cd /usr/local/go/src
+sudo GOARCH=amd64 ./all.bash ; sudo GOARCH=386 ./all.bash
+[/sourcecode]</p>
+
+<p>Add to /etc/profile, source or re-login:
+[sourcecode language=&ldquo;bash&rdquo;]
+export GOROOT=&ldquo;/usr/local/go&rdquo;
+export PATH=&ldquo;$GOROOT/bin:$PATH&rdquo;
+[/sourcecode]</p>
+
+        </section>
+
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/">Sending email from shell via mutt</a>
+    </span>
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/"> &nbsp; Golang: checking open files and memory usage</a> &raquo;
+    </span>
+  
+  <br />
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/debian">Debian</a> </li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/golang">Golang</a> </li>
+    
+      <li><a href="http://blog2.snowfrog.net/tags/ubuntu">Ubuntu</a> </li>
+    
+  </ul>
+</div>
+
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p class="right credit">
+    <a href="http://blog2.snowfrog.net/">Home</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://blog2.snowfrog.net/tags">Posts by Tag</a>&nbsp;&nbsp;
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
