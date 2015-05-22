@@ -10,6 +10,8 @@ tags:
 ---
 Some notes for me as I attempt to get a better understanding of Perl&#8217;s variable scoping rules. A work in progress&#8230;
 
+<!--more-->
+
   * Perl has 2 separate &#8216;namespaces&#8217; for variables &#8211; **package** aka global (Perl 4) and **my** aka private aka **lexical scoping** (Perl 5)
   * the default package is **main**, this can be changed with the statement **package foo;** which then applies to all subsequent code until another package statement is encountered
   * **lexical scoping** is done with {} (either via subroutines/operators or &#8216;naked blocks&#8217;); the top level is the file itself (&#8216;file level&#8217;).

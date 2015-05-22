@@ -8,7 +8,11 @@ categories:
 tags:
   - Spanish
 ---
-The Spanish Language Institute ([Instituto Cervantes][1]) has just opened in [Sydney][2]. The Institute has a similar role to that of  the French Alliance Francaise &#8211; to encourage the spread of Spanish language and culture throughout the world.
+The Spanish Language Institute ([Instituto Cervantes][1]) has just opened in [Sydney][2].
+
+<!--more-->
+
+The Institute has a similar role to that of  the French Alliance Francaise &#8211; to encourage the spread of Spanish language and culture throughout the world.
 
 Last night was the first night of the advanced class &#8211; we started late as none of us had thought to order our textbooks and the poor teacher had to improvise, but there was also an opening of an exhibition of Peruvian photography so we had red wine and tapas on our break and then proceeded to have a great time in the second half of the class (all typically Spanish).
 

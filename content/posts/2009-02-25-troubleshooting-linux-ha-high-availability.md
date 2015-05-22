@@ -8,7 +8,11 @@ categories:
 tags:
   - High Availability
 ---
-When Linux HA (High Availability) is setup, each machine will have a physical address, and one machine should also have the virtual address. This can be checked via **ip addr**:
+When Linux HA (High Availability) is setup, each machine will have a physical address, and one machine should also have the virtual address.
+
+<!--more-->
+
+This can be checked via **ip addr**:
 
 <pre>machine 1
 2: eth0: &lt;BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast qlen 1000

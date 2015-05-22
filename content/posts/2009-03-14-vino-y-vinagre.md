@@ -12,6 +12,8 @@ tags:
 ---
 I got a pleasant surprise last night &#8211; well pleasant for the Spanish spea[][1]king part of my brain, anyway.
 
+<!--more-->
+
 The vnc server on Ubuntu has been called **vino** for ages &#8211; Spanish (and Italian, Portuguese, etc) for wine. Ubuntu Hardy (8.04) onwards has a nice new application called **Remote Desktop Viewer** (Applications, Internet) &#8211; allows you to easily manage multiple vnc sessions, set bookmarks, etc. And this application is called **vinagre** &#8211; Spanish for vinegar.
 
 Wine and Vinegar &#8211; nice :-)

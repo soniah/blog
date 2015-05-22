@@ -10,6 +10,8 @@ tags:
 ---
 Quick notes; [see Solaris: Logging to a separate loghost, the easy way][1].
 
+<!--more-->
+
   * edit /etc/inet/hosts, add in an alias for loghost eg **1.2.3.4 loghost**
   * **/etc/init.d/syslog restart** (Solaris 8), svcadm on later versions
 

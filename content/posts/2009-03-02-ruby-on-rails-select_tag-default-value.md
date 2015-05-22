@@ -8,7 +8,11 @@ categories:
 tags:
   - Ruby on Rails
 ---
-When using the Rails helper **select_tag**, the selected value (ie highlighted value) is a parameter to **options\_for\_select**, not select_tag. Eg:
+When using the Rails helper **select_tag**, the selected value (ie highlighted value) is a parameter to **options\_for\_select**, not select_tag.
+
+<!--more-->
+
+Eg:
 
 <pre>Number of Rows: &lt;%= select_tag(:numrows, options_for_select(%w{10 20 50 100 200 500}, session[:numrows])) %&gt;</pre>
 

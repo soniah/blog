@@ -6,7 +6,11 @@ url: /2008/12/04/sfdisk-raid/
 categories:
   - Linux
 ---
-A useful tool I came across last night (thanks Rodrigo) &#8211; **sfdisk** &#8211; &#8220;Partition table manipulator for Linux&#8221;.  Good for copying partition tables when replacing a failed hard disk in a (md Linux Software Raid) RAID. For example, to copy the partition table from sdb to sda:
+A useful tool I came across last night (thanks Rodrigo) &#8211; **sfdisk** &#8211; &#8220;Partition table manipulator for Linux&#8221;.
+
+<!--more-->
+
+Good for copying partition tables when replacing a failed hard disk in a (md Linux Software Raid) RAID. For example, to copy the partition table from sdb to sda:
 
 <pre>sfdisk –d /dev/sdb | sed –e s/sdb/sda/ |  sfdisk /dev/sda</pre>
 

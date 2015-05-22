@@ -10,6 +10,8 @@ tags:
 ---
 Just a small script I wrote to play around with various ways of passing parameters in Ruby:
 
+<!--more-->
+
 <pre>#!/usr/bin/ruby
 
 def restaurant1(meal, food = {})

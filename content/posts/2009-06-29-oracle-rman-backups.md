@@ -10,6 +10,8 @@ tags:
 ---
 More notes on Oracle RMAN backups, see also [Oracle – how to purge old RMAN backups][1]. Thanks Raoul for your email&#8230;
 
+<!--more-->
+
 <pre><pre>Are the backups being deleted using RMAN or simply 'rm'?
 
 Oracle's RMAN can be set up to manage this for you based on RETENTION POLICY.  Eg, set retention policy to recovery window of 14 days and

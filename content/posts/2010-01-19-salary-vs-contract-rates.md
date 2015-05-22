@@ -8,7 +8,11 @@ categories:
 tags:
   - employment
 ---
-I&#8217;ve always wondered what recruitment agents use as their formula to convert between salaries and contract rates. Here&#8217;s a formula (for giving ballpark figures) &#8211; thanks CK:
+I&#8217;ve always wondered what recruitment agents use as their formula to convert between salaries and contract rates.
+
+<!--more-->
+
+Here&#8217;s a formula (for giving ballpark figures) &#8211; thanks CK:
 
 Salary divided by 48 weeks, divided by 40 hours, plus 20% (super, training, sick leave, etc) =~ Hourly rate
 

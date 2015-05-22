@@ -10,7 +10,11 @@ tags:
   - Ruby
   - Ruby on Rails
 ---
-As an ex-DBA, one of the things that annoys me about Rails is that migrations don&#8217;t have a way of setting up referential integrity (I&#8217;m still using Rails 1.2.3, so this may have changed). But apart from that, I lurv Rails :-)
+As an ex-DBA, one of the things that annoys me about Rails is that migrations don&#8217;t have a way of setting up referential integrity (I&#8217;m still using Rails 1.2.3, so this may have changed).
+
+<!--more-->
+
+But apart from that, I lurv Rails :-)
 
 Here&#8217;s some code I wrote to for adding and removing foreign key constraints on MySQL (using InnoDB, of course). There&#8217;s other code out there to do the same thing, but they didn&#8217;t do what I wanted, or required installing a plugin.<!--more-->
 

@@ -10,6 +10,8 @@ tags:
 ---
 A [good article][1] on Oracle and shmmax and shmall. In a nutshell:
 
+<!--more-->
+
   * **shmall** it is not the maximum amount of memory which can be allocated, it is the maximum size of any shared memory chunk &#8211; how big a bite you want per bite from free memory.
   * **shmmax** &#8211; its value determines the maximum amount of memory that ALL shared memory can take. the actual setting is derived… the maximum amount of memory = shmall * pagesize where pagesize = getconf PAGE_SIZE and shmall = cat /proc/sys/kernel/shmall
 

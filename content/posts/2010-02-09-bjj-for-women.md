@@ -8,7 +8,11 @@ categories:
 tags:
   - BJJ
 ---
-I&#8217;ve been doing BJJ ([Brazilian Jiu Jitsu][1]) for years. It&#8217;s a great sport and form of self-defence, but in Australia it&#8217;s dominated by men &#8211; probably putting a lot of women off starting.
+I&#8217;ve been doing BJJ ([Brazilian Jiu Jitsu][1]) for years.
+
+<!--more-->
+
+It&#8217;s a great sport and form of self-defence, but in Australia it&#8217;s dominated by men &#8211; probably putting a lot of women off starting.
 
 <img class="alignright" title="Gaz and Sam" src="http://bondidojo.squarespace.com/storage/sam_gaz.jpg?__SQUARESPACE_CACHEVERSION=1264462596474" alt="" width="500" height="299" />
 

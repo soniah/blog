@@ -10,6 +10,8 @@ tags:
 ---
 This financial crisis is forcing companies to make tough decisions, there is a risk that we might need to lay off Andre&#8230;
 
+<!--more-->
+
 <div id="attachment_344" class="wp-caption aligncenter" style="width: 453px">
   <img class="size-full wp-image-344" title="image0011" src="http://blog.snowfrog.net/wp-content/uploads/2009/03/image0011.jpg" alt="Andre may have to go..." width="445" height="600" />
   

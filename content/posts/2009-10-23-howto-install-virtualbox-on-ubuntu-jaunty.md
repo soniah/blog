@@ -10,6 +10,8 @@ tags:
 ---
 Here&#8217;s how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are [saying][1] 2.2.0 is buggy). And now that Oracle owns Sun, Virtualbox may go the way of the dodo&#8230;
 
+<!--more-->
+
 No rocket science here &#8211; just saving myself time in future.
 
 <pre>sudo aptitude install virtualbox-ose virtualbox-ose-qt virtualbox-ose-source dkms virtualbox-guest-additions</pre>

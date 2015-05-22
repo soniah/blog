@@ -10,6 +10,8 @@ tags:
 ---
 I blogged [previously][1] about how the Australian locale in Ubuntu incorrectly uses Sunday rather than Monday as the first day of the week, and how to manually fix it. Unfortunately, whenever the locale gets updated (eg via one of Ubuntu&#8217;s regular package updates), the locale reverts and you have to manually fix it again.
 
+<!--more-->
+
 So I&#8217;ve written a script that fixes the locale, and also hooked it into dpkg:
 
 <pre>% cat fix_locale.sh

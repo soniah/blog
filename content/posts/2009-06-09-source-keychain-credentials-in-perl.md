@@ -12,6 +12,8 @@ tags:
 ---
 I use [keychain][1] for securely [caching my ssh key credentials when running scripts from cron][2].
 
+<!--more-->
+
 [Here&#8217;s][3] how to use keychain with Perl scripts:
 
 <pre>Create a wrapper script:

@@ -11,6 +11,8 @@ tags:
 ---
 Firewalling on Solaris 10:
 
+<!--more-->
+
   * config file: /etc/ipf/ipf.conf
   * flush all rules: ipf -Fa
   * reload: ipf -f /etc/ipf/ipf.conf

@@ -10,6 +10,8 @@ tags:
 ---
 A good post from Glen Turner on SLUG about udev, HAL, DBUS (in the context of GSM modems):
 
+<!--more-->
+
 <pre>- you insert the device
  - UDEV tells HAL that it has been inserted
  - HAL looks up a XML-based "information" file. These are where the

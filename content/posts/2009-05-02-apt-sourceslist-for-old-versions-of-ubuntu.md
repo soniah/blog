@@ -10,6 +10,8 @@ tags:
 ---
 Discontinued versions of Ubuntu are mirrored under <http://old-releases.ubuntu.com/ubuntu/>, which can be used to setup apt&#8217;s sources.list.
 
+<!--more-->
+
 For example, for Gutsy (7.10), **sources.list** would look like:
 
 <pre>deb http://old-releases.ubuntu.com/ubuntu/ gutsy main restricted

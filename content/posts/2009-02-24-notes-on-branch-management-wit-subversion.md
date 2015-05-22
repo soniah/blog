@@ -10,6 +10,8 @@ tags:
 ---
 Some notes on branch management with Subversion (more for my own learning purposes than anything):
 
+<!--more-->
+
   * create branch: **svn cp foo foo-branch**
   * develop new feature in foo-branch, whilst doing any bug fixes in trunk
   * merge some changes from trunk into branch &#8211; keep branch up-to-date as possible 

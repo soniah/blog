@@ -9,7 +9,11 @@ tags:
   - Ruby on Rails
   - Ubuntu
 ---
-I&#8217;ve always used vim as my main editor, but I thought I&#8217;d try RadRails since so many Rails people rave about it. Installing it on Ubuntu Jaunty is a bit non-obvious:
+I&#8217;ve always used vim as my main editor, but I thought I&#8217;d try RadRails since so many Rails people rave about it.
+
+<!--more-->
+
+Installing it on Ubuntu Jaunty is a bit non-obvious:
 
   * sudo aptitude install openjdk-6-jre (or your preferred jre)
   * [download][1] and unpack aptana zip to ~/.aptana

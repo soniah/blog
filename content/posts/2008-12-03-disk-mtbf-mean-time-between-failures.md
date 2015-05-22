@@ -10,6 +10,8 @@ tags:
 ---
 A good [article][1] on disk MTBF (Mean Time Between Failures), that clarified my understanding (thanks Jarek).
 
+<!--more-->
+
 The key paragraph:
 
 &#8220;To be interpreted properly, the MTBF figure is intended to be used in conjunction with the useful [service life][2] of the drive, the typical amount of time before the drive enters the period where failures due to component wear-out increase. MTBF only applies to the aggregate analysis of large numbers of drives; it says nothing about a particular unit. If the MTBF of a model is 500,000 hours and the service life is five years, this means that a drive of that type is supposed to last for five years, and that of a large group of drives operating within this timeframe, on average they will accumulate 500,000 of total run time (amongst all the drives) before the first failure of any drive. Or, you can think of it this way: if you used one of these drives and replaced it every five years with another identical one, in theory it should last 57 years before failing, on average (though I somehow doubt we&#8217;ll be using 10 to 100 GB spinning-platter hard disk drives in the year 2057. :^) )&#8221;

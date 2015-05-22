@@ -9,7 +9,11 @@ tags:
   - PalmPilot
   - Ubuntu
 ---
-(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&#8217;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10. Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cleaned up version:
+(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&#8217;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.
+
+<!--more-->
+
+Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cleaned up version:
 
   * load visor module **sudo modprobe visor** and check loaded **lsmod | grep visor**
   * add visor module to **/etc/modules**

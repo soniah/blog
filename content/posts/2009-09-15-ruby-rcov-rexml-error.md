@@ -8,7 +8,11 @@ categories:
 tags:
   - Ruby
 ---
-Ruby&#8217;s rcov had a workaround for a breakage in the rexml library, but the workaround [broke][1]. This causes *no implicit conversion from nil to integer* on stderr. Quick solution:
+Ruby&#8217;s rcov had a workaround for a breakage in the rexml library, but the workaround [broke][1].
+
+<!--more-->
+
+This causes *no implicit conversion from nil to integer* on stderr. Quick solution:
 
 <pre>rcov-0.8.1.2.0/lib/rcov/report.rb
 -if RUBY_VERSION == "1.8.6" && defined? REXML::Formatters::Transitive

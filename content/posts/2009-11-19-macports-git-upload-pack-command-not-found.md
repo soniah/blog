@@ -11,6 +11,8 @@ tags:
 ---
 When doing a **git clone** from a repo hosted on a Mac OSX machine (installed using macports), I get this error on the client (Linux, cygwin, whatever):
 
+<!--more-->
+
 <pre>git-upload-pack: command not found</pre>
 
 Solution is to do this on the OSX machine:

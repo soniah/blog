@@ -10,6 +10,8 @@ tags:
 ---
 An interesting Ruby example of an easy way to setup classes that are really just for passing around data using **Struct** &#8211; essentially a neat wrapper around a hash of values:
 
+<!--more-->
+
 <pre>class Node &lt; Struct.new( :level, :tag, :data, :refid )
   def initialize( line=nil )
     ...various mungings of line omitted...

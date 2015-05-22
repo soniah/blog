@@ -10,6 +10,8 @@ tags:
 ---
 I&#8217;m using the Cisco VPN client, and it seems unreliable on Linux &#8211; it occasionally connects but often just gives up with &#8220;Remote peer is no longer responding&#8221;.
 
+<!--more-->
+
 Apart from the obvious firewall/nat checks [[1][1]][[2][2]], a solution seems to be to edit the .pcf file, bump up the timeout and force keepalives:
 
 <pre>PeerTimeout=180

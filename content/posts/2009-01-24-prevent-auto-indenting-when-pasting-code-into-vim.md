@@ -10,6 +10,8 @@ tags:
 ---
 When posting code into vim, it often auto-indents it in a staircase fashion off to the right &#8211; really annoying.
 
+<!--more-->
+
 To prevent this, use **:set paste**, and **:set nopaste** to turn it off.
 
 See also **:help paste**.

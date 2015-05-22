@@ -9,7 +9,11 @@ tags:
   - comment
   - film
 ---
-Another year, another [Sydney Film Festival][1]. Two films I saw really stood out &#8211; [The Cove][2] (about the continued Japanese dolphin slaughter) and Che [Part I][3] and [Part II][4] (covering the Cuban and Bolivian years of Ernesto &#8216;Che&#8217; Guevara). Also memorable was [Big River Man][5], about a middle aged  Slovenian man who swims the entire length of the Amazon river.
+Another year, another [Sydney Film Festival][1].
+
+<!--more-->
+
+Two films I saw really stood out &#8211; [The Cove][2] (about the continued Japanese dolphin slaughter) and Che [Part I][3] and [Part II][4] (covering the Cuban and Bolivian years of Ernesto &#8216;Che&#8217; Guevara). Also memorable was [Big River Man][5], about a middle aged  Slovenian man who swims the entire length of the Amazon river.
 
 Like always (this is my approx 15th festival), I start the festival with feelings of both anticipation and trepidation &#8211; anticipation that I&#8217;ll see some great films, and trepidation at the long nights and weekends in the dark, followed by getting up in the morning for work :-) But there&#8217;s nothing like seeing a great movie with several thousand other cineastes in the splendour of the State Theatre to renew my love of good cinema.
 

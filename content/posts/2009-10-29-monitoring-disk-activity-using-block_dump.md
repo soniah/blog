@@ -10,6 +10,8 @@ tags:
 ---
 A couple of good links [[1][1]][[2][2]] came up on the [Axxs collective][3] email list about monitoring disk activity under Linux using block_dump.
 
+<!--more-->
+
 In a nutshell:
 
 <pre>kern.debug setup in syslog.conf (it often is; if sync is used disk activity will obviously be greater)

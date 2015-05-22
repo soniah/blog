@@ -9,6 +9,8 @@ tags:
   - Oracle
 ---
 Some notes on shutting down and starting up Oracle, taken from an email.
+<!--more-->
+
 
 <div dir="ltr">
   <span style="font-family:tahoma;font-size:x-small;">Please be corrected in Note Section if you do need to do abort shutdown.</span>

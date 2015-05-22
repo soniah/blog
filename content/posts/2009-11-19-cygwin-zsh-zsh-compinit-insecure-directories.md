@@ -12,6 +12,8 @@ tags:
 ---
 Using cygwin under Windows, I&#8217;ve setup my shell as zsh by editing the launch script:
 
+<!--more-->
+
 <pre>@echo off
 C:
 chdir C:cygwinbin

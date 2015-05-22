@@ -8,7 +8,11 @@ categories:
 tags:
   - Ubuntu
 ---
-I recently bought a new laptop &#8211; a *bottom* of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up). I used to buy high-end laptops but my thinking was changed when my latest one got stolen and I started using an old one I&#8217;d (literally) dredged out of a rubbish bin. I mostly use shell/vi/ssh, Thunderbird and Firefox, don&#8217;t carry my laptop around with me, and all my stuff is backed up across multiple machines using git, so why shell out the big bucks?
+I recently bought a new laptop &#8211; a *bottom* of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up).
+
+<!--more-->
+
+I used to buy high-end laptops but my thinking was changed when my latest one got stolen and I started using an old one I&#8217;d (literally) dredged out of a rubbish bin. I mostly use shell/vi/ssh, Thunderbird and Firefox, don&#8217;t carry my laptop around with me, and all my stuff is backed up across multiple machines using git, so why shell out the big bucks?
 
 So far I&#8217;m liking the Satellite Pro. Ubuntu 9.04 installed without a hitch, sound and wireless worked straight out of the box, the keyboard has a nice feel to it and all the keys are in the proper places (unlike Dell laptops that seem to scatter them all over the place).
 

@@ -10,6 +10,8 @@ tags:
 ---
 A quick note on how to rotate jpeg images, not because it&#8217;s earth-shatteringly smart but so I don&#8217;t keep having to think every time I want to do it:
 
+<!--more-->
+
   * sudo aptitude install libjpeg-progs (contains jpegran on Ubuntu)
   * for i in *jpg; do jpegtran -rotate 180 $i > rotated/$i ; done
 

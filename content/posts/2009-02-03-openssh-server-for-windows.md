@@ -8,7 +8,11 @@ categories:
 tags:
   - Ssh
 ---
-I&#8217;ve used [putty.exe][1] for doing ssh client work on Windows machines for years. But I always thought that any Windows ssh servers were commercial, so when I&#8217;ve really had to have Windows ssh access I&#8217;ve setup [Cygwin][2].
+I&#8217;ve used [putty.exe][1] for doing ssh client work on Windows machines for years.
+
+<!--more-->
+
+But I always thought that any Windows ssh servers were commercial, so when I&#8217;ve really had to have Windows ssh access I&#8217;ve setup [Cygwin][2].
 
 But here&#8217;s a free (as in speech and beer) .exe that installs just an ssh server &#8211; [sshwindows][3]. Probably been around forever, but since I use Windows so little nowadays I&#8217;ve haven&#8217;t heard about it until now.
 

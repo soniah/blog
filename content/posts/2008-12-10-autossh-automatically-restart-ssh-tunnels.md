@@ -10,6 +10,8 @@ tags:
 ---
 A tool I&#8217;d forgotten about &#8211; [autossh][1]. Also an article [here][2]. Thanks Dean.
 
+<!--more-->
+
 Some links on getting autossh going:
 
   * Cygwin to Linux: [Matt&#8217;s stuff][3]

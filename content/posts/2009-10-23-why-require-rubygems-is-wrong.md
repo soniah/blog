@@ -10,6 +10,8 @@ tags:
 ---
 A link off the [RORO][1] list about [Why &#8220;require &#8216;rubygems'&#8221; Is Wrong][2].
 
+<!--more-->
+
 In a nutshell, the environment variable RUBYOPT should include rubygems eg
 
 <pre>export RUBYOPT="rubygems"</pre>

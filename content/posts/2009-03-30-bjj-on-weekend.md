@@ -8,7 +8,11 @@ categories:
 tags:
   - BJJ
 ---
-This weekend I had a BJJ competition &#8211; the &#8220;6th Annual Australian Submission Grappling Championships&#8221; (what a mouthful) &#8211; here are some videos from the weekend. The competition went all day and I didn&#8217;t get as many videos as usual as I was one of the officials too (table scorer).
+This weekend I had a BJJ competition &#8211; the &#8220;6th Annual Australian Submission Grappling Championships&#8221; (what a mouthful) &#8211; here are some videos from the weekend.
+
+<!--more-->
+
+The competition went all day and I didn&#8217;t get as many videos as usual as I was one of the officials too (table scorer).
 
 *(For those of you who don&#8217;t know what [BJJ][1] is (Brazilian Jiu Jitsu) &#8211; here&#8217;s a short history: at the start of 1900&#8217;s **in Japan ** [Judo][2] split off as a sport from the more traditional Japanese warrior arts or Jiu-Jitsu. At about the same time there was a large wave of Japanese migration to Brazil. A family called &#8216;Gracie&#8217; adapted and changed Jiu-Jitsu until it was fairly different from the Japanese version. Due to the success of the Brazilian form of Jiu-Jitsu in the [UFC][3] competitions in the 1990s, it was realised that **grappling skills (eg Judo, BJJ, [Sambo][4], [Pankration][5]) are just as important** as striking skills (eg boxing, kick boxing, [Muay Thai][6]) (pretty obvious to anyone who&#8217;s seen a headlock in a bar/street fight) &#8211; hence the increase in popularity of BJJ. As to which martial art is &#8220;the best&#8221;, I&#8217;ll leave that to the arm-chair fighters in the forums &#8211; any martial art is good, as long as you train consistently over a long period &#8211; &#8220;3 months of xyz 5 years ago&#8221; doesn&#8217;t really cut it. And of course the best self defence is to not get into a dangerous situation or fight in the first place &#8211; by being aware of your surroundings, not getting drunk and obnoxious, keeping your ego in check when things get tense, and runninggggggg when push comes to shove&#8230;).  
 *

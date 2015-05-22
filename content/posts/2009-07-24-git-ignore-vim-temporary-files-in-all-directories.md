@@ -9,7 +9,11 @@ tags:
   - Git
   - Vim
 ---
-Up until a few weeks ago I was using subversion for all my personal stuff. But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I&#8217;ve moved to git. Yay, no more central repository to go down&#8230;
+Up until a few weeks ago I was using subversion for all my personal stuff.
+
+<!--more-->
+
+But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I&#8217;ve moved to git. Yay, no more central repository to go down&#8230;
 
 To ignore files in git you use .gitignore, eg for a rails project:
 

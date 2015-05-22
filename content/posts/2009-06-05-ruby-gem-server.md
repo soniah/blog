@@ -8,7 +8,11 @@ categories:
 tags:
   - Ruby on Rails
 ---
-I&#8217;m back to Rails development after a few months doing other things. Note to brain: the ruby gem server is now started using **gem server &** rather than **gem_server &**, like it used to be&#8230; </frustration>
+I&#8217;m back to Rails development after a few months doing other things.
+
+<!--more-->
+
+Note to brain: the ruby gem server is now started using **gem server &** rather than **gem_server &**, like it used to be&#8230; </frustration>
 
 [Offline rdoc gem documentation in Ruby][1]
 
