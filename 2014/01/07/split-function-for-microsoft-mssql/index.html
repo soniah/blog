@@ -58,69 +58,60 @@
       <h1 class="post-title">Split() function for Microsoft MSSQL</h1>
         <section id="main">
           <h5 id="date"> 7 Jan 2014 </h5>
-          
-
-<p>Microsoft MSSQL doesn&rsquo;t have a split() function (like in <a href="http://ruby-doc.org/core-1.9.3/String.html#method-i-split">Ruby</a>, <a href="http://perldoc.perl.org/functions/split.html">Perl</a>), so here&rsquo;s one I wrote.</p>
+          <p>Microsoft MSSQL doesn&rsquo;t have a split() function (like in <a href="http://ruby-doc.org/core-1.9.3/String.html#method-i-split">Ruby</a>, <a href="http://perldoc.perl.org/functions/split.html">Perl</a>), so here&rsquo;s one I wrote.</p>
 
 <p>It&rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&rsquo;th split item.</p>
 
-<p>[sourcecode lang=&ldquo;sql&rdquo;]
-CREATE FUNCTION [dbo].<a href="@string varchar(MAX">split</a>,
-    @delimiter CHAR(1),
-    @pos INT
-)
-RETURNS varchar(255)
-AS
-BEGIN
-    DECLARE @start INT, @end INT, @count INT
-    SELECT @start = 1, @end = CHARINDEX(@delimiter, @string), @count = 1
-    WHILE @start &lt; LEN(@string) + 1 BEGIN
-        IF @end = 0
-            SET @end = LEN(@string) + 1</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">CREATE</span> <span style="color: #6ab825; font-weight: bold">FUNCTION</span> <span style="color: #d0d0d0">[dbo].[split]</span>
+<span style="color: #d0d0d0">(</span>
+    <span style="color: #d0d0d0">@string</span> <span style="color: #24909d">varchar</span><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">MAX</span><span style="color: #d0d0d0">),</span>
+    <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">delimiter</span> <span style="color: #24909d">CHAR</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">),</span>
+    <span style="color: #d0d0d0">@pos</span> <span style="color: #24909d">INT</span> 
+<span style="color: #d0d0d0">)</span>
+<span style="color: #6ab825; font-weight: bold">RETURNS</span> <span style="color: #24909d">varchar</span><span style="color: #d0d0d0">(</span><span style="color: #3677a9">255</span><span style="color: #d0d0d0">)</span>
+<span style="color: #6ab825; font-weight: bold">AS</span>
+<span style="color: #6ab825; font-weight: bold">BEGIN</span>
+    <span style="color: #6ab825; font-weight: bold">DECLARE</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">start</span> <span style="color: #24909d">INT</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">end</span> <span style="color: #24909d">INT</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #24909d">INT</span> 
+    <span style="color: #6ab825; font-weight: bold">SELECT</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">start</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">end</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">CHARINDEX(@</span><span style="color: #6ab825; font-weight: bold">delimiter</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@string),</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span> 
+    <span style="color: #d0d0d0">WHILE</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">start</span> <span style="color: #d0d0d0">&lt;</span> <span style="color: #d0d0d0">LEN(@string)</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">BEGIN</span>
+        <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">end</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0</span> 
+            <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">end</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">LEN(@string)</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">1</span> 
 
-<pre><code>    IF @count = @pos
-        RETURN SUBSTRING(@string, @start, @end - @start)
+        <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">@pos</span>
+            <span style="color: #6ab825; font-weight: bold">RETURN</span> <span style="color: #6ab825; font-weight: bold">SUBSTRING</span><span style="color: #d0d0d0">(@string,</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">start</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">end</span> <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">start</span><span style="color: #d0d0d0">)</span>
 
-    SET @start = @end + 1 
-    SET @end = CHARINDEX(@delimiter, @string, @start)
-    SET @count = @count + 1 
+        <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">start</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">end</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">1</span> 
+        <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">end</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">CHARINDEX(@</span><span style="color: #6ab825; font-weight: bold">delimiter</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@string,</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">start</span><span style="color: #d0d0d0">)</span>
+        <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">1</span> 
 
-END 
-RETURN '' -- not found
-</code></pre>
+    <span style="color: #6ab825; font-weight: bold">END</span> 
+    <span style="color: #6ab825; font-weight: bold">RETURN</span> <span style="color: #ed9d13">&#39;&#39;</span> <span style="color: #999999; font-style: italic">-- not found</span>
+<span style="color: #6ab825; font-weight: bold">END</span>
 
-<p>END</p>
+<span style="color: #6ab825; font-weight: bold">select</span> <span style="color: #d0d0d0">dbo.split(</span><span style="color: #ed9d13">&#39;aa,bb,cc&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">)</span>
+<span style="color: #6ab825; font-weight: bold">select</span> <span style="color: #d0d0d0">dbo.split(</span><span style="color: #ed9d13">&#39;aa,bb,cc&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
+<span style="color: #6ab825; font-weight: bold">select</span> <span style="color: #d0d0d0">dbo.split(</span><span style="color: #ed9d13">&#39;aa,bb,cc&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">2</span><span style="color: #d0d0d0">)</span>
+<span style="color: #6ab825; font-weight: bold">select</span> <span style="color: #d0d0d0">dbo.split(</span><span style="color: #ed9d13">&#39;aa,bb,cc&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">3</span><span style="color: #d0d0d0">)</span>
+<span style="color: #6ab825; font-weight: bold">select</span> <span style="color: #d0d0d0">dbo.split(</span><span style="color: #ed9d13">&#39;aa,bb,cc&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;,&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">4</span><span style="color: #d0d0d0">)</span>
 
-<p>select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 0)
-select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 1)
-select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 2)
-select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 3)
-select dbo.split(&lsquo;aa,bb,cc&rsquo;, &lsquo;,&rsquo;, 4)</p>
+<span style="color: #999999; font-style: italic">--------------</span>
 
-<hr />
-
-<pre><code>               # 0: zero length string
-</code></pre>
-
-<h2 id="1-row-s-affected:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
-
-<p>aa                 # 1</p>
-
-<h2 id="1-row-s-affected-1:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
-
-<p>bb                 # 2</p>
-
-<h2 id="1-row-s-affected-2:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
-
-<p>cc                 # 3</p>
-
-<h2 id="1-row-s-affected-3:79520c69ab9d24986b131f06e1e6b406">(1 row(s) affected)</h2>
-
-<pre><code>               # 4: zero length string
-</code></pre>
-
-<p>(1 row(s) affected)
-[/sourcecode]</p>
+                   <span style="color: #d0d0d0">#</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">:</span> <span style="color: #d0d0d0">zero</span> <span style="color: #6ab825; font-weight: bold">length</span> <span style="color: #d0d0d0">string</span>
+<span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">row</span><span style="color: #d0d0d0">(s)</span> <span style="color: #d0d0d0">affected)</span>
+<span style="color: #999999; font-style: italic">--------------</span>
+<span style="color: #d0d0d0">aa</span>                 <span style="color: #d0d0d0">#</span> <span style="color: #3677a9">1</span>
+<span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">row</span><span style="color: #d0d0d0">(s)</span> <span style="color: #d0d0d0">affected)</span>
+<span style="color: #999999; font-style: italic">--------------</span>
+<span style="color: #d0d0d0">bb</span>                 <span style="color: #d0d0d0">#</span> <span style="color: #3677a9">2</span>
+<span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">row</span><span style="color: #d0d0d0">(s)</span> <span style="color: #d0d0d0">affected)</span>
+<span style="color: #999999; font-style: italic">--------------</span>
+<span style="color: #d0d0d0">cc</span>                 <span style="color: #d0d0d0">#</span> <span style="color: #3677a9">3</span>
+<span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">row</span><span style="color: #d0d0d0">(s)</span> <span style="color: #d0d0d0">affected)</span>
+<span style="color: #999999; font-style: italic">--------------</span>
+                   <span style="color: #d0d0d0">#</span> <span style="color: #3677a9">4</span><span style="color: #d0d0d0">:</span> <span style="color: #d0d0d0">zero</span> <span style="color: #6ab825; font-weight: bold">length</span> <span style="color: #d0d0d0">string</span>
+<span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">row</span><span style="color: #d0d0d0">(s)</span> <span style="color: #d0d0d0">affected)</span>
+</pre></div>
+</p>
 
         </section>
 

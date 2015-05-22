@@ -58,54 +58,49 @@
       <h1 class="post-title">Setup Arduino on Debian</h1>
         <section id="main">
           <h5 id="date"> 26 Feb 2014 </h5>
-          
-
-<p>Some notes on setting up Arduino on Debian.</p>
+          <p>Some notes on setting up Arduino on Debian.</p>
 
 <p>Add yourself to the required groups - dialout and tty.</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]
-sudo adduser $USER dialout
-sudo adduser $USER tty
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo adduser <span style="color: #40ffff">$USER</span> dialout
+sudo adduser <span style="color: #40ffff">$USER</span> tty
+</pre></div>
+</p>
 
 <p>Confirm the port <strong>/dev/ttyUSB0</strong> is being used by Arduino - tail messages then plug in the Arduino.</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]
-sudo tail -f /var/log/messages</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo tail -f /var/log/messages
 
-<h1 id="you-should-see-something-like:a87367d6c0b9eb429a7dc766a2d1aee1">you should see something like:</h1>
+<span style="color: #999999; font-style: italic"># you should see something like:</span>
+FTDI USB Serial Device converter now attached to ttyUSB0
 
-<p>FTDI USB Serial Device converter now attached to ttyUSB0</p>
-
-<h1 id="out-of-interest-inspect-permissions-on-port:a87367d6c0b9eb429a7dc766a2d1aee1">out of interest, inspect permissions on port</h1>
-
-<p>ls -al /dev/ttyUSB0
-[/sourcecode]</p>
+<span style="color: #999999; font-style: italic"># out of interest, inspect permissions on port</span>
+ls -al /dev/ttyUSB0
+</pre></div>
+</p>
 
 <p>Logout and login (or run a login shell). Confirm permissions.</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]
-zsh -l
-id</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">zsh -l
+id
 
-<h1 id="you-should-see-something-like-1:a87367d6c0b9eb429a7dc766a2d1aee1">you should see something like:</h1>
-
-<p>groups=1000(sonia),5(tty),20(dialout),&hellip;
-[/sourcecode]</p>
+<span style="color: #999999; font-style: italic"># you should see something like:</span>
+<span style="color: #40ffff">groups</span><span style="color: #d0d0d0">=</span>1000<span style="color: #d0d0d0">(</span>sonia<span style="color: #d0d0d0">)</span>,5<span style="color: #d0d0d0">(</span>tty<span style="color: #d0d0d0">)</span>,20<span style="color: #d0d0d0">(</span>dialout<span style="color: #d0d0d0">)</span>,...
+</pre></div>
+</p>
 
 <p>Install Arduino pre-requisites.</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]
-sudo aptitude install arduino arduino-core
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo aptitude install arduino arduino-core
+</pre></div>
+</p>
 
 <p>If preferred, download the <strong>latest</strong> Arduino environment, run the shell script to start it.</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]
-cd ~/arduino-1.0.5
-./arduino&amp;
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/arduino-1.0.5
+./arduino<span style="color: #d0d0d0">&amp;</span>
+</pre></div>
+</p>
 
 <p>Set the serial port (Tools -&gt; Serial Port) to <strong>/dev/ttyUSB0</strong>. Any problems doing this, edit the serial port setting in  <strong>~/.arduino/preferences.txt</strong></p>
 

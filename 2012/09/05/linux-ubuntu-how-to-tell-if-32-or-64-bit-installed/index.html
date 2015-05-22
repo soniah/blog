@@ -58,24 +58,19 @@
       <h1 class="post-title">Linux, Ubuntu: how to tell if 32 or 64 bit installed</h1>
         <section id="main">
           <h5 id="date"> 5 Sep 2012 </h5>
-          
-
-<p>A question I get regularly from other sysadmins - how to tell if you&rsquo;re running a 32 or 64 bit <strong>install</strong> (vs <strong>CPU</strong>) of Linux?</p>
+          <p>A question I get regularly from other sysadmins - how to tell if you&rsquo;re running a 32 or 64 bit <strong>install</strong> (vs <strong>CPU</strong>) of Linux?</p>
 
 <p>Here&rsquo;s one way - use the file command on /sbin/init:</p>
 
-<p>[sourcecode language=&ldquo;bash&rdquo;]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># on a 32 bit install</span>
+% file /sbin/init
+/sbin/init: ELF 32-bit LSB executable....
 
-<h1 id="on-a-32-bit-install:05d18f58b8191181d79df5c8deb83aae">on a 32 bit install</h1>
-
-<p>% file /sbin/init
-/sbin/init: ELF 32-bit LSB executable&hellip;.</p>
-
-<h1 id="on-a-64-bit-install:05d18f58b8191181d79df5c8deb83aae">on a 64 bit install</h1>
-
-<p>% file /sbin/init
-/sbin/init: ELF 64-bit LSB shared object, x86-64&hellip;
-[/sourcecode]</p>
+<span style="color: #999999; font-style: italic"># on a 64 bit install</span>
+% file /sbin/init
+/sbin/init: ELF 64-bit LSB shared object, x86-64...
+</pre></div>
+</p>
 
 <p><strong>Update</strong></p>
 
@@ -85,9 +80,9 @@
 
 <p>One comment said I was wrong and should use grep against the cpu info:</p>
 
-<p>[sourcecode language=&ldquo;bash&rdquo;]
-$ grep ^flags /proc/cpuinfo | grep lm
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #40ffff">$ </span>grep ^flags /proc/cpuinfo <span style="color: #d0d0d0">|</span> grep lm
+</pre></div>
+</p>
 
 <p>Unfortunately the commenter hadn&rsquo;t read my post correctly - I&rsquo;m interested in whether the <em>operating system</em> is <sup>32</sup>&frasl;<sub>64</sub> bit, not the <em>cpu</em>.</p>
 
@@ -95,19 +90,19 @@ $ grep ^flags /proc/cpuinfo | grep lm
 
 <p>Other comments said I should use uname with particular flags (as if I&rsquo;d never heard of uname before&hellip;.). Unfortunately the manpage for uname is a good example of <a href="http://en.wikipedia.org/wiki/Considered_harmful">manpage considered harmful</a>. Let&rsquo;s have a look at what it says for the various options:</p>
 
-<p>[sourcecode language=&ldquo;bash&rdquo;]
-% man uname
-&hellip;
--m, &ndash;machine
-    print the machine hardware name</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% man uname
+...
+-m, --machine
+    print the machine hardware name
 
-<p>-p, &ndash;processor
-    print the processor type or &ldquo;unknown&rdquo;</p>
+-p, --processor
+    print the processor <span style="color: #24909d">type </span>or <span style="color: #ed9d13">&quot;unknown&quot;</span>
 
-<p>-i, &ndash;hardware-platform
-    print the hardware platform or &ldquo;unknown&rdquo;
-&hellip;
-[/sourcecode]</p>
+-i, --hardware-platform
+    print the hardware platform or <span style="color: #ed9d13">&quot;unknown&quot;</span>
+...
+</pre></div>
+</p>
 
 <p>What is the difference between the &ldquo;machine hardware name&rdquo;, the &ldquo;processor type&rdquo;, and the &ldquo;hardware platform&rdquo;? Googling doesn&rsquo;t turn up a good explanation. I could look at the source code for uname, or run uname on a machine I which already has known hardware and interpret the results, then work out the flags to use on the target machine. Or I could just rote-memorise <strong>uname -m</strong> and not know what it means.</p>
 

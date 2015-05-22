@@ -78,16 +78,16 @@
 
 <p>To quickly setup the <strong>make</strong> command for Go, type this in a Vim window:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-:setlocal makeprg=go\ build\ .
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">:setlocal <span style="color: #40ffff">makeprg</span><span style="color: #d0d0d0">=</span>go<span style="color: #ed9d13">\ </span>build<span style="color: #ed9d13">\ \.</span>
+</pre></div>
+</p>
 
 <p>Or even better configure vim via your ~/.vimrc, for example:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-autocmd BufRead *_test.go setlocal makeprg=go\ test\ .
-autocmd BufRead *.go setlocal makeprg=go\ test\ ./..
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">autocmd BufRead *_test.go setlocal <span style="color: #40ffff">makeprg</span><span style="color: #d0d0d0">=</span>go<span style="color: #ed9d13">\ </span><span style="color: #24909d">test</span><span style="color: #ed9d13">\ \.</span>
+autocmd BufRead *.go setlocal <span style="color: #40ffff">makeprg</span><span style="color: #d0d0d0">=</span>go<span style="color: #ed9d13">\ </span><span style="color: #24909d">test</span><span style="color: #ed9d13">\ \.</span>/..
+</pre></div>
+</p>
 
 <p>Thanks Martin for the comment!</p>
 

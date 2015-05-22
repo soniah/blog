@@ -81,19 +81,19 @@
 
 <p>The commandlinefu.com topic <a href="http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu">List your largest installed packages (on Debian/Ubuntu)</a> has some useful commands:</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]
-% sed -ne &lsquo;/^Package: (.<em>)/{s//\1/;h;};/^Installed-Size: (.</em>)/{s//\1/;G;s/\n/ /;p;}&rsquo;\
-  /var/lib/dpkg/status | sort -rn</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% sed -ne <span style="color: #ed9d13">&#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&#39;\</span>
+  /var/lib/dpkg/status <span style="color: #d0d0d0">|</span> sort -rn
 
-<p>% dpkg-query -Wf &lsquo;${Installed-Size}\t${Package}\n&rsquo; | sort -n</p>
+% dpkg-query -Wf <span style="color: #ed9d13">&#39;${Installed-Size}\t${Package}\n&#39;</span> <span style="color: #d0d0d0">|</span> sort -n
 
-<p>% dpkg &ndash;get-selections | cut -f1 | while read pkg; do dpkg -L $pkg | xargs -I&rsquo;{}&rsquo; bash -c \
-  &lsquo;if [ ! -d &ldquo;{}&rdquo; ]; then echo &ldquo;{}&rdquo;; fi&rsquo; | tr &lsquo;\n&rsquo; &lsquo;\000&rsquo; | du -c &ndash;files0-from - |\
-   tail -1 | sed &ldquo;s/total/$pkg/&rdquo;; done</p>
+% dpkg --get-selections <span style="color: #d0d0d0">|</span> cut -f1 <span style="color: #d0d0d0">|</span> <span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #24909d">read </span>pkg<span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span> dpkg -L <span style="color: #40ffff">$pkg</span> <span style="color: #d0d0d0">|</span> xargs -I<span style="color: #ed9d13">&#39;{}&#39;</span> bash -c <span style="color: #ed9d13">\</span>
+  <span style="color: #ed9d13">&#39;if [ ! -d &quot;{}&quot; ]; then echo &quot;{}&quot;; fi&#39;</span> <span style="color: #d0d0d0">|</span> tr <span style="color: #ed9d13">&#39;\n&#39;</span> <span style="color: #ed9d13">&#39;\000&#39;</span> <span style="color: #d0d0d0">|</span> du -c --files0-from - <span style="color: #d0d0d0">|</span><span style="color: #ed9d13">\</span>
+   tail -1 <span style="color: #d0d0d0">|</span> sed <span style="color: #ed9d13">&quot;s/total/</span><span style="color: #40ffff">$pkg</span><span style="color: #ed9d13">/&quot;</span><span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">done</span>
 
-<p>% awk &lsquo;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&ldquo;%9d %s\n&rdquo;, $2, p)}&rsquo; \
-   /var/lib/dpkg/status | sort -n | tail
-[/sourcecode]</p>
+% awk <span style="color: #ed9d13">&#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&quot;%9d %s\n&quot;, $2, p)}&#39;</span> <span style="color: #ed9d13">\</span>
+   /var/lib/dpkg/status <span style="color: #d0d0d0">|</span> sort -n <span style="color: #d0d0d0">|</span> tail
+</pre></div>
+</p>
 
 <p>The <a href="http://www.auroraos.org/release/eeebuntu">download sources for Eeebuntu</a> seem to be broken, and nowadays I&rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&rsquo;m running <a href="http://wiki.debian.org/LXDE">Debian with LXDE</a> - it seems to work well.</p>
 

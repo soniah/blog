@@ -58,53 +58,50 @@
       <h1 class="post-title">git - delete local tracking branches</h1>
         <section id="main">
           <h5 id="date"> 22 Jan 2013 </h5>
-          
-
-<p>(Just a summary of <a href="http://stackoverflow.com/questions/1072171/how-do-you-remove-an-invalid-remote-branch-reference-from-git">Stack Overflow &ldquo;How do you Remove an Invalid Remote Branch Reference from Git?&rdquo;</a>).</p>
+          <p>(Just a summary of <a href="http://stackoverflow.com/questions/1072171/how-do-you-remove-an-invalid-remote-branch-reference-from-git">Stack Overflow &ldquo;How do you Remove an Invalid Remote Branch Reference from Git?&rdquo;</a>).</p>
 
 <p>To delete a local tracking branch (without deleting the remote branch), do:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-git branch -rd remote/branch
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">git branch -rd remote/branch
+</pre></div>
+</p>
 
 <p>And of course to delete the remote branch:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-git push remote :branch
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">git push remote :branch
+</pre></div>
+</p>
 
 <p>Occasionally a gc will help, but usually shouldn&rsquo;t be used:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-git gc &ndash;prune=now
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">git gc --prune<span style="color: #d0d0d0">=</span>now
+</pre></div>
+</p>
 
 <p>So, when would you want to use this? Let&rsquo;s say the repository you&rsquo;re tracking has a lot of branches (eg the Linux Kernel). You start tracking branch &ldquo;foo&rdquo;, do some work with it, merge some of it in to your branch &ldquo;bar&rdquo;, then push &ldquo;bar&rdquo; up to the remote repository. Or, you&rsquo;ve got a whole lot of dev branches you&rsquo;ve merged pushed to your backup repository and also merged into your master branch.</p>
 
 <p>In either case you&rsquo;ve got a collection of tracking branches you don&rsquo;t want to see anymore, so clean them up:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-% git branch -r
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% git branch -r
   soniah/dev.a
   soniah/dev.b
   soniah/dev.c
   soniah/dev.d
-  soniah/master</p>
+  soniah/master
 
-<p>% git branch -rd soniah/dev.a
-Deleted remote branch soniah/dev.a (was deadbeef).</p>
+% git branch -rd soniah/dev.a
+Deleted remote branch soniah/dev.a <span style="color: #d0d0d0">(</span>was deadbeef<span style="color: #d0d0d0">)</span>.
 
-<p>% git branch -rd soniah/dev.b
-Deleted remote branch soniah/dev.b (was deadbeef).</p>
+% git branch -rd soniah/dev.b
+Deleted remote branch soniah/dev.b <span style="color: #d0d0d0">(</span>was deadbeef<span style="color: #d0d0d0">)</span>.
 
-<h1 id="now-remote-branches-is-cleaner:85b16cf3f51521db2fc03aa395a37f6e">now remote branches is cleaner:</h1>
-
-<p>% git branch -r
+<span style="color: #999999; font-style: italic"># now remote branches is cleaner:</span>
+% git branch -r
   soniah/dev.c
   soniah/dev.d
   soniah/master
-[/sourcecode]</p>
+</pre></div>
+</p>
 
         </section>
 

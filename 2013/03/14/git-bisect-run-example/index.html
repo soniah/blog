@@ -70,35 +70,33 @@
 
 <p>So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was <strong>good</strong>, but I&rsquo;d added more features since good and now results were <strong>bad</strong>. The first step was to write a shell script to be called from <strong>git bisect run</strong>:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-% cat bisect.sh
-#!/bin/bash</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% cat bisect.sh
+<span style="color: #999999; font-style: italic">#!/bin/bash</span>
+<span style="color: #999999; font-style: italic"># copy this to ~ before running with `git bisect run ~/bisect.sh`</span>
 
-<h1 id="copy-this-to-before-running-with-git-bisect-run-bisect-sh:1dca976519824c917954d37e9d104a12">copy this to ~ before running with <code>git bisect run ~/bisect.sh</code></h1>
+cp ~/Makefile .
+make clean
 
-<p>cp ~/Makefile .
-make clean</p>
+<span style="color: #999999; font-style: italic"># make modifies manpage output, so stash after build</span>
+<span style="color: #6ab825; font-weight: bold">if</span> make <span style="color: #d0d0d0">&amp;</span>&gt; /dev/null <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+	git stash
+	git stash clear
+<span style="color: #6ab825; font-weight: bold">else</span>
+	git stash
+	git stash clear
+	<span style="color: #24909d">exit </span>125
+<span style="color: #6ab825; font-weight: bold">fi</span>
 
-<h1 id="make-modifies-manpage-output-so-stash-after-build:1dca976519824c917954d37e9d104a12">make modifies manpage output, so stash after build</h1>
+sudo cat /var/tmp/empty &gt; /var/log/abc/abc-poller.log
+sudo ./abc-poller --tmp --once -d <span style="color: #3677a9">2</span> -c <span style="color: #3677a9">150</span> <span style="color: #d0d0d0">||</span> <span style="color: #24909d">exit </span>125
+<span style="color: #24909d">echo</span> <span style="color: #ed9d13">&quot;=== poller finished&quot;</span>
 
-<p>if make &amp;&gt; /dev/null ; then
-    git stash
-    git stash clear
-else
-    git stash
-    git stash clear
-    exit 125
-fi</p>
-
-<p>sudo cat /var/tmp/empty &gt; /var/log/abc/abc-poller.log
-sudo ./abc-poller &ndash;tmp &ndash;once -d 2 -c 150 || exit 125
-echo &ldquo;=== poller finished&rdquo;</p>
-
-<p>percent=<code>godir=/var/tmp/data/abcmon/poll_queue/new ~/checker | \
-  tail -1 | awk '{print $5}' | awk -F. '{print $1}'</code>
-echo &ldquo;=== percent is $percent&rdquo;
-(( percent &lt; 5 ))
-[/sourcecode]</p>
+<span style="color: #40ffff">percent</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">`</span><span style="color: #40ffff">godir</span><span style="color: #d0d0d0">=</span>/var/tmp/data/abcmon/poll_queue/new ~/checker <span style="color: #d0d0d0">|</span> <span style="color: #ed9d13">\</span>
+  tail -1 <span style="color: #d0d0d0">|</span> awk <span style="color: #ed9d13">&#39;{print $5}&#39;</span> <span style="color: #d0d0d0">|</span> awk -F. <span style="color: #ed9d13">&#39;{print $1}&#39;`</span>
+<span style="color: #24909d">echo</span> <span style="color: #ed9d13">&quot;=== percent is </span><span style="color: #40ffff">$percent</span><span style="color: #ed9d13">&quot;</span>
+<span style="color: #d0d0d0">((</span> percent &lt; <span style="color: #3677a9">5</span> <span style="color: #d0d0d0">))</span>
+</pre></div>
+</p>
 
 <p>Things that make writing the test script easier:</p>
 
@@ -110,101 +108,97 @@ echo &ldquo;=== percent is $percent&rdquo;
 
 <p>Next step was having an abbreviated log of commits to refer to:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-% git log &ndash;oneline
-f00f232 sql.go - better debugging       # bad<br />
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% git log --oneline
+f00f232 sql.go - better debugging       <span style="color: #999999; font-style: italic"># bad                                                                                                                                                        </span>
 9780d44 dummy .gitignore, so out dir preserved
-0de0796 Makefile for nsch1abcs01
-a2f6c96 defaults - 20 workers, udp 15
-b8ee3d9 GOMAXPROCS()
+0de0796 Makefile <span style="color: #6ab825; font-weight: bold">for</span> nsch1abcs01
+a2f6c96 defaults - <span style="color: #3677a9">20</span> workers, udp 15
+b8ee3d9 GOMAXPROCS<span style="color: #d0d0d0">()</span>
 04f21ba start v0.0.2
-dbc6a60 Makefile: Jenkins as default for env vars
+dbc6a60 Makefile: Jenkins as default <span style="color: #6ab825; font-weight: bold">for</span> env vars
 557a5e3 more work on stats
 ef6a453 remove excessive debugging
-ccc4644 remove file buffering - wasn&rsquo;t writing..???
-98bf4b1 stats write failing
-9a9682d move type queue_t struct
-467aeed buffered writes for queue file
-148a8cc stats: + device_run, device_ok
-c61be42 done chan *Stats_t; calculate_value() bool
-0e41461 debugging - print out device_id as %5s
-7cbe167 default workers 5000, correct stop/start commands
-544e8d7 gather statistics
-6990cf2 rename data chan to device_id
-5e8562b rename sql -&gt; sqlconn; global var
-fd52d89 remove dead code
-4d7b9b1 device_for() - err if count != 1
-6ceb305 deb: fail if version main.go isn&rsquo;t same changelog
+ccc4644 remove file buffering - wasn<span style="color: #ed9d13">&#39;t writing..???</span>
+<span style="color: #ed9d13">98bf4b1 stats write failing</span>
+<span style="color: #ed9d13">9a9682d move type queue_t struct</span>
+<span style="color: #ed9d13">467aeed buffered writes for queue file</span>
+<span style="color: #ed9d13">148a8cc stats: + device_run, device_ok</span>
+<span style="color: #ed9d13">c61be42 done chan *Stats_t; calculate_value() bool</span>
+<span style="color: #ed9d13">0e41461 debugging - print out device_id as %5s</span>
+<span style="color: #ed9d13">7cbe167 default workers 5000, correct stop/start commands</span>
+<span style="color: #ed9d13">544e8d7 gather statistics</span>
+<span style="color: #ed9d13">6990cf2 rename data chan to device_id</span>
+<span style="color: #ed9d13">5e8562b rename sql -&gt; sqlconn; global var</span>
+<span style="color: #ed9d13">fd52d89 remove dead code</span>
+<span style="color: #ed9d13">4d7b9b1 device_for() - err if count != 1</span>
+<span style="color: #ed9d13">6ceb305 deb: fail if version main.go isn&#39;</span>t same changelog
 5ce1855 deb: rules producing abc-poller_0.0.1_amd64.deb
 db5bff4 deb: cleaned up Makefile, roffs
-76674c2 JSON -&gt; SQL; version 0.0.1
-4cf198e deb: basic removal of 64 references
-d980f26 deb: rename 64 to vanilla
-b933570 deb: remove 32 bit stuff
-970bd82 current debug level is 2; adjust output
-70f8921 Revert &ldquo;deb build - don&rsquo;t init, cron while testing&rdquo;
-855ce00 default debug is 2; misc tidy
+76674c2 JSON -&gt; SQL<span style="color: #d0d0d0">;</span> version 0.0.1
+4cf198e deb: basic removal of <span style="color: #3677a9">64</span> references
+d980f26 deb: rename <span style="color: #3677a9">64</span> to vanilla
+b933570 deb: remove <span style="color: #3677a9">32</span> bit stuff
+970bd82 current debug level is 2<span style="color: #d0d0d0">;</span> adjust output
+70f8921 Revert <span style="color: #ed9d13">&quot;deb build - don&#39;t init, cron while testing&quot;</span>
+855ce00 default debug is 2<span style="color: #d0d0d0">;</span> misc tidy
 f3d80e1 remove timeoutOpt - no longer used
 48ced38 misc tidys before release
-a3fe13c runonceOpt, revert cycling code  # good
+a3fe13c runonceOpt, revert cycling code  <span style="color: #999999; font-style: italic"># good</span>
 24cd998 use passed in udpOpt
 5ca1830 remove stash/sender.old.go
-06b9566 remove gsnmpgo; use gosnmp
-bffd430 rules: add note about &ldquo;too many open files&rdquo;
-[/sourcecode]</p>
+06b9566 remove gsnmpgo<span style="color: #d0d0d0">;</span> use gosnmp
+bffd430 rules: add note about <span style="color: #ed9d13">&quot;too many open files&quot;</span>
+</pre></div>
+</p>
 
 <p>Mark bad and good, start the run, go and have a coffee :-)</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-% git bisect start f00f232 a3fe13c
-% git bisect run ~/bisect.sh</p>
-
-<h1 id="lots-of-output:1dca976519824c917954d37e9d104a12">lots of output</h1>
-
-<p>[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% git bisect start f00f232 a3fe13c
+% git bisect run ~/bisect.sh
+<span style="color: #999999; font-style: italic"># lots of output</span>
+</pre></div>
+</p>
 
 <p>I get the result that the ominously named <strong>557a5e3 more work on stats</strong> is the first bad commit - I remember it as one of those large &ldquo;kitchen sink&rdquo; commits done at the end of the day. So &ldquo;first rule of fightclub git&rdquo; remembered - <strong>always do small atomic commits</strong>.</p>
 
 <p>I have a useful shell function <strong>gri()</strong> - I used that to interactively rebase and break up 557a5e3 into many small commits:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-gri () {
-  git rebase -i HEAD~${1:-7}
-}
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">gri <span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
+  git rebase -i HEAD~<span style="color: #ed9d13">${</span><span style="color: #40ffff">1</span><span style="color: #6ab825; font-weight: bold">:-</span><span style="color: #40ffff">7</span><span style="color: #ed9d13">}</span>
+<span style="color: #d0d0d0">}</span>
+</pre></div>
+</p>
 
 <p>After rebasing git log looked like this - notice the many small commits named &ldquo;bisect1&rdquo; etc:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-382b3ee defaults - 20 workers, udp 15
-11db314 GOMAXPROCS()
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">382b3ee defaults - <span style="color: #3677a9">20</span> workers, udp 15
+11db314 GOMAXPROCS<span style="color: #d0d0d0">()</span>
 4b547ea start v0.0.2
-c92feef Makefile: Jenkins as default for env vars
+c92feef Makefile: Jenkins as default <span style="color: #6ab825; font-weight: bold">for</span> env vars
 8fcc595 bisect6: calc/noncalc
 ad3a18f bisect5: tweak debug msgs
 311bb8d bisect4: mv stats init
-957c234 bisect3: remove stats from send_gosnmp()
-3c01d62 bisect2: use Add(); Calcs/NonCalcs
-947cb27 bisect1: move Stats_t; Add()
+957c234 bisect3: remove stats from send_gosnmp<span style="color: #d0d0d0">()</span>
+3c01d62 bisect2: use Add<span style="color: #d0d0d0">();</span> Calcs/NonCalcs
+947cb27 bisect1: move Stats_t<span style="color: #d0d0d0">;</span> Add<span style="color: #d0d0d0">()</span>
 ef6a453 remove excessive debugging
-ccc4644 remove file buffering - wasn&rsquo;t writing..???
+ccc4644 remove file buffering - wasn<span style="color: #a61717; background-color: #e3d2d2">&#39;</span>t writing..???
 98bf4b1 stats write failing
-[/sourcecode]</p>
+</pre></div>
+</p>
 
 <p>And here&rsquo;s the real win of writing bisect.sh - you can just keep rebasing and running until you&rsquo;ve narrowed down the bad code to a few lines:</p>
 
-<p>[sourcecode language=&ldquo;shell&rdquo;]
-=== poller finished
-=== percent is 49
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">===</span> poller <span style="color: #40ffff">finished</span>
+<span style="color: #d0d0d0">===</span> percent is 49
 947cb27fd57642dc545ee23090d7ae8fd8b14b3f is the first bad commit
 commit 947cb27fd57642dc545ee23090d7ae8fd8b14b3f
-Author: Sonia Hamilton <a href="mailto:sonia@snowfrog.net">sonia@snowfrog.net</a>
-Date:   Thu Mar 14 10:02:42 2013 +1100</p>
+Author: Sonia Hamilton &lt;sonia@snowfrog.net&gt;
+Date:   Thu Mar <span style="color: #3677a9">14</span> 10:02:42 <span style="color: #3677a9">2013</span> +1100
 
-<pre><code>bisect1: move Stats_t; Add()
-</code></pre>
-
-<p>[/sourcecode]</p>
+    bisect1: move Stats_t<span style="color: #d0d0d0">;</span> Add<span style="color: #d0d0d0">()</span>
+</pre></div>
+</p>
 
 <p>I do another interactive rebase, fix the logic error, and then HEAD is good.</p>
 
@@ -221,7 +215,7 @@ Date:   Thu Mar 14 10:02:42 2013 +1100</p>
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/">Golang - profiling libraries and GoSNMP for SNMP</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/">Ubuntu - HowTo Recover Encrypted Home Directory</a>
     </span>
   
 

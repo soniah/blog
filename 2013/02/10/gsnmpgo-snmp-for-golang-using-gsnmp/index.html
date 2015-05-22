@@ -68,22 +68,22 @@
 
 <p>From the <a href="http://godoc.org/github.com/soniah/gsnmpgo">gsnmpgo documentation</a>, here&rsquo;s an example of usage:</p>
 
-<p>[sourcecode language=&ldquo;cpp&rdquo;]
-// do an snmp get; RFC 4088 is used for uris
-uri := <code>snmp://public@192.168.1.10//(1.3.6.1.2.1.1.1.0)</code>
-params := gsnmpgo.NewDefaultParams(uri)
-results, err := gsnmpgo.Query(params)
-if err != nil {
-    fmt.Println(err)
-    os.Exit(1)
-}</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">// do an snmp get; RFC 4088 is used for uris</span>
+<span style="color: #d0d0d0">uri</span> <span style="color: #d0d0d0">:=</span> <span style="color: #a61717; background-color: #e3d2d2">`</span><span style="color: #d0d0d0">snmp:</span><span style="color: #999999; font-style: italic">//public@192.168.1.10//(1.3.6.1.2.1.1.1.0)`</span>
+<span style="color: #d0d0d0">params</span> <span style="color: #d0d0d0">:=</span> <span style="color: #d0d0d0">gsnmpgo.NewDefaultParams(uri)</span>
+<span style="color: #d0d0d0">results,</span> <span style="color: #d0d0d0">err</span> <span style="color: #d0d0d0">:=</span> <span style="color: #d0d0d0">gsnmpgo.Query(params)</span>
+<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">err</span> <span style="color: #d0d0d0">!=</span> <span style="color: #d0d0d0">nil</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #d0d0d0">fmt.Println(err)</span>
+    <span style="color: #d0d0d0">os.Exit(</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
+<span style="color: #d0d0d0">}</span>
 
-<p>// check your results
-gsnmpgo.Dump(results)</p>
+<span style="color: #999999; font-style: italic">// check your results</span>
+<span style="color: #d0d0d0">gsnmpgo.Dump(results)</span>
 
-<p>// turn on debugging
-gsnmpgo.Debug = true
-[/sourcecode]</p>
+<span style="color: #999999; font-style: italic">// turn on debugging</span>
+<span style="color: #d0d0d0">gsnmpgo.Debug</span> <span style="color: #d0d0d0">=</span> <span style="color: #24909d">true</span>
+</pre></div>
+</p>
 
         </section>
 

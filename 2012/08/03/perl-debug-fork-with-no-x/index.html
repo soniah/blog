@@ -58,71 +58,68 @@
       <h1 class="post-title">Perl - debug fork() with no X</h1>
         <section id="main">
           <h5 id="date"> 3 Aug 2012 </h5>
-          
-
-<p>Here&rsquo;s how to debug a Perl program that&rsquo;s running remotely on a server that doesn&rsquo;t have X. It&rsquo;s pretty simple, these are just notes for me&hellip;</p>
+          <p>Here&rsquo;s how to debug a Perl program that&rsquo;s running remotely on a server that doesn&rsquo;t have X. It&rsquo;s pretty simple, these are just notes for me&hellip;</p>
 
 <p>You&rsquo;ve ssh&rsquo;d into a remote server (headless), to debug a perl script that forks:</p>
 
-<p>[sourcecode language=&ldquo;perl&rdquo;]
-$SIG{CHLD} = sub {
-  while (1) {
-    my $nino = waitpid(-1, WNOHANG);
-    last if $nino &lt;= 0;
-    if ($?) {
-      &amp;log(&ldquo;ERROR: Child process $nino exited with $?&ldquo;);
-    }
-    $children&ndash;;
-  }</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #40ffff">$SIG</span><span style="color: #d0d0d0">{CHLD}</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">sub </span><span style="color: #d0d0d0">{</span>
+  <span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">{</span>
+    <span style="color: #6ab825; font-weight: bold">my</span> <span style="color: #40ffff">$nino</span> <span style="color: #d0d0d0">=</span> <span style="color: #24909d">waitpid</span><span style="color: #d0d0d0">(-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">WNOHANG);</span>
+    <span style="color: #6ab825; font-weight: bold">last</span> <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #40ffff">$nino</span> <span style="color: #d0d0d0">&lt;=</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">;</span>
+    <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">(</span><span style="color: #40ffff">$?</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">{</span>
+      <span style="color: #d0d0d0">&amp;</span><span style="color: #24909d">log</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;ERROR: Child process $nino exited with $?&quot;</span><span style="color: #d0d0d0">);</span>
+    <span style="color: #d0d0d0">}</span>
+    <span style="color: #40ffff">$children</span><span style="color: #d0d0d0">--;</span>
+  <span style="color: #d0d0d0">}</span>
 
-<h1 id="let-s-fork:bea5398f6e3bad7de942149e82e23512">let&rsquo;s fork!</h1>
-
-<p>my $pid = fork();
-if (not defined $pid) {
-  &amp;log(&ldquo;ERROR: fork(): resources not available&rdquo;);
-}
-elsif ($pid &gt; 0) {
-  # parent
-  $children++;
-  next;
-}
-else {
-  # child
-  $SIG{CHLD} = $SIG{TERM} = $SIG{INT} = &lsquo;DEFAULT&rsquo;;
-  do_stuff($arg1, $arg2);
-  exit;
-}
-[/sourcecode]</p>
+<span style="color: #999999; font-style: italic"># let&#39;s fork!</span>
+<span style="color: #6ab825; font-weight: bold">my</span> <span style="color: #40ffff">$pid</span> <span style="color: #d0d0d0">=</span> <span style="color: #24909d">fork</span><span style="color: #d0d0d0">();</span>
+<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">not</span> <span style="color: #24909d">defined</span> <span style="color: #40ffff">$pid</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">{</span>
+  <span style="color: #d0d0d0">&amp;</span><span style="color: #24909d">log</span><span style="color: #d0d0d0">(</span><span style="color: #ed9d13">&quot;ERROR: fork(): resources not available&quot;</span><span style="color: #d0d0d0">);</span>
+<span style="color: #d0d0d0">}</span>
+<span style="color: #6ab825; font-weight: bold">elsif</span> <span style="color: #d0d0d0">(</span><span style="color: #40ffff">$pid</span> <span style="color: #d0d0d0">&gt;</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">{</span>
+  <span style="color: #999999; font-style: italic"># parent</span>
+  <span style="color: #40ffff">$children</span><span style="color: #d0d0d0">++;</span>
+  <span style="color: #6ab825; font-weight: bold">next</span><span style="color: #d0d0d0">;</span>
+<span style="color: #d0d0d0">}</span>
+<span style="color: #6ab825; font-weight: bold">else</span> <span style="color: #d0d0d0">{</span>
+  <span style="color: #999999; font-style: italic"># child</span>
+  <span style="color: #40ffff">$SIG</span><span style="color: #d0d0d0">{CHLD}</span> <span style="color: #d0d0d0">=</span> <span style="color: #40ffff">$SIG</span><span style="color: #d0d0d0">{TERM}</span> <span style="color: #d0d0d0">=</span> <span style="color: #40ffff">$SIG</span><span style="color: #d0d0d0">{INT}</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&#39;DEFAULT&#39;</span><span style="color: #d0d0d0">;</span>
+  <span style="color: #d0d0d0">do_stuff(</span><span style="color: #40ffff">$arg1</span><span style="color: #d0d0d0">,</span> <span style="color: #40ffff">$arg2</span><span style="color: #d0d0d0">);</span>
+  <span style="color: #24909d">exit</span><span style="color: #d0d0d0">;</span>
+<span style="color: #d0d0d0">}</span>
+</pre></div>
+</p>
 
 <p>But when you start debugging, you get output like this (which tells you what to do):</p>
 
-<p>[sourcecode language=&ldquo;perl&rdquo;]
-######### Forked, but do not know how to create a new TTY. #########
-  Since two debuggers fight for the same TTY, input is severely entangled.</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">######### Forked, but do not know how to create a new TTY. #########</span>
+  <span style="color: #d0d0d0">Since</span> <span style="color: #d0d0d0">two</span> <span style="color: #d0d0d0">debuggers</span> <span style="color: #d0d0d0">fight</span> <span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">same</span> <span style="color: #d0d0d0">TTY,</span> <span style="color: #d0d0d0">input</span> <span style="color: #d0d0d0">is</span> <span style="color: #d0d0d0">severely</span> <span style="color: #d0d0d0">entangled.</span>
 
-<p>I know how to switch the output to a different window in xterms, OS/2
-  consoles, and Mac OS X Terminal.app only.  For a manual switch, put the name
-  of the created TTY in $DB::fork_TTY, or define a function
-  DB::get_fork_TTY() returning this.</p>
+  <span style="color: #d0d0d0">I</span> <span style="color: #d0d0d0">know</span> <span style="color: #d0d0d0">how</span> <span style="color: #d0d0d0">to</span> <span style="color: #d0d0d0">switch</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">output</span> <span style="color: #d0d0d0">to</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">different</span> <span style="color: #d0d0d0">window</span> <span style="color: #d0d0d0">in</span> <span style="color: #d0d0d0">xterms,</span> <span style="color: #d0d0d0">OS/</span><span style="color: #3677a9">2</span>
+  <span style="color: #d0d0d0">consoles,</span> <span style="color: #6ab825; font-weight: bold">and</span> <span style="color: #d0d0d0">Mac</span> <span style="color: #d0d0d0">OS</span> <span style="color: #d0d0d0">X</span> <span style="color: #d0d0d0">Terminal.app</span> <span style="color: #d0d0d0">only.</span>  <span style="color: #d0d0d0">For</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">manual</span> <span style="color: #d0d0d0">switch,</span> <span style="color: #d0d0d0">put</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">name</span>
+  <span style="color: #d0d0d0">of</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">created</span> <span style="color: #d0d0d0">TTY</span> <span style="color: #d0d0d0">in</span> <span style="color: #40ffff">$</span><span style="color: #447fcf; text-decoration: underline">DB::</span><span style="color: #40ffff">fork_TTY</span><span style="color: #d0d0d0">,</span> <span style="color: #6ab825; font-weight: bold">or</span> <span style="color: #d0d0d0">define</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">function</span>
+  <span style="color: #447fcf; text-decoration: underline">DB::</span><span style="color: #d0d0d0">get_fork_TTY()</span> <span style="color: #d0d0d0">returning</span> <span style="color: #d0d0d0">this.</span>
 
-<p>On UNIX-like systems one can get the name of a TTY for the given window
-  by typing tty, and disconnect the shell from TTY by sleep 1000000.
-[/sourcecode]</p>
+  <span style="color: #d0d0d0">On</span> <span style="color: #d0d0d0">UNIX-like</span> <span style="color: #d0d0d0">systems</span> <span style="color: #d0d0d0">one</span> <span style="color: #d0d0d0">can</span> <span style="color: #d0d0d0">get</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">name</span> <span style="color: #d0d0d0">of</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">TTY</span> <span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">given</span> <span style="color: #d0d0d0">window</span>
+  <span style="color: #d0d0d0">by</span> <span style="color: #d0d0d0">typing</span> <span style="color: #d0d0d0">tty,</span> <span style="color: #6ab825; font-weight: bold">and</span> <span style="color: #d0d0d0">disconnect</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">shell</span> <span style="color: #d0d0d0">from</span> <span style="color: #d0d0d0">TTY</span> <span style="color: #d0d0d0">by</span> <span style="color: #24909d">sleep</span> <span style="color: #3677a9">1000000</span><span style="color: #d0d0d0">.</span>
+</pre></div>
+</p>
 
 <p>The easiest solution is to install a minimal X on the target server, then reconnect via ssh, check your DISPLAY variable, then start up the debugger in xterm.</p>
 
-<p>[sourcecode language=&ldquo;bash&rdquo;]
-server% sudo aptitude install xinit xterm</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">server% sudo aptitude install xinit xterm
 
-<p>client% ssh -X server                # reconnect, to setup DISPLAY</p>
+client% ssh -X server                <span style="color: #999999; font-style: italic"># reconnect, to setup DISPLAY</span>
 
-<p>server% env | grep -i disp
-DISPLAY=localhost:11.0               # DISPLAY is good</p>
+server% env <span style="color: #d0d0d0">|</span> grep -i disp
+<span style="color: #40ffff">DISPLAY</span><span style="color: #d0d0d0">=</span>localhost:11.0               <span style="color: #999999; font-style: italic"># DISPLAY is good</span>
 
-<p>server% xterm &amp;                      # an xterm should display locally</p>
+server% xterm <span style="color: #d0d0d0">&amp;</span>                      <span style="color: #999999; font-style: italic"># an xterm should display locally</span>
 
-<p>server% perl -d foo.pl               # start debugging
-[/sourcecode]</p>
+server% perl -d foo.pl               <span style="color: #999999; font-style: italic"># start debugging</span>
+</pre></div>
+</p>
 
 <p>After forking, one or more additional xterms will display for each child, allowing you to debug.</p>
 

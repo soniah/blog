@@ -65,21 +65,24 @@
 
 <p><strong>My solution:</strong></p>
 
-<p><a href="defn pascal [n]
-  (if (= n 1">sourcecode language=&ldquo;clojure&rdquo;</a>
-    <a href="map #(apply + %">1</a>
-      (partition 2 1
-        (concat <a href="pascal (- n 1">0</a>) [0])))))</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">pascal</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">n</span><span style="color: #d0d0d0">]</span>
+  <span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">if </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">= </span><span style="color: #40ffff">n</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
+    <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">]</span>
+    <span style="color: #d0d0d0">(</span><span style="color: #24909d">map </span><span style="color: #d0d0d0">#(</span><span style="color: #24909d">apply + </span><span style="color: #40ffff">%</span><span style="color: #d0d0d0">)</span>
+      <span style="color: #d0d0d0">(</span><span style="color: #447fcf">partition</span> <span style="color: #3677a9">2</span> <span style="color: #3677a9">1</span>
+        <span style="color: #d0d0d0">(</span><span style="color: #24909d">concat </span><span style="color: #d0d0d0">[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">pascal</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">- </span><span style="color: #40ffff">n</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">))</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">0</span><span style="color: #d0d0d0">])))))</span>
 
-<p>(pascal 5)
-user=&gt; (1 4 6 4 1)
-[/sourcecode]</p>
+<span style="color: #d0d0d0">(</span><span style="color: #447fcf">pascal</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">user=&gt;</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">4</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">4</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
+</pre></div>
+</p>
 
 <p>A negative - my solution doesn&rsquo;t use tail recursion; on my laptop it works up to about n = 760:</p>
 
-<p><a href="pascal 10e4">sourcecode language=&ldquo;clojure&rdquo;</a>
-user=&gt; java.lang.StackOverflowError (NO_SOURCE_FILE:0)
-[/sourcecode]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #447fcf">pascal</span> <span style="color: #3677a9">10</span><span style="color: #40ffff">e4</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">user=&gt;</span> <span style="color: #40ffff">java.lang.StackOverflowError</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">NO_SOURCE_FILE</span><span style="color: #ed9d13">:0</span><span style="color: #d0d0d0">)</span> 
+</pre></div>
+</p>
 
         </section>
 
@@ -94,7 +97,7 @@ user=&gt; java.lang.StackOverflowError (NO_SOURCE_FILE:0)
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/">Git - ignore whitespace</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2012/06/13/change-your-passwords/">Change your passwords</a>
     </span>
   
 

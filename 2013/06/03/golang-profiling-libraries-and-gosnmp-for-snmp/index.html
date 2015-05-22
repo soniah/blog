@@ -58,38 +58,30 @@
       <h1 class="post-title">Golang - profiling libraries and GoSNMP for SNMP</h1>
         <section id="main">
           <h5 id="date"> 3 Jun 2013 </h5>
-          
-
-<p>There is already a great article on <a href="blog.golang.org/2011/06/profiling-go-programs.html">Profiling Go Programs</a>. However that article only discusses how to profile a standalone binary - what about a library?</p>
+          <p>There is already a great article on <a href="blog.golang.org/2011/06/profiling-go-programs.html">Profiling Go Programs</a>. However that article only discusses how to profile a standalone binary - what about a library?</p>
 
 <p>For example, I&rsquo;ve been working on the <a href="http://github.com/soniah/gosnmp">GoSNMP SNMP library</a>, here&rsquo;s how I profiled it (it wasn&rsquo;t obvious):</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># produce cpu profiling information from the tests - this part was well documented</span>
+% go <span style="color: #24909d">test</span> -cpuprofile cpu.out
 
-<h1 id="produce-cpu-profiling-information-from-the-tests-this-part-was-well-documented:aa3324cd444d3308732887be1aa8bd8d">produce cpu profiling information from the tests - this part was well documented</h1>
+<span style="color: #999999; font-style: italic"># compile the test binary to pkg.test but do not run it (from `go help test`)</span>
+<span style="color: #999999; font-style: italic"># this part wasn&#39;t obvious</span>
+% go <span style="color: #24909d">test</span> -c
 
-<p>% go test -cpuprofile cpu.out</p>
-
-<h1 id="compile-the-test-binary-to-pkg-test-but-do-not-run-it-from-go-help-test:aa3324cd444d3308732887be1aa8bd8d">compile the test binary to pkg.test but do not run it (from <code>go help test</code>)</h1>
-
-<h1 id="this-part-wasn-t-obvious:aa3324cd444d3308732887be1aa8bd8d">this part wasn&rsquo;t obvious</h1>
-
-<p>% go test -c</p>
-
-<h1 id="now-run-pprof-using-go-teste-c-output:aa3324cd444d3308732887be1aa8bd8d">now run pprof using <code>go teste -c</code> output</h1>
-
-<h1 id="using-gosnmp-test-this-part-wasn-t-obvious:aa3324cd444d3308732887be1aa8bd8d">using gosnmp.test - this part wasn&rsquo;t obvious</h1>
-
-<p>% go tool pprof gosnmp.test cpu.out
-[/sourcecode]</p>
+<span style="color: #999999; font-style: italic"># now run pprof using `go teste -c` output</span>
+<span style="color: #999999; font-style: italic"># using gosnmp.test - this part wasn&#39;t obvious</span>
+% go tool pprof gosnmp.test cpu.out
+</pre></div>
+</p>
 
 <p>Doing a memory profile was similar:</p>
 
-<p>[sourcecode lang=&ldquo;shell&rdquo;]
-% go test -memprofile mem.out
-% go test -c
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% go <span style="color: #24909d">test</span> -memprofile mem.out
+% go <span style="color: #24909d">test</span> -c
 % go tool pprof gosnmp.test mem.out
-[/sourcecode]</p>
+</pre></div>
+</p>
 
         </section>
 
@@ -104,13 +96,13 @@
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/">Ubuntu - HowTo Recover Encrypted Home Directory</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/">Golang - building with Makefile and Jenkins</a>
     </span>
   
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/"> &nbsp; git bisect run - example</a> &raquo;
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/"> &nbsp; Ubuntu - HowTo Recover Encrypted Home Directory</a> &raquo;
     </span>
   
   <br />
