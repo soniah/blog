@@ -60,23 +60,24 @@
           <h5 id="date"> 11 Mar 2013 </h5>
           <p>Today I released <a href="http://github.com/soniah/gosnmp">soniah/gosnmp</a> - an update of <a href="http://github.com/alouca">alouca/gosnmp</a>.</p>
 
-<p>Many, many thanks to Andreas Louca for writing <strong>alouca/gosnmp</strong>. The major difference between his version and <strong>soniah/gosnmp</strong> is that the latter has tests written. (However the code could do with refactoring). The tests were used to find and correct errors in the following SNMP BER Types:</p>
+<p>Many, many thanks to Andreas Louca for writing <strong>alouca/gosnmp</strong>. The
+major difference between his version and <strong>soniah/gosnmp</strong> is that the
+latter has tests written. (However the code could do with refactoring).
+The tests were used to find and correct errors in the following SNMP BER
+Types:</p>
 
 <ul>
-<li><p>Counter32</p></li>
-
-<li><p>Gauge32</p></li>
-
-<li><p>Counter64</p></li>
-
-<li><p>OctetString</p></li>
-
-<li><p>ObjectIdentifier</p></li>
-
-<li><p>IpAddress</p></li>
+<li>Counter32</li>
+<li>Gauge32</li>
+<li>Counter64</li>
+<li>OctetString</li>
+<li>ObjectIdentifier</li>
+<li>IpAddress</li>
 </ul>
 
-<p>Also, this version contains functions for treating the returned snmp values as <code>*big.Int</code> (convenient, as SNMP can return int32, uint32, and uint64 values)</p>
+<p>Also, this version contains functions for treating the returned snmp
+values as <code>*big.Int</code> (convenient, as SNMP can return int32, uint32, and
+uint64 values)</p>
 
         </section>
 

@@ -73,40 +73,54 @@
 <ul>
 <li>boot password ie the password used when your laptop is first booted and the partitions are decrypted</li>
 <li>user password ie your unix account password</li>
-<li>mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn&rsquo;t write down when prompted to do so&hellip; See &ldquo;Recovering Your Mount Passphrase&rdquo; <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase">https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase</a></li>
+<li>mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn&rsquo;t write down when prompted to do so&hellip; See <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase">Recovering Your Mount Passphrase</a></li>
 </ul>
 
 <h2 id="partitions-and-disk-layout:33ade79a5747fd03584f84a543a518de">Partitions and Disk Layout</h2>
 
-<p>If you selected the default Ubuntu encryption setup, the partitions will be laid out like this:</p>
+<p>If you selected the default Ubuntu encryption setup, the partitions will
+be laid out like this:</p>
 
-<pre><code>/dev/sda1 * 2048 499711 248832 83 Linux
-/dev/sda2 501758 976771071 488134657 5 Extended
-/dev/sda5 501760 976771071 488134656 83 Linux
-</code></pre>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">/dev/sda1 * <span style="color: #3677a9">2048</span> <span style="color: #3677a9">499711</span> <span style="color: #3677a9">248832</span> <span style="color: #3677a9">83</span> Linux
+/dev/sda2 <span style="color: #3677a9">501758</span> <span style="color: #3677a9">976771071</span> <span style="color: #3677a9">488134657</span> <span style="color: #3677a9">5</span> Extended
+/dev/sda5 <span style="color: #3677a9">501760</span> <span style="color: #3677a9">976771071</span> <span style="color: #3677a9">488134656</span> <span style="color: #3677a9">83</span> Linux
+</pre></div>
+</p>
 
 <ul>
-<li><p>/dev/sda1 contains /boot ie kernel and grub</p></li>
-
-<li><p>/dev/sda5 is an encrypted partition (crypto_LUKS) that contains LVM. The Logical Volumes will be for /root, /home and swap. /home will be encrypted with a second level of encryption if you chose &ldquo;encrypt home directory&rdquo; during installation.</p></li>
+<li>/dev/sda1 contains /boot ie kernel and grub</li>
+<li>/dev/sda5 is an encrypted partition (<code>crypto_LUKS</code>) that contains
+LVM. The Logical Volumes will be for /root, /home and swap. /home
+will be encrypted with a second level of encryption if you chose
+&ldquo;encrypt home directory&rdquo; during installation.</li>
 </ul>
 
 <h2 id="mounting-encrypted-lvm-partition:33ade79a5747fd03584f84a543a518de">Mounting Encrypted LVM Partition</h2>
 
 <ul>
-<li><p>confirm /dev/sda5 is the correct partition [1]:</p>
-
-<p>cryptsetup -v luksDump /dev/sda5</p></li>
-
-<li><p>mount the encrypted partition containing the LVM volumes:</p>
-
-<p>cryptsetup -v luksOpen /dev/sda5 sda5_crypt
- vgdisplay
- (you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)
- lvdisplay | less
- mkdir /mnt/home
- mount -t ext4 /dev/vg/home /mnt/home</p></li>
+<li>confirm /dev/sda5 is the correct partition [1]:</li>
 </ul>
+
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">cryptsetup -v luksDump /dev/sda5
+</pre></div>
+</p>
+
+<ul>
+<li>mount the encrypted partition containing the LVM volumes:</li>
+</ul>
+
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">cryptsetup -v luksOpen /dev/sda5 sda5_crypt
+vgdisplay
+</pre></div>
+</p>
+
+<p>(you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)</p>
+
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">lvdisplay <span style="color: #d0d0d0">|</span> less
+mkdir /mnt/home
+mount -t ext4 /dev/vg/home /mnt/home
+</pre></div>
+</p>
 
 <h2 id="mounting-encrypted-home-luks-vs-ecryptfs:33ade79a5747fd03584f84a543a518de">Mounting Encrypted Home, LUKS vs eCryptfs</h2>
 
@@ -129,23 +143,26 @@
 <h2 id="automated-approach-2:33ade79a5747fd03584f84a543a518de">Automated Approach [2]</h2>
 
 <ul>
-<li><p>&ldquo;remount&rdquo; /mnt/home on home:
-umount /mnt/home
-mount -t ext4 /dev/vg/home /home</p>
-
-<h1 id="add-a-user-with-the-same-name-as-the-broken-system:33ade79a5747fd03584f84a543a518de">add a user with the same name as the broken system</h1>
-
-<p>adduser &ndash;no-create-home sonia
+<li>&ldquo;remount&rdquo; /mnt/home on home:
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">umount /mnt/home
+mount -t ext4 /dev/vg/home /home
+<span style="color: #999999; font-style: italic"># add a user with the same name as the broken system</span>
+adduser --no-create-home sonia
 su sonia
-ecryptfs-mount-private</p></li>
+ecryptfs-mount-private
+</pre></div>
+</li>
 </ul>
 
 <h2 id="manual-approach-3:33ade79a5747fd03584f84a543a518de">Manual Approach [3]</h2>
 
-<p>The Ubuntu documentation on EncryptedPrivateDirectory has lots of information [4]. These commands are copied from there, in case the page moves or disappears.</p>
+<p>The Ubuntu documentation on EncryptedPrivateDirectory has lots of
+information [4]. These commands are copied from there, in case the page
+moves or disappears.</p>
 
-<p>(((
-sudo ecryptfs-add-passphrase &ndash;fnek</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo ecryptfs-add-passphrase --fnek
+</pre></div>
+</p>
 
 <p>Passphrase: (Enter the mount passphrase you recorded when you setup the mount&ndash;this passphrase is different from your login passphrase.)</p>
 
@@ -155,9 +172,10 @@ sudo ecryptfs-add-passphrase &ndash;fnek</p>
 
 <p>Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)</p>
 
-<p>mkdir /mnt/Private</p>
-
-<p>mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private</p>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">mkdir /mnt/Private
+mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private
+</pre></div>
+</p>
 
 <p>Selection: 3 (use a passphrase key type)</p>
 
@@ -171,15 +189,17 @@ sudo ecryptfs-add-passphrase &ndash;fnek</p>
 
 <p>Enable filename encryption: y (This and the following options only apply if you are using filename encryption)</p>
 
-<p>Filename Encryption Key (FNEK) Signature: (the value you wrote down from the second line above)
-)))</p>
+<p>Filename Encryption Key (FNEK) Signature: (the value you wrote down from
+the second line above)</p>
 
 <h2 id="see-also:33ade79a5747fd03584f84a543a518de">See Also</h2>
 
-<p>[1] <a href="http://blog.miketoscano.com/?p=72">http://blog.miketoscano.com/?p=72</a>
-[2] <a href="http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/">http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/</a>
-[3] <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory">https://help.ubuntu.com/community/EncryptedPrivateDirectory</a>
-[4] <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually">https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually</a></p>
+<ul>
+<li>[1] <a href="http://blog.miketoscano.com/?p=72">http://blog.miketoscano.com/?p=72</a></li>
+<li>[2] <a href="http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/">http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/</a></li>
+<li>[3] <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory">https://help.ubuntu.com/community/EncryptedPrivateDirectory</a></li>
+<li>[4] <a href="https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually">https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually</a></li>
+</ul>
 
         </section>
 

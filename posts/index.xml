@@ -127,6 +127,10 @@ sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 loca
       
       <guid>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</guid>
       <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/43462586&#34;
+width=&#34;476&#34; height=&#34;400&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34;
+marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
@@ -203,7 +207,7 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 
 &lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia                                          
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
 &lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
@@ -299,15 +303,11 @@ hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34
       <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html&#34;&gt;How Do I Use Salt State&lt;/a&gt;s,  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/states_pt1.html&#34;&gt;States tutorial&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html&#34;&gt;Pillar Walkthrough&lt;/a&gt; - the tutorials&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/highstate.html&#34;&gt;Highstate data structure definitions&lt;/a&gt; and  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/yaml/index.html&#34;&gt;Understanding YAML&lt;/a&gt; - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/requisites.html&#34;&gt;Requisites and Other Global State Arguments&lt;/a&gt; - do something before something else, restart a service if a file changes, etc&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html&#34;&gt;salt.states.file&lt;/a&gt; - most config management is going to involve working with files&amp;hellip;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.jinja.html&#34;&gt;salt.renderers.jinja&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/best_practices.html&#34;&gt;Salt Best Practices&lt;/a&gt; - working with Jinja&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html&#34;&gt;How Do I Use Salt State&lt;/a&gt;s,  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/states_pt1.html&#34;&gt;States tutorial&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html&#34;&gt;Pillar Walkthrough&lt;/a&gt; - the tutorials&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/highstate.html&#34;&gt;Highstate data structure definitions&lt;/a&gt; and  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/yaml/index.html&#34;&gt;Understanding YAML&lt;/a&gt; - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/requisites.html&#34;&gt;Requisites and Other Global State Arguments&lt;/a&gt; - do something before something else, restart a service if a file changes, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html&#34;&gt;salt.states.file&lt;/a&gt; - most config management is going to involve working with files&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.jinja.html&#34;&gt;salt.renderers.jinja&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/best_practices.html&#34;&gt;Salt Best Practices&lt;/a&gt; - working with Jinja&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -437,14 +437,16 @@ id
       <pubDate>Mon, 06 Jan 2014 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt; function. Here&amp;rsquo;s a version I _quickly _implemented, called &amp;ldquo;my_substring_index&amp;rdquo;.&lt;/p&gt;
+      <description>&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately
+MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt;
+function. Here&amp;rsquo;s a version I quickly implemented, called
+&lt;strong&gt;my_substring_index&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Limitations:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;only accepts strings up to 255 chars long&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;only accepts strings up to 255 chars long&lt;/li&gt;
+&lt;li&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
@@ -520,9 +522,15 @@ id
       <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</guid>
-      <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption password&amp;rdquo;, but the options are mutually exclusive ie when I tried to type in a password, the interface locks the password fields.&lt;/p&gt;
+      <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an
+interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption
+password&amp;rdquo;, but the options are mutually exclusive ie when I tried to
+type in a password, the interface locks the password fields.&lt;/p&gt;
 
-&lt;p&gt;Maybe this was some sort of bad magic due to me coming over RDP to the new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why force a tablet interface down my throat? Sort of reminds me of Ubuntu Unity). Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
+&lt;p&gt;Maybe this was some sort of bad magic due to me coming over RDP to the
+new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why force
+a tablet interface down my throat? Sort of reminds me of Ubuntu Unity).
+Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
 
 &lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;

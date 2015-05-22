@@ -58,14 +58,16 @@
       <h1 class="post-title">MySQL SUBSTRING_INDEX function on Microsoft MSSQL</h1>
         <section id="main">
           <h5 id="date"> 6 Jan 2014 </h5>
-          <p>I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn&rsquo;t have a <a href="http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index">SUBSTRING_INDEX</a> function. Here&rsquo;s a version I _quickly _implemented, called &ldquo;my_substring_index&rdquo;.</p>
+          <p>I&rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately
+MSSQL doesn&rsquo;t have a <a href="http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index">SUBSTRING_INDEX</a>
+function. Here&rsquo;s a version I quickly implemented, called
+<strong>my_substring_index</strong>.</p>
 
 <p>Limitations:</p>
 
 <ul>
-<li><p>only accepts strings up to 255 chars long</p></li>
-
-<li><p>only works with varchars - we speak ASCII here&hellip;</p></li>
+<li>only accepts strings up to 255 chars long</li>
+<li>only works with varchars - we speak ASCII here&hellip;</li>
 </ul>
 
 <p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">ANSI_NULLS</span> <span style="color: #6ab825; font-weight: bold">ON</span><span style="color: #d0d0d0">;</span>

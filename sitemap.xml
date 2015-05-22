@@ -173,12 +173,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -293,12 +293,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -678,12 +678,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -1093,17 +1093,17 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
-    <lastmod>2008-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
+    <lastmod>2008-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1263,12 +1263,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -1278,12 +1278,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/02/useful-tool-for-converting-audio-files/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/02/useful-tool-for-converting-audio-files/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -1328,12 +1328,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -1353,12 +1353,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
+    <loc>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
+    <loc>http://blog2.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -1513,12 +1513,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   

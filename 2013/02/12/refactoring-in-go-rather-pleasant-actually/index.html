@@ -60,16 +60,14 @@
           <h5 id="date"> 12 Feb 2013 </h5>
           <p>I&rsquo;ve just finished refactoring a large Go program, and the process was rather&hellip;. pleasant.</p>
 
-<p>Static typing catches all those obscure errors I wouldn&rsquo;t think about in a scripting language (Python, Perl, Ruby, etc). My process is:</p>
+<p>Static typing catches all those obscure errors I wouldn&rsquo;t think about in
+a scripting language (Python, Perl, Ruby, etc). My process is:</p>
 
 <ul>
-<li><p>type <strong>:make</strong> in vim (I have a dummy Makefile in my Go project just for vim)</p></li>
-
-<li><p>vim jumps cursor to error (<a href="http://vimdoc.sourceforge.net/htmldoc/quickfix.html">vim quickfix list</a>)</p></li>
-
-<li><p>&ldquo;oh, I shouldn&rsquo;t do that&rdquo; - fix (type type type)</p></li>
-
-<li><p>start again</p></li>
+<li>type <strong>:make</strong> in vim (I have a dummy Makefile in my Go project just for vim)</li>
+<li>vim jumps cursor to error (<a href="http://vimdoc.sourceforge.net/htmldoc/quickfix.html">vim quickfix list</a>)</li>
+<li>&ldquo;oh, I shouldn&rsquo;t do that&rdquo; - fix (type type type)</li>
+<li>start again</li>
 </ul>
 
 <p>Finish rather sooner than expected, run tests, smile in knowledge program is working <em>properly</em>.</p>
@@ -78,16 +76,14 @@
 
 <p>To quickly setup the <strong>make</strong> command for Go, type this in a Vim window:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">:setlocal <span style="color: #40ffff">makeprg</span><span style="color: #d0d0d0">=</span>go<span style="color: #ed9d13">\ </span>build<span style="color: #ed9d13">\ \.</span>
-</pre></div>
-</p>
+<pre><code>:setlocal makeprg=go\ build\ \.
+</code></pre>
 
 <p>Or even better configure vim via your ~/.vimrc, for example:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">autocmd BufRead *_test.go setlocal <span style="color: #40ffff">makeprg</span><span style="color: #d0d0d0">=</span>go<span style="color: #ed9d13">\ </span><span style="color: #24909d">test</span><span style="color: #ed9d13">\ \.</span>
-autocmd BufRead *.go setlocal <span style="color: #40ffff">makeprg</span><span style="color: #d0d0d0">=</span>go<span style="color: #ed9d13">\ </span><span style="color: #24909d">test</span><span style="color: #ed9d13">\ \.</span>/..
-</pre></div>
-</p>
+<pre><code>autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
+autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
+</code></pre>
 
 <p>Thanks Martin for the comment!</p>
 
