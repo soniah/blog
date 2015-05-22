@@ -113,9 +113,9 @@ strong {
 /* Lists */
 ul, ol, dl {
   margin-top: 0;
-  padding-left: 0;
+  padding-left: 1rem;
   margin-bottom: 1rem;
-  list-style-type: none;
+  /* list-style-type: none; */
 }
 
 
