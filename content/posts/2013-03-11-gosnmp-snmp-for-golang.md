@@ -12,6 +12,8 @@ tags:
 
 Today I released [soniah/gosnmp](http://github.com/soniah/gosnmp) - an update of [alouca/gosnmp](http://github.com/alouca).
 
+<!--more-->
+
 Many, many thanks to Andreas Louca for writing **alouca/gosnmp**. The major difference between his version and **soniah/gosnmp** is that the latter has tests written. (However the code could do with refactoring). The tests were used to find and correct errors in the following SNMP BER Types:
 
 

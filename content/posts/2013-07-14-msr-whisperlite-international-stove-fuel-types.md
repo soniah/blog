@@ -11,7 +11,11 @@ tags:
 - Cycling
 ---
 
-I've just got a new MSR Whisperlite International Stove, as I couldn't find a replacement fuel bottle for my old Coleman petrol stove. The adapter for my old Coleman is the same diameter as the current fuel bottles, but a different thread pitch :-(
+I've just got a new MSR Whisperlite International Stove, as I couldn't find a replacement fuel bottle for my old Coleman petrol stove. 
+
+<!--more-->
+
+The adapter for my old Coleman is the same diameter as the current fuel bottles, but a different thread pitch :-(
 
 Here's a list of the different fuels the MSR accepts, as well as the names of these fuels in different countries. There is also good information at the bottom of [Zen Stoves' Petrol Burning Stoves page](http://zenstoves.net/Petrol.htm#Fuels).
 

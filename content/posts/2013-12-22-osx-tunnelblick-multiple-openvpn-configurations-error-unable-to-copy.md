@@ -14,6 +14,7 @@ tags:
 
 When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you'll get an error in the console log like:
 
+<!--more-->
 
 _Unable to copy file foo to /var/private/bar..._
 

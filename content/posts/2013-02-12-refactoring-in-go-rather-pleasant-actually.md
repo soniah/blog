@@ -16,6 +16,8 @@ tags:
 
 I've just finished refactoring a large Go program, and the process was rather.... pleasant.
 
+<!--more-->
+
 Static typing catches all those obscure errors I wouldn't think about in a scripting language (Python, Perl, Ruby, etc). My process is:
 
 

@@ -12,7 +12,11 @@ tags:
 - Ubuntu
 ---
 
-I recently came across a useful tool while reading [The Debian Administrator's Handbook](http://debian-handbook.info/) - **debfoster**. I use it on space constrained machines, like my venerable [Asus eeePC 701](https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series) (which is great for travelling). As Raphaël Hertzog and Roland Mas [explain](http://debian-handbook.info/browse/stable/sect.apt-frontends.html):
+I recently came across a useful tool while reading [The Debian Administrator's Handbook](http://debian-handbook.info/) - **debfoster**.
+
+<!--more-->
+
+I use it on space constrained machines, like my venerable [Asus eeePC 701](https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series) (which is great for travelling). As Raphaël Hertzog and Roland Mas [explain](http://debian-handbook.info/browse/stable/sect.apt-frontends.html):
 
 
 _debfoster has a more elaborate approach, very similar to aptitude's: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation. If new packages appear on the system and if debfoster doesn't know them as required packages, they will be shown on the screen together with a list of their dependencies. The program then offers a choice: remove the package (possibly together with those that depend on it), mark it as explicitly required, or ignore it temporarily._

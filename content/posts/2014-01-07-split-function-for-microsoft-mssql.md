@@ -10,7 +10,11 @@ tags:
 - MSSQL
 ---
 
-Microsoft MSSQL doesn't have a split() function (like in [Ruby](http://ruby-doc.org/core-1.9.3/String.html#method-i-split), [Perl](http://perldoc.perl.org/functions/split.html)), so here's one I wrote. It's different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n'th split item.
+Microsoft MSSQL doesn't have a split() function (like in [Ruby](http://ruby-doc.org/core-1.9.3/String.html#method-i-split), [Perl](http://perldoc.perl.org/functions/split.html)), so here's one I wrote.
+
+<!--more-->
+
+It's different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n'th split item.
 
 [sourcecode lang="sql"]
 CREATE FUNCTION [dbo].[split]

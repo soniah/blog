@@ -10,7 +10,11 @@ tags:
 - Ubuntu
 ---
 
-There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below). These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.
+There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below).
+
+<!--more-->
+
+These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.
 
 Start by booting from an Ubuntu Live CD.
 

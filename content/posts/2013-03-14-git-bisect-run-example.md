@@ -13,7 +13,7 @@ tags:
 
 [Git bisect](http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html) is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here's an example of automating the process using **git bisect run**.
 
-
+<!--more-->
 
 ## tl;dr
 

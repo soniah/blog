@@ -12,7 +12,7 @@ tags:
 
 A list of 'Essential Reading' for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.
 
-
+<!--more-->
 
 	
   * [How Do I Use Salt State](http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html)s,  [States tutorial](http://docs.saltstack.com/en/latest/topics/tutorials/states_pt1.html) and [Pillar Walkthrough](http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html) - the tutorials

@@ -13,7 +13,11 @@ tags:
 - Spanish
 ---
 
-I _get by_ in a few foreign languages (Spanish mostly, some Portuguese and French). People's first response to this is "oh that sounds so hard" quickly followed by "I'm going to learn languageX next year". As if learning is a language is something you can quickly tick off your bucket list, to be followed by "go sky diving", "see the Pyramids" and "walk Kokoda".
+I _get by_ in a few foreign languages (Spanish mostly, some Portuguese and French). People's first response to this is "oh that sounds so hard" quickly followed by "I'm going to learn languageX next year".
+
+<!--more-->
+
+As if learning is a language is something you can quickly tick off your bucket list, to be followed by "go sky diving", "see the Pyramids" and "walk Kokoda".
 
 There's always more to learn in a foreign language, and sitting down and doing grammar and exercises is _**boring**_. Here are a few tricks I've learned over the years:
 

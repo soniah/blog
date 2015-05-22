@@ -14,6 +14,8 @@ tags:
 
 I'm using [FreeNAS](http://www.freenas.org/) for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, [as always the shell is faster](http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line).
 
+<!--more-->
+
 Some notes for me on listing ZFS snapshots, and creating and destroying clones.
 
 [sourcecode lang="shell"]

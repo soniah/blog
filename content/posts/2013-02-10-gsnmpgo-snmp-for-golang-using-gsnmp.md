@@ -13,11 +13,9 @@ tags:
 - SNMP
 ---
 
-## Update 8/Mar/13
+Update 8/Mar/13. Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use http://github.com/soniah/gosnmp instead.
 
-
-Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use http://github.com/soniah/gosnmp instead.
-
+<!--more-->
 
 ## Previously...
 

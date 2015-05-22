@@ -12,6 +12,8 @@ tags:
 
 (Just a summary of [Stack Overflow "How do you Remove an Invalid Remote Branch Reference from Git?"](http://stackoverflow.com/questions/1072171/how-do-you-remove-an-invalid-remote-branch-reference-from-git)).
 
+<!--more-->
+
 To delete a local tracking branch (without deleting the remote branch), do:
 
 [sourcecode language="shell"]

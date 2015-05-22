@@ -12,7 +12,11 @@ tags:
 - Make
 ---
 
-I've recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins. I was unfamiliar with Jenkins, and there didn't seem to be any documentation around on how to build Go executables.
+I've recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins.
+
+<!--more-->
+
+I was unfamiliar with Jenkins, and there didn't seem to be any documentation around on how to build Go executables.
 
 
 ### Project Structure

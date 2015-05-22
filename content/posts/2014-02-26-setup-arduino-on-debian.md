@@ -13,6 +13,8 @@ tags:
 
 Some notes on setting up Arduino on Debian.
 
+<!--more-->
+
 Add yourself to the required groups - dialout and tty.
 
 [sourcecode lang="shell"]

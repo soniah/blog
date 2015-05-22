@@ -12,6 +12,8 @@ tags:
 
 I've been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.
 
+<!--more-->
+
 First install the [hg-git](http://hg-git.github.io/) tools; for example on Ubuntu:
 
 [sourcecode lang="shell"]

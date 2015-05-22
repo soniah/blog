@@ -12,6 +12,8 @@ tags:
 
 There is already a great article on [Profiling Go Programs](blog.golang.org/2011/06/profiling-go-programs.html). However that article only discusses how to profile a standalone binary - what about a library?
 
+<!--more-->
+
 For example, I've been working on the [GoSNMP SNMP library](http://github.com/soniah/gosnmp), here's how I profiled it (it wasn't obvious):
 
 [sourcecode lang="shell"]

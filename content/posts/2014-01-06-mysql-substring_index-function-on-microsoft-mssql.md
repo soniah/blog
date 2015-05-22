@@ -13,6 +13,8 @@ tags:
 
 I'm porting some code from MySQL to Microsoft MSSQL, and unfortunately MSSQL doesn't have a [SUBSTRING_INDEX](http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index) function. Here's a version I _quickly _implemented, called "my_substring_index".
 
+<!--more-->
+
 Limitations:
 
 

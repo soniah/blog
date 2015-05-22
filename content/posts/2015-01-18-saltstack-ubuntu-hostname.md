@@ -13,6 +13,8 @@ tags:
 
 [SaltStack](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html) currently doesn't set the hostname correctly on Debian/Ubuntu. For example, this won't work:
 
+<!--more-->
+
 [sourcecode lang="text"]
 system:
     network.system:
