@@ -10,6 +10,8 @@ tags:
 ---
 A [good post on debian-administration][1] on multi-user screen. The key points:
 
+<!--more-->
+
   * when in screen, type <tt>^A:multiuser on[RET]</tt>
   * the other user(s) connect to the server, then join using the command <tt>screen -x</tt>
 

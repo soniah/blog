@@ -11,6 +11,8 @@ tags:
 ---
 The instructions given by NoMachine for setting up on Linux are a bit thin; here&#8217;s my own version:<!--more-->
 
+<!--more-->
+
   * check not installed already, remove if desired
 
 dpkg &#8211;list | grep NX  

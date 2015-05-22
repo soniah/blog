@@ -9,9 +9,10 @@ tags:
   - Audio
   - Ubuntu
 ---
-**Solution:**
 
 [Gutsy Intel HD Audio Controller][1], &#8220;Method G&#8221;
+
+<!--more-->
 
 In a nutshell:
 

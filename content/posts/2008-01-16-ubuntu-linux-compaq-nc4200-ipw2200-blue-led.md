@@ -12,6 +12,8 @@ tags:
 ---
 A couple of notes on working with the ipw2200 wireless card on a Compaq nc4200 running Ubuntu (7.04 and 7.10), including how to get the blue LED to work:<!--more-->
 
+<!--more-->
+
   * check the module has been loaded: **lsmod | grep ipw** &#8211; should display ipw2200
   * check for any errors on boot, especially &#8216;radio off': **dmesg | grep ipw**
   * also check if radio is off via **iwconfig eth1**

@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 ---
+MySQL notes
+<!--more-->
 ### Cheat Sheets
 
   * [Neal Parikh][1]

@@ -11,6 +11,8 @@ tags:
   - retag_progress
 ---
 In this exerise, you are required to move two of the system databases (**master** and **model**) to **c:data**. Here are some web pages that may help:
+<!--more-->
+
 
   * [KB224071][1]
   * [sql-server-performance.com SQL Startup Parameters][2]

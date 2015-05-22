@@ -8,6 +8,9 @@ categories:
 tags:
   - Firefox
 ---
+HowTo Disable Session Restore in Firefox 2.0
+<!--more-->
+
 Firefox 2.0 has a new feature called Session Restore; I find it annoying on my laptop as I&#8217;m always shutting down without closing Firefox correctly. Here&#8217;s how to disable it:
 
   1. Go to about:config

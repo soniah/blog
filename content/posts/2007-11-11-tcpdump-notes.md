@@ -12,13 +12,15 @@ tags:
 ---
 Examples:
 
+<!--more-->
+
 <pre class="brush: bash; title: ; notranslate" title="">tcpdump host 172.26.24.58 and (port 20 or port 21)
 tcpdump host 172.26.24.58 and not arp
 tcpdump -s0 -w foo -i eth0 # whole packet not 96 bytes, write to file foo, listen on eth0)
 tcpdump -s 0 -i eth6 -w snmpget.pcap host 1.2.3.4 and port 161 # capture snmp traffic
 </pre>
 
-<!--more-->Three Way Handshake (from 
+Three Way Handshake (from 
 
 [Wikipedia][1]):
 

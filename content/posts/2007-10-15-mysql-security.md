@@ -10,6 +10,8 @@ tags:
 ---
 Some guidelines for understanding MySQL security:
 
+<!--more-->
+
   * security tables have a dual primary key of *username + host* &#8211; ie if there are two entries, **fred@localhost** and **fred@%**, *they are different users to mysql  
     *
   * more specific entries are considered before less specific entries ie **localhost** before **%.fubar.com** before **%**, **fred** before **[blank]**. A % host entry is considered last, as is a blank username

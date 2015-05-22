@@ -9,6 +9,8 @@ tags:
   - Exercises
   - SQL
 ---
+sql 2000 administration exercise
+<!--more-->
 ### Scenario
 
 A complete install of a Microsoft Sql 2000 Server instance, and the creation of some additional objects.

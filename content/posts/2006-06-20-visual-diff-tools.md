@@ -9,6 +9,7 @@ tags:
   - Vim
 ---
 I usually use *vimdiff* to find the differences between two files; here are some gui tools that do the same thing:
+<!--more-->
 
   * meld &#8211; though version 1.0.0 doesn&#8217;t allow line-by-line replacements (I&#8217;m told later versions do)
   * mgdiff &#8211; doesn&#8217;t allow line-by-line replacements

@@ -10,7 +10,9 @@ tags:
   - Networking
   - Ubuntu
 ---
-A quick cheatsheet for setting up a forwarding, caching-only DNS Server on Ubuntu.<!--more-->
+A quick cheatsheet for setting up a forwarding, caching-only DNS Server on Ubuntu.
+
+<!--more-->
 
 <u>Edit /etc/bind/named.conf.options:</u>
 

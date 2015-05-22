@@ -10,6 +10,8 @@ tags:
 ---
 Copied verbatim from [Jeff Waugh&#8217;s post][1] on [SLUG][2]:
 
+<!--more-->
+
 <tt>> But anything worthy of going into ${ubuntu_release}-updates is surely</tt>  
 <tt>> worth putting straight into ${ubuntu_release} ? Or is it just me?</tt>  
 <tt></tt>  

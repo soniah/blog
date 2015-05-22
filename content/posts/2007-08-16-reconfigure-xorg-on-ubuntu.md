@@ -8,6 +8,10 @@ categories:
 tags:
   - Ubuntu
 ---
+Reconfigure X.org on Ubuntu
+
+<!--more-->
+
 `dpkg-reconfigure --priority=high xserver-xorg`
 
 Thanks to Geoff W, SLUG list.

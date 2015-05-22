@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 ---
+Backup multiple MySQL databases into separate files
+<!--more-->
 **Update:** want to know how to do this on Windows? See my post [Backup multiple MySQL databases into separate files – Windows][1].
 
 <pre>#!/bin/bash

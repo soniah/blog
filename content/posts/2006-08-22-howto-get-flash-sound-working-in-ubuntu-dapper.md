@@ -11,6 +11,8 @@ tags:
   - Ubuntu
 ---
 When I upgraded to Ubuntu Dapper, Flash sound stopped working in Firefox &#8211; oh no, no more YouTube!
+<!--more-->
+
 
 An easy fix:
 

@@ -11,4 +11,6 @@ tags:
   * run **gconf-editor**
   * change **/apps/nautilus/desktop/home\_icon\_visible** to **true**
 
+<!--more-->
+
 The visibility of other icons (such as the network, computer) can also be changed here.

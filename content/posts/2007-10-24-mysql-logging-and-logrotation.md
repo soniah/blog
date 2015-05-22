@@ -12,6 +12,8 @@ dev.msql.com [logging documentation][1]
 
 On Debian based systems, MySQL logging (and logrotation) is setup automatically so I&#8217;ve never had to worry about it. Unfortunately, I&#8217;m not using Debian at the moment&#8230;
 
+<!--more-->
+
 The options used to start MySQL can be gleaned from **ps ax | grep mysql** ; in particular this will show the **&#8211;datadir** setting, which is where logs are created by default.
 
 **Troubleshooting Logs**

@@ -11,6 +11,8 @@ tags:
 ---
 To convert an Ubuntu installed with English to Spanish, install the following packages:
 
+<!--more-->
+
   * language-pack-es
   * language-pack-es-base
   * language-pack-gnome-es

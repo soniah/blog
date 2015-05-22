@@ -10,6 +10,8 @@ tags:
 ---
 I blogged a while ago about [using FuzzyOcr for detecting image spam][1]. My FuzzyOcr isn&#8217;t working and at the moment I haven&#8217;t got time to fix it, so I wrote a procmail recipe to solve the problem instead:
 
+<!--more-->
+
 <pre># test if body contains gif, html, etc, and get procmail score
 :0 Bc
 * 3.5^0 Content-Type: image/gif

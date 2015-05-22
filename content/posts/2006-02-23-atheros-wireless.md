@@ -10,6 +10,8 @@ tags:
   - Ubuntu
   - Wireless
 ---
+atheros wireless
+<!--more-->
   * install linux-restricted-modules-* 
   * edit /etc/network/interfaces 
 

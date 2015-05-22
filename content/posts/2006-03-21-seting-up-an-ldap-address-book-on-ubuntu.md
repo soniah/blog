@@ -12,6 +12,7 @@ tags:
 ---
 Quick and dirty on installing OpenLDAP as an addressbook server.
 
+<!--more-->
   * install
 
 <pre>sudo aptitude install slapd ldap-utils</pre>

@@ -10,6 +10,8 @@ tags:
 ---
 [This guide][1] was started by Chua Wen Kiat (Kuala Lumpur, Malaysia). It is now being maintained by the Linux Center of University of Latvia, and everyone else who is willing to contribute.
 
+<!--more-->
+
 **See also:** 
 
 [EasyUbuntu][2] &#8211; an easy to use script that gives the Ubuntu user the most commonly requested apps, codecs, and tweaks that are not found in the base distribution &#8211; all of this with a few clicks of your mouse. 

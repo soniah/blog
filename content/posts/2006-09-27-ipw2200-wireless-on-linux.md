@@ -8,6 +8,8 @@ categories:
 tags:
   - Wireless
 ---
+ipw2200 wireless on linux
+<!--more-->
 Useful link <http://www.de-brauwer.be/wiki/wikka.php?wakka=LinuxTecraS2>
 
 Most importantly &#8211; how to deal with wireless hardware switch

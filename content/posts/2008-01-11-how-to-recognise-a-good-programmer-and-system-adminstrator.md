@@ -10,6 +10,8 @@ tags:
 ---
 KDan (via [Slashdot][1]) has a great post on [how to recognise a good programmer][2]; I think many of his points also apply to system administrators.
 
+<!--more-->
+
 Some of the key points:
 
   * passionate about technology, will talk your ear off on a technical subject if encouraged; technology isn&#8217;t a day job but a lifestyle

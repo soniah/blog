@@ -10,6 +10,8 @@ tags:
 ---
 There are three fields (separated by colons) that can be manipulated using the bang history command:
 
+<!--more-->
+
 `EventDesignator:WordDesignator:Modifier`
 
 <!--more-->

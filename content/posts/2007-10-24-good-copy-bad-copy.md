@@ -10,6 +10,8 @@ tags:
 ---
 *a documentary about copyright and culture by Andreas Johsen, Ralf Christensen and Henrik Moltke*
 
+<!--more-->
+
 [http://goodcopybadcopy.blip.tv][1]
 
  [1]: http://goodcopybadcopy.blip.tv/

@@ -10,6 +10,8 @@ tags:
 ---
 Good post on [Debian Administration][1] about [Creating global keyboard shortcuts in GNOME][2].
 
+<!--more-->
+
 In a nutshell, in gconf-editor navigate to *apps, metacity, keybinding_commands* and edit stuff.
 
  [1]: http://www.debian-administration.org/

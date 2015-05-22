@@ -8,6 +8,8 @@ categories:
 tags:
   - MySQL
 ---
+Reset lost MySQL root password
+<!--more-->
   * stop mysql, and start in mode that ignores permissions
 
 <pre>/etc/init.d/mysqld stop

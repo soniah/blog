@@ -9,6 +9,8 @@ tags:
   - Ubuntu
   - VMWare
 ---
+installing VMWare on Ubuntu
+<!--more-->
 See also How To Forge [How To Install VMware Server On Ubuntu][1]
 
 Install prereqs:

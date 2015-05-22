@@ -9,7 +9,7 @@ tags:
   - Gnu Screen
 ---
 [Screen][1] is a really useful console tool that allows you to copy and paste text, scroll back through screen output, reattach if you lose your connection, and so on. One useful trick is sharing a screen between 2 or more users, so you can see what each other is doing whilsts typing &#8211; useful for learning or solving a difficult problem (see also [LinuxQuestions.Org][2]).
-
+<!--more-->
 To do this, all users need to be logged in as the same account &#8211; the easiest way to do this is as root:
 
   * **sudo screen** (first user)

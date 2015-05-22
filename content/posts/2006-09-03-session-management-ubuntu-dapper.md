@@ -8,6 +8,9 @@ categories:
 tags:
   - Ubuntu
 ---
+session management Ubuntu Dapper
+<!--more-->
+
   * use *gnome-session-save*
   * *devilspie*
 

@@ -9,6 +9,7 @@ tags:
   - Gnu Screen
 ---
   * change to the window you want to move
+  <!--more-->
   * type (for example) **^x:number 1**
   * **^x** is the host key (usually ^a on most machines)
   * **:number** (typed literally) is the command

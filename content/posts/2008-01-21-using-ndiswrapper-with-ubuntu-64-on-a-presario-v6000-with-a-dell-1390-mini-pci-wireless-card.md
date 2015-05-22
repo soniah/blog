@@ -9,7 +9,11 @@ tags:
   - Ubuntu
   - Wireless
 ---
-My first *task* in Guatemala was to get Jesus&#8217;s wireless going. He&#8217;s running Ubuntu Feisty 64 on a Compaq Presario V6000 (AMD Turion 64 x2). The wireless card is a *Dell 1390 mini-PCI* (wireless chipset bcm43xx).
+My first *task* in Guatemala was to get Jesus&#8217;s wireless going.
+
+<!--more-->
+
+He&#8217;s running Ubuntu Feisty 64 on a Compaq Presario V6000 (AMD Turion 64 x2). The wireless card is a *Dell 1390 mini-PCI* (wireless chipset bcm43xx).
 
 Inspired by [these instructions][1] for Ultima Linux, I did the following as root:<!--more-->
 

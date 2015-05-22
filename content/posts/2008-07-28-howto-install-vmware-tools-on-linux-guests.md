@@ -8,6 +8,8 @@ categories:
 ---
 VMWare Tools need to be installed on guests to prevent approx 50% time loss. Here are the steps:
 
+<!--more-->
+
   * on each guest: `yum install gcc gcc-c++`
   * edit guest config files on server to sync time (I usually do all at once): `` cd /var/lib/vmware/Virtual Machines/ ; vi `find . -type f -name "machine.vmx"` `` Add the line `tools.syncTime = "TRUE"`
   * scp VMTools plus kernel files that correspond to kernel (uname -a): `scp VMwareTools-1.0.5-80187.i386.rpm kernel-devel-2.6.18-92.1.6.el5.i686.rpm kernel-headers-2.6.18-92.1.6.el5.i386.rpm guest:.`

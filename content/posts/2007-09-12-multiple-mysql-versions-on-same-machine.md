@@ -10,6 +10,8 @@ tags:
 ---
 Examples of working with multiple mysql versions on the same machine:
 
+<!--more-->
+
 `/usr/local/mysql/bin/mysqldump -uroot --sock=/tmp/mysql5.sock directaccesscms > directaccesscms_tpldb1.sql`  
 `mysqldump -uroot --sock=/tmp/mysql5.sock directaccesscms > directaccesscms_tpldb1.sql`  
 `/root/mysql-5.0.37-solaris8-sparc/bin/mysql --sock=/tmp/mysql5.sock`  

@@ -10,6 +10,8 @@ tags:
 ---
 Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process&#8230;
 
+<!--more-->
+
 ### Links
 
   * [&#8220;The Boot Process&#8221;, Developer Connection][1]

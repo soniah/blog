@@ -9,6 +9,8 @@ tags:
   - MSAccess
   - MySQL
 ---
+Connect to MySQL across network using MS Access
+<!--more-->
   * comment out line in /etc/mysql/my.cnf that reads: 
     <pre>bind-address = 127.0.0.1</pre>
     

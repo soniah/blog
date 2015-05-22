@@ -9,6 +9,10 @@ tags:
   - Cheatsheets
   - Subversion
 ---
+Subversion Cheatsheet
+
+<!--more-->
+
   * See also: [svn command line tutorial for beginners 1 ][1]
   * Notes from: [Version Control with Subversion][2]
   * Tsavo&#8217;s great [svn cheatsheet][3]

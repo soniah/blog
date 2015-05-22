@@ -9,6 +9,8 @@ tags:
   - MSSQL
 ---
 Here&#8217;s a couple of links on how to move the MS SQL Server system databases:
+<!--more-->
+
 
   * [KB224071][1]
   * [sql-server-performance.com SQL Startup Parameters][2]

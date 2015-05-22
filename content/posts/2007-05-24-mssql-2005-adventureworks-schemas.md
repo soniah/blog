@@ -11,6 +11,8 @@ tags:
 ---
 Here are schema diagrams for the Microsoft SQL 2005 AdventureWorks sample database:
 
+<!--more-->
+
   * [Human Resources Schema][1]
   * [Person Schema][2]
   * [Production Schema][3]

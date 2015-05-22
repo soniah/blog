@@ -8,6 +8,9 @@ categories:
 tags:
   - Cheatsheets
 ---
+misc cheat sheets
+<!--more-->
+
   * [BlueWin Cheat Sheets][1]
   * [Tech Target Cheat Sheets][2]
   * [econsultant Top 119 Cheat Sheets][3]

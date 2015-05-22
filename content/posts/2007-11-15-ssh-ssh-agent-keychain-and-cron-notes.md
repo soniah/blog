@@ -13,6 +13,8 @@ tags:
 
 To setup **ssh** and **keychain** to allow ssh related jobs to run from cron:
 
+<!--more-->
+
   * generate keys *with a password* (**ssh-keygen -t dsa**) and install keychain. Do only on *secure machines* ie ones that only you (or a small number of trusted admins) can logon to as root &#8211; typically your laptop/desktop and a secure admin server
   * add the following lines to your **~/.profile**:
 

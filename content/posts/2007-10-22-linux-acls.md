@@ -8,6 +8,8 @@ categories:
 ---
 Linux **ACL**s (Access Control Lists) can be a bit difficult at first &#8211; here&#8217;s my understanding of how they work:
 
+<!--more-->
+
 **Commands:**
 
   * There&#8217;s only 2 commands needed &#8211; ***getfacl*** and ***setfacl*** &#8211; display and change acls

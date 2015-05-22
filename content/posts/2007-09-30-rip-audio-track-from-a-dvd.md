@@ -10,6 +10,8 @@ tags:
 ---
 **Rip audio from a dvd **
 
+<!--more-->
+
 `mencoder dvd://2 -oac mp3lame -lameopts br=96:cbr:vol=6 -ovc frameno -o track2.mp3`
 
 `for i in ../vobs/* ; do j=${i##*/} mencoder "${i}" -oac pcm -ovc frameno -o "${j}" done`

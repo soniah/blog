@@ -8,6 +8,9 @@ categories:
 tags:
   - Redhat
 ---
+Using kickstart to automate Redhat/Fedora setups
+<!--more-->
+
 (tested on Fedora Core 3)
 
   * copy all of DVD files to a directory, and export via NFS (more features for setups than ftp or http). For example:

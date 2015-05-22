@@ -6,6 +6,9 @@ url: /2006/08/13/howto-fix-broken-grub/
 categories:
   - Linux
 ---
+howto fix broken grub
+<!--more-->
+
   * boot using Knoppix, Insert, etc
   * mount required partition:
 

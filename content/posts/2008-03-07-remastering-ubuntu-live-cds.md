@@ -10,6 +10,8 @@ tags:
 ---
 A good thread recently on SLUG about how to remaster an Ubuntu Live CD:
 
+<!--more-->
+
   * how to strip out the installer: Expand the squashfs from the cd to a live ext3 file system, chroot into  
     it and remove ubiquity. Then recompress, generate a new iso with the new squashfs, and you&#8217;re  
     good to go (Ken Caldwell)

@@ -6,6 +6,9 @@ url: /2007/09/20/atime-ctime-mtime/
 categories:
   - Linux
 ---
+atime, ctime, mtime
+<!--more-->
+
 `<br />
 You should almost never use atime or ctime in find; mtime<br />
 is almost always what you're after.  In particular, atime<br />

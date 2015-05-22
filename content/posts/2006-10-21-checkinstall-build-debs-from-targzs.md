@@ -8,6 +8,9 @@ categories:
 tags:
   - Ubuntu
 ---
+checkinstall – build .deb’s from .tar.gz’s
+<!--more-->
+
 <pre>sudo aptitude install checkinstall
 wget foo.tgz
 tar zxvf foo.tgz

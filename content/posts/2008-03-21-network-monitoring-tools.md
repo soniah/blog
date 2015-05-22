@@ -8,7 +8,9 @@ categories:
 tags:
   - Networking
 ---
-(27-July-2007) A list of useful tools for network monitoring on Linux:
+A list of useful tools for network monitoring on Linux:
+
+<!--more-->
 
   * **iptraf** &#8211; console tool with updating display
   * **tcpdump**

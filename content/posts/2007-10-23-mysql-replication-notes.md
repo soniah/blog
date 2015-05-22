@@ -10,6 +10,8 @@ tags:
 ---
 dev.mysql.com [replication documentation][1]. Replication on MySQL is similar to *Log Shipping* on MS SQL; the default is *statement level* replication, but newer versions also offer *row-based* replication.
 
+<!--more-->
+
 See also:
 
 https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql

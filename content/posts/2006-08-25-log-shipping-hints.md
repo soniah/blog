@@ -8,6 +8,9 @@ categories:
 tags:
   - MSSQL
 ---
+log shipping hints
+<!--more-->
+
 `select * from msdb..log_shipping_databases<br />
 select * from msdb..log_shipping_plans<br />
 select * from msdb..log_shipping_primaries<br />

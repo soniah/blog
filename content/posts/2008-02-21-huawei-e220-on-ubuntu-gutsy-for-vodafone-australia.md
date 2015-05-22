@@ -8,7 +8,10 @@ categories:
 tags:
   - Wireless
 ---
-  * if running a recent kernel, just plugin and check **option** module is being loaded
+If running a recent kernel, just plugin and check **option** module is being loaded
+
+<!--more-->
+
 <pre>$ lsmod | grep option</pre>
 
   * also look in /var/log/messages

@@ -10,6 +10,8 @@ tags:
 ---
 (todo &#8211; test/verify/summarize these links:)
 
+<!--more-->
+
   * http://www.cpan.org/modules/by-module/LWP/
   * general articles from http://sial.org/howto/perl/life-with-cpan/
   * http://linuxgazette.net/139/okopnik.html

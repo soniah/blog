@@ -10,7 +10,7 @@ tags:
   - Wireless
 ---
 A while ago I bought a [account][1] from Telstra for roaming wireless on my laptop &#8211; it uses a Maxon MiniMax [MM-5500U][2] to connect on the CDMA phone network. I got this rather than other wireless products as I was going to be doing some work in Perth, and this was the only network that had coverage.
-
+<!--more-->
 Getting it going on Ubuntu Breezy was really easy, thanks to Quozl&#8217;s Maxon [page][3]:<!--more-->
 
   * I plugged it in, and the **cdc_acm** module was automatically loaded

@@ -9,7 +9,11 @@ tags:
   - Networking
   - Ssh
 ---
-[ssh][1] is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like [dsniff][2]). Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&#8217;ve only ever used Windows).
+[ssh][1] is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like [dsniff][2]).
+
+<!--more-->
+
+Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&#8217;ve only ever used Windows).
 
 So here&#8217;s how you do it using putty&#8230;<!--more-->
 

@@ -8,6 +8,8 @@ categories:
 tags:
   - Ubuntu
 ---
+ubuntulite.org
+<!--more-->
 *The idea of [Ubuntu Lite][1] is to bring the power of Ubuntu across to the users of Legacy systems&#8230;*
 
  [1]: http://www.ubuntulite.org

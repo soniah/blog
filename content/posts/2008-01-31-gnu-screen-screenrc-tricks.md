@@ -10,6 +10,8 @@ tags:
 ---
 Here&#8217;s a variety of tricks I&#8217;ve picked up for Gnu screen and .screenrc from the [Screen Users Email List][1]
 
+<!--more-->
+
   * to have a screen change to a different directory when launched, use the chdir command (*not* cd):
 
 <tt>chdir $HOME/rails</tt>  

@@ -10,6 +10,8 @@ tags:
 ---
 Some cool photos of American Vagabonds [here.][1] Here&#8217;s a sample photo:
 
+<!--more-->
+
 [![vagabond_photo_1][2]][3]
 
  [1]: http://ziza.es/2007/07/23/page,1,3,La_vida_de_vagabundos_americanos_42_fotos.html

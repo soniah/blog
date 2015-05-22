@@ -11,6 +11,8 @@ tags:
 On Ubuntu Edgy I notice that when I do an &#8216;apt-get update&#8217; I get  
 messages like this:
 
+<!--more-->
+
 <pre>Get:1 <a href="http://au.archive.ubuntu.com">http://au.archive.ubuntu.com</a> edgy Release.gpg <a href="?q=wiki/goto/191B">191B</a>
  Ign <a href="http://au.archive.ubuntu.com">http://au.archive.ubuntu.com</a> edgy/main Translation-en_AU
  ^^^                                        ^^^^^^^^^^^^^^^^^

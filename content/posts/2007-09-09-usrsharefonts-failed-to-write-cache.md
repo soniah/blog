@@ -9,6 +9,9 @@ tags:
   - Ubuntu
 ---
 After doing a fresh install of Ubuntu 7.04 and installing all pending updates via Update Manager, I get an error that starts like this:  
+
+<!--more-->
+
 `<br />
 Setting up ttf-opensymbol (2.2.0-1ubuntu4) ...<br />
 Updating fontconfig cache...<br />

@@ -9,6 +9,7 @@ tags:
   - Ubuntu
 ---
 To rebuild a package, I usually:
+<!--more-->
 
   * apt-get source package
   * cd package

@@ -8,6 +8,9 @@ categories:
 tags:
   - Procmail
 ---
+procmail notes
+<!--more-->
+
 ### Good procmail sites
 
   * [Timo&#8217;s procmail tips][1]

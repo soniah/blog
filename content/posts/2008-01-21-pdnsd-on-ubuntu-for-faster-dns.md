@@ -9,7 +9,11 @@ tags:
   - Networking
   - Ubuntu
 ---
-Whilst traveling through Mexico and Guatemala, I&#8217;ve had various problems with slow and/or faulty dns resolution. Here&#8217;s how to install pdnsd, in order to cache dns entries locally and speed up internet access in general (whether or not you&#8217;re in Guatemala&#8230;):<!--more-->
+Whilst traveling through Mexico and Guatemala, I&#8217;ve had various problems with slow and/or faulty dns resolution.
+
+<!--more-->
+
+Here&#8217;s how to install pdnsd, in order to cache dns entries locally and speed up internet access in general (whether or not you&#8217;re in Guatemala&#8230;):
 
   * **LANG= ; sudo apt-get update; sudo aptitude install pdnsd**
   * **sudo vi /etc/pdnsd.conf**, add the following lines:

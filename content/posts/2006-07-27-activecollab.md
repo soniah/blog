@@ -6,6 +6,8 @@ url: /2006/07/27/activecollab/
 categories:
   - Linux
 ---
+ActiveCollab
+<!--more-->
 [ActiveCollab][1] is a free (as in beer and speech) replacement for the [BaseCamp][2] project management tool/site. Background story [here][3].
 
  [1]: http://www.activecollab.com/

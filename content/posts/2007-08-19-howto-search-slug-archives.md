@@ -8,6 +8,10 @@ categories:
 tags:
   - Slug
 ---
+HowTo Search SLUG Archives
+
+<!--more-->
+
 Google search:
 
 `foo site:http://lists.slug.org.au/archives/ `

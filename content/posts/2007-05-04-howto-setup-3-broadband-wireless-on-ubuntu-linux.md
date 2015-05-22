@@ -10,6 +10,9 @@ tags:
   - Ubuntu
   - Wireless
 ---
+HowTo Setup 3 Broadband Wireless on Ubuntu Linux
+<!--more-->
+
 **HOWTO setup Novatel Merlin XU870 for 3&#8217;s wireless broadband, on Ubuntu Linux  
 **
 

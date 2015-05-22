@@ -8,6 +8,8 @@ categories:
 tags:
   - Ssh
 ---
+automatically load ssh key on login
+<!--more-->
   * add **ssh-add** as a startup program under **System, Preferences, Sessions** (ssh-agent is started automatically by X) (**Applications, Preferences, More Preferences, Session** on Fedora)
   * when logged in via ssh or console, run:
 

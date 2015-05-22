@@ -15,12 +15,12 @@ tags:
 
 **Summary**
 
+<!--more-->
+
   * set timeout x (in seconds)
   * spawn
   * expect
   * send
-
-<!--more-->
 
 **Example of Using with Perl and [Expect.pm][3]**
 

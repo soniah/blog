@@ -8,6 +8,9 @@ categories:
 tags:
   - Ssh
 ---
+howto reverse ssh tunnel
+<!--more-->
+
 I recently (15-Dec-06) asked this question on the [SLUG email list][1] &#8211; thanks to everyone for all the replies I got, especially Dave, The Reverend, Michael K, Erik, Tongmaster, Alex S, Tigger, David K&#8230;
 
 <pre>&gt; Is there a way of configuring ssh, so that if someone ssh's into my

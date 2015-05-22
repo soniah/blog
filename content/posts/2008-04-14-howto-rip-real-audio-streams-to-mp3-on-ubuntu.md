@@ -9,7 +9,11 @@ tags:
   - Audio
   - Ubuntu
 ---
-I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&#8217;m writing my own). But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS&#8217;s Beard!
+I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&#8217;m writing my own).
+
+<!--more-->
+
+But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS&#8217;s Beard!
 
 There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&#8217;s how I got it going on Ubuntu 7.10:
 

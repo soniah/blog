@@ -9,6 +9,8 @@ tags:
   - Exercises
   - MSSQL
 ---
+multiserver jobs exercise
+<!--more-->
 ### Exercise
 
   1. Have a second instance of SQL Server running, either by: 

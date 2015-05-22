@@ -9,6 +9,8 @@ tags:
   - Rsync
   - Ssh
 ---
+rsync notes
+<!--more-->
 ### Summary
 
 <pre>$ rsync -av -e ssh --delete --force source_host:source_dir/ dest_dir

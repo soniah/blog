@@ -10,6 +10,8 @@ tags:
 ---
 See Also:
 
+<!--more-->
+
   * [igvita.com: Hands on MySQL Backup & Migration][1]
   * [How-To Forge: How to perform a point in time restoration using ZRM for MySQL  
     ][2]

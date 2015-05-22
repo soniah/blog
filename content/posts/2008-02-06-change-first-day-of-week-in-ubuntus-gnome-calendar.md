@@ -10,6 +10,8 @@ tags:
 ---
 Under the Australian locale, the first day of the week appears as Sunday rather than Monday, which is incorrect. To change it:
 
+<!--more-->
+
   * check which locale is running, using the **locale** command (ie **en_AU**)
   * **sudo vi /usr/share/i18n/locales/en_AU** and change **first_weekday** and **first_workday** to 2
   * regenerate the locale using **sudo locale-gen**

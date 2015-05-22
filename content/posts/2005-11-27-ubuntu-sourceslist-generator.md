@@ -9,6 +9,7 @@ tags:
   - Ubuntu
 ---
 Site to generate an ubuntu sources.list for your preferred set of repositories. Just tick all repositories you want; the default set is selected automatically.
+<!--more-->
 
 [source-o-matic][1]
 

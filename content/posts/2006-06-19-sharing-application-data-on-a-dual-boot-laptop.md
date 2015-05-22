@@ -8,6 +8,8 @@ categories:
 tags:
   - Windows
 ---
+sharing application data on a dual boot laptop
+<!--more-->
 I dual boot my laptop between Linux and Windows &#8211; mostly Linux, but occasionally Windows. Here&#8217;s how to make applications like Firefox, Thunderbird, etc share their configuration &#8211; especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is *sonia* and your user id is *1000* (check by running the **id** function). It also presumes that you can see system folders in Windows &#8211; setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click *Apply to All Folders*.
 
 ### Create a Shared Partition  

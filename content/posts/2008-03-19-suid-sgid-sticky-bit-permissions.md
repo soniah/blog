@@ -6,7 +6,11 @@ url: /2008/03/19/suid-sgid-sticky-bit-permissions/
 categories:
   - Linux
 ---
-I&#8217;ve been going to a few job interviews recently. One the standard &#8216;*tricky*&#8216; (oooooh) Linux questions is &#8220;*explain suid, sgid, sticky bit, etc*&#8220;. I usually don&#8217;t rote learn this sort of stuff (that&#8217;s what manpages and Google are for), here&#8217;s my summary:
+I&#8217;ve been going to a few job interviews recently. One the standard &#8216;*tricky*&#8216; (oooooh) Linux questions is &#8220;*explain suid, sgid, sticky bit, etc*&#8220;.
+
+<!--more-->
+
+I usually don&#8217;t rote learn this sort of stuff (that&#8217;s what manpages and Google are for), here&#8217;s my summary:
 
   * **4000** (chmod u+s) is **suid**; for *files* execute as owning user (often root).
   * **2000** (chmod g+s) is **sgid**; for *files* execute as owning group (often root); for *directories* the group on newly created files will be set to the directory&#8217;s group rather than the creator&#8217;s group. Typically used for shared directories.

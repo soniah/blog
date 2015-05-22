@@ -8,6 +8,8 @@ categories:
 tags:
   - MSSQL
 ---
+guest and public
+<!--more-->
   * guest = valid login but no account
   * guest is created (but disabled) by default; to enable run `GRANT CONNECT TO GUEST`
   * guest gets the permissions of the public role (as does everyone)

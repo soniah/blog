@@ -9,6 +9,7 @@ tags:
   - Windows
 ---
 Here are some useful tools for troubleshooting/recovering windows systems:
+<!--more-->
 
   * look up events at [eventid.net][1] 
   * [Ultimate Boot CD][2] 

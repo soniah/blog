@@ -9,6 +9,8 @@ tags:
   - Apt
   - Ubuntu
 ---
+using kpkg to build kernels
+<!--more-->
 ### Using kpkg to Build Kernels
 
 See also [How To Compile A Kernel &#8211; The Ubuntu Way][1]
