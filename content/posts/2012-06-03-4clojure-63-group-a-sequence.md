@@ -12,6 +12,8 @@ tags:
 
 My first attempt at writing up one of my [4clojure](http://www.4clojure.com/) solutions. Problem 63 "Group a Sequence" requires you to re-implement **group-by**. As always looking at the source code is cheating :-)
 
+<!--more-->
+
 _Given a function f and a sequence s, write a function which returns a map. The keys should be the values of f applied to each item in s. The value at each key should be a vector of corresponding items in the order they appear in s._
 
 [sourcecode language="clojure"]

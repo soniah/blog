@@ -12,6 +12,8 @@ tags:
 
 One of the features I've always wished [Gnu screen](http://www.gnu.org/software/screen/manual/screen.html) had was the ability to split a screen horizontally, so you can for example run a grep or [mc](https://www.midnight-commander.org/) in the top half of the terminal, and some commands in the bottom half.
 
+<!--more-->
+
 Well it turns out that you can split screens in Screen, here's how to you do it:
 
 

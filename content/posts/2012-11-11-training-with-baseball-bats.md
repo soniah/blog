@@ -12,6 +12,8 @@ tags:
 
 At [Sydney Stick Fighting](http://www.meetup.com/sydney-stick-fighting) we train with a variety of weapons - knives, sticks, staffs and even baseball bats!
 
+<!--more-->
+
 [youtube=http://www.youtube.com/watch?v=YnyyIYPcBIo]
 
 

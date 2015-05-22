@@ -11,6 +11,8 @@ tags:
 ---
 The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &#8220;Site Admin&#8221;, &#8220;Login&#8221;, &#8220;Entries RSS&#8221;, etc. This is called the **Meta Widget**.
 
+<!--more-->
+
 Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&#8217;s a slight security risk (though hiding it won&#8217;t stop *evildoers* from working out that you&#8217;re running WordPress).
 
 There&#8217;s a couple of options for hiding the Meta Widget:

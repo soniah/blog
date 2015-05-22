@@ -10,7 +10,11 @@ tags:
 - RHEL
 ---
 
-A little problem I came across today. When you install ImageMagick (IM) on [RHEL](http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux) (or [OEL](http://en.wikipedia.org/wiki/Oracle_Enterprise_Linux) or similar), IM fails when converting pdfs. You can see the problem (**libgs.so**) by logging the output of IM. For example, here's an attempted conversion of **test.pdf** to **test.tif**:
+A little problem I came across today. When you install ImageMagick (IM) on [RHEL](http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux) (or [OEL](http://en.wikipedia.org/wiki/Oracle_Enterprise_Linux) or similar), IM fails when converting pdfs. 
+
+<!--more-->
+
+You can see the problem (**libgs.so**) by logging the output of IM. For example, here's an attempted conversion of **test.pdf** to **test.tif**:
 
     
     % convert -debug all -log "%u %m:%l %e" test.pdf test.tif 2>&1 | less

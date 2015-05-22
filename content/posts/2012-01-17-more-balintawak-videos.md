@@ -10,6 +10,8 @@ tags:
 ---
 I&#8217;ve added some more [Balintawak Arnis][1] videos to my [Youtube page][2]. They are edits of my training in the Philippines.
 
+<!--more-->
+
 **Some warmup drills:**
 
 <span class="youtube"></span>

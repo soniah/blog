@@ -12,6 +12,8 @@ tags:
 
 Here's how to debug a Perl program that's running remotely on a server that doesn't have X. It's pretty simple, these are just notes for me...
 
+<!--more-->
+
 You've ssh'd into a remote server (headless), to debug a perl script that forks:
 
 [sourcecode language="perl"]

@@ -12,6 +12,8 @@ tags:
 
 Notes to myself more than anything, and not really specific to Go (but that's where I was using it).
 
+<!--more-->
+
 To watch the memory usage of a process with pid PID:
 
 [sourcecode language="bash"]

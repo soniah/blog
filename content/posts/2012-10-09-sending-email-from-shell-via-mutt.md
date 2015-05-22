@@ -12,6 +12,8 @@ tags:
 
 A quick example of sending email from the shell via mutt.
 
+<!--more-->
+
 [sourcecode language="shell"]
 % cat msg.txt 
 pdf attached. Sonia.

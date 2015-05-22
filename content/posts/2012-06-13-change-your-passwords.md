@@ -13,6 +13,8 @@ tags:
 
 I've written this post for the non-technical people I do "tech support" for.
 
+<!--more-->
+
 Do you use the _same_ password on different websites? Or, the same password with _slight variations_ (for example **secret-abc** on website **abc.com** and **secret-xyz** on website **xyz.com**). Or, do you make your password "secure" (it's not) by changing one of the letters for a number or symbol (eg **secret** becomes **s3cret**, **password** becomes **p@ssword**).
 
 Well, you should change all your passwords _right now_! [None of these methods are secure](http://www.net-security.org/article.php?id=1727&p=3).

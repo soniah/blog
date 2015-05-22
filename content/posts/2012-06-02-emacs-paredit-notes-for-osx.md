@@ -11,7 +11,11 @@ tags:
 - Emacs
 ---
 
-Some notes on [Emacs' Paredit mode](http://emacswiki.org/emacs/ParEdit). More so I can stop fighting with Paredit and do some **Clojure** programming than show any expertise - see [Mudphone's Paredit Preso](http://www.slideshare.net/mudphone/paredit-preso) for the real deal, as well as [hagelb's Paredit screencast notes](http://p.hagelb.org/paredit-screencast.html) and the [Paredit Cheat Sheet](http://www.emacswiki.org/pics/static/PareditCheatsheet.png).
+Some notes on [Emacs' Paredit mode](http://emacswiki.org/emacs/ParEdit).
+
+<!--more-->
+
+More so I can stop fighting with Paredit and do some **Clojure** programming than show any expertise - see [Mudphone's Paredit Preso](http://www.slideshare.net/mudphone/paredit-preso) for the real deal, as well as [hagelb's Paredit screencast notes](http://p.hagelb.org/paredit-screencast.html) and the [Paredit Cheat Sheet](http://www.emacswiki.org/pics/static/PareditCheatsheet.png).
 
 
 

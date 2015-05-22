@@ -10,6 +10,8 @@ tags:
 ---
 I&#8217;ve setup a new Meetup.com group called [Sydney Stick Fighting][1]. It&#8217;s early days yet, I&#8217;m still gathering email addresses and getting people to join up.
 
+<!--more-->
+
 Here&#8217;s the description of the group:
 
 <p style="padding-left: 30px;">

@@ -12,6 +12,8 @@ tags:
 
 [4clojure](http://www.4clojure.com/) problem 97 **Pascal's Triangle** - calculate the nth row:
 
+<!--more-->
+
 ![Pascal's Triangle](http://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Pascal%27s_triangle_5.svg/250px-Pascal%27s_triangle_5.svg.png)
 
 **My solution:**

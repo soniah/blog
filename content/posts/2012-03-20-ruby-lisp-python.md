@@ -12,7 +12,11 @@ tags:
 - Ruby
 ---
 
-Up late tonight reading about [Emacs Lisp](http://www.emacswiki.org/emacs/EmacsLisp), I came across [Tour de Babel](https://sites.google.com/site/steveyegge2/tour-de-babel) by [Steve Yegge](http://en.wikipedia.org/wiki/Steve_Yegge) comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much. I'm stuck in stodgy Python land at the moment, this is balm for the soul:
+Up late tonight reading about [Emacs Lisp](http://www.emacswiki.org/emacs/EmacsLisp), I came across [Tour de Babel](https://sites.google.com/site/steveyegge2/tour-de-babel) by [Steve Yegge](http://en.wikipedia.org/wiki/Steve_Yegge) comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much. 
+
+<!--more-->
+
+I'm stuck in stodgy Python land at the moment, this is balm for the soul:
 
 
 _Anyway, Ruby stole everything good from Perl; ... for the most part, Ruby took Perl's string processing and Unix integration as-is, meaning the syntax is identical, and so right there, before anything else happens, you already have the Best of Perl. And that's a great start, especially if you don't take the Rest of Perl._

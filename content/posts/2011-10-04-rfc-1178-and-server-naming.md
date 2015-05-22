@@ -3,14 +3,14 @@ title: RFC 1178 and server naming
 author: Sonia Hamilton
 date: 2011-10-04
 url: /2011/10/04/rfc-1178-and-server-naming/
-jabber_published:
-  - 1317705650
 categories:
   - Linux
 tags:
   - Sysadmin
 ---
 Whenever I come across servers with names like **chpvuat01**, I&#8217;m reminded of [RFC 1178][1] &#8220;Choosing a name for your computer&#8221;. Especially when **ch** stands for **crack house**, **pv** stands for **paid verbiage**, but **uat** *doesn&#8217;t* stand for **user acceptance testing**: the box used to be in UAT, was moved to SIT (System Integration Testing), but *kept it&#8217;s old name because renaming it would be too hard&#8230;*
+
+<!--more-->
 
 From the RFC:  
 *Using a word that has strong semantic implications in the current context will cause confusion.** Don&#8217;t choose a name after a project unique to that machine.*

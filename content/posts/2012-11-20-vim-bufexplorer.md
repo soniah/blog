@@ -13,6 +13,8 @@ tags:
 
 [Bufexplorer](http://www.vim.org/scripts/script.php?script_id=42) - my new favourite add-on for vim.
 
+<!--more-->
+
 Why do I like it? It allows you to emulate the buffer list feature of emacs, as well as switch between horizontal/vertical buffer splits and find recently edited files. All this can already be done with vim buffers, but bufexplorer makes it easy.
 
 Why don't I just use emacs? Because as sysadmin/devop I'm often working on other people's servers, and I don't want to go installing buckets of stuff everywhere - vim is usually installed.

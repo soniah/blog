@@ -12,6 +12,8 @@ tags:
 ---
 My venerable [Palm Treo 550][1] is showing it&#8217;s age ([as is the company][2]), so I&#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&#8217;m now working for Google, Android is the obvious choice ([dog-fooding][3] and all that).
 
+<!--more-->
+
 Some tricks and tools I&#8217;ve find useful in my migration from Palm to Android:
 
   * [Synthesis SyncML clients][4] are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.

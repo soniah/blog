@@ -12,6 +12,8 @@ tags:
 
 Some doco for my work mates, and others learners of git...
 
+<!--more-->
+
 When I was starting with git (many moons ago), learning to pull from a remote repository was easy. But [the book I read](http://pragprog.com/book/tsgit/pragmatic-version-control-using-git) didn't explain how to push to a remote repository. There was [lots of doco on pushing to github](https://help.github.com/), but I wanted to push and pull between my own repositories. When I pushed, I got messages saying **warning: updating the current branch**, and sometimes I'd have to manually clean up the remote branch - yuk.
 
 [sourcecode language="bash"]

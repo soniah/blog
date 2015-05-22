@@ -10,4 +10,6 @@ tags:
 ---
 I&#8217;m in Cebu, the Philippines at the moment, learning Balintawak Arnis (stick fighting). A little video of my training &#8211; I&#8217;m still very much a beginner&#8230;
 
+<!--more-->
+
 <span class="youtube"></span>

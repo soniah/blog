@@ -12,6 +12,8 @@ tags:
 
 [4clojure problem 100](http://www.4clojure.com/problem/100) - calculate the [Least Common Multiple (LCM)](http://en.wikipedia.org/wiki/Least_common_multiple) of two or more numbers.
 
+<!--more-->
+
 ![LCM Example](http://upload.wikimedia.org/wikipedia/en/math/c/b/0/cb0d245e78e328c29095b9522fd16200.png)
 
 Here's how I worked it out in the REPL, warts and all....

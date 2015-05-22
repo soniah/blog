@@ -13,6 +13,8 @@ tags:
 
 My new favourite git option:
 
+<!--more-->
+
 [sourcecode language="bash"]
 
 % git diff -w

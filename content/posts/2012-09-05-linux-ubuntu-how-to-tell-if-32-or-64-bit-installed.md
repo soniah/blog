@@ -12,6 +12,8 @@ tags:
 
 A question I get regularly from other sysadmins - how to tell if you're running a 32 or 64 bit **install** (vs **CPU**) of Linux?
 
+<!--more-->
+
 Here's one way - use the file command on /sbin/init:
 
 [sourcecode language="bash"]

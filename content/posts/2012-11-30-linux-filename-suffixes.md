@@ -10,6 +10,8 @@ categories:
 
 When creating files in Linux (and other OS's) there's the usual convention of **.txt** for text files, **.c** for C files, etc - you just pick them up as you go along.
 
+<!--more-->
+
 But there's actually a [manpage](https://www.kernel.org/doc/man-pages/online/pages/man7/suffixes.7.html) that lists the common conventions - "who knew"?
 
     

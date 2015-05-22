@@ -12,7 +12,9 @@ tags:
 - Vnc
 ---
 
-I was doing remote internet support the other day for a friend in England (and noticing how cheap their internet access is eg a [fast unlimited O2 package](http://www.o2.co.uk/broadband) is £21 ($AU31) versus the $AU60-80 we pay in Australia). Here's how I connect remotely to the person's desktop in graphical mode, using vnc and an ssh tunnel.
+I was doing remote internet support the other day for a friend in England - here's how I connect remotely to the person's desktop in graphical mode, using vnc and an ssh tunnel.
+
+<!--more-->
 
 1. I setup a dyndns client (eg dyndns, tinydyndns, ez-ipupdate) so I can connect to the changing ip address of their machine by a dns name eg fredbox.dyndns.org
 

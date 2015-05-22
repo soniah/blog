@@ -14,6 +14,8 @@ tags:
 
 I've been playing with Lisp and now Clojure for a couple of years now. Here's a list of the books I've read on my journey to Clojure enlightenment (I've still got a long way to go...).
 
+<!--more-->
+
 ![Land of Lisp](http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png)
 
 

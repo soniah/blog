@@ -14,6 +14,8 @@ tags:
 
 Here's the setup I use for compiling Go binaries, as well as for writing .deb's to package them and [markdown](http://en.wikipedia.org/wiki/Markdown) for README's - _notes for me_.
 
+<!--more-->
+
 Install build pre-requisites:
 
 [sourcecode language="bash"]

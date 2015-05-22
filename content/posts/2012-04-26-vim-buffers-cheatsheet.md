@@ -13,7 +13,8 @@ tags:
 
 A small Vim Buffers cheatsheet:
 
-    
+<!--more-->
+
     :bu <tab>    - select a buffer
     :buN         - select buffer N
     :ls          - list buffers

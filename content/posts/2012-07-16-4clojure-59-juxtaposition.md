@@ -12,6 +12,9 @@ tags:
 
 [4clojure problem 59 Juxtapostion](http://www.4clojure.com/problem/59) - here's how I approached the problem (warts and all) in the hope that it helps others who are learning [Clojure](http://en.wikipedia.org/wiki/Clojure).
 
+
+<!--more-->
+
 A reminder of what the **juxt** function does:
 
     

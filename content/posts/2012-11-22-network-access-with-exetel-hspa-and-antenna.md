@@ -11,9 +11,14 @@ tags:
 - Wireless
 ---
 
+I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with [Exetel's $5/month Zero Gig plan](http://www.exetel.com.au/residential-hspa-pricing.php) (uses the Optus network). Great for when I'm out and about and can't find a wireless signal to jump onto, or I'm at some client who doesn't allow laptops onto their network.
+
+<!--more-->
+
 **Update November 2012**
 
 On Ubuntu Precise (12.04.1) mobile broadband now "just works". Plug in the device, right click on Network Manager, follow the configuration wizard for "New Mobile Connection", choose your provider (eg Exetel) and the correct APN will be filled in (exetel1).
+
 
 **Original Article 2009
 **

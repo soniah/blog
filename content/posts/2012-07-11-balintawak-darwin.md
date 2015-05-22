@@ -10,7 +10,11 @@ tags:
 - Balintawak
 ---
 
-John Russell and I went to Darwin for a week, to escape the winter cold in Sydney. While we were training on Darwin Wharf (nice cool sea-breeze), a Filipino man Ely Baera asked if he could play. He's from Melbourne and learned his Balintawak from GM Vincente Sanchez and at Lighting Scientific.
+John Russell and I went to Darwin for a week, to escape the winter cold in Sydney. 
+
+<!--more-->
+
+While we were training on Darwin Wharf (nice cool sea-breeze), a Filipino man Ely Baera asked if he could play. He's from Melbourne and learned his Balintawak from GM Vincente Sanchez and at Lighting Scientific.
 
 Thanks for training with us Ely!
 

@@ -12,6 +12,8 @@ tags:
 ---
 The WordPress Clearline theme displays **categories** not **tags** for posts, and doesn&#8217;t have a way of modifying it&#8217;s behaviour through the settings area. This is easily fixed with a one line code change:
 
+<!--more-->
+
 Edit the file **/var/www/wp-content/themes/clear-line/functions.php**, and at approximately line 340 replace:
 
 <pre>&lt;?php the_category(', '); ?&gt;</pre>

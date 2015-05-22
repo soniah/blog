@@ -12,6 +12,8 @@ tags:
 
 Git has a "force push" option (**git push -f remote branch**), but it doesn't have a "force pull" option (like **git pull -f remote branch**).
 
+<!--more-->
+
 This works:
 
 [sourcecode language="shell"]

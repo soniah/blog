@@ -8,7 +8,10 @@ categories:
 tags:
   - Vim
 ---
+
 I little command I always have to search for when using vimdiff &#8211; **:diffupdate**
+
+<!--more-->
 
 After you&#8217;ve made changes in vimdiff **:diffupdate** will recalculate the diffs.
 
