@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-06-03 01:52:09+00:00
-slug: golang-profiling-libraries-and-gosnmp-for-snmp
+date: 2013-06-03
+url: /2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/
 title: Golang - profiling libraries and GoSNMP for SNMP
 wordpress_id: 1855
 categories:

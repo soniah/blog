@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-08-17 00:20:10+00:00
-slug: git-push-to-non-bare-repo-warning-updating-the-current-branch
+date: 2012-08-17
+url: /2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/
 title: 'git push to non-bare repo: warning: updating the current branch'
 wordpress_id: 1663
 categories:

@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-07-11 11:39:09+00:00
-slug: balintawak-darwin
+date: 2012-07-11
+url: /2012/07/11/balintawak-darwin/
 title: Balintawak Darwin
 wordpress_id: 1611
 categories:

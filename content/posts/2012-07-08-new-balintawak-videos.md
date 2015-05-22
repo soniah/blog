@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-07-08 12:14:33+00:00
-slug: new-balintawak-videos
+date: 2012-07-08
+url: /2012/07/08/new-balintawak-videos/
 title: New Balintawak Videos
 wordpress_id: 1602
 categories:

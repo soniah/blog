@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-03-29 05:40:24+00:00
-slug: ghostscript-imagemagick-rhel-libgs-so-errors
+date: 2012-03-29
+url: /2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/
 title: Ghostscript ImageMagick RHEL libgs.so errors
 wordpress_id: 1469
 categories:

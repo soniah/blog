@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-06-18 01:30:01+00:00
-slug: golang-building-with-makefile-and-jenkins
+date: 2013-06-18
+url: /2013/06/18/golang-building-with-makefile-and-jenkins/
 title: Golang - building with Makefile and Jenkins
 wordpress_id: 1865
 categories:

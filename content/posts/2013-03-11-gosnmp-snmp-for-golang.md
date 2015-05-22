@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-03-11 01:19:54+00:00
-slug: gosnmp-snmp-for-golang
+date: 2013-03-11
+url: /2013/03/11/gosnmp-snmp-for-golang/
 title: GoSnmp - SNMP for GoLang
 wordpress_id: 1771
 categories:

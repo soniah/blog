@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-03-18 23:00:30+00:00
-slug: gnu-screen-alternative-terminator
+date: 2012-03-18
+url: /2012/03/18/gnu-screen-alternative-terminator/
 title: GNU Screen Alternative - Terminator?
 wordpress_id: 1457
 categories:

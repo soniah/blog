@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-06-03 14:06:23+00:00
-slug: 4clojure-63-group-a-sequence
+date: 2012-06-03
+url: /2012/06/03/4clojure-63-group-a-sequence/
 title: 4clojure 63 Group a Sequence
 wordpress_id: 1536
 categories:

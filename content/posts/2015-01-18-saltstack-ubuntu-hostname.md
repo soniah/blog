@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2015-01-18 11:56:03+00:00
-slug: saltstack-ubuntu-hostname
+date: 2015-01-18
+url: /2015/01/18/saltstack-ubuntu-hostname/
 title: SaltStack Ubuntu Hostname
 wordpress_id: 2048
 categories:

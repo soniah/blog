@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-01-22 22:11:48+00:00
-slug: git-delete-local-tracking-branches
+date: 2013-01-22
+url: /2013/01/22/git-delete-local-tracking-branches/
 title: git - delete local tracking branches
 wordpress_id: 1775
 categories:

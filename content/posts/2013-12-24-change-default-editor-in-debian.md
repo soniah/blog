@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-12-24 02:33:38+00:00
-slug: change-default-editor-in-debian
+date: 2013-12-24
+url: /2013/12/24/change-default-editor-in-debian/
 title: Change default editor in Debian
 wordpress_id: 1925
 categories:

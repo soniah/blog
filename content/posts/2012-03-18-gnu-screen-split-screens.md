@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-03-18 23:07:52+00:00
-slug: gnu-screen-split-screens
+date: 2012-03-18
+url: /2012/03/18/gnu-screen-split-screens/
 title: Gnu Screen - split screens
 wordpress_id: 1459
 categories:

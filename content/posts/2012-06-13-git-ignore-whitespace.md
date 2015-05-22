@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-06-13 04:45:18+00:00
-slug: git-ignore-whitespace
+date: 2012-06-13
+url: /2012/06/13/git-ignore-whitespace/
 title: Git - ignore whitespace
 wordpress_id: 1559
 categories:

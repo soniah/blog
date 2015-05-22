@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-11-22 04:50:14+00:00
-slug: network-access-with-exetel-hspa-and-antenna
+date: 2012-11-22
+url: /2012/11/22/network-access-with-exetel-hspa-and-antenna/
 title: Network access with Exetel HSPA and Antenna
 wordpress_id: 599
 categories:

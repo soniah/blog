@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-03-20 10:59:38+00:00
-slug: ruby-lisp-python
+date: 2012-03-20
+url: /2012/03/20/ruby-lisp-python/
 title: Ruby, Lisp, Python
 wordpress_id: 1466
 categories:

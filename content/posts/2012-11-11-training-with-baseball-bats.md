@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-11-11 08:33:46+00:00
-slug: training-with-baseball-bats
+date: 2012-11-11
+url: /2012/11/11/training-with-baseball-bats/
 title: Training with Baseball Bats
 wordpress_id: 1731
 categories:

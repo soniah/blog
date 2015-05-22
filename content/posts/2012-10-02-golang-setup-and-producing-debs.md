@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-10-02 23:29:06+00:00
-slug: golang-setup-and-producing-debs
+date: 2012-10-02
+url: /2012/10/02/golang-setup-and-producing-debs/
 title: Golang - setup and producing .debs
 wordpress_id: 1703
 categories:

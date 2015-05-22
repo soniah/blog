@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-07-14 05:19:22+00:00
-slug: msr-whisperlite-international-stove-fuel-types
+date: 2013-07-14
+url: /2013/07/14/msr-whisperlite-international-stove-fuel-types/
 title: MSR Whisperlite International Stove - Fuel Types
 wordpress_id: 1882
 categories:

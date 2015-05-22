@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-06-04 12:47:22+00:00
-slug: 4clojure-97-pascals-triangle
+date: 2012-06-04
+url: /2012/06/04/4clojure-97-pascals-triangle/
 title: 4clojure 97 Pascal's Triangle
 wordpress_id: 1547
 categories:

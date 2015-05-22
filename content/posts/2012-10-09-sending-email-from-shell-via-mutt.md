@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-10-09 01:52:35+00:00
-slug: sending-email-from-shell-via-mutt
+date: 2012-10-09
+url: /2012/10/09/sending-email-from-shell-via-mutt/
 title: Sending email from shell via mutt
 wordpress_id: 1713
 categories:

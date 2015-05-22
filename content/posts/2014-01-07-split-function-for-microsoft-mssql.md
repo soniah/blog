@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2014-01-07 01:01:23+00:00
-slug: split-function-for-microsoft-mssql
+date: 2014-01-07
+url: /2014/01/07/split-function-for-microsoft-mssql/
 title: Split() function for Microsoft MSSQL
 wordpress_id: 1982
 categories:

@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2015-05-22 00:09:49+00:00
-slug: haskell-hole-driven-development
+date: 2015-05-22
+url: /2015/05/22/haskell-hole-driven-development/
 title: Haskell Hole Driven Development
 categories:
 - Linux

@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-11-20 08:33:30+00:00
-slug: vim-bufexplorer
+date: 2012-11-20
+url: /2012/11/20/vim-bufexplorer/
 title: vim - bufexplorer
 wordpress_id: 1746
 categories:

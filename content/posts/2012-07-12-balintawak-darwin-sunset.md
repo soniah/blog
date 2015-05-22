@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-07-12 11:09:47+00:00
-slug: balintawak-darwin-sunset
+date: 2012-07-12
+url: /2012/07/12/balintawak-darwin-sunset/
 title: Balintawak Darwin Sunset
 wordpress_id: 1618
 categories:

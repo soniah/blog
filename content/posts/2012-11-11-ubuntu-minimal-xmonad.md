@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-11-11 22:50:29+00:00
-slug: ubuntu-minimal-xmonad
+date: 2012-11-11
+url: /2012/11/11/ubuntu-minimal-xmonad/
 title: Ubuntu Minimal + Xmonad
 wordpress_id: 1739
 categories:

@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2012-06-13 01:55:35+00:00
-slug: change-your-passwords
+date: 2012-06-13
+url: /2012/06/13/change-your-passwords/
 title: Change your passwords
 wordpress_id: 1554
 categories:

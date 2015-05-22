@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-12-11 02:06:10+00:00
-slug: tricks-for-learning-foreign-languages
+date: 2013-12-11
+url: /2013/12/11/tricks-for-learning-foreign-languages/
 title: Tricks for Learning Foreign Languages
 wordpress_id: 1909
 categories:

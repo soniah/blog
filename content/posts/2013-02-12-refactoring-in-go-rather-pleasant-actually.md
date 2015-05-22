@@ -1,8 +1,8 @@
 ---
 author: sonia
 comments: true
-date: 2013-02-12 01:12:32+00:00
-slug: refactoring-in-go-rather-pleasant-actually
+date: 2013-02-12
+url: /2013/02/12/refactoring-in-go-rather-pleasant-actually/
 title: refactoring in Go - rather pleasant actually...
 wordpress_id: 1790
 categories:
