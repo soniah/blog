@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-06-03
 url: /2012/06/03/4clojure-63-group-a-sequence/
 title: 4clojure 63 Group a Sequence

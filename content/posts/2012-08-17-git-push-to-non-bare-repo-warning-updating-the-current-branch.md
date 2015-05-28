@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-08-17
 url: /2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/
 title: 'git push to non-bare repo: warning: updating the current branch'

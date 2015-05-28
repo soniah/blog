@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-07-11
 url: /2012/07/11/balintawak-darwin/
 title: Balintawak Darwin

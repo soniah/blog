@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2015-01-18
 url: /2015/01/18/saltstack-ubuntu-hostname/
 title: SaltStack Ubuntu Hostname

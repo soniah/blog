@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2015-05-22
 url: /2015/05/22/haskell-hole-driven-development/
 title: Haskell Hole Driven Development

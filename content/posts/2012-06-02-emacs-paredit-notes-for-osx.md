@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-06-02
 url: /2012/06/02/emacs-paredit-notes-for-osx/
 title: Emacs Paredit Notes for OSX

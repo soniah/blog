@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-12-03
 url: /2012/12/03/git-pull-f-git-force-pull/
 title: git pull -f (git force pull)

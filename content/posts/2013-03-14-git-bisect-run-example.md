@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2013-03-14
 url: /2013/03/14/git-bisect-run-example/
 title: git bisect run - example

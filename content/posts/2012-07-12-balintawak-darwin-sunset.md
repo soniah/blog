@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-07-12
 url: /2012/07/12/balintawak-darwin-sunset/
 title: Balintawak Darwin Sunset

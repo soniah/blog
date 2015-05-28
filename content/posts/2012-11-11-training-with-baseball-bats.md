@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-11-11
 url: /2012/11/11/training-with-baseball-bats/
 title: Training with Baseball Bats

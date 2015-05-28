@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-11-11
 url: /2012/11/11/ubuntu-minimal-xmonad/
 title: Ubuntu Minimal + Xmonad

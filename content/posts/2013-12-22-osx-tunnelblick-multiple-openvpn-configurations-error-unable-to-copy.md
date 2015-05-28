@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2013-12-22
 url: /2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/
 title: OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy

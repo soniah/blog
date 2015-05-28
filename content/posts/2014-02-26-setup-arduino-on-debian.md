@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2014-02-26
 url: /2014/02/26/setup-arduino-on-debian/
 title: Setup Arduino on Debian

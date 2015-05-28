@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-11-20
 url: /2012/11/20/vim-bufexplorer/
 title: vim - bufexplorer

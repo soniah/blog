@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-09-14
 url: /2012/09/14/golang-checking-open-files-and-memory-usage/
 title: 'Golang: checking open files and memory usage'

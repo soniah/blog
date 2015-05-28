@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2014-09-23
 url: /2014/09/23/saltstack-essential-reading/
 title: SaltStack Essential Reading

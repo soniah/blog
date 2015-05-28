@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2013-12-24
 url: /2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/
 title: Microsoft SQL 2012 SSIS Create Catalog Password

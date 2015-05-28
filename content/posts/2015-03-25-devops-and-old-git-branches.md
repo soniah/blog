@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2015-03-25
 url: /2015/03/25/devops-and-old-git-branches/
 title: Devops and Old Git Branches

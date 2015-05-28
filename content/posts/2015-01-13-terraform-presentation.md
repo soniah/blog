@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2015-01-13
 url: /2015/01/13/terraform-presentation/
 title: Terraform Presentation

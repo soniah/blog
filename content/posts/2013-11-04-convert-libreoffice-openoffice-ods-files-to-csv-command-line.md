@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2013-11-04
 url: /2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/
 title: convert LibreOffice (OpenOffice) .ods files to .csv command line

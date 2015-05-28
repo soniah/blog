@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-11-14
 url: /2012/11/14/balintawak-arnis-charging-attacks/
 title: Balintawak Arnis - Charging Attacks

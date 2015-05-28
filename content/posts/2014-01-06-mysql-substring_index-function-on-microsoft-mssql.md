@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2014-01-06
 url: /2014/01/06/mysql-substring_index-function-on-microsoft-mssql/
 title: MySQL SUBSTRING_INDEX function on Microsoft MSSQL

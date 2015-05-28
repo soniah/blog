@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-06-13
 url: /2012/06/13/git-ignore-whitespace/
 title: Git - ignore whitespace

@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-03-20
 url: /2012/03/20/ruby-lisp-python/
 title: Ruby, Lisp, Python

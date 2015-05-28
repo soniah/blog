@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2013-12-14
 url: /2013/12/14/zfs-list-snapshots-create-and-destroy-clones/
 title: ZFS List Snapshots, Create and Destroy Clones

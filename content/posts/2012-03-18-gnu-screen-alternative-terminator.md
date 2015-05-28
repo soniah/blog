@@ -1,6 +1,5 @@
 ---
 author: sonia
-comments: true
 date: 2012-03-18
 url: /2012/03/18/gnu-screen-alternative-terminator/
 title: GNU Screen Alternative - Terminator?
