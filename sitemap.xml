@@ -3,17 +3,17 @@
   
   <url>
     <loc>http://blog2.snowfrog.net/</loc>
-    <lastmod>2015-05-22T00:00:00+00:00</lastmod>
+    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/</loc>
-    <lastmod>2015-05-22T00:00:00+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</loc>
+    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</loc>
+    <loc>http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/</loc>
     <lastmod>2015-05-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -253,12 +253,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -503,12 +503,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -533,12 +533,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -628,12 +628,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
+    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
+    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -653,12 +653,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -798,12 +798,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -848,17 +848,17 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
-    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
+    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -938,12 +938,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -1028,12 +1028,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -1468,12 +1468,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
+    <loc>http://blog2.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
+    <loc>http://blog2.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -1523,12 +1523,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   

@@ -5,8 +5,31 @@
     <link>http://blog2.snowfrog.net/</link>
     <description>Recent content on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 May 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://blog2.snowfrog.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Eloquent Ruby</title>
+      <link>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</link>
+      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
+      <description>
+
+&lt;p&gt;Notes on Russ Olsen&amp;rsquo;s excellent book &amp;lsquo;Eloquent Ruby&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;My notes on Russ Olsen&amp;rsquo;s excellent book &lt;a href=&#34;http://eloquentruby.com/&#34;&gt;Eloquent
+Ruby&lt;/a&gt;.  These aren&amp;rsquo;t meant to be full and
+complete notes, they&amp;rsquo;re just things I want to remember; for more
+information &lt;em&gt;buy the book&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;chapter-18-execute-around-with-a-block:7451105976af4d209042d2a3b77cd961&#34;&gt;Chapter 18. Execute Around with a Block&lt;/h1&gt;
+
+&lt;p&gt;
+puts &#34;hello world&#34;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Haskell Hole Driven Development</title>
@@ -54,29 +77,6 @@ have functions &lt;code&gt;g2,s2,g1,s1&lt;/code&gt; that consume and produce (cu
 
 &lt;p&gt;See also the post and video by Matthew Brecknell &lt;a href=&#34;http://matthew.brecknell.net/post/hole-driven-haskell/&#34;&gt;Hole-driven
 Haskell&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Eloquent Ruby</title>
-      <link>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</link>
-      <pubDate>Fri, 22 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
-      <description>
-
-&lt;p&gt;Notes on Russ Olsen&amp;rsquo;s excellent book &amp;lsquo;Eloquent Ruby&amp;rsquo;.&lt;/p&gt;
-
-&lt;p&gt;My notes on Russ Olsen&amp;rsquo;s excellent book &lt;a href=&#34;http://eloquentruby.com/&#34;&gt;Eloquent
-Ruby&lt;/a&gt;.  These aren&amp;rsquo;t meant to be full and
-complete notes, they&amp;rsquo;re just things I want to remember; for more
-information &lt;em&gt;buy the book&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h1 id=&#34;chapter-18-execute-around-with-a-block:7451105976af4d209042d2a3b77cd961&#34;&gt;Chapter 18. Execute Around with a Block&lt;/h1&gt;
-
-&lt;p&gt;
-puts &#34;hello world&#34;
-&lt;/p&gt;
 </description>
     </item>
     
