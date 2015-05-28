@@ -62,25 +62,25 @@
 
 <p>For example, I&rsquo;ve been working on the <a href="http://github.com/soniah/gosnmp">GoSNMP SNMP library</a>, here&rsquo;s how I profiled it (it wasn&rsquo;t obvious):</p>
 
-<p>
-# produce cpu profiling information from the tests - this part was well documented
-% go test -cpuprofile cpu.out
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># produce cpu profiling information from the tests - this part was well documented</span>
+% go <span style="color: #24909d">test</span> -cpuprofile cpu.out
 
-# compile the test binary to pkg.test but do not run it (from `go help test`)
-# this part wasn't obvious
-% go test -c
+<span style="color: #999999; font-style: italic"># compile the test binary to pkg.test but do not run it (from `go help test`)</span>
+<span style="color: #999999; font-style: italic"># this part wasn&#39;t obvious</span>
+% go <span style="color: #24909d">test</span> -c
 
-# now run pprof using `go teste -c` output
-# using gosnmp.test - this part wasn't obvious
+<span style="color: #999999; font-style: italic"># now run pprof using `go teste -c` output</span>
+<span style="color: #999999; font-style: italic"># using gosnmp.test - this part wasn&#39;t obvious</span>
 % go tool pprof gosnmp.test cpu.out
+</pre></div>
 </p>
 
 <p>Doing a memory profile was similar:</p>
 
-<p>
-% go test -memprofile mem.out
-% go test -c
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% go <span style="color: #24909d">test</span> -memprofile mem.out
+% go <span style="color: #24909d">test</span> -c
 % go tool pprof gosnmp.test mem.out
+</pre></div>
 </p>
 
         </section>

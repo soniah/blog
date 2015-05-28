@@ -62,33 +62,32 @@
 
 <p>When I was starting with git (many moons ago), learning to pull from a remote repository was easy. But <a href="http://pragprog.com/book/tsgit/pragmatic-version-control-using-git">the book I read</a> didn&rsquo;t explain how to push to a remote repository. There was <a href="https://help.github.com/">lots of doco on pushing to github</a>, but I wanted to push and pull between my own repositories. When I pushed, I got messages saying <strong>warning: updating the current branch</strong>, and sometimes I&rsquo;d have to manually clean up the remote branch - yuk.</p>
 
-<p>
-localbox% git push remotebox master
-Counting objects: 1, done.
-Writing objects: 100% (1/1), 252 bytes, done.
-Total 1 (delta 0), reused 0 (delta 0)
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">localbox% git push remotebox master
+Counting objects: 1, <span style="color: #6ab825; font-weight: bold">done</span>.
+Writing objects: 100% <span style="color: #d0d0d0">(</span>1/1<span style="color: #d0d0d0">)</span>, <span style="color: #3677a9">252</span> bytes, <span style="color: #6ab825; font-weight: bold">done</span>.
+Total <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>, reused <span style="color: #3677a9">0</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>
 remote: warning: updating the current branch
 To sonia@remotebox.net:/home/sonia/dotfiles
-   f387640..13740c5  master -> master
+   f387640..13740c5  master -&gt; master
+</pre></div>
 </p>
 
 <p>Then I learned about <a href="http://www.kernel.org/pub/software/scm/git/docs/git-clone.html">bare repositories</a>. Sweet, now I could cleanly push to (bare) remote repositories:</p>
 
-<p>
-# convention with bare repositories is .git suffix
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># convention with bare repositories is .git suffix</span>
 
 remotebox% git clone --bare dotfiles dotfiles.git
-Cloning into bare repository 'dotfiles.git'...
-done.
+Cloning into bare repository <span style="color: #ed9d13">&#39;dotfiles.git&#39;</span>...
+<span style="color: #6ab825; font-weight: bold">done</span>.
+</pre></div>
 </p>
 
 <p>But what if you <strong>want to push to a non-bare repo</strong>? Firewalls mean you often have to hop across several machines using ssh tunnels, and setting up bare repositories all over the place is &lsquo;non-optimal&rsquo;. Or, you want to push between laptops. Or, whatever&hellip;</p>
 
 <p>Here&rsquo;s a recipe - just push to a dummy branch (I usually call it &lsquo;push&rsquo;), then do a normal merge on the remote:</p>
 
-<p>
-# I'm on localbox and I want to push to remotebox, which isn't bare
-# git br -a shows me all the remote branches:
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># I&#39;m on localbox and I want to push to remotebox, which isn&#39;t bare</span>
+<span style="color: #999999; font-style: italic"># git br -a shows me all the remote branches:</span>
 
 localbox% git br -a
 * master
@@ -96,36 +95,37 @@ localbox% git br -a
   remotes/bourke/foo
   remotes/bourke/bar
 
-# pushing to master, foo or bar will give problems, let's push to 'push'
+<span style="color: #999999; font-style: italic"># pushing to master, foo or bar will give problems, let&#39;s push to &#39;push&#39;</span>
 
 localbox% git push remotebox master:push
-Total 0 (delta 0), reused 0 (delta 0)
+Total <span style="color: #3677a9">0</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>, reused <span style="color: #3677a9">0</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>
 To sonia@remotebox.net:/home/sonia/dotfiles
- * [new branch]      master -> push
+ * <span style="color: #d0d0d0">[</span>new branch<span style="color: #d0d0d0">]</span>      master -&gt; push
 
-# let's look at that command:
+<span style="color: #999999; font-style: italic"># let&#39;s look at that command:</span>
 
 % git push remotebox master:push
            ^         ^      ^
-           remote    |      ^
-                     from   |
+           remote    <span style="color: #d0d0d0">|</span>      ^
+                     from   <span style="color: #d0d0d0">|</span>
                             to
 
-# ie I'm pushing from master branch to the push branch on remotebox
+<span style="color: #999999; font-style: italic"># ie I&#39;m pushing from master branch to the push branch on remotebox</span>
+</pre></div>
 </p>
 
 <p>On the remotebox, merge in the push:</p>
 
-<p>
-remotebox% git br -a               # check all my branches
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">remotebox% git br -a               <span style="color: #999999; font-style: italic"># check all my branches</span>
 * master
   foo
   bar
   push
 
-remotebox% git co master           # checkout master
-remotebox% git merge push          # merge push into master
-remotebox% git br -d push          # cleanup
+remotebox% git co master           <span style="color: #999999; font-style: italic"># checkout master</span>
+remotebox% git merge push          <span style="color: #999999; font-style: italic"># merge push into master</span>
+remotebox% git br -d push          <span style="color: #999999; font-style: italic"># cleanup</span>
+</pre></div>
 </p>
 
 <p>Et Voilà! Done.</p>
@@ -136,33 +136,33 @@ remotebox% git br -d push          # cleanup
 
 <p><strong>PS</strong> I have lots of shortcuts in my ~/.gitconfig, like <strong>co</strong> and <strong>br</strong>. Saves typing!</p>
 
-<p>
-[color]
-    ui = auto
-[color "branch"]
-    current = green
-    local = yellow
-    remote = red
-[color "diff"]
-    meta = blue bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
-[alias]
-    ci = commit
-    co = checkout
-    st = status
-    br = branch
-    sb = show-branch
-    sbs = show-branch --sha1-name
-    gr = log --graph --oneline --left-right
-    cl = clean -x -d -f
-    dt = difftool
-    difft = difftool
-[push]
-    default = matching
-[receive]
-    denyCurrentBranch = warn
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">[</span>color<span style="color: #d0d0d0">]</span>
+    <span style="color: #40ffff">ui</span> <span style="color: #d0d0d0">=</span> auto
+<span style="color: #d0d0d0">[</span>color <span style="color: #ed9d13">&quot;branch&quot;</span><span style="color: #d0d0d0">]</span>
+    <span style="color: #40ffff">current</span> <span style="color: #d0d0d0">=</span> green
+    <span style="color: #24909d">local</span> <span style="color: #d0d0d0">=</span> yellow
+    <span style="color: #40ffff">remote</span> <span style="color: #d0d0d0">=</span> red
+<span style="color: #d0d0d0">[</span>color <span style="color: #ed9d13">&quot;diff&quot;</span><span style="color: #d0d0d0">]</span>
+    <span style="color: #40ffff">meta</span> <span style="color: #d0d0d0">=</span> blue bold
+    <span style="color: #40ffff">frag</span> <span style="color: #d0d0d0">=</span> magenta bold
+    <span style="color: #40ffff">old</span> <span style="color: #d0d0d0">=</span> red bold
+    <span style="color: #40ffff">new</span> <span style="color: #d0d0d0">=</span> green bold
+<span style="color: #d0d0d0">[</span><span style="color: #24909d">alias</span><span style="color: #d0d0d0">]</span>
+    <span style="color: #40ffff">ci</span> <span style="color: #d0d0d0">=</span> commit
+    <span style="color: #40ffff">co</span> <span style="color: #d0d0d0">=</span> checkout
+    <span style="color: #40ffff">st</span> <span style="color: #d0d0d0">=</span> status
+    <span style="color: #40ffff">br</span> <span style="color: #d0d0d0">=</span> branch
+    <span style="color: #40ffff">sb</span> <span style="color: #d0d0d0">=</span> show-branch
+    <span style="color: #40ffff">sbs</span> <span style="color: #d0d0d0">=</span> show-branch --sha1-name
+    <span style="color: #40ffff">gr</span> <span style="color: #d0d0d0">=</span> log --graph --oneline --left-right
+    <span style="color: #40ffff">cl</span> <span style="color: #d0d0d0">=</span> clean -x -d -f
+    <span style="color: #40ffff">dt</span> <span style="color: #d0d0d0">=</span> difftool
+    <span style="color: #40ffff">difft</span> <span style="color: #d0d0d0">=</span> difftool
+<span style="color: #d0d0d0">[</span>push<span style="color: #d0d0d0">]</span>
+    <span style="color: #40ffff">default</span> <span style="color: #d0d0d0">=</span> matching
+<span style="color: #d0d0d0">[</span>receive<span style="color: #d0d0d0">]</span>
+    <span style="color: #40ffff">denyCurrentBranch</span> <span style="color: #d0d0d0">=</span> warn
+</pre></div>
 </p>
 
         </section>

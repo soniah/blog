@@ -60,33 +60,33 @@
           <h5 id="date"> 18 Jan 2015 </h5>
           <p><a href="http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html">SaltStack</a> currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work:</p>
 
-<p>
-system:
-    network.system:
-      - enabled: True
-      - hostname: server1.example.com
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">system:</span>
+    <span style="color: #d0d0d0">network.system:</span>
+      <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">enabled:</span> <span style="color: #d0d0d0">True</span>
+      <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">hostname:</span> <span style="color: #d0d0d0">server1.example.com</span>
+</pre></div>
 </p>
 
 <p>Here&rsquo;s a little shell script I wrote, to get around this problem:</p>
 
-<p>
-% cat set_hostname.sh 
-#!/bin/bash
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% cat set_hostname.sh 
+<span style="color: #999999; font-style: italic">#!/bin/bash</span>
 
-hn=$1
-hostname $hn
-echo $hn > /etc/hostname
-sed -i "1s/.*/127.0.0.1 localhost $hn/" /etc/hosts
+<span style="color: #40ffff">hn</span><span style="color: #d0d0d0">=</span><span style="color: #40ffff">$1</span>
+hostname <span style="color: #40ffff">$hn</span>
+<span style="color: #24909d">echo</span> <span style="color: #40ffff">$hn</span> &gt; /etc/hostname
+sed -i <span style="color: #ed9d13">&quot;1s/.*/127.0.0.1 localhost </span><span style="color: #40ffff">$hn</span><span style="color: #ed9d13">/&quot;</span> /etc/hosts
+</pre></div>
 </p>
 
 <p>Then apply it using cmd.script, for example:</p>
 
-<p>
-foo-hostname:
-  cmd.script:
-    - source: salt://soe/set_hostname.sh
-    - args: foo.bar.com
-    - unless: grep -q "foo.bar.com" /etc/hosts
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">foo-hostname:</span>
+  <span style="color: #d0d0d0">cmd.script:</span>
+    <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">source:</span> <span style="color: #d0d0d0">salt://soe/set_hostname.sh</span>
+    <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">args:</span> <span style="color: #d0d0d0">foo.bar.com</span>
+    <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">unless:</span> <span style="color: #d0d0d0">grep -q &quot;foo.bar.com&quot; /etc/hosts</span>
+</pre></div>
 </p>
 
         </section>

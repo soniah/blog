@@ -70,50 +70,50 @@
 
 <p>From there it was just a matter of balancing parentheses (thanks <a href="http://blog.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/">paredit</a>) by breaking up the problem into stages, starting with calculating the GCD of two numbers:</p>
 
-<p>
-(defn gcd [a b]
-  (cond
-   (= b 0) a
-   (= a 0) b
-   (> a b) (gcd b (mod a b))
-   (> b a) (gcd a (mod b a))))
-(gcd 15 5)
-==> 5
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">gcd</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">a</span> <span style="color: #40ffff">b</span><span style="color: #d0d0d0">]</span>
+  <span style="color: #d0d0d0">(</span><span style="color: #447fcf">cond</span>
+   <span style="color: #d0d0d0">(</span><span style="color: #24909d">= </span><span style="color: #40ffff">b</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">a</span>
+   <span style="color: #d0d0d0">(</span><span style="color: #24909d">= </span><span style="color: #40ffff">a</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">b</span>
+   <span style="color: #d0d0d0">(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">a</span> <span style="color: #40ffff">b</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd</span> <span style="color: #40ffff">b</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">mod</span> <span style="color: #40ffff">a</span> <span style="color: #40ffff">b</span><span style="color: #d0d0d0">))</span>
+   <span style="color: #d0d0d0">(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">b</span> <span style="color: #40ffff">a</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd</span> <span style="color: #40ffff">a</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">mod</span> <span style="color: #40ffff">b</span> <span style="color: #40ffff">a</span><span style="color: #d0d0d0">))))</span>
+<span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd</span> <span style="color: #3677a9">15</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">==&gt;</span> <span style="color: #3677a9">5</span>
+</pre></div>
 </p>
 
 <p>Now get LCM working for two arguments:</p>
 
-<p>
-(defn lcm [x y]
-  (/ (* x y) (gcd x y)))
-(lcm 4 6)
-==> 12
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">lcm</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">]</span>
+  <span style="color: #d0d0d0">(</span><span style="color: #24909d">/ </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">* </span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd</span> <span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">)))</span>
+<span style="color: #d0d0d0">(</span><span style="color: #447fcf">lcm</span> <span style="color: #3677a9">4</span> <span style="color: #3677a9">6</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">==&gt;</span> <span style="color: #3677a9">12</span>
+</pre></div>
 </p>
 
 <p>Now get LCM working for more than two arguments. I remembered seeing multiple arities used to solve other 4clojure problems, so I thought I&rsquo;d use the <a href="http://blog.darevay.com/2011/08/briefly-the-arity-reduce-pattern-in-clojure/">Arity-Reduce &ldquo;pattern&rdquo;</a> (well I&rsquo;m using apply, same idea):</p>
 
-<p>
-(defn lcm2
-  ([x y] (/ (* x y) (gcd x y)))
-  ([x y & rest] (apply lcm2 (lcm2 x y) rest)))
-(lcm2 5 3 7)
-==> 105
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">lcm2</span>
+  <span style="color: #d0d0d0">([</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">/ </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">* </span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd</span> <span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">)))</span>
+  <span style="color: #d0d0d0">([</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span> <span style="color: #d0d0d0">&amp;</span> <span style="color: #40ffff">rest</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">apply </span><span style="color: #40ffff">lcm2</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">lcm2</span> <span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">rest</span><span style="color: #d0d0d0">)))</span>
+<span style="color: #d0d0d0">(</span><span style="color: #447fcf">lcm2</span> <span style="color: #3677a9">5</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">7</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">==&gt;</span> <span style="color: #3677a9">105</span>
+</pre></div>
 </p>
 
 <p>4clojure doesn&rsquo;t allow <strong>defn</strong>, so I then used <strong>letfn</strong> to nest my definition of GCD inside LCM:</p>
 
-<p>
-(fn lcm3
-  ([x y]
-     (letfn [(gcd2 [a b]
-               (cond
-                (= b 0) a
-                (> a b) (gcd2 b (mod a b))
-                (> b a) (gcd2 a (mod b a))))]
-       (/ (* x y) (gcd2 x y))))
-  ([x y & rest] (apply lcm3 (lcm3 x y) rest)))
-(lcm3 5 3 7)
-==> 105
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">fn </span><span style="color: #40ffff">lcm3</span>
+  <span style="color: #d0d0d0">([</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">]</span>
+     <span style="color: #d0d0d0">(</span><span style="color: #447fcf">letfn</span> <span style="color: #d0d0d0">[(</span><span style="color: #447fcf">gcd2</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">a</span> <span style="color: #40ffff">b</span><span style="color: #d0d0d0">]</span>
+               <span style="color: #d0d0d0">(</span><span style="color: #447fcf">cond</span>
+                <span style="color: #d0d0d0">(</span><span style="color: #24909d">= </span><span style="color: #40ffff">b</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">a</span>
+                <span style="color: #d0d0d0">(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">a</span> <span style="color: #40ffff">b</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd2</span> <span style="color: #40ffff">b</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">mod</span> <span style="color: #40ffff">a</span> <span style="color: #40ffff">b</span><span style="color: #d0d0d0">))</span>
+                <span style="color: #d0d0d0">(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">b</span> <span style="color: #40ffff">a</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd2</span> <span style="color: #40ffff">a</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">mod</span> <span style="color: #40ffff">b</span> <span style="color: #40ffff">a</span><span style="color: #d0d0d0">))))]</span>
+       <span style="color: #d0d0d0">(</span><span style="color: #24909d">/ </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">* </span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">gcd2</span> <span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">))))</span>
+  <span style="color: #d0d0d0">([</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span> <span style="color: #d0d0d0">&amp;</span> <span style="color: #40ffff">rest</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">apply </span><span style="color: #40ffff">lcm3</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">lcm3</span> <span style="color: #40ffff">x</span> <span style="color: #40ffff">y</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">rest</span><span style="color: #d0d0d0">)))</span>
+<span style="color: #d0d0d0">(</span><span style="color: #447fcf">lcm3</span> <span style="color: #3677a9">5</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">7</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">==&gt;</span> <span style="color: #3677a9">105</span>
+</pre></div>
 </p>
 
 <p>So my solution worked, but it wasn&rsquo;t very elegant - Dacquiri wins the prize for that, again :-)</p>
