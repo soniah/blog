@@ -62,27 +62,28 @@
 
 <p>To delete a local tracking branch (without deleting the remote branch), do:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">git branch -rd remote/branch
-</pre></div>
+<p>
+git branch -rd remote/branch
 </p>
 
 <p>And of course to delete the remote branch:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">git push remote :branch
-</pre></div>
+<p>
+git push remote :branch
 </p>
 
 <p>Occasionally a gc will help, but usually shouldn&rsquo;t be used:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">git gc --prune<span style="color: #d0d0d0">=</span>now
-</pre></div>
+<p>
+git gc --prune=now
 </p>
 
 <p>So, when would you want to use this? Let&rsquo;s say the repository you&rsquo;re tracking has a lot of branches (eg the Linux Kernel). You start tracking branch &ldquo;foo&rdquo;, do some work with it, merge some of it in to your branch &ldquo;bar&rdquo;, then push &ldquo;bar&rdquo; up to the remote repository. Or, you&rsquo;ve got a whole lot of dev branches you&rsquo;ve merged pushed to your backup repository and also merged into your master branch.</p>
 
 <p>In either case you&rsquo;ve got a collection of tracking branches you don&rsquo;t want to see anymore, so clean them up:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% git branch -r
+<p>
+% git branch -r
   soniah/dev.a
   soniah/dev.b
   soniah/dev.c
@@ -90,17 +91,16 @@
   soniah/master
 
 % git branch -rd soniah/dev.a
-Deleted remote branch soniah/dev.a <span style="color: #d0d0d0">(</span>was deadbeef<span style="color: #d0d0d0">)</span>.
+Deleted remote branch soniah/dev.a (was deadbeef).
 
 % git branch -rd soniah/dev.b
-Deleted remote branch soniah/dev.b <span style="color: #d0d0d0">(</span>was deadbeef<span style="color: #d0d0d0">)</span>.
+Deleted remote branch soniah/dev.b (was deadbeef).
 
-<span style="color: #999999; font-style: italic"># now remote branches is cleaner:</span>
+# now remote branches is cleaner:
 % git branch -r
   soniah/dev.c
   soniah/dev.d
   soniah/master
-</pre></div>
 </p>
 
         </section>

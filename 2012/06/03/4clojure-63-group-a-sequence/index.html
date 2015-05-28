@@ -62,83 +62,83 @@
 
 <p><em>Given a function f and a sequence s, write a function which returns a map. The keys should be the values of f applied to each item in s. The value at each key should be a vector of corresponding items in the order they appear in s.</em></p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #24909d">= </span><span style="color: #d0d0d0">(</span><span style="color: #447fcf">__</span> <span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span> <span style="color: #d0d0d0">{</span><span style="color: #40ffff">false</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span><span style="color: #d0d0d0">]</span>, <span style="color: #40ffff">true</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">]})</span>
-</pre></div>
+<p>
+(= (__ #(> % 5) [1 3 6 8]) {false [1 3], true [6 8]})
 </p>
 
 <p>Here&rsquo;s how I worked it out in the REPL, warts and all&hellip;</p>
 
 <p>;; map seems a good start here</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">((</span><span style="color: #24909d">map </span><span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span>
-<span style="color: #999999; font-style: italic">;; (false false true true)</span>
-</pre></div>
+<p>
+((map #(> % 5) [1 3 6 8])
+;; (false false true true)
 </p>
 
 <p>;; so I&rsquo;m getting the values of fn here, I want the inputs too
 ;; I can&rsquo;t think of a clever way to do this, I&rsquo;ll just use for and list</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">foo</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">xs</span> <span style="color: #ed9d13">:let</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">y</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)]]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">list </span><span style="color: #40ffff">y</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)))</span>
-<span style="color: #d0d0d0">(</span><span style="color: #447fcf">foo</span> <span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span>
-<span style="color: #999999; font-style: italic">;; ((false 1) (false 3) (true 6) (true 8))</span>
-</pre></div>
+<p>
+(defn foo [f xs] (for [x xs :let [y (f x)]] (list y x)))
+(foo #(> % 5) [1 3 6 8])
+;; ((false 1) (false 3) (true 6) (true 8))
 </p>
 
 <p>;; the for loop can be tightend up, I don&rsquo;t need the :let</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">foo</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">list </span><span style="color: #d0d0d0">(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)))</span>
-<span style="color: #d0d0d0">(</span><span style="color: #447fcf">foo</span> <span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span>
-<span style="color: #999999; font-style: italic">;; ((false 1) (false 3) (true 6) (true 8))</span>
-</pre></div>
+<p>
+(defn foo [f xs] (for [x xs] (list (f x) x)))
+(foo #(> % 5) [1 3 6 8])
+;; ((false 1) (false 3) (true 6) (true 8))
 </p>
 
 <p>;; I know I want my results as maps, so use a map instead</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">foo</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">{(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">}))</span>
-<span style="color: #d0d0d0">(</span><span style="color: #447fcf">foo</span> <span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span>
-<span style="color: #999999; font-style: italic">;; ({false 1} {false 3} {true 6} {true 8})</span>
-</pre></div>
+<p>
+(defn foo [f xs] (for [x xs] {(f x) x}))
+(foo #(> % 5) [1 3 6 8])
+;; ({false 1} {false 3} {true 6} {true 8})
 </p>
 
 <p>;; now I&rsquo;m stuck; how do I moosh the results together?
 ;; I read thru all the map change fn&rsquo;s in the clj cheatsheet
 ;; hmmm, merge-with looks promising</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">foo</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">merge-with concat </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">{(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">})))</span>
-<span style="color: #d0d0d0">(</span><span style="color: #447fcf">foo</span> <span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span>
-<span style="color: #999999; font-style: italic">;; ({false 1} {false 3} {true 6} {true 8})</span>
-</pre></div>
+<p>
+(defn foo [f xs] (merge-with concat (for [x xs] {(f x) x})))
+(foo #(> % 5) [1 3 6 8])
+;; ({false 1} {false 3} {true 6} {true 8})
 </p>
 
 <p>;; WTF? same results. Re-RTFM on merge-with. Well, I&rsquo;m going to
 ;; need vectors in my results to be able to concat them&hellip;</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">foo</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">merge-with concat </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">{(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span><span style="color: #d0d0d0">]})))</span>
-<span style="color: #d0d0d0">(</span><span style="color: #447fcf">foo</span> <span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span>
-<span style="color: #999999; font-style: italic">;; ({false [1]} {false [3]} {true [6]} {true [8]})</span>
-</pre></div>
+<p>
+(defn foo [f xs] (merge-with concat (for [x xs] {(f x) [x]})))
+(foo #(> % 5) [1 3 6 8])
+;; ({false [1]} {false [3]} {true [6]} {true [8]})
 </p>
 
 <p>;; WTF? still not mooshing together. Uh duh, fn signature takes
 ;; &ldquo;maps&rdquo; not a list. Use the &ldquo;list stripper&rdquo; - apply!</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">foo</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">apply merge-with concat </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">{(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span><span style="color: #d0d0d0">]})))</span>
-<span style="color: #d0d0d0">(</span><span style="color: #447fcf">foo</span> <span style="color: #d0d0d0">#(</span><span style="color: #24909d">&gt; </span><span style="color: #40ffff">%</span> <span style="color: #3677a9">5</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span> <span style="color: #3677a9">6</span> <span style="color: #3677a9">8</span><span style="color: #d0d0d0">])</span>
-<span style="color: #999999; font-style: italic">;; {true (6 8), false (1 3)}</span>
-</pre></div>
+<p>
+(defn foo [f xs] (apply merge-with concat (for [x xs] {(f x) [x]})))
+(foo #(> % 5) [1 3 6 8])
+;; {true (6 8), false (1 3)}
 </p>
 
 <p>;; ha, sweetness and light! Remove the defn and submit:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">fn </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">apply merge-with concat </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">{(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span><span style="color: #d0d0d0">]})))</span>
-</pre></div>
+<p>
+(fn [f xs] (apply merge-with concat (for [x xs] {(f x) [x]})))
 </p>
 
 <p>;; look at other&rsquo;s solutions. Dacquiri as usual has a more elegant
 ;; solution, with a reader macro. What&rsquo;s his golf handicap?!?!</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">#(</span><span style="color: #24909d">apply merge-with concat </span><span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span> <span style="color: #40ffff">%2</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">{(</span><span style="color: #447fcf">%</span> <span style="color: #40ffff">x</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">[</span><span style="color: #40ffff">x</span><span style="color: #d0d0d0">]}))</span>
-</pre></div>
+<p>
+#(apply merge-with concat (for [x %2] {(% x) [x]}))
 </p>
 
 <p><em>Mooshing</em> is an advanced programming technique, that can only be used after years of study and practice&hellip;</p>

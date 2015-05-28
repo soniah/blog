@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</loc>
+    <lastmod>2015-05-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</loc>
     <lastmod>2015-03-25T00:00:00+00:00</lastmod>
   </url>
@@ -148,12 +153,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/30/brawl-video-self-defence-lessons/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/30/linux-filename-suffixes/</loc>
     <lastmod>2012-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/30/linux-filename-suffixes/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/30/brawl-video-self-defence-lessons/</loc>
     <lastmod>2012-11-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -498,12 +503,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -623,12 +628,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
+    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
+    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -648,12 +653,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -793,12 +798,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -843,12 +848,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -1023,12 +1028,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -1278,12 +1283,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/02/useful-tool-for-converting-audio-files/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/02/useful-tool-for-converting-audio-files/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -1328,12 +1333,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -1398,12 +1403,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</loc>
+    <loc>http://blog2.snowfrog.net/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
+    <loc>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   

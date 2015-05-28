@@ -9,6 +9,29 @@
     <atom:link href="http://blog2.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Eloquent Ruby</title>
+      <link>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</link>
+      <pubDate>Fri, 22 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
+      <description>
+
+&lt;p&gt;Notes on Russ Olsen&amp;rsquo;s excellent book &amp;lsquo;Eloquent Ruby&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;My notes on Russ Olsen&amp;rsquo;s excellent book &lt;a href=&#34;http://eloquentruby.com/&#34;&gt;Eloquent
+Ruby&lt;/a&gt;.  These aren&amp;rsquo;t meant to be full and
+complete notes, they&amp;rsquo;re just things I want to remember; for more
+information &lt;em&gt;buy the book&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;chapter-18-execute-around-with-a-block:7451105976af4d209042d2a3b77cd961&#34;&gt;Chapter 18. Execute Around with a Block&lt;/h1&gt;
+
+&lt;p&gt;
+puts &#34;hello world&#34;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Haskell Hole Driven Development</title>
       <link>http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/</link>
       <pubDate>Fri, 22 May 2015 00:00:00 +0000</pubDate>
@@ -23,30 +46,30 @@ using the type system to help you write a function.&lt;/p&gt;
 allow code to compile (without producing error messages) while you&amp;rsquo;re
 working on other parts. The two placeholders are:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #bbbbbb&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;todo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(or&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;any&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string)&lt;/span&gt;
-&lt;span style=&#34;color: #447fcf&#34;&gt;undefined&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+error &#34;todo&#34; (or any string)
+undefined
 &lt;/p&gt;
 
 &lt;p&gt;The &amp;ldquo;hole driven&amp;rdquo; part involves using the underscore to get the
 compiler to print types:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;_undefined&lt;/span&gt;
-&lt;span style=&#34;color: #447fcf&#34;&gt;_x&lt;/span&gt;
-&lt;span style=&#34;color: #447fcf&#34;&gt;_foo&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+_undefined
+_x
+_foo
 &lt;/p&gt;
 
 &lt;p&gt;For example if I used &lt;code&gt;_x&lt;/code&gt; then re-loaded my code in ghci, I would get
 output like:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;Found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hole&lt;/span&gt; &lt;span style=&#34;color: #a61717; background-color: #e3d2d2&#34;&gt;‘&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;_x&lt;/span&gt;&lt;span style=&#34;color: #a61717; background-color: #e3d2d2&#34;&gt;’&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;type:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;...&lt;/span&gt;
-&lt;span style=&#34;color: #447fcf&#34;&gt;g2&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;31&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #447fcf&#34;&gt;s2&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;28&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #447fcf&#34;&gt;g1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;18&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #447fcf&#34;&gt;s1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;15&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+Found hole ‘_x’ with type: a
+...
+g2 :: a -&gt; b (bound at GetSetLens.hs:312:31)
+s2 :: a -&gt; b -&gt; a (bound at GetSetLens.hs:312:28)
+g1 :: b -&gt; c (bound at GetSetLens.hs:312:18)
+s1 :: b -&gt; c -&gt; b (bound at GetSetLens.hs:312:15)
 &lt;/p&gt;
 
 &lt;p&gt;Showing me that where I had &lt;code&gt;_x&lt;/code&gt; a type &lt;code&gt;a&lt;/code&gt; was expected, and that I already
@@ -89,33 +112,33 @@ scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;
       <guid>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;network.system:&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;enabled:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;True&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hostname:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;server1.example.com&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+system:
+    network.system:
+      - enabled: True
+      - hostname: server1.example.com
 &lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a little shell script I wrote, to get around this problem:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat set_hostname.sh 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;p&gt;
+% cat set_hostname.sh 
+#!/bin/bash
 
-&lt;span style=&#34;color: #40ffff&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
-hostname &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;
-&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
-sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
-&lt;/pre&gt;&lt;/div&gt;
+hn=$1
+hostname $hn
+echo $hn &gt; /etc/hostname
+sed -i &#34;1s/.*/127.0.0.1 localhost $hn/&#34; /etc/hosts
 &lt;/p&gt;
 
 &lt;p&gt;Then apply it using cmd.script, for example:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;foo-hostname:&lt;/span&gt;
-  &lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd.script:&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;source:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;salt://soe/set_hostname.sh&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;args:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;foo.bar.com&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;unless:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;grep -q &amp;quot;foo.bar.com&amp;quot; /etc/hosts&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+foo-hostname:
+  cmd.script:
+    - source: salt://soe/set_hostname.sh
+    - args: foo.bar.com
+    - unless: grep -q &#34;foo.bar.com&#34; /etc/hosts
 &lt;/p&gt;
 </description>
     </item>
@@ -144,84 +167,84 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;p&gt;
+#!/bin/bash
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## install go&lt;/span&gt;
+## install go
 
-&lt;span style=&#34;color: #40ffff&#34;&gt;tgz&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;go1.3.3.linux-amd64.tar.gz
-&lt;span style=&#34;color: #40ffff&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;https://storage.googleapis.com/golang/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
+tgz=go1.3.3.linux-amd64.tar.gz
+url=https://storage.googleapis.com/golang/$tgz
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -f /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-	&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /var/tmp
-	wget &lt;span style=&#34;color: #40ffff&#34;&gt;$url&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+if ! [ -f /var/tmp/$tgz ] ; then
+	cd /var/tmp
+	wget $url
+fi
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d /usr/local/go &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-	sudo tar -C /usr/local -xzf /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+if ! [ -d /usr/local/go ] ; then
+	sudo tar -C /usr/local -xzf /var/tmp/$tgz
+fi
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## setup dev directory structure&lt;/span&gt;
+## setup dev directory structure
 
-mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thirdparty&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;bin,pkg,src&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src}
 
-&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#---------------------&lt;/span&gt;
+cd ~/go/thirdparty/src
+#---------------------
 
-&lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install third party repos? (go-bindata, lint)&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/jteeuwen/go-bindata &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+read -p &#34;Install third party repos? (go-bindata, lint)&#34;
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+	if ! [ -d github.com/jteeuwen/go-bindata ] ; then
 		go get github.com/jteeuwen/go-bindata/...
 		cp ~/go/thirdparty/bin/go-bindata ~/bin
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+	fi
 
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/golang/lint &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	if ! [ -d github.com/golang/lint ] ; then
 		go get github.com/golang/lint/golint
 		cp ~/go/thirdparty/bin/golint ~/bin
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+	fi
+fi
 
-&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/sonia/src
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#----------------&lt;/span&gt;
+cd ~/go/sonia/src
+#----------------
 
-&lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install soniah repos? (gosnmp, evaler)&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-	&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# do &amp;#39;git clone&amp;#39; not &amp;#39;go get&amp;#39; so origin is writeable&lt;/span&gt;
-	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/evaler &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
-		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+read -p &#34;Install soniah repos? (gosnmp, evaler)&#34;
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+	# do &#39;git clone&#39; not &#39;go get&#39; so origin is writeable
+	dir=github.com/soniah
+	if ! [ -d $dir/evaler ] ; then
+		mkdir -p $dir
+		cd $dir
 		git clone git@github.com:soniah/evaler.git
-		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+		cd -
+	fi
 
-	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/gosnmp &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
-		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+	dir=github.com/soniah
+	if ! [ -d $dir/gosnmp ] ; then
+		mkdir -p $dir
+		cd $dir
 		git clone git@github.com:soniah/gosnmp.git
-		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+		cd -
+	fi
+fi
 &lt;/p&gt;
 
 &lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
-&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+export GOPATH=~/go/thirdparty:~/go/sonia
+export PATH=${GOPATH//://bin:}/bin:$PATH
 &lt;/p&gt;
 
 &lt;p&gt;Then you need to follow the &lt;a href=&#34;https://github.com/hashicorp/terraform&#34;&gt;Terraform instructions&lt;/a&gt; for building, that is:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
-&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;go get -u github.com/mitchellh/gox
-&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src/github.com/hashicorp/terraform
-&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make updatedeps
-&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make dev
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# put the binaries somewhere in your path, eg /usr/local/bin&lt;/span&gt;
-&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;sudo cp bin/terraform* /usr/local/bin
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+$ cd ~/go/thirdparty/src
+$ go get -u github.com/mitchellh/gox
+$ cd ~/go/thirdparty/src/github.com/hashicorp/terraform
+$ make updatedeps
+$ make dev
+# put the binaries somewhere in your path, eg /usr/local/bin
+$ sudo cp bin/terraform* /usr/local/bin
 &lt;/p&gt;
 </description>
     </item>
@@ -238,29 +261,29 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 
 &lt;p&gt;First install the &lt;a href=&#34;http://hg-git.github.io/&#34;&gt;hg-git&lt;/a&gt; tools; for example on Ubuntu:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install python-setuptools python-dev
+&lt;p&gt;
+sudo aptitude install python-setuptools python-dev
 sudo easy_install hg-git
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Make sure the following is in your ~/.hgrc:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;extensions&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
-hgext.bookmarks &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;
-&lt;span style=&#34;color: #40ffff&#34;&gt;hggit&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+[extensions]
+hgext.bookmarks =
+hggit = 
 &lt;/p&gt;
 
 &lt;p&gt;Then, in your existing mercurial repository, add a new remote that points to the git repository. For example for a BitBucket repository:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &amp;lt;mercurial repository&amp;gt;
+&lt;p&gt;
+cd &lt;mercurial repository&gt;
 cat .hg/hgrc
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;paths&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# the original hg repository&lt;/span&gt;
-&lt;span style=&#34;color: #40ffff&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; https://username@abcde.org/foo/barhg
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# the git version (on BitBucket in this case)&lt;/span&gt;
-&lt;span style=&#34;color: #40ffff&#34;&gt;bbgit&lt;/span&gt;   &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; git+ssh://git@bitbucket.org:foo/bar.git
-&lt;/pre&gt;&lt;/div&gt;
+[paths]
+# the original hg repository
+default = https://username@abcde.org/foo/barhg
+# the git version (on BitBucket in this case)
+bbgit   = git+ssh://git@bitbucket.org:foo/bar.git
 &lt;/p&gt;
 
 &lt;p&gt;Then you can go an &lt;em&gt;hg push bbgit&lt;/em&gt; to push from your local hg repository to the remote git repository.&lt;/p&gt;
@@ -269,27 +292,27 @@ cat .hg/hgrc
 
 &lt;p&gt;You may get the error &lt;em&gt;mercurial abort: revision cannot be pushed since it doesn&amp;rsquo;t have a ref&lt;/em&gt; when pushing from hg to git, or you might notice that your hg work isn&amp;rsquo;t being pushed. The solution here is to reset the hg bookmark for git&amp;rsquo;s master branch:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hg book -f -r tip master
+&lt;p&gt;
+hg book -f -r tip master
 hg push bbgit
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;If you find yourself doing this regularly, this small shell function (in your ~/.bashrc) will help:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-   &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $1 is hg remote name in hgrc for repo&lt;/span&gt;
-   &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $2 is branch (defaults to master)&lt;/span&gt;
-   hg book -f -r tip &lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;master&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
-   hg push &lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+hggitpush () {
+   # $1 is hg remote name in hgrc for repo
+   # $2 is branch (defaults to master)
+   hg book -f -r tip ${2:-master}
+   hg push $1
+}
 &lt;/p&gt;
 
 &lt;p&gt;Then from your shell you can run commands like:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush bbgit dev
-hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# defaults to pushing to master&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+hggitpush bbgit dev
+hggitpush foogit      # defaults to pushing to master
 &lt;/p&gt;
 </description>
     </item>
@@ -322,44 +345,44 @@ hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34
 
 &lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; dialout
-sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; tty
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+sudo adduser $USER dialout
+sudo adduser $USER tty
 &lt;/p&gt;
 
 &lt;p&gt;Confirm the port &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt; is being used by Arduino - tail messages then plug in the Arduino.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tail -f /var/log/messages
+&lt;p&gt;
+sudo tail -f /var/log/messages
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
+# you should see something like:
 FTDI USB Serial Device converter now attached to ttyUSB0
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# out of interest, inspect permissions on port&lt;/span&gt;
+# out of interest, inspect permissions on port
 ls -al /dev/ttyUSB0
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Logout and login (or run a login shell). Confirm permissions.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;zsh -l
+&lt;p&gt;
+zsh -l
 id
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
-&lt;span style=&#34;color: #40ffff&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;1000&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;sonia&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,5&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;tty&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,20&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;dialout&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,...
-&lt;/pre&gt;&lt;/div&gt;
+# you should see something like:
+groups=1000(sonia),5(tty),20(dialout),...
 &lt;/p&gt;
 
 &lt;p&gt;Install Arduino pre-requisites.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install arduino arduino-core
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+sudo aptitude install arduino arduino-core
 &lt;/p&gt;
 
 &lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/arduino-1.0.5
-./arduino&lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+cd ~/arduino-1.0.5
+./arduino&amp;
 &lt;/p&gt;
 
 &lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;
@@ -392,20 +415,20 @@ id
 
 &lt;p&gt;Some notes for me on listing ZFS snapshots, and creating and destroying clones.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /mnt/vol01/bjj
-zfs list -t snapshot &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep bjj &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep -v vobs
+&lt;p&gt;
+cd /mnt/vol01/bjj
+zfs list -t snapshot | grep bjj | grep -v vobs
 zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
-&lt;span style=&#34;color: #24909d&#34;&gt;cd &lt;/span&gt;auto-20131214.12d
+cd auto-20131214.12d
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# after recovery tasks, umount snapshot&lt;/span&gt;
-&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /mnt/vol01/bjj
+# after recovery tasks, umount snapshot
+cd /mnt/vol01/bjj
 umount auto-20131214.12d
 rmdir auto-20131214.12d
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# usually want to umount not destroy, as a&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# destroy may cascade delete other dependent snapshots&lt;/span&gt;
+# usually want to umount not destroy, as a
+# destroy may cascade delete other dependent snapshots
 zfs destroy vol01/bjj/foo
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 </description>
     </item>
@@ -455,24 +478,23 @@ zfs destroy vol01/bjj/foo
 
 &lt;p&gt;The commandlinefu.com topic &lt;a href=&#34;http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu&#34;&gt;List your largest installed packages (on Debian/Ubuntu)&lt;/a&gt; has some useful commands:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;\&lt;/span&gt;
-  /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -rn
+&lt;p&gt;
+% sed -ne &#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&#39;\
+  /var/lib/dpkg/status | sort -rn
 
-% dpkg-query -Wf &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;${Installed-Size}\t${Package}\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n
+% dpkg-query -Wf &#39;${Installed-Size}\t${Package}\n&#39; | sort -n
 
-% dpkg --get-selections &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; cut -f1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;read &lt;/span&gt;pkg&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt; dpkg -L &lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; xargs -I&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{}&amp;#39;&lt;/span&gt; bash -c &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-  &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;if [ ! -d &amp;quot;{}&amp;quot; ]; then echo &amp;quot;{}&amp;quot;; fi&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tr &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\000&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; du -c --files0-from - &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-   tail -1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sed &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;s/total/&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+% dpkg --get-selections | cut -f1 | while read pkg; do dpkg -L $pkg | xargs -I&#39;{}&#39; bash -c \
+  &#39;if [ ! -d &#34;{}&#34; ]; then echo &#34;{}&#34;; fi&#39; | tr &#39;\n&#39; &#39;\000&#39; | du -c --files0-from - |\
+   tail -1 | sed &#34;s/total/$pkg/&#34;; done
 
-% awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;quot;%9d %s\n&amp;quot;, $2, p)}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-   /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail
-&lt;/pre&gt;&lt;/div&gt;
+% awk &#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&#34;%9d %s\n&#34;, $2, p)}&#39; \
+   /var/lib/dpkg/status | sort -n | tail
 &lt;/p&gt;
 
 &lt;p&gt;The &lt;a href=&#34;http://www.auroraos.org/release/eeebuntu&#34;&gt;download sources for Eeebuntu&lt;/a&gt; seem to be broken, and nowadays I&amp;rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&amp;rsquo;m running &lt;a href=&#34;http://wiki.debian.org/LXDE&#34;&gt;Debian with LXDE&lt;/a&gt; - it seems to work well.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ASUS_Eee_PC_PIC_0971.JPG/220px-ASUS_Eee_PC_PIC_0971.JPG&#34; alt=&#34;&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ASUS_Eee_PC_PIC_0971.JPG/220px-ASUS_Eee_PC_PIC_0971.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -513,40 +535,40 @@ zfs destroy vol01/bjj/foo
 
 &lt;p&gt;With this directory structure I set &lt;strong&gt;GOPATH&lt;/strong&gt; on the command line or in a Makefile:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~go/project2/src/github.com/soniah/gosnmp
-% &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~go/project2 go build
-&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;
+% cd ~go/project2/src/github.com/soniah/gosnmp
+% GOPATH=~go/project2 go build
 &lt;/p&gt;
 
 &lt;h3 id=&#34;makefile:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Makefile&lt;/h3&gt;
 
 &lt;p&gt;For smaller projects you can just produce a binary using &lt;strong&gt;go run&lt;/strong&gt; or &lt;strong&gt;go build&lt;/strong&gt;. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/lib/go
-GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /var/lib/jenkins/workspace/go/project2
+&lt;p&gt;
+GOROOT := /usr/lib/go
+GOPATH := /var/lib/jenkins/workspace/go/project2
 
-myhostname :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;shell hostname&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt;
-ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, laptop&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/sonia/go/project2
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, testmachine&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/u1234/go/project2
-    GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/local/go
+myhostname := $(shell hostname)
+ifeq (${myhostname}, laptop)
+    GOPATH := /home/sonia/go/project2
+else ifeq (${myhostname}, testmachine)
+    GOPATH := /home/u1234/go/project2
+    GOROOT := /usr/local/go
 endif
 
 build: build-stamp
 build-stamp: file1.go file2.go file3.go
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# always format code&lt;/span&gt;
-    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go fmt &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# binary&lt;/span&gt;
-    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go build -o project2 -v &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# docs&lt;/span&gt;
-    markdown README.mkd &amp;gt; README.html
-    help2man --no-info --include&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;help2man.roff --name &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Project2&amp;quot;&lt;/span&gt; ./project2 &amp;gt; project2.roff
-    man -Tps -l project2.roff &amp;gt; project2-man.ps
+    # always format code
+    GOPATH=$(GOPATH) go fmt $^
+    # binary
+    GOPATH=$(GOPATH) go build -o project2 -v $^
+    # docs
+    markdown README.mkd &gt; README.html
+    help2man --no-info --include=help2man.roff --name &#34;Project2&#34; ./project2 &gt; project2.roff
+    man -Tps -l project2.roff &gt; project2-man.ps
     ps2pdf project2-man.ps project2-man.pdf
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# mark as done&lt;/span&gt;
-    touch &lt;span style=&#34;color: #40ffff&#34;&gt;$@&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+    # mark as done
+    touch $@
 &lt;/p&gt;
 
 &lt;h3 id=&#34;jenkins:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Jenkins&lt;/h3&gt;
@@ -585,177 +607,26 @@ build-stamp: file1.go file2.go file3.go
 
 &lt;p&gt;For example, I&amp;rsquo;ve been working on the &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;GoSNMP SNMP library&lt;/a&gt;, here&amp;rsquo;s how I profiled it (it wasn&amp;rsquo;t obvious):&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# produce cpu profiling information from the tests - this part was well documented&lt;/span&gt;
-% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -cpuprofile cpu.out
+&lt;p&gt;
+# produce cpu profiling information from the tests - this part was well documented
+% go test -cpuprofile cpu.out
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# compile the test binary to pkg.test but do not run it (from `go help test`)&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# this part wasn&amp;#39;t obvious&lt;/span&gt;
-% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -c
+# compile the test binary to pkg.test but do not run it (from `go help test`)
+# this part wasn&#39;t obvious
+% go test -c
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# now run pprof using `go teste -c` output&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# using gosnmp.test - this part wasn&amp;#39;t obvious&lt;/span&gt;
+# now run pprof using `go teste -c` output
+# using gosnmp.test - this part wasn&#39;t obvious
 % go tool pprof gosnmp.test cpu.out
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Doing a memory profile was similar:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -memprofile mem.out
-% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -c
+&lt;p&gt;
+% go test -memprofile mem.out
+% go test -c
 % go tool pprof gosnmp.test mem.out
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu - HowTo Recover Encrypted Home Directory</title>
-      <link>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</link>
-      <pubDate>Mon, 03 Jun 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</guid>
-      <description>
-
-&lt;p&gt;There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below).&lt;/p&gt;
-
-&lt;p&gt;These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.&lt;/p&gt;
-
-&lt;p&gt;Start by booting from an Ubuntu Live CD.&lt;/p&gt;
-
-&lt;h2 id=&#34;passwords:33ade79a5747fd03584f84a543a518de&#34;&gt;Passwords&lt;/h2&gt;
-
-&lt;p&gt;Three different &amp;ldquo;passwords&amp;rdquo; are referred to when recovering:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;boot password ie the password used when your laptop is first booted and the partitions are decrypted&lt;/li&gt;
-&lt;li&gt;user password ie your unix account password&lt;/li&gt;
-&lt;li&gt;mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn&amp;rsquo;t write down when prompted to do so&amp;hellip; See &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase&#34;&gt;Recovering Your Mount Passphrase&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;partitions-and-disk-layout:33ade79a5747fd03584f84a543a518de&#34;&gt;Partitions and Disk Layout&lt;/h2&gt;
-
-&lt;p&gt;If you selected the default Ubuntu encryption setup, the partitions will
-be laid out like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;/dev/sda1 * &lt;span style=&#34;color: #3677a9&#34;&gt;2048&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;499711&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;248832&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;83&lt;/span&gt; Linux
-/dev/sda2 &lt;span style=&#34;color: #3677a9&#34;&gt;501758&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;488134657&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; Extended
-/dev/sda5 &lt;span style=&#34;color: #3677a9&#34;&gt;501760&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;488134656&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;83&lt;/span&gt; Linux
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;/dev/sda1 contains /boot ie kernel and grub&lt;/li&gt;
-&lt;li&gt;/dev/sda5 is an encrypted partition (&lt;code&gt;crypto_LUKS&lt;/code&gt;) that contains
-LVM. The Logical Volumes will be for /root, /home and swap. /home
-will be encrypted with a second level of encryption if you chose
-&amp;ldquo;encrypt home directory&amp;rdquo; during installation.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;mounting-encrypted-lvm-partition:33ade79a5747fd03584f84a543a518de&#34;&gt;Mounting Encrypted LVM Partition&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;confirm /dev/sda5 is the correct partition [1]:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksDump /dev/sda5
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;mount the encrypted partition containing the LVM volumes:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksOpen /dev/sda5 sda5_crypt
-vgdisplay
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;p&gt;(you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lvdisplay &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; less
-mkdir /mnt/home
-mount -t ext4 /dev/vg/home /mnt/home
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;mounting-encrypted-home-luks-vs-ecryptfs:33ade79a5747fd03584f84a543a518de&#34;&gt;Mounting Encrypted Home, LUKS vs eCryptfs&lt;/h2&gt;
-
-&lt;p&gt;The partition was encrypted with LUKS, and /home will be encrypted with a second level of encryption (eCryptfs) if you chose &amp;ldquo;encrypt home directory&amp;rdquo; during installation.&lt;/p&gt;
-
-&lt;p&gt;Note for future installs: you&amp;rsquo;d only want to have both if multiple people were using the same machine. Otherwise use only LUKS especially for laptops; eCryptfs is an extra hurdle during recovery and doesn&amp;rsquo;t give extra security. Also, using only LUKS is more secure than only encrypting your home directory using eCryptfs:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;it will encrypt other things beside /home eg swap, /tmp&lt;/li&gt;
-&lt;li&gt;you&amp;rsquo;ll only type in your long LUKS passphrase occasionally (ie at reboot), whereas the eCryptfs password will be typed in every time you login or unlock the screen ie will be more vulnerable to shoulder-surfing, and more likely to be too short&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;However, eCryptfs does have some advantages (&lt;a href=&#34;http://www.privacydusk.com/tag/ecryptfs-vs-luks/):&#34;&gt;http://www.privacydusk.com/tag/ecryptfs-vs-luks/):&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;All the cryptographic metadata is stored in the header of the file. This means that the encrypted file can be copied and moved from one location to another not leaving any metadata behind&lt;/li&gt;
-&lt;li&gt;Files can be encrypted with multiple keys so that multiple different users can have access to encrypted but shared files. You can have different files encrypted by different users and each user can access only his files&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;automated-approach-2:33ade79a5747fd03584f84a543a518de&#34;&gt;Automated Approach [2]&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;remount&amp;rdquo; /mnt/home on home:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;umount /mnt/home
-mount -t ext4 /dev/vg/home /home
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# add a user with the same name as the broken system&lt;/span&gt;
-adduser --no-create-home sonia
-su sonia
-ecryptfs-mount-private
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;manual-approach-3:33ade79a5747fd03584f84a543a518de&#34;&gt;Manual Approach [3]&lt;/h2&gt;
-
-&lt;p&gt;The Ubuntu documentation on EncryptedPrivateDirectory has lots of
-information [4]. These commands are copied from there, in case the page
-moves or disappears.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo ecryptfs-add-passphrase --fnek
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Passphrase: (Enter the mount passphrase you recorded when you setup the mount&amp;ndash;this passphrase is different from your login passphrase.)&lt;/p&gt;
-
-&lt;p&gt;You should now get two lines looking like this:&lt;/p&gt;
-
-&lt;p&gt;Inserted auth tok with sig [9986ad986f986af7] into the user session keyring&lt;/p&gt;
-
-&lt;p&gt;Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mkdir /mnt/Private
-mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Selection: 3 (use a passphrase key type)&lt;/p&gt;
-
-&lt;p&gt;Passphrase: (Enter the mount passphrase you recorded when you setup the mount&amp;ndash;this passphrase is different from your login passphrase.)&lt;/p&gt;
-
-&lt;p&gt;Selection: aes (use the aes cipher)&lt;/p&gt;
-
-&lt;p&gt;Selection: 16 (use a 16 byte key)&lt;/p&gt;
-
-&lt;p&gt;Enable plaintext passthrough: n&lt;/p&gt;
-
-&lt;p&gt;Enable filename encryption: y (This and the following options only apply if you are using filename encryption)&lt;/p&gt;
-
-&lt;p&gt;Filename Encryption Key (FNEK) Signature: (the value you wrote down from
-the second line above)&lt;/p&gt;
-
-&lt;h2 id=&#34;see-also:33ade79a5747fd03584f84a543a518de&#34;&gt;See Also&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;[1] &lt;a href=&#34;http://blog.miketoscano.com/?p=72&#34;&gt;http://blog.miketoscano.com/?p=72&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[2] &lt;a href=&#34;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&#34;&gt;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[3] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;[4] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

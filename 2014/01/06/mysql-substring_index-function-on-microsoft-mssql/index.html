@@ -70,55 +70,55 @@ function. Here&rsquo;s a version I quickly implemented, called
 <li>only works with varchars - we speak ASCII here&hellip;</li>
 </ul>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">ANSI_NULLS</span> <span style="color: #6ab825; font-weight: bold">ON</span><span style="color: #d0d0d0">;</span>
-<span style="color: #6ab825; font-weight: bold">GO</span>
+<p>
+SET ANSI_NULLS ON;
+GO
 
-<span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">QUOTED_IDENTIFIER</span> <span style="color: #6ab825; font-weight: bold">ON</span><span style="color: #d0d0d0">;</span>
-<span style="color: #6ab825; font-weight: bold">GO</span>
+SET QUOTED_IDENTIFIER ON;
+GO
 
-<span style="color: #6ab825; font-weight: bold">CREATE</span> <span style="color: #6ab825; font-weight: bold">FUNCTION</span> <span style="color: #d0d0d0">[dbo].[my_substring_index]</span>
-<span style="color: #d0d0d0">(@str</span> <span style="color: #24909d">VARCHAR</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">255</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">@delim</span> <span style="color: #24909d">VARCHAR</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #24909d">INT</span><span style="color: #d0d0d0">)</span>
-<span style="color: #6ab825; font-weight: bold">RETURNS</span> <span style="color: #24909d">VARCHAR</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">255</span><span style="color: #d0d0d0">)</span>
-<span style="color: #6ab825; font-weight: bold">AS</span>
-<span style="color: #6ab825; font-weight: bold">BEGIN</span>
-    <span style="color: #6ab825; font-weight: bold">DECLARE</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">result</span> <span style="color: #6ab825; font-weight: bold">AS</span> <span style="color: #24909d">VARCHAR</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">255</span><span style="color: #d0d0d0">),</span> <span style="color: #d0d0d0">@posn</span> <span style="color: #6ab825; font-weight: bold">AS</span> <span style="color: #24909d">INT</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@loop</span> <span style="color: #6ab825; font-weight: bold">AS</span> <span style="color: #24909d">INT</span><span style="color: #d0d0d0">,</span> 
-			<span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">found</span> <span style="color: #6ab825; font-weight: bold">AS</span> <span style="color: #24909d">INT</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@reversed</span> <span style="color: #6ab825; font-weight: bold">AS</span> <span style="color: #24909d">INT</span><span style="color: #d0d0d0">;</span>
-    <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@loop</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">;</span>
-    <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@posn</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">;</span>
-    <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">found</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">;</span>
-    <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@reversed</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">;</span>
-    <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #d0d0d0">&lt;</span> <span style="color: #3677a9">0</span>
-        <span style="color: #6ab825; font-weight: bold">BEGIN</span>
-            <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@reversed</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">;</span>
-            <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span> <span style="color: #d0d0d0">*</span> <span style="color: #d0d0d0">-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">;</span>
-            <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@str</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">REVERSE(@str);</span>
-        <span style="color: #6ab825; font-weight: bold">END</span>
-    <span style="color: #d0d0d0">WHILE</span> <span style="color: #d0d0d0">@loop</span> <span style="color: #d0d0d0">&lt;</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">count</span>
-        <span style="color: #6ab825; font-weight: bold">BEGIN</span>
-            <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@posn</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">charindex(@delim,</span> <span style="color: #d0d0d0">@str,</span> <span style="color: #d0d0d0">@posn</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">);</span>
-            <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@posn</span> <span style="color: #d0d0d0">&gt;</span> <span style="color: #3677a9">0</span>
-                <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">found</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">;</span>
-            <span style="color: #6ab825; font-weight: bold">ELSE</span>
-                <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">found</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">AND</span> <span style="color: #d0d0d0">@reversed</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0</span>
-                    <span style="color: #6ab825; font-weight: bold">RETURN</span> <span style="color: #d0d0d0">@str;</span> <span style="color: #999999; font-style: italic">-- ie mimic mysql behaviour</span>
-                <span style="color: #6ab825; font-weight: bold">ELSE</span>
-                    <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@</span><span style="color: #6ab825; font-weight: bold">found</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">AND</span> <span style="color: #d0d0d0">@reversed</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span>
-                        <span style="color: #6ab825; font-weight: bold">RETURN</span> <span style="color: #d0d0d0">REVERSE(@str);</span> <span style="color: #999999; font-style: italic">-- ie mimic mysql behaviour</span>
-            <span style="color: #6ab825; font-weight: bold">SET</span> <span style="color: #d0d0d0">@loop</span> <span style="color: #d0d0d0">=</span> <span style="color: #d0d0d0">@loop</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">;</span>
-        <span style="color: #6ab825; font-weight: bold">END</span>
-    <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@posn</span> <span style="color: #d0d0d0">&gt;=</span> <span style="color: #3677a9">0</span> <span style="color: #6ab825; font-weight: bold">AND</span> <span style="color: #d0d0d0">@reversed</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">0</span>
-        <span style="color: #6ab825; font-weight: bold">RETURN</span> <span style="color: #6ab825; font-weight: bold">SUBSTRING</span><span style="color: #d0d0d0">(@str,</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@posn);</span>
-    <span style="color: #6ab825; font-weight: bold">ELSE</span>
-        <span style="color: #d0d0d0">IF</span> <span style="color: #d0d0d0">@posn</span> <span style="color: #d0d0d0">&gt;=</span> <span style="color: #3677a9">0</span> <span style="color: #6ab825; font-weight: bold">AND</span> <span style="color: #d0d0d0">@reversed</span> <span style="color: #d0d0d0">=</span> <span style="color: #3677a9">1</span>
-            <span style="color: #6ab825; font-weight: bold">RETURN</span> <span style="color: #d0d0d0">REVERSE(</span><span style="color: #6ab825; font-weight: bold">SUBSTRING</span><span style="color: #d0d0d0">(@str,</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">@posn));</span>
-    <span style="color: #6ab825; font-weight: bold">RETURN</span> <span style="color: #ed9d13">&#39;&#39;</span><span style="color: #d0d0d0">;</span>
-<span style="color: #6ab825; font-weight: bold">END</span>
+CREATE FUNCTION [dbo].[my_substring_index]
+(@str VARCHAR (255), @delim VARCHAR (1), @count INT)
+RETURNS VARCHAR (255)
+AS
+BEGIN
+    DECLARE @result AS VARCHAR (255), @posn AS INT, @loop AS INT, 
+			@found AS INT, @reversed AS INT;
+    SET @loop = 0;
+    SET @posn = -1;
+    SET @found = 0;
+    SET @reversed = 0;
+    IF @count < 0
+        BEGIN
+            SET @reversed = 1;
+            SET @count = @count * -1;
+            SET @str = REVERSE(@str);
+        END
+    WHILE @loop < @count
+        BEGIN
+            SET @posn = charindex(@delim, @str, @posn + 1);
+            IF @posn > 0
+                SET @found = 1;
+            ELSE
+                IF @found = 1 AND @reversed = 0
+                    RETURN @str; -- ie mimic mysql behaviour
+                ELSE
+                    IF @found = 1 AND @reversed = 1
+                        RETURN REVERSE(@str); -- ie mimic mysql behaviour
+            SET @loop = @loop + 1;
+        END
+    IF @posn >= 0 AND @reversed = 0
+        RETURN SUBSTRING(@str, 0, @posn);
+    ELSE
+        IF @posn >= 0 AND @reversed = 1
+            RETURN REVERSE(SUBSTRING(@str, 0, @posn));
+    RETURN '';
+END
 
-<span style="color: #6ab825; font-weight: bold">SELECT</span> <span style="color: #d0d0d0">dbo.my_substring_index(</span><span style="color: #ed9d13">&#39;www.mysql.com&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #ed9d13">&#39;.&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span>
-<span style="color: #999999; font-style: italic">--------------------------------------------------------</span>
-<span style="color: #d0d0d0">com</span>
-<span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span> <span style="color: #6ab825; font-weight: bold">row</span><span style="color: #d0d0d0">(s)</span> <span style="color: #d0d0d0">affected)</span>
-</pre></div>
+SELECT dbo.my_substring_index('www.mysql.com', '.', -1)
+--------------------------------------------------------
+com
+(1 row(s) affected)
 </p>
 
         </section>

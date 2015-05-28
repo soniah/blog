@@ -67,30 +67,30 @@ using the type system to help you write a function.</p>
 allow code to compile (without producing error messages) while you&rsquo;re
 working on other parts. The two placeholders are:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #bbbbbb">error</span> <span style="color: #ed9d13">&quot;todo&quot;</span> <span style="color: #d0d0d0">(or</span> <span style="color: #d0d0d0">any</span> <span style="color: #d0d0d0">string)</span>
-<span style="color: #447fcf">undefined</span>
-</pre></div>
+<p>
+error "todo" (or any string)
+undefined
 </p>
 
 <p>The &ldquo;hole driven&rdquo; part involves using the underscore to get the
 compiler to print types:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #447fcf">_undefined</span>
-<span style="color: #447fcf">_x</span>
-<span style="color: #447fcf">_foo</span>
-</pre></div>
+<p>
+_undefined
+_x
+_foo
 </p>
 
 <p>For example if I used <code>_x</code> then re-loaded my code in ghci, I would get
 output like:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">Found</span> <span style="color: #d0d0d0">hole</span> <span style="color: #a61717; background-color: #e3d2d2">‘</span><span style="color: #d0d0d0">_x</span><span style="color: #a61717; background-color: #e3d2d2">’</span> <span style="color: #d0d0d0">with</span> <span style="color: #6ab825; font-weight: bold">type:</span> <span style="color: #d0d0d0">a</span>
-<span style="color: #d0d0d0">...</span>
-<span style="color: #447fcf">g2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">31</span><span style="color: #d0d0d0">)</span>
-<span style="color: #447fcf">s2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">28</span><span style="color: #d0d0d0">)</span>
-<span style="color: #447fcf">g1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">18</span><span style="color: #d0d0d0">)</span>
-<span style="color: #447fcf">s1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">15</span><span style="color: #d0d0d0">)</span>
-</pre></div>
+<p>
+Found hole ‘_x’ with type: a
+...
+g2 :: a -> b (bound at GetSetLens.hs:312:31)
+s2 :: a -> b -> a (bound at GetSetLens.hs:312:28)
+g1 :: b -> c (bound at GetSetLens.hs:312:18)
+s1 :: b -> c -> b (bound at GetSetLens.hs:312:15)
 </p>
 
 <p>Showing me that where I had <code>_x</code> a type <code>a</code> was expected, and that I already
@@ -114,7 +114,7 @@ Haskell</a>.</p>
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/"> &nbsp; Devops and Old Git Branches</a> &raquo;
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/"> &nbsp; Eloquent Ruby</a> &raquo;
     </span>
   
   <br />

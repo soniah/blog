@@ -62,22 +62,22 @@
 
 <p>Install build pre-requisites:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo aptitude install gcc libc6-dev libc6-dev-i386 make <span style="color: #ed9d13">\</span>
+<p>
+sudo aptitude install gcc libc6-dev libc6-dev-i386 make \
   markdown build-essential debhelper dh-make fakeroot devscripts
-</pre></div>
 </p>
 
 <p>Install Go from source (so can cross-compile). Download from <a href="http://code.google.com/p/go/downloads/list">Go Downloads</a> eg go1.0.2.src.tar.gz</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz <span style="color: #d0d0d0">;</span> <span style="color: #24909d">cd</span> /usr/local/go/src
-sudo <span style="color: #40ffff">GOARCH</span><span style="color: #d0d0d0">=</span>amd64 ./all.bash <span style="color: #d0d0d0">;</span> sudo <span style="color: #40ffff">GOARCH</span><span style="color: #d0d0d0">=</span><span style="color: #3677a9">386</span> ./all.bash
-</pre></div>
+<p>
+sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz ; cd /usr/local/go/src
+sudo GOARCH=amd64 ./all.bash ; sudo GOARCH=386 ./all.bash
 </p>
 
 <p>Add to /etc/profile, source or re-login:
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">export </span><span style="color: #40ffff">GOROOT</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&quot;/usr/local/go&quot;</span>
-<span style="color: #24909d">export </span><span style="color: #40ffff">PATH</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&quot;</span><span style="color: #40ffff">$GOROOT</span><span style="color: #ed9d13">/bin:</span><span style="color: #40ffff">$PATH</span><span style="color: #ed9d13">&quot;</span>
-</pre></div>
+
+export GOROOT="/usr/local/go"
+export PATH="$GOROOT/bin:$PATH"
 </p>
 
         </section>
