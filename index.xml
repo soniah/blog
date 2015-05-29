@@ -5,8 +5,38 @@
     <link>http://blog2.snowfrog.net/</link>
     <description>Recent content on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 28 May 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://blog2.snowfrog.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS ssh keys</title>
+      <link>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</link>
+      <pubDate>Fri, 29 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</guid>
+      <description>&lt;p&gt;A quick &lt;em&gt;howto&lt;/em&gt; on working with AWS &lt;strong&gt;.pem&lt;/strong&gt; ssh certificates.&lt;/p&gt;
+
+&lt;p&gt;AWS distributes their ssh keys as &lt;strong&gt;.pem&lt;/strong&gt; certificates. The usual process with
+working with them is:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mv ~/Downloads/foo.pem ~/.ssh
+chmod &lt;span style=&#34;color: #3677a9&#34;&gt;0600&lt;/span&gt; ~/.ssh/foo.pem
+ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;However, sometimes it&amp;rsquo;s handy to generate a public key out of the
+&lt;strong&gt;.pem&lt;/strong&gt; file, for example to make working with Gnome&amp;rsquo;s
+&lt;a href=&#34;http://en.wikipedia.org/wiki/Seahorse_%28software%29&#34;&gt;Seahorse&lt;/a&gt; key
+manager easier:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/.ssh
+mv foo.pem foo
+ssh-keygen -y -f ~/.ssh/foo &amp;gt; ~/.ssh/foo.pub
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Eloquent Ruby</title>
@@ -610,34 +640,6 @@ rm -rf *
 &lt;/p&gt;
 
 &lt;p&gt;(or, click on VPN icon top right of screen, select &amp;lsquo;VPN Details&amp;rsquo;, +/- in the &amp;lsquo;Configurations&amp;rsquo; tab).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ZFS List Snapshots, Create and Destroy Clones</title>
-      <link>http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</link>
-      <pubDate>Sat, 14 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m using &lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, &lt;a href=&#34;http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line&#34;&gt;as always the shell is faster&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some notes for me on listing ZFS snapshots, and creating and destroying clones.&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /mnt/vol01/bjj
-zfs list -t snapshot &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep bjj &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep -v vobs
-zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
-&lt;span style=&#34;color: #24909d&#34;&gt;cd &lt;/span&gt;auto-20131214.12d
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# after recovery tasks, umount snapshot&lt;/span&gt;
-&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /mnt/vol01/bjj
-umount auto-20131214.12d
-rmdir auto-20131214.12d
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# usually want to umount not destroy, as a&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# destroy may cascade delete other dependent snapshots&lt;/span&gt;
-zfs destroy vol01/bjj/foo
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
 </description>
     </item>
     

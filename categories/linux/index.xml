@@ -5,8 +5,38 @@
     <link>http://blog2.snowfrog.net/categories/linux/</link>
     <description>Recent content in Linux on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 28 May 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://blog2.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS ssh keys</title>
+      <link>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</link>
+      <pubDate>Fri, 29 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</guid>
+      <description>&lt;p&gt;A quick &lt;em&gt;howto&lt;/em&gt; on working with AWS &lt;strong&gt;.pem&lt;/strong&gt; ssh certificates.&lt;/p&gt;
+
+&lt;p&gt;AWS distributes their ssh keys as &lt;strong&gt;.pem&lt;/strong&gt; certificates. The usual process with
+working with them is:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mv ~/Downloads/foo.pem ~/.ssh
+chmod &lt;span style=&#34;color: #3677a9&#34;&gt;0600&lt;/span&gt; ~/.ssh/foo.pem
+ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;However, sometimes it&amp;rsquo;s handy to generate a public key out of the
+&lt;strong&gt;.pem&lt;/strong&gt; file, for example to make working with Gnome&amp;rsquo;s
+&lt;a href=&#34;http://en.wikipedia.org/wiki/Seahorse_%28software%29&#34;&gt;Seahorse&lt;/a&gt; key
+manager easier:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/.ssh
+mv foo.pem foo
+ssh-keygen -y -f ~/.ssh/foo &amp;gt; ~/.ssh/foo.pub
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Eloquent Ruby</title>
@@ -592,39 +622,6 @@ build-stamp: file1.go file2.go file3.go
 
 &lt;li&gt;&lt;p&gt;separate out your Go code from other languages - &lt;strong&gt;Advanced Project Options&lt;/strong&gt;, &lt;strong&gt;Use custom workspace&lt;/strong&gt;, &amp;ldquo;/var/lib/jenkins/workspace/go&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Golang - profiling libraries and GoSNMP for SNMP</title>
-      <link>http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</link>
-      <pubDate>Mon, 03 Jun 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</guid>
-      <description>&lt;p&gt;There is already a great article on &lt;a href=&#34;blog.golang.org/2011/06/profiling-go-programs.html&#34;&gt;Profiling Go Programs&lt;/a&gt;. However that article only discusses how to profile a standalone binary - what about a library?&lt;/p&gt;
-
-&lt;p&gt;For example, I&amp;rsquo;ve been working on the &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;GoSNMP SNMP library&lt;/a&gt;, here&amp;rsquo;s how I profiled it (it wasn&amp;rsquo;t obvious):&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# produce cpu profiling information from the tests - this part was well documented&lt;/span&gt;
-% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -cpuprofile cpu.out
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# compile the test binary to pkg.test but do not run it (from `go help test`)&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# this part wasn&amp;#39;t obvious&lt;/span&gt;
-% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -c
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# now run pprof using `go teste -c` output&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# using gosnmp.test - this part wasn&amp;#39;t obvious&lt;/span&gt;
-% go tool pprof gosnmp.test cpu.out
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;p&gt;Doing a memory profile was similar:&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -memprofile mem.out
-% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -c
-% go tool pprof gosnmp.test mem.out
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
 </description>
     </item>
     

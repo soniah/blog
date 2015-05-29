@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://blog2.snowfrog.net/</loc>
-    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2015-05-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</loc>
+    <lastmod>2015-05-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -253,12 +258,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -298,12 +303,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -533,12 +538,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -618,12 +623,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -683,12 +688,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -853,12 +858,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -1098,12 +1103,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
+    <loc>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1153,12 +1158,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/11/29/open-source-calendaring/</loc>
+    <loc>http://blog2.snowfrog.net/2007/11/29/troubleshooting-apache/</loc>
     <lastmod>2007-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/11/29/troubleshooting-apache/</loc>
+    <loc>http://blog2.snowfrog.net/2007/11/29/open-source-calendaring/</loc>
     <lastmod>2007-11-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1333,12 +1338,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
