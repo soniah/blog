@@ -15,6 +15,6 @@ I uploaded some new Balintawak videos today - El Barto and I practicing some mor
 
 [![El Barto](http://blog.snowfrog.net/wp-content/uploads/2012/07/barto.png)](http://blog.snowfrog.net/wp-content/uploads/2012/07/barto.png)
 
-[youtube=http://www.youtube.com/watch?v=q6ZgJ1NfWQs]
+{{% youtube q6ZgJ1NfWQs %}}
 
-[youtube=http://www.youtube.com/watch?v=_4jZamIltBY]
+{{% youtube _4jZamIltBY %}}

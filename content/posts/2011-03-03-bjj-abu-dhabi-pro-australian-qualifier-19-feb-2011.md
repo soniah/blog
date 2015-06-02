@@ -16,11 +16,11 @@ I competed in the [BJJ][1] [Abu Dhabi Pro Australian Qualifier][2] on the 19th o
 
 The first fight. I gave in too easily to her pull to guard, and then took a while getting out. But then I passed to reverse half guard, half guard, side control, and back.
 
-<span class="youtube"></span>
+<!-- youtube?? -->
 
 The second fight. I made the error of trying a flying armbar from standup, which went badly. I ended up stuck under a cross-face half guard. I should&#8217;ve been able to get out of this, it&#8217;s a beginner escape. But as they say, you always learn the most when you lose in competitions; since the comp I&#8217;ve been focusing on this escape&#8230;
 
-<span class="youtube"></span>
+<!-- youtube?? -->
 
 And some photos:
 
@@ -29,28 +29,6 @@ And some photos:
 [<img class="aligncenter size-medium wp-image-870" title="DSC_0676" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0676.jpg?w=199" alt="" width="199" height="300" />][4]
 
 [<img class="aligncenter size-medium wp-image-871" title="DSC_0677" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0677.jpg?w=199" alt="" width="199" height="300" />][5]
-
-Some videos of other fights:
-
-<!--more-->
-
-<span class="youtube"></span>
-
-&nbsp;
-
-<span class="youtube"></span>
-
-&nbsp;
-
-<span class="youtube"></span>
-
-&nbsp;
-
-<span class="youtube"></span>
-
-&nbsp;
-
-<span class="youtube"></span>
 
  [1]: http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu
  [2]: http://www.abudhabiproaustralia.com/

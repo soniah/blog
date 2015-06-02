@@ -19,4 +19,4 @@ Thanks for training with us Ely!
 
 [![Darwin Ely John](http://blog.snowfrog.net/wp-content/uploads/2012/07/darwin_ely_johnB2-300x236.png)](http://blog.snowfrog.net/wp-content/uploads/2012/07/darwin_ely_johnB2.png)
 
-[youtube=http://www.youtube.com/watch?v=PDWEBtbM7xk]
+{{% youtube PDWEBtbM7xk %}}

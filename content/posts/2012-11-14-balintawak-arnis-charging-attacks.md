@@ -17,6 +17,4 @@ Here we're practising charging - both attacking and defending. We're still getti
 
 Train with us - [Sydney Stick Fighting](http://www.meetup.com/sydney-stick-fighting)
 
-[youtube=http://www.youtube.com/watch?v=U_6yk0bwG0k]
-
-
+{{% youtube U_6yk0bwG0k %}}

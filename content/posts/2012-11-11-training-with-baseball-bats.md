@@ -13,6 +13,4 @@ At [Sydney Stick Fighting](http://www.meetup.com/sydney-stick-fighting) we train
 
 <!--more-->
 
-[youtube=http://www.youtube.com/watch?v=YnyyIYPcBIo]
-
-
+{{% youtube YnyyIYPcBIo %}}

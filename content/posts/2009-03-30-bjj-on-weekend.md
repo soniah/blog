@@ -21,25 +21,25 @@ My injuries have been playing up and I&#8217;ve had the flu on and off for a mon
 
 My first grapple &#8211; versus a Moari woman from Boxing Works/Nova Uniao &#8211; she&#8217;s stocky and strong and being so short it was hard for me to get under her and take her down; but once we were down I just played my game &#8211; thanks Dan.
 
-<span class="youtube"></span>
+<!-- youtube?? -->
 
 My second grapple &#8211; versus Karla from my own team. She&#8217;s only been training for about 9 months but she did really well and I think she&#8217;ll be a good grappler in the future. She&#8217;s also a capoeirista, and it shows it her footwork.
 
-<span class="youtube"></span>
+<!-- youtube?? -->
 
 Some other grapples:
 
 Genevieve from my team (green top and leggings) &#8211; she&#8217;s new but it&#8217;s really great that she&#8217;s entering competitions &#8211; they&#8217;re pretty daunting for a beginner. She was in the lighter weight division.
 
-<span class="youtube"></span>
+<!-- youtube?? -->
 
 Just us (nervously) mucking around before going onto the mat. Like always, the waiting is the worst &#8211; butterflies, you feel ill, suddenly need to &#8220;visit the bathroom&#8221;&#8230;
 
-<span class="youtube"></span>
+<!-- youtube?? -->
 
 Jason, a beginner from my team &#8211; he ripped his ear *again* and bled everywhere. Dude, wear headgear&#8230;
 
-<span class="youtube"></span>
+<!-- youtube?? -->
 
  [1]: //www.youtube.com/v/zS2XXrv-N5A&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src=
  [2]: http://en.wikipedia.org/wiki/Judo

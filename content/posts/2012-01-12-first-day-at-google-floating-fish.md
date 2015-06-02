@@ -12,4 +12,4 @@ My first day at Google &#8211; a fish floated through the kitchen&#8230;
 
 <!--more-->
 
-<span class="youtube"></span>
+{{% youtube FoTRfO6BqIc %}}

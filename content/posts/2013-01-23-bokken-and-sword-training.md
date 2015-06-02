@@ -13,4 +13,4 @@ The guys training with wooden swords (Bokken) and metal swords.
 
 <!--more-->
 
-[youtube=http://www.youtube.com/watch?v=xETBPYwqXMI&feature;=youtu.be]
+{{% youtube xETBPYwqXMI %}}

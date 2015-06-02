@@ -12,4 +12,4 @@ I&#8217;m in Cebu, the Philippines at the moment, learning Balintawak Arnis (sti
 
 <!--more-->
 
-<span class="youtube"></span>
+{{% youtube K0z_o2lTLlQ %}}

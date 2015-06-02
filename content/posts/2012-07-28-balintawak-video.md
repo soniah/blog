@@ -15,4 +15,4 @@ Another Balintawak video - [John Russell](http://www.russellbalintawak.com/) and
 
 If you're interested in learning, join [Sydney Stick Fighting](http://www.meetup.com/Sydney-Stick-Fighting/).
 
-[youtube=http://www.youtube.com/watch?v=mWzYQ97T43k]
+{{% youtube mWzYQ97T43k %}}
