@@ -16,7 +16,7 @@ Getting it going on Ubuntu Breezy was really easy, thanks to Quozl's Maxon [page
   * I plugged it in, and the **cdc_acm** module was automatically loaded
   * I ran **sudo pppconfig**, entered these settings: 
       * connection name: evdo (or whatever you prefer)
-      * static dns: 203.50.2.71, 139.130.4.4 (more reliable -- sometimes dynamic doesn't work&#8230;)
+      * static dns: 203.50.2.71, 139.130.4.4 (more reliable -- sometimes dynamic doesn't work.)
       * authentication: pap
       * user: user@telstra.pcpack
       * password: telstra

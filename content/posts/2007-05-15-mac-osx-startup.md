@@ -8,7 +8,7 @@ categories:
 tags:
   - OSX
 ---
-Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process&#8230;
+Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process.
 
 <!--more-->
 

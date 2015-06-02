@@ -16,7 +16,7 @@ I spent the first few days relaxing and recovering from a cold that's been doggi
 
 A few minor injuries, mostly from $%^&#@! male newbies -- they fight using power not technique, and especially hate being submitted by women. One of them sat on top of me for about 30 seconds just squeezing the heck out of my wrists -- ouch. Oh well, he soon [learned][2] the meaning of &#8220;[no air, no attitude][3]&#8221; :-)
 
-It's Sunday morning -- time for training&#8230;
+It's Sunday morning -- time for training.
 
  [1]: http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu
  [2]: http://www.youtube.com/watch?v=IXbHXVPriow&feature=channel_page

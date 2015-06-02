@@ -27,5 +27,5 @@ To fix
 
   * sudo rmmod ipw2200
   * press hardware radio switch
-  * sudo insmod /lib/modules/&#8230;/ipw2200.ko
-  * cat /sys/&#8230;/rf_kill -- should have a value of 0
+  * sudo insmod /lib/modules/./ipw2200.ko
+  * cat /sys/./rf_kill -- should have a value of 0

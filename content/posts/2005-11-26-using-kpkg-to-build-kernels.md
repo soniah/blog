@@ -76,7 +76,7 @@ Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, l
  fakeroot make-kpkg --initrd --append-to-version=.sonia.001 kernel_image modules_image
  fakeroot make-kpkg --initrd --append-to-version=.sonia.001 --added-modules=madwifi modules_image</pre>
 
-or some combo of the above&#8230;  
+or some combo of the above.  
 **don't use --revision** -- versions aren't handled correctly
 
 ### Install
@@ -91,7 +91,7 @@ or some combo of the above&#8230;
 
   * find current status
 
-(dpkg -l truncates) ?? gives wrong result&#8230;
+(dpkg -l truncates) ?? gives wrong result.
 
 <pre>dpkg --get-selections | grep kernel</pre>
 

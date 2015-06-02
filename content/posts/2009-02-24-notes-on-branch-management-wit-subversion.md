@@ -18,7 +18,7 @@ Some notes on branch management with Subversion (more for my own learning purpos
       * commit any changes first, so can easily revert if desired: **cd foo-branch; svn up; svn ci -m &#8220;pre merge in trunk&#8221;**
       * find where branch occured (if not noted in a log message -- duh): **svn log --verbose --stop-on-copy foo-branch** (eg 123)
       * preview changes succinctly: **cd foo-branch; ****svn merge --dry-run -r 123:HEAD**
-      * preview changes verbosely: **cd foo-branch; ****svn diff --notice-ancestry -r 123:HEAD &#8230;**
+      * preview changes verbosely: **cd foo-branch; ****svn diff --notice-ancestry -r 123:HEAD .**
       * apply changes: **cd foo-branch; ****svn merge -r 123:HEAD svn+ssh://myrepo.com/foo/bar**
       * check changes: **svn st; svn diff, **if problems: **svn revert**
       * commit changes: **svn ci -m &#8220;merged trunk changes into branch (flubbed the widgets) r123:129&#8243;**

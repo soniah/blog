@@ -13,7 +13,7 @@ A bug that has been dragging on for [years][1] -- Firefox under Ubuntu (and othe
 
 <!--more-->
 
-and defaults to printing in US Letter size -- grrrr&#8230;
+and defaults to printing in US Letter size -- grrrr.
 
 [Firefox: Guide for the Perplexed][2] seems to suggest:
 

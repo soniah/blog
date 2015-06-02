@@ -67,7 +67,7 @@ And that's it! Part of the gitweb install on Ubuntu adds in **/etc/apache2/conf.
 
 Browse to <http://localhost/gitweb/>, and there's your browse-able, search-able, git repository :-D
 
-## But wait, there's more -- automatically push your changes&#8230;
+## But wait, there's more -- automatically push your changes.
 
 As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that's boring -- automate it:
 
@@ -78,15 +78,15 @@ git remote add web /var/www/foo.git &gt;& /dev/null
 sudo git push -f web
 </pre>
 
-&#8230;and automate it:
+.and automate it:
 
 <pre class="brush: bash; title: ; notranslate" title="">crontab -l
 * * * * * ${HOME}/foo/git.web.push
 </pre>
 
-## And finally&#8230;
+## And finally.
 
-Make the layout pretty. Edit **~/foo/.git/description**, add an index.html, a custom theme, some javascript, &#8230;
+Make the layout pretty. Edit **~/foo/.git/description**, add an index.html, a custom theme, some javascript, .
 
 ## Update
 

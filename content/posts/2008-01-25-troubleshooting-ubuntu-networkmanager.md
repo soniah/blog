@@ -9,7 +9,7 @@ tags:
   - Ubuntu
   - Wireless
 ---
-NetworkManager: &#8220;When I'm good, I'm *really really* good. But when I'm bad&#8230;&#8221;. Some tricks I've found for troubleshooting NetworkManager:
+NetworkManager: &#8220;When I'm good, I'm *really really* good. But when I'm bad.&#8221;. Some tricks I've found for troubleshooting NetworkManager:
 
 <!--more-->
 

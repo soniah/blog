@@ -76,7 +76,7 @@ If files are deleted from the source directory, they will only be deleted from t
 
 ### File Selection
 
-Files can be included or excluded from syncing using **--include-from** or **--exclude-from**; it's better not to use both as things can get rather confusing&#8230;
+Files can be included or excluded from syncing using **--include-from** or **--exclude-from**; it's better not to use both as things can get rather confusing.
 
 <pre>$ cat exclude.txt
  *tmp

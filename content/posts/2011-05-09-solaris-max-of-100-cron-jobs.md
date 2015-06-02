@@ -9,7 +9,7 @@ tags:
   - Cron
   - Solaris
 ---
-I stumbled across a <s>limitation</s> <s>feature</s> behaviour of Solaris over the weekend -- by default it only allows you to run a maximum of 100 cron jobs at once. I suppose this to protect against &#8220;shooting oneself in the head&#8221;, but aaaarghhh&#8230; Reminds me why I love Monday mornings.
+I stumbled across a <s>limitation</s> <s>feature</s> behaviour of Solaris over the weekend -- by default it only allows you to run a maximum of 100 cron jobs at once. I suppose this to protect against &#8220;shooting oneself in the head&#8221;, but aaaarghhh. Reminds me why I love Monday mornings.
 
 <!--more-->
 

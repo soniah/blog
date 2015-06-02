@@ -8,7 +8,7 @@ categories:
 tags:
   - Google
 ---
-My first day at Google -- a fish floated through the kitchen&#8230;
+My first day at Google -- a fish floated through the kitchen.
 
 <!--more-->
 

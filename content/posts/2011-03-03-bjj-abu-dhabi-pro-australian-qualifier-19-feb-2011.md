@@ -18,7 +18,7 @@ The first fight. I gave in too easily to her pull to guard, and then took a whil
 
 <!-- youtube?? -->
 
-The second fight. I made the error of trying a flying armbar from standup, which went badly. I ended up stuck under a cross-face half guard. I should've been able to get out of this, it's a beginner escape. But as they say, you always learn the most when you lose in competitions; since the comp I've been focusing on this escape&#8230;
+The second fight. I made the error of trying a flying armbar from standup, which went badly. I ended up stuck under a cross-face half guard. I should've been able to get out of this, it's a beginner escape. But as they say, you always learn the most when you lose in competitions; since the comp I've been focusing on this escape.
 
 <!-- youtube?? -->
 

@@ -16,7 +16,7 @@ Some good documentation on [Troubleshooting Sound on Ubuntu][1].
 And a nice post on [getting Amarok going on Jaunty][2] -- remove phonon-backend-gstreamer and install phonon-backend-xine ([bug 349847][3]). I can now go back to grooving to some laid-back Brazilian Reggae -- *Tribo de Jah -- Ruinas de Babilonia:*
 
 *Veja a face sofrida dessa gente, Tanta gente sofrida,  
-Buscando uma vida decente, Buscando um pouco de paz em suas vidas&#8230;*
+Buscando uma vida decente, Buscando um pouco de paz em suas vidas.*
 
  [1]: https://help.ubuntu.com/community/SoundTroubleshooting
  [2]: http://chanweiyee.blogspot.com/2009/04/ubuntu-904-amarok-2-sound-problem.html

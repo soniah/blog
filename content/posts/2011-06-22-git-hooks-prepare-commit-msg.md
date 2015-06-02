@@ -54,4 +54,4 @@ for d in $gitdirs ; do
     fi
 done</pre>
 
-There's only one disadvantage to doing this. Usually, you can just exit without saving the commit message and git will cancel the commit. But because the script modifies the message, there's no nice way of telling git you want to back out (unless someone can tell me how&#8230;). I get around this by saving the message and doing a **git reset --soft HEAD^** at the command line.
+There's only one disadvantage to doing this. Usually, you can just exit without saving the commit message and git will cancel the commit. But because the script modifies the message, there's no nice way of telling git you want to back out (unless someone can tell me how.). I get around this by saving the message and doing a **git reset --soft HEAD^** at the command line.

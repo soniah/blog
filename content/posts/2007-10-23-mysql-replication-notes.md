@@ -57,7 +57,7 @@ mysql&gt; unlock tables; # release locks in the original terminal
 On the Slave:
 
   * enable for replication by editing modify **/etc/my.cnf** -- only need to set a unique *server-id*, unless this slave will also act as a master for other slaves
-  * restart mysql, check that data copied ok with *mysqlhotcopy* by doing a *show tables;* (etc&#8230;) in the new database
+  * restart mysql, check that data copied ok with *mysqlhotcopy* by doing a *show tables;* (etc.) in the new database
   * start replication:
 <pre class="brush: bash; title: ; notranslate" title="">mysql&gt; change master to master host = 'master host', master user = 'repl', master_password = 'secret', master_log_file = 'master_log_file', master_log_pos = 'master_log_pos';
 mysql&gt; start slave;

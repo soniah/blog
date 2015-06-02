@@ -19,7 +19,7 @@ Here are some useful tools for troubleshooting/recovering windows systems:
   * [ERD Commander][7] allows you to repair unbootable or locked-out systems, restore lost data, remove malware from infected systems while the system is safely offline using your existing antivirus software, and diagnose system and network issues 
   * all tools from [Sysinternals.Com][8] 
 
-Linux tools (and *[religion][9]*&#8230;):
+Linux tools (and *[religion][9]*.):
 
   * [Knoppix][10] is a CD bootable Linux distribution, that is *The Swiss Army Chainsaw* of distros -- it does everything. [Insert Linux][11] and [Damn Small Linux][12] are also useful, as they fit on business card CDs 
   * [PNordahl][13] has a tool for resetting forgotten Administrator passwords 

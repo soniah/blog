@@ -12,6 +12,6 @@ A useful tool I've come across (thanks JB) -- **socat**. As the [homepage][1] sa
 
 <!--more-->
 
-From the manpage: Socat  is a command line based utility that establishes two bidirectional byte streams and transfers data between them&#8230; the streams can be constructed from a large set of different types of data sinks and sources (TCP, UDP, SOCKS, files, processes, pipes, file-descriptors, readline, &#8230;).
+From the manpage: Socat  is a command line based utility that establishes two bidirectional byte streams and transfers data between them. the streams can be constructed from a large set of different types of data sinks and sources (TCP, UDP, SOCKS, files, processes, pipes, file-descriptors, readline, .).
 
  [1]: http://www.dest-unreach.org/socat/

@@ -12,7 +12,7 @@ Every time I go to loop mount an iso file, it's long enough since I last did it 
 
 <!--more-->
 
-Hence, a quick little script. No rocket science&#8230;
+Hence, a quick little script. No rocket science.
 
 <pre>% cat isomount
 #!/bin/bash

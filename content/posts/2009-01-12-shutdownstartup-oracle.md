@@ -57,11 +57,11 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  &#8230;
+  .
 </div>
 
 <div>
-  &#8230;
+  .
 </div>
 
 <div>
@@ -69,7 +69,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  &#8230;
+  .
 </div>
 
 <div>
@@ -193,11 +193,11 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  &#8230;
+  .
 </div>
 
 <div>
-  &#8230;
+  .
 </div>
 
 <div>
@@ -205,7 +205,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  &#8230;
+  .
 </div>
 
 <div>

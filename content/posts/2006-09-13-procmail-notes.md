@@ -20,7 +20,7 @@ procmail notes
   * [Partmaps procmail FAQ][5]
   * [Stimpy's formail tutorial][6]
 
-### Procmail commands can consist of&#8230;
+### Procmail commands can consist of.
 
   * a statement
 
@@ -28,7 +28,7 @@ procmail notes
 
   * a recipe
 
-### A recipe consists of three parts&#8230;
+### A recipe consists of three parts.
 
   * a colon line
   * zero or more condition lines
@@ -41,7 +41,7 @@ procmail notes
  * From: ...
  email_folder/</pre>
 
-### An action is one of&#8230;
+### An action is one of.
 
   * a folder
 

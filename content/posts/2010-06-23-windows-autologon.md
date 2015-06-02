@@ -21,4 +21,4 @@ Often I want the VM to just logon automagically; here's a registry file to do so
 "DefaultPassword"="secret"
 "AutoAdminLogon"="1"</pre>
 
-No rocket science, I'm just blogging it so I don't have to look it up again&#8230;
+No rocket science, I'm just blogging it so I don't have to look it up again.

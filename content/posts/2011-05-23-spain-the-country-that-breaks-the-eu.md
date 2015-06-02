@@ -14,7 +14,7 @@ From the[ Wall Street Journal][1]:
 
 And in Spanish (El Pais): [Iceland arrives in Spain at 15/May demo][2]
 
-*Arrancó primero Nolesvotes, una iniciativa que insta a evitar llenar las urnas de papeletas de PP, PSOE y CiU acusándoles de aprovecharse de la ley electoral para perpetuarse en el Parlamento con unos &#8220;niveles de corrupción en España alarmantes&#8221;. &#8230; &#8220;¡De mayores queremos ser islandeses!&#8221;, clamó uno de los animadores de la organización durante la marcha del pasado domingo 15 de mayo ante una columna de jóvenes y no tan jóvenes, padres y niños, estudiantes y trabajadores, parados y jubilados.*
+*Arrancó primero Nolesvotes, una iniciativa que insta a evitar llenar las urnas de papeletas de PP, PSOE y CiU acusándoles de aprovecharse de la ley electoral para perpetuarse en el Parlamento con unos &#8220;niveles de corrupción en España alarmantes&#8221;. . &#8220;¡De mayores queremos ser islandeses!&#8221;, clamó uno de los animadores de la organización durante la marcha del pasado domingo 15 de mayo ante una columna de jóvenes y no tan jóvenes, padres y niños, estudiantes y trabajadores, parados y jubilados.*
 
 And of course the Socialists got [wiped out by the PP][3] (right wing) in the weekend elections:
 
@@ -22,7 +22,7 @@ And of course the Socialists got [wiped out by the PP][3] (right wing) in the we
 
 Given that more (empty) houses were built in Spain during the boom years than England, France and Germany combined, and there's approximately 20% unemployment rate (and up to **50%** for those in their 20's and 30's), and that the Spanish economy is about four times the size of Greece, the &#8220;Spanish situation&#8221; may be the straw that breaks the camel's (EU's) back.
 
-There's an old saying that &#8220;Europe ends at the Pyrenees&#8221; (ie the mountain ranges that divide France and Spain). Perhaps the saying will become &#8220;Europe ends at the Pyrenees, Italian Alps, and the mountains of Greece&#8221;&#8230;
+There's an old saying that &#8220;Europe ends at the Pyrenees&#8221; (ie the mountain ranges that divide France and Spain). Perhaps the saying will become &#8220;Europe ends at the Pyrenees, Italian Alps, and the mountains of Greece&#8221;.
 
  [1]: http://online.wsj.com/article/SB10001424052748704281504576331280001740702.html
  [2]: http://www.elpais.com/articulo/espana/sabados/Islandia/llegaron/15M/elpepuesp/20110517elpepunac_38/Tes

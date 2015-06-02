@@ -16,7 +16,7 @@ I won a match (happy face) and lost a match (sad face), which was disappointing 
 
 But what was really disappointing was the typical disorganisation of the event ie it was running hours late. This is really frustrating as a competitor -- you don't know when to eat, when to start warming up, or even what time to turn up. Given that these events can run from 9am to 8pm, it's a long day in a hot gymnasium.
 
-*Warning: (simple) arithmetic ahead&#8230;<!--more-->*
+*Warning: (simple) arithmetic ahead.<!--more-->*
 
 It shouldn't be too hard to work out the scheduling of these events, it's a simple arithmetic calculation, why can't the organisers get it right? This is how long it takes to run a bracket at an event:
 
@@ -57,12 +57,12 @@ If you've got 8 competitors in a &#8220;[sudden death tournament][3]&#8220;, how
   <strong>N-1</strong>
 </p>
 
-ie for 8 competitors, there will be 7 fights. That was hard&#8230;**  
+ie for 8 competitors, there will be 7 fights. That was hard.**  
 **
 
 ## A ready reckoner
 
-Given that most people dislike arithmetic, here's a table that allows you to look up how long a 5 minute fight bracket will take in hours and minutes, for a given number of competitors and a given fudge factor. Notice how with a fudge factor of 1.2, it only takes 11 competitors for a bracket to last 1 hour. And it explains why today's tournament was so late, they only allowed 1.5 hours for 51 competitors instead of 5 hours&#8230;
+Given that most people dislike arithmetic, here's a table that allows you to look up how long a 5 minute fight bracket will take in hours and minutes, for a given number of competitors and a given fudge factor. Notice how with a fudge factor of 1.2, it only takes 11 competitors for a bracket to last 1 hour. And it explains why today's tournament was so late, they only allowed 1.5 hours for 51 competitors instead of 5 hours.
 
 <pre>Competitors	1.2	1.4	1.6
  2		00:06	00:07	00:08

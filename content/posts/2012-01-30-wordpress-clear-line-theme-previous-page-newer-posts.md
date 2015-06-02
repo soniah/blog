@@ -30,7 +30,7 @@ Alternatively if you've got [ssh][1] shell access (and you're hosted on a Unix-l
 sed -i 's/Previous Page/Newer Posts/' archive.php author.php index.php search.php
 sed -i 's/Next Page/Older Posts/' archive.php author.php index.php search.php</pre>
 
-Of course before running these [sed][2] commands you should backup your files, in case anything goes wrong&#8230;
+Of course before running these [sed][2] commands you should backup your files, in case anything goes wrong.
 
  [1]: http://en.wikipedia.org/wiki/Secure_Shell
  [2]: http://en.wikipedia.org/wiki/Sed

@@ -10,7 +10,7 @@ tags:
   - Ubuntu
 ---
 As far as /etc/iftab goes, this is not used in Ubuntu 7.10  
-anymore&#8230;.this functionality is moved to hotplug,. and maybe causing  
+anymore..this functionality is moved to hotplug,. and maybe causing  
 your prob.<!--more-->
 
 As you said, the NIC was in when Ubuntu was installed. However, some  

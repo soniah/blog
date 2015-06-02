@@ -38,6 +38,6 @@ ack **4193395020** win 5792 <mss 1460,sackOK,timestamp 1343461014 3073372,nop,ws
 
 soniah.local.36126 > 172.31.144.98.ssh: . ack 1 win 92 <nop,nop,timestamp 3073372 1343461014>
 
-The first line contains a SYN (S) followed by a sequence number of **&#8230;19**. The second line contains a SYN **S** followed by an **ack** incremented by 1 to **&#8230;20**. The third line contains an **ack**, but tcpdump has renumbered it to 1 to make the subsequent packets easier to follow.
+The first line contains a SYN (S) followed by a sequence number of **.19**. The second line contains a SYN **S** followed by an **ack** incremented by 1 to **.20**. The third line contains an **ack**, but tcpdump has renumbered it to 1 to make the subsequent packets easier to follow.
 
  [1]: http://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment

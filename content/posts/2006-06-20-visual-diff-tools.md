@@ -16,4 +16,4 @@ I usually use *vimdiff* to find the differences between two files; here are some
   * tkdiff -- doesn't allow line-by-line replacements
   * kompare -- allows line-by-line replacements, but the interface is a bit clunky (in that you can't easily choose to take diffs from both files without reversing direction)
 
-So kompare seems the best, though none seem as good as Windows tools I've used -- perhaps time to submit some changes to one of these projects&#8230;
+So kompare seems the best, though none seem as good as Windows tools I've used -- perhaps time to submit some changes to one of these projects.

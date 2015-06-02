@@ -24,7 +24,7 @@ I'm now training at [The Dojo][4] in Bondi Junction with Daniel Sainty. Amongst 
 
 <img class="alignright" title="Sam and Medal" src="http://bondidojo.squarespace.com/storage/sam_medal.jpg?__SQUARESPACE_CACHEVERSION=1264462578965" alt="" width="500" height="300" />
 
-BJJ is so effective that the US Army now uses it as the foundation for their [Army Combatives][7] course. Not because they want their soldiers to throw down their rifles and start up UFC-style fights with &#8220;the baddies&#8221;. Rather, they found that teaching a random collection of  moves (this kick, this punch, this other kick) was ineffective for learning a &#8220;combat mindset&#8221;. The sport nature of BJJ allows for &#8220;an avenue or the motivation for continued training&#8221; as well as internalizing the &#8220;concept of a hierarchy of dominant positions&#8221;. And knowing how to [rear naked choke][8] when someone jumps on you and hangs on to your rifle is kind of handy&#8230;
+BJJ is so effective that the US Army now uses it as the foundation for their [Army Combatives][7] course. Not because they want their soldiers to throw down their rifles and start up UFC-style fights with &#8220;the baddies&#8221;. Rather, they found that teaching a random collection of  moves (this kick, this punch, this other kick) was ineffective for learning a &#8220;combat mindset&#8221;. The sport nature of BJJ allows for &#8220;an avenue or the motivation for continued training&#8221; as well as internalizing the &#8220;concept of a hierarchy of dominant positions&#8221;. And knowing how to [rear naked choke][8] when someone jumps on you and hangs on to your rifle is kind of handy.
 
 See you on the mat sometime :-)
 

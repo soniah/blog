@@ -20,6 +20,6 @@ snap sched vm_dev 0 0 0       # zero out the current schedule
 vol options vm_dev nosnap on  # disable snapshots (not required, but "belts and braces")
 snap delete -a vm_dev         # delete all old snapshots</pre>
 
-On a multi terabyte volume, the actual deletion can take a while -- don't expect the space to return immediately&#8230;
+On a multi terabyte volume, the actual deletion can take a while -- don't expect the space to return immediately.
 
 See Netapp's &#8220;Data Protection Online Backup and Recovery Guide&#8221; for more details.

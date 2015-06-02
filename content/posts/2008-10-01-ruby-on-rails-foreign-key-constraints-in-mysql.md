@@ -62,7 +62,7 @@ I wrote this code for MySQL; I don't know whether it would work with other backe
 
 On of the features of my code for adding the foreign key is that it allows (requires) you to specify the column names. I did this because I like the primary keys in my tables to be named foo_id rather than id, to make things a little more self documenting.
 
-The next thing I want to work out is how to create/use tables with non-integer primary keys -- seems like an issue that a few people have struggled with&#8230;:
+The next thing I want to work out is how to create/use tables with non-integer primary keys -- seems like an issue that a few people have struggled with.:
 
   * [HowToUseNonDatabaseProvidedIDs][1]
   * [:id-less legacy databases][2]

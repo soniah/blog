@@ -72,7 +72,7 @@ Modifies the word picked out so far -- `man bash` for more.
 `h` -- remove a trailing file name component, leaving only the head.  
 `t` -- remove all leading file name components, leaving the tail.  
 `r` -- remove a trailing suffix of the form .xxx, leaving the basename.  
-*etc&#8230;*
+*etc.*
 
 *For example:*  
 `<br />

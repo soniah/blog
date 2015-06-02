@@ -16,4 +16,4 @@ Eg:
 
 <pre>Number of Rows: &lt;%= select_tag(:numrows, options_for_select(%w{10 20 50 100 200 500}, session[:numrows])) %&gt;</pre>
 
-(much head-banging-against-wall went into working this out&#8230;)
+(much head-banging-against-wall went into working this out.)

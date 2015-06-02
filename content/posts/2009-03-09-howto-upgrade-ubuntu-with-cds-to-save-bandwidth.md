@@ -16,7 +16,7 @@ Notes from a recent post on SLUG:
 
 *Salient point that I managed to skip: The alternate CD has packages on it,*
 
-*while the Live CD is just a great big compressed image of a filesystem&#8230; so*
+*while the Live CD is just a great big compressed image of a filesystem. so*
 
 *it won't help with upgrades at all (yet [1]).*
 

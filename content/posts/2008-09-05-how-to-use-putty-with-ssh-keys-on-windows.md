@@ -15,7 +15,7 @@ tags:
 
 Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they've only ever used Windows).
 
-So here's how you do it using putty&#8230;<!--more-->
+So here's how you do it using putty.<!--more-->
 
   * download putty.exe, pscp.exe, pageant.exe, and puttygen.exe from [chiark.greenend.org.uk][3], and put them into an easily accessible folder (eg My Documents\putty, or c:\putty if you want to use putty from the command line)
 
@@ -61,7 +61,7 @@ SSH-1.99-OpenSSH_3.9p1</pre>
 
   * if using *nix, use **ssh -vvv** to get more verbose output -- often you can see why the key exchange is failing
 
-**Next steps&#8230;**
+**Next steps.**
 
 After using putty on Windows for a while, you may want to investigate [Cygwin][6] -- it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, [rsync][7] with ssh is handy -- it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my [other posts on ssh tools][8].
 

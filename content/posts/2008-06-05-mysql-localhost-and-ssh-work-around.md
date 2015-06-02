@@ -20,7 +20,7 @@ But this doesn't work easily for mysql -- if you tunnel a port from localhost (e
 <pre>intermediate$ ssh -o GatewayPorts=yes -L 3306:targetdb:3306 targetdb
 localhost$ mysql -h intermediate -P 3306</pre>
 
-GatewayPorts -- dangerous yes -- but so is life&#8230;
+GatewayPorts -- dangerous yes -- but so is life.
 
 **Update**
 
@@ -38,7 +38,7 @@ mysql&gt;</pre>
 
 **Update 2**
 
-However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don't obey the -- -- protocol=tcp flag or don't have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh&#8230;.
+However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don't obey the -- -- protocol=tcp flag or don't have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh..
 
 **Update 3**
 

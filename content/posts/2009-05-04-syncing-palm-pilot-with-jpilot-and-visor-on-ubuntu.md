@@ -13,7 +13,7 @@ tags:
 
 <!--more-->
 
-Turns out I wasn't reading my own instructions&#8230; here's the cleaned up version:
+Turns out I wasn't reading my own instructions. here's the cleaned up version:
 
   * load visor module **sudo modprobe visor** and check loaded **lsmod | grep visor**
   * add visor module to **/etc/modules**

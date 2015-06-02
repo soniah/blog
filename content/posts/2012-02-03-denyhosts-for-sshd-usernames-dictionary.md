@@ -8,7 +8,7 @@ categories:
 tags:
   - Ssh
 ---
-I've just setup the venerable [denyhosts][1] on one of my servers, to stop the usual script-kiddies from *filling up my logs* (I'm not particularly worried about them getting in&#8230;).
+I've just setup the venerable [denyhosts][1] on one of my servers, to stop the usual script-kiddies from *filling up my logs* (I'm not particularly worried about them getting in.).
 
 <!--more-->
 

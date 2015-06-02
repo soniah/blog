@@ -10,7 +10,7 @@ tags:
   - Python
   - Slug
 ---
-A very interesting [post][2] from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I'm playing with Lisp and Python at the moment&#8230;
+A very interesting [post][2] from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I'm playing with Lisp and Python at the moment.
 
 <!--more-->
 

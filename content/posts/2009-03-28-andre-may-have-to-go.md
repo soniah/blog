@@ -8,7 +8,7 @@ categories:
 tags:
   - humour
 ---
-This financial crisis is forcing companies to make tough decisions, there is a risk that we might need to lay off Andre&#8230;
+This financial crisis is forcing companies to make tough decisions, there is a risk that we might need to lay off Andre.
 
 <!--more-->
 
@@ -24,4 +24,4 @@ This financial crisis is forcing companies to make tough decisions, there is a r
 
 In a similar vein, an article in today's SMH on NSW's health system begins:
 
-&#8220;*A decision had been made, he wrote, to set up a new unit within the emergency department&#8230; The unit will be &#8230; four beds, conceptually down the right hand wall of ED but using the concept of &#8216;virtual beds',&#8221; he told colleagues. Patients who arrived at emergency and needed admission would be assigned a virtual bed if no official in-patient bed was available, remaining physically in emergency.*&#8220;
+&#8220;*A decision had been made, he wrote, to set up a new unit within the emergency department. The unit will be . four beds, conceptually down the right hand wall of ED but using the concept of &#8216;virtual beds',&#8221; he told colleagues. Patients who arrived at emergency and needed admission would be assigned a virtual bed if no official in-patient bed was available, remaining physically in emergency.*&#8220;

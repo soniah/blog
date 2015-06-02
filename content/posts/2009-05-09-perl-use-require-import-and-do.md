@@ -8,7 +8,7 @@ categories:
 tags:
   - Perl
 ---
-Some notes on Perl's *use, require, import* and *do. *Quick notes for me; not meant to be authoritative&#8230;
+Some notes on Perl's *use, require, import* and *do. *Quick notes for me; not meant to be authoritative.
 
 <!--more-->
 

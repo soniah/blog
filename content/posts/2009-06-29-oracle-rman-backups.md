@@ -8,7 +8,7 @@ categories:
 tags:
   - Oracle
 ---
-More notes on Oracle RMAN backups, see also [Oracle – how to purge old RMAN backups][1]. Thanks Raoul for your email&#8230;
+More notes on Oracle RMAN backups, see also [Oracle – how to purge old RMAN backups][1]. Thanks Raoul for your email.
 
 <!--more-->
 

@@ -8,7 +8,7 @@ categories:
 tags:
   - Perl
 ---
-Some notes for me as I attempt to get a better understanding of Perl's variable scoping rules. A work in progress&#8230;
+Some notes for me as I attempt to get a better understanding of Perl's variable scoping rules. A work in progress.
 
 <!--more-->
 
@@ -20,7 +20,7 @@ Some notes for me as I attempt to get a better understanding of Perl's variable 
 
 **Also:**
 
-  * **dynamic scoping** is done with **local** -- see [Wikipedia -- Scope (programming)][1]. **Lexical scoping** is the norm in modern programming languages, dynamic scoping is a Lisp'y idea that uses a sort of stack for variable scope resolution, that can only be determined at runtime.  *When to use local? Rarely&#8230; *[Seven Useful Uses of local][2]
+  * **dynamic scoping** is done with **local** -- see [Wikipedia -- Scope (programming)][1]. **Lexical scoping** is the norm in modern programming languages, dynamic scoping is a Lisp'y idea that uses a sort of stack for variable scope resolution, that can only be determined at runtime.  *When to use local? Rarely. *[Seven Useful Uses of local][2]
   * **local** only works with package variables not lexical/my variables; an example of where local can be useful is to temporarily change a *Global Special Variable* (eg $) $EFFECTIVE\_GROUP\_ID) before calling a subroutine: &#8220;local saves away the value of a package global and substitutes a new value for all code within and *called from* the block in which the local declaration is made&#8221; eg
 
 <pre>{

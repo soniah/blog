@@ -13,7 +13,7 @@ tags:
 
 <!--more-->
 
-The author (Alvin Singh) is currently working for News Digital, so RailCorp probably can't contract him out for a few months or offer him a monetary payment for the app (which he has offered to RailCorp for free). How about accepting his offer of the code and giving him a yearly train pass&#8230;? Or letting him add in the bus, travel planner and service interruption stuff he's said he wants to do, and giving him a yearly TravelPass?
+The author (Alvin Singh) is currently working for News Digital, so RailCorp probably can't contract him out for a few months or offer him a monetary payment for the app (which he has offered to RailCorp for free). How about accepting his offer of the code and giving him a yearly train pass.? Or letting him add in the bus, travel planner and service interruption stuff he's said he wants to do, and giving him a yearly TravelPass?
 
 *Join in the new game that's sweeping the country. It's called &#8220;Bureaucracy&#8221;. Everybody stands in a circle. The first person to do anything loses.*
 

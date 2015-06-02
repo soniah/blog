@@ -13,7 +13,7 @@ Up until a few weeks ago I was using subversion for all my personal stuff.
 
 <!--more-->
 
-But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I've moved to git. Yay, no more central repository to go down&#8230;
+But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I've moved to git. Yay, no more central repository to go down.
 
 To ignore files in git you use .gitignore, eg for a rails project:
 
@@ -26,7 +26,7 @@ But how to ignore files in all directories? Use .git/info/exclude. For example, 
 <pre>% cat .git/info/exclude
 .*.sw*</pre>
 
-All the howto's I've read so far mention .gitignore but not .git/info/exclude -- I stumbled across this by accident. More RTFM'ing to do&#8230;
+All the howto's I've read so far mention .gitignore but not .git/info/exclude -- I stumbled across this by accident. More RTFM'ing to do.
 
 **Correction**
 
