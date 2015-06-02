@@ -271,8 +271,9 @@ tbody tr:nth-child(odd) th {
   font-size: small;
 }
 
+ul.bydate { list-style-type: none; padding-left: 0; }
 
-ul.category {text-transform: capitalize;}
+ul.category {text-transform: capitalize; list-style-type: none; padding-left: 0; }
 ul.category li {margin-bottom: 1rem;}
 
 ul.catlist { list-style: none; margin: 0; padding: 0; }
