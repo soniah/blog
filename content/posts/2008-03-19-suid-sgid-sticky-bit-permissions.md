@@ -15,8 +15,8 @@ I usually don't rote learn this sort of stuff (that's what manpages and Google a
   * **4000** (chmod u+s) is **suid**; for *files* execute as owning user (often root).
   * **2000** (chmod g+s) is **sgid**; for *files* execute as owning group (often root); for *directories* the group on newly created files will be set to the directory's group rather than the creator's group. Typically used for shared directories.
   * **suid** and **sgid** are ignored on scripts, due to the security risk
-  * **1000** (chmod +t) is **sticky** bit ("save **text** image"); for *files* it used to be 'pin in memory' but is now ignored; for *directories* only root, file owner and directory owner can delete a file (even if non-owners have directory write permissions). Typically used for /tmp. **&#8212;t&#8212;&#8212;**
-  * capital letters when doing **ls -al** usually means the permissions have been set incorrectly eg **-r-S&#8212;&#8212;** SUID is set, but owner execute is not set. However (?check?) **-rw&#8212;&#8212;T** means no update of "last modified time"; usually used for swap *files* (not very common nowadays -- swap is usually a partition).
+  * **1000** (chmod +t) is **sticky** bit ("save **text** image"); for *files* it used to be 'pin in memory' but is now ignored; for *directories* only root, file owner and directory owner can delete a file (even if non-owners have directory write permissions). Typically used for /tmp. **--t----**
+  * capital letters when doing **ls -al** usually means the permissions have been set incorrectly eg **-r-S----** SUID is set, but owner execute is not set. However (?check?) **-rw----T** means no update of "last modified time"; usually used for swap *files* (not very common nowadays -- swap is usually a partition).
 
 **Directory Permissions**
 

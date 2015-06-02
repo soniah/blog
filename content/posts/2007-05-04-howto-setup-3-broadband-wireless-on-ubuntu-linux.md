@@ -169,7 +169,7 @@ have some problems with it, as the SCSI CDROM fakevolume with drivers
 for Microsoft systems gets automounted by usbstorage.ko module,  
 preventing serial device /dev/ttyUSB0 from working properly. Go ahead  
 and try out my workaround-kit!  
-&#8212;&#8212;&#8212;-  
+-------  
 I have used it on dapper pretty successfully and even have a script that  
 keeps the connection alive quite nicely. it works pretty damn well actually.  
 data is a bit expensive though of course.

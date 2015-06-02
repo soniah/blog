@@ -18,7 +18,7 @@ and defaults to printing in US Letter size -- grrrr.
 [Firefox: Guide for the Perplexed][2] seems to suggest:
 
   * about:config
-  * print.postscript.paper_size set to "A4&#8243;
+  * print.postscript.paper_size set to "A4"
 
 Now to see if it holds, and work out a way to script this (I have a set of bash scripts that keeps all my Ubuntu desktops the same).
 

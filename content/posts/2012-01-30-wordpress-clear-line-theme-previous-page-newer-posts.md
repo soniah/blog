@@ -20,7 +20,7 @@ The WordPress Clear Line Theme has paginators at the bottom of pages, that have 
 
 In these files, search for the lines that look like:
 
-<pre>posts_nav_link(' &#8212; ', __('&laquo; Previous Page'),...</pre>
+<pre>posts_nav_link(' -- ', __('&laquo; Previous Page'),...</pre>
 
 Edit each file and change **Previous Page** to **Newer Posts**, and **Next Page** to **Older Posts**.
 

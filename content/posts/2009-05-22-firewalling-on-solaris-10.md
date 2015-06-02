@@ -50,4 +50,4 @@ See man page for "ipnat" for options to display NAT options.
 
 Link from Rusty's blog: http://ozlabs.org/~rusty/index.cgi/2006/08/15
 
-Last word: Solaris's version of tcpdump is "snoop". So to monitor traffic: "snoop -d e1000g0 not port 22&#8243; you can add "-v" etc.
+Last word: Solaris's version of tcpdump is "snoop". So to monitor traffic: "snoop -d e1000g0 not port 22" you can add "-v" etc.
