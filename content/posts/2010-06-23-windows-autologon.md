@@ -8,7 +8,7 @@ categories:
 tags:
   - Windows
 ---
-The only time I use Windows is as a virtual machine &#8220;appliance&#8221; ie it's running some application that I have to run, that only runs on Windows.
+The only time I use Windows is as a virtual machine "appliance" ie it's running some application that I have to run, that only runs on Windows.
 
 <!--more-->
 

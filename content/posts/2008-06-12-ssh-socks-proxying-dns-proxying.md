@@ -22,8 +22,8 @@ tags:
 I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes:
 
   * setup via `$ssh -D 9999 username@ip-address-of-ssh-server`, configure web browser **socks 5 host **(not http proxy) to localhost:9999 (On Firefox: Preferences, Advanced, Network, Settings, Manual, SOCKS Host. [FoxyProxy][5] really helps with this -- you can setup wildcards to send certain URLs via certain proxies eg for when connecting via a VPN to work)
-  * http proxying can be setup at the command line (for use by wget, apt, etc) with the **http_proxy** environment variable. For example *export http\_proxy='http://user:password@1.2.3.4:3128/'; cmd1; cmd2; export http\_proxy=&#8221;*
-  * configure apt to use a proxy via **/etc/apt/apt.conf** by using **Acquire::http::Proxy &#8220;http://username:password@proxyserver:port/&#8221;;** See [Using apt-get behind a proxy][6].
+  * http proxying can be setup at the command line (for use by wget, apt, etc) with the **http_proxy** environment variable. For example *export http\_proxy='http://user:password@1.2.3.4:3128/'; cmd1; cmd2; export http\_proxy="*
+  * configure apt to use a proxy via **/etc/apt/apt.conf** by using **Acquire::http::Proxy "http://username:password@proxyserver:port/";** See [Using apt-get behind a proxy][6].
   * there's also [corkscrew][7] (preferred), connect.c, and [proxychains][8] to secure other traffic or setup tunnels automagically in ~/.ssh/config. For example:
 
 <pre>% sudo aptitude install corkscrew

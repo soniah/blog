@@ -12,12 +12,12 @@ Midnight Commander (mc) is mostly obvious, but there's a few things I regularly 
 
 <!--more-->
 
-  * to select (or &#8220;tag&#8221;) multiple items, use the **Insert** key, or **ctrl-t** (eg when on a Macbook)
+  * to select (or "tag") multiple items, use the **Insert** key, or **ctrl-t** (eg when on a Macbook)
   * use **@** to do an operation on tagged files (or F2 menu, @). For example tag some files, reverse the selection (***** or F9, File, Reverse Selection), then @ **git rm**
   * any sort of compressed or package file (.deb, .tgz, .iso, .rpm, etc): 
       * F3 (view) to get an overview of the package
       * **Enter** to browse the package contents, then eg F3 to view the file or F5 to copy the file out
-  * to jump back and forth to the command line (&#8220;subshell support&#8221;), use **ctrl-o** to hide mc, then **ctrl-o** to return from the subshell to mc
+  * to jump back and forth to the command line ("subshell support"), use **ctrl-o** to hide mc, then **ctrl-o** to return from the subshell to mc
 
 Taken from [Jane Tembath's MC Tutorial][1]. See also the [mc faq][2].
 

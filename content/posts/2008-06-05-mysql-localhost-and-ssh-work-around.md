@@ -13,7 +13,7 @@ I use ssh to tunnel all the time, especially to get around brain-dead firewalls.
 
 <!--more-->
 
-But this doesn't work easily for mysql -- if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost' and try to connect via the local socket. Very broken -- there's bugs lodged [here][1] and [here][2] about this (and lots of chest beating and wailing, too).
+But this doesn't work easily for mysql -- if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see 'localhost' and try to connect via the local socket. Very broken -- there's bugs lodged [here][1] and [here][2] about this (and lots of chest beating and wailing, too).
 
 **Solution:** tunnel ssh via an intermediate machine. For example:
 

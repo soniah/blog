@@ -17,7 +17,7 @@ Here's a variety of tricks I've picked up for Gnu screen and .screenrc from the 
 <tt>chdir $HOME/rails</tt>  
 <tt>screen -t "rails"</tt>
 
-  * to change back to a particular screen, after creating a whole lot in .screenrc, and preset the &#8216;other' screen:
+  * to change back to a particular screen, after creating a whole lot in .screenrc, and preset the 'other' screen:
 
 <tt>select 3</tt> (for example)  
 <tt>select 5</tt>

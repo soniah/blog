@@ -10,7 +10,7 @@ tags:
   - Ubuntu
 ---
 
-[Gutsy Intel HD Audio Controller][1], &#8220;Method G&#8221;
+[Gutsy Intel HD Audio Controller][1], "Method G"
 
 <!--more-->
 

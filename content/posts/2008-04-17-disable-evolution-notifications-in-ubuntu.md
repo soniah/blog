@@ -20,7 +20,7 @@ The steps below don't seem to solve the problem. For the moment the easiest way 
 
 I've just started using Evolution to access the hExchange server at work, and it keeps on popping up new email notifications (even though I've disabled it in Evolution and restarted X) -- too much like Winblows for my likings. Other crap keeps popping up and annoying me too -- here's how to disable it all:
 
-First, disable the update-notifier via: &#8220;System > Preferences > Sessions&#8221;, under &#8220;Startup Programs&#8221;; remove &#8220;update-notifier&#8221;. Also check that it isn't being started up in the saved session by first killing it (ps ax | grep update; kill 12345) and saving a new session.
+First, disable the update-notifier via: "System > Preferences > Sessions", under "Startup Programs"; remove "update-notifier". Also check that it isn't being started up in the saved session by first killing it (ps ax | grep update; kill 12345) and saving a new session.
 
 Then, run **gconf-editor** (from the shell) search on notification, and disable:
 

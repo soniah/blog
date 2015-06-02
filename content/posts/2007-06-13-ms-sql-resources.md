@@ -41,7 +41,7 @@ MSSQL Resources
   * [PromptSQL][18] -- provides SQL Intellisense style word completion for various Microsoft SQL editors, and UltraEdit
   * [ReSharper][19] -- features such as intelligent coding assistance, on-the-fly error highlighting and quick error correction, support for code refactoring
   * [Reflector][20] -- allows you to view, navigate, search, decompile and analyze .NET assemblies. Other tools also on the same site.
-  * [Quest Spotlight][21] -- &#8220;*Spotlight on SQL Server Enterprise provides an agent-less easy-to-use database issue discovery solution that enables you to identify and resolve SQL Server performance problems within your SQL Server environment.*&#8220;
+  * [Quest Spotlight][21] -- "*Spotlight on SQL Server Enterprise provides an agent-less easy-to-use database issue discovery solution that enables you to identify and resolve SQL Server performance problems within your SQL Server environment.*"
 
 ### XML Tools
 

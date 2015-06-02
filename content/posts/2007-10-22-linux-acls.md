@@ -64,6 +64,6 @@ $ setfacl -m user:jan:rwx,group:mysql:rwx bar.txt<br />
 Acls need to be considered for directories *themselves* (eg can user fred delete a particular directory?) and for all objects *underneath* a directory.
 
   * for directories *themselves,* setting and getting acls is just the same as for files
-  * for all objects underneath a directory, you have to consider the &#8220;Default ACL&#8221; -- a special kind of acl that defines the access permissions of all *new* objects created under a folder. Note -- it doesn't effect *existing* objects!
+  * for all objects underneath a directory, you have to consider the "Default ACL" -- a special kind of acl that defines the access permissions of all *new* objects created under a folder. Note -- it doesn't effect *existing* objects!
   * ***setfacl*** uses the ***-d flag*** to create default acl entries
   * the same rules apply for all **default** entries as they do for normal entries: ie the first and last (user and other) entries are directly used, the middle bunch of entries interact with the mask, etc, etc.

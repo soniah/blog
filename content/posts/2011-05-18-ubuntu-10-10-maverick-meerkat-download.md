@@ -8,7 +8,7 @@ categories:
 tags:
   - Ubuntu
 ---
-Opinions around the latest Ubuntu (11.04) range from &#8220;interesting&#8221; (as in the curse &#8220;may you live in interesting times&#8221;) to &#8220;it sucks&#8221;.
+Opinions around the latest Ubuntu (11.04) range from "interesting" (as in the curse "may you live in interesting times") to "it sucks".
 
 <!--more-->
 

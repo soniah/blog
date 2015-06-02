@@ -17,7 +17,7 @@ How to connect to a Cisco device (or other serial devices) using OSX and a USB t
 
 Googling, everyone says to use zterm, but I couldn't get it to work (and zterm looks and feels like a toy).
 
-This probably isn't the &#8220;Mac way&#8221; of doing things, but </whatever>.
+This probably isn't the "Mac way" of doing things, but </whatever>.
 
 Install [PL2303 USB to Serial Driver for Mac OS X][1], restart :-(
 
@@ -56,7 +56,7 @@ Setup defaults to:
 
 Always use colour:
 
-  * add export MINICOM=&#8221;-c on&#8221; to shell rc file (~/.bashrc, .~/zshrc, etc)
+  * add export MINICOM="-c on" to shell rc file (~/.bashrc, .~/zshrc, etc)
 
 Connect (sudo minicom), hit enter a few times, and you should be on the device.
 

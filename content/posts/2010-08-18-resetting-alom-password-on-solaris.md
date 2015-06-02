@@ -13,7 +13,7 @@ Or, after RTFM'ing, an easier way: [SunDocs Recovering ALOM passwords][1]:
 <!--more-->
 
   * connect to serial console, remove power cords, wait a few seconds
-  * plugin, press escape repeatedly until it drops to the &#8220;ALOM <esc> menu&#8221;
+  * plugin, press escape repeatedly until it drops to the "ALOM <esc> menu"
   * e to erase ALOM NVRAM (will return everything to defaults)
   * r to return to boot process
   * machine will then reboot, drop into ALOM prompt as admin with no password
@@ -22,9 +22,9 @@ Or, after RTFM'ing, an easier way: [SunDocs Recovering ALOM passwords][1]:
 
 Some notes on how to reset the ALOM password on Solaris (done on a VT240).
 
-**ALOM** has sc> prompt. Get to OBP using &#8220;console -f&#8221;
+**ALOM** has sc> prompt. Get to OBP using "console -f"
 
-**OBP** (Open Boot Prompt) has ok prompt. Get to ALOM using &#8220;#.&#8221;
+**OBP** (Open Boot Prompt) has ok prompt. Get to ALOM using "#."
 
 **Power switch** has 4 positions: Normal (|), Locked (padlock), Diagnostics (wave), Forced Off (circle-bar). Ensure powerswitch is in Normal position.
 

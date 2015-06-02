@@ -8,7 +8,7 @@ categories:
 tags:
   - Sysadmin
 ---
-Whenever I come across servers with names like **chpvuat01**, I'm reminded of [RFC 1178][1] &#8220;Choosing a name for your computer&#8221;. Especially when **ch** stands for **crack house**, **pv** stands for **paid verbiage**, but **uat** *doesn't* stand for **user acceptance testing**: the box used to be in UAT, was moved to SIT (System Integration Testing), but *kept it's old name because renaming it would be too hard.*
+Whenever I come across servers with names like **chpvuat01**, I'm reminded of [RFC 1178][1] "Choosing a name for your computer". Especially when **ch** stands for **crack house**, **pv** stands for **paid verbiage**, but **uat** *doesn't* stand for **user acceptance testing**: the box used to be in UAT, was moved to SIT (System Integration Testing), but *kept it's old name because renaming it would be too hard.*
 
 <!--more-->
 

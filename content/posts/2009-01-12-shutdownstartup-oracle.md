@@ -29,7 +29,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  Logon UNIX as &#8220;oracle&#8221;
+  Logon UNIX as "oracle"
 </div>
 
 <div>
@@ -49,7 +49,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  $ <span style="color:#ff0000;">sqlplus &#8221; / as sysdba&#8221;</span>
+  $ <span style="color:#ff0000;">sqlplus " / as sysdba"</span>
 </div>
 
 <div>
@@ -85,7 +85,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  <em>Note : If there are connections to DB, Oracle may take some</em><em> time</em><em> to rollback each connection</em><em>&#8216;s</em><em> job and then </em><em>close the session</em><em>. Once all connect</em><em>ions are disconnected</em><em>, it will bring database down.</em>
+  <em>Note : If there are connections to DB, Oracle may take some</em><em> time</em><em> to rollback each connection</em><em>'s</em><em> job and then </em><em>close the session</em><em>. Once all connect</em><em>ions are disconnected</em><em>, it will bring database down.</em>
 </div>
 
 <div>
@@ -109,7 +109,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  <em>$ sqlplus &#8221; / as sysdba&#8221;</em>
+  <em>$ sqlplus " / as sysdba"</em>
 </div>
 
 <div>
@@ -121,7 +121,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  <em>$ sqlplus &#8221; / as sysdba&#8221;</em>
+  <em>$ sqlplus " / as sysdba"</em>
 </div>
 
 <div>
@@ -185,7 +185,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  $ <span style="color:#339966;">sqlplus &#8221; / as sysdba&#8221;</span>
+  $ <span style="color:#339966;">sqlplus " / as sysdba"</span>
 </div>
 
 <div>
@@ -229,7 +229,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  One process is expected for each &#8216;ps' command.
+  One process is expected for each 'ps' command.
 </div>
 
 <div>
@@ -237,7 +237,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  $ <span style="color:#339966;">sqlplus &#8221; / as sysdba&#8221;</span>
+  $ <span style="color:#339966;">sqlplus " / as sysdba"</span>
 </div>
 
 <div>
@@ -245,7 +245,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  <span style="color:#339966;"> to_char(startup_time, &#8216;DD-MON-YY HH24:MI'), status </span>
+  <span style="color:#339966;"> to_char(startup_time, 'DD-MON-YY HH24:MI'), status </span>
 </div>
 
 <div>

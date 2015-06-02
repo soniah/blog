@@ -14,7 +14,7 @@ Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting
 
 ### Links
 
-  * [&#8220;The Boot Process&#8221;, Developer Connection][1]
+  * ["The Boot Process", Developer Connection][1]
 
 <!--more-->
 

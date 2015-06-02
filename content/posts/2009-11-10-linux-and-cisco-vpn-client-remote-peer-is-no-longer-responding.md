@@ -8,7 +8,7 @@ categories:
 tags:
   - Networking
 ---
-I'm using the Cisco VPN client, and it seems unreliable on Linux -- it occasionally connects but often just gives up with &#8220;Remote peer is no longer responding&#8221;.
+I'm using the Cisco VPN client, and it seems unreliable on Linux -- it occasionally connects but often just gives up with "Remote peer is no longer responding".
 
 <!--more-->
 

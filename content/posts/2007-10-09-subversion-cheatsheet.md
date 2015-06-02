@@ -83,7 +83,7 @@ Or, cancel some changes:
 
 **Other Common Tasks**
 
-  * ignoring files <tt>svn propedit svn:ignore targetdir</tt> (see&#8221;[Ignoring Unversioned Items][4]&#8220;)
+  * ignoring files <tt>svn propedit svn:ignore targetdir</tt> (see"[Ignoring Unversioned Items][4]")
   * to always ignore files of type x (eg .mp3), edit **~/.subversion/config** or **/etc/subversion/config** and set **global-ignores** under **[miscellany]** (see [Runtime Configuration Area][5]).
 
  [1]: http://linux.byexamples.com/archives/255/svn-command-line-tutorial-for-beginners-1/

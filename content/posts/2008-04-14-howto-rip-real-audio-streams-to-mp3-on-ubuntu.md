@@ -13,7 +13,7 @@ I enjoy listening to podcasts during my commute, and most podcasts can be easily
 
 <!--more-->
 
-But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS's Beard!
+But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like "Real Audio". Bah! By the curse of RMS's Beard!
 
 There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here's how I got it going on Ubuntu 7.10:
 
@@ -34,7 +34,7 @@ Win32 LoadLibrary failed to load: sipr.so.6.0, /usr/lib/win32/sipr.so.6.0, /usr/
 
 So I located the **sipr.so** library, and based on the error message and digging around in mplayer using **strings** I linked the installed realplayer codecs to /usr/lib/win32:
 
-$ sudo find / -type f -name &#8220;sipr.so&#8221;  
+$ sudo find / -type f -name "sipr.so"  
 $ strings /usr/bin/mplayer | grep usr  
 $ sudo ln -s /usr/lib/realplay-10.0.9/codecs /usr/lib/win32
 

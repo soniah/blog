@@ -6,7 +6,7 @@ url: /2008/12/04/sfdisk-raid/
 categories:
   - Linux
 ---
-A useful tool I came across last night (thanks Rodrigo) -- **sfdisk** -- &#8220;Partition table manipulator for Linux&#8221;.
+A useful tool I came across last night (thanks Rodrigo) -- **sfdisk** -- "Partition table manipulator for Linux".
 
 <!--more-->
 

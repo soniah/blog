@@ -20,7 +20,7 @@ Using kickstart to automate Redhat/Fedora setups
 
 <!--more-->
 
-  * copy the attached ks.cfg to the root of the exported directory (root password is &#8216;password')
+  * copy the attached ks.cfg to the root of the exported directory (root password is 'password')
   * boot from a boot CD (faster) or floppy, use the following command:
 
 <pre>linux ks=nfs:192.168.1.1:/var/fc3/ks.cfg</pre>

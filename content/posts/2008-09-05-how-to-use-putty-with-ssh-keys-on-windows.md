@@ -41,7 +41,7 @@ If you need to generate a key, do this first. If you have been supplied with a k
 
 **Using Your SSH Key:**
 
-  * if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &#8216;load your key'
+  * if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to 'load your key'
   * once your sysadmin has setup your account, there's three ways you can use your key 
       * the **painful** way. Run putty.exe, enter the hostname/ip, put your username in **Connection, Data**,** Auto-login username**, load your key in **Connection, SSH, Auth**, **Private key file for authentication**, then click **Open** to connect
       * the **better** way -- caching your key in memory. Run pageant.exe -- you'll see a little terminal with a hat in the Notification area (bottom RHS of screen). [<img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" />][5] Right click on this icon, choose **Add Key**, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the **Saved Sessions** field, put your username in **Connection, Data**,** Auto-login username**, then click the **Save** button. You can then right click on the pageant icon, **Saved Sessions**, choose your saved session, and rapidly login to your target system

@@ -12,7 +12,7 @@ When I'm working with git, I like being able to see a list of files that have ch
 
 <!--more-->
 
-**Update:** foo commented that this was a &#8220;bad idea&#8221; (bordering on wrong?) and suggested I use options like **git log --stat** instead. See the comments below. Thanks foo!
+**Update:** foo commented that this was a "bad idea" (bordering on wrong?) and suggested I use options like **git log --stat** instead. See the comments below. Thanks foo!
 
 When I'm working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a **git log**, rather than getting this:
 

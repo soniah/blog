@@ -10,7 +10,7 @@ tags:
   - Solaris
   - SQL
 ---
-The latest edition of the venerable [UNIX and Linux System Administration Handbook][1] (Nemeth et al) has a good section discussing the &#8220;RAID5 Write Hole&#8221;:
+The latest edition of the venerable [UNIX and Linux System Administration Handbook][1] (Nemeth et al) has a good section discussing the "RAID5 Write Hole":
 
 
 <!--more-->

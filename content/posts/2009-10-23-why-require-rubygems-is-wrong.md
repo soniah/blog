@@ -8,7 +8,7 @@ categories:
 tags:
   - Ruby
 ---
-A link off the [RORO][1] list about [Why &#8220;require &#8216;rubygems'&#8221; Is Wrong][2].
+A link off the [RORO][1] list about [Why "require 'rubygems'" Is Wrong][2].
 
 <!--more-->
 

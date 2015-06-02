@@ -15,20 +15,20 @@ Some notes on branch management with Subversion (more for my own learning purpos
   * create branch: **svn cp foo foo-branch**
   * develop new feature in foo-branch, whilst doing any bug fixes in trunk
   * merge some changes from trunk into branch -- keep branch up-to-date as possible 
-      * commit any changes first, so can easily revert if desired: **cd foo-branch; svn up; svn ci -m &#8220;pre merge in trunk&#8221;**
+      * commit any changes first, so can easily revert if desired: **cd foo-branch; svn up; svn ci -m "pre merge in trunk"**
       * find where branch occured (if not noted in a log message -- duh): **svn log --verbose --stop-on-copy foo-branch** (eg 123)
       * preview changes succinctly: **cd foo-branch; ****svn merge --dry-run -r 123:HEAD**
       * preview changes verbosely: **cd foo-branch; ****svn diff --notice-ancestry -r 123:HEAD .**
       * apply changes: **cd foo-branch; ****svn merge -r 123:HEAD svn+ssh://myrepo.com/foo/bar**
       * check changes: **svn st; svn diff, **if problems: **svn revert**
-      * commit changes: **svn ci -m &#8220;merged trunk changes into branch (flubbed the widgets) r123:129&#8243;**
+      * commit changes: **svn ci -m "merged trunk changes into branch (flubbed the widgets) r123:129&#8243;**
   * keep working in foo-branch, merge in some more changes 
       * ditto previous
       * **svn merge -r 130:HEAD svn+ssh://myrepo.com/foo/bar** (*previously merged up to 129, so start on 130*)
   * merge all changes from branch into trunk -- new feature finished 
       * ditto previous
       * **cd foo; svn merge -r 123:HEAD https://myrepo.com/foo-branch**
-      * **svn ci -m &#8220;merged foo-branch into trunk (feature x) r123:145&#8243;**
+      * **svn ci -m "merged foo-branch into trunk (feature x) r123:145&#8243;**
 
 An alternative (and often easier) approach is to branch on the server, then just switch the working copy for the subdirectory (or individual file) being worked on:
 

@@ -40,7 +40,7 @@ $exp->expect(2, [ qr/bar/i ] ); $exp->hard_close();<br />
 
 **Actions -- Pattern-Command Pairs**
 
-Patterns can be directly associated with Commands -- &#8220;Actions&#8221;.
+Patterns can be directly associated with Commands -- "Actions".
 
 `expect {<br />
 eof {break}<br />

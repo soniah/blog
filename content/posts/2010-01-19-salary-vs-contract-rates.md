@@ -18,7 +18,7 @@ Salary divided by 48 weeks, divided by 40 hours, plus 20% (super, training, sick
 
 For example, $100K =~ $62.50/hour, $150K =~ $93.75/hour.
 
-Here's a quick ready reckoner -- handy to print out when you're doing the &#8220;job mambo&#8221;:
+Here's a quick ready reckoner -- handy to print out when you're doing the "job mambo":
 
 &nbsp;
 

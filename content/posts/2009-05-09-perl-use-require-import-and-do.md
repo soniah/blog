@@ -12,7 +12,7 @@ Some notes on Perl's *use, require, import* and *do. *Quick notes for me; not me
 
 <!--more-->
 
-  * **use** is done at &#8216;compile-time' and **require** is done at &#8216;run-time' (ie can conditionally load modules)
+  * **use** is done at 'compile-time' and **require** is done at 'run-time' (ie can conditionally load modules)
   * **require** is the older method, but **use** uses require to do it's work:
 
 <pre class="brush: perl; title: ; notranslate" title="">use Foo;

@@ -8,7 +8,7 @@ categories:
 tags:
   - iso
 ---
-Every time I go to loop mount an iso file, it's long enough since I last did it that I have to &#8220;re-google&#8221;.
+Every time I go to loop mount an iso file, it's long enough since I last did it that I have to "re-google".
 
 <!--more-->
 

@@ -36,7 +36,7 @@ Create an example script:
 #!/bin/sh
 /usr/sbin/ifconfig -a</pre>
 
-Remove default auths and profile from all users. Note -- this is required so that the foo user doesn't get the &#8220;Basic Solaris User&#8221; profile, which allows all user level binaries to be run. This however affects other accounts and services, and would require further testing:
+Remove default auths and profile from all users. Note -- this is required so that the foo user doesn't get the "Basic Solaris User" profile, which allows all user level binaries to be run. This however affects other accounts and services, and would require further testing:
 
 <pre>/etc/security/policy.conf
 # sonia AUTHS_GRANTED=solaris.device.cdrw

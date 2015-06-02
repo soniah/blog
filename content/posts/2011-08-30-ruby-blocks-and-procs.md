@@ -71,7 +71,7 @@ Some of the Rails and Ruby library code define methods with **&block** as the la
   * it's effectively a *type-checked* parameter -- it will only accept an anonymous block or a proc (if proceeded with **&**)
   * the block can be called with **call** or **yield**
   * you can check if a block was passed using **block_given?**
-  * **&block** is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using **&block**, callers get more flexibility when using your method ie they can pass in a **proc** (perhaps defined elsewhere and used multiple times)
+  * **&block** is sort of an "invisible parameter" at the end of all methods. But by explicitly using **&block**, callers get more flexibility when using your method ie they can pass in a **proc** (perhaps defined elsewhere and used multiple times)
 
 Anonymous blocks are ignored if they're not used:
 
@@ -127,7 +127,7 @@ mary
 &gt;    yield      if block_given?           # therefore can only yield not call
 &gt; end</pre>
 
-**&block** is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using **&block**, callers get more flexibility when using your method:
+**&block** is sort of an "invisible parameter" at the end of all methods. But by explicitly using **&block**, callers get more flexibility when using your method:
 
 <pre>&gt; def foo(a)                                         # no &block defined in parameters
 &gt;   puts "a is #{a}"

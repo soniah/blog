@@ -15,7 +15,7 @@ A SlashDot linked [article on Mirah][1] -- Java with Ruby syntax (different from
 
 [<img class="aligncenter size-medium wp-image-916" title="programadorjava" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg?w=285" alt="" width="285" height="300" />][2]
 
-<religion>So when is someone going to do this to Perl? Or is that Perl6? Or Ruby just the &#8220;new Perl&#8221;?</religion>
+<religion>So when is someone going to do this to Perl? Or is that Perl6? Or Ruby just the "new Perl"?</religion>
 
  [1]: http://cogitations.arbia.co.uk/post/3984477935/fun-java-with-mirah
  [2]: http://blog.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg

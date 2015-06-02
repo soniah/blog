@@ -28,7 +28,7 @@ My second grapple (gi) was again with Cara. Neither of us dominated the grapple,
 
 Thanks Cara for being a strong but friendly opponent -- I'm sure we'll meet on the mats again!
 
-My other team mates (Arron and Les) were both &#8220;on fire&#8221;. I didn't get to see many of their grapples as I was working on the tables, but I did manage to record this one of Les:
+My other team mates (Arron and Les) were both "on fire". I didn't get to see many of their grapples as I was working on the tables, but I did manage to record this one of Les:
 
 <!-- youtube?? -->
 

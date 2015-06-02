@@ -12,7 +12,7 @@ Notes from a recent post on SLUG:
 
 <!--more-->
 
-  * you need to use one of the &#8220;Alternate&#8221; versions of Ubuntu, rather than a &#8220;Live&#8221; version. To quote Jeff Waugh:
+  * you need to use one of the "Alternate" versions of Ubuntu, rather than a "Live" version. To quote Jeff Waugh:
 
 *Salient point that I managed to skip: The alternate CD has packages on it,*
 

@@ -27,7 +27,7 @@ What kicked this all off? This great SlashDot post on why Expensify [doesn't hir
 
 [<img class="aligncenter size-full wp-image-943" title="stroustrup" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png" alt="" width="600" height="352" />][7]
 
-PS I like Paul Graham's [Tweet][8] on the book: &#8220;Turns out the border between genius and insanity is a pretty cheery place&#8221;.
+PS I like Paul Graham's [Tweet][8] on the book: "Turns out the border between genius and insanity is a pretty cheery place".
 
  [1]: http://www.youtube.com/watch?v=mlleDPgmDVM
  [2]: http://landoflisp.com/

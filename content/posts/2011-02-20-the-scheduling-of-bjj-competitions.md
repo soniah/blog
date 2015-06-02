@@ -32,7 +32,7 @@ For example:
 
 ## The fudge factor
 
-What is the &#8220;fudge factor&#8221;? It is simply the extra time you add to each fight to allow for the fact that fights aren't going to run immediately one after another. I've guessed 1.2, but you might allow 1.4 or even 1.6 for a busy competition. Put another way, fights are supposed to last 5 minutes (or 6-10 minutes), but only two things make them shorter:
+What is the "fudge factor"? It is simply the extra time you add to each fight to allow for the fact that fights aren't going to run immediately one after another. I've guessed 1.2, but you might allow 1.4 or even 1.6 for a busy competition. Put another way, fights are supposed to last 5 minutes (or 6-10 minutes), but only two things make them shorter:
 
   * a withdrawal or no-show by a competitor
   * a fight finishing early due to a tap out
@@ -51,7 +51,7 @@ So, I've erred towards a longer fudge factor (>1) rather than a shorter fudge fa
 
 ## How Many Fights?
 
-If you've got 8 competitors in a &#8220;[sudden death tournament][3]&#8220;, how many fights will there be? Google gives the [answer][4]:
+If you've got 8 competitors in a "[sudden death tournament][3]", how many fights will there be? Google gives the [answer][4]:
 
 <p style="text-align: center;">
   <strong>N-1</strong>

@@ -14,7 +14,7 @@ My new favourite git option:
 
 <pre>git add -p</pre>
 
-It's like doing an interactive add, then choosing &#8216;p' for patching. From the manual:
+It's like doing an interactive add, then choosing 'p' for patching. From the manual:
 
 *       -p, --patch*
 

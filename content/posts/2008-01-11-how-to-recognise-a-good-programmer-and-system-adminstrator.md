@@ -15,7 +15,7 @@ KDan (via [Slashdot][1]) has a great post on [how to recognise a good programmer
 Some of the key points:
 
   * passionate about technology, will talk your ear off on a technical subject if encouraged; technology isn't a day job but a lifestyle
-  * learns new technologies on their own, and doesn't say &#8220;send me on a course to learn that&#8221;
+  * learns new technologies on their own, and doesn't say "send me on a course to learn that"
   * very uncomfortable about the idea of working with a technology they don't believe to be “right”
   * has some hidden “icebergs”, large personal projects under the CV radar
 

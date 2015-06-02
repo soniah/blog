@@ -11,7 +11,7 @@ tags:
 ---
   * gconf-editor
   * /system/storage/default\_options/vfat/mount\_options
-  * remove the &#8220;usefree&#8221; option from the list
+  * remove the "usefree" option from the list
 
 See [Launchpad Bug 151025][1].
 

@@ -25,8 +25,8 @@ Some guidelines for understanding MySQL security:
 
 Statements:
 
-  * GRANT/REVOKE privilege ON table1, . TO user \[IDENTIFIED BY &#8216;password'\] \[WITH GRANT OPTION\]; FLUSH PRIVILEGES;
+  * GRANT/REVOKE privilege ON table1, . TO user \[IDENTIFIED BY 'password'\] \[WITH GRANT OPTION\]; FLUSH PRIVILEGES;
   * privilege can be ALL, or things like SELECT, DELETE, etc
   * table can be \* (all tables in the current database) or \*.* all tables all databases
   * user means all users with that name, or you can specify a specific host with user@host
-  * SET PASSWORD FOR &#8216;fred'@'localhost' = PASSWORD(&#8216;secret');
+  * SET PASSWORD FOR 'fred'@'localhost' = PASSWORD('secret');

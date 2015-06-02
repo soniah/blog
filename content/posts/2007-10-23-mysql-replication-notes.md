@@ -52,7 +52,7 @@ mysql&gt; unlock tables; # release locks in the original terminal
       * if only using MyISAM the **LOAD DATA FROM MASTER** command can be used *without having to stop the master*; even though it's usage is [deprecated][2] there's no equivalent replacement. Additional permissions have to be assigned to the slave repl account (xx) and some network settings need to be temporarily changed (??), and a global read lock needs to be held on the master (thus preventing updates while transferring data)
       * data can also be copied using [mysqldump][3] or by [dumping the raw files][4]. If using InnoDB there's [also][4] a commercial product called [Hot Backup][5].
   * if using different storage engines between the master and slave, don't put the engine statements in the CREATE or ALTER TABLE statements (as they'll be replicated). Either use SET storage_engine followed by CREATE TABLE, or stop the slave and issue ALTER TABLE statements on the slave; see [documentation][6].
-  * Binary log files must be removed when they're no longer needed because MySQL doesn't do so automatically. Use **purge master logs to &#8216;mysql-bin.1234&#8242;;** O'Reilly's *High Performance MySQL* has a log purge script (section 7.5), as well as other useful scripts for managing replication
+  * Binary log files must be removed when they're no longer needed because MySQL doesn't do so automatically. Use **purge master logs to 'mysql-bin.1234&#8242;;** O'Reilly's *High Performance MySQL* has a log purge script (section 7.5), as well as other useful scripts for managing replication
 
 On the Slave:
 
@@ -107,7 +107,7 @@ On the Slave:
 
   * **show slave statusG** ([documentation][9]) -- key things to watch for are: 
       * *Seconds\_Behind\_Master* should be close to zero
-      * *Slave\_IO\_Running* and *Slave\_SQL\_Running* should both be &#8216;Yes'
+      * *Slave\_IO\_Running* and *Slave\_SQL\_Running* should both be 'Yes'
       * *Read\_Master\_Log_Pos* should only be slightly behind the position given by *show master status* on the master.
       * *Exec\_Master\_Log_Pos* should only be slightly behind *Read\_Master\_Log_Pos*
       * watch *Last_Errno* and *Last_Error* for errors and all the *Replicate/Ignore DB/Table* fields for data not being replicated. In an emergency, troublesome statements can be skipped over using TODO.

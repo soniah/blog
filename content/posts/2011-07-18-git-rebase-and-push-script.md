@@ -22,7 +22,7 @@ For development projects, I use the standard git workflow ie master is my main b
   </p>
 </div>
 
-When I'm happy with my work in a dev branch I cherry-pick or merge into master. I'll then want to rebase my other dev branches against master, and push all branches to a &#8220;backup&#8221; server (ie a bare git repository). On my dev branches I'm frequently rewriting history with **git reset**, **git commit --amend**, and **git rebase -i**, but on my master branch I never rewrite history (ie only ever use **git revert**). So when I push dev branches I'm going to need to do a **git push -f**, whereas on the master a **git push** will suffice.
+When I'm happy with my work in a dev branch I cherry-pick or merge into master. I'll then want to rebase my other dev branches against master, and push all branches to a "backup" server (ie a bare git repository). On my dev branches I'm frequently rewriting history with **git reset**, **git commit --amend**, and **git rebase -i**, but on my master branch I never rewrite history (ie only ever use **git revert**). So when I push dev branches I'm going to need to do a **git push -f**, whereas on the master a **git push** will suffice.
 
 I'm doing this regularly, and it's boring and error prone. So I've written a script to automate the whole process ie rebase each dev branch against master, and push all local branches somewhere else. If you have branches off (non-master) branches, this script won't work. But I've found in my day-to-day development as a sysadmin ([devop][2]?) my branching isn't that complicated, so this script is adequate.
 

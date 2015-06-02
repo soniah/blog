@@ -12,7 +12,7 @@ If you work in an IT environment, it's nice to be able to quickly share some of 
 
 <!--more-->
 
-Unfortunately, a lot of the posts out there on &#8220;how to setup Gitweb on Ubuntu&#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here's how I did it on Ubuntu 11.04 (Natty).
+Unfortunately, a lot of the posts out there on "how to setup Gitweb on Ubuntu" seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here's how I did it on Ubuntu 11.04 (Natty).
 
 ## Basic Setup
 
@@ -30,7 +30,7 @@ You probably only want to share out *some* of your repositories, not all of ${HO
 sudo git clone --bare ~/foo foo.git
 </pre>
 
-Next, a little gotcha. You need to enable the **post-update** hook, so that the required info is generated for the http server. The &#8220;gotcha&#8221; is that you need to enable the hook **then** do a push to your server repository, otherwise the server info isn't updated:
+Next, a little gotcha. You need to enable the **post-update** hook, so that the required info is generated for the http server. The "gotcha" is that you need to enable the hook **then** do a push to your server repository, otherwise the server info isn't updated:
 
 <pre class="brush: bash; title: ; notranslate" title="">cd ~/foo/.git/hooks
 mv post-update.sample post-update
