@@ -84,7 +84,18 @@ USA/Canada:    White Gas/Naptha,            Unleaded Auto Gas,   Kerosene
       <guid>http://blog2.snowfrog.net/2012/01/12/first-day-at-google-floating-fish/</guid>
       <description>&lt;p&gt;My first day at Google &amp;#8211; a fish floated through the kitchen&amp;#8230;&lt;/p&gt;
 
-&lt;p&gt;&lt;span class=&#34;youtube&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+  &lt;iframe
+    class=&#34;youtube-player&#34;
+    type=&#34;text/html&#34;
+    width=&#34;100%&#34;
+    height=&#34;400&#34;
+    src=&#34;http://www.youtube.com/embed/FoTRfO6BqIc&#34;
+    allowfullscreen
+    frameborder=&#34;0&#34;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
 </description>
     </item>
     

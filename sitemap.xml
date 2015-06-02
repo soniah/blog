@@ -158,11 +158,6 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/30/brawl-video-self-defence-lessons/</loc>
-    <lastmod>2012-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog2.snowfrog.net/2012/11/30/linux-filename-suffixes/</loc>
     <lastmod>2012-11-30T00:00:00+00:00</lastmod>
   </url>
@@ -183,12 +178,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -303,12 +298,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -538,12 +533,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
+    <loc>http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -688,12 +683,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -858,12 +853,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -908,12 +903,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -1033,12 +1028,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -1288,12 +1283,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/02/useful-tool-for-converting-audio-files/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/02/useful-tool-for-converting-audio-files/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/02/monkeys-learn-in-the-same-way-as-humans/</loc>
     <lastmod>2007-08-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -1528,12 +1523,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
