@@ -17,11 +17,11 @@ I&#8217;m bored, so I&#8217;m going to learn Lisp.
 
 Why am I bored? I hurt my knee at [BJJ][1] and have to take a week or two off training :-( Fortunately it&#8217;s not too bad and I&#8217;ll be back getting beaten up (and beating up) soon!
 
-I came across this fun looking book that inspired me &#8211; [Land of Lisp][2] &#8211; I started reading it in Dymocks and couldn&#8217;t put it down. But years ago I&#8217;d read Paul Graham&#8217;s [blog][3] and recently Joel Spolsky on [The Perils of Java Schools][4]. I was really surprised to learn that university Computer Science departments have stopped teaching pointers and recursion because they teach Java or .NET. I remember the joy :twisted: in 2nd year Comp Sci of watching half the class being weeded out by Data Structures, then another half being weeded out the following semester by Functional Programming.
+I came across this fun looking book that inspired me -- [Land of Lisp][2] -- I started reading it in Dymocks and couldn&#8217;t put it down. But years ago I&#8217;d read Paul Graham&#8217;s [blog][3] and recently Joel Spolsky on [The Perils of Java Schools][4]. I was really surprised to learn that university Computer Science departments have stopped teaching pointers and recursion because they teach Java or .NET. I remember the joy :twisted: in 2nd year Comp Sci of watching half the class being weeded out by Data Structures, then another half being weeded out the following semester by Functional Programming.
 
 And here&#8217;s a post by Peter Christensen on [who uses Lisp][5].
 
-Oh yeh, I&#8217;m also learning Python &#8211; it seems the sanest general purpose scripting language around. Ruby is great and I love it, but it&#8217;s often not available (try telling Bank X or Phone Company Y that you&#8217;re going to install Ruby on several hundred of their production Solaris servers, see what sort of reaction you get). And Perl is unmaintainable line noise and shell scripts are tedious.
+Oh yeh, I&#8217;m also learning Python -- it seems the sanest general purpose scripting language around. Ruby is great and I love it, but it&#8217;s often not available (try telling Bank X or Phone Company Y that you&#8217;re going to install Ruby on several hundred of their production Solaris servers, see what sort of reaction you get). And Perl is unmaintainable line noise and shell scripts are tedious.
 
 What kicked this all off? This great SlashDot post on why Expensify [doesn&#8217;t hire .NET programmers][6] :-)
 

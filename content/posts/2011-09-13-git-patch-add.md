@@ -16,6 +16,6 @@ My new favourite git option:
 
 It&#8217;s like doing an interactive add, then choosing &#8216;p&#8217; for patching. From the manual:
 
-*       -p, &#8211;patch*
+*       -p, --patch*
 
-*Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to** the index.* *This effectively runs add &#8211;interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See “Interactive mode” for details.*
+*Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to** the index.* *This effectively runs add --interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See “Interactive mode” for details.*

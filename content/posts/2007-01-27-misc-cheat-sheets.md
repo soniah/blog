@@ -14,7 +14,7 @@ misc cheat sheets
   * [BlueWin Cheat Sheets][1]
   * [Tech Target Cheat Sheets][2]
   * [econsultant Top 119 Cheat Sheets][3]
-  * [Tutorials Round-Up][4] &#8211; miscellaneous cheat sheets and tutorials, covering Ajax through to XML, web programming and scripting.
+  * [Tutorials Round-Up][4] -- miscellaneous cheat sheets and tutorials, covering Ajax through to XML, web programming and scripting.
   * [m4 cookbook][5] ([pdf version][6])
 
 **Perl**

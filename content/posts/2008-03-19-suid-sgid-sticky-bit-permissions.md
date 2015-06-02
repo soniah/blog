@@ -16,7 +16,7 @@ I usually don&#8217;t rote learn this sort of stuff (that&#8217;s what manpages 
   * **2000** (chmod g+s) is **sgid**; for *files* execute as owning group (often root); for *directories* the group on newly created files will be set to the directory&#8217;s group rather than the creator&#8217;s group. Typically used for shared directories.
   * **suid** and **sgid** are ignored on scripts, due to the security risk
   * **1000** (chmod +t) is **sticky** bit (&#8220;save **text** image&#8221;); for *files* it used to be &#8216;pin in memory&#8217; but is now ignored; for *directories* only root, file owner and directory owner can delete a file (even if non-owners have directory write permissions). Typically used for /tmp. **&#8212;t&#8212;&#8212;**
-  * capital letters when doing **ls -al** usually means the permissions have been set incorrectly eg **-r-S&#8212;&#8212;** SUID is set, but owner execute is not set. However (?check?) **-rw&#8212;&#8212;T** means no update of &#8220;last modified time&#8221;; usually used for swap *files* (not very common nowadays &#8211; swap is usually a partition).
+  * capital letters when doing **ls -al** usually means the permissions have been set incorrectly eg **-r-S&#8212;&#8212;** SUID is set, but owner execute is not set. However (?check?) **-rw&#8212;&#8212;T** means no update of &#8220;last modified time&#8221;; usually used for swap *files* (not very common nowadays -- swap is usually a partition).
 
 **Directory Permissions**
 
@@ -41,7 +41,7 @@ This is the last time the *actual contents* of the file were last modified.
 
 **Addendum**
 
-An old Unix hand told me this trick: directories for mount points should be created **d&#8211;x&#8211;x&#8211;x**. That way if the directory is unmounted, it&#8217;s obvious that &#8220;this directory is a mount point&#8221;.
+An old Unix hand told me this trick: directories for mount points should be created **d--x--x--x**. That way if the directory is unmounted, it&#8217;s obvious that &#8220;this directory is a mount point&#8221;.
 
  [1]: http://articles.rootsmith.ca/linux/unix-access-modify-and-change-times
  [2]: https://wiki.archlinux.org/index.php/fstab#atime_options

@@ -9,7 +9,7 @@ tags:
   - Clearline
   - Wordpress
 ---
-The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to **Previous Page** and **Next Page**. Changing them to say something like **Newer Posts** and **Older Posts** is easy &#8211; you need to edit the following four files:
+The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to **Previous Page** and **Next Page**. Changing them to say something like **Newer Posts** and **Older Posts** is easy -- you need to edit the following four files:
 
 <!--more-->
 

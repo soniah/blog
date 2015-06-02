@@ -12,4 +12,4 @@ Two useful tools for modifying Debian/Ubuntu runlevels (apart from just editing 
 <!--more-->
 
   * **update-rc.d**
-  * **rcconf** &#8211; a frontend to update-rc.d
+  * **rcconf** -- a frontend to update-rc.d

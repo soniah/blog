@@ -6,7 +6,7 @@ url: /2010/09/28/password-caching-with-sshpass/
 categories:
   - Other-Tech
 ---
-[sshpass][1] &#8211; a tool for *non-interactively performing password authentication with SSH&#8217;s so called &#8220;interactive keyboard password authentication&#8221;* &#8211; useful for automation scripts where you are unable to use ssh keys.
+[sshpass][1] -- a tool for *non-interactively performing password authentication with SSH&#8217;s so called &#8220;interactive keyboard password authentication&#8221;* -- useful for automation scripts where you are unable to use ssh keys.
 
 <!--more-->
 

@@ -9,6 +9,6 @@ tags:
   - Apt
   - Ubuntu
 ---
-Note to *brain* (because I keep forgetting it and having to look it up) &#8211; to reconfigure level and style of questions asked by dpkg (and hence apt):
+Note to *brain* (because I keep forgetting it and having to look it up) -- to reconfigure level and style of questions asked by dpkg (and hence apt):
 
 <pre>dpkg-reconfigure debconf</pre>

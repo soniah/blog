@@ -8,11 +8,11 @@ categories:
 tags:
   - Solaris
 ---
-When running the ps command on Solaris, the output is truncated at 80 columns &#8211; really annoying when the command line to start up a process (typically a daemon) is really long.
+When running the ps command on Solaris, the output is truncated at 80 columns -- really annoying when the command line to start up a process (typically a daemon) is really long.
 
 <!--more-->
 
-This has been annoying me for ages, and I finally found a (sort of) solution &#8211; use a different ps, and run as root:
+This has been annoying me for ages, and I finally found a (sort of) solution -- use a different ps, and run as root:
 
 <pre># uname -a
 SunOS fubar 5.9 Generic_118558-24 sun4u sparc SUNW,UltraAX-i2

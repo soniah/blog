@@ -51,12 +51,12 @@ bar();              # carks
 
 **Some links:**
 
-  * [netalive.org &#8211; Writing Serious Perl][1]
-  * [Randal L. Schwartz &#8211; Hey use guys! import this!][2]
-  * [perl.com &#8211; The Perl You Need To Know &#8211; Part 3][3]
-  * [hype-free &#8211; The difference between use and require in Perl][4]
-  * [perldoc &#8211; use][5]
-  * [Perl Cookbook &#8211; Packages, Libraries and Modules][6]
+  * [netalive.org -- Writing Serious Perl][1]
+  * [Randal L. Schwartz -- Hey use guys! import this!][2]
+  * [perl.com -- The Perl You Need To Know -- Part 3][3]
+  * [hype-free -- The difference between use and require in Perl][4]
+  * [perldoc -- use][5]
+  * [Perl Cookbook -- Packages, Libraries and Modules][6]
 
  [1]: http://www.netalive.org/tinkering/serious-perl/
  [2]: http://www.stonehenge.com/merlyn/PerlJournal/col13.html

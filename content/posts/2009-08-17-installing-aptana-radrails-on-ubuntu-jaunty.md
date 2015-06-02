@@ -30,7 +30,7 @@ fi
 export MOZILLA_FIVE_HOME LD_LIBRARY_PATH
 ~/.aptana/AptanaStudio -vm /usr/lib/jvm/java-6-openjdk/bin</pre>
 
-[[ubuntu] Installing Aptana on Jaunty &#8211; Ubuntu Forums][3]
+[[ubuntu] Installing Aptana on Jaunty -- Ubuntu Forums][3]
 
  [1]: http://www.aptana.com/rails
  [2]: http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.8.1.3/contrib/linux-i686/xulrunner-1.8.1.3.en-US.linux-i686-20080128.tar.gz

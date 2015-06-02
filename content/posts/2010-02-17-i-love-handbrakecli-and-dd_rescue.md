@@ -10,7 +10,7 @@ I watch lots of (martial arts) instructional videos.
 
 <!--more-->
 
-Something I&#8217;ve always wanted to do is &#8220;mashup&#8221; my own videos ie take a few chapters from one video, a few chapters from another video. Now I know how &#8211; [handbreakcli][1]:
+Something I&#8217;ve always wanted to do is &#8220;mashup&#8221; my own videos ie take a few chapters from one video, a few chapters from another video. Now I know how -- [handbreakcli][1]:
 
 First, rip the vobs off the dvd. You can work directly off the dvd with handbreak, but working from the hard-disk is often easier. I use dd_rescue for unencrypted dvds. (For scratched dvds, I&#8217;ve been using motorbike visor cleaner to remove the scratches, and [myrescue][2]).
 

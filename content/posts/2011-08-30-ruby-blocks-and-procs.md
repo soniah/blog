@@ -68,7 +68,7 @@ bonjour                             # ouch! In 1.9 you'd get "hello"</pre>
 Some of the Rails and Ruby library code define methods with **&block** as the last parameter to capture an anonymous block.
 
   * anonymous blocks are ignored if they&#8217;re not used, and **&block** is an *optional* parameter that must appear as the *last* parameter
-  * it&#8217;s effectively a *type-checked* parameter &#8211; it will only accept an anonymous block or a proc (if proceeded with **&**)
+  * it&#8217;s effectively a *type-checked* parameter -- it will only accept an anonymous block or a proc (if proceeded with **&**)
   * the block can be called with **call** or **yield**
   * you can check if a block was passed using **block_given?**
   * **&block** is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using **&block**, callers get more flexibility when using your method ie they can pass in a **proc** (perhaps defined elsewhere and used multiple times)
@@ -153,7 +153,7 @@ And these are both the same ie **foo** and **bar** both receive one parameter; *
 <pre>foo  bar { |s| puts(s) }
 foo( bar { |s| puts(s) } )</pre>
 
-Of course the moral of story is not to rely on obscure precedence rules, rather use parentheses whenever something is unclear &#8211; as always, in any language.
+Of course the moral of story is not to rely on obscure precedence rules, rather use parentheses whenever something is unclear -- as always, in any language.
 
 # Closures
 

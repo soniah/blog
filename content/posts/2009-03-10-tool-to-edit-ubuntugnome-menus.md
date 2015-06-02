@@ -8,6 +8,6 @@ categories:
 tags:
   - Ubuntu
 ---
-A simple tool to edit Ubuntu/Gnome menus &#8211; **gmenu-simple-editor** &#8211; part of the **gnome-menus** package.
+A simple tool to edit Ubuntu/Gnome menus -- **gmenu-simple-editor** -- part of the **gnome-menus** package.
 
 Also: **alacarte**.

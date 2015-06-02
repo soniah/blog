@@ -10,12 +10,12 @@ tags:
 ---
 sharing application data on a dual boot laptop
 <!--more-->
-I dual boot my laptop between Linux and Windows &#8211; mostly Linux, but occasionally Windows. Here&#8217;s how to make applications like Firefox, Thunderbird, etc share their configuration &#8211; especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is *sonia* and your user id is *1000* (check by running the **id** function). It also presumes that you can see system folders in Windows &#8211; setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click *Apply to All Folders*.
+I dual boot my laptop between Linux and Windows -- mostly Linux, but occasionally Windows. Here&#8217;s how to make applications like Firefox, Thunderbird, etc share their configuration -- especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is *sonia* and your user id is *1000* (check by running the **id** function). It also presumes that you can see system folders in Windows -- setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click *Apply to All Folders*.
 
 ### Create a Shared Partition  
 
 
-First you need a filesystem that will be shared between both Linux and Windows &#8211; it has to be FAT, as this is the only filesystem that both operating systems (easily) read. This may involve shrinking an existing filesystem and partition. (You could of course lose data doing this, so check your backups first). 
+First you need a filesystem that will be shared between both Linux and Windows -- it has to be FAT, as this is the only filesystem that both operating systems (easily) read. This may involve shrinking an existing filesystem and partition. (You could of course lose data doing this, so check your backups first). 
 
 The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Reiserfs or Ext3) located inside. To shrink a partition, the filesystem needs to be shrunk first; the easiest way to do this is to shrink the filesystem too small, delete the partition and recreate it smaller, then expand the filesystem to fit the newly shrunk partition: 
 
@@ -63,7 +63,7 @@ The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Rei
 ### Get Firefox to Locate Configuration in Linux  
 
 
-  * close Firefox and move your profile &#8211; it&#8217;ll be a directory named something like *123456.default*: 
+  * close Firefox and move your profile -- it&#8217;ll be a directory named something like *123456.default*: 
 
 <pre>mkdir -p /configs/.mozilla/firefox
  mv ~/.mozilla/123456.default /configs/.mozilla/firefox
@@ -75,7 +75,7 @@ The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Rei
  Path=/configs/.mozilla/firefox/123456.default
 </pre>
 
-  * check Firefox runs OK &#8211; if the Profiles screen pops up, you&#8217;ve got some sort of error 
+  * check Firefox runs OK -- if the Profiles screen pops up, you&#8217;ve got some sort of error 
 
 ### Mount the Shared Partition in Windows</p> 
 

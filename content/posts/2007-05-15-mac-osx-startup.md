@@ -20,7 +20,7 @@ Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting
 
 ### BootROM
 
-  * POST (Power On Self Test) is done &#8211; checks hardware and initialises components; errors (eg RAM) will cause varying numbers of beeps (or flashing LEDs on some systems)
+  * POST (Power On Self Test) is done -- checks hardware and initialises components; errors (eg RAM) will cause varying numbers of beeps (or flashing LEDs on some systems)
   * on PPC machines **Open Firmware** is run
   * on Intel machines **EFI** (Extended Firmware Interface) is run
   * **Command-Option-O-F** will start PPCs and Intels in Open Firmware Mode prompt. Five commands can be used: **mac-boot, shut-down, reset-all, reset-nvram, eject cd**
@@ -35,7 +35,7 @@ Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting
 
   * the kernel file is **mach_kernel**
   * the kernel launches **I/O kit**, which loads drivers for I/O devices
-  * the kernel launches launchd &#8211; similar to **init** in Linux
+  * the kernel launches launchd -- similar to **init** in Linux
 
 ### launchd
 
@@ -47,14 +47,14 @@ Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting
       * **/Library/LaunchAgents**
       * **~/Library/LaunchAgents**
   * during **Safe Boot** (Shift key), only items in **/System/Library** are started
-  * launchd then runs any scripts in **/etc/rc **&#8211; one of which is **SystemStarter **, which starts items in **/System/Library/StartupItems **and **/Library/StartupItems **(below)
+  * launchd then runs any scripts in **/etc/rc **-- one of which is **SystemStarter **, which starts items in **/System/Library/StartupItems **and **/Library/StartupItems **(below)
   * launchd then starts **loginwindow**
 
 ### Startup Scripts, Startup Items
 
   * items here are being replaced by **launchd**
-  * **/System/Library/StartupItems **&#8211; when troubleshooting, rename rather than delete things from here
-  * **/Library/StartupItems **&#8211; can use this to for example manually map a drive. When troubleshooting, this should *usually* be empty &#8211; move items to Desktop rather than deleting
+  * **/System/Library/StartupItems **-- when troubleshooting, rename rather than delete things from here
+  * **/Library/StartupItems **-- can use this to for example manually map a drive. When troubleshooting, this should *usually* be empty -- move items to Desktop rather than deleting
 
 ### loginwindow
 

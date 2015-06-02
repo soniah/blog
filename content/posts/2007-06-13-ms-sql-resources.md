@@ -17,12 +17,12 @@ MSSQL Resources
 
   * [SQL Server Central][1], especially the [links][2] section
   * [SQL Junkies][3]. Good article on [Troubleshooting Endpoints][4]
-  * [SQL Skills.com (Kimberley Tripp)][5] &#8211; especially the Resources section &#8211; whitepapers, articles, etc
+  * [SQL Skills.com (Kimberley Tripp)][5] -- especially the Resources section -- whitepapers, articles, etc
 
 ### <!--more-->User Groups
 
   * [SQL Down Under][6]
-  * [Australian SQL Server User Group][7] &#8211; especially the Resources section
+  * [Australian SQL Server User Group][7] -- especially the Resources section
   * [Sydney .NET Users Group][8]
   * sql@informare.com.au (email list)
 
@@ -36,12 +36,12 @@ MSSQL Resources
 
 ### Useful addins
 
-  * [AnkhSVN][14] &#8211; [Subversion][15] source code control plugin for Visual Studio
-  * [Log PI][16] and [Log Explorer][17] &#8211; both allow manipulation of SQL Server logs eg remove a single transaction
-  * [PromptSQL][18] &#8211; provides SQL Intellisense style word completion for various Microsoft SQL editors, and UltraEdit
-  * [ReSharper][19] &#8211; features such as intelligent coding assistance, on-the-fly error highlighting and quick error correction, support for code refactoring
-  * [Reflector][20] &#8211; allows you to view, navigate, search, decompile and analyze .NET assemblies. Other tools also on the same site.
-  * [Quest Spotlight][21] &#8211; &#8220;*Spotlight on SQL Server Enterprise provides an agent-less easy-to-use database issue discovery solution that enables you to identify and resolve SQL Server performance problems within your SQL Server environment.*&#8220;
+  * [AnkhSVN][14] -- [Subversion][15] source code control plugin for Visual Studio
+  * [Log PI][16] and [Log Explorer][17] -- both allow manipulation of SQL Server logs eg remove a single transaction
+  * [PromptSQL][18] -- provides SQL Intellisense style word completion for various Microsoft SQL editors, and UltraEdit
+  * [ReSharper][19] -- features such as intelligent coding assistance, on-the-fly error highlighting and quick error correction, support for code refactoring
+  * [Reflector][20] -- allows you to view, navigate, search, decompile and analyze .NET assemblies. Other tools also on the same site.
+  * [Quest Spotlight][21] -- &#8220;*Spotlight on SQL Server Enterprise provides an agent-less easy-to-use database issue discovery solution that enables you to identify and resolve SQL Server performance problems within your SQL Server environment.*&#8220;
 
 ### XML Tools
 

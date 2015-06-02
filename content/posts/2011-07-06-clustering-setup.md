@@ -14,7 +14,7 @@ A nice [post][1] from Jake on the SLUG list where he asks about a small clusteri
 <!--more-->
 
 <p style="padding-left:30px;">
-  I&#8217;m setting up some new hardware for a client of mine. Basically 2 new <a href="http://www.dell.com/au/business/p/poweredge-r210-2/pd">Dell PowerEdge R210 IIs</a> &#8211; nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (<a href="http://www.linux-kvm.org/page/Main_Page">kvm</a>) for a handfull of guests, file/domain server (<a href="http://www.zentyal.org/">ebox</a>), PBX (<a href="http://pbxinaflash.net/">piaf</a>), mail server web server, &#8220;magic windows only application&#8221; server etc. As the guests run everything in the ofice some kind of HA is needed.
+  I&#8217;m setting up some new hardware for a client of mine. Basically 2 new <a href="http://www.dell.com/au/business/p/poweredge-r210-2/pd">Dell PowerEdge R210 IIs</a> -- nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (<a href="http://www.linux-kvm.org/page/Main_Page">kvm</a>) for a handfull of guests, file/domain server (<a href="http://www.zentyal.org/">ebox</a>), PBX (<a href="http://pbxinaflash.net/">piaf</a>), mail server web server, &#8220;magic windows only application&#8221; server etc. As the guests run everything in the ofice some kind of HA is needed.
 </p>
 
 <p style="padding-left:30px;">

@@ -8,7 +8,7 @@ categories:
 tags:
   - Vim
 ---
-When posting code into vim, it often auto-indents it in a staircase fashion off to the right &#8211; really annoying.
+When posting code into vim, it often auto-indents it in a staircase fashion off to the right -- really annoying.
 
 <!--more-->
 

@@ -12,7 +12,7 @@ There&#8217;s an article [here][1] that explains how to connect to a mysql datab
 
 <!--more-->
 
-but the author makes it sound like rocket science. It&#8217;s easy &#8211; summary:
+but the author makes it sound like rocket science. It&#8217;s easy -- summary:
 
   * <pre>sudo aptitude install unixodbc libmyodbc unixodbc-bin</pre>
 

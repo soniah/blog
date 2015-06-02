@@ -37,33 +37,33 @@ If you need to generate a key, do this first. If you have been supplied with a k
 
   * run **puttygen.exe**, and load your key by clicking the **Load** button and browsing to your private key (the file without the .ppk extension). You will be prompted for your old password when loading the key
   * put in a new password in the two passphrase fields
-  * click on **Save private key** &#8211; save it on top of your existing private key
+  * click on **Save private key** -- save it on top of your existing private key
 
 **Using Your SSH Key:**
 
   * if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &#8216;load your key&#8217;
   * once your sysadmin has setup your account, there&#8217;s three ways you can use your key 
       * the **painful** way. Run putty.exe, enter the hostname/ip, put your username in **Connection, Data**,** Auto-login username**, load your key in **Connection, SSH, Auth**, **Private key file for authentication**, then click **Open** to connect
-      * the **better** way &#8211; caching your key in memory. Run pageant.exe &#8211; you&#8217;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). [<img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" />][5] Right click on this icon, choose **Add Key**, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the **Saved Sessions** field, put your username in **Connection, Data**,** Auto-login username**, then click the **Save** button. You can then right click on the pageant icon, **Saved Sessions**, choose your saved session, and rapidly login to your target system
-      * the **best** way &#8211; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)
+      * the **better** way -- caching your key in memory. Run pageant.exe -- you&#8217;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). [<img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" />][5] Right click on this icon, choose **Add Key**, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the **Saved Sessions** field, put your username in **Connection, Data**,** Auto-login username**, then click the **Save** button. You can then right click on the pageant icon, **Saved Sessions**, choose your saved session, and rapidly login to your target system
+      * the **best** way -- use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)
 
 **Troubleshooting**
 
 From experience, I&#8217;ve found most problems connecting with ssh servers come from network/firewall settings:
 
-  * check basic connectivity using the ping command &#8211; Start, Run, cmd, ping 1.2.3.4
-  * check a firewall isn&#8217;t blocking port 22 (ssh) by trying to telnet on port 22 &#8211; Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
+  * check basic connectivity using the ping command -- Start, Run, cmd, ping 1.2.3.4
+  * check a firewall isn&#8217;t blocking port 22 (ssh) by trying to telnet on port 22 -- Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
 <pre>telnet 1.2.3.4 22
 Trying 1.2.3.4...
 Connected to foo.bar.com.au.
 Escape character is '^]'.
 SSH-1.99-OpenSSH_3.9p1</pre>
 
-  * if using *nix, use **ssh -vvv** to get more verbose output &#8211; often you can see why the key exchange is failing
+  * if using *nix, use **ssh -vvv** to get more verbose output -- often you can see why the key exchange is failing
 
 **Next steps&#8230;**
 
-After using putty on Windows for a while, you may want to investigate [Cygwin][6] &#8211; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, [rsync][7] with ssh is handy &#8211; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my [other posts on ssh tools][8].
+After using putty on Windows for a while, you may want to investigate [Cygwin][6] -- it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, [rsync][7] with ssh is handy -- it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my [other posts on ssh tools][8].
 
  [1]: http://en.wikipedia.org/wiki/Secure_Shell
  [2]: http://monkey.org/~dugsong/dsniff/

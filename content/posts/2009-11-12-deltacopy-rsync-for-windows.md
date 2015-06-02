@@ -9,7 +9,7 @@ tags:
   - Rsync
   - Ssh
 ---
-A nice little tool I came across &#8211; [DeltaCopy][1] &#8211;
+A nice little tool I came across -- [DeltaCopy][1] --
 
 <!--more-->
 

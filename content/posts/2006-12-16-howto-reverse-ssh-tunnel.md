@@ -11,7 +11,7 @@ tags:
 howto reverse ssh tunnel
 <!--more-->
 
-I recently (15-Dec-06) asked this question on the [SLUG email list][1] &#8211; thanks to everyone for all the replies I got, especially Dave, The Reverend, Michael K, Erik, Tongmaster, Alex S, Tigger, David K&#8230;
+I recently (15-Dec-06) asked this question on the [SLUG email list][1] -- thanks to everyone for all the replies I got, especially Dave, The Reverend, Michael K, Erik, Tongmaster, Alex S, Tigger, David K&#8230;
 
 <pre>&gt; Is there a way of configuring ssh, so that if someone ssh's into my
  &gt; machine, I can connect back and get into their machine? (Linux to
@@ -27,7 +27,7 @@ I recently (15-Dec-06) asked this question on the [SLUG email list][1] &#8211; t
 
   * use [OpenVPN][4] or [Hamachi][5] to setup a VPN, then just ssh to the local vpn endpoint. Samba shares could also be setup across the vpn, allowing easy filesharing.
 
-  * VNC can also be run over ssh &#8211; see [VNC over SSH2 &#8211; A TightVNC Tutorial][6]
+  * VNC can also be run over ssh -- see [VNC over SSH2 -- A TightVNC Tutorial][6]
 
   * if they run windows, I find [logmein][7] as the best remote support thing by far, penetrates nat etc pretty well. See [here][8]. Client runs on linux, but server (on target PC) is windows only unfortunately.
 

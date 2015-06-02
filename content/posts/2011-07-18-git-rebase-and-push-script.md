@@ -12,7 +12,7 @@ For development projects, I use the standard git workflow ie master is my main b
 
 <!--more-->
 
-(** this site also suggests always using **&#8211;no-ff** with merge &#8211; a practice I now follow &#8211; it certainly makes reading history easier)
+(** this site also suggests always using **--no-ff** with merge -- a practice I now follow -- it certainly makes reading history easier)
 
 <div id="attachment_1086" class="wp-caption aligncenter" style="width: 608px">
   <a href="http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png"><img class="size-full wp-image-1086" title="branch-model" src="http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png" alt="nvie.com - A successful Git branching model" width="600" height="262" /></a>
@@ -22,7 +22,7 @@ For development projects, I use the standard git workflow ie master is my main b
   </p>
 </div>
 
-When I&#8217;m happy with my work in a dev branch I cherry-pick or merge into master. I&#8217;ll then want to rebase my other dev branches against master, and push all branches to a &#8220;backup&#8221; server (ie a bare git repository). On my dev branches I&#8217;m frequently rewriting history with **git reset**, **git commit &#8211;amend**, and **git rebase -i**, but on my master branch I never rewrite history (ie only ever use **git revert**). So when I push dev branches I&#8217;m going to need to do a **git push -f**, whereas on the master a **git push** will suffice.
+When I&#8217;m happy with my work in a dev branch I cherry-pick or merge into master. I&#8217;ll then want to rebase my other dev branches against master, and push all branches to a &#8220;backup&#8221; server (ie a bare git repository). On my dev branches I&#8217;m frequently rewriting history with **git reset**, **git commit --amend**, and **git rebase -i**, but on my master branch I never rewrite history (ie only ever use **git revert**). So when I push dev branches I&#8217;m going to need to do a **git push -f**, whereas on the master a **git push** will suffice.
 
 I&#8217;m doing this regularly, and it&#8217;s boring and error prone. So I&#8217;ve written a script to automate the whole process ie rebase each dev branch against master, and push all local branches somewhere else. If you have branches off (non-master) branches, this script won&#8217;t work. But I&#8217;ve found in my day-to-day development as a sysadmin ([devop][2]?) my branching isn&#8217;t that complicated, so this script is adequate.
 

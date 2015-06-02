@@ -18,7 +18,7 @@ The key paragraph:
 
 The link on [service life][2] explains:
 
-&#8220;The service life of a modern hard disk is usually about three to five years. &#8230; Interestingly, the claimed service life is often longer than the warranty period for the drive. For example, the service life might be five years but the warranty period only three years. Think about what this means. ;^) Basically, it says that the manufacturer thinks the drive should last five years, but they aren&#8217;t going to bet on it lasting more than three! I personally think the warranty period is a better indication of a drive&#8217;s true useful life&#8211;to a point&#8211;because the warranty period is where the manufacturer &#8220;puts their money where their mouth is&#8221;.
+&#8220;The service life of a modern hard disk is usually about three to five years. &#8230; Interestingly, the claimed service life is often longer than the warranty period for the drive. For example, the service life might be five years but the warranty period only three years. Think about what this means. ;^) Basically, it says that the manufacturer thinks the drive should last five years, but they aren&#8217;t going to bet on it lasting more than three! I personally think the warranty period is a better indication of a drive&#8217;s true useful life--to a point--because the warranty period is where the manufacturer &#8220;puts their money where their mouth is&#8221;.
 
  [1]: http://www.pcguide.com/ref/hdd/perf/qual/specMTBF-c.html
  [2]: http://www.pcguide.com/ref/hdd/perf/qual/specLife-c.html

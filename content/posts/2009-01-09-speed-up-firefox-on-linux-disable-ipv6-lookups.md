@@ -9,7 +9,7 @@ tags:
   - Firefox
   - Networking
 ---
-A post a stumbled upon &#8211; [Speed up Firefox on Linux &#8211; Disable IPv6 Lookups][1].
+A post a stumbled upon -- [Speed up Firefox on Linux -- Disable IPv6 Lookups][1].
 
 <!--more-->
 

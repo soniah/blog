@@ -26,7 +26,7 @@ But how to ignore files in all directories? Use .git/info/exclude. For example, 
 <pre>% cat .git/info/exclude
 .*.sw*</pre>
 
-All the howto&#8217;s I&#8217;ve read so far mention .gitignore but not .git/info/exclude &#8211; I stumbled across this by accident. More RTFM&#8217;ing to do&#8230;
+All the howto&#8217;s I&#8217;ve read so far mention .gitignore but not .git/info/exclude -- I stumbled across this by accident. More RTFM&#8217;ing to do&#8230;
 
 **Correction**
 

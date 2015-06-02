@@ -12,7 +12,7 @@ ipw2200 wireless on linux
 <!--more-->
 Useful link <http://www.de-brauwer.be/wiki/wikka.php?wakka=LinuxTecraS2>
 
-Most importantly &#8211; how to deal with wireless hardware switch
+Most importantly -- how to deal with wireless hardware switch
 
 $ cat /sys/bus/pci/drivers/ipw2200/0000:06:02.0/rf_kill
 
@@ -28,4 +28,4 @@ To fix
   * sudo rmmod ipw2200
   * press hardware radio switch
   * sudo insmod /lib/modules/&#8230;/ipw2200.ko
-  * cat /sys/&#8230;/rf_kill &#8211; should have a value of 0
+  * cat /sys/&#8230;/rf_kill -- should have a value of 0

@@ -10,7 +10,7 @@ tags:
   - Rsync
   - Ssh
 ---
-A script I wrote &#8211; rsyncp. It allows you to provide a password to rsync over ssh, when you&#8217;re unable to use ssh key-based authentication:
+A script I wrote -- rsyncp. It allows you to provide a password to rsync over ssh, when you&#8217;re unable to use ssh key-based authentication:
 
 <!--more-->
 

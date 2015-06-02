@@ -62,7 +62,7 @@ I wrote this code for MySQL; I don&#8217;t know whether it would work with other
 
 On of the features of my code for adding the foreign key is that it allows (requires) you to specify the column names. I did this because I like the primary keys in my tables to be named foo_id rather than id, to make things a little more self documenting.
 
-The next thing I want to work out is how to create/use tables with non-integer primary keys &#8211; seems like an issue that a few people have struggled with&#8230;:
+The next thing I want to work out is how to create/use tables with non-integer primary keys -- seems like an issue that a few people have struggled with&#8230;:
 
   * [HowToUseNonDatabaseProvidedIDs][1]
   * [:id-less legacy databases][2]
@@ -70,7 +70,7 @@ The next thing I want to work out is how to create/use tables with non-integer p
 
 **Update 9-June-2009:**
 
-I&#8217;ve updated my code to allow suffixes on foreign key names &#8211; useful (for example) when having multiple foreign keys going to the same destination table:
+I&#8217;ve updated my code to allow suffixes on foreign key names -- useful (for example) when having multiple foreign keys going to the same destination table:
 
 <pre>module MigrationHelpers
  def foreign_key(from_table, from_column, to_table, to_column, suffix=nil, on_delete='SET NULL', on_update='CASCADE')

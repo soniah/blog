@@ -10,6 +10,6 @@ tags:
 ---
 automatix – nice Ubuntu tool
 <!--more-->
-[Automatix][1] &#8211; sets up all the additional non-free things you want in Ubuntu, like codecs, truetype fonts, etc.
+[Automatix][1] -- sets up all the additional non-free things you want in Ubuntu, like codecs, truetype fonts, etc.
 
  [1]: http://ubuntuforums.org/showthread.php?t=66563

@@ -12,7 +12,7 @@ A couple of scripts I (very) quickly wrote for managing git branches, so I don&#
 
 <!--more-->
 
-No error checking or intelligence in the scripts &#8211; YMMV.
+No error checking or intelligence in the scripts -- YMMV.
 
 Delete a tracking branch both locally and remotely:
 

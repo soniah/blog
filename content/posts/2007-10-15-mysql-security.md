@@ -12,16 +12,16 @@ Some guidelines for understanding MySQL security:
 
 <!--more-->
 
-  * security tables have a dual primary key of *username + host* &#8211; ie if there are two entries, **fred@localhost** and **fred@%**, *they are different users to mysql  
+  * security tables have a dual primary key of *username + host* -- ie if there are two entries, **fred@localhost** and **fred@%**, *they are different users to mysql  
     *
   * more specific entries are considered before less specific entries ie **localhost** before **%.fubar.com** before **%**, **fred** before **[blank]**. A % host entry is considered last, as is a blank username
   * host entries are considered before username entries. If there&#8217;s a tie eg **[blank]@localhost** versus **fred@%**, the hostname entry wins ie **[blank]@localhost** wins over **fred@%**. This is a ***Big Gotcha!!*** (especially since MySQL creates a [blank]@localhost entry by default) Solution: delete all entries except root@localhost (or root@%), then only have one entry per user.
 
 <!--more-->Tables:
 
-  * **mysql.****user:** controls userids and global permisions &#8211; consulted during initial user connection. A permission (such as select) granted here is global and applies to all databases
+  * **mysql.****user:** controls userids and global permisions -- consulted during initial user connection. A permission (such as select) granted here is global and applies to all databases
   * **mysql.db:** controls access to individual databases. This table has a triple primary key consisting of host, db, user. If MySQL doesn&#8217;t find an exact match on host/db/user but *does* find a match on %/db/user, it looks in the **host** table for a match
-  * **mysql.host:** essentially an extension of the db table &#8211; when a host/db entry matches in both tables, the entries must both be positive. In effect this allows you to grant a privilege to most users but deny them from a specific host
+  * **mysql.host:** essentially an extension of the db table -- when a host/db entry matches in both tables, the entries must both be positive. In effect this allows you to grant a privilege to most users but deny them from a specific host
 
 Statements:
 

@@ -15,7 +15,7 @@ When creating a new Solaris zone, one of the steps involves connecting to the zo
 <pre># zlogin -C examplezone
 </pre>
 
-The zone then runs through the **sys-unconfig** script, asking questions about hostname, timezone, etc. When this is finished, the doco says to exit from the console using the &#8220;~.&#8221; combination. But of course ssh grabs the &#8220;~&#8221; escape character and kills the entire ssh connection &#8211; aargghhh&#8230; Solution: different escape characters for the different ssh connections:
+The zone then runs through the **sys-unconfig** script, asking questions about hostname, timezone, etc. When this is finished, the doco says to exit from the console using the &#8220;~.&#8221; combination. But of course ssh grabs the &#8220;~&#8221; escape character and kills the entire ssh connection -- aargghhh&#8230; Solution: different escape characters for the different ssh connections:
 
 <pre>% ssh windows -e @                       # jump host for Cisco vpn, @ escape character
 % ssh shamilton@1.2.3.4 -p 8022 -e %     # connect to HP-NA, % escape character
@@ -26,8 +26,8 @@ do stuff, then ~.                        # do stuff, then ~ escape character to 
 
 See also:
 
-  * [Cisco &#8211; Configuring a Terminal/Comm Server][1]
-  * [informIT &#8211; Configuring a Terminal Server][2] &#8211; especially the stuff about clearing lines (in addition to clearing sessions)
+  * [Cisco -- Configuring a Terminal/Comm Server][1]
+  * [informIT -- Configuring a Terminal Server][2] -- especially the stuff about clearing lines (in addition to clearing sessions)
 
  [1]: http://cisco.biz/en/US/tech/tk801/tk36/technologies_configuration_example09186a008014f8e7.shtml
  [2]: http://www.informit.com/library/content.aspx?b=CCNP_Studies_Troubleshooting&seqNum=141

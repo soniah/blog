@@ -9,7 +9,7 @@ tags:
   - Java
   - Ruby
 ---
-A SlashDot linked [article on Mirah][1] &#8211; Java with Ruby syntax (different from JRuby).
+A SlashDot linked [article on Mirah][1] -- Java with Ruby syntax (different from JRuby).
 
 <!--more-->
 

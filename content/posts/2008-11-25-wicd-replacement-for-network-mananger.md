@@ -10,10 +10,10 @@ tags:
   - Ubuntu
   - Wireless
 ---
-[wicd][1] &#8211; &#8220;an open source wired and wireless network manager&#8221; &#8211; a possible replacement for Ubuntu&#8217;s annoying Network Manager (Mangler?).
+[wicd][1] -- &#8220;an open source wired and wireless network manager&#8221; -- a possible replacement for Ubuntu&#8217;s annoying Network Manager (Mangler?).
 
 <!--more-->
 
-Mentioned by Martin B on SLUG &#8211; thanks.
+Mentioned by Martin B on SLUG -- thanks.
 
  [1]: http://wicd.sourceforge.net/

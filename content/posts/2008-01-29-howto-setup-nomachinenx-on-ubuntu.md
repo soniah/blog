@@ -15,13 +15,13 @@ The instructions given by NoMachine for setting up on Linux are a bit thin; here
 
   * check not installed already, remove if desired
 
-dpkg &#8211;list | grep NX  
-sudo dpkg &#8211;purge nxclient nxnode nxserver  
+dpkg --list | grep NX  
+sudo dpkg --purge nxclient nxnode nxserver  
 sudo rm -rf /usr/NX
 
   * for the user being used to install, check/fix .ssh perms
 
-su &#8211;  
+su --  
 cd /root  
 chown -R root. .ssh  
 chmod 700 .ssh
@@ -29,7 +29,7 @@ chmod 700 .ssh
   * download & install all 3 packages on both client (local) and server (remote)
 
 wget -b http://../nxclient.deb http://../nxnode.deb http://../nxserver.deb  
-dpkg &#8211;install nx*deb
+dpkg --install nx*deb
 
   * on client and server, add aliases to /root/.bashrc and ~sonia/.bashrc
 
@@ -39,7 +39,7 @@ source ~/.bashrc
 
   * generate new keys on the server and check permissions
 
-/usr/NX/scripts/setup/nxserver &#8211;keygen  
+/usr/NX/scripts/setup/nxserver --keygen  
 cd /usr/NX/share/keys  
 chown nx:root \* ; chmod 644 \*  
 cd ~nx/.ssh  

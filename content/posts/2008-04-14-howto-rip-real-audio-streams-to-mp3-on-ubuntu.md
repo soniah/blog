@@ -17,7 +17,7 @@ But unfortunately some broadcasters (for example a large British one) persist in
 
 There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&#8217;s how I got it going on Ubuntu 7.10:
 
-First of all I installed Real Player using instructions [here][1] and [here][2], and checked I could listen to a stream using the GUI tool &#8211; a quick sanity check for firewalls, etc.
+First of all I installed Real Player using instructions [here][1] and [here][2], and checked I could listen to a stream using the GUI tool -- a quick sanity check for firewalls, etc.
 
   * add repo **deb http://archive.canonical.com/ubuntu feisty partner**
   * sudo aptitude install realplay
@@ -43,15 +43,15 @@ I repeated the above mplayer command (which worked) then converted to mp3:
 $ mplayer rtsp://xyz.net.uk/foo.ra -ao pcm:file=audiofile.wav -vc dummy -vo null  
 $ lame -h -b 128 audiofile.wav audiofile.mp3
 
-Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file &#8211; here&#8217;s how to find the .ram file:
+Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file -- here&#8217;s how to find the .ram file:
 
   * click on the link and start playback the embedded Real Player in Firefox
-  * a file called **~/.realplayerrc** will be created &#8211; towards the end of the file there will be a section like this:
+  * a file called **~/.realplayerrc** will be created -- towards the end of the file there will be a section like this:
 <pre>[recent_urls]</pre>
 
 <pre>url0=file:///tmp/foo.ram</pre>
 
-  * cat the **/tmp/foo.ram** file, and copy the **rstp://** link &#8211; ignore the part after the ? (the UID, etc)
+  * cat the **/tmp/foo.ram** file, and copy the **rstp://** link -- ignore the part after the ? (the UID, etc)
   * follow the above instructions for ripping :-)
 
 **Links**
@@ -60,7 +60,7 @@ Now, all this works for pages that have a direct link to a .ram file. But some s
   * [Converting Real Audio Streams to MP3][4]
   * [Recording streaming audio with MPlayer][5]
   * [Problems with streaming Real Audio files][6]
-  * [BBC RealPlayer &#8211; make your voice heard!][7]
+  * [BBC RealPlayer -- make your voice heard!][7]
 
  [1]: https://help.ubuntu.com/community/HowToRipRealaudioStreamsToMp3
  [2]: https://help.ubuntu.com/community/RealPlayerInstallationMethods?action=show&redirect=RealplayerInstallationMethods

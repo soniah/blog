@@ -8,12 +8,12 @@ categories:
 tags:
   - Firefox
 ---
-A bug that has been dragging on for [years][1] &#8211; Firefox under Ubuntu (and other distros) doesn&#8217;t respect the locale setting, 
+A bug that has been dragging on for [years][1] -- Firefox under Ubuntu (and other distros) doesn&#8217;t respect the locale setting, 
 
 
 <!--more-->
 
-and defaults to printing in US Letter size &#8211; grrrr&#8230;
+and defaults to printing in US Letter size -- grrrr&#8230;
 
 [Firefox: Guide for the Perplexed][2] seems to suggest:
 

@@ -8,7 +8,7 @@ categories:
 tags:
   - Ubuntu
 ---
-I recently bought a new laptop &#8211; a *bottom* of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up).
+I recently bought a new laptop -- a *bottom* of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up).
 
 <!--more-->
 

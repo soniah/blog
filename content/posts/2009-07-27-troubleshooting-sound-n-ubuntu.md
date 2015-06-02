@@ -13,7 +13,7 @@ Some good documentation on [Troubleshooting Sound on Ubuntu][1].
 
 <!--more-->
 
-And a nice post on [getting Amarok going on Jaunty][2] &#8211; remove phonon-backend-gstreamer and install phonon-backend-xine ([bug 349847][3]). I can now go back to grooving to some laid-back Brazilian Reggae &#8211; *Tribo de Jah &#8211; Ruinas de Babilonia:*
+And a nice post on [getting Amarok going on Jaunty][2] -- remove phonon-backend-gstreamer and install phonon-backend-xine ([bug 349847][3]). I can now go back to grooving to some laid-back Brazilian Reggae -- *Tribo de Jah -- Ruinas de Babilonia:*
 
 *Veja a face sofrida dessa gente, Tanta gente sofrida,  
 Buscando uma vida decente, Buscando um pouco de paz em suas vidas&#8230;*

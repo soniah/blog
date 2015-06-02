@@ -21,7 +21,7 @@ Here are some useful tools for troubleshooting/recovering windows systems:
 
 Linux tools (and *[religion][9]*&#8230;):
 
-  * [Knoppix][10] is a CD bootable Linux distribution, that is *The Swiss Army Chainsaw* of distros &#8211; it does everything. [Insert Linux][11] and [Damn Small Linux][12] are also useful, as they fit on business card CDs 
+  * [Knoppix][10] is a CD bootable Linux distribution, that is *The Swiss Army Chainsaw* of distros -- it does everything. [Insert Linux][11] and [Damn Small Linux][12] are also useful, as they fit on business card CDs 
   * [PNordahl][13] has a tool for resetting forgotten Administrator passwords 
   * [DBAN][14] completely solves all Windows problems, by wiping the hard disk :-) *You can then install a decent Operating System like [Ubuntu Linux][15]* 
   * see also my article on [DD Rescue][16]

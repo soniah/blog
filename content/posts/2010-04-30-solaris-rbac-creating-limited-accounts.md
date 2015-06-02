@@ -36,7 +36,7 @@ Create an example script:
 #!/bin/sh
 /usr/sbin/ifconfig -a</pre>
 
-Remove default auths and profile from all users. Note &#8211; this is required so that the foo user doesn&#8217;t get the &#8220;Basic Solaris User&#8221; profile, which allows all user level binaries to be run. This however affects other accounts and services, and would require further testing:
+Remove default auths and profile from all users. Note -- this is required so that the foo user doesn&#8217;t get the &#8220;Basic Solaris User&#8221; profile, which allows all user level binaries to be run. This however affects other accounts and services, and would require further testing:
 
 <pre>/etc/security/policy.conf
 # sonia AUTHS_GRANTED=solaris.device.cdrw
@@ -62,13 +62,13 @@ ls: not found   &lt;=== as expected - foo user is limited</pre>
 
 Create another user, test
 
-  * if the shell is /usr/bin/bash &#8211; doesn&#8217;t seem to cause problems. However, it may affect services &#8211; testing would be required.
+  * if the shell is /usr/bin/bash -- doesn&#8217;t seem to cause problems. However, it may affect services -- testing would be required.
   * if the shell is /usr/bin/pfsh:
 
 <pre># ls
 ls: not found   &lt;=== ie other accounts with profile shells need a profile explicitly assigned</pre>
 
-If the default auths and profile *aren&#8217;t* removed from all users, we get this &#8211; foo user is allowed to run all user level binaries (the *):
+If the default auths and profile *aren&#8217;t* removed from all users, we get this -- foo user is allowed to run all user level binaries (the *):
 
 <pre># auths foo
 solaris.device.cdrw,solaris.profmgr.read,solaris.jobs.users,solaris.mail.mailq,solaris.admin.usermgr.read,solaris.admin.logsvc.read,solaris.admin.fsmgr.read,solaris.admin.serialmgr.read,solaris.admin.diskmgr.read,solaris.admin.procmgr.user,solaris.compsys.read,solaris.admin.printer.read,solaris.admin.prodreg.read,solaris.admin.dcmgr.read,solaris.snmp.read,solaris.project.read,solaris.admin.patchmgr.read,solaris.network.hosts.read,solaris.admin.volmgr.read

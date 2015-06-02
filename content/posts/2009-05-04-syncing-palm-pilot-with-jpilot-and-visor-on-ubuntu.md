@@ -21,7 +21,7 @@ Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cle
       * in one terminal, **tail -f /var/log/syslog <s>/var/log/messages</s>**
       * in a second terminal, check the ownership of links **ls -al /dev/ttyUSB*** and check you are a member of the appropriate group (usually dialout) **grep dialout /etc/group**
   * **sudo aptitude install jpilot** and start JPilot
-  * *read this step carefully:* no need to change the Serial Port setting in Preferences &#8211; JPilot will pick up the correct one on the first sync (which is now unexpectedly *Other* rather than */dev/ttyUSBO* or *usb:*)
+  * *read this step carefully:* no need to change the Serial Port setting in Preferences -- JPilot will pick up the correct one on the first sync (which is now unexpectedly *Other* rather than */dev/ttyUSBO* or *usb:*)
   * *read this step carefully:* from jpilot **File > Install User**, click sync button on Palm Pilot, count to 5, then click **Install User** button in JPilot dialog box
   * click sync button on Palm Pilot, count to 5, then click **Sync** in JPilot
   * if syncing isn&#8217;t working (especially on a machine that&#8217;s been upgraded from an older version of Ubuntu), try closing JPilot, **mv .jpilot .jpilot.bak**, restarting JPilot, then doing the **Install User** steps again
@@ -29,8 +29,8 @@ Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cle
 ### <span style="text-decoration: underline;">See also:</span>
 
   * (totally off-topic): [HOWTO: Import iCalendar (ics) Appointments Into JPilot][1]
-  * some pages mention installing pilot-link &#8211; this isn&#8217;t required
-  * some pages mention modifying files in**/etc/udev/rules.d** &#8211; this no longer seems required
+  * some pages mention installing pilot-link -- this isn&#8217;t required
+  * some pages mention modifying files in**/etc/udev/rules.d** -- this no longer seems required
 
 <http://www.linuxquestions.org/questions/showthread.php?t=79965>
 
@@ -54,7 +54,7 @@ Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cle
 
 [Writing udev rules by Daniel Drake][3]
 
-[Linux Magazine &#8211; The Linux Device Model][4]
+[Linux Magazine -- The Linux Device Model][4]
 
  [1]: http://www.computechgroup.com/?p=381
  [2]: http://www.clasohm.com/blog/one-entry?entry%5fid=12096

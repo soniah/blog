@@ -9,7 +9,7 @@ tags:
   - comment
   - humour
 ---
-&#8220;RailCorp is threatening a Sydney man with legal action after he created an iPhone application that allows people to monitor timetables for Sydney trains and ferries.&#8221; &#8211; from today&#8217;s [SMH][1].
+&#8220;RailCorp is threatening a Sydney man with legal action after he created an iPhone application that allows people to monitor timetables for Sydney trains and ferries.&#8221; -- from today&#8217;s [SMH][1].
 
 <!--more-->
 

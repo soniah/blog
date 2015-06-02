@@ -15,7 +15,7 @@ To setup **ssh** and **keychain** to allow ssh related jobs to run from cron:
 
 <!--more-->
 
-  * generate keys *with a password* (**ssh-keygen -t dsa**) and install keychain. Do only on *secure machines* ie ones that only you (or a small number of trusted admins) can logon to as root &#8211; typically your laptop/desktop and a secure admin server
+  * generate keys *with a password* (**ssh-keygen -t dsa**) and install keychain. Do only on *secure machines* ie ones that only you (or a small number of trusted admins) can logon to as root -- typically your laptop/desktop and a secure admin server
   * add the following lines to your **~/.profile**:
 
 >   * some sites say **.bash_profile**, but I use .profile as I use both bash and zsh (don&#8217;t have both as then only .bash_profile will be read)
@@ -28,7 +28,7 @@ To setup **ssh** and **keychain** to allow ssh related jobs to run from cron:
 ` source $HOME/.keychain/${HOSTNAME}-sh`  
 `fi`
 
-  * <!--more-->on machines where others are able to login as root (and hence possibly piggyback onto your private key), keychain should be started with &#8211;clear in .profile and ssh-agent shouldn&#8217;t be run. Use &#8211;nocolor on non-VT100 compat terminals
+  * <!--more-->on machines where others are able to login as root (and hence possibly piggyback onto your private key), keychain should be started with --clear in .profile and ssh-agent shouldn&#8217;t be run. Use --nocolor on non-VT100 compat terminals
 
   * unless **~/.hushlogin** exists, keychain will display a colourful message showing known keys being loaded on login:
 
@@ -55,7 +55,7 @@ To setup **ssh** and **keychain** to allow ssh related jobs to run from cron:
   * reflux on [notes on keychain][4]
   * my [ssh-notes][5] on tunnelling
   * Troy Johnson&#8217;s notes on [Using RSync and SSH: Keys, Validating and Automation][6]
-  * sshpass &#8211; [rsync + ssh keys][7]
+  * sshpass -- [rsync + ssh keys][7]
 
  [1]: http://www.gentoo.org/proj/en/keychain/
  [2]: http://www.ibm.com/developerworks/library/l-keyc.html

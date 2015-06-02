@@ -8,7 +8,7 @@ categories:
 tags:
   - Ruby
 ---
-An interesting Ruby example of an easy way to setup classes that are really just for passing around data using **Struct** &#8211; essentially a neat wrapper around a hash of values:
+An interesting Ruby example of an easy way to setup classes that are really just for passing around data using **Struct** -- essentially a neat wrapper around a hash of values:
 
 <!--more-->
 

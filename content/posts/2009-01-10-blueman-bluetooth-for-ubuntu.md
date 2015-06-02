@@ -13,7 +13,7 @@ The Reverand Simon Rumble wrote a nice post on [Mobile broadband over Bluetooth 
 
 <!--more-->
 
-I&#8217;ve always wanted to get Bluetooth working on Ubuntu, but it was never at the top of my &#8216;todo&#8217; list and I&#8217;ve always had other things to do (thank PHB). But Blueman makes it so easy &#8211; thanks Simon.
+I&#8217;ve always wanted to get Bluetooth working on Ubuntu, but it was never at the top of my &#8216;todo&#8217; list and I&#8217;ve always had other things to do (thank PHB). But Blueman makes it so easy -- thanks Simon.
 
 [This article][3] was also mentioned.
 

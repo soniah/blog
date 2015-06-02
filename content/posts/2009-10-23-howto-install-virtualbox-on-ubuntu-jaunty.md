@@ -12,7 +12,7 @@ Here&#8217;s how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are [sayin
 
 <!--more-->
 
-No rocket science here &#8211; just saving myself time in future.
+No rocket science here -- just saving myself time in future.
 
 <pre>sudo aptitude install virtualbox-ose virtualbox-ose-qt virtualbox-ose-source dkms virtualbox-guest-additions</pre>
 

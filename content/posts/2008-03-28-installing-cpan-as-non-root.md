@@ -8,11 +8,11 @@ categories:
 tags:
   - Perl
 ---
-(todo &#8211; test/verify/summarize these links:)
+(todo -- test/verify/summarize these links:)
 
 <!--more-->
 
   * http://www.cpan.org/modules/by-module/LWP/
   * general articles from http://sial.org/howto/perl/life-with-cpan/
   * http://linuxgazette.net/139/okopnik.html
-  * http://theoryx5.uwinnipeg.ca/CPAN/perl/lib/CPAN.html#faq &#8211; question 5
+  * http://theoryx5.uwinnipeg.ca/CPAN/perl/lib/CPAN.html#faq -- question 5

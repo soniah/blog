@@ -13,7 +13,7 @@ using kpkg to build kernels
 <!--more-->
 ### Using kpkg to Build Kernels
 
-See also [How To Compile A Kernel &#8211; The Ubuntu Way][1]
+See also [How To Compile A Kernel -- The Ubuntu Way][1]
 
 ### Preparation
 
@@ -77,7 +77,7 @@ Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, l
  fakeroot make-kpkg --initrd --append-to-version=.sonia.001 --added-modules=madwifi modules_image</pre>
 
 or some combo of the above&#8230;  
-**don&#8217;t use &#8211;revision** &#8211; versions aren&#8217;t handled correctly
+**don&#8217;t use --revision** -- versions aren&#8217;t handled correctly
 
 ### Install
 

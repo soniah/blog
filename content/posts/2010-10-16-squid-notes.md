@@ -29,7 +29,7 @@ Edit your squid.conf file and set the debug_options line to this:
 
 Now, Squid writes a message to **cache.log** for each client request and another for each reply. The messages contain the request method, URI, whether the request/reply is allowed or denied, and the name of the last ACL that matched it.
 
-**Rule order &#8211; AND vs OR**
+**Rule order -- AND vs OR**
 
   * ACL elements are OR&#8217;d together  ie \*any\* success causes success eg
 

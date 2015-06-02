@@ -9,7 +9,7 @@ tags:
   - Vim
 ---
 
-I little command I always have to search for when using vimdiff &#8211; **:diffupdate**
+I little command I always have to search for when using vimdiff -- **:diffupdate**
 
 <!--more-->
 

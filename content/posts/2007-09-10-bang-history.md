@@ -18,11 +18,11 @@ There are three fields (separated by colons) that can be manipulated using the b
 
 **Event Designator**
 
-An event designator is a reference to a command line entry in the history list &#8211; `man bash` for more.
+An event designator is a reference to a command line entry in the history list -- `man bash` for more.
 
-`!n` &#8211; Refer to command line n.  
-`!-n` &#8211; Refer to the current command line minus n.  
-`!!` &#8211; Refers to the previous command (synonym for ‘!-1) &#8211; useful if you after typing a command you release you need to add sudo: <tt>vi /etc/apt/source.list, error, sudo !!</tt>
+`!n` -- Refer to command line n.  
+`!-n` -- Refer to the current command line minus n.  
+`!!` -- Refers to the previous command (synonym for ‘!-1) -- useful if you after typing a command you release you need to add sudo: <tt>vi /etc/apt/source.list, error, sudo !!</tt>
 
 *For example:*  
 `<br />
@@ -67,11 +67,11 @@ bar qux`
 
 **Modifier**
 
-Modifies the word picked out so far &#8211; `man bash` for more.
+Modifies the word picked out so far -- `man bash` for more.
 
-`h` &#8211; remove a trailing file name component, leaving only the head.  
-`t` &#8211; remove all leading file name components, leaving the tail.  
-`r` &#8211; remove a trailing suffix of the form .xxx, leaving the basename.  
+`h` -- remove a trailing file name component, leaving only the head.  
+`t` -- remove all leading file name components, leaving the tail.  
+`r` -- remove a trailing suffix of the form .xxx, leaving the basename.  
 *etc&#8230;*
 
 *For example:*  

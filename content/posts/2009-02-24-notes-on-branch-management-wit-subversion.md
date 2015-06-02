@@ -14,18 +14,18 @@ Some notes on branch management with Subversion (more for my own learning purpos
 
   * create branch: **svn cp foo foo-branch**
   * develop new feature in foo-branch, whilst doing any bug fixes in trunk
-  * merge some changes from trunk into branch &#8211; keep branch up-to-date as possible 
+  * merge some changes from trunk into branch -- keep branch up-to-date as possible 
       * commit any changes first, so can easily revert if desired: **cd foo-branch; svn up; svn ci -m &#8220;pre merge in trunk&#8221;**
-      * find where branch occured (if not noted in a log message &#8211; duh): **svn log &#8211;verbose &#8211;stop-on-copy foo-branch** (eg 123)
-      * preview changes succinctly: **cd foo-branch; ****svn merge &#8211;dry-run -r 123:HEAD**
-      * preview changes verbosely: **cd foo-branch; ****svn diff &#8211;notice-ancestry -r 123:HEAD &#8230;**
+      * find where branch occured (if not noted in a log message -- duh): **svn log --verbose --stop-on-copy foo-branch** (eg 123)
+      * preview changes succinctly: **cd foo-branch; ****svn merge --dry-run -r 123:HEAD**
+      * preview changes verbosely: **cd foo-branch; ****svn diff --notice-ancestry -r 123:HEAD &#8230;**
       * apply changes: **cd foo-branch; ****svn merge -r 123:HEAD svn+ssh://myrepo.com/foo/bar**
       * check changes: **svn st; svn diff, **if problems: **svn revert**
       * commit changes: **svn ci -m &#8220;merged trunk changes into branch (flubbed the widgets) r123:129&#8243;**
   * keep working in foo-branch, merge in some more changes 
       * ditto previous
       * **svn merge -r 130:HEAD svn+ssh://myrepo.com/foo/bar** (*previously merged up to 129, so start on 130*)
-  * merge all changes from branch into trunk &#8211; new feature finished 
+  * merge all changes from branch into trunk -- new feature finished 
       * ditto previous
       * **cd foo; svn merge -r 123:HEAD https://myrepo.com/foo-branch**
       * **svn ci -m &#8220;merged foo-branch into trunk (feature x) r123:145&#8243;**

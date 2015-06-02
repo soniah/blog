@@ -42,7 +42,7 @@ label="resolvconf";<br />
   * **sudo vi /etc/dhcp3/dhclient.conf**, and uncomment the line that says **prepend domain-name-servers 127.0.0.1**;
   * to prevent rebooting, **sudo vi /etc/resolv.conf** and insert as the first line **nameserver 127.0.0.1**. Otherwise just reboot
   * **sudo /etc/init.d/pdnsd restart** (if not rebooting)
-  * check name resolution using the host command eg **host google.com** should return about 6 lines of output &#8211; 3 lines saying google.com has address&#8230; and 3 lines saying google.mail is handled by&#8230;
+  * check name resolution using the host command eg **host google.com** should return about 6 lines of output -- 3 lines saying google.com has address&#8230; and 3 lines saying google.mail is handled by&#8230;
 
 Taken initially from bmt&#8217;s excellent [article][1] on Ubuntu Forums; I&#8217;ve written my own article as I want to add my own customisation as I understand the interactions between dhclient, resolvconf and NetworkManager. See also [Steve&#8217;s article][2] on Debian Administration.
 

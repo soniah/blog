@@ -14,7 +14,7 @@ procmail notes
 ### Good procmail sites
 
   * [Timo&#8217;s procmail tips][1]
-  * [ii.com &#8211; procmail quickstart][2]
+  * [ii.com -- procmail quickstart][2]
   * [procmail tips][3]
   * [Halcyon guide][4]
   * [Partmaps procmail FAQ][5]

@@ -38,9 +38,9 @@ $exp->expect(2, [ qr/bar/i ] ); $exp->hard_close();<br />
 }<br />
 `
 
-**Actions &#8211; Pattern-Command Pairs**
+**Actions -- Pattern-Command Pairs**
 
-Patterns can be directly associated with Commands &#8211; &#8220;Actions&#8221;.
+Patterns can be directly associated with Commands -- &#8220;Actions&#8221;.
 
 `expect {<br />
 eof {break}<br />
@@ -50,12 +50,12 @@ timeout {exit}<br />
 "\? " {interact +}<br />
 }`
 
-  * *interact* &#8211; returns the keyboard to the user &#8211; in the above example typing the + key then returns to expect
-  * be aware of r vs n &#8211; use r with send, use rn when looking for an end-of-line in patterns
-  * *eof* &#8211; spawned program exits
-  * *timeout* &#8211; spawned program doesn&#8217;t respond within time
+  * *interact* -- returns the keyboard to the user -- in the above example typing the + key then returns to expect
+  * be aware of r vs n -- use r with send, use rn when looking for an end-of-line in patterns
+  * *eof* -- spawned program exits
+  * *timeout* -- spawned program doesn&#8217;t respond within time
   * *default* = eof + timeout
-  * *close* &#8211; close spawned program: do when you don&#8217;t want to wait for spawned program to eof and you want to do more in the script
+  * *close* -- close spawned program: do when you don&#8217;t want to wait for spawned program to eof and you want to do more in the script
 
  [1]: http://expect.nist.gov/
  [2]: http://

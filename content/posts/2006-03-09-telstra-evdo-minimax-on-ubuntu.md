@@ -9,14 +9,14 @@ tags:
   - Ubuntu
   - Wireless
 ---
-A while ago I bought a [account][1] from Telstra for roaming wireless on my laptop &#8211; it uses a Maxon MiniMax [MM-5500U][2] to connect on the CDMA phone network. I got this rather than other wireless products as I was going to be doing some work in Perth, and this was the only network that had coverage.
+A while ago I bought a [account][1] from Telstra for roaming wireless on my laptop -- it uses a Maxon MiniMax [MM-5500U][2] to connect on the CDMA phone network. I got this rather than other wireless products as I was going to be doing some work in Perth, and this was the only network that had coverage.
 <!--more-->
 Getting it going on Ubuntu Breezy was really easy, thanks to Quozl&#8217;s Maxon [page][3]:<!--more-->
 
   * I plugged it in, and the **cdc_acm** module was automatically loaded
   * I ran **sudo pppconfig**, entered these settings: 
       * connection name: evdo (or whatever you prefer)
-      * static dns: 203.50.2.71, 139.130.4.4 (more reliable &#8211; sometimes dynamic doesn&#8217;t work&#8230;)
+      * static dns: 203.50.2.71, 139.130.4.4 (more reliable -- sometimes dynamic doesn&#8217;t work&#8230;)
       * authentication: pap
       * user: user@telstra.pcpack
       * password: telstra
@@ -32,7 +32,7 @@ Getting it going on Ubuntu Breezy was really easy, thanks to Quozl&#8217;s Maxon
 A few things to be aware of:
 
   * I&#8217;ve found the MiniMax works best with the extra USB powerboost cable, even in the middle of a suburban area
-  * the default route setting in ppp didn&#8217;t work when I had an existing ethernet connection &#8211; I don&#8217;t know if this is a *feature* of ppp
+  * the default route setting in ppp didn&#8217;t work when I had an existing ethernet connection -- I don&#8217;t know if this is a *feature* of ppp
 
 Written using my laptop connected over Telstra Evdo :-)
 

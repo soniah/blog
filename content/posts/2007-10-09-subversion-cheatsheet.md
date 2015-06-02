@@ -29,7 +29,7 @@ Subversion Cheatsheet
 <tt>mkdir -p project/{trunk,tags,branches}</tt>  
 <tt>mv ~/original ~/project/trunk</tt>
 
-Using *trunk/tags/branches* for a small project is overkill &#8211; tags and branches can be added later. Therefore for a small project, just do:
+Using *trunk/tags/branches* for a small project is overkill -- tags and branches can be added later. Therefore for a small project, just do:
 
 <tt>mkdir -p project</tt>  
 <tt>mv ~/original ~/project</tt>

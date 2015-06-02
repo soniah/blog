@@ -8,15 +8,15 @@ categories:
 tags:
   - Spanish
 ---
-Last night I attended the second [cultural activity][1] of the [Cervantes Institute][2] &#8211; a Flamenco Guitar Masterclass put on by a giant of the flamenco world [Óscar Herrero][3], with the assistance of David Rasko and students from the [Sydney Spanish Guitar Studio][4].
+Last night I attended the second [cultural activity][1] of the [Cervantes Institute][2] -- a Flamenco Guitar Masterclass put on by a giant of the flamenco world [Óscar Herrero][3], with the assistance of David Rasko and students from the [Sydney Spanish Guitar Studio][4].
 
 <!--more-->
 
 There were a large number of attendees (about 50) as well as many guitars, and we all had a great time.
 
-Óscar talked us through a brief history of flamenco and explained how a flamenco guitar differs from a classical guitar. He then demonstrated the playing techniques that give flamenco it&#8217;s distinctive sound &#8211; the [alzpúa][5], [rasgeados][6], and [golpes][7], as well as showing us a [flamenco metronome][8] that allows guitarists, dancers and singers to practice by themselves (very different from a [normal metronome][9] &#8211; it has all the different beats like Sevillanos, Siguiriyas, etc). Then the best part &#8211; Oscar would give a little improvisation based on the technique and pure music would flow&#8230;
+Óscar talked us through a brief history of flamenco and explained how a flamenco guitar differs from a classical guitar. He then demonstrated the playing techniques that give flamenco it&#8217;s distinctive sound -- the [alzpúa][5], [rasgeados][6], and [golpes][7], as well as showing us a [flamenco metronome][8] that allows guitarists, dancers and singers to practice by themselves (very different from a [normal metronome][9] -- it has all the different beats like Sevillanos, Siguiriyas, etc). Then the best part -- Oscar would give a little improvisation based on the technique and pure music would flow&#8230;
 
-When I grew up we were all forced to learn a classical instrument at school &#8211; piano, violin, flute or (classical) guitar, along with several &#8216;real&#8217; foreign languages (French and Latin for me). I learnt guitar, but it wasn&#8217;t fun &#8211; hours of practice and study each day, exams and formal auditions &#8211; enough to put you off music for life. But learning the guitar got me interested Spanish (all the footnotes were in Spanish), and hearing Óscar and the students play has got me thinking about playing the guitar again &#8211; Olé!
+When I grew up we were all forced to learn a classical instrument at school -- piano, violin, flute or (classical) guitar, along with several &#8216;real&#8217; foreign languages (French and Latin for me). I learnt guitar, but it wasn&#8217;t fun -- hours of practice and study each day, exams and formal auditions -- enough to put you off music for life. But learning the guitar got me interested Spanish (all the footnotes were in Spanish), and hearing Óscar and the students play has got me thinking about playing the guitar again -- Olé!
 
  [1]: http://sidney.cervantes.es/en/culture_spanish/culture_spanish.htm
  [2]: http://sidney.cervantes.es/en/default.shtm

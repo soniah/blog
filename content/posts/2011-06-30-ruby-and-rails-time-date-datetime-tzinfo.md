@@ -9,7 +9,7 @@ tags:
   - Ruby
   - Ruby on Rails
 ---
-From a discussion ([Ruby &#8211; The Non-awesome parts][1]) on the [RORO][2] email list &#8211; the differences between Time, Date, DateTime and TZInfo:
+From a discussion ([Ruby -- The Non-awesome parts][1]) on the [RORO][2] email list -- the differences between Time, Date, DateTime and TZInfo:
 
 <!--more-->
 

@@ -22,7 +22,7 @@ Here&#8217;s a variety of tricks I&#8217;ve picked up for Gnu screen and .screen
 <tt>select 3</tt> (for example)  
 <tt>select 5</tt>
 
-  * to search backwards in scrollback mode &#8211; **?**. You can also search forwards with** /,** but that&#8217;s less useful. See [samsarin.com for a good explanation of scrollback mode][2].
+  * to search backwards in scrollback mode -- **?**. You can also search forwards with** /,** but that&#8217;s less useful. See [samsarin.com for a good explanation of scrollback mode][2].
 
  [1]: http://lists.gnu.org/mailman/listinfo/screen-users
  [2]: http://www.samsarin.com/blog/2007/03/11/gnu-screen-working-with-the-scrollback-buffer/

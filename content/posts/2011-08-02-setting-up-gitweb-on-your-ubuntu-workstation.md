@@ -67,9 +67,9 @@ And that&#8217;s it! Part of the gitweb install on Ubuntu adds in **/etc/apache2
 
 Browse to <http://localhost/gitweb/>, and there&#8217;s your browse-able, search-able, git repository :-D
 
-## But wait, there&#8217;s more &#8211; automatically push your changes&#8230;
+## But wait, there&#8217;s more -- automatically push your changes&#8230;
 
-As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that&#8217;s boring &#8211; automate it:
+As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that&#8217;s boring -- automate it:
 
 <pre class="brush: bash; title: ; notranslate" title="">% cd ~/foo ; cat git.web.push
 #!/bin/bash
@@ -90,7 +90,7 @@ Make the layout pretty. Edit **~/foo/.git/description**, add an index.html, a cu
 
 ## Update
 
-Brian (comments) has added some improvements to my instructions &#8211; see below. Thanks Brian!
+Brian (comments) has added some improvements to my instructions -- see below. Thanks Brian!
 
  [1]: http://blog.jeffreyforman.net/2009/07/21/configuring-gitweb-on-ubuntu/
  [2]: http://blog.phlegx.com/2010/03/07/install-and-setup-gitweb-in-ubuntu-9-10-on-apache/

@@ -14,7 +14,7 @@ I&#8217;ve used [putty.exe][1] for doing ssh client work on Windows machines for
 
 But I always thought that any Windows ssh servers were commercial, so when I&#8217;ve really had to have Windows ssh access I&#8217;ve setup [Cygwin][2].
 
-But here&#8217;s a free (as in speech and beer) .exe that installs just an ssh server &#8211; [sshwindows][3]. Probably been around forever, but since I use Windows so little nowadays I&#8217;ve haven&#8217;t heard about it until now.
+But here&#8217;s a free (as in speech and beer) .exe that installs just an ssh server -- [sshwindows][3]. Probably been around forever, but since I use Windows so little nowadays I&#8217;ve haven&#8217;t heard about it until now.
 
 Of course the nice thing about this coming from the [OpenSSH project][4] is that Mi¢ro$oft haven&#8217;t been able to get their [grubby little fingers into the protocol and pervert it][5] (an old conspiracy theory, I know).
 

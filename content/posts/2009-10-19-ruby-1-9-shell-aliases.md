@@ -8,7 +8,7 @@ categories:
 tags:
   - Ruby
 ---
-I&#8217;ve started playing with Ruby 1.9 &#8211; the latest and greatest version of Ruby. On Ubuntu Jaunty, 1.8 is considered mainline and 1.9 experimental &#8211; here are the shell aliases if using 1.9:
+I&#8217;ve started playing with Ruby 1.9 -- the latest and greatest version of Ruby. On Ubuntu Jaunty, 1.8 is considered mainline and 1.9 experimental -- here are the shell aliases if using 1.9:
 
 <!--more-->
 

@@ -35,7 +35,7 @@ A $50.00 Consultancy Fee applies to each team that requires assistence from the 
 
   1. each team has to install another instance of MS-SQL 2000 on their server
   2. each team has to create 2 login accounts using TSQL
-  3. each team has to create 2 databases &#8211; any name will do &#8211; using TSQL
+  3. each team has to create 2 databases -- any name will do -- using TSQL
   4. each team has to create 2 user accounts each, for those databases using TSQL
   5. each team has to create a VIEW of your choice from the NORTHWIND database
   6. each team has to create a STORED PROCEDURE from the NORTHWIND database

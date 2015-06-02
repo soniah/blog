@@ -8,7 +8,7 @@ categories:
 tags:
   - OSX
 ---
-iTunes&#8217; syncing of movies and podcasts is a big lame &#8211; there&#8217;s not enough fine grained control.
+iTunes&#8217; syncing of movies and podcasts is a big lame -- there&#8217;s not enough fine grained control.
 
 <!--more-->
 

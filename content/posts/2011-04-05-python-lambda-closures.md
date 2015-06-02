@@ -18,7 +18,7 @@ Some links from his blog, in case the original post ever disappears:
 
   * the [question and responses][3] on stackoverflow
   * an [example][4] of the perils of Python&#8217;s scoping rules with for/while/if
-  * Wikipedia &#8211; [differences in semantics of closures][5]
+  * Wikipedia -- [differences in semantics of closures][5]
 
 A nice snippet of code to remind me of the issues:
 

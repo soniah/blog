@@ -17,11 +17,11 @@ He&#8217;s running Ubuntu Feisty 64 on a Compaq Presario V6000 (AMD Turion 64 x2
 
 Inspired by [these instructions][1] for Ultima Linux, I did the following as root:<!--more-->
 
-  * installed ndiswrapper and ndisgtk &#8211; **aptitude install ndiswrapper-common ndisgtk**
+  * installed ndiswrapper and ndisgtk -- **aptitude install ndiswrapper-common ndisgtk**
   * blacklisted the built-in bcm43xx driver, by adding **blacklist bcm43xx** to **/etc/modprobe.d/blacklist**
   * manually loaded the ndiswrapper module by doing **modprobe ndiswrapper** and forced it to load on every boot by adding the line ndiswrapper to **/etc/modules**
   * downloaded the Dell version of the driver (R174291.exe) [[1] ][2][[2]][3] and unpacked the .exe using wine
-  * reloaded the gnome panel &#8211; **killall gnome-panel**
+  * reloaded the gnome panel -- **killall gnome-panel**
   * ran System, Administration, Windows Wireless Drivers, and loaded the extracted driver from **~/.wine/drive_c/dell/drivers/R174291**
   * after a reboot :-( Network Manager (top right) detected wireless networks, and we were able to connect. If you have any problems, check the driver has loaded by running ndiswrapper -l
 

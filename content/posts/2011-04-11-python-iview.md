@@ -8,7 +8,7 @@ categories:
 tags:
   - Python
 ---
-A nice tool written by Jeremy Visser &#8211; [Python-iView][1].
+A nice tool written by Jeremy Visser -- [Python-iView][1].
 
 <!--more-->
 

@@ -51,7 +51,7 @@ Setup defaults to:
   * 8N1
   * 9600
   * no hardware or software flow control
-  * init string empty (so garbage doesn&#8217;t appear on screen when you connect) &#8211; ctrl-A, O, Init string
+  * init string empty (so garbage doesn&#8217;t appear on screen when you connect) -- ctrl-A, O, Init string
   * save settings as default (ctrl-A, O, Save setup as dfl)
 
 Always use colour:

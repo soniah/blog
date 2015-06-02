@@ -13,9 +13,9 @@ I&#8217;ve noticed that issuing a **sudo halt** on my [EeePC 701][1] shuts down 
 
 <!--more-->
 
-So I&#8217;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag &#8211; ouch!
+So I&#8217;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag -- ouch!
 
-**Solution** ([Bug #239145][3]) &#8211; add **rmmod snd-hda-intel** to the stop section of **/etc/init.d/halt**.
+**Solution** ([Bug #239145][3]) -- add **rmmod snd-hda-intel** to the stop section of **/etc/init.d/halt**.
 
  [1]: http://www.asus.com/news_show.aspx?id=7317
  [2]: http://www.eeeuser.com/

@@ -16,9 +16,9 @@ HowTo Setup 3 Broadband Wireless on Ubuntu Linux
 **HOWTO setup Novatel Merlin XU870 for 3&#8217;s wireless broadband, on Ubuntu Linux  
 **
 
-I&#8217;ve recently bought a wireless broadband modem from 3, which I&#8217;m really happy with &#8211; good speed, reliable, and fairly cheap ($AU50/month for 1G). Here are some instructions on how to get it working on Ubuntu Linux.
+I&#8217;ve recently bought a wireless broadband modem from 3, which I&#8217;m really happy with -- good speed, reliable, and fairly cheap ($AU50/month for 1G). Here are some instructions on how to get it working on Ubuntu Linux.
 
-Compile the *Airprime* drivers into your kernel, using the instructions at [samat.org][1], or upgrade/install Ubuntu Feisty (7.04) or later &#8211; the drivers are included in the kernel. If you upgrade, check that your kernel has beenupgraded to 2.6.20 or later:  
+Compile the *Airprime* drivers into your kernel, using the instructions at [samat.org][1], or upgrade/install Ubuntu Feisty (7.04) or later -- the drivers are included in the kernel. If you upgrade, check that your kernel has beenupgraded to 2.6.20 or later:  
 <!--more-->
 
   

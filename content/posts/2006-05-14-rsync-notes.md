@@ -39,7 +39,7 @@ To automate rsync over ssh backups, use **keychain**. For example, for a user ca
 
 ### Trailing Slash
 
-*Summary* &#8211; these are equivalent:
+*Summary* -- these are equivalent:
 
 <pre>rsync $myflags sandia:stripes/books/     books/
  rsync $myflags sandia:stripes/books      .</pre>
@@ -64,19 +64,19 @@ For example, with this source directory structure:
 
 ### Limiting Bandwidth
 
-Limit bandwidth used by rsync with the **&#8211;bwlimit** option; the value is in kilobytes/s (many network speeds are measured in kilobits, which are 1/8th of kilobytes).
+Limit bandwidth used by rsync with the **--bwlimit** option; the value is in kilobytes/s (many network speeds are measured in kilobits, which are 1/8th of kilobytes).
 
 <pre>$ rsync -av --bwlimit=256 src1 src2 dest</pre>
 
 ### Deleting Files
 
-If files are deleted from the source directory, they will only be deleted from the destination directory if the **&#8211;delete** option is used:
+If files are deleted from the source directory, they will only be deleted from the destination directory if the **--delete** option is used:
 
 <pre>$ rsync -av --delete ~/a/ destination_dir</pre>
 
 ### File Selection
 
-Files can be included or excluded from syncing using **&#8211;include-from** or **&#8211;exclude-from**; it&#8217;s better not to use both as things can get rather confusing&#8230;
+Files can be included or excluded from syncing using **--include-from** or **--exclude-from**; it&#8217;s better not to use both as things can get rather confusing&#8230;
 
 <pre>$ cat exclude.txt
  *tmp

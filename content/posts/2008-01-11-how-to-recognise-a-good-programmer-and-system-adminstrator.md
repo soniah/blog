@@ -19,7 +19,7 @@ Some of the key points:
   * very uncomfortable about the idea of working with a technology they don&#8217;t believe to be “right”
   * has some hidden “icebergs”, large personal projects under the CV radar
 
-All-in-all a really great article &#8211; I suggest you read it.
+All-in-all a really great article -- I suggest you read it.
 
  [1]: http://developers.slashdot.org/article.pl?sid=08/01/11/1746250&from=rss
  [2]: http://www.inter-sections.net/2007/11/13/how-to-recognise-a-good-programmer/

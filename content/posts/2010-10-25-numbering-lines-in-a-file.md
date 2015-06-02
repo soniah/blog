@@ -8,7 +8,7 @@ categories:
 tags:
   - Sed
 ---
-Note to brain: line numbering in a file can be done using **nl** &#8211; easier than using sed&#8230;
+Note to brain: line numbering in a file can be done using **nl** -- easier than using sed&#8230;
 
 <!--more-->
 

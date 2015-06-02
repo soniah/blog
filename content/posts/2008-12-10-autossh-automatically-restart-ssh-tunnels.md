@@ -8,7 +8,7 @@ categories:
 tags:
   - Ssh
 ---
-A tool I&#8217;d forgotten about &#8211; [autossh][1]. Also an article [here][2]. Thanks Dean.
+A tool I&#8217;d forgotten about -- [autossh][1]. Also an article [here][2]. Thanks Dean.
 
 <!--more-->
 
