@@ -52,5 +52,5 @@ If running a recent kernel, just plugin and check **option** module is being loa
 
 <pre>Init5 =AT+CGDCONT=1,"IP","vfinternet.au";</pre>
 
-  * connect using this command (check you&#8217;re in the
+  * connect using this command (check you're in the
 <pre>wvdial hsdpa</pre>

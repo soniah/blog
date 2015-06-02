@@ -8,7 +8,7 @@ categories:
 tags:
   - Gimp-Images
 ---
-A quick note on how to rotate jpeg images, not because it&#8217;s earth-shatteringly smart but so I don&#8217;t keep having to think every time I want to do it:
+A quick note on how to rotate jpeg images, not because it's earth-shatteringly smart but so I don't keep having to think every time I want to do it:
 
 <!--more-->
 

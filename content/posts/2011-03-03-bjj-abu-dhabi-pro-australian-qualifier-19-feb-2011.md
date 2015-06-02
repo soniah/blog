@@ -12,13 +12,13 @@ I competed in the [BJJ][1] [Abu Dhabi Pro Australian Qualifier][2] on the 19th o
 
 <!--more-->
 
-`I won my first fight and lost my second fight. A pity, otherwise I would&#8217;ve been flying off to Abu Dhabi to compete!
+`I won my first fight and lost my second fight. A pity, otherwise I would've been flying off to Abu Dhabi to compete!
 
 The first fight. I gave in too easily to her pull to guard, and then took a while getting out. But then I passed to reverse half guard, half guard, side control, and back.
 
 <!-- youtube?? -->
 
-The second fight. I made the error of trying a flying armbar from standup, which went badly. I ended up stuck under a cross-face half guard. I should&#8217;ve been able to get out of this, it&#8217;s a beginner escape. But as they say, you always learn the most when you lose in competitions; since the comp I&#8217;ve been focusing on this escape&#8230;
+The second fight. I made the error of trying a flying armbar from standup, which went badly. I ended up stuck under a cross-face half guard. I should've been able to get out of this, it's a beginner escape. But as they say, you always learn the most when you lose in competitions; since the comp I've been focusing on this escape&#8230;
 
 <!-- youtube?? -->
 

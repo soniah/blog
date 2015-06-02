@@ -8,11 +8,11 @@ categories:
 tags:
   - BJJ
 ---
-Results from the BJJ competition, Sat 5/Mar in Brisbane. I&#8217;ve left this too long, so a quick post.
+Results from the BJJ competition, Sat 5/Mar in Brisbane. I've left this too long, so a quick post.
 
 <!--more-->
 
-My first grapple (no-gi) I submitted my opponent (Cara Johnson) by footlock in about 15 seconds, got declared the winner, then got disqualified a few minutes later by the head referee! (making Cara the winner) Reason being I rolled inwards on the footlock rather than outwards, thus putting unnecessary pressure on her knee (as you can see below. And my Left Foot position is a bit dodgy too). A rule that hadn&#8217;t lodged in my brain -- I&#8217;ll remember it now :-)
+My first grapple (no-gi) I submitted my opponent (Cara Johnson) by footlock in about 15 seconds, got declared the winner, then got disqualified a few minutes later by the head referee! (making Cara the winner) Reason being I rolled inwards on the footlock rather than outwards, thus putting unnecessary pressure on her knee (as you can see below. And my Left Foot position is a bit dodgy too). A rule that hadn't lodged in my brain -- I'll remember it now :-)
 
 <img class="aligncenter size-medium wp-image-908" title="ankle" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/ankle.jpeg?w=300" alt="" width="300" height="224" />
 
@@ -26,13 +26,13 @@ My second grapple (gi) was again with Cara. Neither of us dominated the grapple,
 
 {{% youtube 0amAUYuoc8A %}}
 
-Thanks Cara for being a strong but friendly opponent -- I&#8217;m sure we&#8217;ll meet on the mats again!
+Thanks Cara for being a strong but friendly opponent -- I'm sure we'll meet on the mats again!
 
-My other team mates (Arron and Les) were both &#8220;on fire&#8221;. I didn&#8217;t get to see many of their grapples as I was working on the tables, but I did manage to record this one of Les:
+My other team mates (Arron and Les) were both &#8220;on fire&#8221;. I didn't get to see many of their grapples as I was working on the tables, but I did manage to record this one of Les:
 
 <!-- youtube?? -->
 
-Also, I got a video of Cara Johnson versus Laura Ng in the Opens. For some reason (a blond moment?) I didn&#8217;t enter into the Opens -- duh!
+Also, I got a video of Cara Johnson versus Laura Ng in the Opens. For some reason (a blond moment?) I didn't enter into the Opens -- duh!
 
 <!-- youtube?? -->
 

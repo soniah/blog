@@ -13,7 +13,7 @@ I use ssh to tunnel all the time, especially to get around brain-dead firewalls.
 
 <!--more-->
 
-But this doesn&#8217;t work easily for mysql -- if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost&#8217; and try to connect via the local socket. Very broken -- there&#8217;s bugs lodged [here][1] and [here][2] about this (and lots of chest beating and wailing, too).
+But this doesn't work easily for mysql -- if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost' and try to connect via the local socket. Very broken -- there's bugs lodged [here][1] and [here][2] about this (and lots of chest beating and wailing, too).
 
 **Solution:** tunnel ssh via an intermediate machine. For example:
 
@@ -38,7 +38,7 @@ mysql&gt;</pre>
 
 **Update 2**
 
-However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don&#8217;t obey the -- -- protocol=tcp flag or don&#8217;t have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh&#8230;.
+However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don't obey the -- -- protocol=tcp flag or don't have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh&#8230;.
 
 **Update 3**
 

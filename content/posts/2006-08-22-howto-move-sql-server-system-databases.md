@@ -8,7 +8,7 @@ categories:
 tags:
   - MSSQL
 ---
-Here&#8217;s a couple of links on how to move the MS SQL Server system databases:
+Here's a couple of links on how to move the MS SQL Server system databases:
 <!--more-->
 
 
@@ -19,7 +19,7 @@ In a nutshell:
 
   * for master, change startup parameters in Server Properties, stop SQL Server, move files, start SQL Server
   * for other system databases, restart SQL Server using Trace Flag 3608 (-T3608 startup param), use **sp\_detach\_db** and **sp\_attach\_db**, restart without Trace Flag
-  * if SQL Server won&#8217;t start because of an error in the startup settings, the settings can be edited here:
+  * if SQL Server won't start because of an error in the startup settings, the settings can be edited here:
 
 <pre>HKLM/SOFTWARE/Microsoft/MSSQLServer/MSSQLServerParameters</pre>
 

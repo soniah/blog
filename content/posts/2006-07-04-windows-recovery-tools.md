@@ -14,7 +14,7 @@ Here are some useful tools for troubleshooting/recovering windows systems:
   * look up events at [eventid.net][1] 
   * [Ultimate Boot CD][2] 
   * [Ultimate Boot CD for Windows][3] 
-  * [SpinRite][4]. The same guy also has a useful tool called &#8216;Shields Up&#8217;, and a podcast called [Security Now!][5] 
+  * [SpinRite][4]. The same guy also has a useful tool called &#8216;Shields Up', and a podcast called [Security Now!][5] 
   * [BootDisks.Com][6] has a collection of prebuilt boot disks you can download 
   * [ERD Commander][7] allows you to repair unbootable or locked-out systems, restore lost data, remove malware from infected systems while the system is safely offline using your existing antivirus software, and diagnose system and network issues 
   * all tools from [Sysinternals.Com][8] 

@@ -8,7 +8,7 @@ categories:
 tags:
   - comment
 ---
-Some cool photos of American Vagabonds [here.][1] Here&#8217;s a sample photo:
+Some cool photos of American Vagabonds [here.][1] Here's a sample photo:
 
 <!--more-->
 

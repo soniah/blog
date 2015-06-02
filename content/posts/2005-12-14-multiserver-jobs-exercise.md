@@ -16,7 +16,7 @@ multiserver jobs exercise
   1. Have a second instance of SQL Server running, either by: 
       * installing a second instance of SQL Server
       * starting up a second Virtual PC
-  2. If using Virtual PC&#8217;s, check that you have network connectivity between both VPC&#8217;s: 
+  2. If using Virtual PC's, check that you have network connectivity between both VPC's: 
       * ipconfig
       * ping<!--more-->
 

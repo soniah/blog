@@ -14,7 +14,7 @@ Years ago I wrote a post on how to [Backup multiple MySQL databases into separat
 
 <!--more-->
 
-I get a lot of questions about how to do the same on Windows; here&#8217;s a script submitted by one of my readers:
+I get a lot of questions about how to do the same on Windows; here's a script submitted by one of my readers:
 
 <pre>:: MySQl DB user
 set dbuser=xxxx

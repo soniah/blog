@@ -9,7 +9,7 @@ tags:
   - Ssh
   - Ubuntu
 ---
-A little ssh error I came across while trying to work remotely on an Ubuntu machine. [ssh X Display Forwarding][1] wasn&#8217;t working, and I was getting an error:
+A little ssh error I came across while trying to work remotely on an Ubuntu machine. [ssh X Display Forwarding][1] wasn't working, and I was getting an error:
 
 <!--more-->
 

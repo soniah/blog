@@ -8,7 +8,7 @@ categories:
 tags:
   - Networking
 ---
-A useful tool I&#8217;ve come across (thanks JB) -- **socat**. As the [homepage][1] says, sort of netcat++.
+A useful tool I've come across (thanks JB) -- **socat**. As the [homepage][1] says, sort of netcat++.
 
 <!--more-->
 

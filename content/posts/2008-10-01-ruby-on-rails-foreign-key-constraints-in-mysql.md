@@ -10,13 +10,13 @@ tags:
   - Ruby
   - Ruby on Rails
 ---
-As an ex-DBA, one of the things that annoys me about Rails is that migrations don&#8217;t have a way of setting up referential integrity (I&#8217;m still using Rails 1.2.3, so this may have changed).
+As an ex-DBA, one of the things that annoys me about Rails is that migrations don't have a way of setting up referential integrity (I'm still using Rails 1.2.3, so this may have changed).
 
 <!--more-->
 
 But apart from that, I lurv Rails :-)
 
-Here&#8217;s some code I wrote to for adding and removing foreign key constraints on MySQL (using InnoDB, of course). There&#8217;s other code out there to do the same thing, but they didn&#8217;t do what I wanted, or required installing a plugin.<!--more-->
+Here's some code I wrote to for adding and removing foreign key constraints on MySQL (using InnoDB, of course). There's other code out there to do the same thing, but they didn't do what I wanted, or required installing a plugin.<!--more-->
 
 In the lib directory, add the file **migration_helpers.rb**:
 
@@ -58,7 +58,7 @@ class Vmtypes &lt; ActiveRecord::Migration
   end
 end</pre>
 
-I wrote this code for MySQL; I don&#8217;t know whether it would work with other backends. Notice the MySQL oddity that you add a foreign key using one line of code, but drop a foreign key using two lines of code (foreign key then key).
+I wrote this code for MySQL; I don't know whether it would work with other backends. Notice the MySQL oddity that you add a foreign key using one line of code, but drop a foreign key using two lines of code (foreign key then key).
 
 On of the features of my code for adding the foreign key is that it allows (requires) you to specify the column names. I did this because I like the primary keys in my tables to be named foo_id rather than id, to make things a little more self documenting.
 
@@ -70,7 +70,7 @@ The next thing I want to work out is how to create/use tables with non-integer p
 
 **Update 9-June-2009:**
 
-I&#8217;ve updated my code to allow suffixes on foreign key names -- useful (for example) when having multiple foreign keys going to the same destination table:
+I've updated my code to allow suffixes on foreign key names -- useful (for example) when having multiple foreign keys going to the same destination table:
 
 <pre>module MigrationHelpers
  def foreign_key(from_table, from_column, to_table, to_column, suffix=nil, on_delete='SET NULL', on_update='CASCADE')

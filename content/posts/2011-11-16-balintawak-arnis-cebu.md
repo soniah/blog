@@ -8,7 +8,7 @@ categories:
 tags:
   - Balintawak
 ---
-I&#8217;m in Cebu, the Philippines at the moment, learning Balintawak Arnis (stick fighting). A little video of my training -- I&#8217;m still very much a beginner&#8230;
+I'm in Cebu, the Philippines at the moment, learning Balintawak Arnis (stick fighting). A little video of my training -- I'm still very much a beginner&#8230;
 
 <!--more-->
 

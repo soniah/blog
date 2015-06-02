@@ -10,7 +10,7 @@ Multisite CVS Drupal Installation on Ubuntu
 
 <!--more-->
 
-I&#8217;ve written a howto on [HowToForge][1] called [Multisite CVS Drupal Installation on Ubuntu][2].
+I've written a howto on [HowToForge][1] called [Multisite CVS Drupal Installation on Ubuntu][2].
 
  [1]: http://www.howtoforge.com/
  [2]: http://www.howtoforge.com/multisite_drupal_installation_ubuntu

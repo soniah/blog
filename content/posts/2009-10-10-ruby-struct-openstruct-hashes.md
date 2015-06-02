@@ -33,6 +33,6 @@ rather than
 print node[:value]
 </pre>
 
-Not earth-shattering, but nice. See also **ri Struct**, **ri OpenStruct**. From [Pragmattic Programmers&#8217; Best of Ruby Quiz][1]
+Not earth-shattering, but nice. See also **ri Struct**, **ri OpenStruct**. From [Pragmattic Programmers' Best of Ruby Quiz][1]
 
  [1]: http://www.pragprog.com/titles/fr_quiz/best-of-ruby-quiz

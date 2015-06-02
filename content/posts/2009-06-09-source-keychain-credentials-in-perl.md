@@ -14,7 +14,7 @@ I use [keychain][1] for securely [caching my ssh key credentials when running sc
 
 <!--more-->
 
-[Here&#8217;s][3] how to use keychain with Perl scripts:
+[Here's][3] how to use keychain with Perl scripts:
 
 <pre>Create a wrapper script:
 source ~/.keychain/hostname-sh

@@ -8,7 +8,7 @@ categories:
 tags:
   - Ruby on Rails
 ---
-I&#8217;m back to Rails development after a few months doing other things.
+I'm back to Rails development after a few months doing other things.
 
 <!--more-->
 

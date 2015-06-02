@@ -13,9 +13,9 @@ tags:
 
 <!--more-->
 
-Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&#8217;ve only ever used Windows).
+Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they've only ever used Windows).
 
-So here&#8217;s how you do it using putty&#8230;<!--more-->
+So here's how you do it using putty&#8230;<!--more-->
 
   * download putty.exe, pscp.exe, pageant.exe, and puttygen.exe from [chiark.greenend.org.uk][3], and put them into an easily accessible folder (eg My Documents\putty, or c:\putty if you want to use putty from the command line)
 
@@ -29,7 +29,7 @@ If you need to generate a key, do this first. If you have been supplied with a k
       * put a good password on your key in the **Key Passphrase **field (and repeat in the **confirm** field)
       * click **Save Public Key**, save to putty folder; call the file firstname.lastname
       * click **Save Private Key**, save to putty folder; call the file firstname.lastname (.ppk extension will be added)
-      * your Linux sysadmin will have asked you to provide them with **your public key**, and this is where problems come up. Putty uses a different key format than OpenSSH, so don&#8217;t send the public key file from the putty folder. Instead, paste into an email the field called **Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you&#8217;ve accidently sent the putty format file, you can re-run puttygen.exe, click the **Load** button to load your existing private key, and then copy and paste the OpenSSH format into an email.
+      * your Linux sysadmin will have asked you to provide them with **your public key**, and this is where problems come up. Putty uses a different key format than OpenSSH, so don't send the public key file from the putty folder. Instead, paste into an email the field called **Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you've accidently sent the putty format file, you can re-run puttygen.exe, click the **Load** button to load your existing private key, and then copy and paste the OpenSSH format into an email.
 
 [<img class="alignnone size-full wp-image-155" title="putty_openssh" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png" alt="" width="480" height="467" />][4]
 
@@ -41,18 +41,18 @@ If you need to generate a key, do this first. If you have been supplied with a k
 
 **Using Your SSH Key:**
 
-  * if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &#8216;load your key&#8217;
-  * once your sysadmin has setup your account, there&#8217;s three ways you can use your key 
+  * if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &#8216;load your key'
+  * once your sysadmin has setup your account, there's three ways you can use your key 
       * the **painful** way. Run putty.exe, enter the hostname/ip, put your username in **Connection, Data**,** Auto-login username**, load your key in **Connection, SSH, Auth**, **Private key file for authentication**, then click **Open** to connect
-      * the **better** way -- caching your key in memory. Run pageant.exe -- you&#8217;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). [<img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" />][5] Right click on this icon, choose **Add Key**, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the **Saved Sessions** field, put your username in **Connection, Data**,** Auto-login username**, then click the **Save** button. You can then right click on the pageant icon, **Saved Sessions**, choose your saved session, and rapidly login to your target system
+      * the **better** way -- caching your key in memory. Run pageant.exe -- you'll see a little terminal with a hat in the Notification area (bottom RHS of screen). [<img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" />][5] Right click on this icon, choose **Add Key**, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the **Saved Sessions** field, put your username in **Connection, Data**,** Auto-login username**, then click the **Save** button. You can then right click on the pageant icon, **Saved Sessions**, choose your saved session, and rapidly login to your target system
       * the **best** way -- use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)
 
 **Troubleshooting**
 
-From experience, I&#8217;ve found most problems connecting with ssh servers come from network/firewall settings:
+From experience, I've found most problems connecting with ssh servers come from network/firewall settings:
 
   * check basic connectivity using the ping command -- Start, Run, cmd, ping 1.2.3.4
-  * check a firewall isn&#8217;t blocking port 22 (ssh) by trying to telnet on port 22 -- Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
+  * check a firewall isn't blocking port 22 (ssh) by trying to telnet on port 22 -- Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
 <pre>telnet 1.2.3.4 22
 Trying 1.2.3.4...
 Connected to foo.bar.com.au.

@@ -10,7 +10,7 @@ tags:
   - PHP
   - Wordpress
 ---
-The WordPress Clearline theme displays **categories** not **tags** for posts, and doesn&#8217;t have a way of modifying it&#8217;s behaviour through the settings area. This is easily fixed with a one line code change:
+The WordPress Clearline theme displays **categories** not **tags** for posts, and doesn't have a way of modifying it's behaviour through the settings area. This is easily fixed with a one line code change:
 
 <!--more-->
 

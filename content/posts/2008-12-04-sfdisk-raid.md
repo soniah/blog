@@ -14,11 +14,11 @@ Good for copying partition tables when replacing a failed hard disk in a (md Lin
 
 <pre>sfdisk –d /dev/sdb | sed –e s/sdb/sda/ |  sfdisk /dev/sda</pre>
 
-Of course you&#8217;d also be doing the usual **mdadm --fail, --remove, physically swap disk, --add, cat /proc/mdstat, --detail, **and installing grub on the new hard drive:
+Of course you'd also be doing the usual **mdadm --fail, --remove, physically swap disk, --add, cat /proc/mdstat, --detail, **and installing grub on the new hard drive:
 
 <pre>grub&gt; device (hd0)  /dev/sdb
 grub&gt; root (hd0,0)
 grub&gt; setup (hd0)
 grub&gt; quit</pre>
 
-(Unmercifully plagiarised from Rodrigo&#8217;s notes).
+(Unmercifully plagiarised from Rodrigo's notes).

@@ -8,12 +8,12 @@ categories:
 tags:
   - comment
 ---
-[Happy news][1] from today&#8217;s Sydney Morning Herald:
+[Happy news][1] from today's Sydney Morning Herald:
 
-*The Government&#8217;s plan to introduce mandatory internet censorship has effectively been scuttled,
+*The Government's plan to introduce mandatory internet censorship has effectively been scuttled,
 
 <!--more-->
 
-following an independent senator&#8217;s (Nick Xenophon) decision to join the Greens and Opposition in blocking any legislation required to get the scheme started&#8230;.*
+following an independent senator's (Nick Xenophon) decision to join the Greens and Opposition in blocking any legislation required to get the scheme started&#8230;.*
 
  [1]: http://www.smh.com.au/news/technology/biztech/web-censorship-plan-heads-towards-a-dead-end/2009/02/26/1235237810486.html?page=fullpage#contentSwap1

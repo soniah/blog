@@ -72,4 +72,4 @@ Quick and dirty on installing OpenLDAP as an addressbook server.
 
 <pre>ldapadd -c -x -W -D 'cn=admin,dc=snowfrog, dc=net' -f addr2.ldif -H "ldap://sandia.snowfrog.net"</pre>
 
-  * connect to LDAP server using Evolution; Thunderbird doesn&#8217;t have enough options
+  * connect to LDAP server using Evolution; Thunderbird doesn't have enough options

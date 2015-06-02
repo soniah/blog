@@ -8,7 +8,7 @@ categories:
 tags:
   - Git
 ---
-A script to make an existing git branch track a remote branch. For example when you&#8217;ve cloned from somewhere else and now want to track your normal remote.
+A script to make an existing git branch track a remote branch. For example when you've cloned from somewhere else and now want to track your normal remote.
 
 <!--more-->
 

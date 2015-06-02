@@ -22,7 +22,7 @@ From a discussion ([Ruby -- The Non-awesome parts][1]) on the [RORO][2] email li
 </p>
 
 <p style="padding-left: 30px;">
-  Time has timezone capabilities built in. TZInfo has a different set of<br /> timezone capabilities and operates with Time objects, but seems to<br /> ignore their built-in timezone settings. I&#8217;m still not sure why.
+  Time has timezone capabilities built in. TZInfo has a different set of<br /> timezone capabilities and operates with Time objects, but seems to<br /> ignore their built-in timezone settings. I'm still not sure why.
 </p>
 
  [1]: http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f

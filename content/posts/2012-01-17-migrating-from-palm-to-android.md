@@ -10,17 +10,17 @@ tags:
   - Google
   - PalmPilot
 ---
-My venerable [Palm Treo 550][1] is showing it&#8217;s age ([as is the company][2]), so I&#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&#8217;m now working for Google, Android is the obvious choice ([dog-fooding][3] and all that).
+My venerable [Palm Treo 550][1] is showing it's age ([as is the company][2]), so I've been looking for a new phone platform to migrate to for a few years. And since I'm now working for Google, Android is the obvious choice ([dog-fooding][3] and all that).
 
 <!--more-->
 
-Some tricks and tools I&#8217;ve find useful in my migration from Palm to Android:
+Some tricks and tools I've find useful in my migration from Palm to Android:
 
   * [Synthesis SyncML clients][4] are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.
-  * for a SyncML server I&#8217;m using [Memotoo][5]. I could&#8217;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works&#8230;
-  * on the Android Market there&#8217;s a [Keyring][6] client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&#8217;m yet to work out how I&#8217;m going to back this up, but probably something with Memotoo
+  * for a SyncML server I'm using [Memotoo][5]. I could've setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works&#8230;
+  * on the Android Market there's a [Keyring][6] client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I'm yet to work out how I'm going to back this up, but probably something with Memotoo
 
-So, I&#8217;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the [JPilot desktop][7] (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&#8217;m almost migrated!
+So, I'm using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the [JPilot desktop][7] (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I'm almost migrated!
 
 &nbsp;
 

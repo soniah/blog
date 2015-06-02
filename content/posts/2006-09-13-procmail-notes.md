@@ -13,12 +13,12 @@ procmail notes
 
 ### Good procmail sites
 
-  * [Timo&#8217;s procmail tips][1]
+  * [Timo's procmail tips][1]
   * [ii.com -- procmail quickstart][2]
   * [procmail tips][3]
   * [Halcyon guide][4]
   * [Partmaps procmail FAQ][5]
-  * [Stimpy&#8217;s formail tutorial][6]
+  * [Stimpy's formail tutorial][6]
 
 ### Procmail commands can consist of&#8230;
 

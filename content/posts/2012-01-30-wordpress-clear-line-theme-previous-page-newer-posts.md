@@ -24,7 +24,7 @@ In these files, search for the lines that look like:
 
 Edit each file and change **Previous Page** to **Newer Posts**, and **Next Page** to **Older Posts**.
 
-Alternatively if you&#8217;ve got [ssh][1] shell access (and you&#8217;re hosted on a Unix-like environment eg Linux), you can run the following commands:
+Alternatively if you've got [ssh][1] shell access (and you're hosted on a Unix-like environment eg Linux), you can run the following commands:
 
 <pre>cd /var/www/wp-content/themes/clear-line
 sed -i 's/Previous Page/Newer Posts/' archive.php author.php index.php search.php

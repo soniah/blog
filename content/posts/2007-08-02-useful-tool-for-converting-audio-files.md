@@ -10,6 +10,6 @@ Useful tool for converting audio files
 
 <!--more-->
 
-I used to write heaps of shell scripts for converting audio files from one format to another -- here&#8217;s a useful tool that does it for you -- [pac][1] (Perl Audio Converter).
+I used to write heaps of shell scripts for converting audio files from one format to another -- here's a useful tool that does it for you -- [pac][1] (Perl Audio Converter).
 
  [1]: http://sourceforge.net/projects/pacpl/

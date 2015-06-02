@@ -13,7 +13,7 @@ A post a stumbled upon -- [Speed up Firefox on Linux -- Disable IPv6 Lookups][1]
 
 <!--more-->
 
-I don&#8217;t know if it works but I&#8217;m trying it now.
+I don't know if it works but I'm trying it now.
 
 In a nutshell:
 

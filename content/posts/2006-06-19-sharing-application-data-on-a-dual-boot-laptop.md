@@ -10,7 +10,7 @@ tags:
 ---
 sharing application data on a dual boot laptop
 <!--more-->
-I dual boot my laptop between Linux and Windows -- mostly Linux, but occasionally Windows. Here&#8217;s how to make applications like Firefox, Thunderbird, etc share their configuration -- especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is *sonia* and your user id is *1000* (check by running the **id** function). It also presumes that you can see system folders in Windows -- setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click *Apply to All Folders*.
+I dual boot my laptop between Linux and Windows -- mostly Linux, but occasionally Windows. Here's how to make applications like Firefox, Thunderbird, etc share their configuration -- especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is *sonia* and your user id is *1000* (check by running the **id** function). It also presumes that you can see system folders in Windows -- setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click *Apply to All Folders*.
 
 ### Create a Shared Partition  
 
@@ -32,7 +32,7 @@ The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Rei
 <pre>resize_reiserfs /dev/hda6
 </pre>
 
-  * check and mount the shrunk partition before creating the new partition and filesystem, in case you&#8217;ve made a mistake 
+  * check and mount the shrunk partition before creating the new partition and filesystem, in case you've made a mistake 
 
 <pre>reiserfsck /dev/hda6
  mount /dev/hda6
@@ -63,7 +63,7 @@ The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Rei
 ### Get Firefox to Locate Configuration in Linux  
 
 
-  * close Firefox and move your profile -- it&#8217;ll be a directory named something like *123456.default*: 
+  * close Firefox and move your profile -- it'll be a directory named something like *123456.default*: 
 
 <pre>mkdir -p /configs/.mozilla/firefox
  mv ~/.mozilla/123456.default /configs/.mozilla/firefox
@@ -75,7 +75,7 @@ The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Rei
  Path=/configs/.mozilla/firefox/123456.default
 </pre>
 
-  * check Firefox runs OK -- if the Profiles screen pops up, you&#8217;ve got some sort of error 
+  * check Firefox runs OK -- if the Profiles screen pops up, you've got some sort of error 
 
 ### Mount the Shared Partition in Windows</p> 
 

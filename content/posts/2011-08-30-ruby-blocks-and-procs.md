@@ -17,7 +17,7 @@ Some notes on ruby, blocks, and procs.
 Ruby has three ways of manually creating blocks: **Proc.new**, **lambda**, and **proc**. They have slightly different behaviour, and the behaviour also varies between Ruby 1.8 and 1.9!
 
   * **lambda** checks that the number of arguments passed matches the number of block parameters
-  * whereas **Proc.new** doesn&#8217;t check (however the block may raise an error, depending on it&#8217;s code)**
+  * whereas **Proc.new** doesn't check (however the block may raise an error, depending on it's code)**
   * and **proc** behaves like **lambda** in Ruby 1.8, and like **Proc.new** in Ruby 1.9. So, avoid using proc!
 
 A bit of code to demonstrate this:
@@ -49,7 +49,7 @@ a * b is: 12</pre>
 
 # Scoping
 
-In Ruby 1.8, block parameters can **overwrite** parameters of the same name in the current scope; in Ruby 1.9 they&#8217;re protected.
+In Ruby 1.8, block parameters can **overwrite** parameters of the same name in the current scope; in Ruby 1.9 they're protected.
 
 <pre>&gt; hello = "hello"
 &gt; def frenchy
@@ -67,13 +67,13 @@ bonjour                             # ouch! In 1.9 you'd get "hello"</pre>
 
 Some of the Rails and Ruby library code define methods with **&block** as the last parameter to capture an anonymous block.
 
-  * anonymous blocks are ignored if they&#8217;re not used, and **&block** is an *optional* parameter that must appear as the *last* parameter
-  * it&#8217;s effectively a *type-checked* parameter -- it will only accept an anonymous block or a proc (if proceeded with **&**)
+  * anonymous blocks are ignored if they're not used, and **&block** is an *optional* parameter that must appear as the *last* parameter
+  * it's effectively a *type-checked* parameter -- it will only accept an anonymous block or a proc (if proceeded with **&**)
   * the block can be called with **call** or **yield**
   * you can check if a block was passed using **block_given?**
   * **&block** is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using **&block**, callers get more flexibility when using your method ie they can pass in a **proc** (perhaps defined elsewhere and used multiple times)
 
-Anonymous blocks are ignored if they&#8217;re not used:
+Anonymous blocks are ignored if they're not used:
 
 <pre>&gt; def foo(a)
 &gt;   puts "a is #{a}"
@@ -157,7 +157,7 @@ Of course the moral of story is not to rely on obscure precedence rules, rather 
 
 # Closures
 
-Blocks are closures ie they store or carry the value local variables from the the original scope into a different scope. They&#8217;re another way of reusing the same logic with slightly different values. For example:
+Blocks are closures ie they store or carry the value local variables from the the original scope into a different scope. They're another way of reusing the same logic with slightly different values. For example:
 
 <pre>&gt; def build_header( level )
 &gt;   return lambda { |text| "&lt;#{level}&gt;#{text}&lt;/#{level}&gt;" }

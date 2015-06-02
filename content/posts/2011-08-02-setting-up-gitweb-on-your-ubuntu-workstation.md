@@ -8,15 +8,15 @@ categories:
 tags:
   - Git
 ---
-If you work in an IT environment, it&#8217;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.
+If you work in an IT environment, it's nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.
 
 <!--more-->
 
-Unfortunately, a lot of the posts out there on &#8220;how to setup Gitweb on Ubuntu&#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&#8217;s how I did it on Ubuntu 11.04 (Natty).
+Unfortunately, a lot of the posts out there on &#8220;how to setup Gitweb on Ubuntu&#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here's how I did it on Ubuntu 11.04 (Natty).
 
 ## Basic Setup
 
-Let&#8217;s start with a simple git repository:
+Let's start with a simple git repository:
 
 <pre class="brush: bash; title: ; notranslate" title="">sudo aptitude install git-all apache2
 cd ; git init foo ; cd foo
@@ -30,7 +30,7 @@ You probably only want to share out *some* of your repositories, not all of ${HO
 sudo git clone --bare ~/foo foo.git
 </pre>
 
-Next, a little gotcha. You need to enable the **post-update** hook, so that the required info is generated for the http server. The &#8220;gotcha&#8221; is that you need to enable the hook **then** do a push to your server repository, otherwise the server info isn&#8217;t updated:
+Next, a little gotcha. You need to enable the **post-update** hook, so that the required info is generated for the http server. The &#8220;gotcha&#8221; is that you need to enable the hook **then** do a push to your server repository, otherwise the server info isn't updated:
 
 <pre class="brush: bash; title: ; notranslate" title="">cd ~/foo/.git/hooks
 mv post-update.sample post-update
@@ -63,13 +63,13 @@ $projectroot = "/var/www";
 ...
 </pre>
 
-And that&#8217;s it! Part of the gitweb install on Ubuntu adds in **/etc/apache2/conf.d/gitweb**, so there&#8217;s no other files to edit (unlike what [blog1][1], [blog2][2], or [blog3][3] say).
+And that's it! Part of the gitweb install on Ubuntu adds in **/etc/apache2/conf.d/gitweb**, so there's no other files to edit (unlike what [blog1][1], [blog2][2], or [blog3][3] say).
 
-Browse to <http://localhost/gitweb/>, and there&#8217;s your browse-able, search-able, git repository :-D
+Browse to <http://localhost/gitweb/>, and there's your browse-able, search-able, git repository :-D
 
-## But wait, there&#8217;s more -- automatically push your changes&#8230;
+## But wait, there's more -- automatically push your changes&#8230;
 
-As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that&#8217;s boring -- automate it:
+As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that's boring -- automate it:
 
 <pre class="brush: bash; title: ; notranslate" title="">% cd ~/foo ; cat git.web.push
 #!/bin/bash

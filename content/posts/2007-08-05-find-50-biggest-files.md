@@ -6,7 +6,7 @@ url: /2007/08/05/find-50-biggest-files/
 categories:
   - Linux
 ---
-Here&#8217;s how to find the 50 biggest files on a partition:
+Here's how to find the 50 biggest files on a partition:
 
 <!--more-->
 

@@ -8,7 +8,7 @@ categories:
 tags:
   - Shell
 ---
-A nice little script snippet I like to remember for automating quick stuff across multiple hosts. **-t** forces tty (so sudo will work); **-q** quiet -- disable banners; **-c** script (&#8220;command&#8221;) to su. Presumes sudo doesn&#8217;t prompt for a password; otherwise, see [Expect][1] and [Exploring Expect][2] :-)
+A nice little script snippet I like to remember for automating quick stuff across multiple hosts. **-t** forces tty (so sudo will work); **-q** quiet -- disable banners; **-c** script (&#8220;command&#8221;) to su. Presumes sudo doesn't prompt for a password; otherwise, see [Expect][1] and [Exploring Expect][2] :-)
 
 <!--more-->
 

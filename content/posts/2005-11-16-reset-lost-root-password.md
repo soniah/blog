@@ -19,7 +19,7 @@ Reset lost MySQL root password
 
 <pre>mysql -u root mysql</pre>
 
-  * change root password (note: SET PASSWORD won&#8217;t work, due to --skip-grant-tables)
+  * change root password (note: SET PASSWORD won't work, due to --skip-grant-tables)
 
 <pre>mysql&gt; use mysql; mysql&gt; update user set password=password('secret') where user='root';mysql&gt; q</pre>
 

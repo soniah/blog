@@ -25,4 +25,4 @@ machine 2
     inet 999.99.133.13/23 brd 211.29.133.255 scope global eth0
     inet 999.99.133.19/23 brd 211.29.133.255 scope global secondary eth0:1</pre>
 
-If this isn&#8217;t the case, do a **hb_takeover** on the appropriate machine (depending on the status of the underlying application). Eg **/usr/lib64/heartbeat/hb_takeover**
+If this isn't the case, do a **hb_takeover** on the appropriate machine (depending on the status of the underlying application). Eg **/usr/lib64/heartbeat/hb_takeover**

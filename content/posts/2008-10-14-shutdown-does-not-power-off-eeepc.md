@@ -9,11 +9,11 @@ tags:
   - EeePC
   - Ubuntu
 ---
-I&#8217;ve noticed that issuing a **sudo halt** on my [EeePC 701][1] shuts down the operating system ([eeeXubuntu][2]), but doesn&#8217;t power down the system.
+I've noticed that issuing a **sudo halt** on my [EeePC 701][1] shuts down the operating system ([eeeXubuntu][2]), but doesn't power down the system.
 
 <!--more-->
 
-So I&#8217;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag -- ouch!
+So I'd be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag -- ouch!
 
 **Solution** ([Bug #239145][3]) -- add **rmmod snd-hda-intel** to the stop section of **/etc/init.d/halt**.
 

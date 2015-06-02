@@ -8,7 +8,7 @@ categories:
 tags:
   - Ruby
 ---
-A good summary (for my reference) of the assertions that can be used with Test::Unit ([from Pragmatic Programmers&#8217; Programming Ruby][1]).
+A good summary (for my reference) of the assertions that can be used with Test::Unit ([from Pragmatic Programmers' Programming Ruby][1]).
 
 <!--more-->
 

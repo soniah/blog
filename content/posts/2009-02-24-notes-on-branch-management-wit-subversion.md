@@ -42,7 +42,7 @@ An alternative (and often easier) approach is to branch on the server, then just
 
 Tags:
 
-  * tags are just copies (usually put in the tags directory): **svn cp https://****myrepo.com/foo/foo ****https://****myrepo.com/foo/tags/foo-1.0**. Tags aren&#8217;t read-only, but any changes can of course be reverted.
+  * tags are just copies (usually put in the tags directory): **svn cp https://****myrepo.com/foo/foo ****https://****myrepo.com/foo/tags/foo-1.0**. Tags aren't read-only, but any changes can of course be reverted.
 
 Directory structure:
 
@@ -50,7 +50,7 @@ Directory structure:
       * **/foo/trunk** (or **/foo/foo** so name of trunk dir corresponds to project when checked out)
       * **/foo/branches**
       * **/foo/tags**
-  * I used to ignore this and just do /foo & /foo-branch, but this gets messy quickly and it&#8217;s easy to make mistakes or have problems when doing svn moves of  large directories if you want to reorganise things later. Also, when working with branches I tend to want to just switch a subdirectory rather than checkout the whole branch, and this directory structure seems to logically help with this
+  * I used to ignore this and just do /foo & /foo-branch, but this gets messy quickly and it's easy to make mistakes or have problems when doing svn moves of  large directories if you want to reorganise things later. Also, when working with branches I tend to want to just switch a subdirectory rather than checkout the whole branch, and this directory structure seems to logically help with this
 
 Notes from [Version Control with Subversion][1].
 

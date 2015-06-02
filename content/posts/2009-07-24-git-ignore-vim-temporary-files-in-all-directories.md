@@ -13,7 +13,7 @@ Up until a few weeks ago I was using subversion for all my personal stuff.
 
 <!--more-->
 
-But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I&#8217;ve moved to git. Yay, no more central repository to go down&#8230;
+But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I've moved to git. Yay, no more central repository to go down&#8230;
 
 To ignore files in git you use .gitignore, eg for a rails project:
 
@@ -26,11 +26,11 @@ But how to ignore files in all directories? Use .git/info/exclude. For example, 
 <pre>% cat .git/info/exclude
 .*.sw*</pre>
 
-All the howto&#8217;s I&#8217;ve read so far mention .gitignore but not .git/info/exclude -- I stumbled across this by accident. More RTFM&#8217;ing to do&#8230;
+All the howto's I've read so far mention .gitignore but not .git/info/exclude -- I stumbled across this by accident. More RTFM'ing to do&#8230;
 
 **Correction**
 
-To ignore all files in all directories, **.gitignore** can be used. A bit of experimentation and reading of **man gitignore** shows that any wildcard that doesn&#8217;t contain a / will apply to that directory and all child directories.
+To ignore all files in all directories, **.gitignore** can be used. A bit of experimentation and reading of **man gitignore** shows that any wildcard that doesn't contain a / will apply to that directory and all child directories.
 
 **.gitignore** is propagated during clone operations, whereas **.git/info/exclude** isn’t ie use the former for common settings and the latter for personal settings.
 

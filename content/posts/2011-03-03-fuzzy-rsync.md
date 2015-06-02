@@ -21,7 +21,7 @@ total size is 4966997090  speedup is 26321.63                 &lt;-- woohoo! big
 
 Notice the **--delete-delay **option is fairly much required, as rsync by default does a **--delete-before**, thus removing the base file before it can be copied/moved.
 
-When to use this? When you&#8217;re rsync&#8217;ing large binary files, and the only change you&#8217;ve made is to copy or rename files within the same directory. Which is often what I&#8217;m doing -- at work moving around isos or install packages, and at home organising [BJJ][2] videos :-)
+When to use this? When you're rsync'ing large binary files, and the only change you've made is to copy or rename files within the same directory. Which is often what I'm doing -- at work moving around isos or install packages, and at home organising [BJJ][2] videos :-)
 
 **Addendum**
 

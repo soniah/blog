@@ -24,7 +24,7 @@ Three Way Handshake (from
 
 [Wikipedia][1]):
 
-  1. The initiating host (client) sends a synchronization packet (SYN flag set to 1) to initiate a connection. It sets the packet&#8217;s sequence number to a random value <span class="texhtml"><em>x</em></span>.
+  1. The initiating host (client) sends a synchronization packet (SYN flag set to 1) to initiate a connection. It sets the packet's sequence number to a random value <span class="texhtml"><em>x</em></span>.
   2. The other host receives the packet, records the sequence number <span class="texhtml"><em>x</em></span> from the client, and replies with an acknowledgment and synchronization (SYN-ACK). The Acknowledgment is a 32-bit field in TCP segment header. It contains the next sequence number that this host is expecting to receive <span class="texhtml">(<em>x</em> + 1)</span>. The host also initiates a return session. This includes a TCP segment with its own initial Sequence Number of value <span class="texhtml"><em>y</em></span>.
   3. The initiating host responds with the next Sequence Number <span class="texhtml">(<em>x</em> + 1)</span> and a simple Acknowledgment Number value of <span class="texhtml"><em>y</em> + 1</span>, which is the Sequence Number value of the other host + 1.
 

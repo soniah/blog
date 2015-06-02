@@ -10,7 +10,7 @@ tags:
   - Shell
   - Zsh
 ---
-Using cygwin under Windows, I&#8217;ve setup my shell as zsh by editing the launch script:
+Using cygwin under Windows, I've setup my shell as zsh by editing the launch script:
 
 <!--more-->
 

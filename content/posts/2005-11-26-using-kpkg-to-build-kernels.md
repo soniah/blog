@@ -50,7 +50,7 @@ See also [How To Compile A Kernel -- The Ubuntu Way][1]
  sudo chown -R root.src linux-source-2.6.123
  sudo ln -s linux-source-2.6.123 linux</pre>
 
-Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, linux-source comes from Ubuntu. All the dependencies haven&#8217;t been changed over yet, though, so if you get warnings about &#8220;uninstalled package kernel-source&#8221; even though linux-source is installed, you can safely ignore them. Can sometimes also just download linux-headers-\`uname -r\`
+Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, linux-source comes from Ubuntu. All the dependencies haven't been changed over yet, though, so if you get warnings about &#8220;uninstalled package kernel-source&#8221; even though linux-source is installed, you can safely ignore them. Can sometimes also just download linux-headers-\`uname -r\`
 
   * check prereqs
 
@@ -77,7 +77,7 @@ Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, l
  fakeroot make-kpkg --initrd --append-to-version=.sonia.001 --added-modules=madwifi modules_image</pre>
 
 or some combo of the above&#8230;  
-**don&#8217;t use --revision** -- versions aren&#8217;t handled correctly
+**don't use --revision** -- versions aren't handled correctly
 
 ### Install
 
@@ -100,7 +100,7 @@ backup config from /boot, and .deb files
 ## distcc
 
 &#8220;Note&#8221;  
-If distcc process killed whilst troubleshooting, etc, remove ~/.distcc check all gcc&#8217;s about the same version, with \`gcc -v\` (first 2 digits important)
+If distcc process killed whilst troubleshooting, etc, remove ~/.distcc check all gcc's about the same version, with \`gcc -v\` (first 2 digits important)
 
   * install pre-reqs (probably excessive)
 

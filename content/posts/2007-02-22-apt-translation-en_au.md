@@ -8,7 +8,7 @@ categories:
 tags:
   - Ubuntu
 ---
-On Ubuntu Edgy I notice that when I do an &#8216;apt-get update&#8217; I get  
+On Ubuntu Edgy I notice that when I do an &#8216;apt-get update' I get  
 messages like this:
 
 <!--more-->

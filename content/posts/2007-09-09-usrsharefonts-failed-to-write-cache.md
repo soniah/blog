@@ -20,7 +20,7 @@ Updating fontconfig cache...<br />
 `<!--more-->
 
   
-I&#8217;ve had this occur on several machines, and the md5 on the .iso checks out ok, so it&#8217;s a bug ([Bug 104553][1], [Bug 122976][2]) caused by incorrect dates on the font cache. There&#8217;s a solution documented [here][3], but it needs a bit of fixing:  
+I've had this occur on several machines, and the md5 on the .iso checks out ok, so it's a bug ([Bug 104553][1], [Bug 122976][2]) caused by incorrect dates on the font cache. There's a solution documented [here][3], but it needs a bit of fixing:  
 `<br />
 $ sudo bash<br />
 # wget -O folder_list.txt http://ubuntuforums.org/attachment.php?attachmentid=28956&d=1175696100<br />

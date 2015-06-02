@@ -19,7 +19,7 @@ The latest edition of the venerable [UNIX and Linux System Administration Handbo
 
 ***Only when a disk fails does the problem become apparent. The parity block will likely have been rewritten many times since the occurrence of the original desynchronization. Therefore, the reconstructed data block on the replacement disk will consist of essentially random data.*
 
-Further reading on the [BAARF][2] archive (Battle Against Any Raid 5), including why RAID10 and RAID3 should be chosen over RAID5. And then there&#8217;s [ZFS and RAID-Z][3].
+Further reading on the [BAARF][2] archive (Battle Against Any Raid 5), including why RAID10 and RAID3 should be chosen over RAID5. And then there's [ZFS and RAID-Z][3].
 
  [1]: http://www.amazon.com/UNIX-Linux-System-Administration-Handbook/dp/0131480057/ref=sr_1_1?s=books&ie=UTF8&qid=1294981909&sr=1-1
  [2]: http://www.miracleas.com/BAARF/BAARF2.html

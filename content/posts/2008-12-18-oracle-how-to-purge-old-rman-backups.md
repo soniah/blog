@@ -12,7 +12,7 @@ Oracle runs on Linux, therefore I must be an Oracle expert (so goes management t
 
 <!--more-->
 
-Here&#8217;s how to correctly purge old RMAN backups when storage runs out of space (thanks Nakrob):
+Here's how to correctly purge old RMAN backups when storage runs out of space (thanks Nakrob):
 
 <pre>Do not use rm to remove files. You must do it via RMAN.
 

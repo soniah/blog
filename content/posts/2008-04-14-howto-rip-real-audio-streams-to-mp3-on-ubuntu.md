@@ -9,13 +9,13 @@ tags:
   - Audio
   - Ubuntu
 ---
-I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&#8217;m writing my own).
+I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I'm writing my own).
 
 <!--more-->
 
-But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS&#8217;s Beard!
+But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS's Beard!
 
-There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&#8217;s how I got it going on Ubuntu 7.10:
+There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here's how I got it going on Ubuntu 7.10:
 
 First of all I installed Real Player using instructions [here][1] and [here][2], and checked I could listen to a stream using the GUI tool -- a quick sanity check for firewalls, etc.
 
@@ -43,7 +43,7 @@ I repeated the above mplayer command (which worked) then converted to mp3:
 $ mplayer rtsp://xyz.net.uk/foo.ra -ao pcm:file=audiofile.wav -vc dummy -vo null  
 $ lame -h -b 128 audiofile.wav audiofile.mp3
 
-Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file -- here&#8217;s how to find the .ram file:
+Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file -- here's how to find the .ram file:
 
   * click on the link and start playback the embedded Real Player in Firefox
   * a file called **~/.realplayerrc** will be created -- towards the end of the file there will be a section like this:

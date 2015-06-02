@@ -15,6 +15,6 @@ A useful tool for splitting mp3 music files on Linux is **mp3splt.** To install 
 
 `$ sudo aptitude install mp3splt`
 
-Here&#8217;s an example of using it to split a collection of large mp3 files into 11 minute chunks; the -a option automatically finds silences near the 11 minute mark to split on:
+Here's an example of using it to split a collection of large mp3 files into 11 minute chunks; the -a option automatically finds silences near the 11 minute mark to split on:
 
 `for i in ../origs/* ; do mp3splt -a -t 11.00 ./${i} ; done`

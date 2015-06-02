@@ -9,7 +9,7 @@ tags:
   - Ruby on Rails
   - Ubuntu
 ---
-I&#8217;ve always used vim as my main editor, but I thought I&#8217;d try RadRails since so many Rails people rave about it.
+I've always used vim as my main editor, but I thought I'd try RadRails since so many Rails people rave about it.
 
 <!--more-->
 

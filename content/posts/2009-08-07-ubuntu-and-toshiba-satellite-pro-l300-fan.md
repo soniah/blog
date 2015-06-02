@@ -12,9 +12,9 @@ I recently bought a new laptop -- a *bottom* of the range Toshiba Satellite Pro 
 
 <!--more-->
 
-I used to buy high-end laptops but my thinking was changed when my latest one got stolen and I started using an old one I&#8217;d (literally) dredged out of a rubbish bin. I mostly use shell/vi/ssh, Thunderbird and Firefox, don&#8217;t carry my laptop around with me, and all my stuff is backed up across multiple machines using git, so why shell out the big bucks?
+I used to buy high-end laptops but my thinking was changed when my latest one got stolen and I started using an old one I'd (literally) dredged out of a rubbish bin. I mostly use shell/vi/ssh, Thunderbird and Firefox, don't carry my laptop around with me, and all my stuff is backed up across multiple machines using git, so why shell out the big bucks?
 
-So far I&#8217;m liking the Satellite Pro. Ubuntu 9.04 installed without a hitch, sound and wireless worked straight out of the box, the keyboard has a nice feel to it and all the keys are in the proper places (unlike Dell laptops that seem to scatter them all over the place).
+So far I'm liking the Satellite Pro. Ubuntu 9.04 installed without a hitch, sound and wireless worked straight out of the box, the keyboard has a nice feel to it and all the keys are in the proper places (unlike Dell laptops that seem to scatter them all over the place).
 
 Only problem was the fan. The poor little cpu is a bit underpowered so the cpu load average continually sits on or above 1, and the fan was going mental. A quick [search on Google][1] found the solution: in **/boot/grub/menu.lst** change defoptions to
 

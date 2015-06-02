@@ -8,7 +8,7 @@ categories:
 tags:
   - Ruby
 ---
-Ruby&#8217;s rcov had a workaround for a breakage in the rexml library, but the workaround [broke][1].
+Ruby's rcov had a workaround for a breakage in the rexml library, but the workaround [broke][1].
 
 <!--more-->
 

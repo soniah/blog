@@ -8,7 +8,7 @@ categories:
 tags:
   - Firefox
 ---
-A bug that has been dragging on for [years][1] -- Firefox under Ubuntu (and other distros) doesn&#8217;t respect the locale setting, 
+A bug that has been dragging on for [years][1] -- Firefox under Ubuntu (and other distros) doesn't respect the locale setting, 
 
 
 <!--more-->

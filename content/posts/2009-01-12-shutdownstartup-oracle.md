@@ -229,7 +229,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  One process is expected for each &#8216;ps&#8217; command.
+  One process is expected for each &#8216;ps' command.
 </div>
 
 <div>
@@ -245,7 +245,7 @@ Some notes on shutting down and starting up Oracle, taken from an email.
 </div>
 
 <div>
-  <span style="color:#339966;"> to_char(startup_time, &#8216;DD-MON-YY HH24:MI&#8217;), status </span>
+  <span style="color:#339966;"> to_char(startup_time, &#8216;DD-MON-YY HH24:MI'), status </span>
 </div>
 
 <div>

@@ -12,13 +12,13 @@ I participated in another [Brazilian Jiu Jitsu][1] (BJJ) competition today (the 
 
 <!--more-->
 
-I won a match (happy face) and lost a match (sad face), which was disappointing -- otherwise I would&#8217;ve been flying off to Abu Dhabi to compete in the World Professional Jiu Jitsu Championships next month -- only 3 women in my weight bracket.
+I won a match (happy face) and lost a match (sad face), which was disappointing -- otherwise I would've been flying off to Abu Dhabi to compete in the World Professional Jiu Jitsu Championships next month -- only 3 women in my weight bracket.
 
-But what was really disappointing was the typical disorganisation of the event ie it was running hours late. This is really frustrating as a competitor -- you don&#8217;t know when to eat, when to start warming up, or even what time to turn up. Given that these events can run from 9am to 8pm, it&#8217;s a long day in a hot gymnasium.
+But what was really disappointing was the typical disorganisation of the event ie it was running hours late. This is really frustrating as a competitor -- you don't know when to eat, when to start warming up, or even what time to turn up. Given that these events can run from 9am to 8pm, it's a long day in a hot gymnasium.
 
 *Warning: (simple) arithmetic ahead&#8230;<!--more-->*
 
-It shouldn&#8217;t be too hard to work out the scheduling of these events, it&#8217;s a simple arithmetic calculation, why can&#8217;t the organisers get it right? This is how long it takes to run a bracket at an event:
+It shouldn't be too hard to work out the scheduling of these events, it's a simple arithmetic calculation, why can't the organisers get it right? This is how long it takes to run a bracket at an event:
 
 <p style="text-align: center;">
   <strong>number of fights  X  duration of each fight  X  a fudge factor</strong>
@@ -32,7 +32,7 @@ For example:
 
 ## The fudge factor
 
-What is the &#8220;fudge factor&#8221;? It is simply the extra time you add to each fight to allow for the fact that fights aren&#8217;t going to run immediately one after another. I&#8217;ve guessed 1.2, but you might allow 1.4 or even 1.6 for a busy competition. Put another way, fights are supposed to last 5 minutes (or 6-10 minutes), but only two things make them shorter:
+What is the &#8220;fudge factor&#8221;? It is simply the extra time you add to each fight to allow for the fact that fights aren't going to run immediately one after another. I've guessed 1.2, but you might allow 1.4 or even 1.6 for a busy competition. Put another way, fights are supposed to last 5 minutes (or 6-10 minutes), but only two things make them shorter:
 
   * a withdrawal or no-show by a competitor
   * a fight finishing early due to a tap out
@@ -47,11 +47,11 @@ However, these things make each fight last longer:
   * injuries requiring medical assistance
   * and the general time wasting that goes on at competitions
 
-So, I&#8217;ve erred towards a longer fudge factor (>1) rather than a shorter fudge factor (<1).
+So, I've erred towards a longer fudge factor (>1) rather than a shorter fudge factor (<1).
 
 ## How Many Fights?
 
-If you&#8217;ve got 8 competitors in a &#8220;[sudden death tournament][3]&#8220;, how many fights will there be? Google gives the [answer][4]:
+If you've got 8 competitors in a &#8220;[sudden death tournament][3]&#8220;, how many fights will there be? Google gives the [answer][4]:
 
 <p style="text-align: center;">
   <strong>N-1</strong>
@@ -62,7 +62,7 @@ ie for 8 competitors, there will be 7 fights. That was hard&#8230;**
 
 ## A ready reckoner
 
-Given that most people dislike arithmetic, here&#8217;s a table that allows you to look up how long a 5 minute fight bracket will take in hours and minutes, for a given number of competitors and a given fudge factor. Notice how with a fudge factor of 1.2, it only takes 11 competitors for a bracket to last 1 hour. And it explains why today&#8217;s tournament was so late, they only allowed 1.5 hours for 51 competitors instead of 5 hours&#8230;
+Given that most people dislike arithmetic, here's a table that allows you to look up how long a 5 minute fight bracket will take in hours and minutes, for a given number of competitors and a given fudge factor. Notice how with a fudge factor of 1.2, it only takes 11 competitors for a bracket to last 1 hour. And it explains why today's tournament was so late, they only allowed 1.5 hours for 51 competitors instead of 5 hours&#8230;
 
 <pre>Competitors	1.2	1.4	1.6
  2		00:06	00:07	00:08
@@ -125,7 +125,7 @@ Given that most people dislike arithmetic, here&#8217;s a table that allows you 
 59		05:48	06:46	07:44
 60		05:54	06:53	07:52</pre>
 
-No, I couldn&#8217;t sleep :-)
+No, I couldn't sleep :-)
 
  [1]: http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu
  [2]: http://www.abudhabiproaustralia.com/

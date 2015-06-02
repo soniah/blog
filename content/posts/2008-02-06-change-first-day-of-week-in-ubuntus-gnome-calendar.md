@@ -17,7 +17,7 @@ Under the Australian locale, the first day of the week appears as Sunday rather 
   * regenerate the locale using **sudo locale-gen**
   * get the calendar to reload using **killall gnome-panel**
 
-In another post, I also show [how to automate this][1], so it doesn&#8217;t get reset by Ubuntu&#8217;s automatic updates.
+In another post, I also show [how to automate this][1], so it doesn't get reset by Ubuntu's automatic updates.
 
 See also:
 

@@ -8,17 +8,17 @@ categories:
 tags:
   - employment
 ---
-I&#8217;ve always wondered what recruitment agents use as their formula to convert between salaries and contract rates.
+I've always wondered what recruitment agents use as their formula to convert between salaries and contract rates.
 
 <!--more-->
 
-Here&#8217;s a formula (for giving ballpark figures) -- thanks CK:
+Here's a formula (for giving ballpark figures) -- thanks CK:
 
 Salary divided by 48 weeks, divided by 40 hours, plus 20% (super, training, sick leave, etc) =~ Hourly rate
 
 For example, $100K =~ $62.50/hour, $150K =~ $93.75/hour.
 
-Here&#8217;s a quick ready reckoner -- handy to print out when you&#8217;re doing the &#8220;job mambo&#8221;:
+Here's a quick ready reckoner -- handy to print out when you're doing the &#8220;job mambo&#8221;:
 
 &nbsp;
 
@@ -388,7 +388,7 @@ Here&#8217;s a quick ready reckoner -- handy to print out when you&#8217;re doin
   </tr>
 </table>
 
-And here&#8217;s the numbers for doing quick calculations:
+And here's the numbers for doing quick calculations:
 
 &nbsp;
 

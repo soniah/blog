@@ -8,7 +8,7 @@ categories:
 tags:
   - Git
 ---
-A couple of scripts I (very) quickly wrote for managing git branches, so I don&#8217;t have to keep reading[ git cheat][1].
+A couple of scripts I (very) quickly wrote for managing git branches, so I don't have to keep reading[ git cheat][1].
 
 <!--more-->
 

@@ -15,9 +15,9 @@ How to connect to a Cisco device (or other serial devices) using OSX and a USB t
 
 <!--more-->
 
-Googling, everyone says to use zterm, but I couldn&#8217;t get it to work (and zterm looks and feels like a toy).
+Googling, everyone says to use zterm, but I couldn't get it to work (and zterm looks and feels like a toy).
 
-This probably isn&#8217;t the &#8220;Mac way&#8221; of doing things, but </whatever>&#8230;
+This probably isn't the &#8220;Mac way&#8221; of doing things, but </whatever>&#8230;
 
 Install [PL2303 USB to Serial Driver for Mac OS X][1], restart :-(
 
@@ -51,7 +51,7 @@ Setup defaults to:
   * 8N1
   * 9600
   * no hardware or software flow control
-  * init string empty (so garbage doesn&#8217;t appear on screen when you connect) -- ctrl-A, O, Init string
+  * init string empty (so garbage doesn't appear on screen when you connect) -- ctrl-A, O, Init string
   * save settings as default (ctrl-A, O, Save setup as dfl)
 
 Always use colour:

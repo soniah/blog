@@ -12,7 +12,7 @@ A nice Ruby example (for my reference) showing how to parse commandline options;
 
 <!--more-->
 
-Interestingly, the ARGV array is automatically extended to include the options method even before **require &#8216;optparse&#8217;** is run. See also **ri OptionParser** and [stderr.org][1]. From [Pragmattic Programmers&#8217; Best of Ruby Quiz][2]:
+Interestingly, the ARGV array is automatically extended to include the options method even before **require &#8216;optparse'** is run. See also **ri OptionParser** and [stderr.org][1]. From [Pragmattic Programmers' Best of Ruby Quiz][2]:
 
 <pre>if __FILE__ == $0
   require 'optparse'

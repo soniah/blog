@@ -8,12 +8,12 @@ categories:
 tags:
   - Perl
 ---
-Some notes on Perl&#8217;s *use, require, import* and *do. *Quick notes for me; not meant to be authoritative&#8230;
+Some notes on Perl's *use, require, import* and *do. *Quick notes for me; not meant to be authoritative&#8230;
 
 <!--more-->
 
-  * **use** is done at &#8216;compile-time&#8217; and **require** is done at &#8216;run-time&#8217; (ie can conditionally load modules)
-  * **require** is the older method, but **use** uses require to do it&#8217;s work:
+  * **use** is done at &#8216;compile-time' and **require** is done at &#8216;run-time' (ie can conditionally load modules)
+  * **require** is the older method, but **use** uses require to do it's work:
 
 <pre class="brush: perl; title: ; notranslate" title="">use Foo;
 # equivalent to:

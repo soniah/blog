@@ -15,16 +15,16 @@ tags:
   - svn
   - Wireless
 ---
-[Mary Gardiner][1] [answered][2] one of Voytek Eymont&#8217;s questions on the [SLUG list][3] by referring to the [ssh socks proxying][4] post on Ubuntu Blog.
+[Mary Gardiner][1] [answered][2] one of Voytek Eymont's questions on the [SLUG list][3] by referring to the [ssh socks proxying][4] post on Ubuntu Blog.
 
 <!--more-->
 
 I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes:
 
   * setup via `$ssh -D 9999 username@ip-address-of-ssh-server`, configure web browser **socks 5 host **(not http proxy) to localhost:9999 (On Firefox: Preferences, Advanced, Network, Settings, Manual, SOCKS Host. [FoxyProxy][5] really helps with this -- you can setup wildcards to send certain URLs via certain proxies eg for when connecting via a VPN to work)
-  * http proxying can be setup at the command line (for use by wget, apt, etc) with the **http_proxy** environment variable. For example *export http\_proxy=&#8217;http://user:password@1.2.3.4:3128/'; cmd1; cmd2; export http\_proxy=&#8221;*
+  * http proxying can be setup at the command line (for use by wget, apt, etc) with the **http_proxy** environment variable. For example *export http\_proxy='http://user:password@1.2.3.4:3128/'; cmd1; cmd2; export http\_proxy=&#8221;*
   * configure apt to use a proxy via **/etc/apt/apt.conf** by using **Acquire::http::Proxy &#8220;http://username:password@proxyserver:port/&#8221;;** See [Using apt-get behind a proxy][6].
-  * there&#8217;s also [corkscrew][7] (preferred), connect.c, and [proxychains][8] to secure other traffic or setup tunnels automagically in ~/.ssh/config. For example:
+  * there's also [corkscrew][7] (preferred), connect.c, and [proxychains][8] to secure other traffic or setup tunnels automagically in ~/.ssh/config. For example:
 
 <pre>% sudo aptitude install corkscrew
 
@@ -41,7 +41,7 @@ username:password</pre>
   * non socks-ifiable programs can use socks via [tsocks][11]. This is really handy for getting **apt** to work -- remember ssh is acting as a *socks* proxy and not as an *http* proxy. For example *sudo tsocks aptitude install foo  
     *
   * lots of good tunnelling ideas on the [Tor Wiki HOWTO][12] and [How to tunnel everything through ssh][13]
-  * also secure your dns traffic by setting **network.proxy.socks\_remote\_dns = true** in Firefox&#8217;s about:config
+  * also secure your dns traffic by setting **network.proxy.socks\_remote\_dns = true** in Firefox's about:config
   * [cvs + socks][14] using connect.c (similar to my post on [svn over an ssh tunnel][15])
   * another similar article [Secure your Wi-Fi traffic using FOSS utilities][16]
 

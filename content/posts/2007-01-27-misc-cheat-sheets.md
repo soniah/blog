@@ -19,10 +19,10 @@ misc cheat sheets
 
 **Perl**
 
-  * [Juerd&#8217;s][7]
+  * [Juerd's][7]
   * [perldoc perlcheat][8] (dupe of previous)
   * [Golden Ink][9]
-  * [pack/unpack][10]. See also Peteris&#8217; excellent articles on [Downloading YouTube Videos][11] and [Perls&#8217; Special Variables][12].
+  * [pack/unpack][10]. See also Peteris' excellent articles on [Downloading YouTube Videos][11] and [Perls' Special Variables][12].
   * [pkturner][13]
 
  [1]: http://mypage.bluewin.ch/a-z/yuppi/links/cheatsheets.html

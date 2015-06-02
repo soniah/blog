@@ -13,12 +13,12 @@ The default settings in the WordPress Clearline Theme (and most WordPress themes
 
 <!--more-->
 
-Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&#8217;s a slight security risk (though hiding it won&#8217;t stop *evildoers* from working out that you&#8217;re running WordPress).
+Unfortunately this Meta Widget can really distract from the visual quality of your site, and it's a slight security risk (though hiding it won't stop *evildoers* from working out that you're running WordPress).
 
-There&#8217;s a couple of options for hiding the Meta Widget:
+There's a couple of options for hiding the Meta Widget:
 
-  * don&#8217;t display it at all. Go to *Appearance -> Widgets*, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the **/wp-login.php** page. For example if your blog is **http://myblog.info**, go to **http://myblog.info/wp-login.php** to login
-  * make it smaller and barely visible (the option I prefer). First of all, go to *Appearance -> Widgets* and move/add a Meta Widget to the **Footer Counters** Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the **wp-includes/default-widgets.php** file. Search for the line that contains **wp_register** (about line 293), then delete the three lines that contain &#8216;rss2\_url&#8217;, &#8216;comments\_rss2\_url&#8217;, and &#8216;wordpress.org&#8217;, and remove the bulleting from &#8216;wp\_loginout&#8217;. The changes are easier to see with some before and after code:
+  * don't display it at all. Go to *Appearance -> Widgets*, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the **/wp-login.php** page. For example if your blog is **http://myblog.info**, go to **http://myblog.info/wp-login.php** to login
+  * make it smaller and barely visible (the option I prefer). First of all, go to *Appearance -> Widgets* and move/add a Meta Widget to the **Footer Counters** Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the **wp-includes/default-widgets.php** file. Search for the line that contains **wp_register** (about line 293), then delete the three lines that contain &#8216;rss2\_url', &#8216;comments\_rss2\_url', and &#8216;wordpress.org', and remove the bulleting from &#8216;wp\_loginout'. The changes are easier to see with some before and after code:
 
 **Before:**
 
@@ -39,7 +39,7 @@ There&#8217;s a couple of options for hiding the Meta Widget:
 &lt;?php wp_meta(); ?&gt;
 &lt;/ul&gt;</pre>
 
-Now, you&#8217;ll have a small Login link at the bottom right-hand corner of your blog!
+Now, you'll have a small Login link at the bottom right-hand corner of your blog!
 
 **Addendum**
 

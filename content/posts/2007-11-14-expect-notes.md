@@ -53,9 +53,9 @@ timeout {exit}<br />
   * *interact* -- returns the keyboard to the user -- in the above example typing the + key then returns to expect
   * be aware of r vs n -- use r with send, use rn when looking for an end-of-line in patterns
   * *eof* -- spawned program exits
-  * *timeout* -- spawned program doesn&#8217;t respond within time
+  * *timeout* -- spawned program doesn't respond within time
   * *default* = eof + timeout
-  * *close* -- close spawned program: do when you don&#8217;t want to wait for spawned program to eof and you want to do more in the script
+  * *close* -- close spawned program: do when you don't want to wait for spawned program to eof and you want to do more in the script
 
  [1]: http://expect.nist.gov/
  [2]: http://

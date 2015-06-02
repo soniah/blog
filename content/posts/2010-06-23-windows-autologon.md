@@ -8,11 +8,11 @@ categories:
 tags:
   - Windows
 ---
-The only time I use Windows is as a virtual machine &#8220;appliance&#8221; ie it&#8217;s running some application that I have to run, that only runs on Windows.
+The only time I use Windows is as a virtual machine &#8220;appliance&#8221; ie it's running some application that I have to run, that only runs on Windows.
 
 <!--more-->
 
-Often I want the VM to just logon automagically; here&#8217;s a registry file to do so. Save it as foo.reg and double click on it:
+Often I want the VM to just logon automagically; here's a registry file to do so. Save it as foo.reg and double click on it:
 
 <pre>Windows Registry Editor Version 5.00
 
@@ -21,4 +21,4 @@ Often I want the VM to just logon automagically; here&#8217;s a registry file to
 "DefaultPassword"="secret"
 "AutoAdminLogon"="1"</pre>
 
-No rocket science, I&#8217;m just blogging it so I don&#8217;t have to look it up again&#8230;
+No rocket science, I'm just blogging it so I don't have to look it up again&#8230;

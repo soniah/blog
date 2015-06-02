@@ -14,11 +14,11 @@ tags:
   - Shell
   - Vim
 ---
-I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&#8217;s help.
+I can never remember what those comments that change vim settings are called, and spend hours trawling through vim's help.
 
 <!--more-->
 
-They&#8217;re called **modelines. :help modeline** brings up the documentation.
+They're called **modelines. :help modeline** brings up the documentation.
 
 *Some typical modelines for copying and pasting:*
 

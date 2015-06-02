@@ -8,7 +8,7 @@ categories:
 tags:
   - Ubuntu
 ---
-Here&#8217;s how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are [saying][1] 2.2.0 is buggy). And now that Oracle owns Sun, Virtualbox may go the way of the dodo&#8230;
+Here's how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are [saying][1] 2.2.0 is buggy). And now that Oracle owns Sun, Virtualbox may go the way of the dodo&#8230;
 
 <!--more-->
 

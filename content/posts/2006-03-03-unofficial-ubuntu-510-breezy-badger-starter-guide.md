@@ -22,7 +22,7 @@ tags:
 
 [Ubuntu Document Storage Facility][6] -- an organised archive of Ubuntu Forums information for your favorite flavour of Ubuntu. 
 
-[Ten tips for new Ubuntu users][4] -- a list of tips that might save you some time while you&#8217;re getting used to Ubuntu.
+[Ten tips for new Ubuntu users][4] -- a list of tips that might save you some time while you're getting used to Ubuntu.
 
  [1]: http://easylinux.info/wiki/Ubuntu
  [2]: http://easyubuntu.freecontrib.org/

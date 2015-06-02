@@ -19,7 +19,7 @@ Another useful trick is to have multiple sessions running at once, and label eac
 
 <font face="courier new,courier,monospace"># display a status line<br /> hardstatus on<br /> hardstatus alwayslastline<br /> hardstatus string &#8220;%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %d/%m %C%a&#8221;</font>
 
-<font face="courier new,courier,monospace"># change escape key to x -- &#8216;ctrl a&#8217; used in bash already<br /> escape ^Xx<br /> </font>
+<font face="courier new,courier,monospace"># change escape key to x -- &#8216;ctrl a' used in bash already<br /> escape ^Xx<br /> </font>
 
 <font face="courier new,courier,monospace"># define a bigger scrollback, default is 100 lines<br /> defscrollback 1024<br /> </font>
 

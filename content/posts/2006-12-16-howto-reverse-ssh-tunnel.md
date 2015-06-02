@@ -17,11 +17,11 @@ I recently (15-Dec-06) asked this question on the [SLUG email list][1] -- thanks
  &gt; machine, I can connect back and get into their machine? (Linux to
  &gt; Linux).<!--more--></pre>
 
-  * get him to ssh to you: **ssh -R 2222:localhost:22 <your server>**. Once he&#8217;s logged in, you can just **ssh -p 2222 localhost**. You may have trouble binding to ports 1024 or lower on the other side (which is why I used 2222 as an example), and you may have to enable an option in the sshd config of the other side. There&#8217;s an article on TechRepublic [Setting up a reverse SSH tunnel][2].
+  * get him to ssh to you: **ssh -R 2222:localhost:22 <your server>**. Once he's logged in, you can just **ssh -p 2222 localhost**. You may have trouble binding to ports 1024 or lower on the other side (which is why I used 2222 as an example), and you may have to enable an option in the sshd config of the other side. There's an article on TechRepublic [Setting up a reverse SSH tunnel][2].
 
-  * once he&#8217;s ssh&#8217;d to me, I could get him to run apps and display on my machine ie **type export DISPLAY=xxx.xxx.xxx.xxx:0.0**, then run **xterm &** (or another program if it needed configuring)
+  * once he's ssh'd to me, I could get him to run apps and display on my machine ie **type export DISPLAY=xxx.xxx.xxx.xxx:0.0**, then run **xterm &** (or another program if it needed configuring)
 
-  * him ssh&#8217;ing to me could be made easier by setting up an icon on their desktop that has **ssh -R 1200:localhost:22 foo@bar.com** (install his public key on bar.com). This can also be setup to access the ADSL modem: **ssh -p 1234 -R 1201:192.168.1.254:80 foo@bar.com**, then browse **localhost:1201** to get the modem setup page.
+  * him ssh'ing to me could be made easier by setting up an icon on their desktop that has **ssh -R 1200:localhost:22 foo@bar.com** (install his public key on bar.com). This can also be setup to access the ADSL modem: **ssh -p 1234 -R 1201:192.168.1.254:80 foo@bar.com**, then browse **localhost:1201** to get the modem setup page.
 
   * [autossh][3] is your friend. Just get it to set up *permanent* tunnels to your box, so you can always get through whenever you need to.
 
@@ -33,7 +33,7 @@ I recently (15-Dec-06) asked this question on the [SLUG email list][1] -- thanks
 
 (28/Jan/2007)
 
-  * [Debian Administration][9] has an article entitled [SMTP via an SSH tunnel][10], which also links thru to [HOWTO: Sending Email from a Laptop][11] and J. Franken&#8217;s excellent [SSH-tunneling HOWTO][12].
+  * [Debian Administration][9] has an article entitled [SMTP via an SSH tunnel][10], which also links thru to [HOWTO: Sending Email from a Laptop][11] and J. Franken's excellent [SSH-tunneling HOWTO][12].
 
  [1]: http://lists.slug.org.au/listinfo/slug
  [2]: http://articles.techrepublic.com.com/5100-10879-5779944.html?tag=nl.e011

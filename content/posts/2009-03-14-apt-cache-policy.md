@@ -10,11 +10,11 @@ tags:
   - PalmPilot
   - Ubuntu
 ---
-It&#8217;s years since I&#8217;ve dealt with apt-pinning, so all my knowledge on it has paged-out.
+It's years since I've dealt with apt-pinning, so all my knowledge on it has paged-out.
 
 <!--more-->
 
-But I want to use it again because I&#8217;ve backgraded to Ubuntu Gutsy to get my Palm Treo syncing, but I want a few new packages from Hardy or Intrepid. (It seems that Palm syncing using the visor module and JPilot [*still* isn&#8217;t working][1], due to an unfixed regression in the kernel. Or maybe I just didn&#8217;t look hard enough. Bah -- I dislike Hardy and Intrepid anyway).
+But I want to use it again because I've backgraded to Ubuntu Gutsy to get my Palm Treo syncing, but I want a few new packages from Hardy or Intrepid. (It seems that Palm syncing using the visor module and JPilot [*still* isn't working][1], due to an unfixed regression in the kernel. Or maybe I just didn't look hard enough. Bah -- I dislike Hardy and Intrepid anyway).
 
 Anyway, on my (ongoing) apt-pinning travels, I came across a good post on [Simple Pinning][2], and somewhere else read about a neat command I never knew about -- **apt-cache policy** -- it shows what apt thinks the current pinning levels are:
 
@@ -54,7 +54,7 @@ Anyway, on my (ongoing) apt-pinning travels, I came across a good post on [Simpl
 Pinned packages:
      vinagre -&gt; (not found)</pre>
 
-Nice! Now, armed with this command I&#8217;ll start tinkering with **/etc/apt/preferences** to get Hardy and Intrepid in with proper preferences. TODO: RTFM **man apt_preferences** :-)
+Nice! Now, armed with this command I'll start tinkering with **/etc/apt/preferences** to get Hardy and Intrepid in with proper preferences. TODO: RTFM **man apt_preferences** :-)
 
  [1]: https://bugs.launchpad.net/ubuntu/intrepid/+source/pilot-link/+bug/282491
  [2]: http://shallowsky.com/blog/linux/install/pinning.html

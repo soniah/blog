@@ -8,7 +8,7 @@ categories:
 tags:
   - Solaris
 ---
-Or, after RTFM&#8217;ing, an easier way: [SunDocs Recovering ALOM passwords][1]:
+Or, after RTFM'ing, an easier way: [SunDocs Recovering ALOM passwords][1]:
 
 <!--more-->
 
@@ -36,7 +36,7 @@ Replace disks with disks from another system that has a known password, then boo
 sc&gt;resetsc
 sc&gt;poweroff -f</tt></pre>
 
-Remove power cords, return old hard disks, turn back on. These last steps aren&#8217;t necessary, but it&#8217;s good to check that the ALOM password has indeed been reset.
+Remove power cords, return old hard disks, turn back on. These last steps aren't necessary, but it's good to check that the ALOM password has indeed been reset.
 
 Some good links:
 

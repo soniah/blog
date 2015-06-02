@@ -48,6 +48,6 @@ To restart using service manager
 
 See man page for &#8220;ipnat&#8221; for options to display NAT options.
 
-Link from Rusty&#8217;s blog: http://ozlabs.org/~rusty/index.cgi/2006/08/15
+Link from Rusty's blog: http://ozlabs.org/~rusty/index.cgi/2006/08/15
 
-Last word: Solaris&#8217;s version of tcpdump is &#8220;snoop&#8221;. So to monitor traffic: &#8220;snoop -d e1000g0 not port 22&#8243; you can add &#8220;-v&#8221; etc.
+Last word: Solaris's version of tcpdump is &#8220;snoop&#8221;. So to monitor traffic: &#8220;snoop -d e1000g0 not port 22&#8243; you can add &#8220;-v&#8221; etc.

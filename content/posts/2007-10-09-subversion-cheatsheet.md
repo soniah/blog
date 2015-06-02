@@ -15,7 +15,7 @@ Subversion Cheatsheet
 
   * See also: [svn command line tutorial for beginners 1 ][1]
   * Notes from: [Version Control with Subversion][2]
-  * Tsavo&#8217;s great [svn cheatsheet][3]
+  * Tsavo's great [svn cheatsheet][3]
 
 **Quickstart**
 
@@ -44,7 +44,7 @@ Import project into repository, and archive original data:
 <tt>svn import project file:///home/sonia/svnrepo -m "initial import"</tt>  
 <tt>mv project /tmp</tt>
 
-After the repo is setup, you&#8217;ll probably want to add other directories eg to import **projectb**:
+After the repo is setup, you'll probably want to add other directories eg to import **projectb**:
 
 <tt>svn import projectb file:///home/sonia/svnrepo/trunk/projectb -m "initial import"</tt>  
 <tt>mv projectb /tmp</tt>

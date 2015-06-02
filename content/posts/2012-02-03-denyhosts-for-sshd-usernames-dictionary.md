@@ -8,11 +8,11 @@ categories:
 tags:
   - Ssh
 ---
-I&#8217;ve just setup the venerable [denyhosts][1] on one of my servers, to stop the usual script-kiddies from *filling up my logs* (I&#8217;m not particularly worried about them getting in&#8230;).
+I've just setup the venerable [denyhosts][1] on one of my servers, to stop the usual script-kiddies from *filling up my logs* (I'm not particularly worried about them getting in&#8230;).
 
 <!--more-->
 
-Anyway, here is [restricted-usernames.gz][2], a list of denied usernames from the log -- handy to add to your denyhosts [restricted-usernames file][3]. There&#8217;s probably a better dictionary of usernames out there -- I&#8217;ll attach it if I <del>find it</del> stumble upon it.
+Anyway, here is [restricted-usernames.gz][2], a list of denied usernames from the log -- handy to add to your denyhosts [restricted-usernames file][3]. There's probably a better dictionary of usernames out there -- I'll attach it if I <del>find it</del> stumble upon it.
 
  [1]: http://denyhosts.sourceforge.net/
  [2]: http://blog.snowfrog.net/wp-content/uploads/2012/02/restricted-usernames.gz

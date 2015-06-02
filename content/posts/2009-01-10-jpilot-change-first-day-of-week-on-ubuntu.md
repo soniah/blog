@@ -12,7 +12,7 @@ I still use JPilot for syncing with my Palm Treo -- an old app but I like it, es
 
 <!--more-->
 
-But there&#8217;s no way of changing the first day of the week in JPilot, and consequently the first day of the week appears as Sunday rather than Monday -- yikes, [Christianity][1]! The solution is to [change the first day of the week in Gnome][2], and JPilot then picks it up.
+But there's no way of changing the first day of the week in JPilot, and consequently the first day of the week appears as Sunday rather than Monday -- yikes, [Christianity][1]! The solution is to [change the first day of the week in Gnome][2], and JPilot then picks it up.
 
  [1]: http://www.cafepress.com/antireligion/639003
  [2]: http://blog.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/

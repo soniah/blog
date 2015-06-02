@@ -8,7 +8,7 @@ categories:
 tags:
   - midnight commander
 ---
-Midnight Commander (mc) is mostly obvious, but there&#8217;s a few things I regularly forget and have to look up.
+Midnight Commander (mc) is mostly obvious, but there's a few things I regularly forget and have to look up.
 
 <!--more-->
 
@@ -19,7 +19,7 @@ Midnight Commander (mc) is mostly obvious, but there&#8217;s a few things I regu
       * **Enter** to browse the package contents, then eg F3 to view the file or F5 to copy the file out
   * to jump back and forth to the command line (&#8220;subshell support&#8221;), use **ctrl-o** to hide mc, then **ctrl-o** to return from the subshell to mc
 
-Taken from [Jane Tembath&#8217;s MC Tutorial][1]. See also the [mc faq][2].
+Taken from [Jane Tembath's MC Tutorial][1]. See also the [mc faq][2].
 
  [1]: http://www.trembath.co.za/mctutorial.html
  [2]: https://www.midnight-commander.org/wiki/doc/faq

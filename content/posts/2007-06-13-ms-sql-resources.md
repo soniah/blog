@@ -58,11 +58,11 @@ MSSQL Resources
   * [SQL Protocols][28]
   * [SQL Server Relational Engine Manageability Team Blog][29]
   * [Tips, Tricks, and Advice from the SQL Server Query Optimization Team][30]
-  * [Ian Jose&#8217;s WebLog][31]
-  * [Slava Oks&#8217;s WebLog][32]
-  * [Ken Henderson&#8217;s WebLog][33]
+  * [Ian Jose's WebLog][31]
+  * [Slava Oks's WebLog][32]
+  * [Ken Henderson's WebLog][33]
   * [Engine Watch][34]
-  * [Mandar&#8217;s WebLog][35]
+  * [Mandar's WebLog][35]
 
  [1]: http://www.sqlservercentral.com/
  [2]: http://www.sqlservercentral.com/other/links.asp

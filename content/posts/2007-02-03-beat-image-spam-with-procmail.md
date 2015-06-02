@@ -8,7 +8,7 @@ categories:
 tags:
   - Procmail
 ---
-I blogged a while ago about [using FuzzyOcr for detecting image spam][1]. My FuzzyOcr isn&#8217;t working and at the moment I haven&#8217;t got time to fix it, so I wrote a procmail recipe to solve the problem instead:
+I blogged a while ago about [using FuzzyOcr for detecting image spam][1]. My FuzzyOcr isn't working and at the moment I haven't got time to fix it, so I wrote a procmail recipe to solve the problem instead:
 
 <!--more-->
 

@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-And you&#8217;re connected via multiple rdp&#8217;s to a process that you want to keep running all day, but the timeouts keep halting the process.
+And you're connected via multiple rdp's to a process that you want to keep running all day, but the timeouts keep halting the process.
 
 **Solution:** an optical mouse on top of an analog watch (that has a second hand):
 

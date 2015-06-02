@@ -8,7 +8,7 @@ categories:
 tags:
   - Ubuntu
 ---
-Discontinued versions of Ubuntu are mirrored under <http://old-releases.ubuntu.com/ubuntu/>, which can be used to setup apt&#8217;s sources.list.
+Discontinued versions of Ubuntu are mirrored under <http://old-releases.ubuntu.com/ubuntu/>, which can be used to setup apt's sources.list.
 
 <!--more-->
 

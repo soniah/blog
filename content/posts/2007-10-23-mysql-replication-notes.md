@@ -49,10 +49,10 @@ mysql&gt; unlock tables; # release locks in the original terminal
 </pre>
 
   * other methods of copying data: 
-      * if only using MyISAM the **LOAD DATA FROM MASTER** command can be used *without having to stop the master*; even though it&#8217;s usage is [deprecated][2] there&#8217;s no equivalent replacement. Additional permissions have to be assigned to the slave repl account (xx) and some network settings need to be temporarily changed (??), and a global read lock needs to be held on the master (thus preventing updates while transferring data)
-      * data can also be copied using [mysqldump][3] or by [dumping the raw files][4]. If using InnoDB there&#8217;s [also][4] a commercial product called [Hot Backup][5].
-  * if using different storage engines between the master and slave, don&#8217;t put the engine statements in the CREATE or ALTER TABLE statements (as they&#8217;ll be replicated). Either use SET storage_engine followed by CREATE TABLE, or stop the slave and issue ALTER TABLE statements on the slave; see [documentation][6].
-  * Binary log files must be removed when they&#8217;re no longer needed because MySQL doesn&#8217;t do so automatically. Use **purge master logs to &#8216;mysql-bin.1234&#8242;;** O&#8217;Reilly&#8217;s *High Performance MySQL* has a log purge script (section 7.5), as well as other useful scripts for managing replication
+      * if only using MyISAM the **LOAD DATA FROM MASTER** command can be used *without having to stop the master*; even though it's usage is [deprecated][2] there's no equivalent replacement. Additional permissions have to be assigned to the slave repl account (xx) and some network settings need to be temporarily changed (??), and a global read lock needs to be held on the master (thus preventing updates while transferring data)
+      * data can also be copied using [mysqldump][3] or by [dumping the raw files][4]. If using InnoDB there's [also][4] a commercial product called [Hot Backup][5].
+  * if using different storage engines between the master and slave, don't put the engine statements in the CREATE or ALTER TABLE statements (as they'll be replicated). Either use SET storage_engine followed by CREATE TABLE, or stop the slave and issue ALTER TABLE statements on the slave; see [documentation][6].
+  * Binary log files must be removed when they're no longer needed because MySQL doesn't do so automatically. Use **purge master logs to &#8216;mysql-bin.1234&#8242;;** O'Reilly's *High Performance MySQL* has a log purge script (section 7.5), as well as other useful scripts for managing replication
 
 On the Slave:
 
@@ -63,7 +63,7 @@ On the Slave:
 mysql&gt; start slave;
 </pre>
 
-Note: this information is stored in the file data_dir/master.info, so the password isn&#8217;t very secure
+Note: this information is stored in the file data_dir/master.info, so the password isn't very secure
 
   * to *quickly* add *another slave*, see [this topic][7] (shutdown an existing slave, copy the data directory with logs and info files, set a unique server-id, start existing and new slave)
 
@@ -98,8 +98,8 @@ See [Troubleshooting Replication][8].
 
 On the Master:
 
-  * **show master statusG** -- shows the binary log file name and position. O&#8217;Reilly&#8217;s *High Performance MySQL* has a heartbeat script (section 7.5)
-  * **show processlistG** -- the master uses one thread to provide replication to slaves (**Command: Binlog Dump**). No **state** means replication hasn&#8217;t been setup correctly. Good **states** are *Sending binlog event to slave, Finished reading one binlog; switching to next binlog, Has sent all binlog to slave; waiting for binlog to be updated*.
+  * **show master statusG** -- shows the binary log file name and position. O'Reilly's *High Performance MySQL* has a heartbeat script (section 7.5)
+  * **show processlistG** -- the master uses one thread to provide replication to slaves (**Command: Binlog Dump**). No **state** means replication hasn't been setup correctly. Good **states** are *Sending binlog event to slave, Finished reading one binlog; switching to next binlog, Has sent all binlog to slave; waiting for binlog to be updated*.
   * **show master logsG** -- shows names of existing binary log files
   * **$ mysqlbinlog mysql-bin.1234** -- allows you to read through binary and relay logs on both Master and Slave. Has the standard -u -h -p options, as well as -o to specify offset to start at
 
@@ -107,13 +107,13 @@ On the Slave:
 
   * **show slave statusG** ([documentation][9]) -- key things to watch for are: 
       * *Seconds\_Behind\_Master* should be close to zero
-      * *Slave\_IO\_Running* and *Slave\_SQL\_Running* should both be &#8216;Yes&#8217;
+      * *Slave\_IO\_Running* and *Slave\_SQL\_Running* should both be &#8216;Yes'
       * *Read\_Master\_Log_Pos* should only be slightly behind the position given by *show master status* on the master.
       * *Exec\_Master\_Log_Pos* should only be slightly behind *Read\_Master\_Log_Pos*
       * watch *Last_Errno* and *Last_Error* for errors and all the *Replicate/Ignore DB/Table* fields for data not being replicated. In an emergency, troublesome statements can be skipped over using TODO.
   * **show process listG** -- the slave uses two threads to implement replication -- the *I/O thread* reads events from the master and stores them in the relay log; and the *SQL* thread reads statements from the relay log and applies them. A good state for the I/O thread is *Waiting for master to send event*; see doco for many other states. Good states for the SQL thread are *Reading event from the relay log; and Has read all relay log; waiting for the slave I/O thread to update it*
   * **start slave;** see [documentation][10].
-  * **stop slave;** or even better **stop slave sql_thread;** Statements continue to be read and written to relay log, but they aren&#8217;t applied, allowing a backup of the slave to be done then allowing the slave to catch more rapidly when restarted -- see [documentation][11].
+  * **stop slave;** or even better **stop slave sql_thread;** Statements continue to be read and written to relay log, but they aren't applied, allowing a backup of the slave to be done then allowing the slave to catch more rapidly when restarted -- see [documentation][11].
   * to prevent replication automatically occurring on a restart, start up server with *--skip-slave-start* to skip the saved .info files (or delete those files beforehand to wipe replication completely).
 
 See Also:

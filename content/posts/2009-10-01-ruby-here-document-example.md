@@ -8,7 +8,7 @@ categories:
 tags:
   - Ruby
 ---
-A nice ruby example (for my reference) of using here documents to load data/logic. From [Pragmattic Programmers&#8217; Best of Ruby Quiz][1]:
+A nice ruby example (for my reference) of using here documents to load data/logic. From [Pragmattic Programmers' Best of Ruby Quiz][1]:
 
 <!--more-->
 

@@ -8,7 +8,7 @@ categories:
 tags:
   - Solaris
 ---
-When creating a new Solaris zone, one of the steps involves connecting to the zone&#8217;s console for the initial configuration:
+When creating a new Solaris zone, one of the steps involves connecting to the zone's console for the initial configuration:
 
 <!--more-->
 

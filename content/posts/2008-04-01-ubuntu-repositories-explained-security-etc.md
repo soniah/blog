@@ -8,7 +8,7 @@ categories:
 tags:
   - Ubuntu
 ---
-Copied verbatim from [Jeff Waugh&#8217;s post][1] on [SLUG][2]:
+Copied verbatim from [Jeff Waugh's post][1] on [SLUG][2]:
 
 <!--more-->
 

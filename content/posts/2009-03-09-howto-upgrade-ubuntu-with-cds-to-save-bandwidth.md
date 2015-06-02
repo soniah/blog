@@ -18,11 +18,11 @@ Notes from a recent post on SLUG:
 
 *while the Live CD is just a great big compressed image of a filesystem&#8230; so*
 
-*it won&#8217;t help with upgrades at all (yet [1]).*
+*it won't help with upgrades at all (yet [1]).*
 
 *[1] Years ago there was some inspired brainstorming about ways to do this*
 
-*very cleverly, but I don&#8217;t imagine it&#8217;s on the agenda at the moment. Net*
+*very cleverly, but I don't imagine it's on the agenda at the moment. Net*
 
 *connected upgrades are just so bloody convenient and simple (and ALL of the*
 

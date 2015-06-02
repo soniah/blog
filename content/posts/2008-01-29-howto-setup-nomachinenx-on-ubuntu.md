@@ -9,7 +9,7 @@ tags:
   - Networking
   - Ubuntu
 ---
-The instructions given by NoMachine for setting up on Linux are a bit thin; here&#8217;s my own version:<!--more-->
+The instructions given by NoMachine for setting up on Linux are a bit thin; here's my own version:<!--more-->
 
 <!--more-->
 
@@ -33,8 +33,8 @@ dpkg --install nx*deb
 
   * on client and server, add aliases to /root/.bashrc and ~sonia/.bashrc
 
-alias nxserver=&#8217;/usr/NX/scripts/setup/nxserver&#8217;  
-alias nxsetup=&#8217;/usr/NX/bin/nxsetup&#8217;  
+alias nxserver='/usr/NX/scripts/setup/nxserver'  
+alias nxsetup='/usr/NX/bin/nxsetup'  
 source ~/.bashrc
 
   * generate new keys on the server and check permissions

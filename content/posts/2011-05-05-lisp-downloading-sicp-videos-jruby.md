@@ -10,15 +10,15 @@ tags:
   - Lisp
   - Ruby
 ---
-I&#8217;m busy learning [LISP][1]/[Scheme][2] at the moment (in order to later move on to [Clojure][3]). 
+I'm busy learning [LISP][1]/[Scheme][2] at the moment (in order to later move on to [Clojure][3]). 
 
 <!--more-->
 
 And, improving my programming learning LISP is :-)
 
-I&#8217;m following along with the [MIT][4] [SICP][5] videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos -- [get_sicp][6]. Next, a script for the [UC Berkeley SICP videos][7] (getting through the flash player should be a learning experience).
+I'm following along with the [MIT][4] [SICP][5] videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos -- [get_sicp][6]. Next, a script for the [UC Berkeley SICP videos][7] (getting through the flash player should be a learning experience).
 
-I&#8217;ve also been getting good mileage out of JRuby. I was [complaining][8] a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution -- installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&#8217;t litter /usr. Good: Ruby -- fun, Python -- <snore>.
+I've also been getting good mileage out of JRuby. I was [complaining][8] a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution -- installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn't litter /usr. Good: Ruby -- fun, Python -- <snore>.
 
  [1]: http://en.wikipedia.org/wiki/Lisp_%28programming_language%29
  [2]: http://en.wikipedia.org/wiki/Scheme_%28programming_language%29

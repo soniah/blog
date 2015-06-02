@@ -10,7 +10,7 @@ tags:
 ---
 dev.msql.com [logging documentation][1]
 
-On Debian based systems, MySQL logging (and logrotation) is setup automatically so I&#8217;ve never had to worry about it. Unfortunately, I&#8217;m not using Debian at the moment&#8230;
+On Debian based systems, MySQL logging (and logrotation) is setup automatically so I've never had to worry about it. Unfortunately, I'm not using Debian at the moment&#8230;
 
 <!--more-->
 

@@ -15,7 +15,7 @@ Quick notes; [see Solaris: Logging to a separate loghost, the easy way][1].
   * edit /etc/inet/hosts, add in an alias for loghost eg **1.2.3.4 loghost**
   * **/etc/init.d/syslog restart** (Solaris 8), svcadm on later versions
 
-Other useful links for &#8216;the Solaris way&#8217; (vs Linux):
+Other useful links for &#8216;the Solaris way' (vs Linux):
 
   * [Rosetta Stone for Unix][2]
   * [Some Solaris Knowledge][3] (thanks Lindsay)

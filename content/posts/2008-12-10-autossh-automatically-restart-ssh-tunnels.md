@@ -8,13 +8,13 @@ categories:
 tags:
   - Ssh
 ---
-A tool I&#8217;d forgotten about -- [autossh][1]. Also an article [here][2]. Thanks Dean.
+A tool I'd forgotten about -- [autossh][1]. Also an article [here][2]. Thanks Dean.
 
 <!--more-->
 
 Some links on getting autossh going:
 
-  * Cygwin to Linux: [Matt&#8217;s stuff][3]
+  * Cygwin to Linux: [Matt's stuff][3]
 
  [1]: http://www.harding.motd.ca/autossh/
  [2]: http://www.linux.com/feature/134133

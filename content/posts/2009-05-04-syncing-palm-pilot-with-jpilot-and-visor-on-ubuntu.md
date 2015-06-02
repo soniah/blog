@@ -9,11 +9,11 @@ tags:
   - PalmPilot
   - Ubuntu
 ---
-(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&#8217;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.
+(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn't get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.
 
 <!--more-->
 
-Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cleaned up version:
+Turns out I wasn't reading my own instructions&#8230; here's the cleaned up version:
 
   * load visor module **sudo modprobe visor** and check loaded **lsmod | grep visor**
   * add visor module to **/etc/modules**
@@ -24,12 +24,12 @@ Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cle
   * *read this step carefully:* no need to change the Serial Port setting in Preferences -- JPilot will pick up the correct one on the first sync (which is now unexpectedly *Other* rather than */dev/ttyUSBO* or *usb:*)
   * *read this step carefully:* from jpilot **File > Install User**, click sync button on Palm Pilot, count to 5, then click **Install User** button in JPilot dialog box
   * click sync button on Palm Pilot, count to 5, then click **Sync** in JPilot
-  * if syncing isn&#8217;t working (especially on a machine that&#8217;s been upgraded from an older version of Ubuntu), try closing JPilot, **mv .jpilot .jpilot.bak**, restarting JPilot, then doing the **Install User** steps again
+  * if syncing isn't working (especially on a machine that's been upgraded from an older version of Ubuntu), try closing JPilot, **mv .jpilot .jpilot.bak**, restarting JPilot, then doing the **Install User** steps again
 
 ### <span style="text-decoration: underline;">See also:</span>
 
   * (totally off-topic): [HOWTO: Import iCalendar (ics) Appointments Into JPilot][1]
-  * some pages mention installing pilot-link -- this isn&#8217;t required
+  * some pages mention installing pilot-link -- this isn't required
   * some pages mention modifying files in**/etc/udev/rules.d** -- this no longer seems required
 
 <http://www.linuxquestions.org/questions/showthread.php?t=79965>
@@ -50,7 +50,7 @@ Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cle
 
 <http://pilot-link.org/README.usb>
 
-[Carsten Clasohm&#8217;s Blog : USB Palm and Fedora Core 3][2]
+[Carsten Clasohm's Blog : USB Palm and Fedora Core 3][2]
 
 [Writing udev rules by Daniel Drake][3]
 
