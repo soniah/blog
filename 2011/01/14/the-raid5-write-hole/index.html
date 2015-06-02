@@ -88,13 +88,13 @@
       <h1 class="post-title">The RAID5 Write Hole</h1>
         <section id="main">
           <h5 id="date"> 14 Jan 2011 </h5>
-          <p>The latest edition of the venerable <a href="http://www.amazon.com/UNIX-Linux-System-Administration-Handbook/dp/0131480057/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1294981909&amp;sr=1-1">UNIX and Linux System Administration Handbook</a> (Nemeth et al) has a good section discussing the &#8220;RAID5 Write Hole&#8221;:</p>
+          <p>The latest edition of the venerable <a href="http://www.amazon.com/UNIX-Linux-System-Administration-Handbook/dp/0131480057/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1294981909&amp;sr=1-1">UNIX and Linux System Administration Handbook</a> (Nemeth et al) has a good section discussing the &ldquo;RAID5 Write Hole&rdquo;:</p>
 
 <p><em>Finally, RAID 5 is vulnerable to corruption in certain circumstances. Its incremental updating of parity data is more efficient than reading the entire stripe and recalculating the stripe’s parity based on the original data. On the other hand, it means that at no point is parity data ever validated or recalculated. If any block in a stripe should fall out of sync with the parity block, that fact will never become evident in normal use; reads of the data blocks will still return the correct data.</em></p>
 
 <p>**<em>Only when a disk fails does the problem become apparent. The parity block will likely have been rewritten many times since the occurrence of the original desynchronization. Therefore, the reconstructed data block on the replacement disk will consist of essentially random data.</em></p>
 
-<p>Further reading on the <a href="http://www.miracleas.com/BAARF/BAARF2.html">BAARF</a> archive (Battle Against Any Raid 5), including why RAID10 and RAID3 should be chosen over RAID5. And then there&#8217;s <a href="http://blogs.sun.com/bonwick/entry/raid_z">ZFS and RAID-Z</a>.</p>
+<p>Further reading on the <a href="http://www.miracleas.com/BAARF/BAARF2.html">BAARF</a> archive (Battle Against Any Raid 5), including why RAID10 and RAID3 should be chosen over RAID5. And then there&rsquo;s <a href="http://blogs.sun.com/bonwick/entry/raid_z">ZFS and RAID-Z</a>.</p>
 
         </section>
 
@@ -109,7 +109,7 @@
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/">Firefox 3.6 – new tab opening order – fix</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/">Solaris – increase tmpfs /tmp on the fly</a>
     </span>
   
 

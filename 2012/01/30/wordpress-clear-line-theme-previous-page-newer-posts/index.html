@@ -88,7 +88,7 @@
       <h1 class="post-title">WordPress Clear Line Theme – Previous Page Newer Posts</h1>
         <section id="main">
           <h5 id="date"> 30 Jan 2012 </h5>
-          <p>The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to <strong>Previous Page</strong> and <strong>Next Page</strong>. Changing them to say something like <strong>Newer Posts</strong> and <strong>Older Posts</strong> is easy &#8211; you need to edit the following four files:</p>
+          <p>The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to <strong>Previous Page</strong> and <strong>Next Page</strong>. Changing them to say something like <strong>Newer Posts</strong> and <strong>Older Posts</strong> is easy &ndash; you need to edit the following four files:</p>
 
 <ul>
 <li>archive.php</li>
@@ -99,17 +99,17 @@
 
 <p>In these files, search for the lines that look like:</p>
 
-<pre>posts_nav_link(' &#8212; ', __('&laquo; Previous Page'),...</pre>
+<pre>posts_nav_link(' -- ', __('&laquo; Previous Page'),...</pre>
 
 <p>Edit each file and change <strong>Previous Page</strong> to <strong>Newer Posts</strong>, and <strong>Next Page</strong> to <strong>Older Posts</strong>.</p>
 
-<p>Alternatively if you&#8217;ve got <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a> shell access (and you&#8217;re hosted on a Unix-like environment eg Linux), you can run the following commands:</p>
+<p>Alternatively if you&rsquo;ve got <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a> shell access (and you&rsquo;re hosted on a Unix-like environment eg Linux), you can run the following commands:</p>
 
 <pre>cd /var/www/wp-content/themes/clear-line
 sed -i 's/Previous Page/Newer Posts/' archive.php author.php index.php search.php
 sed -i 's/Next Page/Older Posts/' archive.php author.php index.php search.php</pre>
 
-<p>Of course before running these <a href="http://en.wikipedia.org/wiki/Sed">sed</a> commands you should backup your files, in case anything goes wrong&#8230;</p>
+<p>Of course before running these <a href="http://en.wikipedia.org/wiki/Sed">sed</a> commands you should backup your files, in case anything goes wrong.</p>
 
         </section>
 

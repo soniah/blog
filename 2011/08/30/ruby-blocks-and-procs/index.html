@@ -98,7 +98,7 @@
 
 <ul>
 <li><strong>lambda</strong> checks that the number of arguments passed matches the number of block parameters</li>
-<li>whereas <strong>Proc.new</strong> doesn&#8217;t check (however the block may raise an error, depending on it&#8217;s code)**</li>
+<li>whereas <strong>Proc.new</strong> doesn&rsquo;t check (however the block may raise an error, depending on it&rsquo;s code)**</li>
 <li>and <strong>proc</strong> behaves like <strong>lambda</strong> in Ruby 1.8, and like <strong>Proc.new</strong> in Ruby 1.9. So, avoid using proc!</li>
 </ul>
 
@@ -131,7 +131,7 @@ a * b is: 12</pre>
 
 <h1 id="scoping:b67fac248bcabce1d05c80b639d2374d">Scoping</h1>
 
-<p>In Ruby 1.8, block parameters can <strong>overwrite</strong> parameters of the same name in the current scope; in Ruby 1.9 they&#8217;re protected.</p>
+<p>In Ruby 1.8, block parameters can <strong>overwrite</strong> parameters of the same name in the current scope; in Ruby 1.9 they&rsquo;re protected.</p>
 
 <pre>&gt; hello = "hello"
 &gt; def frenchy
@@ -150,14 +150,14 @@ bonjour                             # ouch! In 1.9 you'd get "hello"</pre>
 <p>Some of the Rails and Ruby library code define methods with <strong>&amp;block</strong> as the last parameter to capture an anonymous block.</p>
 
 <ul>
-<li>anonymous blocks are ignored if they&#8217;re not used, and <strong>&amp;block</strong> is an <em>optional</em> parameter that must appear as the <em>last</em> parameter</li>
-<li>it&#8217;s effectively a <em>type-checked</em> parameter &#8211; it will only accept an anonymous block or a proc (if proceeded with <strong>&amp;</strong>)</li>
+<li>anonymous blocks are ignored if they&rsquo;re not used, and <strong>&amp;block</strong> is an <em>optional</em> parameter that must appear as the <em>last</em> parameter</li>
+<li>it&rsquo;s effectively a <em>type-checked</em> parameter &ndash; it will only accept an anonymous block or a proc (if proceeded with <strong>&amp;</strong>)</li>
 <li>the block can be called with <strong>call</strong> or <strong>yield</strong></li>
 <li>you can check if a block was passed using <strong>block_given?</strong></li>
-<li><strong>&amp;block</strong> is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using <strong>&amp;block</strong>, callers get more flexibility when using your method ie they can pass in a <strong>proc</strong> (perhaps defined elsewhere and used multiple times)</li>
+<li><strong>&amp;block</strong> is sort of an &ldquo;invisible parameter&rdquo; at the end of all methods. But by explicitly using <strong>&amp;block</strong>, callers get more flexibility when using your method ie they can pass in a <strong>proc</strong> (perhaps defined elsewhere and used multiple times)</li>
 </ul>
 
-<p>Anonymous blocks are ignored if they&#8217;re not used:</p>
+<p>Anonymous blocks are ignored if they&rsquo;re not used:</p>
 
 <pre>&gt; def foo(a)
 &gt;   puts "a is #{a}"
@@ -211,7 +211,7 @@ mary
 &gt;    yield      if block_given?           # therefore can only yield not call
 &gt; end</pre>
 
-<p><strong>&amp;block</strong> is sort of an &#8220;invisible parameter&#8221; at the end of all methods. But by explicitly using <strong>&amp;block</strong>, callers get more flexibility when using your method:</p>
+<p><strong>&amp;block</strong> is sort of an &ldquo;invisible parameter&rdquo; at the end of all methods. But by explicitly using <strong>&amp;block</strong>, callers get more flexibility when using your method:</p>
 
 <pre>&gt; def foo(a)                                         # no &block defined in parameters
 &gt;   puts "a is #{a}"
@@ -237,11 +237,11 @@ foo(bar) do |s| puts(s) end</pre>
 <pre>foo  bar { |s| puts(s) }
 foo( bar { |s| puts(s) } )</pre>
 
-<p>Of course the moral of story is not to rely on obscure precedence rules, rather use parentheses whenever something is unclear &#8211; as always, in any language.</p>
+<p>Of course the moral of story is not to rely on obscure precedence rules, rather use parentheses whenever something is unclear &ndash; as always, in any language.</p>
 
 <h1 id="closures:b67fac248bcabce1d05c80b639d2374d">Closures</h1>
 
-<p>Blocks are closures ie they store or carry the value local variables from the the original scope into a different scope. They&#8217;re another way of reusing the same logic with slightly different values. For example:</p>
+<p>Blocks are closures ie they store or carry the value local variables from the the original scope into a different scope. They&rsquo;re another way of reusing the same logic with slightly different values. For example:</p>
 
 <pre>&gt; def build_header( level )
 &gt;   return lambda { |text| "&lt;#{level}&gt;#{text}&lt;/#{level}&gt;" }

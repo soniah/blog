@@ -117,9 +117,9 @@ $exp-&gt;expect(2, [ qr/bar/i ] ); $exp-&gt;hard_close();&lt;br /&gt;
 }&lt;br /&gt;
 </code></p>
 
-<p><strong>Actions &#8211; Pattern-Command Pairs</strong></p>
+<p><strong>Actions &ndash; Pattern-Command Pairs</strong></p>
 
-<p>Patterns can be directly associated with Commands &#8211; &#8220;Actions&#8221;.</p>
+<p>Patterns can be directly associated with Commands &ndash; &ldquo;Actions&rdquo;.</p>
 
 <p><code>expect {&lt;br /&gt;
 eof {break}&lt;br /&gt;
@@ -130,12 +130,12 @@ timeout {exit}&lt;br /&gt;
 }</code></p>
 
 <ul>
-<li><em>interact</em> &#8211; returns the keyboard to the user &#8211; in the above example typing the + key then returns to expect</li>
-<li>be aware of r vs n &#8211; use r with send, use rn when looking for an end-of-line in patterns</li>
-<li><em>eof</em> &#8211; spawned program exits</li>
-<li><em>timeout</em> &#8211; spawned program doesn&#8217;t respond within time</li>
+<li><em>interact</em> &ndash; returns the keyboard to the user &ndash; in the above example typing the + key then returns to expect</li>
+<li>be aware of r vs n &ndash; use r with send, use rn when looking for an end-of-line in patterns</li>
+<li><em>eof</em> &ndash; spawned program exits</li>
+<li><em>timeout</em> &ndash; spawned program doesn&rsquo;t respond within time</li>
 <li><em>default</em> = eof + timeout</li>
-<li><em>close</em> &#8211; close spawned program: do when you don&#8217;t want to wait for spawned program to eof and you want to do more in the script</li>
+<li><em>close</em> &ndash; close spawned program: do when you don&rsquo;t want to wait for spawned program to eof and you want to do more in the script</li>
 </ul>
 
         </section>

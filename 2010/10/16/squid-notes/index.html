@@ -88,7 +88,7 @@
       <h1 class="post-title">Squid Notes</h1>
         <section id="main">
           <h5 id="date"> 16 Oct 2010 </h5>
-          <p>Some quick Squid notes, from O&#8217;Reilly&#8217;s &#8220;<a href="http://squidbook.org/">Squid The Definitive Guide</a>&#8220;</p>
+          <p>Some quick Squid notes, from O&rsquo;Reilly&rsquo;s &ldquo;<a href="http://squidbook.org/">Squid The Definitive Guide</a>&ldquo;</p>
 
 <p><strong>Debugging</strong></p>
 
@@ -107,36 +107,36 @@
 
 <p>Now, Squid writes a message to <strong>cache.log</strong> for each client request and another for each reply. The messages contain the request method, URI, whether the request/reply is allowed or denied, and the name of the last ACL that matched it.</p>
 
-<p><strong>Rule order &#8211; AND vs OR</strong></p>
+<p><strong>Rule order &ndash; AND vs OR</strong></p>
 
 <ul>
-<li>ACL elements are OR&#8217;d together  ie *any* success causes success eg</li>
+<li>ACL elements are OR&rsquo;d together  ie *any* success causes success eg</li>
 </ul>
 
 <pre>acl FOO src 1.2.3.4 5.6.7.8</pre>
 
 <ul>
-<li>access rules are AND&#8217;d together ie *any* failure causes failure eg</li>
+<li>access rules are AND&rsquo;d together ie *any* failure causes failure eg</li>
 </ul>
 
 <pre>http_access allow FOO BAR BAZ</pre>
 
-<p><em>Or, as O&#8217;Reilly explains:</em></p>
+<p><em>Or, as O&rsquo;Reilly explains:</em></p>
 
-<p>Recall that Squid uses OR logic when searching ACL elements. Any single value in an acl can cause a match.  It&#8217;s the opposite for access rules, however. For http_access and the other rule sets, Squid uses AND logic. Consider this generic example:</p>
+<p>Recall that Squid uses OR logic when searching ACL elements. Any single value in an acl can cause a match.  It&rsquo;s the opposite for access rules, however. For http_access and the other rule sets, Squid uses AND logic. Consider this generic example:</p>
 
 <pre>access_list allow ACL1 ACL2 ACL3</pre>
 
-<p>For this rule to be a match, the request must match each of ACL1, ACL2, and ACL3.  If any of those ACLs don&#8217;t match the request, Squid stops searching this rule and proceeds to the next.</p>
+<p>For this rule to be a match, the request must match each of ACL1, ACL2, and ACL3.  If any of those ACLs don&rsquo;t match the request, Squid stops searching this rule and proceeds to the next.</p>
 
 <p><strong>dstdomain vs dst</strong></p>
 
 <p><span style="text-decoration:underline;">dstdomain .foo.com</span> will match <span style="text-decoration:underline;"><a href="http://foo.com">http://foo.com</a></span> AND <span style="text-decoration:underline;"><a href="http://whatever.foo.com">http://whatever.foo.com</a></span></p>
 
-<p>It&#8217;s generally better to use <strong>dstdomain</strong> rather than <strong>dst</strong> in ACL&#8217;s:</p>
+<p>It&rsquo;s generally better to use <strong>dstdomain</strong> rather than <strong>dst</strong> in ACL&rsquo;s:</p>
 
 <ul>
-<li>normally users request by domain name not ip address, and unless there is an entry in Squid&#8217;s ip cache, specifying dst will cause delays from dns lookups.</li>
+<li>normally users request by domain name not ip address, and unless there is an entry in Squid&rsquo;s ip cache, specifying dst will cause delays from dns lookups.</li>
 <li>target domains can change their ip address, requiring updating the config file</li>
 <li><em>nota bene:</em> an entry of <strong>dst foo.com</strong> will actually get cached as an ip address</li>
 <li>however if the intention is to block access to URLs, users can bypass by requesting the ip directly (<a href="http://1.2.3.4/pr0n">http://1.2.3.4/pr0n</a>), unless TODO</li>

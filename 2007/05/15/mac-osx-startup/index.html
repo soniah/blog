@@ -90,18 +90,18 @@
           <h5 id="date"> 16 May 2007 </h5>
           
 
-<p>Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process&#8230;</p>
+<p>Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process.</p>
 
 <h3 id="links:8c5fb99d0417af129f926e289e08e42d">Links</h3>
 
 <ul>
-<li><a href="http://developer.apple.com/documentation/MacOSX/Conceptual/BPSystemStartup/index.html">&#8220;The Boot Process&#8221;, Developer Connection</a></li>
+<li><a href="http://developer.apple.com/documentation/MacOSX/Conceptual/BPSystemStartup/index.html">&ldquo;The Boot Process&rdquo;, Developer Connection</a></li>
 </ul>
 
 <h3 id="bootrom:8c5fb99d0417af129f926e289e08e42d">BootROM</h3>
 
 <ul>
-<li>POST (Power On Self Test) is done &#8211; checks hardware and initialises components; errors (eg RAM) will cause varying numbers of beeps (or flashing LEDs on some systems)</li>
+<li>POST (Power On Self Test) is done &ndash; checks hardware and initialises components; errors (eg RAM) will cause varying numbers of beeps (or flashing LEDs on some systems)</li>
 <li>on PPC machines <strong>Open Firmware</strong> is run</li>
 <li>on Intel machines <strong>EFI</strong> (Extended Firmware Interface) is run</li>
 <li><strong>Command-Option-O-F</strong> will start PPCs and Intels in Open Firmware Mode prompt. Five commands can be used: <strong>mac-boot, shut-down, reset-all, reset-nvram, eject cd</strong></li>
@@ -120,7 +120,7 @@
 <ul>
 <li>the kernel file is <strong>mach_kernel</strong></li>
 <li>the kernel launches <strong>I/O kit</strong>, which loads drivers for I/O devices</li>
-<li>the kernel launches launchd &#8211; similar to <strong>init</strong> in Linux</li>
+<li>the kernel launches launchd &ndash; similar to <strong>init</strong> in Linux</li>
 </ul>
 
 <h3 id="launchd:8c5fb99d0417af129f926e289e08e42d">launchd</h3>
@@ -137,7 +137,7 @@
 <li><strong>~/Library/LaunchAgents</strong></li>
 </ul></li>
 <li>during <strong>Safe Boot</strong> (Shift key), only items in <strong>/System/Library</strong> are started</li>
-<li>launchd then runs any scripts in **/etc/rc **&#8211; one of which is **SystemStarter **, which starts items in **/System/Library/StartupItems **and **/Library/StartupItems **(below)</li>
+<li>launchd then runs any scripts in **/etc/rc **&ndash; one of which is **SystemStarter **, which starts items in **/System/Library/StartupItems **and **/Library/StartupItems **(below)</li>
 <li>launchd then starts <strong>loginwindow</strong></li>
 </ul>
 
@@ -145,8 +145,8 @@
 
 <ul>
 <li>items here are being replaced by <strong>launchd</strong></li>
-<li>**/System/Library/StartupItems **&#8211; when troubleshooting, rename rather than delete things from here</li>
-<li>*<em>/Library/StartupItems **&#8211; can use this to for example manually map a drive. When troubleshooting, this should *usually</em> be empty &#8211; move items to Desktop rather than deleting</li>
+<li>**/System/Library/StartupItems **&ndash; when troubleshooting, rename rather than delete things from here</li>
+<li>*<em>/Library/StartupItems **&ndash; can use this to for example manually map a drive. When troubleshooting, this should *usually</em> be empty &ndash; move items to Desktop rather than deleting</li>
 </ul>
 
 <h3 id="loginwindow:8c5fb99d0417af129f926e289e08e42d">loginwindow</h3>

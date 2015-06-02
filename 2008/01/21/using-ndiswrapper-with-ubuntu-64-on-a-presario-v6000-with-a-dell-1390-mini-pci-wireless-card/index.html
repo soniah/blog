@@ -88,18 +88,18 @@
       <h1 class="post-title">Using ndiswrapper with Ubuntu 64 on a Presario V6000 with a Dell 1390 mini-PCI wireless card</h1>
         <section id="main">
           <h5 id="date"> 21 Jan 2008 </h5>
-          <p>My first <em>task</em> in Guatemala was to get Jesus&#8217;s wireless going.</p>
+          <p>My first <em>task</em> in Guatemala was to get Jesus&rsquo;s wireless going.</p>
 
-<p>He&#8217;s running Ubuntu Feisty 64 on a Compaq Presario V6000 (AMD Turion 64 x2). The wireless card is a <em>Dell 1390 mini-PCI</em> (wireless chipset bcm43xx).</p>
+<p>He&rsquo;s running Ubuntu Feisty 64 on a Compaq Presario V6000 (AMD Turion 64 x2). The wireless card is a <em>Dell 1390 mini-PCI</em> (wireless chipset bcm43xx).</p>
 
 <p>Inspired by <a href="http://www.ultimalinux.com/wiki/Compaq_Presario_V6000">these instructions</a> for Ultima Linux, I did the following as root:</p>
 
 <ul>
-<li>installed ndiswrapper and ndisgtk &#8211; <strong>aptitude install ndiswrapper-common ndisgtk</strong></li>
+<li>installed ndiswrapper and ndisgtk &ndash; <strong>aptitude install ndiswrapper-common ndisgtk</strong></li>
 <li>blacklisted the built-in bcm43xx driver, by adding <strong>blacklist bcm43xx</strong> to <strong>/etc/modprobe.d/blacklist</strong></li>
 <li>manually loaded the ndiswrapper module by doing <strong>modprobe ndiswrapper</strong> and forced it to load on every boot by adding the line ndiswrapper to <strong>/etc/modules</strong></li>
 <li>downloaded the Dell version of the driver (R174291.exe) <a href="http://forum.notebookreview.com/showthread.php?t=200248"><a href="http://www.ultimalinux.com/wiki/Compaq_Presario_V6000">1</a> </a><a href="http://ftp.us.dell.com/network/R174291.exe"><a href="http://forum.notebookreview.com/showthread.php?t=200248">2</a></a> and unpacked the .exe using wine</li>
-<li>reloaded the gnome panel &#8211; <strong>killall gnome-panel</strong></li>
+<li>reloaded the gnome panel &ndash; <strong>killall gnome-panel</strong></li>
 <li>ran System, Administration, Windows Wireless Drivers, and loaded the extracted driver from <strong>~/.wine/drive_c/dell/drivers/R174291</strong></li>
 <li>after a reboot :-( Network Manager (top right) detected wireless networks, and we were able to connect. If you have any problems, check the driver has loaded by running ndiswrapper -l</li>
 </ul>

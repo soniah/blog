@@ -90,17 +90,17 @@
           <h5 id="date"> 22 Oct 2007 </h5>
           
 
-<p>Linux <strong>ACL</strong>s (Access Control Lists) can be a bit difficult at first &#8211; here&#8217;s my understanding of how they work:</p>
+<p>Linux <strong>ACL</strong>s (Access Control Lists) can be a bit difficult at first &ndash; here&rsquo;s my understanding of how they work:</p>
 
 <p><strong>Commands:</strong></p>
 
 <ul>
-<li>There&#8217;s only 2 commands needed &#8211; <strong><em>getfacl</em></strong> and <strong><em>setfacl</em></strong> &#8211; display and change acls</li>
+<li>There&rsquo;s only 2 commands needed &ndash; <strong><em>getfacl</em></strong> and <strong><em>setfacl</em></strong> &ndash; display and change acls</li>
 </ul>
 
 <p><strong>Files:</strong></p>
 
-<p>When you do a <strong><em>getfacl</em></strong> on a file, you&#8217;ll get this sort of entry:<br />
+<p>When you do a <strong><em>getfacl</em></strong> on a file, you&rsquo;ll get this sort of entry:<br />
 `<br />
 $ ls -al index.html<br />
 -rw-rw-r&ndash;+ 1 root siteadm 0 Nov 30  2005 index.html<br />
@@ -123,7 +123,7 @@ other::r&ndash;<br />
 <ul>
 <li><p>Notice the</p>
 
-<p><strong>+</strong> at the end of the <strong><em>ls -al</em></strong> entry &#8211; indicating <strong><em>acls</em></strong>, and the use of the <strong>&#8211;all-effective</strong> option with <strong>getfacl</strong></p></li>
+<p><strong>+</strong> at the end of the <strong><em>ls -al</em></strong> entry &ndash; indicating <strong><em>acls</em></strong>, and the use of the <strong>&ndash;all-effective</strong> option with <strong>getfacl</strong></p></li>
 
 <li><p>The <em>first</em> and <em>last</em> entries <em>always always always</em> correspond to normal user/owner and other file permissions eg user/owner has read/write and other has read:
 <code>&lt;br /&gt;
@@ -131,14 +131,14 @@ user::rw-      -&gt;    -rw (for user/owner)&lt;br /&gt;
 other::r--    -&gt;    -rw (for other)&lt;br /&gt;
 </code></p></li>
 
-<li><p>For applications that <strong><em>do</em></strong> understand acls, permissions are exactly as listed in the middle bunch of entries, masked by the mask entry ie the user apache will get rw-, the group (siteadm in this case) will get r&#8211;:
+<li><p>For applications that <strong><em>do</em></strong> understand acls, permissions are exactly as listed in the middle bunch of entries, masked by the mask entry ie the user apache will get rw-, the group (siteadm in this case) will get r&ndash;:
 <code>&lt;br /&gt;
 user:apache:rw-&lt;br /&gt;
 group::r--&lt;br /&gt;
 mask::rw-&lt;br /&gt;
 </code></p></li>
 
-<li><p>For applications that <strong><em>don&#8217;t</em></strong> understand acls, permissions correspond to the <strong><em>mask</em></strong> ie rw-, to ensure that non-acl aware applications will keep working. Notice how the ls -al output displays the mask entry in the group area:
+<li><p>For applications that <strong><em>don&rsquo;t</em></strong> understand acls, permissions correspond to the <strong><em>mask</em></strong> ie rw-, to ensure that non-acl aware applications will keep working. Notice how the ls -al output displays the mask entry in the group area:
 <code>&lt;br /&gt;
 -rw-rw-r--+ 1 root siteadm 0 Nov 30  2005 index.html&lt;br /&gt;
 mask::rw-&lt;br /&gt;
@@ -156,7 +156,7 @@ $ setfacl -m user:jan:rwx,group:mysql:rwx bar.txt&lt;br /&gt;
 
 <ul>
 <li>for directories <em>themselves,</em> setting and getting acls is just the same as for files</li>
-<li>for all objects underneath a directory, you have to consider the &#8220;Default ACL&#8221; &#8211; a special kind of acl that defines the access permissions of all <em>new</em> objects created under a folder. Note &#8211; it doesn&#8217;t effect <em>existing</em> objects!</li>
+<li>for all objects underneath a directory, you have to consider the &ldquo;Default ACL&rdquo; &ndash; a special kind of acl that defines the access permissions of all <em>new</em> objects created under a folder. Note &ndash; it doesn&rsquo;t effect <em>existing</em> objects!</li>
 <li><strong><em>setfacl</em></strong> uses the <strong><em>-d flag</em></strong> to create default acl entries</li>
 <li>the same rules apply for all <strong>default</strong> entries as they do for normal entries: ie the first and last (user and other) entries are directly used, the middle bunch of entries interact with the mask, etc, etc.</li>
 </ul>

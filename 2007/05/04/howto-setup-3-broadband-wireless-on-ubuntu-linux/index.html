@@ -88,14 +88,16 @@
       <h1 class="post-title">HowTo Setup 3 Broadband Wireless on Ubuntu Linux</h1>
         <section id="main">
           <h5 id="date"> 5 May 2007 </h5>
-          <p>HowTo Setup 3 Broadband Wireless on Ubuntu Linux</p>
+          
 
-<p>**HOWTO setup Novatel Merlin XU870 for 3&#8217;s wireless broadband, on Ubuntu Linux<br />
+<p>HowTo Setup 3 Broadband Wireless on Ubuntu Linux</p>
+
+<p>**HOWTO setup Novatel Merlin XU870 for 3&rsquo;s wireless broadband, on Ubuntu Linux<br />
 **</p>
 
-<p>I&#8217;ve recently bought a wireless broadband modem from 3, which I&#8217;m really happy with &#8211; good speed, reliable, and fairly cheap ($AU50/month for 1G). Here are some instructions on how to get it working on Ubuntu Linux.</p>
+<p>I&rsquo;ve recently bought a wireless broadband modem from 3, which I&rsquo;m really happy with &ndash; good speed, reliable, and fairly cheap ($AU50/month for 1G). Here are some instructions on how to get it working on Ubuntu Linux.</p>
 
-<p>Compile the <em>Airprime</em> drivers into your kernel, using the instructions at <a href="http://samat.org/weblog/20070127-high-speed-cellular-wireless-modems-in-ubuntu-linux-6-10.html">samat.org</a>, or upgrade/install Ubuntu Feisty (7.04) or later &#8211; the drivers are included in the kernel. If you upgrade, check that your kernel has beenupgraded to 2.6.20 or later:</p>
+<p>Compile the <em>Airprime</em> drivers into your kernel, using the instructions at <a href="http://samat.org/weblog/20070127-high-speed-cellular-wireless-modems-in-ubuntu-linux-6-10.html">samat.org</a>, or upgrade/install Ubuntu Feisty (7.04) or later &ndash; the drivers are included in the kernel. If you upgrade, check that your kernel has beenupgraded to 2.6.20 or later:</p>
 
 <p><code>$ uname -r&lt;br /&gt;
 2.6.20-15-386</code></p>
@@ -141,12 +143,12 @@ CONNECT &quot;dc&quot;</code></p>
 
 <p><code>$ pon 3</code></p>
 
-<p>If you connect OK, you&#8217;ll see log messages like this:<br />
+<p>If you connect OK, you&rsquo;ll see log messages like this:<br />
 <code>&lt;br /&gt;
 May  4 13:27:00 localhost pppd[9247]: Connect: ppp0 &lt;--&gt; /dev/ttyUSB0&lt;br /&gt;
 May  4 13:27:01 localhost pppd[9247]: CHAP authentication succeeded</code></p>
 
-<p>Here&#8217;s a <strong>full set of log messages</strong>, showing the modem being inserted, running pon, then disconnecting using poff:</p>
+<p>Here&rsquo;s a <strong>full set of log messages</strong>, showing the modem being inserted, running pon, then disconnecting using poff:</p>
 
 <p><code>May  4 13:01:34 localhost kernel: [ 2703.564000] pccard: CardBus card inserted into slot 0&lt;br /&gt;
 May  4 13:01:35 localhost kernel: [ 2703.652000] PCI: Enabling device 0000:03:00.0 (0000 -&gt; 0002)&lt;br /&gt;
@@ -242,10 +244,11 @@ May  4 13:33:07 localhost pppd[9247]: Exit.</code></p>
 (usbserial-generic) interface. Linux kernel versions prior to 2.6.20<br />
 have some problems with it, as the SCSI CDROM fakevolume with drivers<br />
 for Microsoft systems gets automounted by usbstorage.ko module,<br />
-preventing serial device /dev/ttyUSB0 from working properly. Go ahead<br />
-and try out my workaround-kit!<br />
-&#8212;&#8212;&#8212;-<br />
-I have used it on dapper pretty successfully and even have a script that<br />
+preventing serial device /dev/ttyUSB0 from working properly. Go ahead</p>
+
+<h2 id="and-try-out-my-workaround-kit:dc6a589e6313a9430e379cc9e61c8e33">and try out my workaround-kit!</h2>
+
+<p>I have used it on dapper pretty successfully and even have a script that<br />
 keeps the connection alive quite nicely. it works pretty damn well actually.<br />
 data is a bit expensive though of course.</p>
 

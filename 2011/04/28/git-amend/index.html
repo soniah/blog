@@ -88,9 +88,9 @@
       <h1 class="post-title">git amend</h1>
         <section id="main">
           <h5 id="date"> 28 Apr 2011 </h5>
-          <p>A nice git option I stumbled upon today &#8211; <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#fixing-a-mistake-by-rewriting-history">amend</a>.</p>
+          <p>A nice git option I stumbled upon today &ndash; <a href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#fixing-a-mistake-by-rewriting-history">amend</a>.</p>
 
-<p>Typical scenario &#8211; you&#8217;ve done a local check-in, then notice there&#8217;s a typo in your code comments. Fix up the typo, then use <strong>&#8211; &#8211; amend</strong> to re-check-in, without having to do a reset/revert. For example:</p>
+<p>Typical scenario &ndash; you&rsquo;ve done a local check-in, then notice there&rsquo;s a typo in your code comments. Fix up the typo, then use <strong>&ndash; &ndash; amend</strong> to re-check-in, without having to do a reset/revert. For example:</p>
 
 <pre>git add foo.file
 git ci -m "added the frob feature to the whiz-bang"
@@ -102,9 +102,9 @@ git ci --amend</pre>
 
 <p>When you do the amend check-in, your editor will pop up, allowing you to re-edit the commit message if desired.</p>
 
-<p>Obviously, if you&#8217;ve done a commit to a remote/public repository, amend has issues, similar to reset.</p>
+<p>Obviously, if you&rsquo;ve done a commit to a remote/public repository, amend has issues, similar to reset.</p>
 
-<p>Also, I have entries like this in my .gitconfig, hence &#8220;git ci&#8221; rather than &#8220;git commit&#8221;.</p>
+<p>Also, I have entries like this in my .gitconfig, hence &ldquo;git ci&rdquo; rather than &ldquo;git commit&rdquo;.</p>
 
 <pre>[alias]
         ci = commit

@@ -88,12 +88,12 @@
       <h1 class="post-title">Exiting from consoles attached to Solaris zones</h1>
         <section id="main">
           <h5 id="date"> 20 Jul 2010 </h5>
-          <p>When creating a new Solaris zone, one of the steps involves connecting to the zone&#8217;s console for the initial configuration:</p>
+          <p>When creating a new Solaris zone, one of the steps involves connecting to the zone&rsquo;s console for the initial configuration:</p>
 
 <pre># zlogin -C examplezone
 </pre>
 
-<p>The zone then runs through the <strong>sys-unconfig</strong> script, asking questions about hostname, timezone, etc. When this is finished, the doco says to exit from the console using the &#8220;~.&#8221; combination. But of course ssh grabs the &#8220;~&#8221; escape character and kills the entire ssh connection &#8211; aargghhh&#8230; Solution: different escape characters for the different ssh connections:</p>
+<p>The zone then runs through the <strong>sys-unconfig</strong> script, asking questions about hostname, timezone, etc. When this is finished, the doco says to exit from the console using the &ldquo;~.&rdquo; combination. But of course ssh grabs the &ldquo;~&rdquo; escape character and kills the entire ssh connection &ndash; aargghhh. Solution: different escape characters for the different ssh connections:</p>
 
 <pre>% ssh windows -e @                       # jump host for Cisco vpn, @ escape character
 % ssh shamilton@1.2.3.4 -p 8022 -e %     # connect to HP-NA, % escape character
@@ -105,8 +105,8 @@ do stuff, then ~.                        # do stuff, then ~ escape character to 
 <p>See also:</p>
 
 <ul>
-<li><a href="http://cisco.biz/en/US/tech/tk801/tk36/technologies_configuration_example09186a008014f8e7.shtml">Cisco &#8211; Configuring a Terminal/Comm Server</a></li>
-<li><a href="http://www.informit.com/library/content.aspx?b=CCNP_Studies_Troubleshooting&amp;seqNum=141">informIT &#8211; Configuring a Terminal Server</a> &#8211; especially the stuff about clearing lines (in addition to clearing sessions)</li>
+<li><a href="http://cisco.biz/en/US/tech/tk801/tk36/technologies_configuration_example09186a008014f8e7.shtml">Cisco &ndash; Configuring a Terminal/Comm Server</a></li>
+<li><a href="http://www.informit.com/library/content.aspx?b=CCNP_Studies_Troubleshooting&amp;seqNum=141">informIT &ndash; Configuring a Terminal Server</a> &ndash; especially the stuff about clearing lines (in addition to clearing sessions)</li>
 </ul>
 
         </section>

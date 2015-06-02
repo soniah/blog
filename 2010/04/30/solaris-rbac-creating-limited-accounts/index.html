@@ -90,7 +90,7 @@
           <h5 id="date"> 30 Apr 2010 </h5>
           <p>Solaris has a feature called <a href="http://en.wikipedia.org/wiki/Role-based_access_control">RBAC</a>, that allows you to provide role-based security (I believe this is similar to <a href="http://en.wikipedia.org/wiki/Selinux">SELinux</a>).</p>
 
-<p>All the documentation and examples I&#8217;ve seen explain how to setup up a role that allows a normal user to do a higher privileged command (eg manage log files, manage printers). But I haven&#8217;t been able to find an example of how to create a limited account, one that is <em>only</em> allowed to run a fixed number of commands. Here&#8217;s how I did it:</p>
+<p>All the documentation and examples I&rsquo;ve seen explain how to setup up a role that allows a normal user to do a higher privileged command (eg manage log files, manage printers). But I haven&rsquo;t been able to find an example of how to create a limited account, one that is <em>only</em> allowed to run a fixed number of commands. Here&rsquo;s how I did it:</p>
 
 <p>(Solaris 10 <sup>10</sup>&frasl;<sub>09</sub> s10x_u8wos_08a X86)</p>
 
@@ -114,7 +114,7 @@ Limited:suser:cmd:::/export/home/foo/bin/Address:uid=0</pre>
 #!/bin/sh
 /usr/sbin/ifconfig -a</pre>
 
-<p>Remove default auths and profile from all users. Note &#8211; this is required so that the foo user doesn&#8217;t get the &#8220;Basic Solaris User&#8221; profile, which allows all user level binaries to be run. This however affects other accounts and services, and would require further testing:</p>
+<p>Remove default auths and profile from all users. Note &ndash; this is required so that the foo user doesn&rsquo;t get the &ldquo;Basic Solaris User&rdquo; profile, which allows all user level binaries to be run. This however affects other accounts and services, and would require further testing:</p>
 
 <pre>/etc/security/policy.conf
 # sonia AUTHS_GRANTED=solaris.device.cdrw
@@ -141,14 +141,14 @@ ls: not found   &lt;=== as expected - foo user is limited</pre>
 <p>Create another user, test</p>
 
 <ul>
-<li>if the shell is /usr/bin/bash &#8211; doesn&#8217;t seem to cause problems. However, it may affect services &#8211; testing would be required.</li>
+<li>if the shell is /usr/bin/bash &ndash; doesn&rsquo;t seem to cause problems. However, it may affect services &ndash; testing would be required.</li>
 <li>if the shell is /usr/bin/pfsh:</li>
 </ul>
 
 <pre># ls
 ls: not found   &lt;=== ie other accounts with profile shells need a profile explicitly assigned</pre>
 
-<p>If the default auths and profile <em>aren&#8217;t</em> removed from all users, we get this &#8211; foo user is allowed to run all user level binaries (the *):</p>
+<p>If the default auths and profile <em>aren&rsquo;t</em> removed from all users, we get this &ndash; foo user is allowed to run all user level binaries (the *):</p>
 
 <pre># auths foo
 solaris.device.cdrw,solaris.profmgr.read,solaris.jobs.users,solaris.mail.mailq,solaris.admin.usermgr.read,solaris.admin.logsvc.read,solaris.admin.fsmgr.read,solaris.admin.serialmgr.read,solaris.admin.diskmgr.read,solaris.admin.procmgr.user,solaris.compsys.read,solaris.admin.printer.read,solaris.admin.prodreg.read,solaris.admin.dcmgr.read,solaris.snmp.read,solaris.project.read,solaris.admin.patchmgr.read,solaris.network.hosts.read,solaris.admin.volmgr.read

@@ -92,11 +92,11 @@
 
 <p>sharing application data on a dual boot laptop</p>
 
-<p>I dual boot my laptop between Linux and Windows &#8211; mostly Linux, but occasionally Windows. Here&#8217;s how to make applications like Firefox, Thunderbird, etc share their configuration &#8211; especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is <em>sonia</em> and your user id is <em>1000</em> (check by running the <strong>id</strong> function). It also presumes that you can see system folders in Windows &#8211; setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click <em>Apply to All Folders</em>.</p>
+<p>I dual boot my laptop between Linux and Windows &ndash; mostly Linux, but occasionally Windows. Here&rsquo;s how to make applications like Firefox, Thunderbird, etc share their configuration &ndash; especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is <em>sonia</em> and your user id is <em>1000</em> (check by running the <strong>id</strong> function). It also presumes that you can see system folders in Windows &ndash; setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click <em>Apply to All Folders</em>.</p>
 
 <h3 id="create-a-shared-partition:2b63aabf1d8adf5b13fd969a76428dfa">Create a Shared Partition</h3>
 
-<p>First you need a filesystem that will be shared between both Linux and Windows &#8211; it has to be FAT, as this is the only filesystem that both operating systems (easily) read. This may involve shrinking an existing filesystem and partition. (You could of course lose data doing this, so check your backups first).</p>
+<p>First you need a filesystem that will be shared between both Linux and Windows &ndash; it has to be FAT, as this is the only filesystem that both operating systems (easily) read. This may involve shrinking an existing filesystem and partition. (You could of course lose data doing this, so check your backups first).</p>
 
 <p>The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Reiserfs or Ext3) located inside. To shrink a partition, the filesystem needs to be shrunk first; the easiest way to do this is to shrink the filesystem too small, delete the partition and recreate it smaller, then expand the filesystem to fit the newly shrunk partition:</p>
 
@@ -118,7 +118,7 @@
 </pre>
 
 <ul>
-<li>check and mount the shrunk partition before creating the new partition and filesystem, in case you&#8217;ve made a mistake</li>
+<li>check and mount the shrunk partition before creating the new partition and filesystem, in case you&rsquo;ve made a mistake</li>
 </ul>
 
 <pre>reiserfsck /dev/hda6
@@ -158,7 +158,7 @@
 <h3 id="get-firefox-to-locate-configuration-in-linux:2b63aabf1d8adf5b13fd969a76428dfa">Get Firefox to Locate Configuration in Linux</h3>
 
 <ul>
-<li>close Firefox and move your profile &#8211; it&#8217;ll be a directory named something like <em>123456.default</em>:</li>
+<li>close Firefox and move your profile &ndash; it&rsquo;ll be a directory named something like <em>123456.default</em>:</li>
 </ul>
 
 <pre>mkdir -p /configs/.mozilla/firefox
@@ -174,7 +174,7 @@
 </pre>
 
 <ul>
-<li>check Firefox runs OK &#8211; if the Profiles screen pops up, you&#8217;ve got some sort of error</li>
+<li>check Firefox runs OK &ndash; if the Profiles screen pops up, you&rsquo;ve got some sort of error</li>
 </ul>
 
 <h3 id="mount-the-shared-partition-in-windows-p:2b63aabf1d8adf5b13fd969a76428dfa">Mount the Shared Partition in Windows</p></h3>

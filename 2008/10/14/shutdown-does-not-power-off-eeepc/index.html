@@ -88,11 +88,11 @@
       <h1 class="post-title">Shutdown does not power off EeePC</h1>
         <section id="main">
           <h5 id="date"> 13 Oct 2008 </h5>
-          <p>I&#8217;ve noticed that issuing a <strong>sudo halt</strong> on my <a href="http://www.asus.com/news_show.aspx?id=7317">EeePC 701</a> shuts down the operating system (<a href="http://www.eeeuser.com/">eeeXubuntu</a>), but doesn&#8217;t power down the system.</p>
+          <p>I&rsquo;ve noticed that issuing a <strong>sudo halt</strong> on my <a href="http://www.asus.com/news_show.aspx?id=7317">EeePC 701</a> shuts down the operating system (<a href="http://www.eeeuser.com/">eeeXubuntu</a>), but doesn&rsquo;t power down the system.</p>
 
-<p>So I&#8217;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag &#8211; ouch!</p>
+<p>So I&rsquo;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag &ndash; ouch!</p>
 
-<p><strong>Solution</strong> (<a href="https://bugs.launchpad.net/ubuntu-eee/+bug/239145">Bug #239145</a>) &#8211; add <strong>rmmod snd-hda-intel</strong> to the stop section of <strong>/etc/init.d/halt</strong>.</p>
+<p><strong>Solution</strong> (<a href="https://bugs.launchpad.net/ubuntu-eee/+bug/239145">Bug #239145</a>) &ndash; add <strong>rmmod snd-hda-intel</strong> to the stop section of <strong>/etc/init.d/halt</strong>.</p>
 
         </section>
 

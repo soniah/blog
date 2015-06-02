@@ -93,16 +93,16 @@
 <ul>
 <li>create branch: <strong>svn cp foo foo-branch</strong></li>
 <li>develop new feature in foo-branch, whilst doing any bug fixes in trunk</li>
-<li>merge some changes from trunk into branch &#8211; keep branch up-to-date as possible
+<li>merge some changes from trunk into branch &ndash; keep branch up-to-date as possible
 
 <ul>
-<li>commit any changes first, so can easily revert if desired: <strong>cd foo-branch; svn up; svn ci -m &#8220;pre merge in trunk&#8221;</strong></li>
-<li>find where branch occured (if not noted in a log message &#8211; duh): <strong>svn log &#8211;verbose &#8211;stop-on-copy foo-branch</strong> (eg 123)</li>
-<li>preview changes succinctly: <strong>cd foo-branch; **</strong>svn merge &#8211;dry-run -r 123:HEAD**</li>
-<li>preview changes verbosely: <strong>cd foo-branch; **</strong>svn diff &#8211;notice-ancestry -r 123:HEAD &#8230;**</li>
+<li>commit any changes first, so can easily revert if desired: <strong>cd foo-branch; svn up; svn ci -m &ldquo;pre merge in trunk&rdquo;</strong></li>
+<li>find where branch occured (if not noted in a log message &ndash; duh): <strong>svn log &ndash;verbose &ndash;stop-on-copy foo-branch</strong> (eg 123)</li>
+<li>preview changes succinctly: <strong>cd foo-branch; **</strong>svn merge &ndash;dry-run -r 123:HEAD**</li>
+<li>preview changes verbosely: <strong>cd foo-branch; **</strong>svn diff &ndash;notice-ancestry -r 123:HEAD .**</li>
 <li>apply changes: <strong>cd foo-branch; **</strong>svn merge -r 123:HEAD svn+ssh://myrepo.com/foo/bar**</li>
 <li>check changes: <strong>svn st; svn diff, **if problems: **svn revert</strong></li>
-<li>commit changes: <strong>svn ci -m &#8220;merged trunk changes into branch (flubbed the widgets) r123:129&#8243;</strong></li>
+<li>commit changes: <strong>svn ci -m &ldquo;merged trunk changes into branch (flubbed the widgets) r123:129&rdquo;</strong></li>
 </ul></li>
 <li>keep working in foo-branch, merge in some more changes
 
@@ -110,12 +110,12 @@
 <li>ditto previous</li>
 <li><strong>svn merge -r 130:HEAD svn+ssh://myrepo.com/foo/bar</strong> (<em>previously merged up to 129, so start on 130</em>)</li>
 </ul></li>
-<li>merge all changes from branch into trunk &#8211; new feature finished
+<li>merge all changes from branch into trunk &ndash; new feature finished
 
 <ul>
 <li>ditto previous</li>
 <li><strong>cd foo; svn merge -r 123:HEAD <a href="https://myrepo.com/foo-branch">https://myrepo.com/foo-branch</a></strong></li>
-<li><strong>svn ci -m &#8220;merged foo-branch into trunk (feature x) r123:145&#8243;</strong></li>
+<li><strong>svn ci -m &ldquo;merged foo-branch into trunk (feature x) r123:145&rdquo;</strong></li>
 </ul></li>
 </ul>
 
@@ -134,7 +134,7 @@
 <p>Tags:</p>
 
 <ul>
-<li>tags are just copies (usually put in the tags directory): <strong>svn cp https://</strong><strong>myrepo.com/foo/foo **</strong>https://**<strong>myrepo.com/foo/tags/foo-1.0</strong>. Tags aren&#8217;t read-only, but any changes can of course be reverted.</li>
+<li>tags are just copies (usually put in the tags directory): <strong>svn cp https://</strong><strong>myrepo.com/foo/foo **</strong>https://**<strong>myrepo.com/foo/tags/foo-1.0</strong>. Tags aren&rsquo;t read-only, but any changes can of course be reverted.</li>
 </ul>
 
 <p>Directory structure:</p>
@@ -147,7 +147,7 @@
 <li><strong>/foo/branches</strong></li>
 <li><strong>/foo/tags</strong></li>
 </ul></li>
-<li>I used to ignore this and just do /foo &amp; /foo-branch, but this gets messy quickly and it&#8217;s easy to make mistakes or have problems when doing svn moves of  large directories if you want to reorganise things later. Also, when working with branches I tend to want to just switch a subdirectory rather than checkout the whole branch, and this directory structure seems to logically help with this</li>
+<li>I used to ignore this and just do /foo &amp; /foo-branch, but this gets messy quickly and it&rsquo;s easy to make mistakes or have problems when doing svn moves of  large directories if you want to reorganise things later. Also, when working with branches I tend to want to just switch a subdirectory rather than checkout the whole branch, and this directory structure seems to logically help with this</li>
 </ul>
 
 <p>Notes from <a href="http://svnbook.red-bean.com/">Version Control with Subversion</a>.</p>

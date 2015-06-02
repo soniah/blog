@@ -103,7 +103,7 @@
 <ul>
 <li>change the startup properties for the server, to point to a different location for master</li>
 <li>stop the server using Administrative Tools, Services</li>
-<li>manually move master&#8217;s database files using Windows Explorer to c:data</li>
+<li>manually move master&rsquo;s database files using Windows Explorer to c:data</li>
 <li>start the server using Administrative Tools, Services</li>
 <li>in Enterprise Manager, check the properties of the master database, to ensure that master is running from the new location</li>
 </ul></li>
@@ -114,13 +114,13 @@
 <li>change the startup properties of the server, to use the correct trace flag</li>
 <li>restart the server using Administrative Tools, Services</li>
 <li>detach model using <strong>sp_detach_db</strong></li>
-<li>manually move model&#8217;s database files using Windows Explorer to c:data</li>
+<li>manually move model&rsquo;s database files using Windows Explorer to c:data</li>
 <li>attach model using <strong>sp_attach_db</strong></li>
 <li>in Enterprise Manager, check the properties of the model database, to ensure that model is running from the new location</li>
 </ul></li>
 </ol>
 
-<p>If you make a mistake moving master and SQL Server won&#8217;t start, you can edit the registry directly at:</p>
+<p>If you make a mistake moving master and SQL Server won&rsquo;t start, you can edit the registry directly at:</p>
 
 <pre>HKLMSOFTWAREMicrosoftMSSQLServerMSSQLServerParameters</pre>
 

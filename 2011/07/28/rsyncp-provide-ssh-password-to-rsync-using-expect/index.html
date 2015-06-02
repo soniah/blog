@@ -88,7 +88,7 @@
       <h1 class="post-title">rsyncp – provide ssh password to rsync using expect</h1>
         <section id="main">
           <h5 id="date"> 28 Jul 2011 </h5>
-          <p>A script I wrote &#8211; rsyncp. It allows you to provide a password to rsync over ssh, when you&#8217;re unable to use ssh key-based authentication:</p>
+          <p>A script I wrote &ndash; rsyncp. It allows you to provide a password to rsync over ssh, when you&rsquo;re unable to use ssh key-based authentication:</p>
 
 <pre>% cat ~/bin/rsyncp
 #!/usr/bin/expect
@@ -102,7 +102,7 @@ expect eof</pre>
   rsyncp -av --progress srcdir/ $h:dstdir/
 done</pre>
 
-<p>And before you add a comment saying <em>use <a href="http://blog.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/">ssh keys</a> or <a href="http://blog.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/">keychain</a>, this is totally insecure</em>, I agree with you! Key based authentication is disabled on the target server, and I&#8217;m still trying to resolve the <em>politics</em> around this at my current company, and <a href="http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">sshpass</a> seems broken <sigh></p>
+<p>And before you add a comment saying <em>use <a href="http://blog.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/">ssh keys</a> or <a href="http://blog.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/">keychain</a>, this is totally insecure</em>, I agree with you! Key based authentication is disabled on the target server, and I&rsquo;m still trying to resolve the <em>politics</em> around this at my current company, and <a href="http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">sshpass</a> seems broken <sigh></p>
 
         </section>
 

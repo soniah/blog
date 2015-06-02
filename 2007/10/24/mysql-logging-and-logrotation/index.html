@@ -90,16 +90,16 @@
           <h5 id="date"> 25 Oct 2007 </h5>
           <p>dev.msql.com <a href="http://dev.mysql.com/doc/refman/5.0/en/log-files.html">logging documentation</a></p>
 
-<p>On Debian based systems, MySQL logging (and logrotation) is setup automatically so I&#8217;ve never had to worry about it. Unfortunately, I&#8217;m not using Debian at the moment&#8230;</p>
+<p>On Debian based systems, MySQL logging (and logrotation) is setup automatically so I&rsquo;ve never had to worry about it. Unfortunately, I&rsquo;m not using Debian at the moment.</p>
 
-<p>The options used to start MySQL can be gleaned from <strong>ps ax | grep mysql</strong> ; in particular this will show the <strong>&#8211;datadir</strong> setting, which is where logs are created by default.</p>
+<p>The options used to start MySQL can be gleaned from <strong>ps ax | grep mysql</strong> ; in particular this will show the <strong>&ndash;datadir</strong> setting, which is where logs are created by default.</p>
 
 <p><strong>Troubleshooting Logs</strong></p>
 
 <ul>
-<li><strong>&#8211;log</strong> &#8211; the general query log &#8211; when clients connect and disconnect and all sql statements. By default, created with a name of <strong>host_name.log</strong></li>
-<li>** &#8211;log-error** &#8211; diagnostic messages about startup and shutdown and abnormal conditions. By default, created with a name of <strong>host_name.err</strong>. If mysqld is invoked directly errors will be written to stderr; if mysqld is started by way of the <strong>mysqld_safe</strong> script (directly or via init.d) error logging may go to syslog (and therefore usually to /var/log)</li>
-<li><strong>&#8211;log-slow-queries</strong> &#8211; log queries that take longer than the <em>long_query_time</em> server variable (10s by default) to run. By default, created with a name of <strong>host_name-slow.log</strong></li>
+<li><strong>&ndash;log</strong> &ndash; the general query log &ndash; when clients connect and disconnect and all sql statements. By default, created with a name of <strong>host_name.log</strong></li>
+<li>** &ndash;log-error** &ndash; diagnostic messages about startup and shutdown and abnormal conditions. By default, created with a name of <strong>host_name.err</strong>. If mysqld is invoked directly errors will be written to stderr; if mysqld is started by way of the <strong>mysqld_safe</strong> script (directly or via init.d) error logging may go to syslog (and therefore usually to /var/log)</li>
+<li><strong>&ndash;log-slow-queries</strong> &ndash; log queries that take longer than the <em>long_query_time</em> server variable (10s by default) to run. By default, created with a name of <strong>host_name-slow.log</strong></li>
 </ul>
 
 <p><strong>Replication/Binary Logs</strong></p>

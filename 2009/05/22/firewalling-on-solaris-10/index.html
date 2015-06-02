@@ -98,38 +98,38 @@
 
 <p><strong>Email from Julian:</strong></p>
 
-<p>The native firewall that comes with Solaris is &#8220;ipf&#8221;.</p>
+<p>The native firewall that comes with Solaris is &ldquo;ipf&rdquo;.</p>
 
-<p>Configuration files are in the directory /etc/ipf and the file is &#8220;ipf.conf&#8221;, NAT rules in &#8220;ipnat.conf&#8221;. Unlike iptables, where the configuration file is a series of &#8220;iptable&#8221; commands, &#8220;ipf.conf&#8221; is purely a configuration file. Traffiic must be enabled on each interface, so you have &#8220;pass in&#8221; to allow traffic in on interface A and a &#8220;pass out&#8221; to allow traffic out on interface B, if it is acting as a firewall, obviously this is not.</p>
+<p>Configuration files are in the directory /etc/ipf and the file is &ldquo;ipf.conf&rdquo;, NAT rules in &ldquo;ipnat.conf&rdquo;. Unlike iptables, where the configuration file is a series of &ldquo;iptable&rdquo; commands, &ldquo;ipf.conf&rdquo; is purely a configuration file. Traffiic must be enabled on each interface, so you have &ldquo;pass in&rdquo; to allow traffic in on interface A and a &ldquo;pass out&rdquo; to allow traffic out on interface B, if it is acting as a firewall, obviously this is not.</p>
 
 <p>As of Solaris 10, processes are started via service manager. To check if ipf is running, you can:</p>
 
 <p># svcs -a |grep ipf<br />
 online May_05 svc:/network/ipfilter:default</p>
 
-<p>&#8220;online&#8221; status tells you that it is running.</p>
+<p>&ldquo;online&rdquo; status tells you that it is running.</p>
 
 <p>Commands to see what is happening.</p>
 
-<p>&#8220;ipfstat&#8221;: show statistics, bytes in, bytes out etc.</p>
+<p>&ldquo;ipfstat&rdquo;: show statistics, bytes in, bytes out etc.</p>
 
-<p>&#8220;ipfstat -i&#8221; to display input running rule set</p>
+<p>&ldquo;ipfstat -i&rdquo; to display input running rule set</p>
 
-<p>&#8220;ipfstat -o&#8221; to display output running rule set</p>
+<p>&ldquo;ipfstat -o&rdquo; to display output running rule set</p>
 
-<p>&#8220;ipf -f /etc/ipf/ipf.conf&#8221; to load rules from config file.</p>
+<p>&ldquo;ipf -f /etc/ipf/ipf.conf&rdquo; to load rules from config file.</p>
 
-<p>&#8220;ipmon -s [file]&#8221; to have ipf log to &#8220;file&#8221;</p>
+<p>&ldquo;ipmon -s [file]&rdquo; to have ipf log to &ldquo;file&rdquo;</p>
 
 <p>To restart using service manager</p>
 
-<p>&#8220;svcadm restart svc:/network/ipfilter:default&#8221;</p>
+<p>&ldquo;svcadm restart svc:/network/ipfilter:default&rdquo;</p>
 
-<p>See man page for &#8220;ipnat&#8221; for options to display NAT options.</p>
+<p>See man page for &ldquo;ipnat&rdquo; for options to display NAT options.</p>
 
-<p>Link from Rusty&#8217;s blog: <a href="http://ozlabs.org/~rusty/index.cgi/2006/08/15">http://ozlabs.org/~rusty/index.cgi/2006/08/15</a></p>
+<p>Link from Rusty&rsquo;s blog: <a href="http://ozlabs.org/~rusty/index.cgi/2006/08/15">http://ozlabs.org/~rusty/index.cgi/2006/08/15</a></p>
 
-<p>Last word: Solaris&#8217;s version of tcpdump is &#8220;snoop&#8221;. So to monitor traffic: &#8220;snoop -d e1000g0 not port 22&#8243; you can add &#8220;-v&#8221; etc.</p>
+<p>Last word: Solaris&rsquo;s version of tcpdump is &ldquo;snoop&rdquo;. So to monitor traffic: &ldquo;snoop -d e1000g0 not port 22&rdquo; you can add &ldquo;-v&rdquo; etc.</p>
 
         </section>
 

@@ -90,9 +90,9 @@
           <h5 id="date"> 26 Feb 2010 </h5>
           <p>How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).</p>
 
-<p>Googling, everyone says to use zterm, but I couldn&#8217;t get it to work (and zterm looks and feels like a toy).</p>
+<p>Googling, everyone says to use zterm, but I couldn&rsquo;t get it to work (and zterm looks and feels like a toy).</p>
 
-<p>This probably isn&#8217;t the &#8220;Mac way&#8221; of doing things, but </whatever>&#8230;</p>
+<p>This probably isn&rsquo;t the &ldquo;Mac way&rdquo; of doing things, but </whatever>.</p>
 
 <p>Install <a href="http://sourceforge.net/projects/osx-pl2303/">PL2303 USB to Serial Driver for Mac OS X</a>, restart :-(</p>
 
@@ -127,14 +127,14 @@ sudo ln -s tty.PL2303-00002006 ttyusb</pre>
 <li>8N1</li>
 <li>9600</li>
 <li>no hardware or software flow control</li>
-<li>init string empty (so garbage doesn&#8217;t appear on screen when you connect) &#8211; ctrl-A, O, Init string</li>
+<li>init string empty (so garbage doesn&rsquo;t appear on screen when you connect) &ndash; ctrl-A, O, Init string</li>
 <li>save settings as default (ctrl-A, O, Save setup as dfl)</li>
 </ul>
 
 <p>Always use colour:</p>
 
 <ul>
-<li>add export MINICOM=&#8221;-c on&#8221; to shell rc file (~/.bashrc, .~/zshrc, etc)</li>
+<li>add export MINICOM=&ldquo;-c on&rdquo; to shell rc file (~/.bashrc, .~/zshrc, etc)</li>
 </ul>
 
 <p>Connect (sudo minicom), hit enter a few times, and you should be on the device.</p>

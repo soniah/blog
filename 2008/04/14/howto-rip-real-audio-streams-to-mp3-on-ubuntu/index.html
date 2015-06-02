@@ -88,13 +88,13 @@
       <h1 class="post-title">howto rip Real Audio streams to mp3 on Ubuntu</h1>
         <section id="main">
           <h5 id="date"> 14 Apr 2008 </h5>
-          <p>I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&#8217;m writing my own).</p>
+          <p>I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&rsquo;m writing my own).</p>
 
-<p>But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &#8220;Real Audio&#8221;. Bah! By the curse of RMS&#8217;s Beard!</p>
+<p>But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &ldquo;Real Audio&rdquo;. Bah! By the curse of RMS&rsquo;s Beard!</p>
 
-<p>There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&#8217;s how I got it going on Ubuntu 7.10:</p>
+<p>There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&rsquo;s how I got it going on Ubuntu 7.10:</p>
 
-<p>First of all I installed Real Player using instructions <a href="https://help.ubuntu.com/community/HowToRipRealaudioStreamsToMp3">here</a> and <a href="https://help.ubuntu.com/community/RealPlayerInstallationMethods?action=show&amp;redirect=RealplayerInstallationMethods">here</a>, and checked I could listen to a stream using the GUI tool &#8211; a quick sanity check for firewalls, etc.</p>
+<p>First of all I installed Real Player using instructions <a href="https://help.ubuntu.com/community/HowToRipRealaudioStreamsToMp3">here</a> and <a href="https://help.ubuntu.com/community/RealPlayerInstallationMethods?action=show&amp;redirect=RealplayerInstallationMethods">here</a>, and checked I could listen to a stream using the GUI tool &ndash; a quick sanity check for firewalls, etc.</p>
 
 <ul>
 <li>add repo <strong>deb <a href="http://archive.canonical.com/ubuntu">http://archive.canonical.com/ubuntu</a> feisty partner</strong></li>
@@ -113,7 +113,7 @@ Win32 LoadLibrary failed to load: sipr.so.6.0, /usr/lib/win32/sipr.so.6.0, /usr/
 
 <p>So I located the <strong>sipr.so</strong> library, and based on the error message and digging around in mplayer using <strong>strings</strong> I linked the installed realplayer codecs to /usr/lib/win32:</p>
 
-<p>$ sudo find / -type f -name &#8220;sipr.so&#8221;<br />
+<p>$ sudo find / -type f -name &ldquo;sipr.so&rdquo;<br />
 $ strings /usr/bin/mplayer | grep usr<br />
 $ sudo ln -s /usr/lib/realplay-10.0.9/codecs /usr/lib/win32</p>
 
@@ -122,18 +122,18 @@ $ sudo ln -s /usr/lib/realplay-10.0.9/codecs /usr/lib/win32</p>
 <p>$ mplayer rtsp://xyz.net.uk/foo.ra -ao pcm:file=audiofile.wav -vc dummy -vo null<br />
 $ lame -h -b 128 audiofile.wav audiofile.mp3</p>
 
-<p>Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file &#8211; here&#8217;s how to find the .ram file:</p>
+<p>Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file &ndash; here&rsquo;s how to find the .ram file:</p>
 
 <ul>
 <li>click on the link and start playback the embedded Real Player in Firefox</li>
-<li>a file called <strong>~/.realplayerrc</strong> will be created &#8211; towards the end of the file there will be a section like this:
+<li>a file called <strong>~/.realplayerrc</strong> will be created &ndash; towards the end of the file there will be a section like this:
 <pre>[recent_urls]</pre></li>
 </ul>
 
 <pre>url0=file:///tmp/foo.ram</pre>
 
 <ul>
-<li>cat the <strong>/tmp/foo.ram</strong> file, and copy the <strong>rstp://</strong> link &#8211; ignore the part after the ? (the UID, etc)</li>
+<li>cat the <strong>/tmp/foo.ram</strong> file, and copy the <strong>rstp://</strong> link &ndash; ignore the part after the ? (the UID, etc)</li>
 <li>follow the above instructions for ripping :-)</li>
 </ul>
 
@@ -144,7 +144,7 @@ $ lame -h -b 128 audiofile.wav audiofile.mp3</p>
 <li><a href="http://stommel.tamu.edu/~baum/linux-music.html#realaudio">Converting Real Audio Streams to MP3</a></li>
 <li><a href="http://grimthing.com/archives/2004/05/20/recording-streaming-audio-with-mplayer/">Recording streaming audio with MPlayer</a></li>
 <li><a href="http://ubuntuforums.org/showthread.php?t=624643">Problems with streaming Real Audio files</a></li>
-<li><a href="http://ubuntuforums.org/archive/index.php/t-447200.html">BBC RealPlayer &#8211; make your voice heard!</a></li>
+<li><a href="http://ubuntuforums.org/archive/index.php/t-447200.html">BBC RealPlayer &ndash; make your voice heard!</a></li>
 </ul>
 
         </section>

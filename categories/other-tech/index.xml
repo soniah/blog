@@ -332,7 +332,7 @@ rm -rf *
       <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
       <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
 
-&lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;#8217;s a script submitted by one of my readers:&lt;/p&gt;
+&lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;rsquo;s a script submitted by one of my readers:&lt;/p&gt;
 
 &lt;pre&gt;:: MySQl DB user
 set dbuser=xxxx
@@ -361,7 +361,7 @@ FOR /D %%F IN (*) DO (
       <pubDate>Mon, 30 Jan 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
-      <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;#8211; you need to edit the following four files:&lt;/p&gt;
+      <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;ndash; you need to edit the following four files:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;archive.php&lt;/li&gt;
@@ -372,17 +372,17 @@ FOR /D %%F IN (*) DO (
 
 &lt;p&gt;In these files, search for the lines that look like:&lt;/p&gt;
 
-&lt;pre&gt;posts_nav_link(&#39; &amp;#8212; &#39;, __(&#39;&amp;laquo; Previous Page&#39;),...&lt;/pre&gt;
+&lt;pre&gt;posts_nav_link(&#39; -- &#39;, __(&#39;&amp;laquo; Previous Page&#39;),...&lt;/pre&gt;
 
 &lt;p&gt;Edit each file and change &lt;strong&gt;Previous Page&lt;/strong&gt; to &lt;strong&gt;Newer Posts&lt;/strong&gt;, and &lt;strong&gt;Next Page&lt;/strong&gt; to &lt;strong&gt;Older Posts&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Alternatively if you&amp;#8217;ve got &lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; shell access (and you&amp;#8217;re hosted on a Unix-like environment eg Linux), you can run the following commands:&lt;/p&gt;
+&lt;p&gt;Alternatively if you&amp;rsquo;ve got &lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; shell access (and you&amp;rsquo;re hosted on a Unix-like environment eg Linux), you can run the following commands:&lt;/p&gt;
 
 &lt;pre&gt;cd /var/www/wp-content/themes/clear-line
 sed -i &#39;s/Previous Page/Newer Posts/&#39; archive.php author.php index.php search.php
 sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php search.php&lt;/pre&gt;
 
-&lt;p&gt;Of course before running these &lt;a href=&#34;http://en.wikipedia.org/wiki/Sed&#34;&gt;sed&lt;/a&gt; commands you should backup your files, in case anything goes wrong&amp;#8230;&lt;/p&gt;
+&lt;p&gt;Of course before running these &lt;a href=&#34;http://en.wikipedia.org/wiki/Sed&#34;&gt;sed&lt;/a&gt; commands you should backup your files, in case anything goes wrong.&lt;/p&gt;
 </description>
     </item>
     
@@ -392,15 +392,15 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
       <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
-      <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;#8220;Site Admin&amp;#8221;, &amp;#8220;Login&amp;#8221;, &amp;#8220;Entries RSS&amp;#8221;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;ldquo;Site Admin&amp;rdquo;, &amp;ldquo;Login&amp;rdquo;, &amp;ldquo;Entries RSS&amp;rdquo;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;#8217;s a slight security risk (though hiding it won&amp;#8217;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;#8217;re running WordPress).&lt;/p&gt;
+&lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;rsquo;s a slight security risk (though hiding it won&amp;rsquo;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;rsquo;re running WordPress).&lt;/p&gt;
 
-&lt;p&gt;There&amp;#8217;s a couple of options for hiding the Meta Widget:&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s a couple of options for hiding the Meta Widget:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;don&amp;#8217;t display it at all. Go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt;, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the &lt;strong&gt;/wp-login.php&lt;/strong&gt; page. For example if your blog is &lt;strong&gt;&lt;a href=&#34;http://myblog.info&#34;&gt;http://myblog.info&lt;/a&gt;&lt;/strong&gt;, go to &lt;strong&gt;&lt;a href=&#34;http://myblog.info/wp-login.php&#34;&gt;http://myblog.info/wp-login.php&lt;/a&gt;&lt;/strong&gt; to login&lt;/li&gt;
-&lt;li&gt;make it smaller and barely visible (the option I prefer). First of all, go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt; and move/add a Meta Widget to the &lt;strong&gt;Footer Counters&lt;/strong&gt; Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the &lt;strong&gt;wp-includes/default-widgets.php&lt;/strong&gt; file. Search for the line that contains &lt;strong&gt;wp_register&lt;/strong&gt; (about line 293), then delete the three lines that contain &amp;#8216;rss2_url&amp;#8217;, &amp;#8216;comments_rss2_url&amp;#8217;, and &amp;#8216;wordpress.org&amp;#8217;, and remove the bulleting from &amp;#8216;wp_loginout&amp;#8217;. The changes are easier to see with some before and after code:&lt;/li&gt;
+&lt;li&gt;don&amp;rsquo;t display it at all. Go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt;, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the &lt;strong&gt;/wp-login.php&lt;/strong&gt; page. For example if your blog is &lt;strong&gt;&lt;a href=&#34;http://myblog.info&#34;&gt;http://myblog.info&lt;/a&gt;&lt;/strong&gt;, go to &lt;strong&gt;&lt;a href=&#34;http://myblog.info/wp-login.php&#34;&gt;http://myblog.info/wp-login.php&lt;/a&gt;&lt;/strong&gt; to login&lt;/li&gt;
+&lt;li&gt;make it smaller and barely visible (the option I prefer). First of all, go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt; and move/add a Meta Widget to the &lt;strong&gt;Footer Counters&lt;/strong&gt; Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the &lt;strong&gt;wp-includes/default-widgets.php&lt;/strong&gt; file. Search for the line that contains &lt;strong&gt;wp_register&lt;/strong&gt; (about line 293), then delete the three lines that contain &amp;lsquo;rss2_url&amp;rsquo;, &amp;lsquo;comments_rss2_url&amp;rsquo;, and &amp;lsquo;wordpress.org&amp;rsquo;, and remove the bulleting from &amp;lsquo;wp_loginout&amp;rsquo;. The changes are easier to see with some before and after code:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Before:&lt;/strong&gt;&lt;/p&gt;
@@ -422,11 +422,11 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
 &amp;lt;?php wp_meta(); ?&amp;gt;
 &amp;lt;/ul&amp;gt;&lt;/pre&gt;
 
-&lt;p&gt;Now, you&amp;#8217;ll have a small Login link at the bottom right-hand corner of your blog!&lt;/p&gt;
+&lt;p&gt;Now, you&amp;rsquo;ll have a small Login link at the bottom right-hand corner of your blog!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Addendum&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &amp;#8220;Site Admin&amp;#8221; link when logged in (at the bottom right of the page). You can fix this by editing the &lt;strong&gt;wp-includes/general-template.php&lt;/strong&gt; file. At about line 319, &lt;strong&gt;change:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &amp;ldquo;Site Admin&amp;rdquo; link when logged in (at the bottom right of the page). You can fix this by editing the &lt;strong&gt;wp-includes/general-template.php&lt;/strong&gt; file. At about line 319, &lt;strong&gt;change:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;pre&gt;$link = $before . &#39;&amp;lt;a href=&#34;&#39; . admin_url()...&lt;/pre&gt;
 
@@ -442,7 +442,7 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
       <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
-      <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;#8217;t have a way of modifying it&amp;#8217;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
+      <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;rsquo;t have a way of modifying it&amp;rsquo;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
 
 &lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;
 
@@ -464,17 +464,17 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
       <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/01/17/migrating-from-palm-to-android/</guid>
-      <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;#8217;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;#8217;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;#8217;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
+      <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;rsquo;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;rsquo;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;rsquo;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
 
-&lt;p&gt;Some tricks and tools I&amp;#8217;ve find useful in my migration from Palm to Android:&lt;/p&gt;
+&lt;p&gt;Some tricks and tools I&amp;rsquo;ve find useful in my migration from Palm to Android:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.synthesis.ch/&#34;&gt;Synthesis SyncML clients&lt;/a&gt; are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.&lt;/li&gt;
-&lt;li&gt;for a SyncML server I&amp;#8217;m using &lt;a href=&#34;https://www.memotoo.com/&#34;&gt;Memotoo&lt;/a&gt;. I could&amp;#8217;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works&amp;#8230;&lt;/li&gt;
-&lt;li&gt;on the Android Market there&amp;#8217;s a &lt;a href=&#34;http://gnukeyring.sourceforge.net/&#34;&gt;Keyring&lt;/a&gt; client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&amp;#8217;m yet to work out how I&amp;#8217;m going to back this up, but probably something with Memotoo&lt;/li&gt;
+&lt;li&gt;for a SyncML server I&amp;rsquo;m using &lt;a href=&#34;https://www.memotoo.com/&#34;&gt;Memotoo&lt;/a&gt;. I could&amp;rsquo;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works.&lt;/li&gt;
+&lt;li&gt;on the Android Market there&amp;rsquo;s a &lt;a href=&#34;http://gnukeyring.sourceforge.net/&#34;&gt;Keyring&lt;/a&gt; client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&amp;rsquo;m yet to work out how I&amp;rsquo;m going to back this up, but probably something with Memotoo&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;So, I&amp;#8217;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the &lt;a href=&#34;http://www.jpilot.org/images/jpilot-address.png&#34;&gt;JPilot desktop&lt;/a&gt; (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&amp;#8217;m almost migrated!&lt;/p&gt;
+&lt;p&gt;So, I&amp;rsquo;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the &lt;a href=&#34;http://www.jpilot.org/images/jpilot-address.png&#34;&gt;JPilot desktop&lt;/a&gt; (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&amp;rsquo;m almost migrated!&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 </description>
@@ -486,7 +486,7 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
       <pubDate>Thu, 14 Jul 2011 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</guid>
-      <description>&lt;p&gt;A nice little script snippet I like to remember for automating quick stuff across multiple hosts. &lt;strong&gt;-t&lt;/strong&gt; forces tty (so sudo will work); &lt;strong&gt;-q&lt;/strong&gt; quiet &amp;#8211; disable banners; &lt;strong&gt;-c&lt;/strong&gt; script (&amp;#8220;command&amp;#8221;) to su. Presumes sudo doesn&amp;#8217;t prompt for a password; otherwise, see &lt;a href=&#34;http://www.nist.gov/el/msid/expect.cfm&#34;&gt;Expect&lt;/a&gt; and &lt;a href=&#34;http://oreilly.com/catalog/9781565920903&#34;&gt;Exploring Expect&lt;/a&gt; :-)&lt;/p&gt;
+      <description>&lt;p&gt;A nice little script snippet I like to remember for automating quick stuff across multiple hosts. &lt;strong&gt;-t&lt;/strong&gt; forces tty (so sudo will work); &lt;strong&gt;-q&lt;/strong&gt; quiet &amp;ndash; disable banners; &lt;strong&gt;-c&lt;/strong&gt; script (&amp;ldquo;command&amp;rdquo;) to su. Presumes sudo doesn&amp;rsquo;t prompt for a password; otherwise, see &lt;a href=&#34;http://www.nist.gov/el/msid/expect.cfm&#34;&gt;Expect&lt;/a&gt; and &lt;a href=&#34;http://oreilly.com/catalog/9781565920903&#34;&gt;Exploring Expect&lt;/a&gt; :-)&lt;/p&gt;
 
 &lt;pre&gt;for h in $hosts ; do
   echo -e &#34;nnhost: $hn------------------------------------&#34;
@@ -504,11 +504,11 @@ done&lt;/pre&gt;
       <description>&lt;p&gt;A nice &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2011/06/msg00014.html&#34;&gt;post&lt;/a&gt; from Jake on the SLUG list where he asks about a small clustering setup:&lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
-  I&amp;#8217;m setting up some new hardware for a client of mine. Basically 2 new &lt;a href=&#34;http://www.dell.com/au/business/p/poweredge-r210-2/pd&#34;&gt;Dell PowerEdge R210 IIs&lt;/a&gt; &amp;#8211; nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (&lt;a href=&#34;http://www.linux-kvm.org/page/Main_Page&#34;&gt;kvm&lt;/a&gt;) for a handfull of guests, file/domain server (&lt;a href=&#34;http://www.zentyal.org/&#34;&gt;ebox&lt;/a&gt;), PBX (&lt;a href=&#34;http://pbxinaflash.net/&#34;&gt;piaf&lt;/a&gt;), mail server web server, &amp;#8220;magic windows only application&amp;#8221; server etc. As the guests run everything in the ofice some kind of HA is needed.
+  I&#39;m setting up some new hardware for a client of mine. Basically 2 new &lt;a href=&#34;http://www.dell.com/au/business/p/poweredge-r210-2/pd&#34;&gt;Dell PowerEdge R210 IIs&lt;/a&gt; -- nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (&lt;a href=&#34;http://www.linux-kvm.org/page/Main_Page&#34;&gt;kvm&lt;/a&gt;) for a handfull of guests, file/domain server (&lt;a href=&#34;http://www.zentyal.org/&#34;&gt;ebox&lt;/a&gt;), PBX (&lt;a href=&#34;http://pbxinaflash.net/&#34;&gt;piaf&lt;/a&gt;), mail server web server, &#34;magic windows only application&#34; server etc. As the guests run everything in the ofice some kind of HA is needed.
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
-  I&amp;#8217;m thinking &lt;a href=&#34;http://code.google.com/p/ganeti/&#34;&gt;ganeti&lt;/a&gt; is the way to manage it all as it takes care of &lt;a href=&#34;http://www.drbd.org/&#34;&gt;DRBD&lt;/a&gt; and failover giving me a nice HA-ish setup without too much work.
+  I&#39;m thinking &lt;a href=&#34;http://code.google.com/p/ganeti/&#34;&gt;ganeti&lt;/a&gt; is the way to manage it all as it takes care of &lt;a href=&#34;http://www.drbd.org/&#34;&gt;DRBD&lt;/a&gt; and failover giving me a nice HA-ish setup without too much work.
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
@@ -516,7 +516,7 @@ done&lt;/pre&gt;
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
-  I&amp;#8217;m tossing up between, (all the below assume a small raid 1 partition for /, this is for the storage pool) RAID 1 with mdadm giving me 1 disk read speed but the ability to read 2 streams. RAID 1 with mdadm and fancyness giving me 2x read speed for a single stream, but normal behaviour for multiple streams and 1x write.
+  I&#39;m tossing up between, (all the below assume a small raid 1 partition for /, this is for the storage pool) RAID 1 with mdadm giving me 1 disk read speed but the ability to read 2 streams. RAID 1 with mdadm and fancyness giving me 2x read speed for a single stream, but normal behaviour for multiple streams and 1x write.
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
@@ -524,11 +524,11 @@ done&lt;/pre&gt;
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
-  no RAID, set up as 2 separate drives use DRBD to look after data and get &amp;#8220;more spindles&amp;#8221; into the mix (so say file server lives on one disk and mail server on another)
+  no RAID, set up as 2 separate drives use DRBD to look after data and get &#34;more spindles&#34; into the mix (so say file server lives on one disk and mail server on another)
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
-  What deb based distro should I use for my host (or present a *really* compelling argument for something else)? I would use ubuntu as i&amp;#8217;m most familiar with it but the recent debacle with unity has really hurt my confidence with them.
+  What deb based distro should I use for my host (or present a *really* compelling argument for something else)? I would use ubuntu as i&#39;m most familiar with it but the recent debacle with unity has really hurt my confidence with them.
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
@@ -544,7 +544,7 @@ done&lt;/pre&gt;
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left:30px;&#34;&gt;
-  I have my own answers to these questions, but I&amp;#8217;d really like to hear any advice from the crowd (its like &amp;#8220;the cloud&amp;#8221; but open source and P2P ;-&gt;)
+  I have my own answers to these questions, but I&#39;d really like to hear any advice from the crowd (its like &#34;the cloud&#34; but open source and P2P ;-&gt;)
 &lt;/p&gt;
 </description>
     </item>
@@ -555,7 +555,7 @@ done&lt;/pre&gt;
       <pubDate>Wed, 29 Jun 2011 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
-      <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;#8211; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;#8211; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
+      <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;ndash; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;ndash; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
 
 &lt;p style=&#34;padding-left: 30px;&#34;&gt;
   &gt;&gt; Time vs Date vs DateTime vs TZInfo (vs ActiveSupport::TimeZone). Which&lt;br /&gt; &gt;&gt; do I use and when?
@@ -566,7 +566,7 @@ done&lt;/pre&gt;
 &lt;/p&gt;
 
 &lt;p style=&#34;padding-left: 30px;&#34;&gt;
-  Time has timezone capabilities built in. TZInfo has a different set of&lt;br /&gt; timezone capabilities and operates with Time objects, but seems to&lt;br /&gt; ignore their built-in timezone settings. I&amp;#8217;m still not sure why.
+  Time has timezone capabilities built in. TZInfo has a different set of&lt;br /&gt; timezone capabilities and operates with Time objects, but seems to&lt;br /&gt; ignore their built-in timezone settings. I&#39;m still not sure why.
 &lt;/p&gt;
 </description>
     </item>
@@ -577,11 +577,11 @@ done&lt;/pre&gt;
       <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
-      <description>&lt;p&gt;iTunes&amp;#8217; syncing of movies and podcasts is a big lame &amp;#8211; there&amp;#8217;s not enough fine grained control.&lt;/p&gt;
+      <description>&lt;p&gt;iTunes&amp;rsquo; syncing of movies and podcasts is a big lame &amp;ndash; there&amp;rsquo;s not enough fine grained control.&lt;/p&gt;
 
-&lt;p&gt;For example, you can&amp;#8217;t say &amp;#8220;sync only this category of movies&amp;#8221;, or &amp;#8220;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;#8217;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;#8220;. And at the moment I don&amp;#8217;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;#8217;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
+&lt;p&gt;For example, you can&amp;rsquo;t say &amp;ldquo;sync only this category of movies&amp;rdquo;, or &amp;ldquo;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;rsquo;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;rdquo;. And at the moment I don&amp;rsquo;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;rsquo;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
 
-&lt;p&gt;One work around I&amp;#8217;ve found is to categorise as much media as possible as either &amp;#8220;Music&amp;#8221; or &amp;#8220;Music Videos&amp;#8221;. You can then work with playlists and &amp;#8220;smart&amp;#8221; (sic) playlists to get a bit more control.&lt;/p&gt;
+&lt;p&gt;One work around I&amp;rsquo;ve found is to categorise as much media as possible as either &amp;ldquo;Music&amp;rdquo; or &amp;ldquo;Music Videos&amp;rdquo;. You can then work with playlists and &amp;ldquo;smart&amp;rdquo; (sic) playlists to get a bit more control.&lt;/p&gt;
 </description>
     </item>
     

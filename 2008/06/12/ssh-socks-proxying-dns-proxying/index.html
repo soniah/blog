@@ -88,15 +88,15 @@
       <h1 class="post-title">Ssh SOCKS proxying, DNS proxying, Tunnelling</h1>
         <section id="main">
           <h5 id="date"> 12 Jun 2008 </h5>
-          <p><a href="http://puzzling.org/">Mary Gardiner</a> <a href="http://lists.slug.org.au/archives/slug/2008/06/msg00135.html">answered</a> one of Voytek Eymont&#8217;s questions on the <a href="http://lists.slug.org.au/listinfo/slug">SLUG list</a> by referring to the <a href="http://ubuntu.wordpress.com/2006/12/08/ssh-tunnel-socks-proxy-forwarding-secure-browsing/">ssh socks proxying</a> post on Ubuntu Blog.</p>
+          <p><a href="http://puzzling.org/">Mary Gardiner</a> <a href="http://lists.slug.org.au/archives/slug/2008/06/msg00135.html">answered</a> one of Voytek Eymont&rsquo;s questions on the <a href="http://lists.slug.org.au/listinfo/slug">SLUG list</a> by referring to the <a href="http://ubuntu.wordpress.com/2006/12/08/ssh-tunnel-socks-proxy-forwarding-secure-browsing/">ssh socks proxying</a> post on Ubuntu Blog.</p>
 
 <p>I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes:</p>
 
 <ul>
-<li>setup via <code>$ssh -D 9999 username@ip-address-of-ssh-server</code>, configure web browser **socks 5 host **(not http proxy) to localhost:9999 (On Firefox: Preferences, Advanced, Network, Settings, Manual, SOCKS Host. <a href="http://foxyproxy.mozdev.org/">FoxyProxy</a> really helps with this &#8211; you can setup wildcards to send certain URLs via certain proxies eg for when connecting via a VPN to work)</li>
-<li>http proxying can be setup at the command line (for use by wget, apt, etc) with the <strong>http_proxy</strong> environment variable. For example <em>export http_proxy=&#8217;<a href="http://user:password@1.2.3.4:3128/'">http://user:password@1.2.3.4:3128/'</a>; cmd1; cmd2; export http_proxy=&#8221;</em></li>
-<li>configure apt to use a proxy via <strong>/etc/apt/apt.conf</strong> by using <strong>Acquire::http::Proxy &#8220;<a href="http://username:password@proxyserver:port/&amp;#8221;">http://username:password@proxyserver:port/&amp;#8221;</a>;</strong> See <a href="http://blogs.oracle.com/avinashjoshi/entry/using_apt_get_behind_a">Using apt-get behind a proxy</a>.</li>
-<li>there&#8217;s also <a href="http://www.mtu.net/~engstrom/ssh-proxy.php">corkscrew</a> (preferred), connect.c, and <a href="http://proxychains.sourceforge.net/">proxychains</a> to secure other traffic or setup tunnels automagically in ~/.ssh/config. For example:</li>
+<li>setup via <code>$ssh -D 9999 username@ip-address-of-ssh-server</code>, configure web browser **socks 5 host **(not http proxy) to localhost:9999 (On Firefox: Preferences, Advanced, Network, Settings, Manual, SOCKS Host. <a href="http://foxyproxy.mozdev.org/">FoxyProxy</a> really helps with this &ndash; you can setup wildcards to send certain URLs via certain proxies eg for when connecting via a VPN to work)</li>
+<li>http proxying can be setup at the command line (for use by wget, apt, etc) with the <strong>http_proxy</strong> environment variable. For example <em>export http_proxy=&lsquo;<a href="http://user:password@1.2.3.4:3128/'">http://user:password@1.2.3.4:3128/'</a>; cmd1; cmd2; export http_proxy=&rdquo;</em></li>
+<li>configure apt to use a proxy via <strong>/etc/apt/apt.conf</strong> by using <strong>Acquire::http::Proxy &ldquo;<a href="http://username:password@proxyserver:port/&quot;">http://username:password@proxyserver:port/&quot;</a>;</strong> See <a href="http://blogs.oracle.com/avinashjoshi/entry/using_apt_get_behind_a">Using apt-get behind a proxy</a>.</li>
+<li>there&rsquo;s also <a href="http://www.mtu.net/~engstrom/ssh-proxy.php">corkscrew</a> (preferred), connect.c, and <a href="http://proxychains.sourceforge.net/">proxychains</a> to secure other traffic or setup tunnels automagically in ~/.ssh/config. For example:</li>
 </ul>
 
 <pre>% sudo aptitude install corkscrew
@@ -111,11 +111,11 @@ Host foo.bar.com
 username:password</pre>
 
 <ul>
-<li><a href="http://sshmenu.sourceforge.net/articles/transparent-mulithop.html">Transparent Multi-hop SSH</a> &#8211; using ProxyCommand and netcat to automate double ssh hops (also, my <a href="http://www.mail-archive.com/slug@slug.org.au/msg62991.html">SLUG question</a>)</li>
-<li>non socks-ifiable programs can use socks via <a href="http://tsocks.sourceforge.net/">tsocks</a>. This is really handy for getting <strong>apt</strong> to work &#8211; remember ssh is acting as a <em>socks</em> proxy and not as an <em>http</em> proxy. For example *sudo tsocks aptitude install foo<br />
+<li><a href="http://sshmenu.sourceforge.net/articles/transparent-mulithop.html">Transparent Multi-hop SSH</a> &ndash; using ProxyCommand and netcat to automate double ssh hops (also, my <a href="http://www.mail-archive.com/slug@slug.org.au/msg62991.html">SLUG question</a>)</li>
+<li>non socks-ifiable programs can use socks via <a href="http://tsocks.sourceforge.net/">tsocks</a>. This is really handy for getting <strong>apt</strong> to work &ndash; remember ssh is acting as a <em>socks</em> proxy and not as an <em>http</em> proxy. For example *sudo tsocks aptitude install foo<br />
 *</li>
 <li>lots of good tunnelling ideas on the <a href="https://trac.torproject.org/projects/tor/wiki/TheOnionRouter/TorifyHOWTO/Misc">Tor Wiki HOWTO</a> and <a href="http://fooninja.net/2010/09/06/how-to-tunnel-everything-through-ssh/">How to tunnel everything through ssh</a></li>
-<li>also secure your dns traffic by setting <strong>network.proxy.socks_remote_dns = true</strong> in Firefox&#8217;s about:config</li>
+<li>also secure your dns traffic by setting <strong>network.proxy.socks_remote_dns = true</strong> in Firefox&rsquo;s about:config</li>
 <li><a href="http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/">cvs + socks</a> using connect.c (similar to my post on <a href="http://blog.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/">svn over an ssh tunnel</a>)</li>
 <li>another similar article <a href="http://www.linux.com/articles/56945">Secure your Wi-Fi traffic using FOSS utilities</a></li>
 </ul>
@@ -125,7 +125,7 @@ username:password</pre>
 <ul>
 <li>the <a href="http://getfoxyproxy.org/">FoxyProxy website</a> has some good tutorials, and links to other material</li>
 <li>Linux Magazine has an article called <a href="http://www.linux-mag.com/id/2062/">Tunnelling Data</a></li>
-<li>PaulDotCom &#8211; <a href="http://pauldotcom.com/2010/03/ssh-gymnastics-with-proxychain.html">SSH gymnastics with proxychains</a></li>
+<li>PaulDotCom &ndash; <a href="http://pauldotcom.com/2010/03/ssh-gymnastics-with-proxychain.html">SSH gymnastics with proxychains</a></li>
 </ul>
 
 <div id="_mcePaste" class="mcePaste" style="position:absolute;left:-10000px;top:0;width:1px;height:1px;overflow:hidden;">
@@ -151,7 +151,7 @@ username:password</pre>
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/"> &nbsp; mysql, localhost, and ssh work-around</a> &raquo;
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/"> &nbsp; Connect to mysql from OpenOffice using ODBC</a> &raquo;
     </span>
   
   <br />

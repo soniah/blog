@@ -91,8 +91,8 @@
           <p>A <a href="http://www.pythian.com/blogs/245/the-mysterious-world-of-shmmax-and-shmall">good article</a> on Oracle and shmmax and shmall. In a nutshell:</p>
 
 <ul>
-<li><strong>shmall</strong> it is not the maximum amount of memory which can be allocated, it is the maximum size of any shared memory chunk &#8211; how big a bite you want per bite from free memory.</li>
-<li><strong>shmmax</strong> &#8211; its value determines the maximum amount of memory that ALL shared memory can take. the actual setting is derived… the maximum amount of memory = shmall * pagesize where pagesize = getconf PAGE_SIZE and shmall = cat /proc/sys/kernel/shmall</li>
+<li><strong>shmall</strong> it is not the maximum amount of memory which can be allocated, it is the maximum size of any shared memory chunk &ndash; how big a bite you want per bite from free memory.</li>
+<li><strong>shmmax</strong> &ndash; its value determines the maximum amount of memory that ALL shared memory can take. the actual setting is derived… the maximum amount of memory = shmall * pagesize where pagesize = getconf PAGE_SIZE and shmall = cat /proc/sys/kernel/shmall</li>
 </ul>
 
         </section>

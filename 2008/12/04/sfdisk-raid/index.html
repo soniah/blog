@@ -88,20 +88,20 @@
       <h1 class="post-title">sfdisk, RAID</h1>
         <section id="main">
           <h5 id="date"> 4 Dec 2008 </h5>
-          <p>A useful tool I came across last night (thanks Rodrigo) &#8211; <strong>sfdisk</strong> &#8211; &#8220;Partition table manipulator for Linux&#8221;.</p>
+          <p>A useful tool I came across last night (thanks Rodrigo) &ndash; <strong>sfdisk</strong> &ndash; &ldquo;Partition table manipulator for Linux&rdquo;.</p>
 
 <p>Good for copying partition tables when replacing a failed hard disk in a (md Linux Software Raid) RAID. For example, to copy the partition table from sdb to sda:</p>
 
 <pre>sfdisk –d /dev/sdb | sed –e s/sdb/sda/ |  sfdisk /dev/sda</pre>
 
-<p>Of course you&#8217;d also be doing the usual **mdadm &#8211;fail, &#8211;remove, physically swap disk, &#8211;add, cat /proc/mdstat, &#8211;detail, **and installing grub on the new hard drive:</p>
+<p>Of course you&rsquo;d also be doing the usual **mdadm &ndash;fail, &ndash;remove, physically swap disk, &ndash;add, cat /proc/mdstat, &ndash;detail, **and installing grub on the new hard drive:</p>
 
 <pre>grub&gt; device (hd0)  /dev/sdb
 grub&gt; root (hd0,0)
 grub&gt; setup (hd0)
 grub&gt; quit</pre>
 
-<p>(Unmercifully plagiarised from Rodrigo&#8217;s notes).</p>
+<p>(Unmercifully plagiarised from Rodrigo&rsquo;s notes).</p>
 
         </section>
 

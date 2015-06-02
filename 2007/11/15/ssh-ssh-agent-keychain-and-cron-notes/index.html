@@ -93,13 +93,13 @@
 <p>To setup <strong>ssh</strong> and <strong>keychain</strong> to allow ssh related jobs to run from cron:</p>
 
 <ul>
-<li>generate keys <em>with a password</em> (<strong>ssh-keygen -t dsa</strong>) and install keychain. Do only on <em>secure machines</em> ie ones that only you (or a small number of trusted admins) can logon to as root &#8211; typically your laptop/desktop and a secure admin server</li>
+<li>generate keys <em>with a password</em> (<strong>ssh-keygen -t dsa</strong>) and install keychain. Do only on <em>secure machines</em> ie ones that only you (or a small number of trusted admins) can logon to as root &ndash; typically your laptop/desktop and a secure admin server</li>
 <li>add the following lines to your <strong>~/.profile</strong>:</li>
 </ul>
 
 <blockquote>
 <ul>
-<li>some sites say <strong>.bash_profile</strong>, but I use .profile as I use both bash and zsh (don&#8217;t have both as then only .bash_profile will be read)</li>
+<li>some sites say <strong>.bash_profile</strong>, but I use .profile as I use both bash and zsh (don&rsquo;t have both as then only .bash_profile will be read)</li>
 <li>I check keychain is executable with -x as I have the same .profile on all machines (synced via a script)</li>
 <li>I use rsa keys as I work with older ssh1 machines; dsa keys are preferable.</li>
 </ul>
@@ -112,7 +112,7 @@
 <code>fi</code></p>
 
 <ul>
-<li><p>on machines where others are able to login as root (and hence possibly piggyback onto your private key), keychain should be started with &#8211;clear in .profile and ssh-agent shouldn&#8217;t be run. Use &#8211;nocolor on non-VT100 compat terminals</p></li>
+<li><p>on machines where others are able to login as root (and hence possibly piggyback onto your private key), keychain should be started with &ndash;clear in .profile and ssh-agent shouldn&rsquo;t be run. Use &ndash;nocolor on non-VT100 compat terminals</p></li>
 
 <li><p>unless <strong>~/.hushlogin</strong> exists, keychain will display a colourful message showing known keys being loaded on login:</p></li>
 </ul>
@@ -122,7 +122,7 @@
 <code>* Known ssh key: /home/shamilton/.ssh/id_rsa</code></p>
 
 <ul>
-<li>any ssh-using scripts started from crontab on keychain&#8217;d machines should include the following lines at the start:</li>
+<li>any ssh-using scripts started from crontab on keychain&rsquo;d machines should include the following lines at the start:</li>
 </ul>
 
 <p><code>source $HOME/.keychain/${HOSTNAME}-sh</code></p>
@@ -134,7 +134,7 @@
 <li>ssh-add</li>
 </ul>
 
-<p>[Off Topic] When ssh&#8217;ing between multiple machines, <strong>ForwardAgent Yes</strong> must be set in <strong>/etc/ssh/ssh_config</strong>. Otherwise add to <strong>~/.ssh/config</strong> or startup ssh as <strong>ssh -A</strong>.</p>
+<p>[Off Topic] When ssh&rsquo;ing between multiple machines, <strong>ForwardAgent Yes</strong> must be set in <strong>/etc/ssh/ssh_config</strong>. Otherwise add to <strong>~/.ssh/config</strong> or startup ssh as <strong>ssh -A</strong>.</p>
 
 <p><strong>See also:</strong></p>
 
@@ -144,8 +144,8 @@
 <li>oceanpark on <a href="http://oceanpark.com/notes/howto_ssh_keychain_public_key_authentication_forwarding.html">passwordless connections</a></li>
 <li>reflux on <a href="http://rephlux.sourceforge.net/running.rephlux.php">notes on keychain</a></li>
 <li>my <a href="http://blog.snowfrog.net/2007/10/29/ssh-notes/">ssh-notes</a> on tunnelling</li>
-<li>Troy Johnson&#8217;s notes on <a href="http://troy.jdmz.net/rsync/index.html">Using RSync and SSH: Keys, Validating and Automation</a></li>
-<li>sshpass &#8211; <a href="http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">rsync + ssh keys</a></li>
+<li>Troy Johnson&rsquo;s notes on <a href="http://troy.jdmz.net/rsync/index.html">Using RSync and SSH: Keys, Validating and Automation</a></li>
+<li>sshpass &ndash; <a href="http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/">rsync + ssh keys</a></li>
 </ul>
 
         </section>

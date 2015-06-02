@@ -91,28 +91,28 @@
           <p>Some guidelines for understanding MySQL security:</p>
 
 <ul>
-<li>security tables have a dual primary key of <em>username + host</em> &#8211; ie if there are two entries, <strong>fred@localhost</strong> and <strong>fred@%</strong>, *they are different users to mysql<br />
+<li>security tables have a dual primary key of <em>username + host</em> &ndash; ie if there are two entries, <strong>fred@localhost</strong> and <strong>fred@%</strong>, *they are different users to mysql<br />
 *</li>
 <li>more specific entries are considered before less specific entries ie <strong>localhost</strong> before <strong>%.fubar.com</strong> before <strong>%</strong>, <strong>fred</strong> before <strong>[blank]</strong>. A % host entry is considered last, as is a blank username</li>
-<li>host entries are considered before username entries. If there&#8217;s a tie eg <strong>[blank]@localhost</strong> versus <strong>fred@%</strong>, the hostname entry wins ie <strong>[blank]@localhost</strong> wins over <strong>fred@%</strong>. This is a <strong><em>Big Gotcha!!</em></strong> (especially since MySQL creates a [blank]@localhost entry by default) Solution: delete all entries except root@localhost (or root@%), then only have one entry per user.</li>
+<li>host entries are considered before username entries. If there&rsquo;s a tie eg <strong>[blank]@localhost</strong> versus <strong>fred@%</strong>, the hostname entry wins ie <strong>[blank]@localhost</strong> wins over <strong>fred@%</strong>. This is a <strong><em>Big Gotcha!!</em></strong> (especially since MySQL creates a [blank]@localhost entry by default) Solution: delete all entries except root@localhost (or root@%), then only have one entry per user.</li>
 </ul>
 
 <p>Tables:</p>
 
 <ul>
-<li><strong>mysql.</strong><strong>user:</strong> controls userids and global permisions &#8211; consulted during initial user connection. A permission (such as select) granted here is global and applies to all databases</li>
-<li><strong>mysql.db:</strong> controls access to individual databases. This table has a triple primary key consisting of host, db, user. If MySQL doesn&#8217;t find an exact match on host/db/user but <em>does</em> find a match on %/db/user, it looks in the <strong>host</strong> table for a match</li>
-<li><strong>mysql.host:</strong> essentially an extension of the db table &#8211; when a host/db entry matches in both tables, the entries must both be positive. In effect this allows you to grant a privilege to most users but deny them from a specific host</li>
+<li><strong>mysql.</strong><strong>user:</strong> controls userids and global permisions &ndash; consulted during initial user connection. A permission (such as select) granted here is global and applies to all databases</li>
+<li><strong>mysql.db:</strong> controls access to individual databases. This table has a triple primary key consisting of host, db, user. If MySQL doesn&rsquo;t find an exact match on host/db/user but <em>does</em> find a match on %/db/user, it looks in the <strong>host</strong> table for a match</li>
+<li><strong>mysql.host:</strong> essentially an extension of the db table &ndash; when a host/db entry matches in both tables, the entries must both be positive. In effect this allows you to grant a privilege to most users but deny them from a specific host</li>
 </ul>
 
 <p>Statements:</p>
 
 <ul>
-<li>GRANT/REVOKE privilege ON table1, &#8230; TO user [IDENTIFIED BY &#8216;password&#8217;] [WITH GRANT OPTION]; FLUSH PRIVILEGES;</li>
+<li>GRANT/REVOKE privilege ON table1, . TO user [IDENTIFIED BY &lsquo;password&rsquo;] [WITH GRANT OPTION]; FLUSH PRIVILEGES;</li>
 <li>privilege can be ALL, or things like SELECT, DELETE, etc</li>
 <li>table can be * (all tables in the current database) or *.* all tables all databases</li>
 <li>user means all users with that name, or you can specify a specific host with user@host</li>
-<li>SET PASSWORD FOR &#8216;fred&#8217;@&#8217;localhost&#8217; = PASSWORD(&#8216;secret&#8217;);</li>
+<li>SET PASSWORD FOR &lsquo;fred&rsquo;@&lsquo;localhost&rsquo; = PASSWORD(&lsquo;secret&rsquo;);</li>
 </ul>
 
         </section>

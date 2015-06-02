@@ -88,21 +88,21 @@
       <h1 class="post-title">HowTo setup NoMachineNX on Ubuntu</h1>
         <section id="main">
           <h5 id="date"> 30 Jan 2008 </h5>
-          <p>The instructions given by NoMachine for setting up on Linux are a bit thin; here&#8217;s my own version:</p>
+          <p>The instructions given by NoMachine for setting up on Linux are a bit thin; here&rsquo;s my own version:</p>
 
 <ul>
 <li>check not installed already, remove if desired</li>
 </ul>
 
-<p>dpkg &#8211;list | grep NX<br />
-sudo dpkg &#8211;purge nxclient nxnode nxserver<br />
+<p>dpkg &ndash;list | grep NX<br />
+sudo dpkg &ndash;purge nxclient nxnode nxserver<br />
 sudo rm -rf /usr/NX</p>
 
 <ul>
 <li>for the user being used to install, check/fix .ssh perms</li>
 </ul>
 
-<p>su &#8211;<br />
+<p>su &ndash;<br />
 cd /root<br />
 chown -R root. .ssh<br />
 chmod 700 .ssh</p>
@@ -112,21 +112,21 @@ chmod 700 .ssh</p>
 </ul>
 
 <p>wget -b http://../nxclient.deb http://../nxnode.deb http://../nxserver.deb<br />
-dpkg &#8211;install nx*deb</p>
+dpkg &ndash;install nx*deb</p>
 
 <ul>
 <li>on client and server, add aliases to /root/.bashrc and ~sonia/.bashrc</li>
 </ul>
 
-<p>alias nxserver=&#8217;/usr/NX/scripts/setup/nxserver&#8217;<br />
-alias nxsetup=&#8217;/usr/NX/bin/nxsetup&#8217;<br />
+<p>alias nxserver=&lsquo;/usr/NX/scripts/setup/nxserver&rsquo;<br />
+alias nxsetup=&lsquo;/usr/NX/bin/nxsetup&rsquo;<br />
 source ~/.bashrc</p>
 
 <ul>
 <li>generate new keys on the server and check permissions</li>
 </ul>
 
-<p>/usr/NX/scripts/setup/nxserver &#8211;keygen<br />
+<p>/usr/NX/scripts/setup/nxserver &ndash;keygen<br />
 cd /usr/NX/share/keys<br />
 chown nx:root * ; chmod 644 *<br />
 cd ~nx/.ssh<br />

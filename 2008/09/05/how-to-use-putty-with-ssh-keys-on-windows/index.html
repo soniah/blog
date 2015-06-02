@@ -90,9 +90,9 @@
           <h5 id="date"> 5 Sep 2008 </h5>
           <p><a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a> is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like <a href="http://monkey.org/~dugsong/dsniff/">dsniff</a>).</p>
 
-<p>Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&#8217;ve only ever used Windows).</p>
+<p>Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&rsquo;ve only ever used Windows).</p>
 
-<p>So here&#8217;s how you do it using putty&#8230;</p>
+<p>So here&rsquo;s how you do it using putty.</p>
 
 <ul>
 <li>download putty.exe, pscp.exe, pageant.exe, and puttygen.exe from <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">chiark.greenend.org.uk</a>, and put them into an easily accessible folder (eg My Documents\putty, or c:\putty if you want to use putty from the command line)</li>
@@ -111,7 +111,7 @@
 <li>put a good password on your key in the <strong>Key Passphrase **field (and repeat in the **confirm</strong> field)</li>
 <li>click <strong>Save Public Key</strong>, save to putty folder; call the file firstname.lastname</li>
 <li>click <strong>Save Private Key</strong>, save to putty folder; call the file firstname.lastname (.ppk extension will be added)</li>
-<li>your Linux sysadmin will have asked you to provide them with <strong>your public key</strong>, and this is where problems come up. Putty uses a different key format than OpenSSH, so don&#8217;t send the public key file from the putty folder. Instead, paste into an email the field called <strong>Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you&#8217;ve accidently sent the putty format file, you can re-run puttygen.exe, click the **Load</strong> button to load your existing private key, and then copy and paste the OpenSSH format into an email.</li>
+<li>your Linux sysadmin will have asked you to provide them with <strong>your public key</strong>, and this is where problems come up. Putty uses a different key format than OpenSSH, so don&rsquo;t send the public key file from the putty folder. Instead, paste into an email the field called <strong>Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you&rsquo;ve accidently sent the putty format file, you can re-run puttygen.exe, click the **Load</strong> button to load your existing private key, and then copy and paste the OpenSSH format into an email.</li>
 </ul></li>
 </ul>
 
@@ -122,42 +122,42 @@
 <ul>
 <li>run <strong>puttygen.exe</strong>, and load your key by clicking the <strong>Load</strong> button and browsing to your private key (the file without the .ppk extension). You will be prompted for your old password when loading the key</li>
 <li>put in a new password in the two passphrase fields</li>
-<li>click on <strong>Save private key</strong> &#8211; save it on top of your existing private key</li>
+<li>click on <strong>Save private key</strong> &ndash; save it on top of your existing private key</li>
 </ul>
 
 <p><strong>Using Your SSH Key:</strong></p>
 
 <ul>
-<li>if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &#8216;load your key&#8217;</li>
-<li>once your sysadmin has setup your account, there&#8217;s three ways you can use your key
+<li>if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &lsquo;load your key&rsquo;</li>
+<li>once your sysadmin has setup your account, there&rsquo;s three ways you can use your key
 
 <ul>
 <li>the <strong>painful</strong> way. Run putty.exe, enter the hostname/ip, put your username in <strong>Connection, Data</strong>,** Auto-login username<strong>, load your key in **Connection, SSH, Auth</strong>, <strong>Private key file for authentication</strong>, then click <strong>Open</strong> to connect</li>
-<li>the <strong>better</strong> way &#8211; caching your key in memory. Run pageant.exe &#8211; you&#8217;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). <a href="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png"><img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" /></a> Right click on this icon, choose <strong>Add Key</strong>, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the <strong>Saved Sessions</strong> field, put your username in <strong>Connection, Data</strong>,** Auto-login username<strong>, then click the **Save</strong> button. You can then right click on the pageant icon, <strong>Saved Sessions</strong>, choose your saved session, and rapidly login to your target system</li>
-<li>the <strong>best</strong> way &#8211; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)</li>
+<li>the <strong>better</strong> way &ndash; caching your key in memory. Run pageant.exe &ndash; you&rsquo;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). <a href="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png"><img class="alignnone size-full wp-image-164" title="pageant" src="http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" /></a> Right click on this icon, choose <strong>Add Key</strong>, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the <strong>Saved Sessions</strong> field, put your username in <strong>Connection, Data</strong>,** Auto-login username<strong>, then click the **Save</strong> button. You can then right click on the pageant icon, <strong>Saved Sessions</strong>, choose your saved session, and rapidly login to your target system</li>
+<li>the <strong>best</strong> way &ndash; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)</li>
 </ul></li>
 </ul>
 
 <p><strong>Troubleshooting</strong></p>
 
-<p>From experience, I&#8217;ve found most problems connecting with ssh servers come from network/firewall settings:</p>
+<p>From experience, I&rsquo;ve found most problems connecting with ssh servers come from network/firewall settings:</p>
 
 <ul>
-<li>check basic connectivity using the ping command &#8211; Start, Run, cmd, ping 1.2.3.4</li>
+<li>check basic connectivity using the ping command &ndash; Start, Run, cmd, ping 1.2.3.4</li>
 
-<li><p>check a firewall isn&#8217;t blocking port 22 (ssh) by trying to telnet on port 22 &#8211; Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
+<li><p>check a firewall isn&rsquo;t blocking port 22 (ssh) by trying to telnet on port 22 &ndash; Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
 <pre>telnet 1.2.3.4 22
 Trying 1.2.3.4&hellip;
 Connected to foo.bar.com.au.
 Escape character is &lsquo;^]&rsquo;.
 SSH-1.99-OpenSSH_3.9p1</pre></p></li>
 
-<li><p>if using *nix, use <strong>ssh -vvv</strong> to get more verbose output &#8211; often you can see why the key exchange is failing</p></li>
+<li><p>if using *nix, use <strong>ssh -vvv</strong> to get more verbose output &ndash; often you can see why the key exchange is failing</p></li>
 </ul>
 
-<p><strong>Next steps&#8230;</strong></p>
+<p><strong>Next steps.</strong></p>
 
-<p>After using putty on Windows for a while, you may want to investigate <a href="http://www.cygwin.com/">Cygwin</a> &#8211; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> with ssh is handy &#8211; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my <a href="http://blog.snowfrog.net/tag/ssh/">other posts on ssh tools</a>.</p>
+<p>After using putty on Windows for a while, you may want to investigate <a href="http://www.cygwin.com/">Cygwin</a> &ndash; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> with ssh is handy &ndash; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my <a href="http://blog.snowfrog.net/tag/ssh/">other posts on ssh tools</a>.</p>
 
         </section>
 

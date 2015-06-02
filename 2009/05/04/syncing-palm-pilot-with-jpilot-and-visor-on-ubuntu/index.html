@@ -90,9 +90,9 @@
           <h5 id="date"> 4 May 2009 </h5>
           
 
-<p>(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&#8217;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.</p>
+<p>(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&rsquo;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.</p>
 
-<p>Turns out I wasn&#8217;t reading my own instructions&#8230; here&#8217;s the cleaned up version:</p>
+<p>Turns out I wasn&rsquo;t reading my own instructions. here&rsquo;s the cleaned up version:</p>
 
 <ul>
 <li>load visor module <strong>sudo modprobe visor</strong> and check loaded <strong>lsmod | grep visor</strong></li>
@@ -104,18 +104,18 @@
 <li>in a second terminal, check the ownership of links <strong>ls -al /dev/ttyUSB</strong>* and check you are a member of the appropriate group (usually dialout) <strong>grep dialout /etc/group</strong></li>
 </ul></li>
 <li><strong>sudo aptitude install jpilot</strong> and start JPilot</li>
-<li><em>read this step carefully:</em> no need to change the Serial Port setting in Preferences &#8211; JPilot will pick up the correct one on the first sync (which is now unexpectedly <em>Other</em> rather than <em>/dev/ttyUSBO</em> or <em>usb:</em>)</li>
+<li><em>read this step carefully:</em> no need to change the Serial Port setting in Preferences &ndash; JPilot will pick up the correct one on the first sync (which is now unexpectedly <em>Other</em> rather than <em>/dev/ttyUSBO</em> or <em>usb:</em>)</li>
 <li><em>read this step carefully:</em> from jpilot <strong>File &gt; Install User</strong>, click sync button on Palm Pilot, count to 5, then click <strong>Install User</strong> button in JPilot dialog box</li>
 <li>click sync button on Palm Pilot, count to 5, then click <strong>Sync</strong> in JPilot</li>
-<li>if syncing isn&#8217;t working (especially on a machine that&#8217;s been upgraded from an older version of Ubuntu), try closing JPilot, <strong>mv .jpilot .jpilot.bak</strong>, restarting JPilot, then doing the <strong>Install User</strong> steps again</li>
+<li>if syncing isn&rsquo;t working (especially on a machine that&rsquo;s been upgraded from an older version of Ubuntu), try closing JPilot, <strong>mv .jpilot .jpilot.bak</strong>, restarting JPilot, then doing the <strong>Install User</strong> steps again</li>
 </ul>
 
 <h3 id="span-style-text-decoration-underline-see-also-span:30acd8bf1d7677c6c7fe94558b2bfaa7"><span style="text-decoration: underline;">See also:</span></h3>
 
 <ul>
 <li>(totally off-topic): <a href="http://www.computechgroup.com/?p=381">HOWTO: Import iCalendar (ics) Appointments Into JPilot</a></li>
-<li>some pages mention installing pilot-link &#8211; this isn&#8217;t required</li>
-<li>some pages mention modifying files in<strong>/etc/udev/rules.d</strong> &#8211; this no longer seems required</li>
+<li>some pages mention installing pilot-link &ndash; this isn&rsquo;t required</li>
+<li>some pages mention modifying files in<strong>/etc/udev/rules.d</strong> &ndash; this no longer seems required</li>
 </ul>
 
 <p><a href="http://www.linuxquestions.org/questions/showthread.php?t=79965">http://www.linuxquestions.org/questions/showthread.php?t=79965</a></p>
@@ -136,11 +136,11 @@
 
 <p><a href="http://pilot-link.org/README.usb">http://pilot-link.org/README.usb</a></p>
 
-<p><a href="http://www.clasohm.com/blog/one-entry?entry%5fid=12096">Carsten Clasohm&#8217;s Blog : USB Palm and Fedora Core 3</a></p>
+<p><a href="http://www.clasohm.com/blog/one-entry?entry%5fid=12096">Carsten Clasohm&rsquo;s Blog : USB Palm and Fedora Core 3</a></p>
 
 <p><a href="http://www.reactivated.net/writing_udev_rules.html">Writing udev rules by Daniel Drake</a></p>
 
-<p><a href="http://www.linux-mag.com/id/2617">Linux Magazine &#8211; The Linux Device Model</a></p>
+<p><a href="http://www.linux-mag.com/id/2617">Linux Magazine &ndash; The Linux Device Model</a></p>
 
         </section>
 

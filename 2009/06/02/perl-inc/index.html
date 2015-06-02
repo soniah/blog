@@ -88,20 +88,20 @@
       <h1 class="post-title">Perl – @INC</h1>
         <section id="main">
           <h5 id="date"> 1 Jun 2009 </h5>
-          <p><strong>@INC</strong> &#8211; like $PATH for <strong>do</strong>, <strong>require</strong>, <strong>use</strong></p>
+          <p><strong>@INC</strong> &ndash; like $PATH for <strong>do</strong>, <strong>require</strong>, <strong>use</strong></p>
 
 <p>Display existing @INC:</p>
 
 <ul>
 <li>perl -V | tail</li>
-<li>perl -le &#8216;print for @INC&#8217;</li>
+<li>perl -le &lsquo;print for @INC&rsquo;</li>
 </ul>
 
 <p>Modify @INC:</p>
 
 <ul>
-<li>in a script: unshift <strong>@INC</strong>, &#8220;/home/sonia/lib/perl&#8221;</li>
-<li>better: <a href="http://perldoc.perl.org/lib.html"><strong>use lib</strong></a> &#8216;/home/sonia/lib/perl/&lsquo;;</li>
+<li>in a script: unshift <strong>@INC</strong>, &ldquo;/home/sonia/lib/perl&rdquo;</li>
+<li>better: <a href="http://perldoc.perl.org/lib.html"><strong>use lib</strong></a> &lsquo;/home/sonia/lib/perl/&rsquo;;</li>
 <li>for shell: export <strong>PERL5LIB</strong>=/home/sonia/lib/perl</li>
 <li>onetime at command line: perl** -I**/home/sonia/lib/perl foo</li>
 </ul>

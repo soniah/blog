@@ -88,22 +88,22 @@
       <h1 class="post-title">fuzzy rsync</h1>
         <section id="main">
           <h5 id="date"> 3 Mar 2011 </h5>
-          <p>A nice option I discovered in <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> &#8211; the <strong>&#8211;fuzzy</strong> option.</p>
+          <p>A nice option I discovered in <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a> &ndash; the <strong>&ndash;fuzzy</strong> option.</p>
 
-<p>If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &#8220;similar&#8221; algorithm is &#8220;identical size and modified time&#8221;, or &#8220;similarly-named&#8221;. For example:</p>
+<p>If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &ldquo;similar&rdquo; algorithm is &ldquo;identical size and modified time&rdquo;, or &ldquo;similarly-named&rdquo;. For example:</p>
 
 <pre>rsync foo/ example.com:video/foo/ --fuzzy --delete-delay
 ...
 sent 69712 bytes  received 118992 bytes  75481.60 bytes/sec   &lt;-- small amount of data xferred
 total size is 4966997090  speedup is 26321.63                 &lt;-- woohoo! big speed up</pre>
 
-<p>Notice the <strong>&#8211;delete-delay **option is fairly much required, as rsync by default does a **&#8211;delete-before</strong>, thus removing the base file before it can be copied/moved.</p>
+<p>Notice the <strong>&ndash;delete-delay **option is fairly much required, as rsync by default does a **&ndash;delete-before</strong>, thus removing the base file before it can be copied/moved.</p>
 
-<p>When to use this? When you&#8217;re rsync&#8217;ing large binary files, and the only change you&#8217;ve made is to copy or rename files within the same directory. Which is often what I&#8217;m doing &#8211; at work moving around isos or install packages, and at home organising <a href="http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu">BJJ</a> videos :-)</p>
+<p>When to use this? When you&rsquo;re rsync&rsquo;ing large binary files, and the only change you&rsquo;ve made is to copy or rename files within the same directory. Which is often what I&rsquo;m doing &ndash; at work moving around isos or install packages, and at home organising <a href="http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu">BJJ</a> videos :-)</p>
 
 <p><strong>Addendum</strong></p>
 
-<p>Also, the <strong>&#8211;partial</strong> and <strong>&#8211;partial-dir</strong> options are handy when working with large binary files. Tells rsync not to delete partially tranferred files if your transfer gets interrupted, for example by a network glitch. (Thanks AndyS).</p>
+<p>Also, the <strong>&ndash;partial</strong> and <strong>&ndash;partial-dir</strong> options are handy when working with large binary files. Tells rsync not to delete partially tranferred files if your transfer gets interrupted, for example by a network glitch. (Thanks AndyS).</p>
 
         </section>
 

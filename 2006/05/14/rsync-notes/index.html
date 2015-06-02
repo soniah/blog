@@ -120,7 +120,7 @@
 
 <h3 id="trailing-slash:187f524daa2701b883332f74025b41f5">Trailing Slash</h3>
 
-<p><em>Summary</em> &#8211; these are equivalent:</p>
+<p><em>Summary</em> &ndash; these are equivalent:</p>
 
 <pre>rsync $myflags sandia:stripes/books/     books/
  rsync $myflags sandia:stripes/books      .</pre>
@@ -145,19 +145,19 @@
 
 <h3 id="limiting-bandwidth:187f524daa2701b883332f74025b41f5">Limiting Bandwidth</h3>
 
-<p>Limit bandwidth used by rsync with the <strong>&#8211;bwlimit</strong> option; the value is in kilobytes/s (many network speeds are measured in kilobits, which are 1/8th of kilobytes).</p>
+<p>Limit bandwidth used by rsync with the <strong>&ndash;bwlimit</strong> option; the value is in kilobytes/s (many network speeds are measured in kilobits, which are 1/8th of kilobytes).</p>
 
 <pre>$ rsync -av --bwlimit=256 src1 src2 dest</pre>
 
 <h3 id="deleting-files:187f524daa2701b883332f74025b41f5">Deleting Files</h3>
 
-<p>If files are deleted from the source directory, they will only be deleted from the destination directory if the <strong>&#8211;delete</strong> option is used:</p>
+<p>If files are deleted from the source directory, they will only be deleted from the destination directory if the <strong>&ndash;delete</strong> option is used:</p>
 
 <pre>$ rsync -av --delete ~/a/ destination_dir</pre>
 
 <h3 id="file-selection:187f524daa2701b883332f74025b41f5">File Selection</h3>
 
-<p>Files can be included or excluded from syncing using <strong>&#8211;include-from</strong> or <strong>&#8211;exclude-from</strong>; it&#8217;s better not to use both as things can get rather confusing&#8230;</p>
+<p>Files can be included or excluded from syncing using <strong>&ndash;include-from</strong> or <strong>&ndash;exclude-from</strong>; it&rsquo;s better not to use both as things can get rather confusing.</p>
 
 <pre>$ cat exclude.txt
  *tmp

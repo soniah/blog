@@ -90,13 +90,13 @@
           <h5 id="date"> 2 Aug 2011 </h5>
           
 
-<p>If you work in an IT environment, it&#8217;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.</p>
+<p>If you work in an IT environment, it&rsquo;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.</p>
 
-<p>Unfortunately, a lot of the posts out there on &#8220;how to setup Gitweb on Ubuntu&#8221; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&#8217;s how I did it on Ubuntu 11.04 (Natty).</p>
+<p>Unfortunately, a lot of the posts out there on &ldquo;how to setup Gitweb on Ubuntu&rdquo; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&rsquo;s how I did it on Ubuntu 11.04 (Natty).</p>
 
 <h2 id="basic-setup:169b64647f0f7df2e51f4d438d65d83b">Basic Setup</h2>
 
-<p>Let&#8217;s start with a simple git repository:</p>
+<p>Let&rsquo;s start with a simple git repository:</p>
 
 <pre class="brush: bash; title: ; notranslate" title="">sudo aptitude install git-all apache2
 cd ; git init foo ; cd foo
@@ -110,7 +110,7 @@ git add . ; git commit -m "initial commit"
 sudo git clone --bare ~/foo foo.git
 </pre>
 
-<p>Next, a little gotcha. You need to enable the <strong>post-update</strong> hook, so that the required info is generated for the http server. The &#8220;gotcha&#8221; is that you need to enable the hook <strong>then</strong> do a push to your server repository, otherwise the server info isn&#8217;t updated:</p>
+<p>Next, a little gotcha. You need to enable the <strong>post-update</strong> hook, so that the required info is generated for the http server. The &ldquo;gotcha&rdquo; is that you need to enable the hook <strong>then</strong> do a push to your server repository, otherwise the server info isn&rsquo;t updated:</p>
 
 <pre class="brush: bash; title: ; notranslate" title="">cd ~/foo/.git/hooks
 mv post-update.sample post-update
@@ -143,13 +143,13 @@ $projectroot = "/var/www";
 ...
 </pre>
 
-<p>And that&#8217;s it! Part of the gitweb install on Ubuntu adds in <strong>/etc/apache2/conf.d/gitweb</strong>, so there&#8217;s no other files to edit (unlike what <a href="http://blog.jeffreyforman.net/2009/07/21/configuring-gitweb-on-ubuntu/">blog1</a>, <a href="http://blog.phlegx.com/2010/03/07/install-and-setup-gitweb-in-ubuntu-9-10-on-apache/">blog2</a>, or <a href="http://gideontsang.wordpress.com/2009/10/13/gitweb-on-ubuntujaunty/">blog3</a> say).</p>
+<p>And that&rsquo;s it! Part of the gitweb install on Ubuntu adds in <strong>/etc/apache2/conf.d/gitweb</strong>, so there&rsquo;s no other files to edit (unlike what <a href="http://blog.jeffreyforman.net/2009/07/21/configuring-gitweb-on-ubuntu/">blog1</a>, <a href="http://blog.phlegx.com/2010/03/07/install-and-setup-gitweb-in-ubuntu-9-10-on-apache/">blog2</a>, or <a href="http://gideontsang.wordpress.com/2009/10/13/gitweb-on-ubuntujaunty/">blog3</a> say).</p>
 
-<p>Browse to <a href="http://localhost/gitweb/">http://localhost/gitweb/</a>, and there&#8217;s your browse-able, search-able, git repository :-D</p>
+<p>Browse to <a href="http://localhost/gitweb/">http://localhost/gitweb/</a>, and there&rsquo;s your browse-able, search-able, git repository :-D</p>
 
-<h2 id="but-wait-there-8217-s-more-8211-automatically-push-your-changes-8230:169b64647f0f7df2e51f4d438d65d83b">But wait, there&#8217;s more &#8211; automatically push your changes&#8230;</h2>
+<h2 id="but-wait-there-s-more-automatically-push-your-changes:169b64647f0f7df2e51f4d438d65d83b">But wait, there&rsquo;s more &ndash; automatically push your changes.</h2>
 
-<p>As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that&#8217;s boring &#8211; automate it:</p>
+<p>As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that&rsquo;s boring &ndash; automate it:</p>
 
 <pre class="brush: bash; title: ; notranslate" title="">% cd ~/foo ; cat git.web.push
 #!/bin/bash
@@ -158,19 +158,19 @@ git remote add web /var/www/foo.git &gt;& /dev/null
 sudo git push -f web
 </pre>
 
-<p>&#8230;and automate it:</p>
+<p>.and automate it:</p>
 
 <pre class="brush: bash; title: ; notranslate" title="">crontab -l
 * * * * * ${HOME}/foo/git.web.push
 </pre>
 
-<h2 id="and-finally-8230:169b64647f0f7df2e51f4d438d65d83b">And finally&#8230;</h2>
+<h2 id="and-finally:169b64647f0f7df2e51f4d438d65d83b">And finally.</h2>
 
-<p>Make the layout pretty. Edit <strong>~/foo/.git/description</strong>, add an index.html, a custom theme, some javascript, &#8230;</p>
+<p>Make the layout pretty. Edit <strong>~/foo/.git/description</strong>, add an index.html, a custom theme, some javascript, .</p>
 
 <h2 id="update:169b64647f0f7df2e51f4d438d65d83b">Update</h2>
 
-<p>Brian (comments) has added some improvements to my instructions &#8211; see below. Thanks Brian!</p>
+<p>Brian (comments) has added some improvements to my instructions &ndash; see below. Thanks Brian!</p>
 
         </section>
 

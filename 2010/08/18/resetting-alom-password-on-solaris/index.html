@@ -88,11 +88,11 @@
       <h1 class="post-title">Resetting ALOM password on Solaris</h1>
         <section id="main">
           <h5 id="date"> 18 Aug 2010 </h5>
-          <p>Or, after RTFM&#8217;ing, an easier way: <a href="http://docs.sun.com/source/819-6672-10/trouble_appx.html#53290">SunDocs Recovering ALOM passwords</a>:</p>
+          <p>Or, after RTFM&rsquo;ing, an easier way: <a href="http://docs.sun.com/source/819-6672-10/trouble_appx.html#53290">SunDocs Recovering ALOM passwords</a>:</p>
 
 <ul>
 <li>connect to serial console, remove power cords, wait a few seconds</li>
-<li>plugin, press escape repeatedly until it drops to the &#8220;ALOM <esc> menu&#8221;</li>
+<li>plugin, press escape repeatedly until it drops to the &ldquo;ALOM <esc> menu&rdquo;</li>
 <li>e to erase ALOM NVRAM (will return everything to defaults)</li>
 <li>r to return to boot process</li>
 <li>machine will then reboot, drop into ALOM prompt as admin with no password</li>
@@ -102,9 +102,9 @@
 
 <p>Some notes on how to reset the ALOM password on Solaris (done on a VT240).</p>
 
-<p><strong>ALOM</strong> has sc&gt; prompt. Get to OBP using &#8220;console -f&#8221;</p>
+<p><strong>ALOM</strong> has sc&gt; prompt. Get to OBP using &ldquo;console -f&rdquo;</p>
 
-<p><strong>OBP</strong> (Open Boot Prompt) has ok prompt. Get to ALOM using &#8220;#.&#8221;</p>
+<p><strong>OBP</strong> (Open Boot Prompt) has ok prompt. Get to ALOM using &ldquo;#.&rdquo;</p>
 
 <p><strong>Power switch</strong> has 4 positions: Normal (|), Locked (padlock), Diagnostics (wave), Forced Off (circle-bar). Ensure powerswitch is in Normal position.</p>
 
@@ -116,7 +116,7 @@
 sc&gt;resetsc
 sc&gt;poweroff -f</tt></pre>
 
-<p>Remove power cords, return old hard disks, turn back on. These last steps aren&#8217;t necessary, but it&#8217;s good to check that the ALOM password has indeed been reset.</p>
+<p>Remove power cords, return old hard disks, turn back on. These last steps aren&rsquo;t necessary, but it&rsquo;s good to check that the ALOM password has indeed been reset.</p>
 
 <p>Some good links:</p>
 

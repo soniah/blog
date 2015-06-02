@@ -88,16 +88,16 @@
       <h1 class="post-title">suid, sgid, sticky bit, permissions</h1>
         <section id="main">
           <h5 id="date"> 19 Mar 2008 </h5>
-          <p>I&#8217;ve been going to a few job interviews recently. One the standard &#8216;<em>tricky</em>&#8216; (oooooh) Linux questions is &#8220;<em>explain suid, sgid, sticky bit, etc</em>&#8220;.</p>
+          <p>I&rsquo;ve been going to a few job interviews recently. One the standard &lsquo;<em>tricky</em>&rsquo; (oooooh) Linux questions is &ldquo;<em>explain suid, sgid, sticky bit, etc</em>&rdquo;.</p>
 
-<p>I usually don&#8217;t rote learn this sort of stuff (that&#8217;s what manpages and Google are for), here&#8217;s my summary:</p>
+<p>I usually don&rsquo;t rote learn this sort of stuff (that&rsquo;s what manpages and Google are for), here&rsquo;s my summary:</p>
 
 <ul>
 <li><strong>4000</strong> (chmod u+s) is <strong>suid</strong>; for <em>files</em> execute as owning user (often root).</li>
-<li><strong>2000</strong> (chmod g+s) is <strong>sgid</strong>; for <em>files</em> execute as owning group (often root); for <em>directories</em> the group on newly created files will be set to the directory&#8217;s group rather than the creator&#8217;s group. Typically used for shared directories.</li>
+<li><strong>2000</strong> (chmod g+s) is <strong>sgid</strong>; for <em>files</em> execute as owning group (often root); for <em>directories</em> the group on newly created files will be set to the directory&rsquo;s group rather than the creator&rsquo;s group. Typically used for shared directories.</li>
 <li><strong>suid</strong> and <strong>sgid</strong> are ignored on scripts, due to the security risk</li>
-<li><strong>1000</strong> (chmod +t) is <strong>sticky</strong> bit (&#8220;save <strong>text</strong> image&#8221;); for <em>files</em> it used to be &#8216;pin in memory&#8217; but is now ignored; for <em>directories</em> only root, file owner and directory owner can delete a file (even if non-owners have directory write permissions). Typically used for /tmp. <strong>&#8212;t&#8212;&#8212;</strong></li>
-<li>capital letters when doing <strong>ls -al</strong> usually means the permissions have been set incorrectly eg <strong>-r-S&#8212;&#8212;</strong> SUID is set, but owner execute is not set. However (?check?) <strong>-rw&#8212;&#8212;T</strong> means no update of &#8220;last modified time&#8221;; usually used for swap <em>files</em> (not very common nowadays &#8211; swap is usually a partition).</li>
+<li><strong>1000</strong> (chmod +t) is <strong>sticky</strong> bit (&ldquo;save <strong>text</strong> image&rdquo;); for <em>files</em> it used to be &lsquo;pin in memory&rsquo; but is now ignored; for <em>directories</em> only root, file owner and directory owner can delete a file (even if non-owners have directory write permissions). Typically used for /tmp. <strong>&ndash;t&mdash;-</strong></li>
+<li>capital letters when doing <strong>ls -al</strong> usually means the permissions have been set incorrectly eg <strong>-r-S&mdash;-</strong> SUID is set, but owner execute is not set. However (?check?) <strong>-rw&mdash;-T</strong> means no update of &ldquo;last modified time&rdquo;; usually used for swap <em>files</em> (not very common nowadays &ndash; swap is usually a partition).</li>
 </ul>
 
 <p><strong>Directory Permissions</strong></p>
@@ -121,11 +121,11 @@ This is the time that the* inode information* (permissions, name, etc, the metad
 <p>Modify Time | <strong>mtime</strong> | -l<br />
 This is the last time the <em>actual contents</em> of the file were last modified.</p>
 
-<p><em>atime</em> doesn’t change when the file contents are written to, but both <em>ctime</em> and <em>mtime</em> do. Opening a file in an editor will of course read the file, thus changing the <em>atime</em>; but using* cat foo &gt; bar* won&#8217;t change the <em>atime</em> of bar.</p>
+<p><em>atime</em> doesn’t change when the file contents are written to, but both <em>ctime</em> and <em>mtime</em> do. Opening a file in an editor will of course read the file, thus changing the <em>atime</em>; but using* cat foo &gt; bar* won&rsquo;t change the <em>atime</em> of bar.</p>
 
 <p><strong>Addendum</strong></p>
 
-<p>An old Unix hand told me this trick: directories for mount points should be created <strong>d&#8211;x&#8211;x&#8211;x</strong>. That way if the directory is unmounted, it&#8217;s obvious that &#8220;this directory is a mount point&#8221;.</p>
+<p>An old Unix hand told me this trick: directories for mount points should be created <strong>d&ndash;x&ndash;x&ndash;x</strong>. That way if the directory is unmounted, it&rsquo;s obvious that &ldquo;this directory is a mount point&rdquo;.</p>
 
         </section>
 

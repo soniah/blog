@@ -88,11 +88,11 @@
       <h1 class="post-title">Troubleshooting Ubuntu NetworkManager</h1>
         <section id="main">
           <h5 id="date"> 25 Jan 2008 </h5>
-          <p>NetworkManager: &#8220;When I&#8217;m good, I&#8217;m <em>really really</em> good. But when I&#8217;m bad&#8230;&#8221;. Some tricks I&#8217;ve found for troubleshooting NetworkManager:</p>
+          <p>NetworkManager: &ldquo;When I&rsquo;m good, I&rsquo;m <em>really really</em> good. But when I&rsquo;m bad.&ldquo;. Some tricks I&rsquo;ve found for troubleshooting NetworkManager:</p>
 
 <ul>
-<li>no network interfaces (except for lo) should be listed in <strong>/etc/network/interfaces</strong>. Any that are <em>won&#8217;t</em> be managed by NetworkManager</li>
-<li>remove old wireless configuration information by running <strong>gconf-editor &amp;</strong>, and removing them from <strong>/system/networking/wireless/networks</strong>. Or, from the shell run this command to unset all at once: <strong>gconftool-2 &#8211;recursive-unset /system/networking/wireless/networks</strong>.</li>
+<li>no network interfaces (except for lo) should be listed in <strong>/etc/network/interfaces</strong>. Any that are <em>won&rsquo;t</em> be managed by NetworkManager</li>
+<li>remove old wireless configuration information by running <strong>gconf-editor &amp;</strong>, and removing them from <strong>/system/networking/wireless/networks</strong>. Or, from the shell run this command to unset all at once: <strong>gconftool-2 &ndash;recursive-unset /system/networking/wireless/networks</strong>.</li>
 </ul>
 
 <p>Some useful links:</p>

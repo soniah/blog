@@ -88,15 +88,15 @@
       <h1 class="post-title">WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</h1>
         <section id="main">
           <h5 id="date"> 29 Jan 2012 </h5>
-          <p>The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &#8220;Site Admin&#8221;, &#8220;Login&#8221;, &#8220;Entries RSS&#8221;, etc. This is called the <strong>Meta Widget</strong>.</p>
+          <p>The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &ldquo;Site Admin&rdquo;, &ldquo;Login&rdquo;, &ldquo;Entries RSS&rdquo;, etc. This is called the <strong>Meta Widget</strong>.</p>
 
-<p>Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&#8217;s a slight security risk (though hiding it won&#8217;t stop <em>evildoers</em> from working out that you&#8217;re running WordPress).</p>
+<p>Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&rsquo;s a slight security risk (though hiding it won&rsquo;t stop <em>evildoers</em> from working out that you&rsquo;re running WordPress).</p>
 
-<p>There&#8217;s a couple of options for hiding the Meta Widget:</p>
+<p>There&rsquo;s a couple of options for hiding the Meta Widget:</p>
 
 <ul>
-<li>don&#8217;t display it at all. Go to <em>Appearance -&gt; Widgets</em>, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the <strong>/wp-login.php</strong> page. For example if your blog is <strong><a href="http://myblog.info">http://myblog.info</a></strong>, go to <strong><a href="http://myblog.info/wp-login.php">http://myblog.info/wp-login.php</a></strong> to login</li>
-<li>make it smaller and barely visible (the option I prefer). First of all, go to <em>Appearance -&gt; Widgets</em> and move/add a Meta Widget to the <strong>Footer Counters</strong> Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the <strong>wp-includes/default-widgets.php</strong> file. Search for the line that contains <strong>wp_register</strong> (about line 293), then delete the three lines that contain &#8216;rss2_url&#8217;, &#8216;comments_rss2_url&#8217;, and &#8216;wordpress.org&#8217;, and remove the bulleting from &#8216;wp_loginout&#8217;. The changes are easier to see with some before and after code:</li>
+<li>don&rsquo;t display it at all. Go to <em>Appearance -&gt; Widgets</em>, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the <strong>/wp-login.php</strong> page. For example if your blog is <strong><a href="http://myblog.info">http://myblog.info</a></strong>, go to <strong><a href="http://myblog.info/wp-login.php">http://myblog.info/wp-login.php</a></strong> to login</li>
+<li>make it smaller and barely visible (the option I prefer). First of all, go to <em>Appearance -&gt; Widgets</em> and move/add a Meta Widget to the <strong>Footer Counters</strong> Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the <strong>wp-includes/default-widgets.php</strong> file. Search for the line that contains <strong>wp_register</strong> (about line 293), then delete the three lines that contain &lsquo;rss2_url&rsquo;, &lsquo;comments_rss2_url&rsquo;, and &lsquo;wordpress.org&rsquo;, and remove the bulleting from &lsquo;wp_loginout&rsquo;. The changes are easier to see with some before and after code:</li>
 </ul>
 
 <p><strong>Before:</strong></p>
@@ -118,11 +118,11 @@
 &lt;?php wp_meta(); ?&gt;
 &lt;/ul&gt;</pre>
 
-<p>Now, you&#8217;ll have a small Login link at the bottom right-hand corner of your blog!</p>
+<p>Now, you&rsquo;ll have a small Login link at the bottom right-hand corner of your blog!</p>
 
 <p><strong>Addendum</strong></p>
 
-<p>If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &#8220;Site Admin&#8221; link when logged in (at the bottom right of the page). You can fix this by editing the <strong>wp-includes/general-template.php</strong> file. At about line 319, <strong>change:</strong></p>
+<p>If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &ldquo;Site Admin&rdquo; link when logged in (at the bottom right of the page). You can fix this by editing the <strong>wp-includes/general-template.php</strong> file. At about line 319, <strong>change:</strong></p>
 
 <pre>$link = $before . '&lt;a href="' . admin_url()...</pre>
 

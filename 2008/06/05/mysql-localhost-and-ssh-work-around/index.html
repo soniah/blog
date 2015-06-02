@@ -90,18 +90,18 @@
           <h5 id="date"> 5 Jun 2008 </h5>
           <p>I use ssh to tunnel all the time, especially to get around brain-dead firewalls.</p>
 
-<p>But this doesn&#8217;t work easily for mysql &#8211; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &#8216;localhost&#8217; and try to connect via the local socket. Very broken &#8211; there&#8217;s bugs lodged <a href="http://bugs.mysql.com/bug.php?id=27361">here</a> and <a href="http://bugs.mysql.com/bug.php?id=31577">here</a> about this (and lots of chest beating and wailing, too).</p>
+<p>But this doesn&rsquo;t work easily for mysql &ndash; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &lsquo;localhost&rsquo; and try to connect via the local socket. Very broken &ndash; there&rsquo;s bugs lodged <a href="http://bugs.mysql.com/bug.php?id=27361">here</a> and <a href="http://bugs.mysql.com/bug.php?id=31577">here</a> about this (and lots of chest beating and wailing, too).</p>
 
 <p><strong>Solution:</strong> tunnel ssh via an intermediate machine. For example:</p>
 
 <pre>intermediate$ ssh -o GatewayPorts=yes -L 3306:targetdb:3306 targetdb
 localhost$ mysql -h intermediate -P 3306</pre>
 
-<p>GatewayPorts &#8211; dangerous yes &#8211; but so is life&#8230;</p>
+<p>GatewayPorts &ndash; dangerous yes &ndash; but so is life.</p>
 
 <p><strong>Update</strong></p>
 
-<p>The problem seems to have been fixed; either that or I was having a very blond moment last time I tried using <strong>&#8211; &#8211; protocol</strong>.</p>
+<p>The problem seems to have been fixed; either that or I was having a very blond moment last time I tried using <strong>&ndash; &ndash; protocol</strong>.</p>
 
 <pre>localhost$ mysql --version
 localhost$ mysql  Ver 14.12 Distrib 5.0.51a, for debian-linux-gnu (i486) using readline 5.2
@@ -115,11 +115,11 @@ mysql&gt;</pre>
 
 <p><strong>Update 2</strong></p>
 
-<p>However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don&#8217;t obey the &#8211; &#8211; protocol=tcp flag or don&#8217;t have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh&#8230;.</p>
+<p>However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don&rsquo;t obey the &ndash; &ndash; protocol=tcp flag or don&rsquo;t have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh..</p>
 
 <p><strong>Update 3</strong></p>
 
-<p>Using 127.0.0.1 instead of localhost works for OpenOffice &#8211; yay.</p>
+<p>Using 127.0.0.1 instead of localhost works for OpenOffice &ndash; yay.</p>
 
         </section>
 
@@ -134,13 +134,13 @@ mysql&gt;</pre>
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/">Ssh SOCKS proxying, DNS proxying, Tunnelling</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/">Connect to mysql from OpenOffice using ODBC</a>
     </span>
   
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/"> &nbsp; Connect to mysql from OpenOffice using ODBC</a> &raquo;
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2008/04/17/disable-evolution-notifications-in-ubuntu/"> &nbsp; Disable Evolution notifications in Ubuntu</a> &raquo;
     </span>
   
   <br />

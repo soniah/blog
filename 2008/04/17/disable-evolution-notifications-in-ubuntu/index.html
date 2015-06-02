@@ -88,17 +88,17 @@
       <h1 class="post-title">Disable Evolution notifications in Ubuntu</h1>
         <section id="main">
           <h5 id="date"> 16 Apr 2008 </h5>
-          <p>I&#8217;ve just started using Evolution to access the hExchange server at work, and it keeps on popping up new email notifications (even though I&#8217;ve disabled it in Evolution and restarted X) &#8211; too much like Winblows for my likings.</p>
+          <p>I&rsquo;ve just started using Evolution to access the hExchange server at work, and it keeps on popping up new email notifications (even though I&rsquo;ve disabled it in Evolution and restarted X) &ndash; too much like Winblows for my likings.</p>
 
 <p><strong>Update 17-Apr-2008</strong></p>
 
-<p>The steps below don&#8217;t seem to solve the problem. For the moment the easiest way to get rid of the Evolution letter icon (which appears in the <em>notification_area</em>) is to create a new panel, drag across the stuff you want, and delete the old panel (package update notifications will then appear on the Panel Menu &#8211; TODO check update-notifier is removed). I can see <em>notification_area</em> in gconf-editor at /apps/panel/applets, but can&#8217;t yet work out a way of deleting it &#8211; right clicking etc doesn&#8217;t work. Will play with gconftool and RTFM.</p>
+<p>The steps below don&rsquo;t seem to solve the problem. For the moment the easiest way to get rid of the Evolution letter icon (which appears in the <em>notification_area</em>) is to create a new panel, drag across the stuff you want, and delete the old panel (package update notifications will then appear on the Panel Menu &ndash; TODO check update-notifier is removed). I can see <em>notification_area</em> in gconf-editor at /apps/panel/applets, but can&rsquo;t yet work out a way of deleting it &ndash; right clicking etc doesn&rsquo;t work. Will play with gconftool and RTFM.</p>
 
 <p><strong>End Updates</strong></p>
 
-<p>I&#8217;ve just started using Evolution to access the hExchange server at work, and it keeps on popping up new email notifications (even though I&#8217;ve disabled it in Evolution and restarted X) &#8211; too much like Winblows for my likings. Other crap keeps popping up and annoying me too &#8211; here&#8217;s how to disable it all:</p>
+<p>I&rsquo;ve just started using Evolution to access the hExchange server at work, and it keeps on popping up new email notifications (even though I&rsquo;ve disabled it in Evolution and restarted X) &ndash; too much like Winblows for my likings. Other crap keeps popping up and annoying me too &ndash; here&rsquo;s how to disable it all:</p>
 
-<p>First, disable the update-notifier via: &#8220;System &gt; Preferences &gt; Sessions&#8221;, under &#8220;Startup Programs&#8221;; remove &#8220;update-notifier&#8221;. Also check that it isn&#8217;t being started up in the saved session by first killing it (ps ax | grep update; kill 12345) and saving a new session.</p>
+<p>First, disable the update-notifier via: &ldquo;System &gt; Preferences &gt; Sessions&rdquo;, under &ldquo;Startup Programs&rdquo;; remove &ldquo;update-notifier&rdquo;. Also check that it isn&rsquo;t being started up in the saved session by first killing it (ps ax | grep update; kill 12345) and saving a new session.</p>
 
 <p>Then, run <strong>gconf-editor</strong> (from the shell) search on notification, and disable:</p>
 
@@ -125,7 +125,7 @@
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/">Connect to mysql from OpenOffice using ODBC</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/">mysql, localhost, and ssh work-around</a>
     </span>
   
 

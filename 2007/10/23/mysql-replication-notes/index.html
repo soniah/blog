@@ -135,27 +135,27 @@ mysql&gt; unlock tables; # release locks in the original terminal
 <li><p>other methods of copying data:</p>
 
 <ul>
-<li>if only using MyISAM the <strong>LOAD DATA FROM MASTER</strong> command can be used <em>without having to stop the master</em>; even though it&#8217;s usage is <a href="http://dev.mysql.com/doc/refman/5.0/en/load-data-from-master.html">deprecated</a> there&#8217;s no equivalent replacement. Additional permissions have to be assigned to the slave repl account (xx) and some network settings need to be temporarily changed (??), and a global read lock needs to be held on the master (thus preventing updates while transferring data)</li>
-<li>data can also be copied using <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-howto-mysqldump.html">mysqldump</a> or by <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-howto-rawdata.html">dumping the raw files</a>. If using InnoDB there&#8217;s <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-howto-rawdata.html">also</a> a commercial product called <a href="http://www.innodb.com/hot-backup">Hot Backup</a>.</li>
+<li>if only using MyISAM the <strong>LOAD DATA FROM MASTER</strong> command can be used <em>without having to stop the master</em>; even though it&rsquo;s usage is <a href="http://dev.mysql.com/doc/refman/5.0/en/load-data-from-master.html">deprecated</a> there&rsquo;s no equivalent replacement. Additional permissions have to be assigned to the slave repl account (xx) and some network settings need to be temporarily changed (??), and a global read lock needs to be held on the master (thus preventing updates while transferring data)</li>
+<li>data can also be copied using <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-howto-mysqldump.html">mysqldump</a> or by <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-howto-rawdata.html">dumping the raw files</a>. If using InnoDB there&rsquo;s <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-howto-rawdata.html">also</a> a commercial product called <a href="http://www.innodb.com/hot-backup">Hot Backup</a>.</li>
 </ul></li>
 
-<li><p>if using different storage engines between the master and slave, don&#8217;t put the engine statements in the CREATE or ALTER TABLE statements (as they&#8217;ll be replicated). Either use SET storage_engine followed by CREATE TABLE, or stop the slave and issue ALTER TABLE statements on the slave; see <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-solutions-diffengines.html">documentation</a>.</p></li>
+<li><p>if using different storage engines between the master and slave, don&rsquo;t put the engine statements in the CREATE or ALTER TABLE statements (as they&rsquo;ll be replicated). Either use SET storage_engine followed by CREATE TABLE, or stop the slave and issue ALTER TABLE statements on the slave; see <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-solutions-diffengines.html">documentation</a>.</p></li>
 
-<li><p>Binary log files must be removed when they&#8217;re no longer needed because MySQL doesn&#8217;t do so automatically. Use <strong>purge master logs to &#8216;mysql-bin.1234&#8242;;</strong> O&#8217;Reilly&#8217;s <em>High Performance MySQL</em> has a log purge script (section 7.5), as well as other useful scripts for managing replication</p></li>
+<li><p>Binary log files must be removed when they&rsquo;re no longer needed because MySQL doesn&rsquo;t do so automatically. Use <strong>purge master logs to &lsquo;mysql-bin.1234&rsquo;;</strong> O&rsquo;Reilly&rsquo;s <em>High Performance MySQL</em> has a log purge script (section 7.5), as well as other useful scripts for managing replication</p></li>
 </ul>
 
 <p>On the Slave:</p>
 
 <ul>
-<li>enable for replication by editing modify <strong>/etc/my.cnf</strong> &#8211; only need to set a unique <em>server-id</em>, unless this slave will also act as a master for other slaves</li>
-<li>restart mysql, check that data copied ok with <em>mysqlhotcopy</em> by doing a <em>show tables;</em> (etc&#8230;) in the new database</li>
+<li>enable for replication by editing modify <strong>/etc/my.cnf</strong> &ndash; only need to set a unique <em>server-id</em>, unless this slave will also act as a master for other slaves</li>
+<li>restart mysql, check that data copied ok with <em>mysqlhotcopy</em> by doing a <em>show tables;</em> (etc.) in the new database</li>
 <li>start replication:
 <pre class="brush: bash; title: ; notranslate" title="">mysql&gt; change master to master host = &lsquo;master host&rsquo;, master user = &lsquo;repl&rsquo;, master_password = &lsquo;secret&rsquo;, master_log_file = &lsquo;master_log_file&rsquo;, master_log_pos = &lsquo;master_log_pos&rsquo;;
 mysql&gt; start slave;
 </pre></li>
 </ul>
 
-<p>Note: this information is stored in the file data_dir/master.info, so the password isn&#8217;t very secure</p>
+<p>Note: this information is stored in the file data_dir/master.info, so the password isn&rsquo;t very secure</p>
 
 <ul>
 <li>to <em>quickly</em> add <em>another slave</em>, see <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-howto-additionalslaves.html">this topic</a> (shutdown an existing slave, copy the data directory with logs and info files, set a unique server-id, start existing and new slave)</li>
@@ -193,28 +193,28 @@ log-error=/var/log/mysql/mysql-error.log # log errors
 <p>On the Master:</p>
 
 <ul>
-<li><strong>show master statusG</strong> &#8211; shows the binary log file name and position. O&#8217;Reilly&#8217;s <em>High Performance MySQL</em> has a heartbeat script (section 7.5)</li>
-<li><strong>show processlistG</strong> &#8211; the master uses one thread to provide replication to slaves (<strong>Command: Binlog Dump</strong>). No <strong>state</strong> means replication hasn&#8217;t been setup correctly. Good <strong>states</strong> are <em>Sending binlog event to slave, Finished reading one binlog; switching to next binlog, Has sent all binlog to slave; waiting for binlog to be updated</em>.</li>
-<li><strong>show master logsG</strong> &#8211; shows names of existing binary log files</li>
-<li><strong>$ mysqlbinlog mysql-bin.1234</strong> &#8211; allows you to read through binary and relay logs on both Master and Slave. Has the standard -u -h -p options, as well as -o to specify offset to start at</li>
+<li><strong>show master statusG</strong> &ndash; shows the binary log file name and position. O&rsquo;Reilly&rsquo;s <em>High Performance MySQL</em> has a heartbeat script (section 7.5)</li>
+<li><strong>show processlistG</strong> &ndash; the master uses one thread to provide replication to slaves (<strong>Command: Binlog Dump</strong>). No <strong>state</strong> means replication hasn&rsquo;t been setup correctly. Good <strong>states</strong> are <em>Sending binlog event to slave, Finished reading one binlog; switching to next binlog, Has sent all binlog to slave; waiting for binlog to be updated</em>.</li>
+<li><strong>show master logsG</strong> &ndash; shows names of existing binary log files</li>
+<li><strong>$ mysqlbinlog mysql-bin.1234</strong> &ndash; allows you to read through binary and relay logs on both Master and Slave. Has the standard -u -h -p options, as well as -o to specify offset to start at</li>
 </ul>
 
 <p>On the Slave:</p>
 
 <ul>
-<li><strong>show slave statusG</strong> (<a href="http://dev.mysql.com/doc/refman/5.0/en/show-slave-status.html">documentation</a>) &#8211; key things to watch for are:
+<li><strong>show slave statusG</strong> (<a href="http://dev.mysql.com/doc/refman/5.0/en/show-slave-status.html">documentation</a>) &ndash; key things to watch for are:
 
 <ul>
 <li><em>Seconds_Behind_Master</em> should be close to zero</li>
-<li><em>Slave_IO_Running</em> and <em>Slave_SQL_Running</em> should both be &#8216;Yes&#8217;</li>
+<li><em>Slave_IO_Running</em> and <em>Slave_SQL_Running</em> should both be &lsquo;Yes&rsquo;</li>
 <li><em>Read_Master_Log_Pos</em> should only be slightly behind the position given by <em>show master status</em> on the master.</li>
 <li><em>Exec_Master_Log_Pos</em> should only be slightly behind <em>Read_Master_Log_Pos</em></li>
 <li>watch <em>Last_Errno</em> and <em>Last_Error</em> for errors and all the <em>Replicate/Ignore DB/Table</em> fields for data not being replicated. In an emergency, troublesome statements can be skipped over using TODO.</li>
 </ul></li>
-<li><strong>show process listG</strong> &#8211; the slave uses two threads to implement replication &#8211; the <em>I/O thread</em> reads events from the master and stores them in the relay log; and the <em>SQL</em> thread reads statements from the relay log and applies them. A good state for the I/O thread is <em>Waiting for master to send event</em>; see doco for many other states. Good states for the SQL thread are <em>Reading event from the relay log; and Has read all relay log; waiting for the slave I/O thread to update it</em></li>
+<li><strong>show process listG</strong> &ndash; the slave uses two threads to implement replication &ndash; the <em>I/O thread</em> reads events from the master and stores them in the relay log; and the <em>SQL</em> thread reads statements from the relay log and applies them. A good state for the I/O thread is <em>Waiting for master to send event</em>; see doco for many other states. Good states for the SQL thread are <em>Reading event from the relay log; and Has read all relay log; waiting for the slave I/O thread to update it</em></li>
 <li><strong>start slave;</strong> see <a href="http://dev.mysql.com/doc/refman/5.0/en/start-slave.html">documentation</a>.</li>
-<li><strong>stop slave;</strong> or even better <strong>stop slave sql_thread;</strong> Statements continue to be read and written to relay log, but they aren&#8217;t applied, allowing a backup of the slave to be done then allowing the slave to catch more rapidly when restarted &#8211; see <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-administration-pausing.html">documentation</a>.</li>
-<li>to prevent replication automatically occurring on a restart, start up server with <em>&#8211;skip-slave-start</em> to skip the saved .info files (or delete those files beforehand to wipe replication completely).</li>
+<li><strong>stop slave;</strong> or even better <strong>stop slave sql_thread;</strong> Statements continue to be read and written to relay log, but they aren&rsquo;t applied, allowing a backup of the slave to be done then allowing the slave to catch more rapidly when restarted &ndash; see <a href="http://dev.mysql.com/doc/refman/5.0/en/replication-administration-pausing.html">documentation</a>.</li>
+<li>to prevent replication automatically occurring on a restart, start up server with <em>&ndash;skip-slave-start</em> to skip the saved .info files (or delete those files beforehand to wipe replication completely).</li>
 </ul>
 
 <p>See Also:</p>

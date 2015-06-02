@@ -90,24 +90,24 @@
           <h5 id="date"> 17 Dec 2006 </h5>
           <p>howto reverse ssh tunnel</p>
 
-<p>I recently (15-Dec-06) asked this question on the <a href="http://lists.slug.org.au/listinfo/slug">SLUG email list</a> &#8211; thanks to everyone for all the replies I got, especially Dave, The Reverend, Michael K, Erik, Tongmaster, Alex S, Tigger, David K&#8230;</p>
+<p>I recently (15-Dec-06) asked this question on the <a href="http://lists.slug.org.au/listinfo/slug">SLUG email list</a> &ndash; thanks to everyone for all the replies I got, especially Dave, The Reverend, Michael K, Erik, Tongmaster, Alex S, Tigger, David K.</p>
 
 <pre>&gt; Is there a way of configuring ssh, so that if someone ssh's into my
  &gt; machine, I can connect back and get into their machine? (Linux to
  &gt; Linux).</pre>
 
 <ul>
-<li><p>get him to ssh to you: <strong>ssh -R 2222:localhost:22 <your server></strong>. Once he&#8217;s logged in, you can just <strong>ssh -p 2222 localhost</strong>. You may have trouble binding to ports 1024 or lower on the other side (which is why I used 2222 as an example), and you may have to enable an option in the sshd config of the other side. There&#8217;s an article on TechRepublic <a href="http://articles.techrepublic.com.com/5100-10879-5779944.html?tag=nl.e011">Setting up a reverse SSH tunnel</a>.</p></li>
+<li><p>get him to ssh to you: <strong>ssh -R 2222:localhost:22 <your server></strong>. Once he&rsquo;s logged in, you can just <strong>ssh -p 2222 localhost</strong>. You may have trouble binding to ports 1024 or lower on the other side (which is why I used 2222 as an example), and you may have to enable an option in the sshd config of the other side. There&rsquo;s an article on TechRepublic <a href="http://articles.techrepublic.com.com/5100-10879-5779944.html?tag=nl.e011">Setting up a reverse SSH tunnel</a>.</p></li>
 
-<li><p>once he&#8217;s ssh&#8217;d to me, I could get him to run apps and display on my machine ie <strong>type export DISPLAY=xxx.xxx.xxx.xxx:0.0</strong>, then run <strong>xterm &amp;</strong> (or another program if it needed configuring)</p></li>
+<li><p>once he&rsquo;s ssh&rsquo;d to me, I could get him to run apps and display on my machine ie <strong>type export DISPLAY=xxx.xxx.xxx.xxx:0.0</strong>, then run <strong>xterm &amp;</strong> (or another program if it needed configuring)</p></li>
 
-<li><p>him ssh&#8217;ing to me could be made easier by setting up an icon on their desktop that has <strong>ssh -R 1200:localhost:22 foo@bar.com</strong> (install his public key on bar.com). This can also be setup to access the ADSL modem: <strong>ssh -p 1234 -R 1201:192.168.1.254:80 foo@bar.com</strong>, then browse <strong>localhost:1201</strong> to get the modem setup page.</p></li>
+<li><p>him ssh&rsquo;ing to me could be made easier by setting up an icon on their desktop that has <strong>ssh -R 1200:localhost:22 foo@bar.com</strong> (install his public key on bar.com). This can also be setup to access the ADSL modem: <strong>ssh -p 1234 -R 1201:192.168.1.254:80 foo@bar.com</strong>, then browse <strong>localhost:1201</strong> to get the modem setup page.</p></li>
 
 <li><p><a href="http://www.harding.motd.ca/autossh/">autossh</a> is your friend. Just get it to set up <em>permanent</em> tunnels to your box, so you can always get through whenever you need to.</p></li>
 
 <li><p>use <a href="http://openvpn.net/">OpenVPN</a> or <a href="http://www.hamachi.cc/">Hamachi</a> to setup a VPN, then just ssh to the local vpn endpoint. Samba shares could also be setup across the vpn, allowing easy filesharing.</p></li>
 
-<li><p>VNC can also be run over ssh &#8211; see <a href="http://www.vanemery.com/Linux/VNC/vnc-over-ssh.html">VNC over SSH2 &#8211; A TightVNC Tutorial</a></p></li>
+<li><p>VNC can also be run over ssh &ndash; see <a href="http://www.vanemery.com/Linux/VNC/vnc-over-ssh.html">VNC over SSH2 &ndash; A TightVNC Tutorial</a></p></li>
 
 <li><p>if they run windows, I find <a href="https://secure.logmein.com/home.asp">logmein</a> as the best remote support thing by far, penetrates nat etc pretty well. See <a href="https://secure.logmein.com/go.asp?page=support_faq#basics-04">here</a>. Client runs on linux, but server (on target PC) is windows only unfortunately.</p></li>
 </ul>
@@ -115,7 +115,7 @@
 <p>(28/Jan/2007)</p>
 
 <ul>
-<li><a href="http://www.debian-administration.org">Debian Administration</a> has an article entitled <a href="http://www.debian-administration.org/articles/487">SMTP via an SSH tunnel</a>, which also links thru to <a href="http://cg.scs.carleton.ca/~morin/misc/laptopmail/">HOWTO: Sending Email from a Laptop</a> and J. Franken&#8217;s excellent <a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh2_inhalt.en.html">SSH-tunneling HOWTO</a>.</li>
+<li><a href="http://www.debian-administration.org">Debian Administration</a> has an article entitled <a href="http://www.debian-administration.org/articles/487">SMTP via an SSH tunnel</a>, which also links thru to <a href="http://cg.scs.carleton.ca/~morin/misc/laptopmail/">HOWTO: Sending Email from a Laptop</a> and J. Franken&rsquo;s excellent <a href="http://www.jfranken.de/homepages/johannes/vortraege/ssh2_inhalt.en.html">SSH-tunneling HOWTO</a>.</li>
 </ul>
 
         </section>

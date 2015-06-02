@@ -103,9 +103,9 @@
 hosta$ ssh -fN</code><code>-o GateWayPorts=yes</code><code>-L P:S:W</code><code>user@B</code><br />
 <code>hostc$ some-app A:P&lt;br /&gt;
 </code><br />
--f &#8211; go into background after asking for a password<br />
--N &#8211; don&#8217;t execute a remote command<br />
--g &#8211; gateway (or <strong>-o GateWayPorts=yes</strong>) &#8211; may be required if doing double ssh (ie one tunnel feeding in to a second tunnel); <strong>will</strong> be required to allow connections to forwarded port from external hosts (ie not localhost)</p>
+-f &ndash; go into background after asking for a password<br />
+-N &ndash; don&rsquo;t execute a remote command<br />
+-g &ndash; gateway (or <strong>-o GateWayPorts=yes</strong>) &ndash; may be required if doing double ssh (ie one tunnel feeding in to a second tunnel); <strong>will</strong> be required to allow connections to forwarded port from external hosts (ie not localhost)</p>
 
 <p><img src="http://blog.snowfrog.net/wp-content/uploads/2007/10/ssh_forward.png" alt="ssh_forward" />
 </p>
@@ -113,9 +113,9 @@ hosta$ ssh -fN</code><code>-o GateWayPorts=yes</code><code>-L P:S:W</code><code>
 <p><img src="http://blog.snowfrog.net/wp-content/uploads/2011/04/ssh_forward2.png" alt="ssh_forward2" />
 </p>
 
-<p>(image from O&#8217;Reilly&#8217;s excellent book &#8220;SSH Definitive Guide&#8221;)</p>
+<p>(image from O&rsquo;Reilly&rsquo;s excellent book &ldquo;SSH Definitive Guide&rdquo;)</p>
 
-<p>Data between C and A <em>won&#8217;t</em> be encrypted; data between A and B <em>will</em> be encrypted; data between B and S <em>won&#8217;t</em> be encrypted.</p>
+<p>Data between C and A <em>won&rsquo;t</em> be encrypted; data between A and B <em>will</em> be encrypted; data between B and S <em>won&rsquo;t</em> be encrypted.</p>
 
 <p><strong>To setup an ssh tunnel (3 machines):</strong></p>
 
@@ -131,14 +131,14 @@ hosta$ ssh -fN -L P:S:W user@B</code><br />
 
 <p><strong>To setup an ssh tunnel (2 machines):</strong></p>
 
-<p>Another common case is where both C and A, and B and S, are the same machines &#8211; call them <em>local</em> and <em>remote</em>. There are 2 possible commands:<br />
+<p>Another common case is where both C and A, and B and S, are the same machines &ndash; call them <em>local</em> and <em>remote</em>. There are 2 possible commands:<br />
 <code>&lt;br /&gt;
 local$ ssh -fN -L P:localhost:W remote&lt;br /&gt;
 local$ ssh -fN -L P:remote:W remote&lt;br /&gt;
 </code><br />
-Both will usually work, but to the destination server (1) appears to come from 127.0.0.1 and (2) appears to come from remote&#8217;s ip. (1) would give &#8220;connection refused&#8221; errors if connections aren&#8217;t allowed from localhost (unusual), (2) would give &#8220;connection refused&#8221; errors if connections aren&#8217;t allowed from anything but localhost (eg typically mysql).</p>
+Both will usually work, but to the destination server (1) appears to come from 127.0.0.1 and (2) appears to come from remote&rsquo;s ip. (1) would give &ldquo;connection refused&rdquo; errors if connections aren&rsquo;t allowed from localhost (unusual), (2) would give &ldquo;connection refused&rdquo; errors if connections aren&rsquo;t allowed from anything but localhost (eg typically mysql).</p>
 
-<p>To connect, do <strong>ssh -p P foo@localhost</strong>. Be aware of account name issues ie localhost and remote are different hosts, so a tunnel may succeed but then the ssh command fail due to account name mismatches &#8211; hence the <strong>foo@</strong>localhost.</p>
+<p>To connect, do <strong>ssh -p P foo@localhost</strong>. Be aware of account name issues ie localhost and remote are different hosts, so a tunnel may succeed but then the ssh command fail due to account name mismatches &ndash; hence the <strong>foo@</strong>localhost.</p>
 
 <p><strong>Some tricks from <a href="http://polishlinux.org/apps/ssh-tunneling-to-bypass-corporate-firewalls/">this article</a>:</strong></p>
 
@@ -153,7 +153,7 @@ Both will usually work, but to the destination server (1) appears to come from 1
 <li><a href="http://www.employees.org/~satch/ssh/faq/ssh-faq.html">Official SSH FAQ</a></li>
 <li>gentoo wiki <a href="http://gentoo-wiki.com/TIP_SSH_Reverse_Tunnel">TIP SSH Reverse Tunnel</a></li>
 <li>samba.org <a href="http://samba.anu.edu.au/rsync/firewall.html">multi-hop ssh with nc for rsync</a></li>
-<li><a href="http://www.cskk.ezoshosting.com/cs/css/ssh.html#sshto__bangstyle_ssh_to_do_multihop_ssh">sshto</a> &#8211; bang-style ssh to do multihop ssh</li>
+<li><a href="http://www.cskk.ezoshosting.com/cs/css/ssh.html#sshto__bangstyle_ssh_to_do_multihop_ssh">sshto</a> &ndash; bang-style ssh to do multihop ssh</li>
 </ul>
 
         </section>

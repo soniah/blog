@@ -88,11 +88,11 @@
       <h1 class="post-title">git hooks – prepare-commit-msg</h1>
         <section id="main">
           <h5 id="date"> 22 Jun 2011 </h5>
-          <p>When I&#8217;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a <strong>git log</strong>, rather than getting this:</p>
+          <p>When I&rsquo;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a <strong>git log</strong>, rather than getting this:</p>
 
-<p><strong>Update:</strong> foo commented that this was a &#8220;bad idea&#8221; (bordering on wrong?) and suggested I use options like <strong>git log &#8211;stat</strong> instead. See the comments below. Thanks foo!</p>
+<p><strong>Update:</strong> foo commented that this was a &ldquo;bad idea&rdquo; (bordering on wrong?) and suggested I use options like <strong>git log &ndash;stat</strong> instead. See the comments below. Thanks foo!</p>
 
-<p>When I&#8217;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a <strong>git log</strong>, rather than getting this:</p>
+<p>When I&rsquo;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a <strong>git log</strong>, rather than getting this:</p>
 
 <pre>commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3
 Author: Sonia Hamilton
@@ -110,7 +110,7 @@ Date:   Fri Jun 17 21:15:53 2011 +1000
         modified:   setuplinux
         modified:   funcs</pre>
 
-<p>I used to manually edit the commit message on each commit, but git has a system of hooks that allows you to automate this sort of thing (look in the <strong>repo/.git/hooks</strong> directory for some examples). Here&#8217;s a script to automatically uncomment all changes in the commit message:</p>
+<p>I used to manually edit the commit message on each commit, but git has a system of hooks that allows you to automate this sort of thing (look in the <strong>repo/.git/hooks</strong> directory for some examples). Here&rsquo;s a script to automatically uncomment all changes in the commit message:</p>
 
 <pre>% cat prepare-commit-msg
 #!/bin/sh
@@ -120,7 +120,7 @@ case "$2,$3" in
     /usr/bin/perl -i.bak -ne 's/^#// if /modified:|new file:|deleted:|renamed:/; print' "$1" ;;
 esac</pre>
 
-<p>And here&#8217;s a quick script for setting this up across all your local repos. Remember &#8211; hooks aren&#8217;t synced between repos, so you need to do this on each machine you work on.</p>
+<p>And here&rsquo;s a quick script for setting this up across all your local repos. Remember &ndash; hooks aren&rsquo;t synced between repos, so you need to do this on each machine you work on.</p>
 
 <pre>#!/bin/bash
 # vim: ai ts=4 sts=4 et sw=4 ft=sh
@@ -132,7 +132,7 @@ for d in $gitdirs ; do
     fi
 done</pre>
 
-<p>There&#8217;s only one disadvantage to doing this. Usually, you can just exit without saving the commit message and git will cancel the commit. But because the script modifies the message, there&#8217;s no nice way of telling git you want to back out (unless someone can tell me how&#8230;). I get around this by saving the message and doing a <strong>git reset &#8211;soft HEAD^</strong> at the command line.</p>
+<p>There&rsquo;s only one disadvantage to doing this. Usually, you can just exit without saving the commit message and git will cancel the commit. But because the script modifies the message, there&rsquo;s no nice way of telling git you want to back out (unless someone can tell me how.). I get around this by saving the message and doing a <strong>git reset &ndash;soft HEAD^</strong> at the command line.</p>
 
         </section>
 

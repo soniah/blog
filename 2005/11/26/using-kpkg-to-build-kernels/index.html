@@ -94,7 +94,7 @@
 
 <h3 id="using-kpkg-to-build-kernels:04f1df7e23dc332813cb6df950753b58">Using kpkg to Build Kernels</h3>
 
-<p>See also <a href="http://www.howtoforge.com/kernel_compilation_ubuntu">How To Compile A Kernel &#8211; The Ubuntu Way</a></p>
+<p>See also <a href="http://www.howtoforge.com/kernel_compilation_ubuntu">How To Compile A Kernel &ndash; The Ubuntu Way</a></p>
 
 <h3 id="preparation:04f1df7e23dc332813cb6df950753b58">Preparation</h3>
 
@@ -145,7 +145,7 @@
  sudo chown -R root.src linux-source-2.6.123
  sudo ln -s linux-source-2.6.123 linux</pre>
 
-<p>Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, linux-source comes from Ubuntu. All the dependencies haven&#8217;t been changed over yet, though, so if you get warnings about &#8220;uninstalled package kernel-source&#8221; even though linux-source is installed, you can safely ignore them. Can sometimes also just download linux-headers-`uname -r`</p>
+<p>Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, linux-source comes from Ubuntu. All the dependencies haven&rsquo;t been changed over yet, though, so if you get warnings about &ldquo;uninstalled package kernel-source&rdquo; even though linux-source is installed, you can safely ignore them. Can sometimes also just download linux-headers-`uname -r`</p>
 
 <ul>
 <li>check prereqs</li>
@@ -175,8 +175,8 @@
  fakeroot make-kpkg --initrd --append-to-version=.sonia.001 kernel_image modules_image
  fakeroot make-kpkg --initrd --append-to-version=.sonia.001 --added-modules=madwifi modules_image</pre>
 
-<p>or some combo of the above&#8230;<br />
-<strong>don&#8217;t use &#8211;revision</strong> &#8211; versions aren&#8217;t handled correctly</p>
+<p>or some combo of the above.<br />
+<strong>don&rsquo;t use &ndash;revision</strong> &ndash; versions aren&rsquo;t handled correctly</p>
 
 <h3 id="install:04f1df7e23dc332813cb6df950753b58">Install</h3>
 
@@ -194,7 +194,7 @@
 <li>find current status</li>
 </ul>
 
-<p>(dpkg -l truncates) ?? gives wrong result&#8230;</p>
+<p>(dpkg -l truncates) ?? gives wrong result.</p>
 
 <pre>dpkg --get-selections | grep kernel</pre>
 
@@ -202,8 +202,8 @@
 
 <h2 id="distcc:04f1df7e23dc332813cb6df950753b58">distcc</h2>
 
-<p>&#8220;Note&#8221;<br />
-If distcc process killed whilst troubleshooting, etc, remove ~/.distcc check all gcc&#8217;s about the same version, with `gcc -v` (first 2 digits important)</p>
+<p>&ldquo;Note&rdquo;<br />
+If distcc process killed whilst troubleshooting, etc, remove ~/.distcc check all gcc&rsquo;s about the same version, with `gcc -v` (first 2 digits important)</p>
 
 <ul>
 <li>install pre-reqs (probably excessive)</li>
@@ -218,7 +218,7 @@ If distcc process killed whilst troubleshooting, etc, remove ~/.distcc check all
 <pre>ALLOWEDNETS="127.0.0.1 192.168.1.0/24"</pre>
 
 <ul>
-<li>setup &#8220;masquerade&#8221; directory</li>
+<li>setup &ldquo;masquerade&rdquo; directory</li>
 </ul>
 
 <pre>mkdir -p /usr/local/distcc/bin

@@ -93,7 +93,7 @@
 <ul>
 <li>See also: <a href="http://linux.byexamples.com/archives/255/svn-command-line-tutorial-for-beginners-1/">svn command line tutorial for beginners 1 </a></li>
 <li>Notes from: <a href="http://svnbook.red-bean.com/">Version Control with Subversion</a></li>
-<li>Tsavo&#8217;s great <a href="http://jwamicha.wordpress.com/2008/05/29/subversion-a-summary-cheat-sheet-learn-svn-in-10-minutes/">svn cheatsheet</a></li>
+<li>Tsavo&rsquo;s great <a href="http://jwamicha.wordpress.com/2008/05/29/subversion-a-summary-cheat-sheet-learn-svn-in-10-minutes/">svn cheatsheet</a></li>
 </ul>
 
 <p><strong>Quickstart</strong></p>
@@ -108,7 +108,7 @@
 <p><tt>mkdir -p project/{trunk,tags,branches}</tt><br />
 <tt>mv ~/original ~/project/trunk</tt></p>
 
-<p>Using <em>trunk/tags/branches</em> for a small project is overkill &#8211; tags and branches can be added later. Therefore for a small project, just do:</p>
+<p>Using <em>trunk/tags/branches</em> for a small project is overkill &ndash; tags and branches can be added later. Therefore for a small project, just do:</p>
 
 <p><tt>mkdir -p project</tt><br />
 <tt>mv ~/original ~/project</tt></p>
@@ -123,7 +123,7 @@
 <p><tt>svn import project file:///home/sonia/svnrepo -m &ldquo;initial import&rdquo;</tt><br />
 <tt>mv project /tmp</tt></p>
 
-<p>After the repo is setup, you&#8217;ll probably want to add other directories eg to import <strong>projectb</strong>:</p>
+<p>After the repo is setup, you&rsquo;ll probably want to add other directories eg to import <strong>projectb</strong>:</p>
 
 <p><tt>svn import projectb file:///home/sonia/svnrepo/trunk/projectb -m &ldquo;initial import&rdquo;</tt><br />
 <tt>mv projectb /tmp</tt></p>
@@ -163,7 +163,7 @@
 <p><strong>Other Common Tasks</strong></p>
 
 <ul>
-<li>ignoring files <tt>svn propedit svn:ignore targetdir</tt> (see&#8221;<a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.ignore.html">Ignoring Unversioned Items</a>&#8220;)</li>
+<li>ignoring files <tt>svn propedit svn:ignore targetdir</tt> (see&rdquo;<a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.ignore.html">Ignoring Unversioned Items</a>&rdquo;)</li>
 <li>to always ignore files of type x (eg .mp3), edit <strong>~/.subversion/config</strong> or <strong>/etc/subversion/config</strong> and set <strong>global-ignores</strong> under <strong>[miscellany]</strong> (see <a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.confarea.html">Runtime Configuration Area</a>).</li>
 </ul>
 
