@@ -9,10 +9,10 @@ tags:
 - Balintawak
 ---
 
-John Russell and I training Balintawak Arnis on Mindil Beach, Darwin. [On Youtube](http://www.youtube.com/watch?v=CWlc1nfMLj0).
+John Russell and I training Balintawak Arnis on Mindil Beach, Darwin.
 
 <!--more-->
 
-[![Parap Beach](http://blog.snowfrog.net/wp-content/uploads/2012/07/parap_beach-576x1024.png)](http://blog.snowfrog.net/wp-content/uploads/2012/07/parap_beach.png)
+{{% youtube CWlc1nfMLj0 %}}
 
-[youtube=http://www.youtube.com/watch?v=CWlc1nfMLj0]
+[![Parap Beach](http://blog.snowfrog.net/wp-content/uploads/2012/07/parap_beach-576x1024.png)](http://blog.snowfrog.net/wp-content/uploads/2012/07/parap_beach.png)
