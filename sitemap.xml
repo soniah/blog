@@ -253,12 +253,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -458,12 +458,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</loc>
+    <loc>http://blog2.snowfrog.net/2011/05/09/books-are-better/</loc>
     <lastmod>2011-05-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/05/09/books-are-better/</loc>
+    <loc>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</loc>
     <lastmod>2011-05-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -503,12 +503,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -628,12 +628,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
+    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
+    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -653,12 +653,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -848,17 +848,17 @@
   </url>
   
   <url>
+    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
+    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
-    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -903,12 +903,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
