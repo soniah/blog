@@ -618,22 +618,22 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
-    <lastmod>2010-03-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
-    <lastmod>2010-02-26T00:00:00+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
+    <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
+    <lastmod>2010-02-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -653,12 +653,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -848,12 +848,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -903,12 +903,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -1153,12 +1153,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/11/29/open-source-calendaring/</loc>
+    <loc>http://blog2.snowfrog.net/2007/11/29/troubleshooting-apache/</loc>
     <lastmod>2007-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/11/29/troubleshooting-apache/</loc>
+    <loc>http://blog2.snowfrog.net/2007/11/29/open-source-calendaring/</loc>
     <lastmod>2007-11-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1333,12 +1333,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -1358,12 +1358,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
+    <loc>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
+    <loc>http://blog2.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
