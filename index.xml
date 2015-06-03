@@ -69,7 +69,7 @@ of code eg logging, opening/closing files or databases, etc.&lt;/p&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #447fcf&#34;&gt;someFunction&lt;/span&gt;
-  &lt;span style=&#34;color: #d0d0d0&#34;&gt;with_logging(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;doing stuff&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;with_logging(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;saying hello&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
@@ -588,6 +588,20 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
     </item>
     
     <item>
+      <title>Change default editor in Debian</title>
+      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
+      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
+      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
       <link>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</link>
       <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
@@ -615,20 +629,6 @@ Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Change default editor in Debian</title>
-      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
-      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
-      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
 </description>
     </item>
     
