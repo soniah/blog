@@ -5,10 +5,12 @@
 * DONE youtube shortcodes - copy eg from other blogs
 * DONE youtubes - make mine visible; edit posts where not visible
 * DONE &#8211 and similar in content
-* complete tags html/templates - eg peter aba, virt.co.uk, stou.dk (tag cloud)
+* DONE complete tags html/templates - eg peter aba, virt.co.uk, stou.dk
+  (sort of tag cloud)
 * images - wp-content
 * privacy policy
-* joker - redirects on all old www blog posts? (so can get rid of uva
-  eventually)
 * disqus eg alexandre-normand
 * fixup share/follow links eg spf13.com, heyitsalex
+* Google search of site
+* joker - redirects on all old www blog posts? (so can get rid of uva
+  eventually)

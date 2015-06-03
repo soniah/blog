@@ -4,6 +4,7 @@ layoutdir: "layouts"
 publishdir: "public"
 indexes:
   category: "categories"
+  tag: "tags"
 baseurl: "http://blog2.snowfrog.net"
 title: "Sonia Hamilton - Blog"
 canonifyurls: true
