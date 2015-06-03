@@ -1,0 +1,44 @@
+<!-- This file is the 404 page of the website. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+      This section just sets up some metadata for the website.
+
+      It probably does not need to be changed.
+    -->
+    <meta charset="utf-8">
+    <base href="{{ .Site.BaseURL }}">
+    <title>{{ .Site.Title }}</title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+
+    {{ template "chrome/head_includes.html" . }}
+</head>
+  <body class="theme-base-0b" lang="en">
+
+  {{ template "chrome/sidebar.html" . }}
+
+  <!-- See /layouts/indexes/category.html for explanation of this section -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <!-- Recent Posts section -->
+        <section id="main">
+          Page not found.
+        </section>
+      </div>
+
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+{{ template "chrome/footer.html" }}
