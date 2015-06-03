@@ -48,7 +48,7 @@ ssh-keygen -y -f ~/.ssh/foo &amp;gt; ~/.ssh/foo.pub
 
 &lt;p&gt;My notes on Russ Olsen&amp;rsquo;s excellent book &lt;a href=&#34;http://eloquentruby.com/&#34;&gt;Eloquent
 Ruby&lt;/a&gt;. These aren&amp;rsquo;t meant to be full and
-complete notes, they&amp;rsquo;re just things I want to remember; for more details
+complete notes they&amp;rsquo;re just things I want to remember; for more details
 see the book.&lt;/p&gt;
 
 &lt;h2 id=&#34;chapter-18-execute-around-with-a-block:7451105976af4d209042d2a3b77cd961&#34;&gt;Chapter 18. Execute Around with a Block&lt;/h2&gt;
@@ -588,20 +588,6 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
     </item>
     
     <item>
-      <title>Change default editor in Debian</title>
-      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
-      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
-      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
       <link>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</link>
       <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
@@ -629,6 +615,20 @@ Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Change default editor in Debian</title>
+      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
+      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
+      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
 </description>
     </item>
     
