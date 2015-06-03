@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Palmpilot on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/palmpilot/</link>
+    <description>Recent content in Palmpilot on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 16 Jan 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/palmpilot/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Migrating from Palm to Android</title>
+      <link>http://blog2.snowfrog.net/2012/01/17/migrating-from-palm-to-android/</link>
+      <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/01/17/migrating-from-palm-to-android/</guid>
+      <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;rsquo;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;rsquo;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;rsquo;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
+
+&lt;p&gt;Some tricks and tools I&amp;rsquo;ve find useful in my migration from Palm to Android:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.synthesis.ch/&#34;&gt;Synthesis SyncML clients&lt;/a&gt; are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.&lt;/li&gt;
+&lt;li&gt;for a SyncML server I&amp;rsquo;m using &lt;a href=&#34;https://www.memotoo.com/&#34;&gt;Memotoo&lt;/a&gt;. I could&amp;rsquo;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works.&lt;/li&gt;
+&lt;li&gt;on the Android Market there&amp;rsquo;s a &lt;a href=&#34;http://gnukeyring.sourceforge.net/&#34;&gt;Keyring&lt;/a&gt; client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&amp;rsquo;m yet to work out how I&amp;rsquo;m going to back this up, but probably something with Memotoo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, I&amp;rsquo;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the &lt;a href=&#34;http://www.jpilot.org/images/jpilot-address.png&#34;&gt;JPilot desktop&lt;/a&gt; (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&amp;rsquo;m almost migrated!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Syncing Palm Pilot with JPilot and visor on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</link>
+      <pubDate>Mon, 04 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</guid>
+      <description>
+
+&lt;p&gt;(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&amp;rsquo;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.&lt;/p&gt;
+
+&lt;p&gt;Turns out I wasn&amp;rsquo;t reading my own instructions. here&amp;rsquo;s the cleaned up version:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;load visor module &lt;strong&gt;sudo modprobe visor&lt;/strong&gt; and check loaded &lt;strong&gt;lsmod | grep visor&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;add visor module to &lt;strong&gt;/etc/modules&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;click sync button on Palm Pilot and check USB devices are being created:
+
+&lt;ul&gt;
+&lt;li&gt;in one terminal, &lt;strong&gt;tail -f /var/log/syslog &lt;s&gt;/var/log/messages&lt;/s&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;in a second terminal, check the ownership of links &lt;strong&gt;ls -al /dev/ttyUSB&lt;/strong&gt;* and check you are a member of the appropriate group (usually dialout) &lt;strong&gt;grep dialout /etc/group&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sudo aptitude install jpilot&lt;/strong&gt; and start JPilot&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;read this step carefully:&lt;/em&gt; no need to change the Serial Port setting in Preferences &amp;ndash; JPilot will pick up the correct one on the first sync (which is now unexpectedly &lt;em&gt;Other&lt;/em&gt; rather than &lt;em&gt;/dev/ttyUSBO&lt;/em&gt; or &lt;em&gt;usb:&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;read this step carefully:&lt;/em&gt; from jpilot &lt;strong&gt;File &amp;gt; Install User&lt;/strong&gt;, click sync button on Palm Pilot, count to 5, then click &lt;strong&gt;Install User&lt;/strong&gt; button in JPilot dialog box&lt;/li&gt;
+&lt;li&gt;click sync button on Palm Pilot, count to 5, then click &lt;strong&gt;Sync&lt;/strong&gt; in JPilot&lt;/li&gt;
+&lt;li&gt;if syncing isn&amp;rsquo;t working (especially on a machine that&amp;rsquo;s been upgraded from an older version of Ubuntu), try closing JPilot, &lt;strong&gt;mv .jpilot .jpilot.bak&lt;/strong&gt;, restarting JPilot, then doing the &lt;strong&gt;Install User&lt;/strong&gt; steps again&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;span-style-text-decoration-underline-see-also-span:30acd8bf1d7677c6c7fe94558b2bfaa7&#34;&gt;&lt;span style=&#34;text-decoration: underline;&#34;&gt;See also:&lt;/span&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(totally off-topic): &lt;a href=&#34;http://www.computechgroup.com/?p=381&#34;&gt;HOWTO: Import iCalendar (ics) Appointments Into JPilot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;some pages mention installing pilot-link &amp;ndash; this isn&amp;rsquo;t required&lt;/li&gt;
+&lt;li&gt;some pages mention modifying files in&lt;strong&gt;/etc/udev/rules.d&lt;/strong&gt; &amp;ndash; this no longer seems required&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxquestions.org/questions/showthread.php?t=79965&#34;&gt;http://www.linuxquestions.org/questions/showthread.php?t=79965&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ask.slashdot.org/article.pl?sid=05/05/13/0234225&#34;&gt;http://ask.slashdot.org/article.pl?sid=05/05/13/0234225&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxmuse.com/articles.php?action=printerf&amp;amp;article=29&#34;&gt;http://www.linuxmuse.com/articles.php?action=printerf&amp;amp;article=29&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxquestions.org/questions/showthread.php?t=177780&#34;&gt;http://www.linuxquestions.org/questions/showthread.php?t=177780&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxquestions.org/questions/showthread.php?t=221854&#34;&gt;http://www.linuxquestions.org/questions/showthread.php?t=221854&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.rockhopper.dk/linux/hardware/pda.html#chap5_sect1&#34;&gt;http://www.rockhopper.dk/linux/hardware/pda.html#chap5_sect1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://archives.mandrivalinux.com/expert/2003-02/msg02508.php&#34;&gt;http://archives.mandrivalinux.com/expert/2003-02/msg02508.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.faqs.org/docs/Linux-HOWTO/PalmOS-HOWTO.html#PC-CONNECT-USB&#34;&gt;http://www.faqs.org/docs/Linux-HOWTO/PalmOS-HOWTO.html#PC-CONNECT-USB&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pilot-link.org/README.usb&#34;&gt;http://pilot-link.org/README.usb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.clasohm.com/blog/one-entry?entry%5fid=12096&#34;&gt;Carsten Clasohm&amp;rsquo;s Blog : USB Palm and Fedora Core 3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.reactivated.net/writing_udev_rules.html&#34;&gt;Writing udev rules by Daniel Drake&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linux-mag.com/id/2617&#34;&gt;Linux Magazine &amp;ndash; The Linux Device Model&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>apt-cache policy</title>
+      <link>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</link>
+      <pubDate>Sat, 14 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s years since I&amp;rsquo;ve dealt with apt-pinning, so all my knowledge on it has paged-out.&lt;/p&gt;
+
+&lt;p&gt;But I want to use it again because I&amp;rsquo;ve backgraded to Ubuntu Gutsy to get my Palm Treo syncing, but I want a few new packages from Hardy or Intrepid. (It seems that Palm syncing using the visor module and JPilot &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/intrepid/+source/pilot-link/+bug/282491&#34;&gt;&lt;em&gt;still&lt;/em&gt; isn&amp;rsquo;t working&lt;/a&gt;, due to an unfixed regression in the kernel. Or maybe I just didn&amp;rsquo;t look hard enough. Bah &amp;ndash; I dislike Hardy and Intrepid anyway).&lt;/p&gt;
+
+&lt;p&gt;Anyway, on my (ongoing) apt-pinning travels, I came across a good post on &lt;a href=&#34;http://shallowsky.com/blog/linux/install/pinning.html&#34;&gt;Simple Pinning&lt;/a&gt;, and somewhere else read about a neat command I never knew about &amp;ndash; &lt;strong&gt;apt-cache policy&lt;/strong&gt; &amp;ndash; it shows what apt thinks the current pinning levels are:&lt;/p&gt;
+
+&lt;pre&gt;Package files:
+ 100 /var/lib/dpkg/status
+     release a=now
+ 500 http://au.archive.ubuntu.com gutsy-backports/universe Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=universe
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-backports/multiverse Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=multiverse
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-backports/main Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=main
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-backports/restricted Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=restricted
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-updates/universe Packages
+     release v=7.10,o=Ubuntu,a=gutsy-updates,l=Ubuntu,c=universe
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-updates/restricted Packages
+     release v=7.10,o=Ubuntu,a=gutsy-updates,l=Ubuntu,c=restricted
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-updates/main Packages
+     release v=7.10,o=Ubuntu,a=gutsy-updates,l=Ubuntu,c=main
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy/universe Packages
+     release v=7.10,o=Ubuntu,a=gutsy,l=Ubuntu,c=universe
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy/restricted Packages
+     release v=7.10,o=Ubuntu,a=gutsy,l=Ubuntu,c=restricted
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy/main Packages
+     release v=7.10,o=Ubuntu,a=gutsy,l=Ubuntu,c=main
+     origin au.archive.ubuntu.com
+Pinned packages:
+     vinagre -&amp;gt; (not found)&lt;/pre&gt;
+
+&lt;p&gt;Nice! Now, armed with this command I&amp;rsquo;ll start tinkering with &lt;strong&gt;/etc/apt/preferences&lt;/strong&gt; to get Hardy and Intrepid in with proper preferences. TODO: RTFM &lt;strong&gt;man apt_preferences&lt;/strong&gt; :-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JPilot – Change First Day of Week on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</link>
+      <pubDate>Sat, 10 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</guid>
+      <description>&lt;p&gt;I still use JPilot for syncing with my Palm Treo &amp;ndash; an old app but I like it, especially because of JPilot-Keyring.&lt;/p&gt;
+
+&lt;p&gt;But there&amp;rsquo;s no way of changing the first day of the week in JPilot, and consequently the first day of the week appears as Sunday rather than Monday &amp;ndash; yikes, &lt;a href=&#34;http://www.cafepress.com/antireligion/639003&#34;&gt;Christianity&lt;/a&gt;! The solution is to &lt;a href=&#34;http://blog.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/&#34;&gt;change the first day of the week in Gnome&lt;/a&gt;, and JPilot then picks it up.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

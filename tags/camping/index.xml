@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Camping on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/camping/</link>
+    <description>Recent content in Camping on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 14 Jul 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/camping/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MSR Whisperlite International Stove - Fuel Types</title>
+      <link>http://blog2.snowfrog.net/2013/07/14/msr-whisperlite-international-stove-fuel-types/</link>
+      <pubDate>Sun, 14 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/07/14/msr-whisperlite-international-stove-fuel-types/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just got a new MSR Whisperlite International Stove, as I couldn&amp;rsquo;t find a replacement fuel bottle for my old Coleman petrol stove.&lt;/p&gt;
+
+&lt;p&gt;The adapter for my old Coleman is the same diameter as the current fuel
+bottles, but a different thread pitch :-(&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a list of the different fuels the MSR accepts, as well as the names of these fuels in different countries. There is also good information at the bottom of &lt;a href=&#34;http://zenstoves.net/Petrol.htm#Fuels&#34;&gt;Zen Stoves&amp;rsquo; Petrol Burning Stoves page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Australia:     Shellite,                    Unleaded Petrol,     Kerosene
+Spain:         Bencina Blanca,              Gasolina sin Plomo,  Parafina
+France:        Petrole a bruler/Essence C,  Essence sans Plomb,  Kerosene
+Netherlands:   Wasbenzine,                  Benzine,             Petroleum Lampolie
+Germany/Switz: Kocherbenzin/Reinbenzin,     Autobenzin,          Petroleum
+Japan:         White Gas,                   Gasoline,            Toy-yu
+USA/Canada:    White Gas/Naptha,            Unleaded Auto Gas,   Kerosene
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

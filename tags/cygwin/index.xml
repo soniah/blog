@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cygwin on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/cygwin/</link>
+    <description>Recent content in Cygwin on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 19 Nov 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/cygwin/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>cygwin: zsh: zsh compinit: insecure directories</title>
+      <link>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</link>
+      <pubDate>Thu, 19 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</guid>
+      <description>&lt;p&gt;Using cygwin under Windows, I&amp;rsquo;ve setup my shell as zsh by editing the launch script:&lt;/p&gt;
+
+&lt;pre&gt;@echo off
+C:
+chdir C:cygwinbin
+zsh -l -i
+&lt;/pre&gt;
+
+&lt;p&gt;Unfortunately, this gives a nasty error everytime the shell is started up, due to Cygwin installing zsh incorrectly:&lt;/p&gt;
+
+&lt;pre&gt;zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]? y&lt;/pre&gt;
+
+&lt;p&gt;Solution, thanks to &lt;a href=&#34;http://www.wezm.net/2008/09/zsh-cygwin-and-insecure-directories/&#34;&gt;wezm.net&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;compaudit | xargs chmod g-w&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

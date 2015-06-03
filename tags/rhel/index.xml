@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rhel on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/rhel/</link>
+    <description>Recent content in Rhel on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 29 Mar 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/rhel/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ghostscript ImageMagick RHEL libgs.so errors</title>
+      <link>http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/</link>
+      <pubDate>Thu, 29 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/</guid>
+      <description>&lt;p&gt;A little problem I came across today. When you install ImageMagick (IM) on &lt;a href=&#34;http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux&#34;&gt;RHEL&lt;/a&gt; (or &lt;a href=&#34;http://en.wikipedia.org/wiki/Oracle_Enterprise_Linux&#34;&gt;OEL&lt;/a&gt; or similar), IM fails when converting pdfs.&lt;/p&gt;
+
+&lt;p&gt;You can see the problem (&lt;strong&gt;libgs.so&lt;/strong&gt;) by logging the output of IM. For example, here&amp;rsquo;s an attempted conversion of &lt;strong&gt;test.pdf&lt;/strong&gt; to &lt;strong&gt;test.tif&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% convert -debug all -log &amp;quot;%u %m:%l %e&amp;quot; test.pdf test.tif 2&amp;gt;&amp;amp;1 | less
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This gives errors like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;0.000u module.c:1278 unable to load module `/usr/lib/ImageMagick-6.7.5&amp;lt;wbr&amp;gt;/modules-Q16/coders/&amp;lt;a href=&amp;quot;http://www.google.com/url?q=http%3A%2F%2Fpdf.la&amp;amp;sa=D&amp;amp;sntz=1&amp;amp;usg=AFQjCNGP84_LsnHfS4qb4LezlUoLCScTAA&amp;quot; target=&amp;quot;_blank&amp;quot;&amp;gt;pdf.la&amp;lt;/a&amp;gt;&#39;: libgs.so.8: cannot open shared object file: No such file or directory&amp;lt;/wbr&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, I downloaded and unpacked a RHEL ghostscript rpm - it turns out that the rpms have symlinks to &lt;strong&gt;libgs.so&lt;/strong&gt; in the package, but no &lt;strong&gt;libgs.so&lt;/strong&gt; :-(&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/var/tmp/usr/lib # ls -al libgs.so*
+lrwxrwxrwx 1 root root    13 Mar 28 20:41 libgs.so -&amp;gt; libgs.so.8.15
+lrwxrwxrwx 1 root root    13 Mar 28 20:41 libgs.so.8 -&amp;gt; libgs.so.8.15
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Easy you think, just install something like &lt;strong&gt;libgs.123.rpm&lt;/strong&gt;, and everything will work. But there isn&amp;rsquo;t such an rpm&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;So, download the ghostscript source, build it as a shared library (using the not quite obvious &lt;strong&gt;make so&lt;/strong&gt;), copy the lib to &lt;strong&gt;/usr/lib&lt;/strong&gt;, fix up the symlinks. Then all is  &lt;em&gt;happiness and light&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% cd /var/tmp
+% wget http://downloads.ghostscript.com/public/ghostscript-8.71.tar.xz
+% tar zxvf ghostscript-8.71.tar.xz
+% cd ghostscript-8.71
+% ./configure
+% make so
+% rm -i /usr/lib/libgs.so*
+% cp sobin/libgs.so.8.71 /usr/lib
+% ln -s libgs.so.8.71 libgs.so
+% ln -s libgs.so.8.71 libgs.so.8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Oh the pain - why can&amp;rsquo;t the world just use &lt;a href=&#34;http://www.debian.org/&#34;&gt;The Universal Operation System - Debian&lt;/a&gt;?!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

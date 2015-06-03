@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/ruby/</link>
+    <description>Recent content in Ruby on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 28 May 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Eloquent Ruby</title>
+      <link>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</link>
+      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
+      <description>
+
+&lt;p&gt;My notes on Russ Olsen&amp;rsquo;s excellent book &lt;a href=&#34;http://eloquentruby.com/&#34;&gt;Eloquent
+Ruby&lt;/a&gt;. These aren&amp;rsquo;t meant to be full and
+complete notes, they&amp;rsquo;re just things I want to remember; for more details
+&lt;em&gt;buy the book&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;chapter-18-execute-around-with-a-block:7451105976af4d209042d2a3b77cd961&#34;&gt;Chapter 18. Execute Around with a Block&lt;/h1&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>refactoring in Go - rather pleasant actually...</title>
+      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
+
+&lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
+a scripting language (Python, Perl, Ruby, etc). My process is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;type &lt;strong&gt;:make&lt;/strong&gt; in vim (I have a dummy Makefile in my Go project just for vim)&lt;/li&gt;
+&lt;li&gt;vim jumps cursor to error (&lt;a href=&#34;http://vimdoc.sourceforge.net/htmldoc/quickfix.html&#34;&gt;vim quickfix list&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;oh, I shouldn&amp;rsquo;t do that&amp;rdquo; - fix (type type type)&lt;/li&gt;
+&lt;li&gt;start again&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finish rather sooner than expected, run tests, smile in knowledge program is working &lt;em&gt;properly&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To quickly setup the &lt;strong&gt;make&lt;/strong&gt; command for Go, type this in a Vim window:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:setlocal makeprg=go\ build\ \.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or even better configure vim via your ~/.vimrc, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
+autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks Martin for the comment!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learning Clojure - my books</title>
+      <link>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
+      <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&amp;rsquo;s a list of the books I&amp;rsquo;ve read on my journey to Clojure enlightenment (I&amp;rsquo;ve still got a long way to go&amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;My first Clojure book wasn&amp;rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across &lt;a href=&#34;http://nostarch.com/lisp.htm&#34;&gt;Land of Lisp&lt;/a&gt;.  I&amp;rsquo;d heard about Lisp, that &amp;ldquo;obsolete&amp;rdquo; language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;cartoons&lt;/a&gt; were great, and before I knew it I&amp;rsquo;d read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://mitpress.mit.edu/sicp/full-text/book/cover.jpg&#34; alt=&#34;SICP book&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;But after reading it for a while and getting sidetracked by Scheme and &lt;a href=&#34;http://mitpress.mit.edu/sicp/full-text/book/book.html&#34;&gt;the greatest book every written about programming&lt;/a&gt;, Land of Lisp languished on my bookshelf. The example used in the book (yet another game) didn&amp;rsquo;t relate to my day-to-day use of programming. I was getting lost because I wasn&amp;rsquo;t doing any exercises, and &lt;a href=&#34;http://steve-yegge.blogspot.com.au/2006/04/lisp-is-not-acceptable-lisp.html&#34;&gt;Lisp just didn&amp;rsquo;t seem to be an acceptable Lisp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imagery.pragprog.com/products/195/btlang_xlargecover.jpg?1298589937&#34; alt=&#34;Seven Languages in Seven Weeks&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pragprog.com/book/btlang/seven-languages-in-seven-weeks&#34;&gt;Seven Languages in Seven Weeks&lt;/a&gt; pointed me towards Erlang, Haskell and Clojure. Ah-hah! Clojure - runs on the JVM (so I can use it machines where I can&amp;rsquo;t/don&amp;rsquo;t want to install stuff, just like JRuby). A modern Lisp with cleaned up syntax that has access to all the Java libraries for doing real world stuff. I&amp;rsquo;m hooked!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://joyofclojure.com/wp-content/uploads/2011/07/joy-of-clojure-cover-239x300.jpg&#34; alt=&#34;The Joy of Clojure&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;At a &lt;a href=&#34;http://ruby.org.au/&#34;&gt;Ruby on Rails Oceania (RORO)&lt;/a&gt; meetup someone was raving about &lt;a href=&#34;http://www.amazon.com/The-Joy-Clojure-Thinking-Way/dp/1935182641&#34;&gt;The Joy of Clojure&lt;/a&gt;. So I drank from the firehose and my brain exploded and nothing made sense. As &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; (a fellow Googler) says in the intro, &amp;ldquo;you&amp;rsquo;ll learn fast&amp;rdquo; - but only if you&amp;rsquo;re already comfortable with Lisp. The book moves too fast, the explanations are cryptic, and it seems to bounce all over the place. Another book to languish on my book shelf.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.apress.com/media/catalog/product/cache/9/image/9df78eab33525d08d6e5fb8d27136e95/A/9/A9781430272311-3d_11.png&#34; alt=&#34;Practical Clojure&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;My next book &lt;a href=&#34;http://www.amazon.com/Practical-Clojure-Experts-Voice-Source/dp/1430272317/ref=pd_sim_b_4&#34;&gt;Practical Clojure&lt;/a&gt; was where things started to make sense. It&amp;rsquo;s more directed at beginners and just explains how the language works. But it&amp;rsquo;s a thin book (not enough detail) and some sections just seem to be reprints of the API (function foo does this and here&amp;rsquo;s a 5 line example; function bar does this and here&amp;rsquo;s a 5 line example). No real digging into the how and why of using Clojure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://photo.goodreads.com/books/1328761653l/10883803.jpg&#34; alt=&#34;Clojure Programming&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And onto my favourite Clojure book - &lt;a href=&#34;http://www.clojurebook.com/&#34;&gt;Clojure Programming by Emerick et al&lt;/a&gt;. Like many O&amp;rsquo;Reilly books it&amp;rsquo;s &lt;em&gt;definitive&lt;/em&gt;. Lots of detailed examples, clear explanations, great diagrams, coverage of related areas (eg Clojure for web programming). Example code comparing how you do things in Clojure with other languages (Java, Python, Ruby). This is the book where I&amp;rsquo;ve really started to understand Clojure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ep.yimg.com/ca/I/paulgraham_2202_3475946&#34; alt=&#34;On Lisp&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now I&amp;rsquo;m working through the &lt;a href=&#34;http://www.4clojure.com/&#34;&gt;4clojure problem list&lt;/a&gt; (really interesting). Then I&amp;rsquo;ll probably buy some more books from &lt;a href=&#34;http://www.amazon.com/Clojure-Bookshelf/lm/R3LG3ZBZS4GCTH&#34;&gt;The Clojure Bookshelf&lt;/a&gt;. And continue reading Paul Graham&amp;rsquo;s On Lisp (I got it &lt;a href=&#34;http://www.lurklurk.org/onlisp/onlisp.html&#34;&gt;printed through Lulu&lt;/a&gt;). And one day I&amp;rsquo;ll reach enlightenment :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp.jpg&#34; alt=&#34;Lisp&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby, Lisp, Python</title>
+      <link>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
+      <pubDate>Tue, 20 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
+      <description>&lt;p&gt;Up late tonight reading about &lt;a href=&#34;http://www.emacswiki.org/emacs/EmacsLisp&#34;&gt;Emacs Lisp&lt;/a&gt;, I came across &lt;a href=&#34;https://sites.google.com/site/steveyegge2/tour-de-babel&#34;&gt;Tour de Babel&lt;/a&gt; by &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Anyway, Ruby stole everything good from Perl; &amp;hellip; for the most part, Ruby took Perl&amp;rsquo;s string processing and Unix integration as-is, meaning the syntax is identical, and so right there, before anything else happens, you already have the Best of Perl. And that&amp;rsquo;s a great start, especially if you don&amp;rsquo;t take the Rest of Perl.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;But then Matz took the best of list processing from Lisp, and the best of OO from Smalltalk and other languages, and the best of iterators from CLU, and pretty much the best of everything from everyone. And he somehow made it all work together so well that you don&amp;rsquo;t even notice that it has all that stuff.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby, blocks and procs</title>
+      <link>http://blog2.snowfrog.net/2011/08/30/ruby-blocks-and-procs/</link>
+      <pubDate>Tue, 30 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/08/30/ruby-blocks-and-procs/</guid>
+      <description>
+
+&lt;p&gt;Some notes on ruby, blocks, and procs.&lt;/p&gt;
+
+&lt;h1 id=&#34;manually-creating-blocks:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Manually creating blocks&lt;/h1&gt;
+
+&lt;p&gt;Ruby has three ways of manually creating blocks: &lt;strong&gt;Proc.new&lt;/strong&gt;, &lt;strong&gt;lambda&lt;/strong&gt;, and &lt;strong&gt;proc&lt;/strong&gt;. They have slightly different behaviour, and the behaviour also varies between Ruby 1.8 and 1.9!&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;lambda&lt;/strong&gt; checks that the number of arguments passed matches the number of block parameters&lt;/li&gt;
+&lt;li&gt;whereas &lt;strong&gt;Proc.new&lt;/strong&gt; doesn&amp;rsquo;t check (however the block may raise an error, depending on it&amp;rsquo;s code)**&lt;/li&gt;
+&lt;li&gt;and &lt;strong&gt;proc&lt;/strong&gt; behaves like &lt;strong&gt;lambda&lt;/strong&gt; in Ruby 1.8, and like &lt;strong&gt;Proc.new&lt;/strong&gt; in Ruby 1.9. So, avoid using proc!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A bit of code to demonstrate this:&lt;/p&gt;
+
+&lt;pre&gt;multiplier_l = lambda   { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+multiplier_p = Proc.new { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+
+multiplier_l.call( 3,4,5 )
+ArgumentError: wrong number of arguments (3 for 2)
+
+multiplier_p.call( 3,4,5 )
+a * b is: 12
+&amp;gt; multiplier_p.call( 1 )
+TypeError: nil can&#39;t be coerced into Fixnum            # in this case, Proc handled one param, but block errored&lt;/pre&gt;
+
+&lt;p&gt;And now using &lt;a href=&#34;http://beginrescueend.com/&#34;&gt;rvm&lt;/a&gt; to switch between Ruby versions:&lt;/p&gt;
+
+&lt;pre&gt;RUBY_VERSION
+=&amp;gt; &#34;1.8.7&#34;
+multiplier_p = proc { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+multiplier_p.call( 3,4,5 )
+ArgumentError: wrong number of arguments (3 for 2)
+
+RUBY_VERSION
+=&amp;gt; &#34;1.9.2&#34;
+multiplier_p = proc { |a, b| puts &#34;a * b is: #{a*b}&#34; }
+multiplier_p.call( 3,4,5 )
+a * b is: 12&lt;/pre&gt;
+
+&lt;h1 id=&#34;scoping:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Scoping&lt;/h1&gt;
+
+&lt;p&gt;In Ruby 1.8, block parameters can &lt;strong&gt;overwrite&lt;/strong&gt; parameters of the same name in the current scope; in Ruby 1.9 they&amp;rsquo;re protected.&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; hello = &#34;hello&#34;
+&amp;gt; def frenchy
+&amp;gt;   x = &#34;bonjour&#34;
+&amp;gt;   yield x
+&amp;gt; end
+&amp;gt; puts hello
+hello
+&amp;gt; frenchy { |hello| puts hello }
+bonjour                             # as expected
+&amp;gt; puts hello
+bonjour                             # ouch! In 1.9 you&#39;d get &#34;hello&#34;&lt;/pre&gt;
+
+&lt;h1 id=&#34;block:b67fac248bcabce1d05c80b639d2374d&#34;&gt;&amp;amp;block&lt;/h1&gt;
+
+&lt;p&gt;Some of the Rails and Ruby library code define methods with &lt;strong&gt;&amp;amp;block&lt;/strong&gt; as the last parameter to capture an anonymous block.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;anonymous blocks are ignored if they&amp;rsquo;re not used, and &lt;strong&gt;&amp;amp;block&lt;/strong&gt; is an &lt;em&gt;optional&lt;/em&gt; parameter that must appear as the &lt;em&gt;last&lt;/em&gt; parameter&lt;/li&gt;
+&lt;li&gt;it&amp;rsquo;s effectively a &lt;em&gt;type-checked&lt;/em&gt; parameter &amp;ndash; it will only accept an anonymous block or a proc (if proceeded with &lt;strong&gt;&amp;amp;&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;the block can be called with &lt;strong&gt;call&lt;/strong&gt; or &lt;strong&gt;yield&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;you can check if a block was passed using &lt;strong&gt;block_given?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;amp;block&lt;/strong&gt; is sort of an &amp;ldquo;invisible parameter&amp;rdquo; at the end of all methods. But by explicitly using &lt;strong&gt;&amp;amp;block&lt;/strong&gt;, callers get more flexibility when using your method ie they can pass in a &lt;strong&gt;proc&lt;/strong&gt; (perhaps defined elsewhere and used multiple times)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Anonymous blocks are ignored if they&amp;rsquo;re not used:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a)
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt; end
+&amp;gt; foo(1)
+a is 1
+&amp;gt; foo(1) { puts &#34;2&#34; }
+a is 1&lt;/pre&gt;
+
+&lt;p&gt;Conversely if &lt;strong&gt;&amp;amp;block&lt;/strong&gt; is declared as a parameter, using it is optional:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a, &amp;block)
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt; end
+&amp;gt; foo(1)
+a is 1&lt;/pre&gt;
+
+&lt;p&gt;Procs can be called with &lt;strong&gt;call&lt;/strong&gt;; anonymous blocks can be &lt;strong&gt;call&lt;/strong&gt;ed or &lt;strong&gt;yield&lt;/strong&gt;ed to.&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; hello = lambda { puts &#34;good bye&#34; }      # define a proc for later use
+&amp;gt; def foo(a, b, &amp;block)
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt;   b.call                                # proc with call
+&amp;gt;   block.call                            # block with call
+&amp;gt;   yield                                 # block with yield
+&amp;gt; end
+&amp;gt; foo(1, hello) { puts &#34;fred&#34; }           # with an anonymous block
+a is 1
+good bye
+fred
+fred
+&amp;gt; foo(1, hello, &amp;hello)                   # with a proc; notice &amp; syntax
+a is 1
+good bye
+good bye
+good bye&lt;/pre&gt;
+
+&lt;p&gt;You can check if an anonymous block was supplied using &lt;strong&gt;block_given?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a, &amp;block)
+&amp;gt;    puts &#34;a is #{a}&#34;
+&amp;gt;    block.call if block_given?
+&amp;gt;    yield      if block_given?
+&amp;gt; end
+&amp;gt; foo(1) { puts &#34;mary&#34; }
+a is 1
+mary
+mary
+&amp;gt; def foo(a)                              # or, without defining the block parameter
+&amp;gt;    puts &#34;a is #{a}&#34;
+&amp;gt;    yield      if block_given?           # therefore can only yield not call
+&amp;gt; end&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;amp;block&lt;/strong&gt; is sort of an &amp;ldquo;invisible parameter&amp;rdquo; at the end of all methods. But by explicitly using &lt;strong&gt;&amp;amp;block&lt;/strong&gt;, callers get more flexibility when using your method:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def foo(a)                                         # no &amp;block defined in parameters
+&amp;gt;   puts &#34;a is #{a}&#34;
+&amp;gt;   yield if block_given?
+&amp;gt; end
+&amp;gt; foo(1) { puts &#34;john&#34; }                             # works as expected
+a is 1
+john
+&amp;gt; foo(1, hello)
+ArgumentError: wrong number of arguments (2 for 1)   # dang! I can&#39;t use my super-duper hello proc&lt;/pre&gt;
+
+&lt;h1 id=&#34;precedence:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Precedence&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;do .. end&lt;/strong&gt; has weaker precedence than &lt;strong&gt;{ }&lt;/strong&gt;. For example, if &lt;strong&gt;foo&lt;/strong&gt; and &lt;strong&gt;bar&lt;/strong&gt; are both methods:&lt;/p&gt;
+
+&lt;p&gt;These are both the same ie the method &lt;strong&gt;foo&lt;/strong&gt; receives two parameters, &lt;strong&gt;bar&lt;/strong&gt; and a &lt;strong&gt;block&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;foo bar  do |s| puts(s) end
+foo(bar) do |s| puts(s) end&lt;/pre&gt;
+
+&lt;p&gt;And these are both the same ie &lt;strong&gt;foo&lt;/strong&gt; and &lt;strong&gt;bar&lt;/strong&gt; both receive one parameter; &lt;strong&gt;foo&lt;/strong&gt; the call to &lt;strong&gt;bar&lt;/strong&gt;, and &lt;strong&gt;bar&lt;/strong&gt; a &lt;strong&gt;block&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;foo  bar { |s| puts(s) }
+foo( bar { |s| puts(s) } )&lt;/pre&gt;
+
+&lt;p&gt;Of course the moral of story is not to rely on obscure precedence rules, rather use parentheses whenever something is unclear &amp;ndash; as always, in any language.&lt;/p&gt;
+
+&lt;h1 id=&#34;closures:b67fac248bcabce1d05c80b639d2374d&#34;&gt;Closures&lt;/h1&gt;
+
+&lt;p&gt;Blocks are closures ie they store or carry the value local variables from the the original scope into a different scope. They&amp;rsquo;re another way of reusing the same logic with slightly different values. For example:&lt;/p&gt;
+
+&lt;pre&gt;&amp;gt; def build_header( level )
+&amp;gt;   return lambda { |text| &#34;&amp;lt;#{level}&amp;gt;#{text}&amp;lt;/#{level}&amp;gt;&#34; }
+&amp;gt; end
+&amp;gt; h1 = build_header(&#34;h1&#34;)
+&amp;gt; h1.call(&#34;Examples&#34;)
+&amp;lt;h1&amp;gt;Examples&amp;lt;/h1&amp;gt;
+&amp;gt; h2 = build_header(&#34;h2&#34;)
+&amp;gt; h2.call(&#34;Details&#34;)
+&amp;lt;h2&amp;gt;Details&amp;lt;/h2&amp;gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby and Rails – Time, Date, DateTime, TZInfo</title>
+      <link>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
+      <pubDate>Wed, 29 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
+      <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;ndash; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;ndash; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  &gt;&gt; Time vs Date vs DateTime vs TZInfo (vs ActiveSupport::TimeZone). Which&lt;br /&gt; &gt;&gt; do I use and when?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  Time is a timestamp and can represent a moment in time no matter where&lt;br /&gt; it occurred in the world, agnostic of timezone. Think UNIX timestamps.&lt;br /&gt; Date is a thing on a calendar that might mean a different moment in&lt;br /&gt; time to different people depending on their timezone. Think of Date&lt;br /&gt; for things like recording your birthday. DateTime subclasses Date and&lt;br /&gt; adds hour, minute, second and timezone information to a Date so it&lt;br /&gt; becomes a lot like Time, but that makes me unsure when to use DateTime&lt;br /&gt; and when to use Time, to be honest.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left: 30px;&#34;&gt;
+  Time has timezone capabilities built in. TZInfo has a different set of&lt;br /&gt; timezone capabilities and operates with Time objects, but seems to&lt;br /&gt; ignore their built-in timezone settings. I&#39;m still not sure why.
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LISP – downloading SICP videos, JRuby</title>
+      <link>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
+      <pubDate>Thu, 05 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m busy learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Lisp_%28programming_language%29&#34;&gt;LISP&lt;/a&gt;/&lt;a href=&#34;http://en.wikipedia.org/wiki/Scheme_%28programming_language%29&#34;&gt;Scheme&lt;/a&gt; at the moment (in order to later move on to &lt;a href=&#34;http://clojure.org/&#34;&gt;Clojure&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;And, improving my programming learning LISP is :-)&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m following along with the &lt;a href=&#34;http://mitpress.mit.edu/sicp/&#34;&gt;MIT&lt;/a&gt; &lt;a href=&#34;http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs&#34;&gt;SICP&lt;/a&gt; videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &amp;ndash; &lt;a href=&#34;https://github.com/soniah/get_sicp&#34;&gt;get_sicp&lt;/a&gt;. Next, a script for the &lt;a href=&#34;http://inst.eecs.berkeley.edu/~cs61a/sp11/&#34;&gt;UC Berkeley SICP videos&lt;/a&gt; (getting through the flash player should be a learning experience).&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;ndash; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;rsquo;t litter /usr. Good: Ruby &amp;ndash; fun, Python &amp;ndash; &lt;snore&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lisp and Python</title>
+      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
+
+&lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
+
+&lt;p&gt;I came across this fun looking book that inspired me &amp;ndash; &lt;a href=&#34;http://landoflisp.com/&#34;&gt;Land of Lisp&lt;/a&gt; &amp;ndash; I started reading it in Dymocks and couldn&amp;rsquo;t put it down. But years ago I&amp;rsquo;d read Paul Graham&amp;rsquo;s &lt;a href=&#34;http://www.paulgraham.com/avg.html&#34;&gt;blog&lt;/a&gt; and recently Joel Spolsky on &lt;a href=&#34;http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html&#34;&gt;The Perils of Java Schools&lt;/a&gt;. I was really surprised to learn that university Computer Science departments have stopped teaching pointers and recursion because they teach Java or .NET. I remember the joy :twisted: in 2nd year Comp Sci of watching half the class being weeded out by Data Structures, then another half being weeded out the following semester by Functional Programming.&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s a post by Peter Christensen on &lt;a href=&#34;http://www.pchristensen.com/blog/lisp-companies/&#34;&gt;who uses Lisp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Oh yeh, I&amp;rsquo;m also learning Python &amp;ndash; it seems the sanest general purpose scripting language around. Ruby is great and I love it, but it&amp;rsquo;s often not available (try telling Bank X or Phone Company Y that you&amp;rsquo;re going to install Ruby on several hundred of their production Solaris servers, see what sort of reaction you get). And Perl is unmaintainable line noise and shell scripts are tedious.&lt;/p&gt;
+
+&lt;p&gt;What kicked this all off? This great SlashDot post on why Expensify &lt;a href=&#34;http://blog.expensify.com/2011/03/25/ceo-friday-why-we-dont-hire-net-programmers/&#34;&gt;doesn&amp;rsquo;t hire .NET programmers&lt;/a&gt; :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-943&#34; title=&#34;stroustrup&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;352&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PS I like Paul Graham&amp;rsquo;s &lt;a href=&#34;http://twitter.com/paulg/status/28864657734&#34;&gt;Tweet&lt;/a&gt; on the book: &amp;ldquo;Turns out the border between genius and insanity is a pretty cheery place&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Making Java Fun with Mirah</title>
+      <link>http://blog2.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</link>
+      <pubDate>Mon, 21 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</guid>
+      <description>&lt;p&gt;A SlashDot linked &lt;a href=&#34;http://cogitations.arbia.co.uk/post/3984477935/fun-java-with-mirah&#34;&gt;article on Mirah&lt;/a&gt; &amp;ndash; Java with Ruby syntax (different from JRuby).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-916&#34; title=&#34;programadorjava&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg?w=285&#34; alt=&#34;&#34; width=&#34;285&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;religion&gt;So when is someone going to do this to Perl? Or is that Perl6? Or Ruby just the &amp;ldquo;new Perl&amp;rdquo;?&lt;/religion&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why “require ‘rubygems&#39;” Is Wrong</title>
+      <link>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</link>
+      <pubDate>Fri, 23 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</guid>
+      <description>&lt;p&gt;A link off the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; list about &lt;a href=&#34;http://tomayko.com/writings/require-rubygems-antipattern&#34;&gt;Why &amp;ldquo;require &amp;lsquo;rubygems&amp;rsquo;&amp;rdquo; Is Wrong&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In a nutshell, the environment variable RUBYOPT should include rubygems eg&lt;/p&gt;
+
+&lt;pre&gt;export RUBYOPT=&#34;rubygems&#34;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby 1.9 shell aliases</title>
+      <link>http://blog2.snowfrog.net/2009/10/19/ruby-1-9-shell-aliases/</link>
+      <pubDate>Mon, 19 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/19/ruby-1-9-shell-aliases/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve started playing with Ruby 1.9 &amp;ndash; the latest and greatest version of Ruby. On Ubuntu Jaunty, 1.8 is considered mainline and 1.9 experimental &amp;ndash; here are the shell aliases if using 1.9:&lt;/p&gt;
+
+&lt;pre&gt;alias ri=&#39;/usr/bin/ri1.9&#39;
+alias irb=&#39;/usr/bin/irb1.9&#39;
+alias rdoc=&#39;/usr/bin/rdoc1.9&#39;
+alias ruby=&#39;/usr/bin/ruby1.9&#39;
+alias gem=&#39;/usr/bin/gem1.9&#39; # belts-and-braces - gem 1.8 &amp; 1.9 are the same version - 1.3.1&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby, Struct, OpenStruct, hashes</title>
+      <link>http://blog2.snowfrog.net/2009/10/10/ruby-struct-openstruct-hashes/</link>
+      <pubDate>Sat, 10 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/10/ruby-struct-openstruct-hashes/</guid>
+      <description>&lt;p&gt;An interesting Ruby example of an easy way to setup classes that are really just for passing around data using &lt;strong&gt;Struct&lt;/strong&gt; &amp;ndash; essentially a neat wrapper around a hash of values:&lt;/p&gt;
+
+&lt;pre&gt;class Node &amp;lt; Struct.new( :level, :tag, :data, :refid )
+  def initialize( line=nil )
+    ...various mungings of line omitted...
+    super level, tag.downcase, data, refid
+  end
+end
+&lt;/pre&gt;
+
+&lt;p&gt;Now I can do stuff like:&lt;/p&gt;
+
+&lt;pre&gt;node = Node.new( line )
+print node.level
+&lt;/pre&gt;
+
+&lt;p&gt;rather than&lt;/p&gt;
+
+&lt;pre&gt;node = {}
+...various munging of data into node hash...
+print node[:value]
+&lt;/pre&gt;
+
+&lt;p&gt;Not earth-shattering, but nice. See also &lt;strong&gt;ri Struct&lt;/strong&gt;, &lt;strong&gt;ri OpenStruct&lt;/strong&gt;. From &lt;a href=&#34;http://www.pragprog.com/titles/fr_quiz/best-of-ruby-quiz&#34;&gt;Pragmattic Programmers&amp;rsquo; Best of Ruby Quiz&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby ARGV, options and OptionParser</title>
+      <link>http://blog2.snowfrog.net/2009/10/02/ruby-argv-options-and-optionparser/</link>
+      <pubDate>Fri, 02 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/02/ruby-argv-options-and-optionparser/</guid>
+      <description>&lt;p&gt;A nice Ruby example (for my reference) showing how to parse commandline options; the results are put in a hash called options (created on line 3).&lt;/p&gt;
+
+&lt;p&gt;Interestingly, the ARGV array is automatically extended to include the options method even before &lt;strong&gt;require &amp;lsquo;optparse&amp;rsquo;&lt;/strong&gt; is run. See also &lt;strong&gt;ri OptionParser&lt;/strong&gt; and &lt;a href=&#34;http://stderr.org/doc/liboptparse-ruby/optparse.html&#34;&gt;stderr.org&lt;/a&gt;. From &lt;a href=&#34;http://www.pragprog.com/titles/fr_quiz/best-of-ruby-quiz&#34;&gt;Pragmattic Programmers&amp;rsquo; Best of Ruby Quiz&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;if __FILE__ == $0
+  require &#39;optparse&#39;
+  options = { :size =&amp;gt; 2 }
+  number = ARGV.pop
+
+  ARGV.options do |opts|
+    script_name = File.basename($0)
+    opts.banner = &#34;Usage: ruby #{script_name} [options] number&#34;
+
+    opts.separator &#34;&#34;
+
+    opts.on(&#34;-s&#34;, &#34;--size size&#34;, Numeric,
+      &#34;Specify the size of line segments.&#34;,
+      &#34;Default: 2&#34;
+    ) { |options[:size]| }
+
+    opts.separator &#34;&#34;
+
+    opts.on(&#34;-h&#34;, &#34;--help&#34;, &#34;Show this help message.&#34;) { puts opts; exit }
+
+    opts.parse!
+  end
+
+end
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby Test::Unit Assertions</title>
+      <link>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</link>
+      <pubDate>Thu, 01 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</guid>
+      <description>&lt;p&gt;A good summary (for my reference) of the assertions that can be used with Test::Unit (&lt;a href=&#34;http://www.pragprog.com/titles/ruby/programming-ruby&#34;&gt;from Pragmatic Programmers&amp;rsquo; Programming Ruby&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;alignleft size-full wp-image-553&#34; title=&#34;test unit assertions&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2009/10/test-unit-assertions.png&#34; alt=&#34;test unit assertions&#34; width=&#34;433&#34; height=&#34;611&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby here document example</title>
+      <link>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</link>
+      <pubDate>Thu, 01 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</guid>
+      <description>&lt;p&gt;A nice ruby example (for my reference) of using here documents to load data/logic. From &lt;a href=&#34;http://www.pragprog.com/titles/fr_quiz/best-of-ruby-quiz&#34;&gt;Pragmattic Programmers&amp;rsquo; Best of Ruby Quiz&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;DIGITS = &amp;lt;&amp;lt;END_DIGITS.split(&#34;n&#34;).map { |row| row.split(&#34; # &#34;) }.transpose
+ -  #     #  -  #  -  #     #  -  #  -  #  -  #  -  #  -
+| | #   | #   | #   | # | | # |   # |   #   | # | | # | |
+    #     #  -  #  -  #  -  #  -  #  -  #     #  -  #  -
+| | #   | # |   #   | #   | #   | # | | #   | # | | #   |
+ -  #     #  -  #  -  #     #  -  #  -  #     #  -  #  -
+END_DIGITS&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

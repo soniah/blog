@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nc4200 on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/nc4200/</link>
+    <description>Recent content in Nc4200 on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 16 Jan 2008 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/nc4200/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ubuntu Linux Compaq nc4200 ipw2200 blue LED</title>
+      <link>http://blog2.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</link>
+      <pubDate>Wed, 16 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</guid>
+      <description>&lt;p&gt;A couple of notes on working with the ipw2200 wireless card on a Compaq nc4200 running Ubuntu (7.04 and 7.10), including how to get the blue LED to work:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check the module has been loaded: &lt;strong&gt;lsmod | grep ipw&lt;/strong&gt; &amp;ndash; should display ipw2200&lt;/li&gt;
+&lt;li&gt;check for any errors on boot, especially &amp;lsquo;radio off&amp;rsquo;: &lt;strong&gt;dmesg | grep ipw&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;also check if radio is off via &lt;strong&gt;iwconfig eth1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;remember to turn the radio on via the small hardware switch on the left side (just past the usb slot)&lt;/li&gt;
+&lt;li&gt;get the blue status LED to display by creating a file called &lt;strong&gt;/etc/modprobe.d/ipw2200 **with contents **options ipw2200 led=1&lt;/strong&gt; (the blue LED will then display after a reboot)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Notes taken from Ubuntu Forums, &amp;ldquo;&lt;a href=&#34;http://ubuntuforums.org/showthread.php?t=360735&#34;&gt;Compaq nc4200 ipw2200 wireless card is off&lt;/a&gt;&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

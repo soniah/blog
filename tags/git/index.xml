@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/git/</link>
+    <description>Recent content in Git on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 25 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Devops and Old Git Branches</title>
+      <link>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</link>
+      <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</guid>
+      <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
+
+&lt;p&gt;When doing Devops we all know that using source code control is a “good
+thing” — indeed it would be hard to imagine doing Devops without it. But
+if you’re using &lt;a href=&#34;http://garylarizza.com/blog/2014/08/31/r10k-plus-directory-environments/&#34;&gt;Puppet and
+R10K&lt;/a&gt;
+for your configuration management you can end up having hundreds of
+old branches lying around — branches like &lt;strong&gt;XYZ-123&lt;/strong&gt;,
+&lt;strong&gt;XYZ-123.fixed&lt;/strong&gt;, &lt;strong&gt;XYZ-123.fixed.old&lt;/strong&gt; and so on.&lt;/p&gt;
+
+&lt;p&gt;Which branches to cleanup, which to keep? How to easily cleanup the
+old branches?  This article demonstrates some git configurations and
+scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Go to &lt;a href=&#34;http://www.icesystems.com.au/devops-and-old-git-branches/&#34;&gt;Devops and Old Git Branches&lt;/a&gt; to read the full article.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git bisect run - example</title>
+      <link>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</link>
+      <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html&#34;&gt;Git bisect&lt;/a&gt; is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&amp;rsquo;s an example of automating the process using &lt;strong&gt;git bisect run&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;tl-dr:1dca976519824c917954d37e9d104a12&#34;&gt;tl;dr&lt;/h2&gt;
+
+&lt;p&gt;Using &lt;strong&gt;git bisect run&lt;/strong&gt; is easy if you&amp;rsquo;ve make small atomic commits and you have good tests. &lt;strong&gt;run&lt;/strong&gt; makes a large debug easier (compared to manually doing &lt;strong&gt;git bisect good&lt;/strong&gt; and &lt;strong&gt;git bisect bad&lt;/strong&gt;) - you&amp;rsquo;re less likely to make errors due to boredom. And run means you can use an iterative process - use rebase to split bad commits then just run again.&lt;/p&gt;
+
+&lt;h2 id=&#34;example:1dca976519824c917954d37e9d104a12&#34;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was &lt;strong&gt;good&lt;/strong&gt;, but I&amp;rsquo;d added more features since good and now results were &lt;strong&gt;bad&lt;/strong&gt;. The first step was to write a shell script to be called from &lt;strong&gt;git bisect run&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat bisect.sh
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# copy this to ~ before running with `git bisect run ~/bisect.sh`&lt;/span&gt;
+
+cp ~/Makefile .
+make clean
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# make modifies manpage output, so stash after build&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; make &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;&amp;gt; /dev/null &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	git stash
+	git stash clear
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt;
+	git stash
+	git stash clear
+	&lt;span style=&#34;color: #24909d&#34;&gt;exit &lt;/span&gt;125
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+
+sudo cat /var/tmp/empty &amp;gt; /var/log/abc/abc-poller.log
+sudo ./abc-poller --tmp --once -d &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt; -c &lt;span style=&#34;color: #3677a9&#34;&gt;150&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;exit &lt;/span&gt;125
+&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;=== poller finished&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #40ffff&#34;&gt;percent&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;godir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;/var/tmp/data/abcmon/poll_queue/new ~/checker &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+  tail -1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{print $5}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; awk -F. &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{print $1}&amp;#39;`&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;=== percent is &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$percent&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;((&lt;/span&gt; percent &amp;lt; &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Things that make writing the test script easier:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;first get it working outside of &lt;strong&gt;git bisect run&lt;/strong&gt; - usually means echoing results along the way&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;already having a test suite that produces a quantified pass/fail output, In my case the I had already written the checker program, whose last line of output contained a &amp;ldquo;percentage failure&amp;rdquo; figure&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next step was having an abbreviated log of commits to refer to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% git log --oneline
+f00f232 sql.go - better debugging       # bad
+9780d44 dummy .gitignore, so out dir preserved
+0de0796 Makefile for nsch1abcs01
+a2f6c96 defaults - 20 workers, udp 15
+b8ee3d9 GOMAXPROCS()
+04f21ba start v0.0.2
+dbc6a60 Makefile: Jenkins as default for env vars
+557a5e3 more work on stats
+ef6a453 remove excessive debugging
+ccc4644 remove file buffering - wasn&#39;t writing..???
+98bf4b1 stats write failing
+9a9682d move type queue_t struct
+467aeed buffered writes for queue file
+148a8cc stats: + device_run, device_ok
+c61be42 done chan *Stats_t; calculate_value() bool
+0e41461 debugging - print out device_id as %5s
+7cbe167 default workers 5000, correct stop/start commands
+544e8d7 gather statistics
+6990cf2 rename data chan to device_id
+5e8562b rename sql -&amp;gt; sqlconn; global var
+fd52d89 remove dead code
+4d7b9b1 device_for() - err if count != 1
+6ceb305 deb: fail if version main.go isn&#39;t same changelog
+5ce1855 deb: rules producing abc-poller_0.0.1_amd64.deb
+db5bff4 deb: cleaned up Makefile, roffs
+76674c2 JSON -&amp;gt; SQL; version 0.0.1
+4cf198e deb: basic removal of 64 references
+d980f26 deb: rename 64 to vanilla
+b933570 deb: remove 32 bit stuff
+970bd82 current debug level is 2; adjust output
+70f8921 Revert &amp;quot;deb build - don&#39;t init, cron while testing&amp;quot;
+855ce00 default debug is 2; misc tidy
+f3d80e1 remove timeoutOpt - no longer used
+48ced38 misc tidys before release
+a3fe13c runonceOpt, revert cycling code  # good
+24cd998 use passed in udpOpt
+5ca1830 remove stash/sender.old.go
+06b9566 remove gsnmpgo; use gosnmp
+bffd430 rules: add note about &amp;quot;too many open files&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mark bad and good, start the run, go and have a coffee :-)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% git bisect start f00f232 a3fe13c
+% git bisect run ~/bisect.sh
+# lots of output
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I get the result that the ominously named &lt;strong&gt;557a5e3 more work on stats&lt;/strong&gt; is the first bad commit - I remember it as one of those large &amp;ldquo;kitchen sink&amp;rdquo; commits done at the end of the day. So &amp;ldquo;first rule of fightclub git&amp;rdquo; remembered - &lt;strong&gt;always do small atomic commits&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have a useful shell function &lt;strong&gt;gri()&lt;/strong&gt; - I used that to interactively rebase and break up 557a5e3 into many small commits:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;gri &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+  git rebase -i HEAD~&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;7&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;After rebasing git log looked like this - notice the many small commits named &amp;ldquo;bisect1&amp;rdquo; etc:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;382b3ee defaults - 20 workers, udp 15
+11db314 GOMAXPROCS()
+4b547ea start v0.0.2
+c92feef Makefile: Jenkins as default for env vars
+8fcc595 bisect6: calc/noncalc
+ad3a18f bisect5: tweak debug msgs
+311bb8d bisect4: mv stats init
+957c234 bisect3: remove stats from send_gosnmp()
+3c01d62 bisect2: use Add(); Calcs/NonCalcs
+947cb27 bisect1: move Stats_t; Add()
+ef6a453 remove excessive debugging
+ccc4644 remove file buffering - wasn&#39;t writing..???
+98bf4b1 stats write failing
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here&amp;rsquo;s the real win of writing bisect.sh - you can just keep rebasing and running until you&amp;rsquo;ve narrowed down the bad code to a few lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;=== poller finished
+=== percent is 49
+947cb27fd57642dc545ee23090d7ae8fd8b14b3f is the first bad commit
+commit 947cb27fd57642dc545ee23090d7ae8fd8b14b3f
+Author: Sonia Hamilton &amp;lt;sonia@snowfrog.net&amp;gt;
+Date:   Thu Mar 14 10:02:42 2013 +1100
+
+    bisect1: move Stats_t; Add()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I do another interactive rebase, fix the logic error, and then HEAD is good.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git - delete local tracking branches</title>
+      <link>http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/</guid>
+      <description>&lt;p&gt;(Just a summary of &lt;a href=&#34;http://stackoverflow.com/questions/1072171/how-do-you-remove-an-invalid-remote-branch-reference-from-git&#34;&gt;Stack Overflow &amp;ldquo;How do you Remove an Invalid Remote Branch Reference from Git?&amp;rdquo;&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;To delete a local tracking branch (without deleting the remote branch), do:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;git branch -rd remote/branch
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And of course to delete the remote branch:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;git push remote :branch
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Occasionally a gc will help, but usually shouldn&amp;rsquo;t be used:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;git gc --prune&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;now
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So, when would you want to use this? Let&amp;rsquo;s say the repository you&amp;rsquo;re tracking has a lot of branches (eg the Linux Kernel). You start tracking branch &amp;ldquo;foo&amp;rdquo;, do some work with it, merge some of it in to your branch &amp;ldquo;bar&amp;rdquo;, then push &amp;ldquo;bar&amp;rdquo; up to the remote repository. Or, you&amp;rsquo;ve got a whole lot of dev branches you&amp;rsquo;ve merged pushed to your backup repository and also merged into your master branch.&lt;/p&gt;
+
+&lt;p&gt;In either case you&amp;rsquo;ve got a collection of tracking branches you don&amp;rsquo;t want to see anymore, so clean them up:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% git branch -r
+  soniah/dev.a
+  soniah/dev.b
+  soniah/dev.c
+  soniah/dev.d
+  soniah/master
+
+% git branch -rd soniah/dev.a
+Deleted remote branch soniah/dev.a &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;was deadbeef&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;.
+
+% git branch -rd soniah/dev.b
+Deleted remote branch soniah/dev.b &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;was deadbeef&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;.
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# now remote branches is cleaner:&lt;/span&gt;
+% git branch -r
+  soniah/dev.c
+  soniah/dev.d
+  soniah/master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git pull -f (git force pull)</title>
+      <link>http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/</link>
+      <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/</guid>
+      <description>&lt;p&gt;Git has a &amp;ldquo;force push&amp;rdquo; option (&lt;strong&gt;git push -f remote branch&lt;/strong&gt;), but it doesn&amp;rsquo;t have a &amp;ldquo;force pull&amp;rdquo; option (like &lt;strong&gt;git pull -f remote branch&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;This works:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% git fetch remote branch
+% git reset --hard FETCH_HEAD
+% git clean -df
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Or, as a function for your bash/zsh config file:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;gpuf &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+   &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# git pull -f $1&lt;/span&gt;
+   &lt;span style=&#34;color: #40ffff&#34;&gt;remote&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:?&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;need remote to force pull from&amp;quot;}&lt;/span&gt;
+
+   &lt;span style=&#34;color: #40ffff&#34;&gt;current_branch&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;git symbolic-ref -q HEAD&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt;
+   &lt;span style=&#34;color: #40ffff&#34;&gt;current_branch&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;current_branch&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;##refs/heads/&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+   &lt;span style=&#34;color: #40ffff&#34;&gt;current_branch&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;current_branch&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;HEAD&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+   &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$current_branch&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;HEAD&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+       &lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;       echo&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;On a detached head. Exiting...&amp;quot;&lt;/span&gt;
+       &lt;span style=&#34;color: #24909d&#34;&gt;exit &lt;/span&gt;1
+   &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;  
+
+   git fetch &lt;span style=&#34;color: #40ffff&#34;&gt;$remote&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$current_branch&lt;/span&gt;
+   git reset --hard FETCH_HEAD
+   git clean -df 
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git push to non-bare repo: warning: updating the current branch</title>
+      <link>http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/</link>
+      <pubDate>Fri, 17 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/</guid>
+      <description>&lt;p&gt;Some doco for my work mates, and others learners of git&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;When I was starting with git (many moons ago), learning to pull from a remote repository was easy. But &lt;a href=&#34;http://pragprog.com/book/tsgit/pragmatic-version-control-using-git&#34;&gt;the book I read&lt;/a&gt; didn&amp;rsquo;t explain how to push to a remote repository. There was &lt;a href=&#34;https://help.github.com/&#34;&gt;lots of doco on pushing to github&lt;/a&gt;, but I wanted to push and pull between my own repositories. When I pushed, I got messages saying &lt;strong&gt;warning: updating the current branch&lt;/strong&gt;, and sometimes I&amp;rsquo;d have to manually clean up the remote branch - yuk.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;localbox% git push remotebox master
+Counting objects: 1, &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;.
+Writing objects: 100% &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;1/1&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color: #3677a9&#34;&gt;252&lt;/span&gt; bytes, &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;.
+Total &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;delta 0&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;, reused &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;delta 0&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+remote: warning: updating the current branch
+To sonia@remotebox.net:/home/sonia/dotfiles
+   f387640..13740c5  master -&amp;gt; master
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Then I learned about &lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-clone.html&#34;&gt;bare repositories&lt;/a&gt;. Sweet, now I could cleanly push to (bare) remote repositories:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# convention with bare repositories is .git suffix&lt;/span&gt;
+
+remotebox% git clone --bare dotfiles dotfiles.git
+Cloning into bare repository &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;dotfiles.git&amp;#39;&lt;/span&gt;...
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;But what if you &lt;strong&gt;want to push to a non-bare repo&lt;/strong&gt;? Firewalls mean you often have to hop across several machines using ssh tunnels, and setting up bare repositories all over the place is &amp;lsquo;non-optimal&amp;rsquo;. Or, you want to push between laptops. Or, whatever&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a recipe - just push to a dummy branch (I usually call it &amp;lsquo;push&amp;rsquo;), then do a normal merge on the remote:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# I&amp;#39;m on localbox and I want to push to remotebox, which isn&amp;#39;t bare&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# git br -a shows me all the remote branches:&lt;/span&gt;
+
+localbox% git br -a
+* master
+  remotes/bourke/master
+  remotes/bourke/foo
+  remotes/bourke/bar
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# pushing to master, foo or bar will give problems, let&amp;#39;s push to &amp;#39;push&amp;#39;&lt;/span&gt;
+
+localbox% git push remotebox master:push
+Total &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;delta 0&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;, reused &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;delta 0&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+To sonia@remotebox.net:/home/sonia/dotfiles
+ * &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;new branch&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;      master -&amp;gt; push
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# let&amp;#39;s look at that command:&lt;/span&gt;
+
+% git push remotebox master:push
+           ^         ^      ^
+           remote    &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt;      ^
+                     from   &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt;
+                            to
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# ie I&amp;#39;m pushing from master branch to the push branch on remotebox&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;On the remotebox, merge in the push:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;remotebox% git br -a               &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# check all my branches&lt;/span&gt;
+* master
+  foo
+  bar
+  push
+
+remotebox% git co master           &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# checkout master&lt;/span&gt;
+remotebox% git merge push          &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# merge push into master&lt;/span&gt;
+remotebox% git br -d push          &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# cleanup&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Et Voilà! Done.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After a bit more reading on git, I realised that there is another solution. You can push to any branch on a non-bare repository, as long as that branch isn&amp;rsquo;t currently checked out on the remote.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt; I have lots of shortcuts in my ~/.gitconfig, like &lt;strong&gt;co&lt;/strong&gt; and &lt;strong&gt;br&lt;/strong&gt;. Saves typing!&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;color&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;ui&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; auto
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;color &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;branch&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;current&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; green
+    &lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; yellow
+    &lt;span style=&#34;color: #40ffff&#34;&gt;remote&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; red
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;color &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;diff&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; blue bold
+    &lt;span style=&#34;color: #40ffff&#34;&gt;frag&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; magenta bold
+    &lt;span style=&#34;color: #40ffff&#34;&gt;old&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; red bold
+    &lt;span style=&#34;color: #40ffff&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; green bold
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;alias&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;ci&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; commit
+    &lt;span style=&#34;color: #40ffff&#34;&gt;co&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; checkout
+    &lt;span style=&#34;color: #40ffff&#34;&gt;st&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; status
+    &lt;span style=&#34;color: #40ffff&#34;&gt;br&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; branch
+    &lt;span style=&#34;color: #40ffff&#34;&gt;sb&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; show-branch
+    &lt;span style=&#34;color: #40ffff&#34;&gt;sbs&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; show-branch --sha1-name
+    &lt;span style=&#34;color: #40ffff&#34;&gt;gr&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; log --graph --oneline --left-right
+    &lt;span style=&#34;color: #40ffff&#34;&gt;cl&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; clean -x -d -f
+    &lt;span style=&#34;color: #40ffff&#34;&gt;dt&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; difftool
+    &lt;span style=&#34;color: #40ffff&#34;&gt;difft&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; difftool
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;push&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; matching
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;receive&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;denyCurrentBranch&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; warn
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git - ignore whitespace</title>
+      <link>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</link>
+      <pubDate>Wed, 13 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</guid>
+      <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% git diff -w
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ignore white space in diffs. Unfortunately, &lt;a href=&#34;http://stackoverflow.com/questions/4350678/git-diff-w-ignore-whitespace-only-at-start-end-of-lines&#34;&gt;there doesn&amp;rsquo;t seem to be an option for just ignoring whitespace changes at the start of  line&lt;/a&gt; - would be handy for Python.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git patch add</title>
+      <link>http://blog2.snowfrog.net/2011/09/13/git-patch-add/</link>
+      <pubDate>Tue, 13 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/09/13/git-patch-add/</guid>
+      <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
+
+&lt;pre&gt;git add -p&lt;/pre&gt;
+
+&lt;p&gt;It&amp;rsquo;s like doing an interactive add, then choosing &amp;lsquo;p&amp;rsquo; for patching. From the manual:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;       -p, &amp;ndash;patch&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to** the index.&lt;/em&gt; &lt;em&gt;This effectively runs add &amp;ndash;interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See “Interactive mode” for details.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git – make an existing git branch track a remote branch</title>
+      <link>http://blog2.snowfrog.net/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</link>
+      <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</guid>
+      <description>&lt;p&gt;A script to make an existing git branch track a remote branch. For example when you&amp;rsquo;ve cloned from somewhere else and now want to track your normal remote.&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/bin/gittrack
+#!/bin/bash
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+current_branch=$(git symbolic-ref -q HEAD)
+current_branch=${current_branch##refs/heads/}
+current_branch=${current_branch:-HEAD}
+
+if [ $current_branch = &#39;HEAD&#39; ] ; then
+    echo
+    echo &#34;On a detached head. Exiting...&#34;
+    exit 1
+fi
+
+remote=${1:-origin}
+
+git branch --set-upstream $current_branch $remote/$current_branch&lt;/pre&gt;
+
+&lt;p&gt;Of course your global gitconfig should also have autosetupmerge (below), but this script handles situations where you want to setup/change the tracking branch.&lt;/p&gt;
+
+&lt;pre&gt;[branch]
+        autosetupmerge = true&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setting up Gitweb on your Ubuntu workstation</title>
+      <link>http://blog2.snowfrog.net/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</link>
+      <pubDate>Tue, 02 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</guid>
+      <description>
+
+&lt;p&gt;If you work in an IT environment, it&amp;rsquo;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, a lot of the posts out there on &amp;ldquo;how to setup Gitweb on Ubuntu&amp;rdquo; seem to make a meal of the whole process. I got it going after heading down a few dead-ends; here&amp;rsquo;s how I did it on Ubuntu 11.04 (Natty).&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-setup:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;Basic Setup&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with a simple git repository:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;sudo aptitude install git-all apache2
+cd ; git init foo ; cd foo
+echo &#34;hello world&#34; &amp;gt; file1.txt
+git add . ; git commit -m &#34;initial commit&#34;
+&lt;/pre&gt;
+
+&lt;p&gt;You probably only want to share out &lt;em&gt;some&lt;/em&gt; of your repositories, not all of ${HOME}! So, do a bare clone of foo repository to /var/www:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;cd /var/www
+sudo git clone --bare ~/foo foo.git
+&lt;/pre&gt;
+
+&lt;p&gt;Next, a little gotcha. You need to enable the &lt;strong&gt;post-update&lt;/strong&gt; hook, so that the required info is generated for the http server. The &amp;ldquo;gotcha&amp;rdquo; is that you need to enable the hook &lt;strong&gt;then&lt;/strong&gt; do a push to your server repository, otherwise the server info isn&amp;rsquo;t updated:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;cd ~/foo/.git/hooks
+mv post-update.sample post-update
+git remote add web /var/www/foo.git
+## do a test push
+cd ~/foo
+echo &#34;test update&#34; &amp;gt;&amp;gt; file1.txt
+git add . ; git commit -m &#34;test update&#34;
+sudo git push web
+&lt;/pre&gt;
+
+&lt;p&gt;Now, if you browse to &lt;a href=&#34;http://localhost&#34;&gt;http://localhost&lt;/a&gt; you should see foo.git listed, and your workmates can now easily clone your work:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;otherpc$ git clone http://yourpc/foo.git
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;gitweb:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;Gitweb&lt;/h2&gt;
+
+&lt;p&gt;The next step is to setup &lt;strong&gt;gitweb&lt;/strong&gt;, so your workmates can easily browse your code, search for commits, etc. Gitweb is already installed as part of &lt;strong&gt;git-all&lt;/strong&gt;, or you can do:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;sudo aptitude install gitweb
+&lt;/pre&gt;
+
+&lt;p&gt;The only change to make is to edit &lt;strong&gt;/etc/gitweb.conf&lt;/strong&gt; to point to &lt;strong&gt;/var/www&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;sudo vi /etc/gitweb.conf
+...
+## $projectroot = &#34;/var/cache/git&#34;;
+$projectroot = &#34;/var/www&#34;;
+...
+&lt;/pre&gt;
+
+&lt;p&gt;And that&amp;rsquo;s it! Part of the gitweb install on Ubuntu adds in &lt;strong&gt;/etc/apache2/conf.d/gitweb&lt;/strong&gt;, so there&amp;rsquo;s no other files to edit (unlike what &lt;a href=&#34;http://blog.jeffreyforman.net/2009/07/21/configuring-gitweb-on-ubuntu/&#34;&gt;blog1&lt;/a&gt;, &lt;a href=&#34;http://blog.phlegx.com/2010/03/07/install-and-setup-gitweb-in-ubuntu-9-10-on-apache/&#34;&gt;blog2&lt;/a&gt;, or &lt;a href=&#34;http://gideontsang.wordpress.com/2009/10/13/gitweb-on-ubuntujaunty/&#34;&gt;blog3&lt;/a&gt; say).&lt;/p&gt;
+
+&lt;p&gt;Browse to &lt;a href=&#34;http://localhost/gitweb/&#34;&gt;http://localhost/gitweb/&lt;/a&gt;, and there&amp;rsquo;s your browse-able, search-able, git repository :-D&lt;/p&gt;
+
+&lt;h2 id=&#34;but-wait-there-s-more-automatically-push-your-changes:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;But wait, there&amp;rsquo;s more &amp;ndash; automatically push your changes.&lt;/h2&gt;
+
+&lt;p&gt;As you work, /var/www/foo.git is going to get out-of-date. You could remember to regularly push but that&amp;rsquo;s boring &amp;ndash; automate it:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;% cd ~/foo ; cat git.web.push
+#!/bin/bash
+cd ${HOME}/foo
+git remote add web /var/www/foo.git &amp;gt;&amp; /dev/null
+sudo git push -f web
+&lt;/pre&gt;
+
+&lt;p&gt;.and automate it:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;crontab -l
+* * * * * ${HOME}/foo/git.web.push
+&lt;/pre&gt;
+
+&lt;h2 id=&#34;and-finally:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;And finally.&lt;/h2&gt;
+
+&lt;p&gt;Make the layout pretty. Edit &lt;strong&gt;~/foo/.git/description&lt;/strong&gt;, add an index.html, a custom theme, some javascript, .&lt;/p&gt;
+
+&lt;h2 id=&#34;update:169b64647f0f7df2e51f4d438d65d83b&#34;&gt;Update&lt;/h2&gt;
+
+&lt;p&gt;Brian (comments) has added some improvements to my instructions &amp;ndash; see below. Thanks Brian!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git – rebase and push script</title>
+      <link>http://blog2.snowfrog.net/2011/07/18/git-rebase-and-push-script/</link>
+      <pubDate>Mon, 18 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/07/18/git-rebase-and-push-script/</guid>
+      <description>&lt;p&gt;For development projects, I use the standard git workflow ie master is my main branch, and I do development in branches (read more about this recommended workflow at &lt;a href=&#34;http://nvie.com/posts/a-successful-git-branching-model/&#34;&gt;A successful Git branching model&lt;/a&gt;**).&lt;/p&gt;
+
+&lt;p&gt;(** this site also suggests always using &lt;strong&gt;&amp;ndash;no-ff&lt;/strong&gt; with merge &amp;ndash; a practice I now follow &amp;ndash; it certainly makes reading history easier)&lt;/p&gt;
+
+&lt;div id=&#34;attachment_1086&#34; class=&#34;wp-caption aligncenter&#34; style=&#34;width: 608px&#34;&gt;
+  &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1086&#34; title=&#34;branch-model&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34; alt=&#34;nvie.com - A successful Git branching model&#34; width=&#34;600&#34; height=&#34;262&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    nvie.com - A successful Git branching model
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When I&amp;rsquo;m happy with my work in a dev branch I cherry-pick or merge into master. I&amp;rsquo;ll then want to rebase my other dev branches against master, and push all branches to a &amp;ldquo;backup&amp;rdquo; server (ie a bare git repository). On my dev branches I&amp;rsquo;m frequently rewriting history with &lt;strong&gt;git reset&lt;/strong&gt;, &lt;strong&gt;git commit &amp;ndash;amend&lt;/strong&gt;, and &lt;strong&gt;git rebase -i&lt;/strong&gt;, but on my master branch I never rewrite history (ie only ever use &lt;strong&gt;git revert&lt;/strong&gt;). So when I push dev branches I&amp;rsquo;m going to need to do a &lt;strong&gt;git push -f&lt;/strong&gt;, whereas on the master a &lt;strong&gt;git push&lt;/strong&gt; will suffice.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m doing this regularly, and it&amp;rsquo;s boring and error prone. So I&amp;rsquo;ve written a script to automate the whole process ie rebase each dev branch against master, and push all local branches somewhere else. If you have branches off (non-master) branches, this script won&amp;rsquo;t work. But I&amp;rsquo;ve found in my day-to-day development as a sysadmin (&lt;a href=&#34;http://devopsdownunder.org/&#34;&gt;devop&lt;/a&gt;?) my branching isn&amp;rsquo;t that complicated, so this script is adequate.&lt;/p&gt;
+
+&lt;div id=&#34;attachment_1084&#34; class=&#34;wp-caption aligncenter&#34; style=&#34;width: 869px&#34;&gt;
+  &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1084  &#34; title=&#34;branching&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34; alt=&#34;If you branch off (non-master) branches, don&#39;t use this script! (image: Jon Loelger, &amp;quot;Version Control with Git&amp;quot;)&#34; width=&#34;861&#34; height=&#34;272&#34; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    If you branch off (non-master) branches, don&#39;t use this script! (image: Jon Loelger, &#34;Version Control with Git&#34;)
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;% cat rebase.and.push
+#!/bin/bash
+
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+# rebase all local branches against master, then force push
+# them to supplied remote. Also push master
+
+original_branch=$(git symbolic-ref -q HEAD)
+original_branch=${original_branch##refs/heads/}
+original_branch=${original_branch:-HEAD}
+
+if [ $original_branch = &#39;HEAD&#39; ] ; then
+    echo
+    echo &#34;On a detached head. Exiting...&#34;
+    exit 1
+fi
+
+remote=${1:-origin}
+
+# find all local branches
+locals=`git br | sed &#39;s/^  |* //&#39; | grep -v master`
+
+# rebase against master
+for branch in $locals ; do
+    echo
+    echo &#34;rebasing against master - $branch ...&#34;
+    git co $branch
+    if ! [ $? -eq 0 ] ; then
+        echo &#34;Unable to checkout $branch. Exiting...&#34;
+        exit 1
+    fi
+    git rebase master
+    if ! [ $? -eq 0 ] ; then
+        echo &#34;Exiting. Rebase failed...&#34;
+        exit 1
+    fi
+    git push -f $remote $branch
+done
+
+echo
+echo &#34;push master...&#34;
+git co master
+if ! [ $? -eq 0 ] ; then
+    echo &#34;Unable to checkout master. Exiting...&#34;
+    exit 1
+fi
+git push $remote master
+
+echo
+echo &#34;Returning to original branch...&#34;
+git co $original_branch&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git hooks – prepare-commit-msg</title>
+      <link>http://blog2.snowfrog.net/2011/06/22/git-hooks-prepare-commit-msg/</link>
+      <pubDate>Wed, 22 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/06/22/git-hooks-prepare-commit-msg/</guid>
+      <description>&lt;p&gt;When I&amp;rsquo;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a &lt;strong&gt;git log&lt;/strong&gt;, rather than getting this:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; foo commented that this was a &amp;ldquo;bad idea&amp;rdquo; (bordering on wrong?) and suggested I use options like &lt;strong&gt;git log &amp;ndash;stat&lt;/strong&gt; instead. See the comments below. Thanks foo!&lt;/p&gt;
+
+&lt;p&gt;When I&amp;rsquo;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a &lt;strong&gt;git log&lt;/strong&gt;, rather than getting this:&lt;/p&gt;
+
+&lt;pre&gt;commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3
+Author: Sonia Hamilton
+Date:   Fri Jun 17 21:15:53 2011 +1000
+
+    dotjilot code changes&lt;/pre&gt;
+
+&lt;p&gt;I get a nice message like this:&lt;/p&gt;
+
+&lt;pre&gt;commit c1bcfdf4ebd9b0ae952b89f484558ee9eef720b3
+Author: Sonia Hamilton
+Date:   Fri Jun 17 21:15:53 2011 +1000
+
+    dotjilot code changes
+        modified:   setuplinux
+        modified:   funcs&lt;/pre&gt;
+
+&lt;p&gt;I used to manually edit the commit message on each commit, but git has a system of hooks that allows you to automate this sort of thing (look in the &lt;strong&gt;repo/.git/hooks&lt;/strong&gt; directory for some examples). Here&amp;rsquo;s a script to automatically uncomment all changes in the commit message:&lt;/p&gt;
+
+&lt;pre&gt;% cat prepare-commit-msg
+#!/bin/sh
+# use case statement for future flexibility - see prepare-commit-msg.sample
+case &#34;$2,$3&#34; in
+  *)
+    /usr/bin/perl -i.bak -ne &#39;s/^#// if /modified:|new file:|deleted:|renamed:/; print&#39; &#34;$1&#34; ;;
+esac&lt;/pre&gt;
+
+&lt;p&gt;And here&amp;rsquo;s a quick script for setting this up across all your local repos. Remember &amp;ndash; hooks aren&amp;rsquo;t synced between repos, so you need to do this on each machine you work on.&lt;/p&gt;
+
+&lt;pre&gt;#!/bin/bash
+# vim: ai ts=4 sts=4 et sw=4 ft=sh
+
+gitdirs=&#34;foo bar baz&#34;
+for d in $gitdirs ; do
+    if [ -d ${HOME}/${d} ] ; then
+        cp prepare-commit-msg ${HOME}/${d}/.git/hooks
+    fi
+done&lt;/pre&gt;
+
+&lt;p&gt;There&amp;rsquo;s only one disadvantage to doing this. Usually, you can just exit without saving the commit message and git will cancel the commit. But because the script modifies the message, there&amp;rsquo;s no nice way of telling git you want to back out (unless someone can tell me how.). I get around this by saving the message and doing a &lt;strong&gt;git reset &amp;ndash;soft HEAD^&lt;/strong&gt; at the command line.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LISP – downloading SICP videos, JRuby</title>
+      <link>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
+      <pubDate>Thu, 05 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m busy learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Lisp_%28programming_language%29&#34;&gt;LISP&lt;/a&gt;/&lt;a href=&#34;http://en.wikipedia.org/wiki/Scheme_%28programming_language%29&#34;&gt;Scheme&lt;/a&gt; at the moment (in order to later move on to &lt;a href=&#34;http://clojure.org/&#34;&gt;Clojure&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;And, improving my programming learning LISP is :-)&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m following along with the &lt;a href=&#34;http://mitpress.mit.edu/sicp/&#34;&gt;MIT&lt;/a&gt; &lt;a href=&#34;http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs&#34;&gt;SICP&lt;/a&gt; videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &amp;ndash; &lt;a href=&#34;https://github.com/soniah/get_sicp&#34;&gt;get_sicp&lt;/a&gt;. Next, a script for the &lt;a href=&#34;http://inst.eecs.berkeley.edu/~cs61a/sp11/&#34;&gt;UC Berkeley SICP videos&lt;/a&gt; (getting through the flash player should be a learning experience).&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;ndash; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;rsquo;t litter /usr. Good: Ruby &amp;ndash; fun, Python &amp;ndash; &lt;snore&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git amend</title>
+      <link>http://blog2.snowfrog.net/2011/04/28/git-amend/</link>
+      <pubDate>Thu, 28 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/04/28/git-amend/</guid>
+      <description>&lt;p&gt;A nice git option I stumbled upon today &amp;ndash; &lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#fixing-a-mistake-by-rewriting-history&#34;&gt;amend&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Typical scenario &amp;ndash; you&amp;rsquo;ve done a local check-in, then notice there&amp;rsquo;s a typo in your code comments. Fix up the typo, then use &lt;strong&gt;&amp;ndash; &amp;ndash; amend&lt;/strong&gt; to re-check-in, without having to do a reset/revert. For example:&lt;/p&gt;
+
+&lt;pre&gt;git add foo.file
+git ci -m &#34;added the frob feature to the whiz-bang&#34;
+...
+notice and fix typo in foo.file
+...
+git add foo.file
+git ci --amend&lt;/pre&gt;
+
+&lt;p&gt;When you do the amend check-in, your editor will pop up, allowing you to re-edit the commit message if desired.&lt;/p&gt;
+
+&lt;p&gt;Obviously, if you&amp;rsquo;ve done a commit to a remote/public repository, amend has issues, similar to reset.&lt;/p&gt;
+
+&lt;p&gt;Also, I have entries like this in my .gitconfig, hence &amp;ldquo;git ci&amp;rdquo; rather than &amp;ldquo;git commit&amp;rdquo;.&lt;/p&gt;
+
+&lt;pre&gt;[alias]
+        ci = commit
+        co = checkout
+        st = status
+        br = branch&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>macports: git-upload-pack: command not found</title>
+      <link>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</link>
+      <pubDate>Thu, 19 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</guid>
+      <description>&lt;p&gt;When doing a &lt;strong&gt;git clone&lt;/strong&gt; from a repo hosted on a Mac OSX machine (installed using macports), I get this error on the client (Linux, cygwin, whatever):&lt;/p&gt;
+
+&lt;pre&gt;git-upload-pack: command not found&lt;/pre&gt;
+
+&lt;p&gt;Solution is to do this on the OSX machine:&lt;/p&gt;
+
+&lt;pre&gt;cd /usr/bin
+sudo ln -s /opt/local/bin/git* .
+&lt;/pre&gt;
+
+&lt;p&gt;Obviously some $PATH funkiness is going on somewhere on the Mac, and I should find a better fix. My personal $PATH on the Mac &lt;em&gt;is&lt;/em&gt; OK:&lt;/p&gt;
+
+&lt;pre&gt;$ echo $PATH
+/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git branch management scripts</title>
+      <link>http://blog2.snowfrog.net/2009/08/28/git-branch-management-scripts/</link>
+      <pubDate>Thu, 27 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/08/28/git-branch-management-scripts/</guid>
+      <description>&lt;p&gt;A couple of scripts I (very) quickly wrote for managing git branches, so I don&amp;rsquo;t have to keep reading&lt;a href=&#34;http://cheat.errtheblog.com/s/git&#34;&gt; git cheat&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;No error checking or intelligence in the scripts &amp;ndash; YMMV.&lt;/p&gt;
+
+&lt;p&gt;Delete a tracking branch both locally and remotely:&lt;/p&gt;
+
+&lt;pre&gt;% cat gitkillbranch
+#!/bin/bash
+
+asksure() {
+echo -n &#34;Are you sure (Y/N)? &#34;
+while read -r -n 1 -s answer; do
+ if [[ $answer = [YyNn] ]]; then
+ [[ $answer = [Yy] ]] &amp;&amp; retval=0
+ [[ $answer = [Nn] ]] &amp;&amp; retval=1
+ break
+ fi
+done
+echo
+return $retval
+}
+
+echo
+echo &#34;*********************************************************&#34;
+echo &#34;This will delete the branch $1 both locally and remotely.&#34;
+echo &#34;*********************************************************&#34;
+echo
+
+if asksure; then
+ echo &#34;sure&#34;
+ git br -d $1
+ git br -r -d origin/${1}
+ git push origin :${1}
+else
+ echo &#34;Not deleting&#34;
+fi&lt;/pre&gt;
+
+&lt;p&gt;Track all remote branches locally:&lt;/p&gt;
+
+&lt;pre&gt;% cat gittrackall
+#!/usr/bin/ruby
+
+result = `git br -r`
+result.each do |line|
+ line.chomp!
+ branch = line.split(&#39;/&#39;)[1]
+ next if branch =~ /HEAD|master/
+ puts branch
+ `git branch --track #{branch} origin/#{branch}`
+end&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

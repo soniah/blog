@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Squid on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/squid/</link>
+    <description>Recent content in Squid on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 16 Oct 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/squid/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Squid Notes</title>
+      <link>http://blog2.snowfrog.net/2010/10/16/squid-notes/</link>
+      <pubDate>Sat, 16 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/10/16/squid-notes/</guid>
+      <description>&lt;p&gt;Some quick Squid notes, from O&amp;rsquo;Reilly&amp;rsquo;s &amp;ldquo;&lt;a href=&#34;http://squidbook.org/&#34;&gt;Squid The Definitive Guide&lt;/a&gt;&amp;ldquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Debugging&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# check config file changes:
+% squid -k parse
+
+# load conf file changes:
+% squid -k reconfigure
+
+# start in foreground, display debug info:
+% squid -N -d1  -&amp;gt; look for &#34;Ready to serve requests&#34; message&lt;/pre&gt;
+
+&lt;p&gt;Edit your squid.conf file and set the debug_options line to this:&lt;/p&gt;
+
+&lt;pre&gt;debug_options ALL,1 33,2&lt;/pre&gt;
+
+&lt;p&gt;Now, Squid writes a message to &lt;strong&gt;cache.log&lt;/strong&gt; for each client request and another for each reply. The messages contain the request method, URI, whether the request/reply is allowed or denied, and the name of the last ACL that matched it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rule order &amp;ndash; AND vs OR&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ACL elements are OR&amp;rsquo;d together  ie *any* success causes success eg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;acl FOO src 1.2.3.4 5.6.7.8&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;access rules are AND&amp;rsquo;d together ie *any* failure causes failure eg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;http_access allow FOO BAR BAZ&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Or, as O&amp;rsquo;Reilly explains:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Recall that Squid uses OR logic when searching ACL elements. Any single value in an acl can cause a match.  It&amp;rsquo;s the opposite for access rules, however. For http_access and the other rule sets, Squid uses AND logic. Consider this generic example:&lt;/p&gt;
+
+&lt;pre&gt;access_list allow ACL1 ACL2 ACL3&lt;/pre&gt;
+
+&lt;p&gt;For this rule to be a match, the request must match each of ACL1, ACL2, and ACL3.  If any of those ACLs don&amp;rsquo;t match the request, Squid stops searching this rule and proceeds to the next.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;dstdomain vs dst&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&#34;text-decoration:underline;&#34;&gt;dstdomain .foo.com&lt;/span&gt; will match &lt;span style=&#34;text-decoration:underline;&#34;&gt;&lt;a href=&#34;http://foo.com&#34;&gt;http://foo.com&lt;/a&gt;&lt;/span&gt; AND &lt;span style=&#34;text-decoration:underline;&#34;&gt;&lt;a href=&#34;http://whatever.foo.com&#34;&gt;http://whatever.foo.com&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s generally better to use &lt;strong&gt;dstdomain&lt;/strong&gt; rather than &lt;strong&gt;dst&lt;/strong&gt; in ACL&amp;rsquo;s:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;normally users request by domain name not ip address, and unless there is an entry in Squid&amp;rsquo;s ip cache, specifying dst will cause delays from dns lookups.&lt;/li&gt;
+&lt;li&gt;target domains can change their ip address, requiring updating the config file&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;nota bene:&lt;/em&gt; an entry of &lt;strong&gt;dst foo.com&lt;/strong&gt; will actually get cached as an ip address&lt;/li&gt;
+&lt;li&gt;however if the intention is to block access to URLs, users can bypass by requesting the ip directly (&lt;a href=&#34;http://1.2.3.4/pr0n&#34;&gt;http://1.2.3.4/pr0n&lt;/a&gt;), unless TODO&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

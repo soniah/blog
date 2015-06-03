@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Retag_progress on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/retag_progress/</link>
+    <description>Recent content in Retag_progress on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 25 Aug 2006 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/retag_progress/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>exercise – move system databases</title>
+      <link>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</link>
+      <pubDate>Fri, 25 Aug 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</guid>
+      <description>&lt;p&gt;In this exerise, you are required to move two of the system databases (&lt;strong&gt;master&lt;/strong&gt; and &lt;strong&gt;model&lt;/strong&gt;) to &lt;strong&gt;c:data&lt;/strong&gt;. Here are some web pages that may help:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://support.microsoft.com/kb/224071/&#34;&gt;KB224071&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sql-server-performance.com/rd_sql_server_startup_parameters.asp&#34;&gt;sql-server-performance.com SQL Startup Parameters&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;move &lt;strong&gt;master&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change the startup properties for the server, to point to a different location for master&lt;/li&gt;
+&lt;li&gt;stop the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;manually move master&amp;rsquo;s database files using Windows Explorer to c:data&lt;/li&gt;
+&lt;li&gt;start the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;in Enterprise Manager, check the properties of the master database, to ensure that master is running from the new location&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;move &lt;strong&gt;model&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change the startup properties of the server, to use the correct trace flag&lt;/li&gt;
+&lt;li&gt;restart the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;detach model using &lt;strong&gt;sp_detach_db&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;manually move model&amp;rsquo;s database files using Windows Explorer to c:data&lt;/li&gt;
+&lt;li&gt;attach model using &lt;strong&gt;sp_attach_db&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;in Enterprise Manager, check the properties of the model database, to ensure that model is running from the new location&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you make a mistake moving master and SQL Server won&amp;rsquo;t start, you can edit the registry directly at:&lt;/p&gt;
+
+&lt;pre&gt;HKLMSOFTWAREMicrosoftMSSQLServerMSSQLServerParameters&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

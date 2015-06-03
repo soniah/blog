@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vmware on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/vmware/</link>
+    <description>Recent content in Vmware on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 26 Feb 2006 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>installing VMWare on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2006/02/25/installing-vmware-on-ubuntu/</link>
+      <pubDate>Sun, 26 Feb 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/02/25/installing-vmware-on-ubuntu/</guid>
+      <description>&lt;p&gt;installing VMWare on Ubuntu&lt;/p&gt;
+
+&lt;p&gt;See also How To Forge &lt;a href=&#34;http://www.howtoforge.com/ubuntu_vmware_server&#34;&gt;How To Install VMware Server On Ubuntu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install prereqs:&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get install build-essential
+ sudo apt-get install linux-headers-`uname -r`&lt;/pre&gt;
+
+&lt;p&gt;Find version of gcc used to compile kernel:&lt;/p&gt;
+
+&lt;pre&gt;cat /proc/version
+ ls /usr/bin/gcc*&lt;/pre&gt;
+
+&lt;p&gt;Install right version of gcc if required:&lt;/p&gt;
+
+&lt;pre&gt;sudo apt-get install gcc-3.4
+ sudo apt-get install g++-3.4&lt;/pre&gt;
+
+&lt;p&gt;Compile with environment variable pointing to gcc:&lt;/p&gt;
+
+&lt;pre&gt;export CC=/usr/bin/gcc-3.4
+ sudo ./vmware-install.pl&lt;/pre&gt;
+
+&lt;p&gt;Useful links:&lt;br /&gt;
+&lt;a href=&#34;https://wiki.ubuntu.com/InstallingVMWare?highlight=%28vmware%29&#34;&gt;UbuntuWiki1&lt;/a&gt;, &lt;a href=&#34;https://wiki.ubuntu.com/InstallingVMWare?action=show&amp;amp;redirect=VmWare+guide%3A+How+to+install+VMware+in+Breezy&#34;&gt;UbuntuWiki2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;(and search &lt;a href=&#34;https://wiki.ubuntu.com&#34;&gt;https://wiki.ubuntu.com&lt;/a&gt; on VMWare)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

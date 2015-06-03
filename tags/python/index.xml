@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/python/</link>
+    <description>Recent content in Python on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 12 Feb 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>refactoring in Go - rather pleasant actually...</title>
+      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
+
+&lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
+a scripting language (Python, Perl, Ruby, etc). My process is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;type &lt;strong&gt;:make&lt;/strong&gt; in vim (I have a dummy Makefile in my Go project just for vim)&lt;/li&gt;
+&lt;li&gt;vim jumps cursor to error (&lt;a href=&#34;http://vimdoc.sourceforge.net/htmldoc/quickfix.html&#34;&gt;vim quickfix list&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;oh, I shouldn&amp;rsquo;t do that&amp;rdquo; - fix (type type type)&lt;/li&gt;
+&lt;li&gt;start again&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finish rather sooner than expected, run tests, smile in knowledge program is working &lt;em&gt;properly&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To quickly setup the &lt;strong&gt;make&lt;/strong&gt; command for Go, type this in a Vim window:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:setlocal makeprg=go\ build\ \.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or even better configure vim via your ~/.vimrc, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
+autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks Martin for the comment!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git - ignore whitespace</title>
+      <link>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</link>
+      <pubDate>Wed, 13 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</guid>
+      <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% git diff -w
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Ignore white space in diffs. Unfortunately, &lt;a href=&#34;http://stackoverflow.com/questions/4350678/git-diff-w-ignore-whitespace-only-at-start-end-of-lines&#34;&gt;there doesn&amp;rsquo;t seem to be an option for just ignoring whitespace changes at the start of  line&lt;/a&gt; - would be handy for Python.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby, Lisp, Python</title>
+      <link>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
+      <pubDate>Tue, 20 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
+      <description>&lt;p&gt;Up late tonight reading about &lt;a href=&#34;http://www.emacswiki.org/emacs/EmacsLisp&#34;&gt;Emacs Lisp&lt;/a&gt;, I came across &lt;a href=&#34;https://sites.google.com/site/steveyegge2/tour-de-babel&#34;&gt;Tour de Babel&lt;/a&gt; by &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Anyway, Ruby stole everything good from Perl; &amp;hellip; for the most part, Ruby took Perl&amp;rsquo;s string processing and Unix integration as-is, meaning the syntax is identical, and so right there, before anything else happens, you already have the Best of Perl. And that&amp;rsquo;s a great start, especially if you don&amp;rsquo;t take the Rest of Perl.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;But then Matz took the best of list processing from Lisp, and the best of OO from Smalltalk and other languages, and the best of iterators from CLU, and pretty much the best of everything from everyone. And he somehow made it all work together so well that you don&amp;rsquo;t even notice that it has all that stuff.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python-iView</title>
+      <link>http://blog2.snowfrog.net/2011/04/11/python-iview/</link>
+      <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/04/11/python-iview/</guid>
+      <description>&lt;p&gt;A nice tool written by Jeremy Visser &amp;ndash; &lt;a href=&#34;https://launchpad.net/~jeremy-visser/+archive/python-iview&#34;&gt;Python-iView&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As Jeremy &lt;a href=&#34;https://jeremy.visser.name/2009/08/30/python-iview/&#34;&gt;says&lt;/a&gt; on his blog: &amp;ldquo;Python-iView is an alternative frontend to ABC iView, which . is an awesome ABC TV programme catchup service that lets you watch most ABC programs from the last month in your browser. However, the iView website has some major problems. To address this, I wrote the open source (GPLv3) application Python-iView, which . allows you to download episodes to your hard drive in their original FLV format.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Thanks Jeremy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python, Lambda, Closures</title>
+      <link>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</link>
+      <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</guid>
+      <description>&lt;p&gt;A very interesting &lt;a href=&#34;http://algorithm.com.au/blog/files/immutability-blocks-lambdas-closures.php#unique-entry-id-613&#34;&gt;post&lt;/a&gt; from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&amp;rsquo;m playing with Lisp and Python at the moment.&lt;/p&gt;
+
+&lt;p&gt;Some links from his blog, in case the original post ever disappears:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;http://stackoverflow.com/questions/938429/scope-of-python-lambda-functions-and-their-parameters&#34;&gt;question and responses&lt;/a&gt; on stackoverflow&lt;/li&gt;
+&lt;li&gt;an &lt;a href=&#34;http://mail.python.org/pipermail/python-dev/2005-September/056669.html&#34;&gt;example&lt;/a&gt; of the perils of Python&amp;rsquo;s scoping rules with for/while/if&lt;/li&gt;
+&lt;li&gt;Wikipedia &amp;ndash; &lt;a href=&#34;http://en.wikipedia.org/wiki/Closure_%28computer_science%29#Differences_in_semantics&#34;&gt;differences in semantics of closures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A nice snippet of code to remind me of the issues:&lt;/p&gt;
+
+&lt;pre&gt;def callback(msg):
+    print msg
+funcList=[]
+for m in (&#39;do&#39;, &#39;re&#39;, &#39;mi&#39;):
+    # funcList.append(lambda: callback(m))
+    funcList.append(lambda m=m: callback(m))
+for f in funcList:
+    f()&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lisp and Python</title>
+      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
+
+&lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
+
+&lt;p&gt;I came across this fun looking book that inspired me &amp;ndash; &lt;a href=&#34;http://landoflisp.com/&#34;&gt;Land of Lisp&lt;/a&gt; &amp;ndash; I started reading it in Dymocks and couldn&amp;rsquo;t put it down. But years ago I&amp;rsquo;d read Paul Graham&amp;rsquo;s &lt;a href=&#34;http://www.paulgraham.com/avg.html&#34;&gt;blog&lt;/a&gt; and recently Joel Spolsky on &lt;a href=&#34;http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html&#34;&gt;The Perils of Java Schools&lt;/a&gt;. I was really surprised to learn that university Computer Science departments have stopped teaching pointers and recursion because they teach Java or .NET. I remember the joy :twisted: in 2nd year Comp Sci of watching half the class being weeded out by Data Structures, then another half being weeded out the following semester by Functional Programming.&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s a post by Peter Christensen on &lt;a href=&#34;http://www.pchristensen.com/blog/lisp-companies/&#34;&gt;who uses Lisp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Oh yeh, I&amp;rsquo;m also learning Python &amp;ndash; it seems the sanest general purpose scripting language around. Ruby is great and I love it, but it&amp;rsquo;s often not available (try telling Bank X or Phone Company Y that you&amp;rsquo;re going to install Ruby on several hundred of their production Solaris servers, see what sort of reaction you get). And Perl is unmaintainable line noise and shell scripts are tedious.&lt;/p&gt;
+
+&lt;p&gt;What kicked this all off? This great SlashDot post on why Expensify &lt;a href=&#34;http://blog.expensify.com/2011/03/25/ceo-friday-why-we-dont-hire-net-programmers/&#34;&gt;doesn&amp;rsquo;t hire .NET programmers&lt;/a&gt; :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-943&#34; title=&#34;stroustrup&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;352&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PS I like Paul Graham&amp;rsquo;s &lt;a href=&#34;http://twitter.com/paulg/status/28864657734&#34;&gt;Tweet&lt;/a&gt; on the book: &amp;ldquo;Turns out the border between genius and insanity is a pretty cheery place&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim modelines</title>
+      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
+
+&lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Some typical modelines for copying and pasting:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Go&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;//
+// vim: tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab tw=72
+// run &#39;go fmt&#39; before checking in your code!
+//&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Text files&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim:tw=75
+# vim:textwidth=75&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell/Bash&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sw=2 et sts=2 ft=sh
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=sh&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sts=2 et sw=2 ft=ruby
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=ruby&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=python
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=python&lt;/pre&gt;
+
+&lt;p&gt;Or when using vi (eg on Solaris) INVESTIGATE FURTHER:&lt;/p&gt;
+
+&lt;pre&gt;:set sw=4&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Perl&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=perl
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=perl&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LISP/Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;; vim: ft=lisp&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

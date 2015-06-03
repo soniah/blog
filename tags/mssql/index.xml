@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mssql on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/mssql/</link>
+    <description>Recent content in Mssql on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/mssql/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Split() function for Microsoft MSSQL</title>
+      <link>http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</link>
+      <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</guid>
+      <description>&lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[split]&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;varchar&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;MAX&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;CHAR&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@pos&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt; 
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURNS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;varchar&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;DECLARE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt; 
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;CHARINDEX(@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;WHILE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;LEN(@string)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; 
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;LEN(@string)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
+
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@pos&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@string,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;CHARINDEX(@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
+
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt; 
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- not found&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+
+                   &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;zero&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;aa&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;bb&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;cc&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+                   &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;zero&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
+      <link>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</link>
+      <pubDate>Mon, 06 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately
+MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt;
+function. Here&amp;rsquo;s a version I quickly implemented, called
+&lt;strong&gt;my_substring_index&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Limitations:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;only accepts strings up to 255 chars long&lt;/li&gt;
+&lt;li&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;QUOTED_IDENTIFIER&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[my_substring_index]&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@delim&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURNS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;DECLARE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; 
+			&lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;WHILE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;charindex(@delim,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+                &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+                    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str;&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
+                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+                    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+                        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn);&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn));&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.my_substring_index(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;www.mysql.com&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------------------------------------------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
+      <link>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</link>
+      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</guid>
+      <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an
+interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption
+password&amp;rdquo;, but the options are mutually exclusive ie when I tried to
+type in a password, the interface locks the password fields.&lt;/p&gt;
+
+&lt;p&gt;Maybe this was some sort of bad magic due to me coming over RDP to the
+new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why force
+a tablet interface down my throat? Sort of reminds me of Ubuntu Unity).
+Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;clr enabled&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MSSQL Resources</title>
+      <link>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</link>
+      <pubDate>Wed, 13 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</guid>
+      <description>
+
+&lt;p&gt;MSSQL Resources&lt;/p&gt;
+
+&lt;h3 id=&#34;web-sites:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Web Sites&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqlservercentral.com/&#34;&gt;SQL Server Central&lt;/a&gt;, especially the &lt;a href=&#34;http://www.sqlservercentral.com/other/links.asp&#34;&gt;links&lt;/a&gt; section&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sqljunkies.com&#34;&gt;SQL Junkies&lt;/a&gt;. Good article on &lt;a href=&#34;http://sqljunkies.com/Article/5CCAC423-1407-4A36-AF71-ED6A67D9646A.scuk&#34;&gt;Troubleshooting Endpoints&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sqlskills.com/&#34;&gt;SQL Skills.com (Kimberley Tripp)&lt;/a&gt; &amp;ndash; especially the Resources section &amp;ndash; whitepapers, articles, etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;user-groups:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;User Groups&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqldownunder.com/&#34;&gt;SQL Down Under&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqlserver.org.au/&#34;&gt;Australian SQL Server User Group&lt;/a&gt; &amp;ndash; especially the Resources section&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ssw.com.au/ssw/netug/&#34;&gt;Sydney .NET Users Group&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;sql@informare.com.au (email list)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;podcasts-webcasts:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Podcasts/Webcasts&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://dotnetrocks.com/archives.aspx&#34;&gt;.NET Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dnrtv.com/&#34;&gt;dnrTV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.microsoft.com/events/podcasts/default.mspx#ITMgrMicrosoftSQLServer2005&#34;&gt;microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqlpass.org/webcasts.html&#34;&gt;PASS Webcasts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://searchsqlserver.bitpipe.com/webcasts?asrc=SS_NAV_WC&#34;&gt;SearchSQLServer.com Webcasts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;useful-addins:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Useful addins&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ankhsvn.tigris.org/&#34;&gt;AnkhSVN&lt;/a&gt; &amp;ndash; &lt;a href=&#34;http://subversion.tigris.org/&#34;&gt;Subversion&lt;/a&gt; source code control plugin for Visual Studio&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.logpi.com&#34;&gt;Log PI&lt;/a&gt; and &lt;a href=&#34;http://www.lumigent.com/products/le_sql.html&#34;&gt;Log Explorer&lt;/a&gt; &amp;ndash; both allow manipulation of SQL Server logs eg remove a single transaction&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://promptsql.com/&#34;&gt;PromptSQL&lt;/a&gt; &amp;ndash; provides SQL Intellisense style word completion for various Microsoft SQL editors, and UltraEdit&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jetbrains.com/resharper/&#34;&gt;ReSharper&lt;/a&gt; &amp;ndash; features such as intelligent coding assistance, on-the-fly error highlighting and quick error correction, support for code refactoring&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://aisto.com/roeder/dotnet/&#34;&gt;Reflector&lt;/a&gt; &amp;ndash; allows you to view, navigate, search, decompile and analyze .NET assemblies. Other tools also on the same site.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.quest.com/spotlight-on-sql-server-enterprise/&#34;&gt;Quest Spotlight&lt;/a&gt; &amp;ndash; &amp;ldquo;&lt;em&gt;Spotlight on SQL Server Enterprise provides an agent-less easy-to-use database issue discovery solution that enables you to identify and resolve SQL Server performance problems within your SQL Server environment.&lt;/em&gt;&amp;ldquo;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;xml-tools:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;XML Tools&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;xsd, xslt, etc tools in MS Visual Studio 2005&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.oxygenxml.com/&#34;&gt;oXygen XML editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.altova.com/products/xmlspy/xml_editor.html&#34;&gt;Altova xmlspy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tools in &lt;a href=&#34;http://www.ultraedit.com/&#34;&gt;UltraEdit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;blogs:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Blogs&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqlclr/&#34;&gt;CLR Integration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqltips/&#34;&gt;SQL Server Engine Tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqlcat/&#34;&gt;Microsoft SQL Server Development Customer Advisory Team&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sql%5Fprotocols/&#34;&gt;SQL Protocols&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqlrem/&#34;&gt;SQL Server Relational Engine Manageability Team Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/queryoptteam/&#34;&gt;Tips, Tricks, and Advice from the SQL Server Query Optimization Team&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/ianjo/&#34;&gt;Ian Jose&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/slavao/&#34;&gt;Slava Oks&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/khen1234/&#34;&gt;Ken Henderson&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/weix/&#34;&gt;Engine Watch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/mandar/default.aspx&#34;&gt;Mandar&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>log shipping hints</title>
+      <link>http://blog2.snowfrog.net/2006/08/25/log-shipping-hints/</link>
+      <pubDate>Sat, 26 Aug 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/08/25/log-shipping-hints/</guid>
+      <description>&lt;p&gt;log shipping hints&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;select * from msdb..log_shipping_databases&amp;lt;br /&amp;gt;
+select * from msdb..log_shipping_plans&amp;lt;br /&amp;gt;
+select * from msdb..log_shipping_primaries&amp;lt;br /&amp;gt;
+select * from msdb..log_shipping_secondaries&amp;lt;br /&amp;gt;
+sp_get_log_shipping_monitor_info&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sp_delete_log_shipping_secondary&amp;lt;br /&amp;gt;
+sp_delete_log_shipping_primary&amp;lt;br /&amp;gt;
+sp_delete_log_shipping_database&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>exercise – move system databases</title>
+      <link>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</link>
+      <pubDate>Fri, 25 Aug 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</guid>
+      <description>&lt;p&gt;In this exerise, you are required to move two of the system databases (&lt;strong&gt;master&lt;/strong&gt; and &lt;strong&gt;model&lt;/strong&gt;) to &lt;strong&gt;c:data&lt;/strong&gt;. Here are some web pages that may help:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://support.microsoft.com/kb/224071/&#34;&gt;KB224071&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sql-server-performance.com/rd_sql_server_startup_parameters.asp&#34;&gt;sql-server-performance.com SQL Startup Parameters&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;move &lt;strong&gt;master&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change the startup properties for the server, to point to a different location for master&lt;/li&gt;
+&lt;li&gt;stop the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;manually move master&amp;rsquo;s database files using Windows Explorer to c:data&lt;/li&gt;
+&lt;li&gt;start the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;in Enterprise Manager, check the properties of the master database, to ensure that master is running from the new location&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;move &lt;strong&gt;model&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change the startup properties of the server, to use the correct trace flag&lt;/li&gt;
+&lt;li&gt;restart the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;detach model using &lt;strong&gt;sp_detach_db&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;manually move model&amp;rsquo;s database files using Windows Explorer to c:data&lt;/li&gt;
+&lt;li&gt;attach model using &lt;strong&gt;sp_attach_db&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;in Enterprise Manager, check the properties of the model database, to ensure that model is running from the new location&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you make a mistake moving master and SQL Server won&amp;rsquo;t start, you can edit the registry directly at:&lt;/p&gt;
+
+&lt;pre&gt;HKLMSOFTWAREMicrosoftMSSQLServerMSSQLServerParameters&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>howto move sql server system databases</title>
+      <link>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</link>
+      <pubDate>Wed, 23 Aug 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a couple of links on how to move the MS SQL Server system databases:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://support.microsoft.com/kb/224071/&#34;&gt;KB224071&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sql-server-performance.com/rd_sql_server_startup_parameters.asp&#34;&gt;sql-server-performance.com SQL Startup Parameters&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In a nutshell:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;for master, change startup parameters in Server Properties, stop SQL Server, move files, start SQL Server&lt;/li&gt;
+&lt;li&gt;for other system databases, restart SQL Server using Trace Flag 3608 (-T3608 startup param), use &lt;strong&gt;sp_detach_db&lt;/strong&gt; and &lt;strong&gt;sp_attach_db&lt;/strong&gt;, restart without Trace Flag&lt;/li&gt;
+&lt;li&gt;if SQL Server won&amp;rsquo;t start because of an error in the startup settings, the settings can be edited here:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;HKLM/SOFTWARE/Microsoft/MSSQLServer/MSSQLServerParameters&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>multiserver jobs exercise</title>
+      <link>http://blog2.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</link>
+      <pubDate>Thu, 15 Dec 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</guid>
+      <description>
+
+&lt;p&gt;multiserver jobs exercise&lt;/p&gt;
+
+&lt;h3 id=&#34;exercise:c1ebe2bed5f700f88af474a522edbdf4&#34;&gt;Exercise&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Have a second instance of SQL Server running, either by:
+
+&lt;ul&gt;
+&lt;li&gt;installing a second instance of SQL Server&lt;/li&gt;
+&lt;li&gt;starting up a second Virtual PC&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If using Virtual PC&amp;rsquo;s, check that you have network connectivity between both VPC&amp;rsquo;s:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ipconfig&lt;/li&gt;
+&lt;li&gt;ping&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Ensure that both instances of SQL are using &lt;strong&gt;Mixed Mode Authentication&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Using &lt;strong&gt;Tools, Wizards, Management, Make Master Server Wizard&lt;/strong&gt;, setup Multiserver Jobs. Notice how an account called &lt;strong&gt;MSXOperator&lt;/strong&gt; is created on both instances&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a simple job on the Master, and get it to run on the Secondary&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;hints:c1ebe2bed5f700f88af474a522edbdf4&#34;&gt;Hints&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;remember to regularly refresh your display in Enterprise Manager, especially the &lt;strong&gt;Jobs&lt;/strong&gt; node&lt;/li&gt;
+&lt;li&gt;the job may take some minutes to copy. Be patient; if taking too long restart both agents&lt;/li&gt;
+&lt;li&gt;check your setup by running this select statement on both instances:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;SELECT * FROM msdb..systargetservers&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>guest and public</title>
+      <link>http://blog2.snowfrog.net/2005/11/22/guest-and-public/</link>
+      <pubDate>Wed, 23 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/22/guest-and-public/</guid>
+      <description>&lt;p&gt;guest and public&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;guest = valid login but no account&lt;/li&gt;
+&lt;li&gt;guest is created (but disabled) by default; to enable run &lt;code&gt;GRANT CONNECT TO GUEST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;guest gets the permissions of the public role (as does everyone)&lt;/li&gt;
+&lt;li&gt;by default public has no permissions&lt;/li&gt;
+&lt;li&gt;Northwind: permissions are granted to public&lt;/li&gt;
+&lt;li&gt;pubs: permissions are granted to guest&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

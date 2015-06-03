@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Snmp on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/snmp/</link>
+    <description>Recent content in Snmp on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 10 Feb 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/snmp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>gsnmpgo - SNMP for Golang using gsnmp</title>
+      <link>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</link>
+      <pubDate>Sun, 10 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</guid>
+      <description>
+
+&lt;p&gt;Update 8/Mar/13. Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;http://github.com/soniah/gosnmp&lt;/a&gt; instead.&lt;/p&gt;
+
+&lt;h2 id=&#34;previously:369c73396e80c884e0e5cbfcb990adb3&#34;&gt;Previously&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;I recently released &lt;a href=&#34;http://github.com/soniah/gsnmpgo&#34;&gt;gsnmpgo&lt;/a&gt; - a Go/CGo snmp library using gsnmp. Pull requests welcome!&lt;/p&gt;
+
+&lt;p&gt;From the &lt;a href=&#34;http://godoc.org/github.com/soniah/gsnmpgo&#34;&gt;gsnmpgo documentation&lt;/a&gt;, here&amp;rsquo;s an example of usage:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// do an snmp get; RFC 4088 is used for uris&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;uri&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;`snmp://public@192.168.1.10//(1.3.6.1.2.1.1.1.0)`&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;params&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.NewDefaultParams(uri)&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;results,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Query(params)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;fmt.Println(err)&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;os.Exit(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// check your results&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Dump(results)&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// turn on debugging&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Debug&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

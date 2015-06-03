@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/mysql/</link>
+    <description>Recent content in Mysql on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 06 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
+      <link>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</link>
+      <pubDate>Mon, 06 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately
+MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt;
+function. Here&amp;rsquo;s a version I quickly implemented, called
+&lt;strong&gt;my_substring_index&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Limitations:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;only accepts strings up to 255 chars long&lt;/li&gt;
+&lt;li&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;QUOTED_IDENTIFIER&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[my_substring_index]&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@delim&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURNS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;DECLARE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; 
+			&lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;WHILE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;charindex(@delim,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+                &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+                    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str;&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
+                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+                    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+                        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn);&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn));&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.my_substring_index(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;www.mysql.com&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------------------------------------------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Backup multiple MySQL databases into separate files – Windows</title>
+      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
+
+&lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;rsquo;s a script submitted by one of my readers:&lt;/p&gt;
+
+&lt;pre&gt;:: MySQl DB user
+set dbuser=xxxx
+
+:: MySQl DB users password
+set dbpass=xxxx
+
+:: Switch to the MySQL data directory and collect the folder names
+pushd &#34;C:\Documents and Settings\All Users\Application Data\MySQL\MySQL Server 5.5\data&#34;
+
+:: Loop through the folders and use the fnames for the sql filenames, collects all databases automatically this way
+
+echo &#34;hello&#34;
+
+echo &#34;Pass each name to mysqldump.exe and output an individual .sql file for each&#34;
+
+FOR /D %%F IN (*) DO (
+&#34;C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe&#34; --user=%dbuser% --password=%dbpass% --databases %%F &amp;gt; &#34;C:\SQLBackup\%%F.%backupdate%.sql&#34;
+)&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby on Rails – Foreign Key Constraints in MySQL</title>
+      <link>http://blog2.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</link>
+      <pubDate>Wed, 01 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</guid>
+      <description>&lt;p&gt;As an ex-DBA, one of the things that annoys me about Rails is that migrations don&amp;rsquo;t have a way of setting up referential integrity (I&amp;rsquo;m still using Rails 1.2.3, so this may have changed).&lt;/p&gt;
+
+&lt;p&gt;But apart from that, I lurv Rails :-)&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s some code I wrote to for adding and removing foreign key constraints on MySQL (using InnoDB, of course). There&amp;rsquo;s other code out there to do the same thing, but they didn&amp;rsquo;t do what I wanted, or required installing a plugin.&lt;/p&gt;
+
+&lt;p&gt;In the lib directory, add the file &lt;strong&gt;migration_helpers.rb&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;module MigrationHelpers
+  def foreign_key(from_table, from_column, to_table, to_column, on_delete=&#39;SET NULL&#39;, on_update=&#39;CASCADE&#39;)
+    constraint_name = &#34;fk_#{from_table}_#{to_table}&#34;
+    execute %{alter table #{from_table}
+      add constraint #{constraint_name}
+      foreign key (#{from_column})
+      references #{to_table}(#{to_column})
+      on delete #{on_delete}
+      on update #{on_update}
+    }
+  end
+  def drop_foreign_key(from_table, to_table)
+    constraint_name = &#34;fk_#{from_table}_#{to_table}&#34;
+    execute &#34;alter table #{from_table} drop foreign key #{constraint_name}&#34;
+    execute &#34;alter table #{from_table} drop key #{constraint_name}&#34;
+  end
+end&lt;/pre&gt;
+
+&lt;p&gt;Then, in a migration you would do something like the following:&lt;/p&gt;
+
+&lt;pre&gt;require &#34;migration_helpers&#34;
+class Vmtypes &amp;lt; ActiveRecord::Migration
+  extend MigrationHelpers  # see lib/migration_helpers.rb
+  def self.up
+    create_table :vmtypes, :primary_key =&amp;gt; :vmtype_id do |t|
+      t.column :vmname, :string
+    end
+    execute &#34;alter table asset add column vmtype_id int after vmhost_id;&#34;
+    foreign_key :asset, :vmtype_id, :vmtypes, :vmtype_id, &#39;RESTRICT&#39;
+  end
+
+  def self.down
+    drop_foreign_key :asset, :vmtypes
+    drop_table :vmtypes
+    remove_column :asset, :vmtype_id
+  end
+end&lt;/pre&gt;
+
+&lt;p&gt;I wrote this code for MySQL; I don&amp;rsquo;t know whether it would work with other backends. Notice the MySQL oddity that you add a foreign key using one line of code, but drop a foreign key using two lines of code (foreign key then key).&lt;/p&gt;
+
+&lt;p&gt;On of the features of my code for adding the foreign key is that it allows (requires) you to specify the column names. I did this because I like the primary keys in my tables to be named foo_id rather than id, to make things a little more self documenting.&lt;/p&gt;
+
+&lt;p&gt;The next thing I want to work out is how to create/use tables with non-integer primary keys &amp;ndash; seems like an issue that a few people have struggled with.:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://wiki.rubyonrails.org/rails/pages/HowToUseNonDatabaseProvidedIDs&#34;&gt;HowToUseNonDatabaseProvidedIDs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://railsforum.com/viewtopic.php?pid=65043&#34;&gt;:id-less legacy databases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ruby-forum.com/topic/85912&#34;&gt;Active Record and non-numeric, natural primary keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 9-June-2009:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve updated my code to allow suffixes on foreign key names &amp;ndash; useful (for example) when having multiple foreign keys going to the same destination table:&lt;/p&gt;
+
+&lt;pre&gt;module MigrationHelpers
+ def foreign_key(from_table, from_column, to_table, to_column, suffix=nil, on_delete=&#39;SET NULL&#39;, on_update=&#39;CASCADE&#39;)
+   constraint_name = &#34;fk_#{from_table}_#{to_table}&#34;
+   constraint_name += &#34;_#{suffix}&#34; unless suffix.nil?
+   execute %{alter table #{from_table}
+     add constraint #{constraint_name}
+     foreign key (#{from_column})
+     references #{to_table}(#{to_column})
+     on delete #{on_delete}
+     on update #{on_update}
+   }
+ end
+ def drop_foreign_key(from_table, to_table, suffix=nil)
+   constraint_name = &#34;fk_#{from_table}_#{to_table}&#34;
+   constraint_name += &#34;_#{suffix}&#34; unless suffix.nil?
+   execute &#34;alter table #{from_table} drop foreign key #{constraint_name}&#34;
+   execute &#34;alter table #{from_table} drop key #{constraint_name}&#34;
+ end
+end&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Connect to mysql from OpenOffice using ODBC</title>
+      <link>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</link>
+      <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</guid>
+      <description>&lt;p&gt;There&amp;rsquo;s an article &lt;a href=&#34;http://www.linux.com/feature/60185&#34;&gt;here&lt;/a&gt; that explains how to connect to a mysql database from OpenOffice.org Base using odbc,&lt;/p&gt;
+
+&lt;p&gt;but the author makes it sound like rocket science. It&amp;rsquo;s easy &amp;ndash; summary:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;pre&gt;sudo aptitude install unixodbc libmyodbc unixodbc-bin&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;pre&gt;sudo ODBCConfig&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;driver is &lt;strong&gt;/usr/lib/odbc/libmyodbc.so&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;setup is &lt;strong&gt;/usr/lib/odbc/libodbcmyS.so&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;run the wizard, connect using the saved odbc configuration&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mysql, localhost, and ssh work-around</title>
+      <link>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</link>
+      <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</guid>
+      <description>&lt;p&gt;I use ssh to tunnel all the time, especially to get around brain-dead firewalls.&lt;/p&gt;
+
+&lt;p&gt;But this doesn&amp;rsquo;t work easily for mysql &amp;ndash; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &amp;lsquo;localhost&amp;rsquo; and try to connect via the local socket. Very broken &amp;ndash; there&amp;rsquo;s bugs lodged &lt;a href=&#34;http://bugs.mysql.com/bug.php?id=27361&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://bugs.mysql.com/bug.php?id=31577&#34;&gt;here&lt;/a&gt; about this (and lots of chest beating and wailing, too).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; tunnel ssh via an intermediate machine. For example:&lt;/p&gt;
+
+&lt;pre&gt;intermediate$ ssh -o GatewayPorts=yes -L 3306:targetdb:3306 targetdb
+localhost$ mysql -h intermediate -P 3306&lt;/pre&gt;
+
+&lt;p&gt;GatewayPorts &amp;ndash; dangerous yes &amp;ndash; but so is life.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The problem seems to have been fixed; either that or I was having a very blond moment last time I tried using &lt;strong&gt;&amp;ndash; &amp;ndash; protocol&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;localhost$ mysql --version
+localhost$ mysql  Ver 14.12 Distrib 5.0.51a, for debian-linux-gnu (i486) using readline 5.2
+localhost$ ssh -fN -L3306:targetdb:3306 targetdb
+localhost$ mysql --protocol=tcp -hlocalhost -uroot
+Welcome to the MySQL monitor.  Commands end with ; or g.
+Your MySQL connection id is 14788104
+Server version: 4.0.21-Max-log
+Type &#39;help;&#39; or &#39;h&#39; for help. Type &#39;c&#39; to clear the buffer.
+mysql&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don&amp;rsquo;t obey the &amp;ndash; &amp;ndash; protocol=tcp flag or don&amp;rsquo;t have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh..&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using 127.0.0.1 instead of localhost works for OpenOffice &amp;ndash; yay.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL Backups</title>
+      <link>http://blog2.snowfrog.net/2007/12/21/mysql-backups/</link>
+      <pubDate>Fri, 21 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/12/21/mysql-backups/</guid>
+      <description>&lt;p&gt;See Also:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.igvita.com/blog/2007/10/10/hands-on-mysql-backup-migration/&#34;&gt;igvita.com: Hands on MySQL Backup &amp;amp; Migration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.howtoforge.com/point_in_time_restoration_mysql_zrm&#34;&gt;How-To Forge: How to perform a point in time restoration using ZRM for MySQL&lt;br /&gt;
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.howtoforge.com/mysql_zrm_debian_sarge&#34;&gt;How-To Forge: MySQL Backup And Recovery With mysql-zrm On Debian Sarge&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL Logging and LogRotation</title>
+      <link>http://blog2.snowfrog.net/2007/10/24/mysql-logging-and-logrotation/</link>
+      <pubDate>Thu, 25 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/10/24/mysql-logging-and-logrotation/</guid>
+      <description>&lt;p&gt;dev.msql.com &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/log-files.html&#34;&gt;logging documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;On Debian based systems, MySQL logging (and logrotation) is setup automatically so I&amp;rsquo;ve never had to worry about it. Unfortunately, I&amp;rsquo;m not using Debian at the moment.&lt;/p&gt;
+
+&lt;p&gt;The options used to start MySQL can be gleaned from &lt;strong&gt;ps ax | grep mysql&lt;/strong&gt; ; in particular this will show the &lt;strong&gt;&amp;ndash;datadir&lt;/strong&gt; setting, which is where logs are created by default.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Troubleshooting Logs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ndash;log&lt;/strong&gt; &amp;ndash; the general query log &amp;ndash; when clients connect and disconnect and all sql statements. By default, created with a name of &lt;strong&gt;host_name.log&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;** &amp;ndash;log-error** &amp;ndash; diagnostic messages about startup and shutdown and abnormal conditions. By default, created with a name of &lt;strong&gt;host_name.err&lt;/strong&gt;. If mysqld is invoked directly errors will be written to stderr; if mysqld is started by way of the &lt;strong&gt;mysqld_safe&lt;/strong&gt; script (directly or via init.d) error logging may go to syslog (and therefore usually to /var/log)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;ndash;log-slow-queries&lt;/strong&gt; &amp;ndash; log queries that take longer than the &lt;em&gt;long_query_time&lt;/em&gt; server variable (10s by default) to run. By default, created with a name of &lt;strong&gt;host_name-slow.log&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Replication/Binary Logs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;todo&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;LogRotation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;todo&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL Replication Notes</title>
+      <link>http://blog2.snowfrog.net/2007/10/23/mysql-replication-notes/</link>
+      <pubDate>Tue, 23 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/10/23/mysql-replication-notes/</guid>
+      <description>
+
+&lt;p&gt;dev.mysql.com &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication.html&#34;&gt;replication documentation&lt;/a&gt;. Replication on MySQL is similar to &lt;em&gt;Log Shipping&lt;/em&gt; on MS SQL; the default is &lt;em&gt;statement level&lt;/em&gt; replication, but newer versions also offer &lt;em&gt;row-based&lt;/em&gt; replication.&lt;/p&gt;
+
+&lt;p&gt;See also:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql&#34;&gt;https://www.digitalocean.com/community/tutorials/how-to-set-up-master-slave-replication-in-mysql&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Setting Up&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On the Master:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;create the account that will be used by each slave for replication:
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;&amp;gt; create user &amp;lsquo;repl&amp;rsquo;@&amp;lsquo;%&amp;rsquo; identified by &amp;lsquo;secret&amp;rsquo;;
+&amp;gt; grant replication slave on &lt;em&gt;.&lt;/em&gt; to &amp;lsquo;repl&amp;rsquo;@&amp;lsquo;%&amp;rsquo;;
+&amp;gt; flush privileges;
+&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;enable for replication by editing modify &lt;strong&gt;/etc/my.cnf&lt;/strong&gt; (fuller example below):&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;[mysqld]
+server-id=1               # number needs to be unique amongst all servers - can be any number
+log-bin=mysql-bin         # can be left empty, but convention is to call mysql-bin
+binlog-ignore-db=mysql    # any databases not to replicate
+# if using any InnoDB tables, for the greatest possible durability and consistency set:
+innodb_flush_log_at_trx_commit=1
+sync_binlog=1
+.
+$ /etc/init.d/mysql restart
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;stop updates, record the log file name and position, copy data:
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;mysql&amp;gt; flush tables with read lock;
+mysql&amp;gt; show master statusG&lt;/p&gt;
+
+&lt;h1 id=&#34;the-following-step-must-be-done-in-another-terminal:3a267fae710283cba380e6ea7b085197&#34;&gt;the following step &lt;em&gt;must&lt;/em&gt; be done in another terminal:&lt;/h1&gt;
+
+&lt;p&gt;$ mysqlhotcopy &amp;ndash;method=scp &amp;ndash;user=root &amp;ndash;password=secret database root@dest_host:/var/lib/mysql
+mysql&amp;gt; unlock tables; # release locks in the original terminal
+&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;other methods of copying data:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;if only using MyISAM the &lt;strong&gt;LOAD DATA FROM MASTER&lt;/strong&gt; command can be used &lt;em&gt;without having to stop the master&lt;/em&gt;; even though it&amp;rsquo;s usage is &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/load-data-from-master.html&#34;&gt;deprecated&lt;/a&gt; there&amp;rsquo;s no equivalent replacement. Additional permissions have to be assigned to the slave repl account (xx) and some network settings need to be temporarily changed (??), and a global read lock needs to be held on the master (thus preventing updates while transferring data)&lt;/li&gt;
+&lt;li&gt;data can also be copied using &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication-howto-mysqldump.html&#34;&gt;mysqldump&lt;/a&gt; or by &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication-howto-rawdata.html&#34;&gt;dumping the raw files&lt;/a&gt;. If using InnoDB there&amp;rsquo;s &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication-howto-rawdata.html&#34;&gt;also&lt;/a&gt; a commercial product called &lt;a href=&#34;http://www.innodb.com/hot-backup&#34;&gt;Hot Backup&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;if using different storage engines between the master and slave, don&amp;rsquo;t put the engine statements in the CREATE or ALTER TABLE statements (as they&amp;rsquo;ll be replicated). Either use SET storage_engine followed by CREATE TABLE, or stop the slave and issue ALTER TABLE statements on the slave; see &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication-solutions-diffengines.html&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Binary log files must be removed when they&amp;rsquo;re no longer needed because MySQL doesn&amp;rsquo;t do so automatically. Use &lt;strong&gt;purge master logs to &amp;lsquo;mysql-bin.1234&amp;rsquo;;&lt;/strong&gt; O&amp;rsquo;Reilly&amp;rsquo;s &lt;em&gt;High Performance MySQL&lt;/em&gt; has a log purge script (section 7.5), as well as other useful scripts for managing replication&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On the Slave:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;enable for replication by editing modify &lt;strong&gt;/etc/my.cnf&lt;/strong&gt; &amp;ndash; only need to set a unique &lt;em&gt;server-id&lt;/em&gt;, unless this slave will also act as a master for other slaves&lt;/li&gt;
+&lt;li&gt;restart mysql, check that data copied ok with &lt;em&gt;mysqlhotcopy&lt;/em&gt; by doing a &lt;em&gt;show tables;&lt;/em&gt; (etc.) in the new database&lt;/li&gt;
+&lt;li&gt;start replication:
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;mysql&amp;gt; change master to master host = &amp;lsquo;master host&amp;rsquo;, master user = &amp;lsquo;repl&amp;rsquo;, master_password = &amp;lsquo;secret&amp;rsquo;, master_log_file = &amp;lsquo;master_log_file&amp;rsquo;, master_log_pos = &amp;lsquo;master_log_pos&amp;rsquo;;
+mysql&amp;gt; start slave;
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note: this information is stored in the file data_dir/master.info, so the password isn&amp;rsquo;t very secure&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to &lt;em&gt;quickly&lt;/em&gt; add &lt;em&gt;another slave&lt;/em&gt;, see &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication-howto-additionalslaves.html&#34;&gt;this topic&lt;/a&gt; (shutdown an existing slave, copy the data directory with logs and info files, set a unique server-id, start existing and new slave)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Master .my.cnf&lt;/strong&gt; should look like:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;[mysqld]
+server-id = 71
+log-bin=mysql-bin # use a standard name
+relay-log=relay-bin # use a standard name
+log=/var/log/mysql/mysql.log # general logging
+log-slow-queries=/var/log/mysql/mysql-slow.log # log slow queries
+log-error=/var/log/mysql/mysql-error.log # log errors
+binlog-ignore-db=mysql # as master, don&#39;t send this to my slaves
+log-slave-updates # this master is also a slave
+replicate-do-db=foodb # as slave, only pull this db from *my* master
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Slave .my.cnf&lt;/strong&gt; should look like:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;[mysqld]
+server-id=72
+log-bin=mysql-bin # use a standard name
+relay-log=relay-bin # use a standard name
+log=/var/log/mysql/mysql.log # general logging
+log-slow-queries=/var/log/mysql/mysql-slow.log # log slow queries
+log-error=/var/log/mysql/mysql-error.log # log errors
+&lt;/pre&gt;
+
+&lt;p&gt;**Monitoring/Troubleshooting **&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication-problems.html&#34;&gt;Troubleshooting Replication&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;On the Master:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;show master statusG&lt;/strong&gt; &amp;ndash; shows the binary log file name and position. O&amp;rsquo;Reilly&amp;rsquo;s &lt;em&gt;High Performance MySQL&lt;/em&gt; has a heartbeat script (section 7.5)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;show processlistG&lt;/strong&gt; &amp;ndash; the master uses one thread to provide replication to slaves (&lt;strong&gt;Command: Binlog Dump&lt;/strong&gt;). No &lt;strong&gt;state&lt;/strong&gt; means replication hasn&amp;rsquo;t been setup correctly. Good &lt;strong&gt;states&lt;/strong&gt; are &lt;em&gt;Sending binlog event to slave, Finished reading one binlog; switching to next binlog, Has sent all binlog to slave; waiting for binlog to be updated&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;show master logsG&lt;/strong&gt; &amp;ndash; shows names of existing binary log files&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;$ mysqlbinlog mysql-bin.1234&lt;/strong&gt; &amp;ndash; allows you to read through binary and relay logs on both Master and Slave. Has the standard -u -h -p options, as well as -o to specify offset to start at&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On the Slave:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;show slave statusG&lt;/strong&gt; (&lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/show-slave-status.html&#34;&gt;documentation&lt;/a&gt;) &amp;ndash; key things to watch for are:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Seconds_Behind_Master&lt;/em&gt; should be close to zero&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Slave_IO_Running&lt;/em&gt; and &lt;em&gt;Slave_SQL_Running&lt;/em&gt; should both be &amp;lsquo;Yes&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Read_Master_Log_Pos&lt;/em&gt; should only be slightly behind the position given by &lt;em&gt;show master status&lt;/em&gt; on the master.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Exec_Master_Log_Pos&lt;/em&gt; should only be slightly behind &lt;em&gt;Read_Master_Log_Pos&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;watch &lt;em&gt;Last_Errno&lt;/em&gt; and &lt;em&gt;Last_Error&lt;/em&gt; for errors and all the &lt;em&gt;Replicate/Ignore DB/Table&lt;/em&gt; fields for data not being replicated. In an emergency, troublesome statements can be skipped over using TODO.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;show process listG&lt;/strong&gt; &amp;ndash; the slave uses two threads to implement replication &amp;ndash; the &lt;em&gt;I/O thread&lt;/em&gt; reads events from the master and stores them in the relay log; and the &lt;em&gt;SQL&lt;/em&gt; thread reads statements from the relay log and applies them. A good state for the I/O thread is &lt;em&gt;Waiting for master to send event&lt;/em&gt;; see doco for many other states. Good states for the SQL thread are &lt;em&gt;Reading event from the relay log; and Has read all relay log; waiting for the slave I/O thread to update it&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;start slave;&lt;/strong&gt; see &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/start-slave.html&#34;&gt;documentation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;stop slave;&lt;/strong&gt; or even better &lt;strong&gt;stop slave sql_thread;&lt;/strong&gt; Statements continue to be read and written to relay log, but they aren&amp;rsquo;t applied, allowing a backup of the slave to be done then allowing the slave to catch more rapidly when restarted &amp;ndash; see &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication-administration-pausing.html&#34;&gt;documentation&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;to prevent replication automatically occurring on a restart, start up server with &lt;em&gt;&amp;ndash;skip-slave-start&lt;/em&gt; to skip the saved .info files (or delete those files beforehand to wipe replication completely).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See Also:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.howtoforge.com/mysql5_master_master_replication_debian_etch&#34;&gt;How-To Forge Master-Master Replication&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.howtoforge.com/back_up_mysql_dbs_without_interruptions&#34;&gt;How-To Forge Backups w/o Service Interuption (Replication)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL Security</title>
+      <link>http://blog2.snowfrog.net/2007/10/15/mysql-security/</link>
+      <pubDate>Mon, 15 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/10/15/mysql-security/</guid>
+      <description>&lt;p&gt;Some guidelines for understanding MySQL security:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;security tables have a dual primary key of &lt;em&gt;username + host&lt;/em&gt; &amp;ndash; ie if there are two entries, &lt;strong&gt;fred@localhost&lt;/strong&gt; and &lt;strong&gt;fred@%&lt;/strong&gt;, *they are different users to mysql&lt;br /&gt;
+*&lt;/li&gt;
+&lt;li&gt;more specific entries are considered before less specific entries ie &lt;strong&gt;localhost&lt;/strong&gt; before &lt;strong&gt;%.fubar.com&lt;/strong&gt; before &lt;strong&gt;%&lt;/strong&gt;, &lt;strong&gt;fred&lt;/strong&gt; before &lt;strong&gt;[blank]&lt;/strong&gt;. A % host entry is considered last, as is a blank username&lt;/li&gt;
+&lt;li&gt;host entries are considered before username entries. If there&amp;rsquo;s a tie eg &lt;strong&gt;[blank]@localhost&lt;/strong&gt; versus &lt;strong&gt;fred@%&lt;/strong&gt;, the hostname entry wins ie &lt;strong&gt;[blank]@localhost&lt;/strong&gt; wins over &lt;strong&gt;fred@%&lt;/strong&gt;. This is a &lt;strong&gt;&lt;em&gt;Big Gotcha!!&lt;/em&gt;&lt;/strong&gt; (especially since MySQL creates a [blank]@localhost entry by default) Solution: delete all entries except root@localhost (or root@%), then only have one entry per user.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Tables:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;mysql.&lt;/strong&gt;&lt;strong&gt;user:&lt;/strong&gt; controls userids and global permisions &amp;ndash; consulted during initial user connection. A permission (such as select) granted here is global and applies to all databases&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mysql.db:&lt;/strong&gt; controls access to individual databases. This table has a triple primary key consisting of host, db, user. If MySQL doesn&amp;rsquo;t find an exact match on host/db/user but &lt;em&gt;does&lt;/em&gt; find a match on %/db/user, it looks in the &lt;strong&gt;host&lt;/strong&gt; table for a match&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mysql.host:&lt;/strong&gt; essentially an extension of the db table &amp;ndash; when a host/db entry matches in both tables, the entries must both be positive. In effect this allows you to grant a privilege to most users but deny them from a specific host&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Statements:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GRANT/REVOKE privilege ON table1, . TO user [IDENTIFIED BY &amp;lsquo;password&amp;rsquo;] [WITH GRANT OPTION]; FLUSH PRIVILEGES;&lt;/li&gt;
+&lt;li&gt;privilege can be ALL, or things like SELECT, DELETE, etc&lt;/li&gt;
+&lt;li&gt;table can be * (all tables in the current database) or *.* all tables all databases&lt;/li&gt;
+&lt;li&gt;user means all users with that name, or you can specify a specific host with user@host&lt;/li&gt;
+&lt;li&gt;SET PASSWORD FOR &amp;lsquo;fred&amp;rsquo;@&amp;lsquo;localhost&amp;rsquo; = PASSWORD(&amp;lsquo;secret&amp;rsquo;);&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>multiple mysql versions on same machine</title>
+      <link>http://blog2.snowfrog.net/2007/09/12/multiple-mysql-versions-on-same-machine/</link>
+      <pubDate>Thu, 13 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/09/12/multiple-mysql-versions-on-same-machine/</guid>
+      <description>&lt;p&gt;Examples of working with multiple mysql versions on the same machine:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;/usr/local/mysql/bin/mysqldump -uroot --sock=/tmp/mysql5.sock directaccesscms &amp;gt; directaccesscms_tpldb1.sql&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;mysqldump -uroot --sock=/tmp/mysql5.sock directaccesscms &amp;gt; directaccesscms_tpldb1.sql&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;/root/mysql-5.0.37-solaris8-sparc/bin/mysql --sock=/tmp/mysql5.sock&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;/root/mysql-5.0.37-solaris8-sparc/bin/mysql --sock=/tmp/mysql5.sock seonodes &amp;lt; seonodes.sql&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Backup multiple MySQL databases into separate files</title>
+      <link>http://blog2.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</link>
+      <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</guid>
+      <description>&lt;p&gt;Backup multiple MySQL databases into separate files&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; want to know how to do this on Windows? See my post &lt;a href=&#34;http://blog.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/&#34;&gt;Backup multiple MySQL databases into separate files – Windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;#!/bin/bash
+# sonia 16-nov-05
+# backup each mysql db into a different file, rather than one big file
+# as with --all-databases - will make restores easier
+
+USER=&#34;root&#34;
+PASSWORD=&#34;secret&#34;
+OUTPUTDIR=&#34;/var/lib/bacula&#34;
+MYSQLDUMP=&#34;/usr/bin/mysqldump&#34;
+MYSQL=&#34;/usr/bin/mysql&#34;
+
+# clean up any old backups - save space
+rm &#34;$OUTPUTDIR/*bak&#34; &amp;gt; /dev/null 2&amp;gt;&amp;1
+
+# get a list of databases
+databases=`$MYSQL --user=$USER --password=$PASSWORD \
+ -e &#34;SHOW DATABASES;&#34; | tr -d &#34;| &#34; | grep -v Database`
+
+# dump each database in turn
+for db in $databases; do
+    echo $db
+    $MYSQLDUMP --force --opt --user=$USER --password=$PASSWORD \
+    --databases $db &amp;gt; &#34;$OUTPUTDIR/$db.bak&#34;
+done&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Connect to MySQL across network using MS Access</title>
+      <link>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</link>
+      <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</guid>
+      <description>&lt;p&gt;Connect to MySQL across network using MS Access&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;comment out line in /etc/mysql/my.cnf that reads:
+&lt;pre&gt;bind-address = 127.0.0.1&lt;/pre&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;grant root access across network (see &lt;a href=&#34;http://dev.mysql.com/doc/refman/4.1/en/connection-access.html&#34;&gt;MySQL Documentation&lt;/a&gt;)
+&lt;pre&gt;mysql&amp;gt; use mysql;
+mysql&amp;gt; select Host, User, Password from user;
+mysql&amp;gt; update user set host=&amp;lsquo;%&amp;rsquo; where user = &amp;lsquo;root&amp;rsquo;;
+mysql&amp;gt; q&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;restart&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ /etc/init.d/mysql restart&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;install/configure odbc on server
+&lt;pre&gt;$ aptitude install libmyodbc&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;configure Access on client&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;download/install MyODBC&lt;/li&gt;
+&lt;li&gt;create a new database (not a project)&lt;/li&gt;
+&lt;li&gt;File, Get External Data, Link Tables, ODBC Databases&lt;/li&gt;
+&lt;li&gt;Create a MyODBC DSN&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL notes 2</title>
+      <link>http://blog2.snowfrog.net/2005/11/16/notes-2/</link>
+      <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/16/notes-2/</guid>
+      <description>
+
+&lt;p&gt;MySQL notes 2&lt;/p&gt;
+
+&lt;h3 id=&#34;remote-servers:dfd231c592f84dcde9a430fa40c2f15a&#34;&gt;remote servers&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;comment out this line in /etc/mysql/my.cnf:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;bind-address = 127.0.0.1
+ /etc/init.d/mysql restart&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;connect to remove server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$mysql -h foo.bar.com -u root -p&lt;/pre&gt;
+
+&lt;h3 id=&#34;useful-options:dfd231c592f84dcde9a430fa40c2f15a&#34;&gt;useful options&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;q quit&lt;/li&gt;
+&lt;li&gt;G display in vertical format (when queries wrap on screen). Think G instead of g (go):&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;select * from userG;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;s status command &amp;ndash; which database am I using, etc&lt;/li&gt;
+&lt;li&gt;c cancel a partially entered query. May not work if prompt indicates waiting for a trailing &amp;lsquo; or &amp;ldquo; (&amp;rsquo;&amp;gt; or &amp;ldquo;&amp;gt;), in which case enter trailing character then c&lt;/li&gt;
+&lt;li&gt;# rehash table names for command line completion (if turned off in .my.cnf)&lt;/li&gt;
+&lt;li&gt;. source a file of sql commands&lt;/li&gt;
+&lt;li&gt;P turn on pager&lt;/li&gt;
+&lt;li&gt;n turn off pager&lt;/li&gt;
+&lt;li&gt;T turn on log (tee) file&lt;/li&gt;
+&lt;li&gt;t turn off log (tee) file)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;option-files:dfd231c592f84dcde9a430fa40c2f15a&#34;&gt;option files&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;use option files (/etc/mysql/my.cnf or ~/.my.cnf) to save having to type in passwords, etc:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;# options for all clients
+[client]
+host=localhost
+user=root
+password=secret
+
+# program specific options
+[mysql]
+pager=/usr/bin/less
+no-auto-rehash
+
+[mysqladmin]
+
+[mysqlshow]&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;set permissions:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ chmod 600 .my.cnf&lt;/pre&gt;
+
+&lt;h3 id=&#34;file-usage:dfd231c592f84dcde9a430fa40c2f15a&#34;&gt;file usage&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;read queries from a file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ mysql dbname &amp;lt; file.sql&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;use a here document in scripts&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;msyql dbname &amp;lt;&amp;lt;FIN
+ SELECT * FROM tbl;
+ FIN&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;read in a file of commands whilst in mysql&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql&amp;gt; source file.sql, or
+ mysql&amp;gt; . file.sql&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pipe the results of a command into mysql
+
+&lt;ul&gt;
+&lt;li&gt;copy a database between machines:&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;msyql dump dbname | mysql -h foo.bar.com dbname&lt;/pre&gt;
+:     * fill a db with test data:
+
+&lt;pre&gt;generate-test-data | mysql dbname&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;specify an SQL query at the command line: -e
+
+&lt;ul&gt;
+&lt;li&gt;-B or &amp;ndash;batch produces tab delimited output (default when non-interactive)&lt;/li&gt;
+&lt;li&gt;-t or &amp;ndash;table produces tabular output (default when interactive)&lt;/li&gt;
+&lt;li&gt;-H or &amp;ndash;html produces html output&lt;/li&gt;
+&lt;li&gt;-X or &amp;ndash;xml produces xml output&lt;/li&gt;
+&lt;li&gt;-N or &amp;ndash;skip-column-names: don&amp;rsquo;t produce column headers&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql -e &#34;SHOW TABLES;DESCRIBE TABLES&#34; dbname&lt;/pre&gt;
+
+&lt;h3 id=&#34;produce-csv-output:dfd231c592f84dcde9a430fa40c2f15a&#34;&gt;produce csv output&lt;/h3&gt;
+
+&lt;pre&gt;$ mysql db &amp;lt; in.sql | csv.pl &amp;gt; out.csv&lt;/pre&gt;
+
+&lt;p&gt;Where csv.pl is:&lt;/p&gt;
+
+&lt;pre&gt;#!/usr/bin/perl
+while (&amp;lt;&amp;gt;) {
+  s/&#34;/&#34;&#34;/g;
+  s/t/&#34;,&#34;/g;
+  s/^/&#34;/g;
+  s/$/&#34;/g;
+  print;
+}
+exit(0);&lt;/pre&gt;
+
+&lt;h3 id=&#34;using-a-pager:dfd231c592f84dcde9a430fa40c2f15a&#34;&gt;using a pager&lt;/h3&gt;
+
+&lt;pre&gt;$ mysql --pager=/usr/bin/less
+ $ mysql --pager (use $PAGER)&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;also pager=/usr/bin/less in .my.cnf&lt;/li&gt;
+&lt;li&gt;also P (turn on) and n turn off&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;misc:dfd231c592f84dcde9a430fa40c2f15a&#34;&gt;misc&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;keep a log of commands typed in&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ mysql --tee=out.txt dbname
+ mysql&amp;gt; T out.txt&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;also, see ~/.mysql_history &amp;ndash; which will contain passwords assigned to users :-(&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Reset lost MySQL root password</title>
+      <link>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</link>
+      <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</guid>
+      <description>&lt;p&gt;Reset lost MySQL root password&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;stop mysql, and start in mode that ignores permissions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;/etc/init.d/mysqld stop
+/usr/sbin/mysqld --skip-grant-tables &amp;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;login as root&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql -u root mysql&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change root password (note: SET PASSWORD won&amp;rsquo;t work, due to &amp;ndash;skip-grant-tables)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql&amp;gt; use mysql; mysql&amp;gt; update user set password=password(&#39;secret&#39;) where user=&#39;root&#39;;mysql&amp;gt; q&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;stop mysql by killing processes, restart the database as normal&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;killall mysqld /etc/init.d/mysqld start&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL notes</title>
+      <link>http://blog2.snowfrog.net/2005/11/14/mysql-notes/</link>
+      <pubDate>Tue, 15 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/14/mysql-notes/</guid>
+      <description>
+
+&lt;p&gt;MySQL notes&lt;/p&gt;
+
+&lt;h3 id=&#34;cheat-sheets:ef403304ddd061f711cd05afd20963ae&#34;&gt;Cheat Sheets&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.nparikh.org/unix/mysql.php&#34;&gt;Neal Parikh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;notes:ef403304ddd061f711cd05afd20963ae&#34;&gt;Notes&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;connect after initial install&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ mysql&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change root password&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;
+ mysql&amp;gt; SET PASSWORD=PASSWORD(&#39;secret&#39;)
+ mysql&amp;gt; flush privileges;&lt;/pre&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;pre&gt;mysql&amp;gt; UPDATE user SET password=PASSWORD(&#39;secret&#39;)
+ mysql&amp;gt; WHERE user=&#39;root&#39; AND host=&#39;localhost&#39;;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;connect after changing password&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ mysql -u root -p&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;secure a bit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;msyql&amp;gt; show databases;
+ mysql&amp;gt; drop database test;
+ mysql&amp;gt; use mysql;
+ mysql&amp;gt; select Host, User, Password from user where host = &#39;%&#39; or user = &#39;&#39;; -&amp;gt; delete appropriate a/c&#39;s
+ mysql&amp;gt; flush privileges;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;create a database&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql&amp;gt; CREATE DATABASE foodb;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;import a schema or dumped database&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql -u root -p foodb &amp;lt; schema.sql&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;setup an application account with minimal privileges, and test&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql&amp;gt; DROP USER foouser; (if already exists)
+ mysql&amp;gt; GRANT SELECT,INSERT,UPDATE,DELETE ON foodb.*
+     -&amp;gt; TO &#39;foouser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;secret&#39;;
+ mysql&amp;gt; FLUSH PRIVILEGES;
+ mysql&amp;gt; q
+ $ mysql -u foouser -p
+ mysql&amp;gt; show databases; -&amp;gt; should show only show foodb&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;higher privileges&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mysql&amp;gt; GRANT ALL PRIVILEGES ON foodb.*
+ mysql&amp;gt; TO foouser&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;secret&#39;;
+ mysql&amp;gt; FLUSH PRIVILEGES;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

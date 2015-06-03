@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oracle on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/oracle/</link>
+    <description>Recent content in Oracle on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 Jun 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Oracle RMAN backups</title>
+      <link>http://blog2.snowfrog.net/2009/06/29/oracle-rman-backups/</link>
+      <pubDate>Mon, 29 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/06/29/oracle-rman-backups/</guid>
+      <description>&lt;p&gt;More notes on Oracle RMAN backups, see also &lt;a href=&#34;http://blog.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/&#34;&gt;Oracle – how to purge old RMAN backups&lt;/a&gt;. Thanks Raoul for your email.&lt;/p&gt;
+
+&lt;pre&gt;&lt;pre&gt;Are the backups being deleted using RMAN or simply &#39;rm&#39;?
+
+Oracle&#39;s RMAN can be set up to manage this for you based on RETENTION POLICY.  Eg, set retention policy to recovery window of 14 days and
+it will regard any backups older than 14 days to be OBSOLETE. Obsolete backups can be removed regularly using this:
+ DELETE NOPROMPT OBSOLETE;
+in a script that RMAN runs, for example, the daily backup script.
+
+Here&#39;s a quick rundown of the rman commands you might find useful:
+
+-- list all configuration parameters
+SHOW ALL;
+
+-- check for spurious files in FRA (backup location)
+-- typically, these can be safely deleted
+-- but check messages/output first.
+CATALOG RECOVERY AREA NOPROMPT;
+
+-- check to see what backups are available in the backup
+-- destination area (refresh with what&#39;s available)
+-- missing ones are marked as EXPIRED
+CROSSCHECK BACKUPSET;
+CROSSCHECK COPY;
+
+-- delete all obsolete backups
+-- this physically removes the backup pieces from the backup
+-- destination and removes knowledge of them from the control
+-- file this is performed based on the RETENTION policy
+DELETE NOPROMPT OBSOLETE;
+
+-- delete all expired backups, etc
+-- this is clearing the knowledge of such EXPIRED (missing)
+-- backups from the control file
+DELETE NOPROMPT EXPIRED BACKUP;
+DELETE NOPROMPT EXPIRED COPY;
+
+Once you&#39;ve set the retention policy, then the following backup script (or one like it) will remove old backups automatically.
+
+-- full back, deleting archive logs after backing them up
+backup device type disk tag &#39;%TAG&#39; database;
+backup device type disk tag &#39;%TAG&#39; archivelog all not backed up delete all input;
+allocate channel for maintenance type disk;
+delete noprompt obsolete device type disk;
+release channel;
+
+Example of what to do if system runs out of disk space due to archive logs:
+
+crosscheck archivelog all;
+delete expired archivelog all;
+backup archivelog all delete input;
+backup database;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Oracle and shmmax and shmall</title>
+      <link>http://blog2.snowfrog.net/2009/02/16/oracleoracle-and-shmmax-and-shmall/</link>
+      <pubDate>Mon, 16 Feb 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/02/16/oracleoracle-and-shmmax-and-shmall/</guid>
+      <description>&lt;p&gt;A &lt;a href=&#34;http://www.pythian.com/blogs/245/the-mysterious-world-of-shmmax-and-shmall&#34;&gt;good article&lt;/a&gt; on Oracle and shmmax and shmall. In a nutshell:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;shmall&lt;/strong&gt; it is not the maximum amount of memory which can be allocated, it is the maximum size of any shared memory chunk &amp;ndash; how big a bite you want per bite from free memory.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;shmmax&lt;/strong&gt; &amp;ndash; its value determines the maximum amount of memory that ALL shared memory can take. the actual setting is derived… the maximum amount of memory = shmall * pagesize where pagesize = getconf PAGE_SIZE and shmall = cat /proc/sys/kernel/shmall&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Shutdown/Startup Oracle</title>
+      <link>http://blog2.snowfrog.net/2009/01/12/shutdownstartup-oracle/</link>
+      <pubDate>Sun, 11 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/12/shutdownstartup-oracle/</guid>
+      <description>&lt;p&gt;Some notes on shutting down and starting up Oracle, taken from an email.&lt;/p&gt;
+
+&lt;div dir=&#34;ltr&#34;&gt;
+  &lt;span style=&#34;font-family:tahoma;font-size:x-small;&#34;&gt;Please be corrected in Note Section if you do need to do abort shutdown.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div dir=&#34;ltr&#34;&gt;
+  &lt;span style=&#34;font-family:tahoma;font-size:x-small;&#34;&gt;After abort shutdown, we do need to startup and shutdown database again. &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div dir=&#34;ltr&#34;&gt;
+  &lt;span style=&#34;font-family:tahoma;font-size:x-small;&#34;&gt;Then second shutdown will bring database down cleanly.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div dir=&#34;ltr&#34;&gt;
+  &lt;span style=&#34;font-family:tahoma;font-size:x-small;&#34;&gt;After that you can backup database files.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  Logon UNIX as &#34;oracle&#34;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#ff0000;&#34;&gt;================&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#ff0000;&#34;&gt;&lt;strong&gt;TO STOP DATABASE&lt;/strong&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#ff0000;&#34;&gt;================&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  1. Invoke SQL*Plus
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ &lt;span style=&#34;color:#ff0000;&#34;&gt;sqlplus &#34; / as sysdba&#34;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  SQL &gt; &lt;span style=&#34;color:#ff0000;&#34;&gt;shutdown immediate;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  .
+&lt;/div&gt;
+
+&lt;div&gt;
+  .
+&lt;/div&gt;
+
+&lt;div&gt;
+  Shutdown messages
+&lt;/div&gt;
+
+&lt;div&gt;
+  .
+&lt;/div&gt;
+
+&lt;div&gt;
+  Database closed.
+&lt;/div&gt;
+
+&lt;div&gt;
+  SQL &gt; &lt;span style=&#34;color:#ff0000;&#34;&gt;exit;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#ff0000;&#34;&gt; &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;Note : If there are connections to DB, Oracle may take some&lt;/em&gt;&lt;em&gt; time&lt;/em&gt;&lt;em&gt; to rollback each connection&lt;/em&gt;&lt;em&gt;&#39;s&lt;/em&gt;&lt;em&gt; job and then &lt;/em&gt;&lt;em&gt;close the session&lt;/em&gt;&lt;em&gt;. Once all connect&lt;/em&gt;&lt;em&gt;ions are disconnected&lt;/em&gt;&lt;em&gt;, it will bring database down.&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;During shutting down, Oracle will write&lt;/em&gt;&lt;em&gt; message to&lt;/em&gt;&lt;em&gt; in log file.&lt;/em&gt;&lt;em&gt; &lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;Please tail &lt;/em&gt;&lt;em&gt;the&lt;/em&gt;&lt;em&gt; file to see progression messages.&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;tail -f /opt/oracle/db_1020/admin/psms01/bdump/alert_psms01.log&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;If database is not down at reasonable time, you can terminate &lt;/em&gt;&lt;em&gt;command&lt;/em&gt;&lt;em&gt; by Ctrl+C,&lt;/em&gt;&lt;em&gt; &lt;/em&gt;&lt;em&gt;t&lt;/em&gt;&lt;em&gt;hen&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;SQL&gt; exit;&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;$ sqlplus &#34; / as sysdba&#34;&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;SQL &gt; shutdown abort;&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;SQL &gt; exit;&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;$ sqlplus &#34; / as sysdba&#34;&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;SQL &gt; shutdown immediate;&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;SQL &gt; exit;&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;em&gt;The above steps should be done as &lt;/em&gt;&lt;em&gt;the &lt;/em&gt;&lt;em&gt;last choice and only &lt;/em&gt;&lt;em&gt;when&lt;br /&gt; &lt;/em&gt;&lt;em&gt;database is not&lt;/em&gt;&lt;em&gt; &lt;/em&gt;&lt;em&gt;down as normal.&lt;/em&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  2. Shutdown Database Listener
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ &lt;span style=&#34;color:#ff0000;&#34;&gt;lsnrctl stop &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  3. Verify Oracle Processes
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ ps -ef |grep pmon
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ ps -ef |grep tnslsnr
+&lt;/div&gt;
+
+&lt;div&gt;
+  No such process shown if step 1 &amp; 2 are successfully done.
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#339966;&#34;&gt;=================&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#339966;&#34;&gt;&lt;strong&gt;TO ST&lt;/strong&gt;&lt;strong&gt;ART&lt;/strong&gt;&lt;strong&gt; DATABASE&lt;/strong&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#339966;&#34;&gt;=================&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  1. Start Database Listener
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ &lt;span style=&#34;color:#339966;&#34;&gt;lsnrctl st&lt;/span&gt;&lt;span style=&#34;color:#339966;&#34;&gt;art&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  2. Invoke SQL*Plus
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ &lt;span style=&#34;color:#339966;&#34;&gt;sqlplus &#34; / as sysdba&#34;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  SQL &gt; &lt;span style=&#34;color:#339966;&#34;&gt;startup&lt;/span&gt;&lt;span style=&#34;color:#339966;&#34;&gt;;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  .
+&lt;/div&gt;
+
+&lt;div&gt;
+  .
+&lt;/div&gt;
+
+&lt;div&gt;
+  Starting up messages
+&lt;/div&gt;
+
+&lt;div&gt;
+  .
+&lt;/div&gt;
+
+&lt;div&gt;
+  Database open.
+&lt;/div&gt;
+
+&lt;div&gt;
+  SQL &gt; &lt;span style=&#34;color:#339966;&#34;&gt;exit;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  3. Verify Oracle Processes
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ ps -ef |grep pmon
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ ps -ef |grep tnslsnr
+&lt;/div&gt;
+
+&lt;div&gt;
+  One process is expected for each &#39;ps&#39; command.
+&lt;/div&gt;
+
+&lt;div&gt;
+  4. Test Connnection
+&lt;/div&gt;
+
+&lt;div&gt;
+  $ &lt;span style=&#34;color:#339966;&#34;&gt;sqlplus &#34; / as sysdba&#34;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  SQL &gt; &lt;span style=&#34;color:#339966;&#34;&gt;select &lt;/span&gt;&lt;span style=&#34;color:#339966;&#34;&gt;instance_name, host_name, &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#339966;&#34;&gt; to_char(startup_time, &#39;DD-MON-YY HH24:MI&#39;), status &lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;span style=&#34;color:#339966;&#34;&gt; from v$instance;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  Status must be OPEN.
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Oracle – how to purge old RMAN backups</title>
+      <link>http://blog2.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/</link>
+      <pubDate>Thu, 18 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/</guid>
+      <description>&lt;p&gt;Oracle runs on Linux, therefore I must be an Oracle expert (so goes management thinking).&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how to correctly purge old RMAN backups when storage runs out of space (thanks Nakrob):&lt;/p&gt;
+
+&lt;pre&gt;Do not use rm to remove files. You must do it via RMAN.
+
+$ export NLS_DATE_FORMAT=&#39;DD-MM-YY HH24:MI&#39;
+
+$ rman target / NOCATALOG
+
+RMAN &amp;gt; crosscheck backupset;
+This command will verify whether backup file is still on media.
+If it is unavailable, RMAN will mark it as UNAVAILABLE or EXPIRED.
+
+RAMN &amp;gt; delete expired backupset;
+or
+RMAN &amp;gt; delete expired backup;
+
+Note : If you manually rename or zip RMAN backup files, you must manually remove it from disk since RMAN
+does not recognize them.
+
+RMAN &amp;gt; report obsolete;
+The command lists all backups rendered obsolete based on rentention policy.
+Current Retention Policy is &#39;Recovery WINDOW OF 30 DAYS&#39;.
+
+RMAN &amp;gt; delete obsolete;
+
+RMAN &amp;gt; list backup summary;
+It will show all backupset info kept in RMAN repository.
+If you want to see what RMAN keeps in each backupset, run &#39;list backupset N&#39; where N is Backupset ID.
+
+RMAN &amp;gt; delete backupset N;
+or
+RMAN &amp;gt; delete backupset; (to delete all backups)
+
+Once fair amount of space is reclaimed, do full backup.
+Not sure how much full back space is needed but not less than 20G.
+
+RMAN &amp;gt; backup database;
+
+RMAN &amp;gt; list backup;
+Full backup may have more than one backupset.
+Look for last backupsets. It will list backup db files.
+
+RMAN &amp;gt; delete obsolete;
+Rerun this command to delete unwanted existing backupsets (if have) after completed full backup.&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

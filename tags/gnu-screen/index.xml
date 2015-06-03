@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gnu Screen on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/gnu-screen/</link>
+    <description>Recent content in Gnu Screen on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 18 Mar 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/gnu-screen/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GNU Screen Alternative - Terminator?</title>
+      <link>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</link>
+      <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;http://www.gnu.org/software/screen/manual/screen.html&#34;&gt;GNU Screen&lt;/a&gt; for years, and I always wished it had a &amp;ldquo;broadcast&amp;rdquo; functionality like &lt;a href=&#34;http://expect.sourceforge.net/example/multixterm.man.html&#34;&gt;MultiXterm&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Anyway, this morning I came across &lt;a href=&#34;http://www.tenshu.net/p/terminator.html&#34;&gt;Terminator&lt;/a&gt; - it splits screens, has broadcasts, etc (probably old news for some people&amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;By the way, you can &lt;a href=&#34;http://blog.snowfrog.net/2012/03/19/gnu-screen-split-screens/&#34;&gt;split screens in GNU Screen&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gnu Screen - split screens</title>
+      <link>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</link>
+      <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</guid>
+      <description>&lt;p&gt;One of the features I&amp;rsquo;ve always wished &lt;a href=&#34;http://www.gnu.org/software/screen/manual/screen.html&#34;&gt;Gnu screen&lt;/a&gt; had was the ability to split a screen horizontally, so you can for example run a grep or &lt;a href=&#34;https://www.midnight-commander.org/&#34;&gt;mc&lt;/a&gt; in the top half of the terminal, and some commands in the bottom half.&lt;/p&gt;
+
+&lt;p&gt;Well it turns out that you can split screens in Screen, here&amp;rsquo;s how to you do it:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-a S&lt;/strong&gt; to split&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-a X&lt;/strong&gt; to unsplit (and remove the current region)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-a Q&lt;/strong&gt; to make the current region the only region&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, you can bind some keys to move between regions; add these settings to your &lt;strong&gt;~/.screenrc&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you can do things like &lt;strong&gt;C-a j&lt;/strong&gt; to move down a region,** C-a k** to move up a region.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Serial Port Access on OSX to Cisco devices</title>
+      <link>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
+      <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
+      <description>&lt;p&gt;How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).&lt;/p&gt;
+
+&lt;p&gt;Googling, everyone says to use zterm, but I couldn&amp;rsquo;t get it to work (and zterm looks and feels like a toy).&lt;/p&gt;
+
+&lt;p&gt;This probably isn&amp;rsquo;t the &amp;ldquo;Mac way&amp;rdquo; of doing things, but &lt;/whatever&gt;.&lt;/p&gt;
+
+&lt;p&gt;Install &lt;a href=&#34;http://sourceforge.net/projects/osx-pl2303/&#34;&gt;PL2303 USB to Serial Driver for Mac OS X&lt;/a&gt;, restart :-(&lt;/p&gt;
+
+&lt;pre&gt;sudo port selfupdate
+sudo port upgrade outdated
+sudo port install minicom&lt;/pre&gt;
+
+&lt;p&gt;Work out tty of USB-Serial converter:&lt;/p&gt;
+
+&lt;pre&gt;ls /dev/tty* &amp;gt; pre&lt;/pre&gt;
+
+&lt;p&gt;Plug in USB-Serial converter.&lt;/p&gt;
+
+&lt;pre&gt;ls /dev/tty* &amp;gt; pst
+% diff pre pst
+3a4
+&amp;gt; /dev/tty.PL2303-00002006&lt;/pre&gt;
+
+&lt;p&gt;Link up to make life easier:&lt;/p&gt;
+
+&lt;pre&gt;cd /dev
+sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
+
+&lt;p&gt;Setup minicom, and use colour:&lt;/p&gt;
+
+&lt;pre&gt;sudo minicom -s -c on&lt;/pre&gt;
+
+&lt;p&gt;Setup defaults to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/dev/ttyusb (ctrl-A, O, Serial Port Setup)&lt;/li&gt;
+&lt;li&gt;8N1&lt;/li&gt;
+&lt;li&gt;9600&lt;/li&gt;
+&lt;li&gt;no hardware or software flow control&lt;/li&gt;
+&lt;li&gt;init string empty (so garbage doesn&amp;rsquo;t appear on screen when you connect) &amp;ndash; ctrl-A, O, Init string&lt;/li&gt;
+&lt;li&gt;save settings as default (ctrl-A, O, Save setup as dfl)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Always use colour:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add export MINICOM=&amp;ldquo;-c on&amp;rdquo; to shell rc file (~/.bashrc, .~/zshrc, etc)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Connect (sudo minicom), hit enter a few times, and you should be on the device.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gnu Screen .screenrc tricks</title>
+      <link>http://blog2.snowfrog.net/2008/01/31/gnu-screen-screenrc-tricks/</link>
+      <pubDate>Thu, 31 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/01/31/gnu-screen-screenrc-tricks/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a variety of tricks I&amp;rsquo;ve picked up for Gnu screen and .screenrc from the &lt;a href=&#34;http://lists.gnu.org/mailman/listinfo/screen-users&#34;&gt;Screen Users Email List&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to have a screen change to a different directory when launched, use the chdir command (&lt;em&gt;not&lt;/em&gt; cd):&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;tt&gt;chdir $HOME/rails&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;screen -t &amp;ldquo;rails&amp;rdquo;&lt;/tt&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to change back to a particular screen, after creating a whole lot in .screenrc, and preset the &amp;lsquo;other&amp;rsquo; screen:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;tt&gt;select 3&lt;/tt&gt; (for example)&lt;br /&gt;
+&lt;tt&gt;select 5&lt;/tt&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to search backwards in scrollback mode &amp;ndash; &lt;strong&gt;?&lt;/strong&gt;. You can also search forwards with** /,** but that&amp;rsquo;s less useful. See &lt;a href=&#34;http://www.samsarin.com/blog/2007/03/11/gnu-screen-working-with-the-scrollback-buffer/&#34;&gt;samsarin.com for a good explanation of scrollback mode&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>multiuser gnu screen</title>
+      <link>http://blog2.snowfrog.net/2008/01/09/multiuser-gnu-screen/</link>
+      <pubDate>Wed, 09 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/01/09/multiuser-gnu-screen/</guid>
+      <description>&lt;p&gt;A &lt;a href=&#34;http://www.debian-administration.org/articles/572&#34;&gt;good post on debian-administration&lt;/a&gt; on multi-user screen. The key points:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;when in screen, type &lt;tt&gt;^A:multiuser on[RET]&lt;/tt&gt;&lt;/li&gt;
+&lt;li&gt;the other user(s) connect to the server, then join using the command &lt;tt&gt;screen -x&lt;/tt&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>howto move windows in gnu screen</title>
+      <link>http://blog2.snowfrog.net/2007/11/07/howto-move-windows-in-gnu-screen/</link>
+      <pubDate>Thu, 08 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/07/howto-move-windows-in-gnu-screen/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;change to the window you want to move&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;type (for example) &lt;strong&gt;^x:number 1&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;^x&lt;/strong&gt; is the host key (usually ^a on most machines)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:number&lt;/strong&gt; (typed literally) is the command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt; the number to move the current screen to&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See this &lt;a href=&#34;http://lists.gnu.org/archive/html/screen-users/2007-11/msg00002.html&#34;&gt;post&lt;/a&gt; in gnu screen-users &lt;a href=&#34;http://lists.gnu.org/mailman/listinfo/screen-users&#34;&gt;list&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>share a screen session</title>
+      <link>http://blog2.snowfrog.net/2006/07/16/share-a-screen-session/</link>
+      <pubDate>Mon, 17 Jul 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/07/16/share-a-screen-session/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.gnu.org/software/screen/&#34;&gt;Screen&lt;/a&gt; is a really useful console tool that allows you to copy and paste text, scroll back through screen output, reattach if you lose your connection, and so on. One useful trick is sharing a screen between 2 or more users, so you can see what each other is doing whilsts typing &amp;ndash; useful for learning or solving a difficult problem (see also &lt;a href=&#34;http://wiki.linuxquestions.org/wiki/Screen&#34;&gt;LinuxQuestions.Org&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;To do this, all users need to be logged in as the same account &amp;ndash; the easiest way to do this is as root:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sudo screen&lt;/strong&gt; (first user)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sudo screen -x&lt;/strong&gt; (subsequent users)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another useful trick is to have multiple sessions running at once, and label each session using the &lt;em&gt;hardstatus&lt;/em&gt; command in .screenrc; here are some of the settings I have in my .screenrc:&lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&#34;courier new,courier,monospace&#34;&gt;# display a status line&lt;br /&gt; hardstatus on&lt;br /&gt; hardstatus alwayslastline&lt;br /&gt; hardstatus string &amp;ldquo;%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %d/%m %C%a&amp;rdquo;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&#34;courier new,courier,monospace&#34;&gt;# change escape key to x &amp;ndash; &amp;lsquo;ctrl a&amp;rsquo; used in bash already&lt;br /&gt; escape ^Xx&lt;br /&gt; &lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&#34;courier new,courier,monospace&#34;&gt;# define a bigger scrollback, default is 100 lines&lt;br /&gt; defscrollback 1024&lt;br /&gt; &lt;/font&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

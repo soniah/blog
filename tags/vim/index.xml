@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/vim/</link>
+    <description>Recent content in Vim on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Dec 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Change default editor in Debian</title>
+      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
+      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
+      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>refactoring in Go - rather pleasant actually...</title>
+      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
+
+&lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
+a scripting language (Python, Perl, Ruby, etc). My process is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;type &lt;strong&gt;:make&lt;/strong&gt; in vim (I have a dummy Makefile in my Go project just for vim)&lt;/li&gt;
+&lt;li&gt;vim jumps cursor to error (&lt;a href=&#34;http://vimdoc.sourceforge.net/htmldoc/quickfix.html&#34;&gt;vim quickfix list&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;oh, I shouldn&amp;rsquo;t do that&amp;rdquo; - fix (type type type)&lt;/li&gt;
+&lt;li&gt;start again&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finish rather sooner than expected, run tests, smile in knowledge program is working &lt;em&gt;properly&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To quickly setup the &lt;strong&gt;make&lt;/strong&gt; command for Go, type this in a Vim window:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:setlocal makeprg=go\ build\ \.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or even better configure vim via your ~/.vimrc, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
+autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks Martin for the comment!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim - bufexplorer</title>
+      <link>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</link>
+      <pubDate>Tue, 20 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.vim.org/scripts/script.php?script_id=42&#34;&gt;Bufexplorer&lt;/a&gt; - my new favourite add-on for vim.&lt;/p&gt;
+
+&lt;p&gt;Why do I like it? It allows you to emulate the buffer list feature of emacs, as well as switch between horizontal/vertical buffer splits and find recently edited files. All this can already be done with vim buffers, but bufexplorer makes it easy.&lt;/p&gt;
+
+&lt;p&gt;Why don&amp;rsquo;t I just use emacs? Because as sysadmin/devop I&amp;rsquo;m often working on other people&amp;rsquo;s servers, and I don&amp;rsquo;t want to go installing buckets of stuff everywhere - vim is usually installed.&lt;/p&gt;
+
+&lt;p&gt;I found the best way to use bufexplorer is to open up all possible source files (eg &lt;strong&gt;vim src/&lt;em&gt;.go other/&lt;/em&gt;.go&lt;/strong&gt;) at the start of an editing session, then just skip between them (shown here with the excellent &lt;a href=&#34;http://xmonad.org/&#34;&gt;xMonad&lt;/a&gt; window manager, &lt;a href=&#34;https://www.gnu.org/software/screen/&#34;&gt;GNU Screen&lt;/a&gt;, and &lt;a href=&#34;http://library.gnome.org/users/gnome-terminal/stable/gnome-terminal-get-started.html.en&#34;&gt;Gnome Terminal&lt;/a&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34;&gt;&lt;img src=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vim Buffers Cheatsheet</title>
+      <link>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</guid>
+      <description>&lt;p&gt;A small Vim Buffers cheatsheet:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:bu &amp;lt;tab&amp;gt;    - select a buffer
+:buN         - select buffer N
+:ls          - list buffers
+:sb tab      - split screen on another buffer
+:sbN         - split screen on buffer N
+:only        - make this the only buffer (ie maximise)
+^w^o         - make this the only buffer (ie maximise)
+:ball        - split screen on all buffers
+:hide        - hide this buffer
+:bdel        - remove buffer from list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vim buffers don&amp;rsquo;t seem as flexible as the Emacs equivalent, but then _nothing_ is as flexible as Emacs:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/real_programmers.png&#34; alt=&#34;Xkcd Emacs&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://xkcd.com/378/&#34;&gt;http://xkcd.com/378/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vimdiff – refresh or update after changes</title>
+      <link>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</link>
+      <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</guid>
+      <description>&lt;p&gt;I little command I always have to search for when using vimdiff &amp;ndash; &lt;strong&gt;:diffupdate&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After you&amp;rsquo;ve made changes in vimdiff &lt;strong&gt;:diffupdate&lt;/strong&gt; will recalculate the diffs.&lt;/p&gt;
+
+&lt;div class=&#34;wp-caption alignnone&#34; style=&#34;width: 610px&#34;&gt;
+  &lt;img title=&#34;Vimdiff in Action&#34; src=&#34;http://www.vim.org/images/vimdiff.png&#34; alt=&#34;Vimdiff in Action&#34; width=&#34;602&#34; height=&#34;430&#34; /&gt;
+  
+  &lt;p class=&#34;wp-caption-text&#34;&gt;
+    Vimdiff in Action
+  &lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim folding</title>
+      <link>http://blog2.snowfrog.net/2010/03/30/vim-folding/</link>
+      <pubDate>Tue, 30 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/03/30/vim-folding/</guid>
+      <description>&lt;p&gt;A concise &lt;a href=&#34;http://www.linux.com/archive/feature/114138&#34;&gt;article&lt;/a&gt; on Linux.com (that I keep referring back to) about vim folding.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been using vi/vim for years and vi keystrokes just &amp;ldquo;happen&amp;rdquo;, but it&amp;rsquo;s always nice to learn a few more tricks, especially when working with larger scripts.&lt;/p&gt;
+
+&lt;p&gt;A brief summary of folding:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;highlight some text using v visual mode, &lt;strong&gt;zf&lt;/strong&gt; to fold, &lt;strong&gt;zo&lt;/strong&gt; to unfold (ie &lt;strong&gt;o&lt;/strong&gt;pen)&lt;/li&gt;
+&lt;li&gt;put cursor on an opening curly bracket, and  &lt;strong&gt;zfa}&lt;/strong&gt; to fold until closing curly bracket (or &lt;strong&gt;zfa)&lt;/strong&gt; or &lt;strong&gt;zfa]&lt;/strong&gt; for parentheses, square brackets)&lt;/li&gt;
+&lt;li&gt;add this to your .vimrc to remember folds:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+&lt;/pre&gt;
+
+&lt;p&gt;Lots more commands in the article.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git – ignore vim temporary files in all directories</title>
+      <link>http://blog2.snowfrog.net/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/</link>
+      <pubDate>Fri, 24 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/</guid>
+      <description>&lt;p&gt;Up until a few weeks ago I was using subversion for all my personal stuff.&lt;/p&gt;
+
+&lt;p&gt;But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I&amp;rsquo;ve moved to git. Yay, no more central repository to go down.&lt;/p&gt;
+
+&lt;p&gt;To ignore files in git you use .gitignore, eg for a rails project:&lt;/p&gt;
+
+&lt;pre&gt;% cat .gitignore
+log/*.log
+tmp/**/*&lt;/pre&gt;
+
+&lt;p&gt;But how to ignore files in all directories? Use .git/info/exclude. For example, to ignore all temporary files generated by vim:&lt;/p&gt;
+
+&lt;pre&gt;% cat .git/info/exclude
+.*.sw*&lt;/pre&gt;
+
+&lt;p&gt;All the howto&amp;rsquo;s I&amp;rsquo;ve read so far mention .gitignore but not .git/info/exclude &amp;ndash; I stumbled across this by accident. More RTFM&amp;rsquo;ing to do.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Correction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To ignore all files in all directories, &lt;strong&gt;.gitignore&lt;/strong&gt; can be used. A bit of experimentation and reading of &lt;strong&gt;man gitignore&lt;/strong&gt; shows that any wildcard that doesn&amp;rsquo;t contain a / will apply to that directory and all child directories.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;.gitignore&lt;/strong&gt; is propagated during clone operations, whereas &lt;strong&gt;.git/info/exclude&lt;/strong&gt; isn’t ie use the former for common settings and the latter for personal settings.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;From the manpage:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Patterns which should be version-controlled and distributed to other repositories via clone (i.e., files that all developers will want to ignore) should go into a .gitignore file. Patterns which are specific to a particular repository but which do not need to be shared with other related repositories (e.g., auxiliary files that live inside the repository but are specific to one user´s workflow) should go into the $GIT_DIR/info/exclude file. Patterns which a user wants git to ignore in all situations (e.g., backup or temporary files generated by the user´s editor of choice) generally go into a file specified by core.excludesfile in the user´s ~/.gitconfig.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prevent auto-indenting when pasting code into Vim</title>
+      <link>http://blog2.snowfrog.net/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/</link>
+      <pubDate>Fri, 23 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/</guid>
+      <description>&lt;p&gt;When posting code into vim, it often auto-indents it in a staircase fashion off to the right &amp;ndash; really annoying.&lt;/p&gt;
+
+&lt;p&gt;To prevent this, use &lt;strong&gt;:set paste&lt;/strong&gt;, and &lt;strong&gt;:set nopaste&lt;/strong&gt; to turn it off.&lt;/p&gt;
+
+&lt;p&gt;See also &lt;strong&gt;:help paste&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim modelines</title>
+      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
+
+&lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Some typical modelines for copying and pasting:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Go&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;//
+// vim: tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab tw=72
+// run &#39;go fmt&#39; before checking in your code!
+//&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Text files&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim:tw=75
+# vim:textwidth=75&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell/Bash&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sw=2 et sts=2 ft=sh
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=sh&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sts=2 et sw=2 ft=ruby
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=ruby&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=python
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=python&lt;/pre&gt;
+
+&lt;p&gt;Or when using vi (eg on Solaris) INVESTIGATE FURTHER:&lt;/p&gt;
+
+&lt;pre&gt;:set sw=4&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Perl&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=perl
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=perl&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LISP/Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;; vim: ft=lisp&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>visual diff tools</title>
+      <link>http://blog2.snowfrog.net/2006/06/20/visual-diff-tools/</link>
+      <pubDate>Wed, 21 Jun 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/06/20/visual-diff-tools/</guid>
+      <description>&lt;p&gt;I usually use &lt;em&gt;vimdiff&lt;/em&gt; to find the differences between two files; here are some gui tools that do the same thing:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;meld &amp;ndash; though version 1.0.0 doesn&amp;rsquo;t allow line-by-line replacements (I&amp;rsquo;m told later versions do)&lt;/li&gt;
+&lt;li&gt;mgdiff &amp;ndash; doesn&amp;rsquo;t allow line-by-line replacements&lt;/li&gt;
+&lt;li&gt;tkdiff &amp;ndash; doesn&amp;rsquo;t allow line-by-line replacements&lt;/li&gt;
+&lt;li&gt;kompare &amp;ndash; allows line-by-line replacements, but the interface is a bit clunky (in that you can&amp;rsquo;t easily choose to take diffs from both files without reversing direction)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So kompare seems the best, though none seem as good as Windows tools I&amp;rsquo;ve used &amp;ndash; perhaps time to submit some changes to one of these projects.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

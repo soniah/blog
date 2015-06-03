@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xmonad on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/xmonad/</link>
+    <description>Recent content in Xmonad on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 11 Nov 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/xmonad/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ubuntu Minimal &#43; Xmonad</title>
+      <link>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</link>
+      <pubDate>Sun, 11 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m tired of Ubuntu&amp;rsquo;s latest desktop &lt;del&gt;mess&lt;/del&gt; offering (Unity). I&amp;rsquo;ve been trying lots of DE&amp;rsquo;s (Desktop Environments) and WM&amp;rsquo;s (Window Managers), and I&amp;rsquo;ve finally settled on one I luuuuurv - &lt;a href=&#34;http://xmonad.org/&#34;&gt;Xmonad&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;On my next laptop build I was thinking of moving to Debian Netinst, but I like the Ubuntu ppa system. So my next laptop install will be &lt;a href=&#34;https://help.ubuntu.com/community/Installation/MinimalCD&#34;&gt;Ubuntu Minimal&lt;/a&gt; + &lt;a href=&#34;http://xmonad.org/&#34;&gt;Xmonad&lt;/a&gt;; will also me a good motivation for &lt;a href=&#34;http://learnyouahaskell.com/&#34;&gt;learning Haskell&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d looked Cinnamon and Gnome3 (more of the same), KDE (bleh - still looks like Windows 98), Fluxbox and XFCE. Then this &lt;a href=&#34;http://joey.hess.usesthis.com/&#34;&gt;great article about Joey Hess&lt;/a&gt; (original writer of the db_* debhelper tools) pointed me to Xmonad.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

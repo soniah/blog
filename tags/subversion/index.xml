@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Subversion on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/subversion/</link>
+    <description>Recent content in Subversion on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Feb 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/subversion/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Notes on Branch Management with Subversion</title>
+      <link>http://blog2.snowfrog.net/2009/02/24/notes-on-branch-management-wit-subversion/</link>
+      <pubDate>Tue, 24 Feb 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/02/24/notes-on-branch-management-wit-subversion/</guid>
+      <description>&lt;p&gt;Some notes on branch management with Subversion (more for my own learning purposes than anything):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;create branch: &lt;strong&gt;svn cp foo foo-branch&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;develop new feature in foo-branch, whilst doing any bug fixes in trunk&lt;/li&gt;
+&lt;li&gt;merge some changes from trunk into branch &amp;ndash; keep branch up-to-date as possible
+
+&lt;ul&gt;
+&lt;li&gt;commit any changes first, so can easily revert if desired: &lt;strong&gt;cd foo-branch; svn up; svn ci -m &amp;ldquo;pre merge in trunk&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;find where branch occured (if not noted in a log message &amp;ndash; duh): &lt;strong&gt;svn log &amp;ndash;verbose &amp;ndash;stop-on-copy foo-branch&lt;/strong&gt; (eg 123)&lt;/li&gt;
+&lt;li&gt;preview changes succinctly: &lt;strong&gt;cd foo-branch; **&lt;/strong&gt;svn merge &amp;ndash;dry-run -r 123:HEAD**&lt;/li&gt;
+&lt;li&gt;preview changes verbosely: &lt;strong&gt;cd foo-branch; **&lt;/strong&gt;svn diff &amp;ndash;notice-ancestry -r 123:HEAD .**&lt;/li&gt;
+&lt;li&gt;apply changes: &lt;strong&gt;cd foo-branch; **&lt;/strong&gt;svn merge -r 123:HEAD svn+ssh://myrepo.com/foo/bar**&lt;/li&gt;
+&lt;li&gt;check changes: &lt;strong&gt;svn st; svn diff, **if problems: **svn revert&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;commit changes: &lt;strong&gt;svn ci -m &amp;ldquo;merged trunk changes into branch (flubbed the widgets) r123:129&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;keep working in foo-branch, merge in some more changes
+
+&lt;ul&gt;
+&lt;li&gt;ditto previous&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;svn merge -r 130:HEAD svn+ssh://myrepo.com/foo/bar&lt;/strong&gt; (&lt;em&gt;previously merged up to 129, so start on 130&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;merge all changes from branch into trunk &amp;ndash; new feature finished
+
+&lt;ul&gt;
+&lt;li&gt;ditto previous&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cd foo; svn merge -r 123:HEAD &lt;a href=&#34;https://myrepo.com/foo-branch&#34;&gt;https://myrepo.com/foo-branch&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;svn ci -m &amp;ldquo;merged foo-branch into trunk (feature x) r123:145&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;An alternative (and often easier) approach is to branch on the server, then just switch the working copy for the subdirectory (or individual file) being worked on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;svn cp https://&lt;/strong&gt;&lt;strong&gt;myrepo.com/foo **&lt;/strong&gt;https://**&lt;strong&gt;myrepo.com/foo-branch&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cd foo&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;svn info bar | grep URL&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cd bar; svn switch **&lt;/strong&gt;https://****myrepo.com/foo-branch/bar; cd ..&lt;br /&gt;
+**&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;svn info bar | grep URL&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;merge changes as above&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Tags:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;tags are just copies (usually put in the tags directory): &lt;strong&gt;svn cp https://&lt;/strong&gt;&lt;strong&gt;myrepo.com/foo/foo **&lt;/strong&gt;https://**&lt;strong&gt;myrepo.com/foo/tags/foo-1.0&lt;/strong&gt;. Tags aren&amp;rsquo;t read-only, but any changes can of course be reverted.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Directory structure:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the canonical way of structuring directories is:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/foo/trunk&lt;/strong&gt; (or &lt;strong&gt;/foo/foo&lt;/strong&gt; so name of trunk dir corresponds to project when checked out)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/foo/branches&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/foo/tags&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;I used to ignore this and just do /foo &amp;amp; /foo-branch, but this gets messy quickly and it&amp;rsquo;s easy to make mistakes or have problems when doing svn moves of  large directories if you want to reorganise things later. Also, when working with branches I tend to want to just switch a subdirectory rather than checkout the whole branch, and this directory structure seems to logically help with this&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Notes from &lt;a href=&#34;http://svnbook.red-bean.com/&#34;&gt;Version Control with Subversion&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>svn over an ssh tunnel</title>
+      <link>http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/</link>
+      <pubDate>Wed, 05 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/</guid>
+      <description>&lt;p&gt;Often a subversion server is on an internal server that can&amp;rsquo;t be reached by a DMZ server, and ssh+svn isn&amp;rsquo;t setup. Here&amp;rsquo;s a quick recipe for ssh tunnelling from the subversion server to the DMZ server and using svn.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;
+root@svnserver$ ssh -R dmzserver 3690:svnserver:3690&amp;lt;br /&amp;gt;
+root@dmzserver$ svn co --username sonia svn://localhost/unix/trunk/foo/ # so root not used&amp;lt;br /&amp;gt;
+root@dmzserver$ svn ci --username sonia --password secret&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Subversion Cheatsheet</title>
+      <link>http://blog2.snowfrog.net/2007/10/09/subversion-cheatsheet/</link>
+      <pubDate>Tue, 09 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/10/09/subversion-cheatsheet/</guid>
+      <description>&lt;p&gt;Subversion Cheatsheet&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;See also: &lt;a href=&#34;http://linux.byexamples.com/archives/255/svn-command-line-tutorial-for-beginners-1/&#34;&gt;svn command line tutorial for beginners 1 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Notes from: &lt;a href=&#34;http://svnbook.red-bean.com/&#34;&gt;Version Control with Subversion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tsavo&amp;rsquo;s great &lt;a href=&#34;http://jwamicha.wordpress.com/2008/05/29/subversion-a-summary-cheat-sheet-learn-svn-in-10-minutes/&#34;&gt;svn cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Quickstart&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;sudo aptitude install subversion&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svnserve -d&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Create source project, splitting into trunk, tags and branches (latter 2 directories initially empty).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;project&lt;/strong&gt; is a dummy name that is just used to build repo, so actually use the name &lt;strong&gt;project&lt;/strong&gt;, &lt;strong&gt;original&lt;/strong&gt; is the name of the original code directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;mkdir -p project/{trunk,tags,branches}&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv ~/original ~/project/trunk&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Using &lt;em&gt;trunk/tags/branches&lt;/em&gt; for a small project is overkill &amp;ndash; tags and branches can be added later. Therefore for a small project, just do:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;mkdir -p project&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv ~/original ~/project&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Create subversion repository:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;cd&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svnadmin create svnrepo&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Import project into repository, and archive original data:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn import project file:///home/sonia/svnrepo -m &amp;ldquo;initial import&amp;rdquo;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv project /tmp&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;After the repo is setup, you&amp;rsquo;ll probably want to add other directories eg to import &lt;strong&gt;projectb&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn import projectb file:///home/sonia/svnrepo/trunk/projectb -m &amp;ldquo;initial import&amp;rdquo;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv projectb /tmp&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Checkout a working copy:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn checkout file:///home/sonia/svnrepo/trunk original&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Make changes to working copy, then get a list of changes:&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn status &amp;ndash;show-updates &amp;ndash;verbose foo&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svn diff&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, save changes back to repository:&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn commit&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Or, cancel some changes:&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn revert foo&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Repository URLS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;file:///&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;http://&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;https://&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svn://&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svn+ssh://&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Get Help&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn help foo&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Other Common Tasks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ignoring files &lt;tt&gt;svn propedit svn:ignore targetdir&lt;/tt&gt; (see&amp;rdquo;&lt;a href=&#34;http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.ignore.html&#34;&gt;Ignoring Unversioned Items&lt;/a&gt;&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;to always ignore files of type x (eg .mp3), edit &lt;strong&gt;~/.subversion/config&lt;/strong&gt; or &lt;strong&gt;/etc/subversion/config&lt;/strong&gt; and set &lt;strong&gt;global-ignores&lt;/strong&gt; under &lt;strong&gt;[miscellany]&lt;/strong&gt; (see &lt;a href=&#34;http://svnbook.red-bean.com/en/1.4/svn.advanced.confarea.html&#34;&gt;Runtime Configuration Area&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

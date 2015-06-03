@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Osx on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/osx/</link>
+    <description>Recent content in Osx on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 22 Dec 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</title>
+      <link>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
+      <pubDate>Sun, 22 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
+      <description>&lt;p&gt;When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&amp;rsquo;ll get an error in the console log like:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unable to copy file foo to /var/private/bar&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The solution comes from the &lt;a href=&#34;https://groups.google.com/forum/#!msg/tunnelblick-discuss/Gp6OJn_8NxI/nAuvDP1RMxIJ&#34;&gt;TunnelBlick forum&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk. When you double-click that &amp;ldquo;outer&amp;rdquo; .tblk, you should be asked once if you want to install &amp;ldquo;n&amp;rdquo; configurations.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Desktop/foo.tblk
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+  &lt;span style=&#34;color: #40ffff&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;basename &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
+  mkdir &lt;span style=&#34;color: #40ffff&#34;&gt;$g&lt;/span&gt;.tblk
+  mv &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$g&lt;/span&gt;.tblk
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Also, the .ovpn files will have &amp;ldquo;com.apple.quarantine&amp;rdquo; xattr&amp;rsquo;s. This may or may not cause problems. I removed them in this way:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+  &lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;
+  xattr -d com.apple.quarantine &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Also, to &lt;a href=&#34;https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo&#34;&gt;remove old private configuration files&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Library/Application&lt;span style=&#34;color: #ed9d13&#34;&gt;\ &lt;/span&gt;Support/Tunnelblick/Configurations
+rm -rf *
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;(or, click on VPN icon top right of screen, select &amp;lsquo;VPN Details&amp;rsquo;, +/- in the &amp;lsquo;Configurations&amp;rsquo; tab).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OSX, iPhone, iTunes – finer grained syncing</title>
+      <link>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</link>
+      <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
+      <description>&lt;p&gt;iTunes&amp;rsquo; syncing of movies and podcasts is a big lame &amp;ndash; there&amp;rsquo;s not enough fine grained control.&lt;/p&gt;
+
+&lt;p&gt;For example, you can&amp;rsquo;t say &amp;ldquo;sync only this category of movies&amp;rdquo;, or &amp;ldquo;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;rsquo;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;rdquo;. And at the moment I don&amp;rsquo;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;rsquo;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
+
+&lt;p&gt;One work around I&amp;rsquo;ve found is to categorise as much media as possible as either &amp;ldquo;Music&amp;rdquo; or &amp;ldquo;Music Videos&amp;rdquo;. You can then work with playlists and &amp;ldquo;smart&amp;rdquo; (sic) playlists to get a bit more control.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Serial Port Access on OSX to Cisco devices</title>
+      <link>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
+      <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
+      <description>&lt;p&gt;How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).&lt;/p&gt;
+
+&lt;p&gt;Googling, everyone says to use zterm, but I couldn&amp;rsquo;t get it to work (and zterm looks and feels like a toy).&lt;/p&gt;
+
+&lt;p&gt;This probably isn&amp;rsquo;t the &amp;ldquo;Mac way&amp;rdquo; of doing things, but &lt;/whatever&gt;.&lt;/p&gt;
+
+&lt;p&gt;Install &lt;a href=&#34;http://sourceforge.net/projects/osx-pl2303/&#34;&gt;PL2303 USB to Serial Driver for Mac OS X&lt;/a&gt;, restart :-(&lt;/p&gt;
+
+&lt;pre&gt;sudo port selfupdate
+sudo port upgrade outdated
+sudo port install minicom&lt;/pre&gt;
+
+&lt;p&gt;Work out tty of USB-Serial converter:&lt;/p&gt;
+
+&lt;pre&gt;ls /dev/tty* &amp;gt; pre&lt;/pre&gt;
+
+&lt;p&gt;Plug in USB-Serial converter.&lt;/p&gt;
+
+&lt;pre&gt;ls /dev/tty* &amp;gt; pst
+% diff pre pst
+3a4
+&amp;gt; /dev/tty.PL2303-00002006&lt;/pre&gt;
+
+&lt;p&gt;Link up to make life easier:&lt;/p&gt;
+
+&lt;pre&gt;cd /dev
+sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
+
+&lt;p&gt;Setup minicom, and use colour:&lt;/p&gt;
+
+&lt;pre&gt;sudo minicom -s -c on&lt;/pre&gt;
+
+&lt;p&gt;Setup defaults to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/dev/ttyusb (ctrl-A, O, Serial Port Setup)&lt;/li&gt;
+&lt;li&gt;8N1&lt;/li&gt;
+&lt;li&gt;9600&lt;/li&gt;
+&lt;li&gt;no hardware or software flow control&lt;/li&gt;
+&lt;li&gt;init string empty (so garbage doesn&amp;rsquo;t appear on screen when you connect) &amp;ndash; ctrl-A, O, Init string&lt;/li&gt;
+&lt;li&gt;save settings as default (ctrl-A, O, Save setup as dfl)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Always use colour:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add export MINICOM=&amp;ldquo;-c on&amp;rdquo; to shell rc file (~/.bashrc, .~/zshrc, etc)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Connect (sudo minicom), hit enter a few times, and you should be on the device.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>macports: git-upload-pack: command not found</title>
+      <link>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</link>
+      <pubDate>Thu, 19 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</guid>
+      <description>&lt;p&gt;When doing a &lt;strong&gt;git clone&lt;/strong&gt; from a repo hosted on a Mac OSX machine (installed using macports), I get this error on the client (Linux, cygwin, whatever):&lt;/p&gt;
+
+&lt;pre&gt;git-upload-pack: command not found&lt;/pre&gt;
+
+&lt;p&gt;Solution is to do this on the OSX machine:&lt;/p&gt;
+
+&lt;pre&gt;cd /usr/bin
+sudo ln -s /opt/local/bin/git* .
+&lt;/pre&gt;
+
+&lt;p&gt;Obviously some $PATH funkiness is going on somewhere on the Mac, and I should find a better fix. My personal $PATH on the Mac &lt;em&gt;is&lt;/em&gt; OK:&lt;/p&gt;
+
+&lt;pre&gt;$ echo $PATH
+/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mac OSX Startup</title>
+      <link>http://blog2.snowfrog.net/2007/05/15/mac-osx-startup/</link>
+      <pubDate>Wed, 16 May 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/05/15/mac-osx-startup/</guid>
+      <description>
+
+&lt;p&gt;Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process.&lt;/p&gt;
+
+&lt;h3 id=&#34;links:8c5fb99d0417af129f926e289e08e42d&#34;&gt;Links&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://developer.apple.com/documentation/MacOSX/Conceptual/BPSystemStartup/index.html&#34;&gt;&amp;ldquo;The Boot Process&amp;rdquo;, Developer Connection&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;bootrom:8c5fb99d0417af129f926e289e08e42d&#34;&gt;BootROM&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;POST (Power On Self Test) is done &amp;ndash; checks hardware and initialises components; errors (eg RAM) will cause varying numbers of beeps (or flashing LEDs on some systems)&lt;/li&gt;
+&lt;li&gt;on PPC machines &lt;strong&gt;Open Firmware&lt;/strong&gt; is run&lt;/li&gt;
+&lt;li&gt;on Intel machines &lt;strong&gt;EFI&lt;/strong&gt; (Extended Firmware Interface) is run&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Command-Option-O-F&lt;/strong&gt; will start PPCs and Intels in Open Firmware Mode prompt. Five commands can be used: &lt;strong&gt;mac-boot, shut-down, reset-all, reset-nvram, eject cd&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;bootx:8c5fb99d0417af129f926e289e08e42d&#34;&gt;BootX&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BootX loads the kernel (similar to &lt;strong&gt;Grub/LILO&lt;/strong&gt; in Linux, &lt;strong&gt;ntldr&lt;/strong&gt; in Windows) as well as drivers needed to access I/O busses&lt;/li&gt;
+&lt;li&gt;various icons are displayed (Metallic Apple, Circle with Slash, Globe, etc) indicating whether Open Firmware has found BootX or had problems, or is looking for BootX over the network. See &lt;strong&gt;KB 58042&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;device drivers are loaded from a previously built cache, or from** System/Library/Extensions** if cache is missing/corrupt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;kernel:8c5fb99d0417af129f926e289e08e42d&#34;&gt;Kernel&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the kernel file is &lt;strong&gt;mach_kernel&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;the kernel launches &lt;strong&gt;I/O kit&lt;/strong&gt;, which loads drivers for I/O devices&lt;/li&gt;
+&lt;li&gt;the kernel launches launchd &amp;ndash; similar to &lt;strong&gt;init&lt;/strong&gt; in Linux&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;launchd:8c5fb99d0417af129f926e289e08e42d&#34;&gt;launchd&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;launchd&lt;/strong&gt; manages both &lt;em&gt;system&lt;/em&gt; and &lt;em&gt;user&lt;/em&gt; daemons, and is configured using plist (xml) files. It also replaces the functionality of **crond **on Linux systems ie it can be used to periodically launch daemons&lt;/li&gt;
+&lt;li&gt;these locations are searched:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/System/Library/LaunchAgents&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/System/Library/LaunchDaemons&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/Library/LaunchDaemons&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/Library/LaunchAgents&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;~/Library/LaunchAgents&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;during &lt;strong&gt;Safe Boot&lt;/strong&gt; (Shift key), only items in &lt;strong&gt;/System/Library&lt;/strong&gt; are started&lt;/li&gt;
+&lt;li&gt;launchd then runs any scripts in **/etc/rc **&amp;ndash; one of which is **SystemStarter **, which starts items in **/System/Library/StartupItems **and **/Library/StartupItems **(below)&lt;/li&gt;
+&lt;li&gt;launchd then starts &lt;strong&gt;loginwindow&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;startup-scripts-startup-items:8c5fb99d0417af129f926e289e08e42d&#34;&gt;Startup Scripts, Startup Items&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;items here are being replaced by &lt;strong&gt;launchd&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;**/System/Library/StartupItems **&amp;ndash; when troubleshooting, rename rather than delete things from here&lt;/li&gt;
+&lt;li&gt;*&lt;em&gt;/Library/StartupItems **&amp;ndash; can use this to for example manually map a drive. When troubleshooting, this should *usually&lt;/em&gt; be empty &amp;ndash; move items to Desktop rather than deleting&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;loginwindow:8c5fb99d0417af129f926e289e08e42d&#34;&gt;loginwindow&lt;/h3&gt;
+
+&lt;h3 id=&#34;user-environment-setup:8c5fb99d0417af129f926e289e08e42d&#34;&gt;User Environment Setup&lt;/h3&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

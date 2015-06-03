@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sed on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/sed/</link>
+    <description>Recent content in Sed on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 25 Oct 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/sed/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Numbering lines in a file</title>
+      <link>http://blog2.snowfrog.net/2010/10/25/numbering-lines-in-a-file/</link>
+      <pubDate>Mon, 25 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/10/25/numbering-lines-in-a-file/</guid>
+      <description>&lt;p&gt;Note to brain: line numbering in a file can be done using &lt;strong&gt;nl&lt;/strong&gt; &amp;ndash; easier than using sed.&lt;/p&gt;
+
+&lt;pre&gt;% nl -p -n rz /tmp/foo.txt &amp;gt; /tmp/bar.txt
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;-p Specify that line numbering should not be restarted at logical page delimiters&lt;/li&gt;
+&lt;li&gt;-n format Specify the line numbering output format.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>sed notes 2</title>
+      <link>http://blog2.snowfrog.net/2006/09/14/sed-notes-2/</link>
+      <pubDate>Fri, 15 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/09/14/sed-notes-2/</guid>
+      <description>
+
+&lt;p&gt;sed notes 2&lt;/p&gt;
+
+&lt;h3 id=&#34;sed-sites:cb57af079396ff477a2c677b039fc07d&#34;&gt;Sed Sites&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.grymoire.com/Unix/Sed.html&#34;&gt;Sed &amp;ndash; An Introduction and Tutorial &amp;ndash; Bruce Barnett&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.faqs.org/faqs/editor-faq/sed/&#34;&gt;sed FAQ &amp;ndash; alt.comp.editors.batch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.dreamwvr.com/sed-info/sed-faq.html&#34;&gt;sed FAQ &amp;ndash; DREAMWVR.COM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sed.sourceforge.net/sed1line.txt&#34;&gt;Sed One Liners &amp;ndash; sourceforge.net &amp;ndash; Eric Pement&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;see-also:cb57af079396ff477a2c677b039fc07d&#34;&gt;See Also&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://freecomputerbooks.com/unixBooksIndex.html&#34;&gt;FreeComputerBooks.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.linux-mag.com/id/1505/&#34;&gt;Linux Magazine &amp;ndash; (Very) Small Editors&lt;/a&gt; &amp;ndash; ed, ex, sed&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

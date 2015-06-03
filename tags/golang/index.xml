@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/golang/</link>
+    <description>Recent content in Golang on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 13 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Terraform Presentation</title>
+      <link>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</guid>
+      <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
+
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/43462586&#34;
+width=&#34;476&#34; height=&#34;400&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34;
+marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Building the development version of Terraform</title>
+      <link>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</link>
+      <pubDate>Wed, 03 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</guid>
+      <description>&lt;p&gt;Instructions on how to build the development version of &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## install go&lt;/span&gt;
+
+&lt;span style=&#34;color: #40ffff&#34;&gt;tgz&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;go1.3.3.linux-amd64.tar.gz
+&lt;span style=&#34;color: #40ffff&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;https://storage.googleapis.com/golang/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -f /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /var/tmp
+	wget &lt;span style=&#34;color: #40ffff&#34;&gt;$url&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d /usr/local/go &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	sudo tar -C /usr/local -xzf /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## setup dev directory structure&lt;/span&gt;
+
+mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thirdparty&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;bin,pkg,src&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#---------------------&lt;/span&gt;
+
+&lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install third party repos? (go-bindata, lint)&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/jteeuwen/go-bindata &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		go get github.com/jteeuwen/go-bindata/...
+		cp ~/go/thirdparty/bin/go-bindata ~/bin
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/golang/lint &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		go get github.com/golang/lint/golint
+		cp ~/go/thirdparty/bin/golint ~/bin
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+
+&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/sonia/src
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#----------------&lt;/span&gt;
+
+&lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install soniah repos? (gosnmp, evaler)&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# do &amp;#39;git clone&amp;#39; not &amp;#39;go get&amp;#39; so origin is writeable&lt;/span&gt;
+	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/evaler &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+		git clone git@github.com:soniah/evaler.git
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+
+	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/gosnmp &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+		git clone git@github.com:soniah/gosnmp.git
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
+&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Then you need to follow the &lt;a href=&#34;https://github.com/hashicorp/terraform&#34;&gt;Terraform instructions&lt;/a&gt; for building, that is:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;go get -u github.com/mitchellh/gox
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src/github.com/hashicorp/terraform
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make updatedeps
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make dev
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# put the binaries somewhere in your path, eg /usr/local/bin&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;sudo cp bin/terraform* /usr/local/bin
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang - building with Makefile and Jenkins</title>
+      <link>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</link>
+      <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins.&lt;/p&gt;
+
+&lt;p&gt;I was unfamiliar with Jenkins, and there didn&amp;rsquo;t seem to be any documentation around on how to build Go executables.&lt;/p&gt;
+
+&lt;h3 id=&#34;project-structure:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Project Structure&lt;/h3&gt;
+
+&lt;p&gt;First of all an aside on project structure. For my first project I had a &lt;strong&gt;GOPATH&lt;/strong&gt; of &lt;strong&gt;~/go&lt;/strong&gt; and the following directory structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/go
+  |--bin
+  |--pkg
+  |--src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But as I wrote more Go projects, it made more sense to separate each project into it&amp;rsquo;s own directory structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/go
+  |--project1
+    |--bin
+    |--pkg
+    |--src
+  |--project2
+    |--bin
+    |--pkg
+    |--src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this directory structure I set &lt;strong&gt;GOPATH&lt;/strong&gt; on the command line or in a Makefile:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~go/project2/src/github.com/soniah/gosnmp
+% &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~go/project2 go build
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;makefile:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Makefile&lt;/h3&gt;
+
+&lt;p&gt;For smaller projects you can just produce a binary using &lt;strong&gt;go run&lt;/strong&gt; or &lt;strong&gt;go build&lt;/strong&gt;. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/lib/go
+GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /var/lib/jenkins/workspace/go/project2
+
+myhostname :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;shell hostname&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt;
+ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, laptop&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/sonia/go/project2
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, testmachine&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/u1234/go/project2
+    GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/local/go
+endif
+
+build: build-stamp
+build-stamp: file1.go file2.go file3.go
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# always format code&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go fmt &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# binary&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go build -o project2 -v &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# docs&lt;/span&gt;
+    markdown README.mkd &amp;gt; README.html
+    help2man --no-info --include&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;help2man.roff --name &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Project2&amp;quot;&lt;/span&gt; ./project2 &amp;gt; project2.roff
+    man -Tps -l project2.roff &amp;gt; project2-man.ps
+    ps2pdf project2-man.ps project2-man.pdf
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# mark as done&lt;/span&gt;
+    touch &lt;span style=&#34;color: #40ffff&#34;&gt;$@&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkins:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Jenkins&lt;/h3&gt;
+
+&lt;p&gt;With a working Makefile, building under Jenkins will now be easier. The objective is to have Jenkins automatically build a new binary/package whenever a developer pushes to one of the git/mercurial/bzr repos that makeup the various components of your project.&lt;/p&gt;
+
+&lt;p&gt;However if your project contains multiple components, you&amp;rsquo;ll soon come across a problem. For example Project2 was using &lt;strong&gt;github.com/droundy/goopt&lt;/strong&gt; and &lt;strong&gt;github.com/mattn/go-sqlite3&lt;/strong&gt;. To see the problem, create a New Job using &lt;strong&gt;Build a free-style software project&lt;/strong&gt;. Under &lt;strong&gt;Source Code Management&lt;/strong&gt;, choose something like &lt;strong&gt;Git&lt;/strong&gt;. Under the second Advanced button, you&amp;rsquo;ll need to change the option &lt;strong&gt;Local subdirectory for repo (optional)&lt;/strong&gt; to point to the path of a component&amp;rsquo;s repo. &lt;strong&gt;But&lt;/strong&gt; this setting is a global setting for all git repos - so the build won&amp;rsquo;t work as you add a second and third component.&lt;/p&gt;
+
+&lt;p&gt;The solution is to install to Jenkins the &lt;a href=&#34;http://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin&#34;&gt;Multiple SCMs Plugin&lt;/a&gt;. Then in your Jenkins Job you&amp;rsquo;ll be able to set the local subdirectory for each component. For example in Project2:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the &lt;strong&gt;goopt&lt;/strong&gt; local subdirectory was set to &lt;strong&gt;project2/src/github.com/droundy/goopt&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the &lt;strong&gt;go-sqlite3&lt;/strong&gt; local subdirectory was set to &lt;strong&gt;project2/src/github.com/mattn/go-sqlite3&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;other-jenkins-settings:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Other Jenkins  Settings&lt;/h3&gt;
+
+&lt;p&gt;Here are some other useful setting for building Go projects on Jenkins:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;if you&amp;rsquo;re building 32 and 64 bit binaries (on different build servers), use the setting &lt;strong&gt;Restrict where this project can be run&lt;/strong&gt; with something like &amp;ldquo;32bit&amp;amp;&amp;amp;precise&amp;amp;&amp;amp;ubuntu&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;separate out your Go code from other languages - &lt;strong&gt;Advanced Project Options&lt;/strong&gt;, &lt;strong&gt;Use custom workspace&lt;/strong&gt;, &amp;ldquo;/var/lib/jenkins/workspace/go&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang - profiling libraries and GoSNMP for SNMP</title>
+      <link>http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</link>
+      <pubDate>Mon, 03 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</guid>
+      <description>&lt;p&gt;There is already a great article on &lt;a href=&#34;blog.golang.org/2011/06/profiling-go-programs.html&#34;&gt;Profiling Go Programs&lt;/a&gt;. However that article only discusses how to profile a standalone binary - what about a library?&lt;/p&gt;
+
+&lt;p&gt;For example, I&amp;rsquo;ve been working on the &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;GoSNMP SNMP library&lt;/a&gt;, here&amp;rsquo;s how I profiled it (it wasn&amp;rsquo;t obvious):&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# produce cpu profiling information from the tests - this part was well documented&lt;/span&gt;
+% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -cpuprofile cpu.out
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# compile the test binary to pkg.test but do not run it (from `go help test`)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# this part wasn&amp;#39;t obvious&lt;/span&gt;
+% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -c
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# now run pprof using `go teste -c` output&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# using gosnmp.test - this part wasn&amp;#39;t obvious&lt;/span&gt;
+% go tool pprof gosnmp.test cpu.out
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Doing a memory profile was similar:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -memprofile mem.out
+% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -c
+% go tool pprof gosnmp.test mem.out
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git bisect run - example</title>
+      <link>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</link>
+      <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html&#34;&gt;Git bisect&lt;/a&gt; is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&amp;rsquo;s an example of automating the process using &lt;strong&gt;git bisect run&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;tl-dr:1dca976519824c917954d37e9d104a12&#34;&gt;tl;dr&lt;/h2&gt;
+
+&lt;p&gt;Using &lt;strong&gt;git bisect run&lt;/strong&gt; is easy if you&amp;rsquo;ve make small atomic commits and you have good tests. &lt;strong&gt;run&lt;/strong&gt; makes a large debug easier (compared to manually doing &lt;strong&gt;git bisect good&lt;/strong&gt; and &lt;strong&gt;git bisect bad&lt;/strong&gt;) - you&amp;rsquo;re less likely to make errors due to boredom. And run means you can use an iterative process - use rebase to split bad commits then just run again.&lt;/p&gt;
+
+&lt;h2 id=&#34;example:1dca976519824c917954d37e9d104a12&#34;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was &lt;strong&gt;good&lt;/strong&gt;, but I&amp;rsquo;d added more features since good and now results were &lt;strong&gt;bad&lt;/strong&gt;. The first step was to write a shell script to be called from &lt;strong&gt;git bisect run&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat bisect.sh
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# copy this to ~ before running with `git bisect run ~/bisect.sh`&lt;/span&gt;
+
+cp ~/Makefile .
+make clean
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# make modifies manpage output, so stash after build&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; make &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;&amp;gt; /dev/null &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	git stash
+	git stash clear
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt;
+	git stash
+	git stash clear
+	&lt;span style=&#34;color: #24909d&#34;&gt;exit &lt;/span&gt;125
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+
+sudo cat /var/tmp/empty &amp;gt; /var/log/abc/abc-poller.log
+sudo ./abc-poller --tmp --once -d &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt; -c &lt;span style=&#34;color: #3677a9&#34;&gt;150&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;||&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;exit &lt;/span&gt;125
+&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;=== poller finished&amp;quot;&lt;/span&gt;
+
+&lt;span style=&#34;color: #40ffff&#34;&gt;percent&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;godir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;/var/tmp/data/abcmon/poll_queue/new ~/checker &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+  tail -1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{print $5}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; awk -F. &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{print $1}&amp;#39;`&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;=== percent is &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$percent&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;((&lt;/span&gt; percent &amp;lt; &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Things that make writing the test script easier:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;first get it working outside of &lt;strong&gt;git bisect run&lt;/strong&gt; - usually means echoing results along the way&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;already having a test suite that produces a quantified pass/fail output, In my case the I had already written the checker program, whose last line of output contained a &amp;ldquo;percentage failure&amp;rdquo; figure&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next step was having an abbreviated log of commits to refer to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% git log --oneline
+f00f232 sql.go - better debugging       # bad
+9780d44 dummy .gitignore, so out dir preserved
+0de0796 Makefile for nsch1abcs01
+a2f6c96 defaults - 20 workers, udp 15
+b8ee3d9 GOMAXPROCS()
+04f21ba start v0.0.2
+dbc6a60 Makefile: Jenkins as default for env vars
+557a5e3 more work on stats
+ef6a453 remove excessive debugging
+ccc4644 remove file buffering - wasn&#39;t writing..???
+98bf4b1 stats write failing
+9a9682d move type queue_t struct
+467aeed buffered writes for queue file
+148a8cc stats: + device_run, device_ok
+c61be42 done chan *Stats_t; calculate_value() bool
+0e41461 debugging - print out device_id as %5s
+7cbe167 default workers 5000, correct stop/start commands
+544e8d7 gather statistics
+6990cf2 rename data chan to device_id
+5e8562b rename sql -&amp;gt; sqlconn; global var
+fd52d89 remove dead code
+4d7b9b1 device_for() - err if count != 1
+6ceb305 deb: fail if version main.go isn&#39;t same changelog
+5ce1855 deb: rules producing abc-poller_0.0.1_amd64.deb
+db5bff4 deb: cleaned up Makefile, roffs
+76674c2 JSON -&amp;gt; SQL; version 0.0.1
+4cf198e deb: basic removal of 64 references
+d980f26 deb: rename 64 to vanilla
+b933570 deb: remove 32 bit stuff
+970bd82 current debug level is 2; adjust output
+70f8921 Revert &amp;quot;deb build - don&#39;t init, cron while testing&amp;quot;
+855ce00 default debug is 2; misc tidy
+f3d80e1 remove timeoutOpt - no longer used
+48ced38 misc tidys before release
+a3fe13c runonceOpt, revert cycling code  # good
+24cd998 use passed in udpOpt
+5ca1830 remove stash/sender.old.go
+06b9566 remove gsnmpgo; use gosnmp
+bffd430 rules: add note about &amp;quot;too many open files&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mark bad and good, start the run, go and have a coffee :-)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% git bisect start f00f232 a3fe13c
+% git bisect run ~/bisect.sh
+# lots of output
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I get the result that the ominously named &lt;strong&gt;557a5e3 more work on stats&lt;/strong&gt; is the first bad commit - I remember it as one of those large &amp;ldquo;kitchen sink&amp;rdquo; commits done at the end of the day. So &amp;ldquo;first rule of fightclub git&amp;rdquo; remembered - &lt;strong&gt;always do small atomic commits&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have a useful shell function &lt;strong&gt;gri()&lt;/strong&gt; - I used that to interactively rebase and break up 557a5e3 into many small commits:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;gri &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+  git rebase -i HEAD~&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;7&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;After rebasing git log looked like this - notice the many small commits named &amp;ldquo;bisect1&amp;rdquo; etc:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;382b3ee defaults - 20 workers, udp 15
+11db314 GOMAXPROCS()
+4b547ea start v0.0.2
+c92feef Makefile: Jenkins as default for env vars
+8fcc595 bisect6: calc/noncalc
+ad3a18f bisect5: tweak debug msgs
+311bb8d bisect4: mv stats init
+957c234 bisect3: remove stats from send_gosnmp()
+3c01d62 bisect2: use Add(); Calcs/NonCalcs
+947cb27 bisect1: move Stats_t; Add()
+ef6a453 remove excessive debugging
+ccc4644 remove file buffering - wasn&#39;t writing..???
+98bf4b1 stats write failing
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And here&amp;rsquo;s the real win of writing bisect.sh - you can just keep rebasing and running until you&amp;rsquo;ve narrowed down the bad code to a few lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;=== poller finished
+=== percent is 49
+947cb27fd57642dc545ee23090d7ae8fd8b14b3f is the first bad commit
+commit 947cb27fd57642dc545ee23090d7ae8fd8b14b3f
+Author: Sonia Hamilton &amp;lt;sonia@snowfrog.net&amp;gt;
+Date:   Thu Mar 14 10:02:42 2013 +1100
+
+    bisect1: move Stats_t; Add()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I do another interactive rebase, fix the logic error, and then HEAD is good.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GoSnmp - SNMP for GoLang</title>
+      <link>http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/</link>
+      <pubDate>Mon, 11 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/</guid>
+      <description>&lt;p&gt;Today I released &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;soniah/gosnmp&lt;/a&gt; - an update of &lt;a href=&#34;http://github.com/alouca&#34;&gt;alouca/gosnmp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Many, many thanks to Andreas Louca for writing &lt;strong&gt;alouca/gosnmp&lt;/strong&gt;. The
+major difference between his version and &lt;strong&gt;soniah/gosnmp&lt;/strong&gt; is that the
+latter has tests written. (However the code could do with refactoring).
+The tests were used to find and correct errors in the following SNMP BER
+Types:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Counter32&lt;/li&gt;
+&lt;li&gt;Gauge32&lt;/li&gt;
+&lt;li&gt;Counter64&lt;/li&gt;
+&lt;li&gt;OctetString&lt;/li&gt;
+&lt;li&gt;ObjectIdentifier&lt;/li&gt;
+&lt;li&gt;IpAddress&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, this version contains functions for treating the returned snmp
+values as &lt;code&gt;*big.Int&lt;/code&gt; (convenient, as SNMP can return int32, uint32, and
+uint64 values)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>refactoring in Go - rather pleasant actually...</title>
+      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
+
+&lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
+a scripting language (Python, Perl, Ruby, etc). My process is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;type &lt;strong&gt;:make&lt;/strong&gt; in vim (I have a dummy Makefile in my Go project just for vim)&lt;/li&gt;
+&lt;li&gt;vim jumps cursor to error (&lt;a href=&#34;http://vimdoc.sourceforge.net/htmldoc/quickfix.html&#34;&gt;vim quickfix list&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;oh, I shouldn&amp;rsquo;t do that&amp;rdquo; - fix (type type type)&lt;/li&gt;
+&lt;li&gt;start again&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finish rather sooner than expected, run tests, smile in knowledge program is working &lt;em&gt;properly&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To quickly setup the &lt;strong&gt;make&lt;/strong&gt; command for Go, type this in a Vim window:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:setlocal makeprg=go\ build\ \.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or even better configure vim via your ~/.vimrc, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
+autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks Martin for the comment!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>gsnmpgo - SNMP for Golang using gsnmp</title>
+      <link>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</link>
+      <pubDate>Sun, 10 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</guid>
+      <description>
+
+&lt;p&gt;Update 8/Mar/13. Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;http://github.com/soniah/gosnmp&lt;/a&gt; instead.&lt;/p&gt;
+
+&lt;h2 id=&#34;previously:369c73396e80c884e0e5cbfcb990adb3&#34;&gt;Previously&amp;hellip;&lt;/h2&gt;
+
+&lt;p&gt;I recently released &lt;a href=&#34;http://github.com/soniah/gsnmpgo&#34;&gt;gsnmpgo&lt;/a&gt; - a Go/CGo snmp library using gsnmp. Pull requests welcome!&lt;/p&gt;
+
+&lt;p&gt;From the &lt;a href=&#34;http://godoc.org/github.com/soniah/gsnmpgo&#34;&gt;gsnmpgo documentation&lt;/a&gt;, here&amp;rsquo;s an example of usage:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// do an snmp get; RFC 4088 is used for uris&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;uri&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;`snmp://public@192.168.1.10//(1.3.6.1.2.1.1.1.0)`&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;params&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.NewDefaultParams(uri)&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;results,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Query(params)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;fmt.Println(err)&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;os.Exit(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// check your results&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Dump(results)&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// turn on debugging&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Debug&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim - bufexplorer</title>
+      <link>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</link>
+      <pubDate>Tue, 20 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.vim.org/scripts/script.php?script_id=42&#34;&gt;Bufexplorer&lt;/a&gt; - my new favourite add-on for vim.&lt;/p&gt;
+
+&lt;p&gt;Why do I like it? It allows you to emulate the buffer list feature of emacs, as well as switch between horizontal/vertical buffer splits and find recently edited files. All this can already be done with vim buffers, but bufexplorer makes it easy.&lt;/p&gt;
+
+&lt;p&gt;Why don&amp;rsquo;t I just use emacs? Because as sysadmin/devop I&amp;rsquo;m often working on other people&amp;rsquo;s servers, and I don&amp;rsquo;t want to go installing buckets of stuff everywhere - vim is usually installed.&lt;/p&gt;
+
+&lt;p&gt;I found the best way to use bufexplorer is to open up all possible source files (eg &lt;strong&gt;vim src/&lt;em&gt;.go other/&lt;/em&gt;.go&lt;/strong&gt;) at the start of an editing session, then just skip between them (shown here with the excellent &lt;a href=&#34;http://xmonad.org/&#34;&gt;xMonad&lt;/a&gt; window manager, &lt;a href=&#34;https://www.gnu.org/software/screen/&#34;&gt;GNU Screen&lt;/a&gt;, and &lt;a href=&#34;http://library.gnome.org/users/gnome-terminal/stable/gnome-terminal-get-started.html.en&#34;&gt;Gnome Terminal&lt;/a&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34;&gt;&lt;img src=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang - setup and producing .debs</title>
+      <link>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
+      <pubDate>Tue, 02 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&amp;rsquo;s to package them and &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; for README&amp;rsquo;s - &lt;em&gt;notes for me&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Install build pre-requisites:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install gcc libc6-dev libc6-dev-i386 make &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+  markdown build-essential debhelper dh-make fakeroot devscripts
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Install Go from source (so can cross-compile). Download from &lt;a href=&#34;http://code.google.com/p/go/downloads/list&#34;&gt;Go Downloads&lt;/a&gt; eg go1.0.2.src.tar.gz&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /usr/local/go/src
+sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;amd64 ./all.bash &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;386&lt;/span&gt; ./all.bash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Add to /etc/profile, source or re-login:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOROOT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;/usr/local/go&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$GOROOT&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/bin:&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang: checking open files and memory usage</title>
+      <link>http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/</link>
+      <pubDate>Fri, 14 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/</guid>
+      <description>&lt;p&gt;Notes to myself more than anything, and not really specific to Go (but that&amp;rsquo;s where I was using it).&lt;/p&gt;
+
+&lt;p&gt;To watch the memory usage of a process with pid PID:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+  grep VmSize  /proc/PID/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sleep 10
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;To watch the number of file descriptors being used:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+  sudo lsof -p PID &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; wc -l &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sleep 10
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

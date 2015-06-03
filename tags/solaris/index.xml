@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Solaris on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/solaris/</link>
+    <description>Recent content in Solaris on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/solaris/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Solaris – max of 100 cron jobs</title>
+      <link>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</link>
+      <pubDate>Mon, 09 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</guid>
+      <description>&lt;p&gt;I stumbled across a &lt;s&gt;limitation&lt;/s&gt; &lt;s&gt;feature&lt;/s&gt; behaviour of Solaris over the weekend &amp;ndash; by default it only allows you to run a maximum of 100 cron jobs at once. I suppose this to protect against &amp;ldquo;shooting oneself in the head&amp;rdquo;, but aaaarghhh. Reminds me why I love Monday mornings.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the file to edit is &lt;strong&gt;/etc/cron.d/queuedefs&lt;/strong&gt;, see &lt;strong&gt;man queuedefs&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&#34;//solaristipsandtricks.blogspot.com/2010/05/solaris-10-cron-and-maxrun.html&#34;&gt;Solaris Tips&lt;/a&gt; for pointing me in the right direction.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Solaris – convert a single root UFS to a root ZFS mirror</title>
+      <link>http://blog2.snowfrog.net/2011/02/18/solaris-convert-a-single-root-ufs-to-a-root-zfs-mirror/</link>
+      <pubDate>Fri, 18 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/02/18/solaris-convert-a-single-root-ufs-to-a-root-zfs-mirror/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Scenario&lt;/strong&gt;: the current Solaris Sparc system is booting off a single UFS disk (eg when cloned from an image).&lt;/p&gt;
+
+&lt;p&gt;You want to convert to a ZFS mirror&lt;strong&gt;.&lt;/strong&gt; Assumes that ZFS is already supported; if not install the ZFS package first. See also:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Managing ZFS Boot Environments with Solaris Live Upgrade, in &lt;a href=&#34;http://www.amazon.com/Solaris-ZFS-Essentials-Scott-Watanabe/dp/0137000103/ref=sr_1_1?ie=UTF8&amp;amp;s=books&amp;amp;qid=1297915131&amp;amp;sr=1-1&#34;&gt;Solaris 10 ZFS Essentials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.castro.aus.net/~maurice/opensolaris/zfsbootmirror.html&#34;&gt;Notes on OpenSolaris: ZFS boot mirror&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lildude.co.uk/howto-migrate-a-ufs-root-filesystem-to-zfs&#34;&gt;HOWTO: Migrate a UFS Root Filesystem to ZFS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Connect&lt;/strong&gt; to the console, login, examine the disk layout:&lt;/p&gt;
+
+&lt;pre&gt;-&amp;gt; start /SP/console
+
+root@foo # uname -a
+SunOS foo 5.10 Generic_142900-11 sun4v sparc SUNW,Sun-Blade-T6320
+
+root@foo # mount | fgrep &#39;/dev/dsk&#39;
+/ on /dev/dsk/c0t0d0s0 read/write/setuid/devices/intr/largefiles/logging/xattr/onerr
+or=panic/dev=800008 on Thu Feb 17 12:04:28 2011
+
+root@foo # echo | format
+Searching for disks...done
+AVAILABLE DISK SELECTIONS:
+       0. c0t0d0
+          /pci@0/pci@0/pci@2/LSILogic,sas@0/sd@0,0
+       1. c0t1d0
+          /pci@0/pci@0/pci@2/LSILogic,sas@0/sd@1,0
+Specify disk (enter its number): Specify disk (enter its number):&lt;/pre&gt;
+
+&lt;p&gt;So on this system, / is currently mounted on target 0 (c0t0d0). We want to zfs mirror onto target 1 (c0t1d0), and allow booting from both drives.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Clear&lt;/strong&gt; the current partition table on target 1, and create partition 0 covering the whole disk. **Label **the disk as SMI (ie traditional Solaris VTOC. EFI labels are not supported for boot disks).&lt;/p&gt;
+
+&lt;pre&gt;format -e
+Specify disk (enter its number): 1
+selecting c0t1d0
+format&amp;gt; p
+(etc)
+format&amp;gt; label
+[0] SMI Label
+[1] EFI Label
+Specify Label type[1]: 0
+format&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;**Create ** the new zfs pool:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # zpool create rpool c0t1d0s0&lt;/pre&gt;
+
+&lt;p&gt;**Create ** the zfs boot environment:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # lucreate -n zfsBE -p rpool
+Analyzing system configuration.
+...
+Populating contents of mount point .
+Copying.&lt;/pre&gt;
+
+&lt;p&gt;**Check **the results:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # lustatus
+Boot Environment           Is       Active Active    Can    Copy
+Name                       Complete Now    On Reboot Delete Status
+-------------------------- -------- ------ --------- ------ ----------
+be0                        yes      yes    yes       no     -
+be3                        yes      no     no        yes    -
+zfsBE                      yes      no     no        yes    -&lt;/pre&gt;
+
+&lt;p&gt;**Activate **the environment and reboot:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # luactivate zfsBE
+A Live Upgrade Sync operation will be performed on startup of boot environment .
+**********************************************************************
+The target boot environment has been activated. It will be used when you
+reboot. NOTE: You MUST NOT USE the reboot, halt, or uadmin commands. You
+MUST USE either the init or the shutdown command when you reboot. If you
+do not use either init or shutdown, the system will not boot using the
+target BE.
+**********************************************************************
+
+In case of a failure while booting to the target BE, the following process
+needs to be followed to fallback to the currently working boot environment:
+
+1. Enter the PROM monitor (ok prompt).
+
+2. Change the boot device back to the original boot environment by typing:
+
+     setenv boot-device /pci@0/pci@0/pci@2/LSILogic,sas@0/disk@0,0:a
+
+3. Boot to the original boot environment by typing:
+
+     boot
+
+**********************************************************************
+
+Modifying boot archive service
+Activation of boot environment  successful.
+
+root@foo # init 6&lt;/pre&gt;
+
+&lt;p&gt;After rebooting, you should see your new zfs root environment:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # zfs list
+NAME               USED  AVAIL  REFER  MOUNTPOINT
+rpool             16.1G   258G    98K  /rpool
+rpool/ROOT        10.0G   258G    21K  /rpool/ROOT
+rpool/ROOT/zfsBE  10.0G   258G  10.0G  /
+rpool/dump        2.00G   258G  2.00G  -
+rpool/swap        4.01G   262G    16K  -
+
+root@foo # zpool status
+  pool: rpool
+ state: ONLINE
+ scrub: none requested
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        rpool       ONLINE       0     0     0
+          c0t1d0s0  ONLINE       0     0     0
+
+errors: No known data errors&lt;/pre&gt;
+
+&lt;p&gt;As you can see, rpool only contains one hard disk (c0t1d0s0).** Delete **the old boot environments, otherwise format will complain:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # lustatus
+Boot Environment           Is       Active Active    Can    Copy
+Name                       Complete Now    On Reboot Delete Status
+-------------------------- -------- ------ --------- ------ ----------
+be0                        yes      no     no        yes    -
+be3                        yes      no     no        yes    -
+zfsBE                      yes      yes    yes       no     -
+root@foo # ludelete be0
+...
+root@foo # ludelete be3
+Determining the devices to be marked free.
+Updating boot environment configuration database.
+Updating boot environment description database on all BEs.
+Updating all boot environment configuration databases.
+Boot environment  deleted.&lt;/pre&gt;
+
+&lt;p&gt;**Repartition **and mirror onto the original hard disk. Notice that the current ZFS root disk is the first argument in the attach command, and the old boot disk is the second argument. Use -f when it complains about an existing UFS filesystem:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # format -e
+(repartition, relabel as SMI, etc)
+
+root@foo # zpool status
+  pool: rpool
+ state: ONLINE
+ scrub: none requested
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        rpool       ONLINE       0     0     0
+          c0t1d0s0  ONLINE       0     0     0
+
+errors: No known data errors
+
+root@foo # zpool attach -f rpool c0t1d0s0 c0t0d0s0
+Please be sure to invoke installboot(1M) to make &#39;c0t0d0s0&#39; bootable.
+Make sure to wait until resilver is done before rebooting.
+
+root@foo # zpool status rpool
+  pool: rpool
+ state: ONLINE
+status: One or more devices is currently being resilvered.  The pool will
+        continue to function, possibly in a degraded state.
+action: Wait for the resilver to complete.
+ scrub: resilver in progress for 0h1m, 11.50% done, 0h11m to go
+config:
+
+        NAME          STATE     READ WRITE CKSUM
+        rpool         ONLINE       0     0     0
+          mirror      ONLINE       0     0     0
+            c0t1d0s0  ONLINE       0     0     0
+            c0t0d0s0  ONLINE       0     0     0  1.38G resilvered
+
+errors: No known data errors
+
+root@foo # zpool status rpool
+...
+ scrub: resilver completed after 0h11m with 0 errors on Fri Feb 18 14:31:09 2011
+...
+            c0t0d0s0  ONLINE       0     0     0  12.0G resilvered&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Make bootable&lt;/strong&gt; off target 0, and confirm:&lt;/p&gt;
+
+&lt;pre&gt;root@foo # installboot /usr/platform/`uname -i`/lib/fs/zfs/bootblk /dev/rdsk/c0t0d0s0
+root@foo # init 0
+...
+svc.startd: 104 system services are now being stopped.
+...
+{0} ok devalias
+...
+disk1                    /pci@0/pci@0/pci@2/@/disk@1
+disk0                    /pci@0/pci@0/pci@2/@/disk@0
+disk                     /pci@0/pci@0/pci@2/@/disk@0
+...
+
+{0} ok boot disk0
+Boot device: /pci@0/pci@0/pci@2/@/disk@0  File and args:
+SunOS Release 5.10 Version Generic_142900-11 64-bit
+...
+root@foo # init 0
+...
+svc.startd: 104 system services are now being stopped.
+...
+{0} ok boot disk1
+...
+Boot device: /pci@0/pci@0/pci@2/@/disk@1  File and args:
+SunOS Release 5.10 Version Generic_142900-11 64-bit
+...
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resize Terminal in Solaris</title>
+      <link>http://blog2.snowfrog.net/2011/02/14/resize-terminal-in-solaris/</link>
+      <pubDate>Sun, 13 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/02/14/resize-terminal-in-solaris/</guid>
+      <description>&lt;p&gt;Sometimes when connecting into a Solaris box via multiple jumps eg Citrix to putty to jumphost to target host, the terminal can get confused about screen size and scramble the output.&lt;/p&gt;
+
+&lt;p&gt;Use this command to update environment variables with the current terminal size:&lt;/p&gt;
+
+&lt;pre&gt;eval `resize`&lt;/pre&gt;
+
+&lt;p&gt;or if $PATH is munged:&lt;/p&gt;
+
+&lt;pre&gt;eval `/usr/openwin/bin/resize`&lt;/pre&gt;
+
+&lt;p&gt;Thanks to PeterK.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Solaris – increase tmpfs /tmp on the fly</title>
+      <link>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</link>
+      <pubDate>Mon, 24 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</guid>
+      <description>&lt;p&gt;A useful &lt;a href=&#34;http://www.sun.com/bigadmin/scripts/submittedScripts/tmp_resize.ksh.txt&#34;&gt;script &lt;/a&gt;from BigAdmin for increasing the size of a tmpfs /tmp without rebooting.&lt;/p&gt;
+
+&lt;p&gt;See also &lt;a href=&#34;http://www.softpanorama.org/Solaris/Processes_and_memory/swap_space_management.shtml&#34;&gt;SoftPanorama&lt;/a&gt;, &lt;a href=&#34;http://wikis.sun.com/display/BigAdmin/Talking+about+RAM+disks+in+the+Solaris+OS&#34;&gt;Talking about RAM disks in the Solaris OS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;pre&gt;#!/bin/ksh
+if [ $# -ne 1 ]; then
+    echo &#34;&#34;
+    echo &#34;tUsage: $0 newsize&#34;
+    echo &#34;&#34;
+    echo &#34;Where newsize is the size in kilobytes (default) that you want /tmp to be&#34;
+    echo &#34;Alternatively you can specify size in (p)ages (m)egabytes or (g)igabytes&#34;
+    echo &#34;&#34;
+    exit
+fi
+
+if [ -z `id | grep &#34;uid=0&#34;` ]; then
+    echo &#34;ERROR -- you must be root to run this script&#34;
+    exit
+fi
+
+pagesize=`pagesize`
+pagesize=$(( $pagesize / 1024 ))
+echo &#34;Pages are ${pagesize}K&#34;
+
+newsize=`echo $1 |sed -e &#39;s/([kKmMgGpP])/ 1/&#39; | tr &#39;[a-z]&#39; &#39;[A-Z]&#39;`
+type=`echo &#34;$newsize&#34; | awk &#39;{print $2}&#39;`
+newsize=`echo &#34;$newsize&#34; | awk &#39;{print $1}&#39;`
+
+case &#34;$type&#34; in
+    P) newsize=$(( $newsize * $pagesize ))
+        ;;
+    M) newsize=$(( $newsize * 1024 ))
+        ;;
+    G) newsize=$(( $newsize * 1024 * 1024 ))
+        ;;
+esac
+
+if [ &#34;$newsize&#34; -lt 102400 ]; then
+    echo &#34;ERROR -- this script won&#39;t let you go below 100MB (102400K)&#34;
+    echo &#34;&#34;
+    exit
+fi
+
+tmp_size=`df -k /tmp | grep ^swap | awk &#39;{print $2}&#39;`
+if [ &#34;$tmp_size&#34; -eq 0 ]; then
+    echo &#34;Error, cannot get size reading on /tmp&#34;
+    exit
+fi
+
+tmp_pages=$(( $tmp_size / $pagesize ))
+echo &#34;/tmp is ${tmp_size}K (${tmp_pages} pages)&#34;
+
+newsize_pages=$(( $newsize / $pagesize ))
+echo &#34;/tmp will be resized to ${newsize}K (${newsize_pages})&#34;
+
+if [ &#34;$tmp_size&#34; -gt &#34;$newsize&#34; ]; then
+    echo &#34;ERROR -- this script cannot be used to shrink /tmp&#34;
+    echo &#34;&#34;
+    exit
+fi
+
+tmp_addresses=`echo &#34;vfs&#34; | crash | grep tmpfs | awk &#39;{print $6}&#39;`
+if [ -z &#34;$tmp_addresses&#34; ]; then
+    echo &#34;Ach, cannot get addressed from crash...&#34;
+    exit
+fi
+for i in $tmp_addresses; do
+    echo &#34;Looking at address $i&#34;
+    mysize=`echo &#34;${i}+18/e&#34; | adb -k | grep -v physmem | awk &#39;{print $2}&#39;`
+    if [ &#34;$mysize&#34; -eq tmp_pages ]; then
+        if [ -z &#34;$foundit&#34; ]; then
+            echo &#34;Looks like $i is the one!&#34;
+            foundit=$i
+        else
+            echo &#34;Interesting!  Looks like there&#39;s more than one match.&#34;
+            echo &#34;You&#39;re going to have to do this by hand&#34;
+            exit
+        fi
+    fi
+done
+if [ -z &#34;$foundit&#34; ]; then
+    echo &#34;Error -- cannot locate a tmpfs filesystem that&#39;s the size of /tmp&#34;
+    exit
+fi
+
+echo &#34;Before:&#34;
+df -k /tmp
+echo &#34;${foundit}+18/Z 0T${newsize_pages}&#34; | adb -k -w
+#echo &#34;${foundit}+18/Z 0T${newsize_pages}&#34;
+echo &#34;After:&#34;
+df -k /tmp
+
+##############################################################################
+### This script is submitted to BigAdmin by a user of the BigAdmin community.
+### Sun Microsystems, Inc. is not responsible for the
+### contents or the code enclosed.
+###
+###
+###  Copyright Sun Microsystems, Inc. ALL RIGHTS RESERVED
+### Use of this software is authorized pursuant to the
+### terms of the license found at
+### http://www.sun.com/bigadmin/common/berkeley_license.jsp
+##############################################################################
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The RAID5 Write Hole</title>
+      <link>http://blog2.snowfrog.net/2011/01/14/the-raid5-write-hole/</link>
+      <pubDate>Fri, 14 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/01/14/the-raid5-write-hole/</guid>
+      <description>&lt;p&gt;The latest edition of the venerable &lt;a href=&#34;http://www.amazon.com/UNIX-Linux-System-Administration-Handbook/dp/0131480057/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1294981909&amp;amp;sr=1-1&#34;&gt;UNIX and Linux System Administration Handbook&lt;/a&gt; (Nemeth et al) has a good section discussing the &amp;ldquo;RAID5 Write Hole&amp;rdquo;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Finally, RAID 5 is vulnerable to corruption in certain circumstances. Its incremental updating of parity data is more efficient than reading the entire stripe and recalculating the stripe’s parity based on the original data. On the other hand, it means that at no point is parity data ever validated or recalculated. If any block in a stripe should fall out of sync with the parity block, that fact will never become evident in normal use; reads of the data blocks will still return the correct data.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;**&lt;em&gt;Only when a disk fails does the problem become apparent. The parity block will likely have been rewritten many times since the occurrence of the original desynchronization. Therefore, the reconstructed data block on the replacement disk will consist of essentially random data.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Further reading on the &lt;a href=&#34;http://www.miracleas.com/BAARF/BAARF2.html&#34;&gt;BAARF&lt;/a&gt; archive (Battle Against Any Raid 5), including why RAID10 and RAID3 should be chosen over RAID5. And then there&amp;rsquo;s &lt;a href=&#34;http://blogs.sun.com/bonwick/entry/raid_z&#34;&gt;ZFS and RAID-Z&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using ZFS on Solaris to rapidly build systems</title>
+      <link>http://blog2.snowfrog.net/2011/01/12/using-zfs-on-solaris-to-rapidly-build-systems/</link>
+      <pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/01/12/using-zfs-on-solaris-to-rapidly-build-systems/</guid>
+      <description>&lt;p&gt;A work colleagues used an interesting technique to rapidly build some Solaris systems. We usually use Jumpstart but due to the large number of identical systems to be built, he had to use a faster method.&lt;/p&gt;
+
+&lt;p&gt;In a nutshell:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;build the first system onto a single disk with a root zfs partition&lt;/li&gt;
+&lt;li&gt;export the root partition onto a second hard disk&lt;/li&gt;
+&lt;li&gt;on subsequent machines insert this second hard disk, import then re-export the root zfs partition&lt;/li&gt;
+&lt;li&gt;when finished, add a second hard disk to all machines and zfs mirror the root partition. Fix up hostname, network, etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Another possible method would be to break mirroring, re-mirror on second machine, as so on.&lt;/p&gt;
+
+&lt;p&gt;Thanks Peter.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Solaris IP Multipathing – an example</title>
+      <link>http://blog2.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</link>
+      <pubDate>Tue, 09 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</guid>
+      <description>&lt;p&gt;An example of Solaris IP Multipathing, for future reference:&lt;/p&gt;
+
+&lt;pre&gt;# cat /etc/hostname.bge2
+10.888.999.133 netmask + broadcast + mtu 1380 deprecated -failover group inner-prod up 
+ addif 10.888.999.132 netmask + broadcast + mtu 1380 group inner-prod up
+# cat /etc/hostname.bge3
+10.888.999.134 netmask + broadcast + mtu 1380 deprecated -failover standby group inner-prod up&lt;/pre&gt;
+
+&lt;p&gt;giving:&lt;/p&gt;
+
+&lt;pre&gt;# ifconfig bge2
+bge2: flags=9040843&amp;lt;UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAILOVER&amp;gt; mtu 1380 index 4
+ inet 10.888.999.133 netmask fffffff0 broadcast 10.225.228.143
+ groupname inner-prod
+ ether 0:xx:xx:xx:xx:xx
+# ifconfig bge3
+bge3: flags=69040843&amp;lt;UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAILOVER,STANDBY,INACTIVE&amp;gt; mtu 1380 index 5
+ inet 10.888.999.134 netmask fffffff0 broadcast 10.888.999.143
+ groupname inner-prod
+ ether 0:xx:xx:xx:xx:xx
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Resetting ALOM password on Solaris</title>
+      <link>http://blog2.snowfrog.net/2010/08/18/resetting-alom-password-on-solaris/</link>
+      <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/08/18/resetting-alom-password-on-solaris/</guid>
+      <description>&lt;p&gt;Or, after RTFM&amp;rsquo;ing, an easier way: &lt;a href=&#34;http://docs.sun.com/source/819-6672-10/trouble_appx.html#53290&#34;&gt;SunDocs Recovering ALOM passwords&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;connect to serial console, remove power cords, wait a few seconds&lt;/li&gt;
+&lt;li&gt;plugin, press escape repeatedly until it drops to the &amp;ldquo;ALOM &lt;esc&gt; menu&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;e to erase ALOM NVRAM (will return everything to defaults)&lt;/li&gt;
+&lt;li&gt;r to return to boot process&lt;/li&gt;
+&lt;li&gt;machine will then reboot, drop into ALOM prompt as admin with no password&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;~ ~ ~&lt;/p&gt;
+
+&lt;p&gt;Some notes on how to reset the ALOM password on Solaris (done on a VT240).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ALOM&lt;/strong&gt; has sc&amp;gt; prompt. Get to OBP using &amp;ldquo;console -f&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;OBP&lt;/strong&gt; (Open Boot Prompt) has ok prompt. Get to ALOM using &amp;ldquo;#.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Power switch&lt;/strong&gt; has 4 positions: Normal (|), Locked (padlock), Diagnostics (wave), Forced Off (circle-bar). Ensure powerswitch is in Normal position.&lt;/p&gt;
+
+&lt;p&gt;Replace disks with disks from another system that has a known password, then boot. (Also, try a boot cd). At root prompt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;tt&gt;# cd /usr/platform/`uname -i`/sbin
+# ./scadm userpassword admin         (set to default ie sun123)
+# #.                                 (return to ALOM)
+sc&amp;gt;resetsc
+sc&amp;gt;poweroff -f&lt;/tt&gt;&lt;/pre&gt;
+
+&lt;p&gt;Remove power cords, return old hard disks, turn back on. These last steps aren&amp;rsquo;t necessary, but it&amp;rsquo;s good to check that the ALOM password has indeed been reset.&lt;/p&gt;
+
+&lt;p&gt;Some good links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.softpanorama.org/Solaris/Startup_and_shutdown/serial_console_on_solaris.shtml&#34;&gt;Softpanorama&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.sun.com/source/819-6672-10/common_tasks.html&#34;&gt;Sun Docs, Common ALOM Tasks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.tek-tips.com/viewthread.cfm?qid=1455772&amp;amp;page=1&#34;&gt;Tek-tips, reset V240 ALOM&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exiting from consoles attached to Solaris zones</title>
+      <link>http://blog2.snowfrog.net/2010/07/20/exiting-from-consoles-attached-to-solaris-zones/</link>
+      <pubDate>Tue, 20 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/07/20/exiting-from-consoles-attached-to-solaris-zones/</guid>
+      <description>&lt;p&gt;When creating a new Solaris zone, one of the steps involves connecting to the zone&amp;rsquo;s console for the initial configuration:&lt;/p&gt;
+
+&lt;pre&gt;# zlogin -C examplezone
+&lt;/pre&gt;
+
+&lt;p&gt;The zone then runs through the &lt;strong&gt;sys-unconfig&lt;/strong&gt; script, asking questions about hostname, timezone, etc. When this is finished, the doco says to exit from the console using the &amp;ldquo;~.&amp;rdquo; combination. But of course ssh grabs the &amp;ldquo;~&amp;rdquo; escape character and kills the entire ssh connection &amp;ndash; aargghhh. Solution: different escape characters for the different ssh connections:&lt;/p&gt;
+
+&lt;pre&gt;% ssh windows -e @                       # jump host for Cisco vpn, @ escape character
+% ssh shamilton@1.2.3.4 -p 8022 -e %     # connect to HP-NA, % escape character
+NA&amp;gt;connect ts01                          # connect to terminal server
+ts01#telnet fubar.com                    # connect to console of target server - finally
+do stuff, then ~.                        # do stuff, then ~ escape character to exit zone console, to global zone
+&lt;/pre&gt;
+
+&lt;p&gt;See also:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://cisco.biz/en/US/tech/tk801/tk36/technologies_configuration_example09186a008014f8e7.shtml&#34;&gt;Cisco &amp;ndash; Configuring a Terminal/Comm Server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.informit.com/library/content.aspx?b=CCNP_Studies_Troubleshooting&amp;amp;seqNum=141&#34;&gt;informIT &amp;ndash; Configuring a Terminal Server&lt;/a&gt; &amp;ndash; especially the stuff about clearing lines (in addition to clearing sessions)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Solaris ps output truncated at 80 columns</title>
+      <link>http://blog2.snowfrog.net/2010/06/10/solaris-ps-output-truncated-at-80-columns/</link>
+      <pubDate>Thu, 10 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/06/10/solaris-ps-output-truncated-at-80-columns/</guid>
+      <description>&lt;p&gt;When running the ps command on Solaris, the output is truncated at 80 columns &amp;ndash; really annoying when the command line to start up a process (typically a daemon) is really long.&lt;/p&gt;
+
+&lt;p&gt;This has been annoying me for ages, and I finally found a (sort of) solution &amp;ndash; use a different ps, and run as root:&lt;/p&gt;
+
+&lt;pre&gt;# uname -a
+SunOS fubar 5.9 Generic_118558-24 sun4u sparc SUNW,UltraAX-i2
+
+# which ps
+/usr/bin/ps
+
+# /usr/ucb/ps auxwww 2&amp;gt; /dev/null | grep 22480
+root     22480  0.0  0.1 1896 1232 ?        S 10:22:11  0:00 ptymonitor --oob-fd 49 --stderr-mode MUX
+--pty --term screen --rows 47 --cols 177
+--termios 38400:38400:3.1C.7F.15.4.FF.FF.11.13.1A.100.12.17.16.100.100.100.F:B40:E3B:544505:8
+--ttlg --gid 0 --uid 0 --wait-time 60 bash --rcfile /home/fubar/deployment/bin/dotbashrc_install.sh
+&lt;/pre&gt;
+
+&lt;p&gt;This can also be made to work for non-root users by granting the account the proc_owner privilege. For example, for the user fred:&lt;/p&gt;
+
+&lt;pre&gt;/etc/security/prof_attr
+Process Query:::Query Processes as Root:
+
+/etc/security/exec_attr
+Process Query:suser:cmd:::/usr/ucb/ps:privs=proc_owner;uid=0;euid=0;gid=0;egid=0
+
+/etc/user_attr
+fred::::type=normal;profiles=Process Query
+
+passwd -e fred
+/usr/bin/pfksh
+
+cd ~fred
+echo &#34;export PS1=&#39;% &#39;&#34; &amp;gt;&amp;gt; .profile
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Solaris RBAC – creating limited accounts</title>
+      <link>http://blog2.snowfrog.net/2010/04/30/solaris-rbac-creating-limited-accounts/</link>
+      <pubDate>Fri, 30 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/04/30/solaris-rbac-creating-limited-accounts/</guid>
+      <description>&lt;p&gt;Solaris has a feature called &lt;a href=&#34;http://en.wikipedia.org/wiki/Role-based_access_control&#34;&gt;RBAC&lt;/a&gt;, that allows you to provide role-based security (I believe this is similar to &lt;a href=&#34;http://en.wikipedia.org/wiki/Selinux&#34;&gt;SELinux&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;All the documentation and examples I&amp;rsquo;ve seen explain how to setup up a role that allows a normal user to do a higher privileged command (eg manage log files, manage printers). But I haven&amp;rsquo;t been able to find an example of how to create a limited account, one that is &lt;em&gt;only&lt;/em&gt; allowed to run a fixed number of commands. Here&amp;rsquo;s how I did it:&lt;/p&gt;
+
+&lt;p&gt;(Solaris 10 &lt;sup&gt;10&lt;/sup&gt;&amp;frasl;&lt;sub&gt;09&lt;/sub&gt; s10x_u8wos_08a X86)&lt;/p&gt;
+
+&lt;p&gt;Create a user foo with a profile shell and Limited profile:&lt;/p&gt;
+
+&lt;pre&gt;/etc/passwd
+foo:x:101:1::/export/home/foo:/usr/bin/pfsh
+/etc/user_attr
+foo::::type=normal;profiles=Limited&lt;/pre&gt;
+
+&lt;p&gt;Create the Limited profile:&lt;/p&gt;
+
+&lt;pre&gt;/etc/security/prof_attr
+Limited:::Runner of limited commands:
+/etc/security/exec_attr
+Limited:suser:cmd:::/export/home/foo/bin/Address:uid=0&lt;/pre&gt;
+
+&lt;p&gt;Create an example script:&lt;/p&gt;
+
+&lt;pre&gt;/export/home/foo/bin/Address
+#!/bin/sh
+/usr/sbin/ifconfig -a&lt;/pre&gt;
+
+&lt;p&gt;Remove default auths and profile from all users. Note &amp;ndash; this is required so that the foo user doesn&amp;rsquo;t get the &amp;ldquo;Basic Solaris User&amp;rdquo; profile, which allows all user level binaries to be run. This however affects other accounts and services, and would require further testing:&lt;/p&gt;
+
+&lt;pre&gt;/etc/security/policy.conf
+# sonia AUTHS_GRANTED=solaris.device.cdrw
+# sonia PROFS_GRANTED=Basic Solaris User&lt;/pre&gt;
+
+&lt;p&gt;(As root), check auths and profile of foo user:&lt;/p&gt;
+
+&lt;pre&gt;# auths foo
+auths: foo : No authorizations
+# profiles foo
+ Limited
+# profiles -l foo
+ Limited:
+ /export/home/foo/bin/Address    uid=0&lt;/pre&gt;
+
+&lt;p&gt;As foo user, run Address command:&lt;/p&gt;
+
+&lt;pre&gt;# su foo
+# /export/home/foo/bin/Address
+lo0: &amp;lt;snip&amp;gt;     &amp;lt;=== works as required
+# ls
+ls: not found   &amp;lt;=== as expected - foo user is limited&lt;/pre&gt;
+
+&lt;p&gt;Create another user, test&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;if the shell is /usr/bin/bash &amp;ndash; doesn&amp;rsquo;t seem to cause problems. However, it may affect services &amp;ndash; testing would be required.&lt;/li&gt;
+&lt;li&gt;if the shell is /usr/bin/pfsh:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;# ls
+ls: not found   &amp;lt;=== ie other accounts with profile shells need a profile explicitly assigned&lt;/pre&gt;
+
+&lt;p&gt;If the default auths and profile &lt;em&gt;aren&amp;rsquo;t&lt;/em&gt; removed from all users, we get this &amp;ndash; foo user is allowed to run all user level binaries (the *):&lt;/p&gt;
+
+&lt;pre&gt;# auths foo
+solaris.device.cdrw,solaris.profmgr.read,solaris.jobs.users,solaris.mail.mailq,solaris.admin.usermgr.read,solaris.admin.logsvc.read,solaris.admin.fsmgr.read,solaris.admin.serialmgr.read,solaris.admin.diskmgr.read,solaris.admin.procmgr.user,solaris.compsys.read,solaris.admin.printer.read,solaris.admin.prodreg.read,solaris.admin.dcmgr.read,solaris.snmp.read,solaris.project.read,solaris.admin.patchmgr.read,solaris.network.hosts.read,solaris.admin.volmgr.read
+# profiles foo
+ Limited
+ Basic Solaris User
+ All
+# profiles -l foo
+ Limited:
+ /export/home/foo/bin/Address    uid=0
+ All:
+ *&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Serial Port Access on OSX to Cisco devices</title>
+      <link>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
+      <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
+      <description>&lt;p&gt;How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).&lt;/p&gt;
+
+&lt;p&gt;Googling, everyone says to use zterm, but I couldn&amp;rsquo;t get it to work (and zterm looks and feels like a toy).&lt;/p&gt;
+
+&lt;p&gt;This probably isn&amp;rsquo;t the &amp;ldquo;Mac way&amp;rdquo; of doing things, but &lt;/whatever&gt;.&lt;/p&gt;
+
+&lt;p&gt;Install &lt;a href=&#34;http://sourceforge.net/projects/osx-pl2303/&#34;&gt;PL2303 USB to Serial Driver for Mac OS X&lt;/a&gt;, restart :-(&lt;/p&gt;
+
+&lt;pre&gt;sudo port selfupdate
+sudo port upgrade outdated
+sudo port install minicom&lt;/pre&gt;
+
+&lt;p&gt;Work out tty of USB-Serial converter:&lt;/p&gt;
+
+&lt;pre&gt;ls /dev/tty* &amp;gt; pre&lt;/pre&gt;
+
+&lt;p&gt;Plug in USB-Serial converter.&lt;/p&gt;
+
+&lt;pre&gt;ls /dev/tty* &amp;gt; pst
+% diff pre pst
+3a4
+&amp;gt; /dev/tty.PL2303-00002006&lt;/pre&gt;
+
+&lt;p&gt;Link up to make life easier:&lt;/p&gt;
+
+&lt;pre&gt;cd /dev
+sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
+
+&lt;p&gt;Setup minicom, and use colour:&lt;/p&gt;
+
+&lt;pre&gt;sudo minicom -s -c on&lt;/pre&gt;
+
+&lt;p&gt;Setup defaults to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/dev/ttyusb (ctrl-A, O, Serial Port Setup)&lt;/li&gt;
+&lt;li&gt;8N1&lt;/li&gt;
+&lt;li&gt;9600&lt;/li&gt;
+&lt;li&gt;no hardware or software flow control&lt;/li&gt;
+&lt;li&gt;init string empty (so garbage doesn&amp;rsquo;t appear on screen when you connect) &amp;ndash; ctrl-A, O, Init string&lt;/li&gt;
+&lt;li&gt;save settings as default (ctrl-A, O, Save setup as dfl)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Always use colour:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add export MINICOM=&amp;ldquo;-c on&amp;rdquo; to shell rc file (~/.bashrc, .~/zshrc, etc)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Connect (sudo minicom), hit enter a few times, and you should be on the device.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Firewalling on Solaris 10</title>
+      <link>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</link>
+      <pubDate>Fri, 22 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</guid>
+      <description>&lt;p&gt;Firewalling on Solaris 10:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;config file: /etc/ipf/ipf.conf&lt;/li&gt;
+&lt;li&gt;flush all rules: ipf -Fa&lt;/li&gt;
+&lt;li&gt;reload: ipf -f /etc/ipf/ipf.conf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Email from Julian:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The native firewall that comes with Solaris is &amp;ldquo;ipf&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Configuration files are in the directory /etc/ipf and the file is &amp;ldquo;ipf.conf&amp;rdquo;, NAT rules in &amp;ldquo;ipnat.conf&amp;rdquo;. Unlike iptables, where the configuration file is a series of &amp;ldquo;iptable&amp;rdquo; commands, &amp;ldquo;ipf.conf&amp;rdquo; is purely a configuration file. Traffiic must be enabled on each interface, so you have &amp;ldquo;pass in&amp;rdquo; to allow traffic in on interface A and a &amp;ldquo;pass out&amp;rdquo; to allow traffic out on interface B, if it is acting as a firewall, obviously this is not.&lt;/p&gt;
+
+&lt;p&gt;As of Solaris 10, processes are started via service manager. To check if ipf is running, you can:&lt;/p&gt;
+
+&lt;p&gt;# svcs -a |grep ipf&lt;br /&gt;
+online May_05 svc:/network/ipfilter:default&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;online&amp;rdquo; status tells you that it is running.&lt;/p&gt;
+
+&lt;p&gt;Commands to see what is happening.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipfstat&amp;rdquo;: show statistics, bytes in, bytes out etc.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipfstat -i&amp;rdquo; to display input running rule set&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipfstat -o&amp;rdquo; to display output running rule set&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipf -f /etc/ipf/ipf.conf&amp;rdquo; to load rules from config file.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipmon -s [file]&amp;rdquo; to have ipf log to &amp;ldquo;file&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;To restart using service manager&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;svcadm restart svc:/network/ipfilter:default&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;See man page for &amp;ldquo;ipnat&amp;rdquo; for options to display NAT options.&lt;/p&gt;
+
+&lt;p&gt;Link from Rusty&amp;rsquo;s blog: &lt;a href=&#34;http://ozlabs.org/~rusty/index.cgi/2006/08/15&#34;&gt;http://ozlabs.org/~rusty/index.cgi/2006/08/15&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last word: Solaris&amp;rsquo;s version of tcpdump is &amp;ldquo;snoop&amp;rdquo;. So to monitor traffic: &amp;ldquo;snoop -d e1000g0 not port 22&amp;rdquo; you can add &amp;ldquo;-v&amp;rdquo; etc.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to configure central syslog’ing on Solaris</title>
+      <link>http://blog2.snowfrog.net/2008/10/07/how-to-configure-central-sysloging-on-solaris/</link>
+      <pubDate>Tue, 07 Oct 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/10/07/how-to-configure-central-sysloging-on-solaris/</guid>
+      <description>&lt;p&gt;Quick notes; &lt;a href=&#34;http://woss.name/2007/06/17/solaris-logging-to-a-separate-loghost-the-easy-way/&#34;&gt;see Solaris: Logging to a separate loghost, the easy way&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;edit /etc/inet/hosts, add in an alias for loghost eg &lt;strong&gt;1.2.3.4 loghost&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/etc/init.d/syslog restart&lt;/strong&gt; (Solaris 8), svcadm on later versions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Other useful links for &amp;lsquo;the Solaris way&amp;rsquo; (vs Linux):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://bhami.com/rosetta.html&#34;&gt;Rosetta Stone for Unix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.zagbot.com/solaris.html&#34;&gt;Some Solaris Knowledge&lt;/a&gt; (thanks Lindsay)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

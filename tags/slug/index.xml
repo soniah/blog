@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slug on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/slug/</link>
+    <description>Recent content in Slug on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 06 Jul 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/slug/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Clustering setup</title>
+      <link>http://blog2.snowfrog.net/2011/07/06/clustering-setup/</link>
+      <pubDate>Wed, 06 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/07/06/clustering-setup/</guid>
+      <description>&lt;p&gt;A nice &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2011/06/msg00014.html&#34;&gt;post&lt;/a&gt; from Jake on the SLUG list where he asks about a small clustering setup:&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&#39;m setting up some new hardware for a client of mine. Basically 2 new &lt;a href=&#34;http://www.dell.com/au/business/p/poweredge-r210-2/pd&#34;&gt;Dell PowerEdge R210 IIs&lt;/a&gt; -- nice and small and they seem quiet enough for an office (unlike the original R210). Anyway, quad core xeon, 2x 1Tb 7200RPM drives, 8gb ram (~$1500 each btw). The machines will be used as VM hosts (&lt;a href=&#34;http://www.linux-kvm.org/page/Main_Page&#34;&gt;kvm&lt;/a&gt;) for a handfull of guests, file/domain server (&lt;a href=&#34;http://www.zentyal.org/&#34;&gt;ebox&lt;/a&gt;), PBX (&lt;a href=&#34;http://pbxinaflash.net/&#34;&gt;piaf&lt;/a&gt;), mail server web server, &#34;magic windows only application&#34; server etc. As the guests run everything in the ofice some kind of HA is needed.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&#39;m thinking &lt;a href=&#34;http://code.google.com/p/ganeti/&#34;&gt;ganeti&lt;/a&gt; is the way to manage it all as it takes care of &lt;a href=&#34;http://www.drbd.org/&#34;&gt;DRBD&lt;/a&gt; and failover giving me a nice HA-ish setup without too much work.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  The questions. How should I setup my disks?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I&#39;m tossing up between, (all the below assume a small raid 1 partition for /, this is for the storage pool) RAID 1 with mdadm giving me 1 disk read speed but the ability to read 2 streams. RAID 1 with mdadm and fancyness giving me 2x read speed for a single stream, but normal behaviour for multiple streams and 1x write.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  RAID 0 with mdadm 2x read, 2x write and trust DRBD to look after my data ;-&gt;
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  no RAID, set up as 2 separate drives use DRBD to look after data and get &#34;more spindles&#34; into the mix (so say file server lives on one disk and mail server on another)
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  What deb based distro should I use for my host (or present a *really* compelling argument for something else)? I would use ubuntu as i&#39;m most familiar with it but the recent debacle with unity has really hurt my confidence with them.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Should i go to debian and if so which version?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Networking&lt;br /&gt; each server has 2 gbit ports on it.&lt;br /&gt; should I&lt;br /&gt; team the nics, then run a vlan for drbd and another for regular coms&lt;br /&gt; dedicated nic for drbd and one for general coms.
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  Any other suggestions or gotchas to look out for?
+&lt;/p&gt;
+
+&lt;p style=&#34;padding-left:30px;&#34;&gt;
+  I have my own answers to these questions, but I&#39;d really like to hear any advice from the crowd (its like &#34;the cloud&#34; but open source and P2P ;-&gt;)
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python, Lambda, Closures</title>
+      <link>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</link>
+      <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</guid>
+      <description>&lt;p&gt;A very interesting &lt;a href=&#34;http://algorithm.com.au/blog/files/immutability-blocks-lambdas-closures.php#unique-entry-id-613&#34;&gt;post&lt;/a&gt; from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&amp;rsquo;m playing with Lisp and Python at the moment.&lt;/p&gt;
+
+&lt;p&gt;Some links from his blog, in case the original post ever disappears:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;http://stackoverflow.com/questions/938429/scope-of-python-lambda-functions-and-their-parameters&#34;&gt;question and responses&lt;/a&gt; on stackoverflow&lt;/li&gt;
+&lt;li&gt;an &lt;a href=&#34;http://mail.python.org/pipermail/python-dev/2005-September/056669.html&#34;&gt;example&lt;/a&gt; of the perils of Python&amp;rsquo;s scoping rules with for/while/if&lt;/li&gt;
+&lt;li&gt;Wikipedia &amp;ndash; &lt;a href=&#34;http://en.wikipedia.org/wiki/Closure_%28computer_science%29#Differences_in_semantics&#34;&gt;differences in semantics of closures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A nice snippet of code to remind me of the issues:&lt;/p&gt;
+
+&lt;pre&gt;def callback(msg):
+    print msg
+funcList=[]
+for m in (&#39;do&#39;, &#39;re&#39;, &#39;mi&#39;):
+    # funcList.append(lambda: callback(m))
+    funcList.append(lambda m=m: callback(m))
+for f in funcList:
+    f()&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HowTo Search SLUG Archives</title>
+      <link>http://blog2.snowfrog.net/2007/08/19/howto-search-slug-archives/</link>
+      <pubDate>Sun, 19 Aug 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/08/19/howto-search-slug-archives/</guid>
+      <description>&lt;p&gt;HowTo Search SLUG Archives&lt;/p&gt;
+
+&lt;p&gt;Google search:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;foo site:http://lists.slug.org.au/archives/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks to Rick, SLUG list.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

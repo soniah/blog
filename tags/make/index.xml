@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Make on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/make/</link>
+    <description>Recent content in Make on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 18 Jun 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Golang - building with Makefile and Jenkins</title>
+      <link>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</link>
+      <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins.&lt;/p&gt;
+
+&lt;p&gt;I was unfamiliar with Jenkins, and there didn&amp;rsquo;t seem to be any documentation around on how to build Go executables.&lt;/p&gt;
+
+&lt;h3 id=&#34;project-structure:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Project Structure&lt;/h3&gt;
+
+&lt;p&gt;First of all an aside on project structure. For my first project I had a &lt;strong&gt;GOPATH&lt;/strong&gt; of &lt;strong&gt;~/go&lt;/strong&gt; and the following directory structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/go
+  |--bin
+  |--pkg
+  |--src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But as I wrote more Go projects, it made more sense to separate each project into it&amp;rsquo;s own directory structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/go
+  |--project1
+    |--bin
+    |--pkg
+    |--src
+  |--project2
+    |--bin
+    |--pkg
+    |--src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this directory structure I set &lt;strong&gt;GOPATH&lt;/strong&gt; on the command line or in a Makefile:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~go/project2/src/github.com/soniah/gosnmp
+% &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~go/project2 go build
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;makefile:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Makefile&lt;/h3&gt;
+
+&lt;p&gt;For smaller projects you can just produce a binary using &lt;strong&gt;go run&lt;/strong&gt; or &lt;strong&gt;go build&lt;/strong&gt;. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/lib/go
+GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /var/lib/jenkins/workspace/go/project2
+
+myhostname :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;shell hostname&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt;
+ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, laptop&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/sonia/go/project2
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, testmachine&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/u1234/go/project2
+    GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/local/go
+endif
+
+build: build-stamp
+build-stamp: file1.go file2.go file3.go
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# always format code&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go fmt &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# binary&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go build -o project2 -v &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# docs&lt;/span&gt;
+    markdown README.mkd &amp;gt; README.html
+    help2man --no-info --include&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;help2man.roff --name &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Project2&amp;quot;&lt;/span&gt; ./project2 &amp;gt; project2.roff
+    man -Tps -l project2.roff &amp;gt; project2-man.ps
+    ps2pdf project2-man.ps project2-man.pdf
+    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# mark as done&lt;/span&gt;
+    touch &lt;span style=&#34;color: #40ffff&#34;&gt;$@&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;jenkins:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Jenkins&lt;/h3&gt;
+
+&lt;p&gt;With a working Makefile, building under Jenkins will now be easier. The objective is to have Jenkins automatically build a new binary/package whenever a developer pushes to one of the git/mercurial/bzr repos that makeup the various components of your project.&lt;/p&gt;
+
+&lt;p&gt;However if your project contains multiple components, you&amp;rsquo;ll soon come across a problem. For example Project2 was using &lt;strong&gt;github.com/droundy/goopt&lt;/strong&gt; and &lt;strong&gt;github.com/mattn/go-sqlite3&lt;/strong&gt;. To see the problem, create a New Job using &lt;strong&gt;Build a free-style software project&lt;/strong&gt;. Under &lt;strong&gt;Source Code Management&lt;/strong&gt;, choose something like &lt;strong&gt;Git&lt;/strong&gt;. Under the second Advanced button, you&amp;rsquo;ll need to change the option &lt;strong&gt;Local subdirectory for repo (optional)&lt;/strong&gt; to point to the path of a component&amp;rsquo;s repo. &lt;strong&gt;But&lt;/strong&gt; this setting is a global setting for all git repos - so the build won&amp;rsquo;t work as you add a second and third component.&lt;/p&gt;
+
+&lt;p&gt;The solution is to install to Jenkins the &lt;a href=&#34;http://wiki.jenkins-ci.org/display/JENKINS/Multiple+SCMs+Plugin&#34;&gt;Multiple SCMs Plugin&lt;/a&gt;. Then in your Jenkins Job you&amp;rsquo;ll be able to set the local subdirectory for each component. For example in Project2:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the &lt;strong&gt;goopt&lt;/strong&gt; local subdirectory was set to &lt;strong&gt;project2/src/github.com/droundy/goopt&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the &lt;strong&gt;go-sqlite3&lt;/strong&gt; local subdirectory was set to &lt;strong&gt;project2/src/github.com/mattn/go-sqlite3&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;other-jenkins-settings:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Other Jenkins  Settings&lt;/h3&gt;
+
+&lt;p&gt;Here are some other useful setting for building Go projects on Jenkins:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;if you&amp;rsquo;re building 32 and 64 bit binaries (on different build servers), use the setting &lt;strong&gt;Restrict where this project can be run&lt;/strong&gt; with something like &amp;ldquo;32bit&amp;amp;&amp;amp;precise&amp;amp;&amp;amp;ubuntu&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;separate out your Go code from other languages - &lt;strong&gt;Advanced Project Options&lt;/strong&gt;, &lt;strong&gt;Use custom workspace&lt;/strong&gt;, &amp;ldquo;/var/lib/jenkins/workspace/go&amp;rdquo;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

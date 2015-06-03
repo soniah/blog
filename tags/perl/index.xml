@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Perl on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/perl/</link>
+    <description>Recent content in Perl on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 12 Feb 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/perl/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>refactoring in Go - rather pleasant actually...</title>
+      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
+
+&lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
+a scripting language (Python, Perl, Ruby, etc). My process is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;type &lt;strong&gt;:make&lt;/strong&gt; in vim (I have a dummy Makefile in my Go project just for vim)&lt;/li&gt;
+&lt;li&gt;vim jumps cursor to error (&lt;a href=&#34;http://vimdoc.sourceforge.net/htmldoc/quickfix.html&#34;&gt;vim quickfix list&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;oh, I shouldn&amp;rsquo;t do that&amp;rdquo; - fix (type type type)&lt;/li&gt;
+&lt;li&gt;start again&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finish rather sooner than expected, run tests, smile in knowledge program is working &lt;em&gt;properly&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To quickly setup the &lt;strong&gt;make&lt;/strong&gt; command for Go, type this in a Vim window:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:setlocal makeprg=go\ build\ \.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or even better configure vim via your ~/.vimrc, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;autocmd BufRead *_test.go setlocal makeprg=go\ test\ \.
+autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thanks Martin for the comment!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Perl - debug fork() with no X</title>
+      <link>http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/</link>
+      <pubDate>Fri, 03 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s how to debug a Perl program that&amp;rsquo;s running remotely on a server that doesn&amp;rsquo;t have X. It&amp;rsquo;s pretty simple, these are just notes for me&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;ve ssh&amp;rsquo;d into a remote server (headless), to debug a perl script that forks:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$SIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;{CHLD}&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;sub &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;my&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$nino&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;waitpid&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;WNOHANG);&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;last&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$nino&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$?&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;ERROR: Child process $nino exited with $?&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;$children&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;--;&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# let&amp;#39;s fork!&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;my&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$pid&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;fork&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;();&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;defined&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$pid&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;log&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;ERROR: fork(): resources not available&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;elsif&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$pid&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# parent&lt;/span&gt;
+  &lt;span style=&#34;color: #40ffff&#34;&gt;$children&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;++;&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# child&lt;/span&gt;
+  &lt;span style=&#34;color: #40ffff&#34;&gt;$SIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;{CHLD}&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$SIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;{TERM}&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$SIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;{INT}&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;DEFAULT&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;do_stuff(&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$arg1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$arg2&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color: #24909d&#34;&gt;exit&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;But when you start debugging, you get output like this (which tells you what to do):&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;######### Forked, but do not know how to create a new TTY. #########&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;Since&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;two&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;debuggers&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;fight&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;same&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;TTY,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;severely&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;entangled.&lt;/span&gt;
+
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;I&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;know&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;how&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;to&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;switch&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;output&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;to&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;different&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;window&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;xterms,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;OS/&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;consoles,&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;and&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;Mac&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;OS&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;X&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;Terminal.app&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;only.&lt;/span&gt;  &lt;span style=&#34;color: #d0d0d0&#34;&gt;For&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;manual&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;switch,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;put&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;name&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;of&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;created&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;TTY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$&lt;/span&gt;&lt;span style=&#34;color: #447fcf; text-decoration: underline&#34;&gt;DB::&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;fork_TTY&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;or&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;define&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;function&lt;/span&gt;
+  &lt;span style=&#34;color: #447fcf; text-decoration: underline&#34;&gt;DB::&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;get_fork_TTY()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;returning&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;this.&lt;/span&gt;
+
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;On&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;UNIX-like&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;systems&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;one&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;can&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;get&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;of&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;TTY&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;given&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;window&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;by&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;typing&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;tty,&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;and&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;disconnect&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;shell&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;TTY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;by&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;sleep&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1000000&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The easiest solution is to install a minimal X on the target server, then reconnect via ssh, check your DISPLAY variable, then start up the debugger in xterm.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;server% sudo aptitude install xinit xterm
+
+client% ssh -X server                &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# reconnect, to setup DISPLAY&lt;/span&gt;
+
+server% env &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep -i disp
+&lt;span style=&#34;color: #40ffff&#34;&gt;DISPLAY&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;localhost:11.0               &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# DISPLAY is good&lt;/span&gt;
+
+server% xterm &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;                      &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# an xterm should display locally&lt;/span&gt;
+
+server% perl -d foo.pl               &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# start debugging&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;After forking, one or more additional xterms will display for each child, allowing you to debug.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lisp and Python</title>
+      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
+
+&lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
+
+&lt;p&gt;I came across this fun looking book that inspired me &amp;ndash; &lt;a href=&#34;http://landoflisp.com/&#34;&gt;Land of Lisp&lt;/a&gt; &amp;ndash; I started reading it in Dymocks and couldn&amp;rsquo;t put it down. But years ago I&amp;rsquo;d read Paul Graham&amp;rsquo;s &lt;a href=&#34;http://www.paulgraham.com/avg.html&#34;&gt;blog&lt;/a&gt; and recently Joel Spolsky on &lt;a href=&#34;http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html&#34;&gt;The Perils of Java Schools&lt;/a&gt;. I was really surprised to learn that university Computer Science departments have stopped teaching pointers and recursion because they teach Java or .NET. I remember the joy :twisted: in 2nd year Comp Sci of watching half the class being weeded out by Data Structures, then another half being weeded out the following semester by Functional Programming.&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s a post by Peter Christensen on &lt;a href=&#34;http://www.pchristensen.com/blog/lisp-companies/&#34;&gt;who uses Lisp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Oh yeh, I&amp;rsquo;m also learning Python &amp;ndash; it seems the sanest general purpose scripting language around. Ruby is great and I love it, but it&amp;rsquo;s often not available (try telling Bank X or Phone Company Y that you&amp;rsquo;re going to install Ruby on several hundred of their production Solaris servers, see what sort of reaction you get). And Perl is unmaintainable line noise and shell scripts are tedious.&lt;/p&gt;
+
+&lt;p&gt;What kicked this all off? This great SlashDot post on why Expensify &lt;a href=&#34;http://blog.expensify.com/2011/03/25/ceo-friday-why-we-dont-hire-net-programmers/&#34;&gt;doesn&amp;rsquo;t hire .NET programmers&lt;/a&gt; :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-943&#34; title=&#34;stroustrup&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;352&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PS I like Paul Graham&amp;rsquo;s &lt;a href=&#34;http://twitter.com/paulg/status/28864657734&#34;&gt;Tweet&lt;/a&gt; on the book: &amp;ldquo;Turns out the border between genius and insanity is a pretty cheery place&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Source keychain credentials in Perl</title>
+      <link>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</link>
+      <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
+      <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://blog.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mail-archive.com/centos@centos.org/msg12887.html&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; how to use keychain with Perl scripts:&lt;/p&gt;
+
+&lt;pre&gt;Create a wrapper script:
+source ~/.keychain/hostname-sh
+run_perl_program.pl&lt;/pre&gt;
+
+&lt;p&gt;To run a one-off command do:&lt;/p&gt;
+
+&lt;pre&gt;system(&#34;source ~/.keychain/hostname-sh; cmd&#34;);&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Perl – @INC</title>
+      <link>http://blog2.snowfrog.net/2009/06/02/perl-inc/</link>
+      <pubDate>Mon, 01 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/06/02/perl-inc/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;@INC&lt;/strong&gt; &amp;ndash; like $PATH for &lt;strong&gt;do&lt;/strong&gt;, &lt;strong&gt;require&lt;/strong&gt;, &lt;strong&gt;use&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Display existing @INC:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;perl -V | tail&lt;/li&gt;
+&lt;li&gt;perl -le &amp;lsquo;print for @INC&amp;rsquo;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Modify @INC:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;in a script: unshift &lt;strong&gt;@INC&lt;/strong&gt;, &amp;ldquo;/home/sonia/lib/perl&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;better: &lt;a href=&#34;http://perldoc.perl.org/lib.html&#34;&gt;&lt;strong&gt;use lib&lt;/strong&gt;&lt;/a&gt; &amp;lsquo;/home/sonia/lib/perl/&amp;rsquo;;&lt;/li&gt;
+&lt;li&gt;for shell: export &lt;strong&gt;PERL5LIB&lt;/strong&gt;=/home/sonia/lib/perl&lt;/li&gt;
+&lt;li&gt;onetime at command line: perl** -I**/home/sonia/lib/perl foo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Also:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;perldoc perlrun&lt;/li&gt;
+&lt;li&gt;perldoc lib&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://oreilly.com/catalog/9780596102067/&#34;&gt;Intermediate Perl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Perl – my, use vars, our, local, use strict</title>
+      <link>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</link>
+      <pubDate>Fri, 22 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</guid>
+      <description>&lt;p&gt;Some notes for me as I attempt to get a better understanding of Perl&amp;rsquo;s variable scoping rules. A work in progress.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Perl has 2 separate &amp;lsquo;namespaces&amp;rsquo; for variables &amp;ndash; &lt;strong&gt;package&lt;/strong&gt; aka global (Perl 4) and &lt;strong&gt;my&lt;/strong&gt; aka private aka &lt;strong&gt;lexical scoping&lt;/strong&gt; (Perl 5)&lt;/li&gt;
+&lt;li&gt;the default package is &lt;strong&gt;main&lt;/strong&gt;, this can be changed with the statement &lt;strong&gt;package foo;&lt;/strong&gt; which then applies to all subsequent code until another package statement is encountered&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lexical scoping&lt;/strong&gt; is done with {} (either via subroutines/operators or &amp;lsquo;naked blocks&amp;rsquo;); the top level is the file itself (&amp;lsquo;file level&amp;rsquo;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;use strict&lt;/strong&gt;&lt;strong&gt;; **(specifically **use strict &amp;lsquo;vars&amp;rsquo;;&lt;/strong&gt;) requires that variables either use a package qualifier (eg $main::foo) if they&amp;rsquo;re package variables or be lexical variables declared with &lt;strong&gt;my&lt;/strong&gt;. You can get around this extra typing for package variables with &lt;strong&gt;use vars&lt;/strong&gt; (or &lt;strong&gt;no strict &amp;lsquo;vars&amp;rsquo;&lt;/strong&gt; for a block)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;our($foo,$bar)&lt;/strong&gt; is like &lt;strong&gt;use vars qw($foo $bar)&lt;/strong&gt;, however it&amp;rsquo;s lexical ie can be restricted by {}&amp;rsquo;s (an equivalent &lt;span style=&#34;text-decoration:line-through;&#34;&gt;&lt;strong&gt;no use vars&lt;/strong&gt;&lt;/span&gt; doesn&amp;rsquo;t exist). Looked at it another way, &lt;strong&gt;our&lt;/strong&gt; &amp;lsquo;spans&amp;rsquo; package declarations (as it&amp;rsquo;s lexical) whereas &lt;strong&gt;use vars&lt;/strong&gt; is &amp;lsquo;reset&amp;rsquo; by package declarations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Also:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;dynamic scoping&lt;/strong&gt; is done with &lt;strong&gt;local&lt;/strong&gt; &amp;ndash; see &lt;a href=&#34;http://en.wikipedia.org/wiki/Scope_(programming)#Dynamic_scoping&#34;&gt;Wikipedia &amp;ndash; Scope (programming)&lt;/a&gt;. &lt;strong&gt;Lexical scoping&lt;/strong&gt; is the norm in modern programming languages, dynamic scoping is a Lisp&amp;rsquo;y idea that uses a sort of stack for variable scope resolution, that can only be determined at runtime.  *When to use local? Rarely. *&lt;a href=&#34;http://perl.plover.com/local.html&#34;&gt;Seven Useful Uses of local&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;local&lt;/strong&gt; only works with package variables not lexical/my variables; an example of where local can be useful is to temporarily change a &lt;em&gt;Global Special Variable&lt;/em&gt; (eg $) $EFFECTIVE_GROUP_ID) before calling a subroutine: &amp;ldquo;local saves away the value of a package global and substitutes a new value for all code within and &lt;em&gt;called from&lt;/em&gt; the block in which the local declaration is made&amp;rdquo; eg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;{
+    local $) = getgrnam(USER) if $&amp;lt; == 0;
+    enable($host);
+}&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;do C-style &lt;em&gt;static&lt;/em&gt; variables in this manner:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;{ my $seed = 1;
+          sub my_rand {
+            $seed = int(($seed * 1103515245 + 12345) / 65536) % 32768;
+            return $seed;
+          }
+        }&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;xx&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Some Links:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://perl.plover.com/FAQs/Namespaces.html&#34;&gt;Coping with Scoping&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.perlmonks.org/?node_id=66677&#34;&gt;Perl Monks -Variable Scoping in Perl: the basics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Perl – use, require, import, and do</title>
+      <link>http://blog2.snowfrog.net/2009/05/09/perl-use-require-import-and-do/</link>
+      <pubDate>Sat, 09 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/05/09/perl-use-require-import-and-do/</guid>
+      <description>&lt;p&gt;Some notes on Perl&amp;rsquo;s &lt;em&gt;use, require, import&lt;/em&gt; and *do. *Quick notes for me; not meant to be authoritative.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;use&lt;/strong&gt; is done at &amp;lsquo;compile-time&amp;rsquo; and &lt;strong&gt;require&lt;/strong&gt; is done at &amp;lsquo;run-time&amp;rsquo; (ie can conditionally load modules)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;require&lt;/strong&gt; is the older method, but &lt;strong&gt;use&lt;/strong&gt; uses require to do it&amp;rsquo;s work:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&#34;brush: perl; title: ; notranslate&#34; title=&#34;&#34;&gt;use Foo;
+# equivalent to:
+require Foo; Foo-&amp;gt;import();
+
+use Foo qw (foo bar);
+# equivalent to:
+require Foo; Foo-&amp;gt;import(qw(foo bar));
+
+use Foo();
+# equivalent to:
+require Foo;
+# ie don&#39;t import anything, not even the default things
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a &lt;strong&gt;Library&lt;/strong&gt; is a just a file of code; a &lt;strong&gt;Module&lt;/strong&gt; has &lt;strong&gt;package Foo&lt;/strong&gt; in it (and usually other stuff)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;use&lt;/strong&gt; only works with modules, whereas &lt;strong&gt;require&lt;/strong&gt; works with both modules and libraries. Corollary: &lt;strong&gt;use&lt;/strong&gt; only works with module names (Foo), whereas &lt;strong&gt;require&lt;/strong&gt; also works with paths (eg ~/lib/foo.pm)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;require Foo&lt;/strong&gt; will check if Foo has already been loaded, whereas **do Foo **will unconditionally reload Foo&lt;/li&gt;
+&lt;li&gt;better practice is to write &lt;strong&gt;module&lt;/strong&gt;s rather than &lt;strong&gt;library&lt;/strong&gt;s, to prevent namespace pollution. A simple module:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&#34;brush: perl; title: ; notranslate&#34; title=&#34;&#34;&gt;package Foo;                   # minimal. Usually add things like:
+use base qw (Exporter);
+our @EXPORT = qw(qux slarken); # keep this list small - namespace pollution
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to use this module:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class=&#34;brush: perl; title: ; notranslate&#34; title=&#34;&#34;&gt;use lib &#39;~/lib&#39;;    # add this to %INC
+use Foo;            # loads module, imports symbols in @EXPORT
+Foo-&amp;gt;bar();         # correct
+Foo::bar();         # works, but not for inherited methods
+qux();              # works, due to export
+bar();              # carks
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Some links:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.netalive.org/tinkering/serious-perl/&#34;&gt;netalive.org &amp;ndash; Writing Serious Perl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.stonehenge.com/merlyn/PerlJournal/col13.html&#34;&gt;Randal L. Schwartz &amp;ndash; Hey use guys! import this!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.perl.com/pub/a/2002/05/14/mod_perl.html?page=3&#34;&gt;perl.com &amp;ndash; The Perl You Need To Know &amp;ndash; Part 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hype-free.blogspot.com/2008/05/difference-between-use-and-require-in.html&#34;&gt;hype-free &amp;ndash; The difference between use and require in Perl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://perldoc.perl.org/functions/use.html&#34;&gt;perldoc &amp;ndash; use&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docstore.mik.ua/orelly/perl/cookbook/ch12_01.htm&#34;&gt;Perl Cookbook &amp;ndash; Packages, Libraries and Modules&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim modelines</title>
+      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
+
+&lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Some typical modelines for copying and pasting:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Go&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;//
+// vim: tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab tw=72
+// run &#39;go fmt&#39; before checking in your code!
+//&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Text files&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim:tw=75
+# vim:textwidth=75&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell/Bash&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sw=2 et sts=2 ft=sh
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=sh&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sts=2 et sw=2 ft=ruby
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=ruby&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=python
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=python&lt;/pre&gt;
+
+&lt;p&gt;Or when using vi (eg on Solaris) INVESTIGATE FURTHER:&lt;/p&gt;
+
+&lt;pre&gt;:set sw=4&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Perl&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=perl
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=perl&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LISP/Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;; vim: ft=lisp&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing CPAN as non-root</title>
+      <link>http://blog2.snowfrog.net/2008/03/28/installing-cpan-as-non-root/</link>
+      <pubDate>Fri, 28 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/03/28/installing-cpan-as-non-root/</guid>
+      <description>&lt;p&gt;(todo &amp;ndash; test/verify/summarize these links:)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cpan.org/modules/by-module/LWP/&#34;&gt;http://www.cpan.org/modules/by-module/LWP/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;general articles from &lt;a href=&#34;http://sial.org/howto/perl/life-with-cpan/&#34;&gt;http://sial.org/howto/perl/life-with-cpan/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://linuxgazette.net/139/okopnik.html&#34;&gt;http://linuxgazette.net/139/okopnik.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://theoryx5.uwinnipeg.ca/CPAN/perl/lib/CPAN.html#faq&#34;&gt;http://theoryx5.uwinnipeg.ca/CPAN/perl/lib/CPAN.html#faq&lt;/a&gt; &amp;ndash; question 5&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>expect notes</title>
+      <link>http://blog2.snowfrog.net/2007/11/14/expect-notes/</link>
+      <pubDate>Thu, 15 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/14/expect-notes/</guid>
+      <description>&lt;p&gt;(draft)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://expect.nist.gov/&#34;&gt;Expect Language&lt;/a&gt;, &lt;a href=&#34;http://&#34;&gt;Expect Book&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;set timeout x (in seconds)&lt;/li&gt;
+&lt;li&gt;spawn&lt;/li&gt;
+&lt;li&gt;expect&lt;/li&gt;
+&lt;li&gt;send&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Example of Using with Perl and &lt;a href=&#34;http://search.cpan.org/~rgiersig/Expect-1.21/Expect.pod&#34;&gt;Expect.pm&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;#!/usr/bin/perl -w&amp;lt;br /&amp;gt;
+use Expect;&amp;lt;br /&amp;gt;
+my %accounts = (&#39;user&#39; =&amp;gt; &#39;secret&#39; );&amp;lt;br /&amp;gt;
+foreach my $key (sort keys %accounts ) {&amp;lt;br /&amp;gt;
+my $password = $accounts{$key};&amp;lt;br /&amp;gt;
+my $exp = Expect-&amp;gt;spawn(&#39;ssh root@host.foo.bar&#39;);&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2,[ qr/mailer/i, sub {     my $self = shift; $self-&amp;gt;send(&amp;quot;adduser $keyn&amp;quot;); }] );&amp;lt;br /&amp;gt;
+$exp-&amp;gt;send(&amp;quot;passwd $keyn&amp;quot;);&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2, [ qr/password:/i, sub { my $self = shift; $self-&amp;gt;send(&amp;quot;$passwordn&amp;quot;); }] );&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2, [ qr/password:/i, sub { my $self = shift; $self-&amp;gt;send(&amp;quot;$passwordn&amp;quot;); }] );&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2, [ qr/bar/i ] ); $exp-&amp;gt;hard_close();&amp;lt;br /&amp;gt;
+}&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Actions &amp;ndash; Pattern-Command Pairs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Patterns can be directly associated with Commands &amp;ndash; &amp;ldquo;Actions&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;expect {&amp;lt;br /&amp;gt;
+eof {break}&amp;lt;br /&amp;gt;
+timeout {exit}&amp;lt;br /&amp;gt;
+&amp;quot;fred&amp;quot; {send &amp;quot;flintstoner&amp;quot;}&amp;lt;br /&amp;gt;
+&amp;quot;denied&amp;quot; {close}&amp;lt;br /&amp;gt;
+&amp;quot;\? &amp;quot; {interact +}&amp;lt;br /&amp;gt;
+}&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;interact&lt;/em&gt; &amp;ndash; returns the keyboard to the user &amp;ndash; in the above example typing the + key then returns to expect&lt;/li&gt;
+&lt;li&gt;be aware of r vs n &amp;ndash; use r with send, use rn when looking for an end-of-line in patterns&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;eof&lt;/em&gt; &amp;ndash; spawned program exits&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;timeout&lt;/em&gt; &amp;ndash; spawned program doesn&amp;rsquo;t respond within time&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;default&lt;/em&gt; = eof + timeout&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; &amp;ndash; close spawned program: do when you don&amp;rsquo;t want to wait for spawned program to eof and you want to do more in the script&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

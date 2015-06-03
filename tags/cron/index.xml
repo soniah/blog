@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cron on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/cron/</link>
+    <description>Recent content in Cron on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/cron/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Solaris – max of 100 cron jobs</title>
+      <link>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</link>
+      <pubDate>Mon, 09 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</guid>
+      <description>&lt;p&gt;I stumbled across a &lt;s&gt;limitation&lt;/s&gt; &lt;s&gt;feature&lt;/s&gt; behaviour of Solaris over the weekend &amp;ndash; by default it only allows you to run a maximum of 100 cron jobs at once. I suppose this to protect against &amp;ldquo;shooting oneself in the head&amp;rdquo;, but aaaarghhh. Reminds me why I love Monday mornings.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the file to edit is &lt;strong&gt;/etc/cron.d/queuedefs&lt;/strong&gt;, see &lt;strong&gt;man queuedefs&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&#34;//solaristipsandtricks.blogspot.com/2010/05/solaris-10-cron-and-maxrun.html&#34;&gt;Solaris Tips&lt;/a&gt; for pointing me in the right direction.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Source keychain credentials in Perl</title>
+      <link>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</link>
+      <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
+      <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://blog.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mail-archive.com/centos@centos.org/msg12887.html&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; how to use keychain with Perl scripts:&lt;/p&gt;
+
+&lt;pre&gt;Create a wrapper script:
+source ~/.keychain/hostname-sh
+run_perl_program.pl&lt;/pre&gt;
+
+&lt;p&gt;To run a one-off command do:&lt;/p&gt;
+
+&lt;pre&gt;system(&#34;source ~/.keychain/hostname-sh; cmd&#34;);&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh, ssh-agent, keychain and cron notes</title>
+      <link>http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</link>
+      <pubDate>Fri, 16 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To setup &lt;strong&gt;ssh&lt;/strong&gt; and &lt;strong&gt;keychain&lt;/strong&gt; to allow ssh related jobs to run from cron:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;generate keys &lt;em&gt;with a password&lt;/em&gt; (&lt;strong&gt;ssh-keygen -t dsa&lt;/strong&gt;) and install keychain. Do only on &lt;em&gt;secure machines&lt;/em&gt; ie ones that only you (or a small number of trusted admins) can logon to as root &amp;ndash; typically your laptop/desktop and a secure admin server&lt;/li&gt;
+&lt;li&gt;add the following lines to your &lt;strong&gt;~/.profile&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;some sites say &lt;strong&gt;.bash_profile&lt;/strong&gt;, but I use .profile as I use both bash and zsh (don&amp;rsquo;t have both as then only .bash_profile will be read)&lt;/li&gt;
+&lt;li&gt;I check keychain is executable with -x as I have the same .profile on all machines (synced via a script)&lt;/li&gt;
+&lt;li&gt;I use rsa keys as I work with older ssh1 machines; dsa keys are preferable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;export HOSTNAME=`hostname` # HOSTNAME not set some machines&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;if [ -x /usr/bin/keychain -a -f $HOME/.keychain/${HOSTNAME}-sh ] ; then&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;/usr/bin/keychain $HOME/.ssh/id_rsa&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;source $HOME/.keychain/${HOSTNAME}-sh&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;fi&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;on machines where others are able to login as root (and hence possibly piggyback onto your private key), keychain should be started with &amp;ndash;clear in .profile and ssh-agent shouldn&amp;rsquo;t be run. Use &amp;ndash;nocolor on non-VT100 compat terminals&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;unless &lt;strong&gt;~/.hushlogin&lt;/strong&gt; exists, keychain will display a colourful message showing known keys being loaded on login:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Copyright 2002-2004 Gentoo Foundation; Distributed under the GPL&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;* Found existing ssh-agent (11703)&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;* Known ssh key: /home/shamilton/.ssh/id_rsa&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;any ssh-using scripts started from crontab on keychain&amp;rsquo;d machines should include the following lines at the start:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;source $HOME/.keychain/${HOSTNAME}-sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;[Off Topic] To manually load keys into ssh-agent, typically on admin servers or non-X machines when not using keychain:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;eval `ssh-agent`&lt;/li&gt;
+&lt;li&gt;ssh-add&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[Off Topic] When ssh&amp;rsquo;ing between multiple machines, &lt;strong&gt;ForwardAgent Yes&lt;/strong&gt; must be set in &lt;strong&gt;/etc/ssh/ssh_config&lt;/strong&gt;. Otherwise add to &lt;strong&gt;~/.ssh/config&lt;/strong&gt; or startup ssh as &lt;strong&gt;ssh -A&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;See also:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;gentoo homepage for &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ibm developer works series on &lt;a href=&#34;http://www.ibm.com/developerworks/library/l-keyc.html&#34;&gt;key management and keychain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;oceanpark on &lt;a href=&#34;http://oceanpark.com/notes/howto_ssh_keychain_public_key_authentication_forwarding.html&#34;&gt;passwordless connections&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;reflux on &lt;a href=&#34;http://rephlux.sourceforge.net/running.rephlux.php&#34;&gt;notes on keychain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;my &lt;a href=&#34;http://blog.snowfrog.net/2007/10/29/ssh-notes/&#34;&gt;ssh-notes&lt;/a&gt; on tunnelling&lt;/li&gt;
+&lt;li&gt;Troy Johnson&amp;rsquo;s notes on &lt;a href=&#34;http://troy.jdmz.net/rsync/index.html&#34;&gt;Using RSync and SSH: Keys, Validating and Automation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;sshpass &amp;ndash; &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;rsync + ssh keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

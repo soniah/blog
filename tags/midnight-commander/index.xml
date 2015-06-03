@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Midnight Commander on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/midnight-commander/</link>
+    <description>Recent content in Midnight Commander on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 27 Sep 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/midnight-commander/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Midnight Commandar mc notes</title>
+      <link>http://blog2.snowfrog.net/2011/09/27/midnight-commandar-mc-notes/</link>
+      <pubDate>Tue, 27 Sep 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/09/27/midnight-commandar-mc-notes/</guid>
+      <description>&lt;p&gt;Midnight Commander (mc) is mostly obvious, but there&amp;rsquo;s a few things I regularly forget and have to look up.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;to select (or &amp;ldquo;tag&amp;rdquo;) multiple items, use the &lt;strong&gt;Insert&lt;/strong&gt; key, or &lt;strong&gt;ctrl-t&lt;/strong&gt; (eg when on a Macbook)&lt;/li&gt;
+&lt;li&gt;use &lt;strong&gt;@&lt;/strong&gt; to do an operation on tagged files (or F2 menu, @). For example tag some files, reverse the selection (***** or F9, File, Reverse Selection), then @ &lt;strong&gt;git rm&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;any sort of compressed or package file (.deb, .tgz, .iso, .rpm, etc):
+
+&lt;ul&gt;
+&lt;li&gt;F3 (view) to get an overview of the package&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enter&lt;/strong&gt; to browse the package contents, then eg F3 to view the file or F5 to copy the file out&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;to jump back and forth to the command line (&amp;ldquo;subshell support&amp;rdquo;), use &lt;strong&gt;ctrl-o&lt;/strong&gt; to hide mc, then &lt;strong&gt;ctrl-o&lt;/strong&gt; to return from the subshell to mc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Taken from &lt;a href=&#34;http://www.trembath.co.za/mctutorial.html&#34;&gt;Jane Tembath&amp;rsquo;s MC Tutorial&lt;/a&gt;. See also the &lt;a href=&#34;https://www.midnight-commander.org/wiki/doc/faq&#34;&gt;mc faq&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

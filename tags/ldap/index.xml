@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ldap on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/ldap/</link>
+    <description>Recent content in Ldap on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 22 Mar 2006 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/ldap/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Seting up an LDAP address book on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/</link>
+      <pubDate>Wed, 22 Mar 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/</guid>
+      <description>&lt;p&gt;Quick and dirty on installing OpenLDAP as an addressbook server.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;install&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;sudo aptitude install slapd ldap-utils&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;configure (if needed)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;sudo dpkg-reconfigure -plow slapd&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;edit /etc/ldap/slapd.conf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;#include         /etc/ldap/schema/nis.schema
+ suffix          &#34;dc=snowfrog, dc=net&#34;
+ rootdn          &#34;cn=admin,dc=snowfrog,dc=net&#34;
+ rootpw          secret&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;edit /etc/ldap/ldap.conf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ cat ldap.conf
+ HOST    127.0.0.1
+ BASE    dc=snowfrog,dc=net
+ URI     ldap://localhost&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check working&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;ldapsearch -x&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;create a file that creates address book OU, and import&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ cat foo
+ dn: dc=snowfrog, dc=net
+ objectclass: top
+ objectclass: dcObject
+ objectclass: organization
+ o: snowfrog
+ dc: snowfrog
+ dn: ou=addressbook, dc=snowfrog, dc=net
+ objectclass: top
+ objectclass: organizationalUnit
+ ou: addressbook
+ $ ldapadd -x -W -D &#39;cn=admin,dc=snowfrog, dc=net&#39; -f foo -H &#34;ldap://sandia.snowfrog.net&#34;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;in Thunderbird, export addresses to addr.ldif, then convert dumped address book to importable format&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;sed &#39;s/^givenName:/displayName:/; /mozillaAbPersonObsolete/d; /modifytimestamp:/d; /dn:
+ cn=/s/mail=.*/ou=addressbook,dc=snowfrog,dc=net/&#39; addr.ldif &amp;gt; addr2.ldif&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;convert .muttrc aliases&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;sed -n &#39;/^alias/p&#39; .muttrc | awk &#39;$2 !~ /^z/ {print &#34;#commentndn: cn=&#34; $2
+ &#34;,ou=addressbook,dc=snowfrog,dc=netncn: &#34; $2 &#34;nsn: &#34; $2 &#34;nmail: &#34; $3 &#34;ndisplayName: &#34; $2
+ &#34;nobjectClass: topnobjectClass: personnobjectClass: organizationalPersonnobjectClass:
+ inetOrgPersonn&#34;  }&#39; &amp;gt; /etc/ldap/addr2.ldif&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;import to OpenLDAP server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;ldapadd -c -x -W -D &#39;cn=admin,dc=snowfrog, dc=net&#39; -f addr2.ldif -H &#34;ldap://sandia.snowfrog.net&#34;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;connect to LDAP server using Evolution; Thunderbird doesn&amp;rsquo;t have enough options&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

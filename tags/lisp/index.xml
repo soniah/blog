@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lisp on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/lisp/</link>
+    <description>Recent content in Lisp on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 11 May 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/lisp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Learning Clojure - my books</title>
+      <link>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
+      <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&amp;rsquo;s a list of the books I&amp;rsquo;ve read on my journey to Clojure enlightenment (I&amp;rsquo;ve still got a long way to go&amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;My first Clojure book wasn&amp;rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across &lt;a href=&#34;http://nostarch.com/lisp.htm&#34;&gt;Land of Lisp&lt;/a&gt;.  I&amp;rsquo;d heard about Lisp, that &amp;ldquo;obsolete&amp;rdquo; language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;cartoons&lt;/a&gt; were great, and before I knew it I&amp;rsquo;d read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://mitpress.mit.edu/sicp/full-text/book/cover.jpg&#34; alt=&#34;SICP book&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;But after reading it for a while and getting sidetracked by Scheme and &lt;a href=&#34;http://mitpress.mit.edu/sicp/full-text/book/book.html&#34;&gt;the greatest book every written about programming&lt;/a&gt;, Land of Lisp languished on my bookshelf. The example used in the book (yet another game) didn&amp;rsquo;t relate to my day-to-day use of programming. I was getting lost because I wasn&amp;rsquo;t doing any exercises, and &lt;a href=&#34;http://steve-yegge.blogspot.com.au/2006/04/lisp-is-not-acceptable-lisp.html&#34;&gt;Lisp just didn&amp;rsquo;t seem to be an acceptable Lisp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imagery.pragprog.com/products/195/btlang_xlargecover.jpg?1298589937&#34; alt=&#34;Seven Languages in Seven Weeks&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pragprog.com/book/btlang/seven-languages-in-seven-weeks&#34;&gt;Seven Languages in Seven Weeks&lt;/a&gt; pointed me towards Erlang, Haskell and Clojure. Ah-hah! Clojure - runs on the JVM (so I can use it machines where I can&amp;rsquo;t/don&amp;rsquo;t want to install stuff, just like JRuby). A modern Lisp with cleaned up syntax that has access to all the Java libraries for doing real world stuff. I&amp;rsquo;m hooked!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://joyofclojure.com/wp-content/uploads/2011/07/joy-of-clojure-cover-239x300.jpg&#34; alt=&#34;The Joy of Clojure&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;At a &lt;a href=&#34;http://ruby.org.au/&#34;&gt;Ruby on Rails Oceania (RORO)&lt;/a&gt; meetup someone was raving about &lt;a href=&#34;http://www.amazon.com/The-Joy-Clojure-Thinking-Way/dp/1935182641&#34;&gt;The Joy of Clojure&lt;/a&gt;. So I drank from the firehose and my brain exploded and nothing made sense. As &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; (a fellow Googler) says in the intro, &amp;ldquo;you&amp;rsquo;ll learn fast&amp;rdquo; - but only if you&amp;rsquo;re already comfortable with Lisp. The book moves too fast, the explanations are cryptic, and it seems to bounce all over the place. Another book to languish on my book shelf.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.apress.com/media/catalog/product/cache/9/image/9df78eab33525d08d6e5fb8d27136e95/A/9/A9781430272311-3d_11.png&#34; alt=&#34;Practical Clojure&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;My next book &lt;a href=&#34;http://www.amazon.com/Practical-Clojure-Experts-Voice-Source/dp/1430272317/ref=pd_sim_b_4&#34;&gt;Practical Clojure&lt;/a&gt; was where things started to make sense. It&amp;rsquo;s more directed at beginners and just explains how the language works. But it&amp;rsquo;s a thin book (not enough detail) and some sections just seem to be reprints of the API (function foo does this and here&amp;rsquo;s a 5 line example; function bar does this and here&amp;rsquo;s a 5 line example). No real digging into the how and why of using Clojure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://photo.goodreads.com/books/1328761653l/10883803.jpg&#34; alt=&#34;Clojure Programming&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And onto my favourite Clojure book - &lt;a href=&#34;http://www.clojurebook.com/&#34;&gt;Clojure Programming by Emerick et al&lt;/a&gt;. Like many O&amp;rsquo;Reilly books it&amp;rsquo;s &lt;em&gt;definitive&lt;/em&gt;. Lots of detailed examples, clear explanations, great diagrams, coverage of related areas (eg Clojure for web programming). Example code comparing how you do things in Clojure with other languages (Java, Python, Ruby). This is the book where I&amp;rsquo;ve really started to understand Clojure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://ep.yimg.com/ca/I/paulgraham_2202_3475946&#34; alt=&#34;On Lisp&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now I&amp;rsquo;m working through the &lt;a href=&#34;http://www.4clojure.com/&#34;&gt;4clojure problem list&lt;/a&gt; (really interesting). Then I&amp;rsquo;ll probably buy some more books from &lt;a href=&#34;http://www.amazon.com/Clojure-Bookshelf/lm/R3LG3ZBZS4GCTH&#34;&gt;The Clojure Bookshelf&lt;/a&gt;. And continue reading Paul Graham&amp;rsquo;s On Lisp (I got it &lt;a href=&#34;http://www.lurklurk.org/onlisp/onlisp.html&#34;&gt;printed through Lulu&lt;/a&gt;). And one day I&amp;rsquo;ll reach enlightenment :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp.jpg&#34; alt=&#34;Lisp&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ruby, Lisp, Python</title>
+      <link>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
+      <pubDate>Tue, 20 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
+      <description>&lt;p&gt;Up late tonight reading about &lt;a href=&#34;http://www.emacswiki.org/emacs/EmacsLisp&#34;&gt;Emacs Lisp&lt;/a&gt;, I came across &lt;a href=&#34;https://sites.google.com/site/steveyegge2/tour-de-babel&#34;&gt;Tour de Babel&lt;/a&gt; by &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Anyway, Ruby stole everything good from Perl; &amp;hellip; for the most part, Ruby took Perl&amp;rsquo;s string processing and Unix integration as-is, meaning the syntax is identical, and so right there, before anything else happens, you already have the Best of Perl. And that&amp;rsquo;s a great start, especially if you don&amp;rsquo;t take the Rest of Perl.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;But then Matz took the best of list processing from Lisp, and the best of OO from Smalltalk and other languages, and the best of iterators from CLU, and pretty much the best of everything from everyone. And he somehow made it all work together so well that you don&amp;rsquo;t even notice that it has all that stuff.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LISP – downloading SICP videos, JRuby</title>
+      <link>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
+      <pubDate>Thu, 05 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m busy learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Lisp_%28programming_language%29&#34;&gt;LISP&lt;/a&gt;/&lt;a href=&#34;http://en.wikipedia.org/wiki/Scheme_%28programming_language%29&#34;&gt;Scheme&lt;/a&gt; at the moment (in order to later move on to &lt;a href=&#34;http://clojure.org/&#34;&gt;Clojure&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;And, improving my programming learning LISP is :-)&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m following along with the &lt;a href=&#34;http://mitpress.mit.edu/sicp/&#34;&gt;MIT&lt;/a&gt; &lt;a href=&#34;http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs&#34;&gt;SICP&lt;/a&gt; videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &amp;ndash; &lt;a href=&#34;https://github.com/soniah/get_sicp&#34;&gt;get_sicp&lt;/a&gt;. Next, a script for the &lt;a href=&#34;http://inst.eecs.berkeley.edu/~cs61a/sp11/&#34;&gt;UC Berkeley SICP videos&lt;/a&gt; (getting through the flash player should be a learning experience).&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;ndash; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;rsquo;t litter /usr. Good: Ruby &amp;ndash; fun, Python &amp;ndash; &lt;snore&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python, Lambda, Closures</title>
+      <link>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</link>
+      <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</guid>
+      <description>&lt;p&gt;A very interesting &lt;a href=&#34;http://algorithm.com.au/blog/files/immutability-blocks-lambdas-closures.php#unique-entry-id-613&#34;&gt;post&lt;/a&gt; from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&amp;rsquo;m playing with Lisp and Python at the moment.&lt;/p&gt;
+
+&lt;p&gt;Some links from his blog, in case the original post ever disappears:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;http://stackoverflow.com/questions/938429/scope-of-python-lambda-functions-and-their-parameters&#34;&gt;question and responses&lt;/a&gt; on stackoverflow&lt;/li&gt;
+&lt;li&gt;an &lt;a href=&#34;http://mail.python.org/pipermail/python-dev/2005-September/056669.html&#34;&gt;example&lt;/a&gt; of the perils of Python&amp;rsquo;s scoping rules with for/while/if&lt;/li&gt;
+&lt;li&gt;Wikipedia &amp;ndash; &lt;a href=&#34;http://en.wikipedia.org/wiki/Closure_%28computer_science%29#Differences_in_semantics&#34;&gt;differences in semantics of closures&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A nice snippet of code to remind me of the issues:&lt;/p&gt;
+
+&lt;pre&gt;def callback(msg):
+    print msg
+funcList=[]
+for m in (&#39;do&#39;, &#39;re&#39;, &#39;mi&#39;):
+    # funcList.append(lambda: callback(m))
+    funcList.append(lambda m=m: callback(m))
+for f in funcList:
+    f()&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lisp and Python</title>
+      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
+
+&lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
+
+&lt;p&gt;I came across this fun looking book that inspired me &amp;ndash; &lt;a href=&#34;http://landoflisp.com/&#34;&gt;Land of Lisp&lt;/a&gt; &amp;ndash; I started reading it in Dymocks and couldn&amp;rsquo;t put it down. But years ago I&amp;rsquo;d read Paul Graham&amp;rsquo;s &lt;a href=&#34;http://www.paulgraham.com/avg.html&#34;&gt;blog&lt;/a&gt; and recently Joel Spolsky on &lt;a href=&#34;http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html&#34;&gt;The Perils of Java Schools&lt;/a&gt;. I was really surprised to learn that university Computer Science departments have stopped teaching pointers and recursion because they teach Java or .NET. I remember the joy :twisted: in 2nd year Comp Sci of watching half the class being weeded out by Data Structures, then another half being weeded out the following semester by Functional Programming.&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s a post by Peter Christensen on &lt;a href=&#34;http://www.pchristensen.com/blog/lisp-companies/&#34;&gt;who uses Lisp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Oh yeh, I&amp;rsquo;m also learning Python &amp;ndash; it seems the sanest general purpose scripting language around. Ruby is great and I love it, but it&amp;rsquo;s often not available (try telling Bank X or Phone Company Y that you&amp;rsquo;re going to install Ruby on several hundred of their production Solaris servers, see what sort of reaction you get). And Perl is unmaintainable line noise and shell scripts are tedious.&lt;/p&gt;
+
+&lt;p&gt;What kicked this all off? This great SlashDot post on why Expensify &lt;a href=&#34;http://blog.expensify.com/2011/03/25/ceo-friday-why-we-dont-hire-net-programmers/&#34;&gt;doesn&amp;rsquo;t hire .NET programmers&lt;/a&gt; :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-943&#34; title=&#34;stroustrup&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;352&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;PS I like Paul Graham&amp;rsquo;s &lt;a href=&#34;http://twitter.com/paulg/status/28864657734&#34;&gt;Tweet&lt;/a&gt; on the book: &amp;ldquo;Turns out the border between genius and insanity is a pretty cheery place&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim modelines</title>
+      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
+
+&lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Some typical modelines for copying and pasting:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Go&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;//
+// vim: tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab tw=72
+// run &#39;go fmt&#39; before checking in your code!
+//&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Text files&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim:tw=75
+# vim:textwidth=75&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell/Bash&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sw=2 et sts=2 ft=sh
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=sh&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sts=2 et sw=2 ft=ruby
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=ruby&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=python
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=python&lt;/pre&gt;
+
+&lt;p&gt;Or when using vi (eg on Solaris) INVESTIGATE FURTHER:&lt;/p&gt;
+
+&lt;pre&gt;:set sw=4&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Perl&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=perl
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=perl&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LISP/Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;; vim: ft=lisp&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

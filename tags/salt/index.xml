@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Salt on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/salt/</link>
+    <description>Recent content in Salt on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 29 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/salt/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Git and mercurial abort: revision cannot be pushed</title>
+      <link>http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
+      <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.&lt;/p&gt;
+
+&lt;p&gt;First install the &lt;a href=&#34;http://hg-git.github.io/&#34;&gt;hg-git&lt;/a&gt; tools; for example on Ubuntu:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install python-setuptools python-dev
+sudo easy_install hg-git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Make sure the following is in your ~/.hgrc:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;extensions&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+hgext.bookmarks &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;hggit&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Then, in your existing mercurial repository, add a new remote that points to the git repository. For example for a BitBucket repository:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &amp;lt;mercurial repository&amp;gt;
+cat .hg/hgrc
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;paths&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# the original hg repository&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; https://username@abcde.org/foo/barhg
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# the git version (on BitBucket in this case)&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;bbgit&lt;/span&gt;   &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; git+ssh://git@bitbucket.org:foo/bar.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Then you can go an &lt;em&gt;hg push bbgit&lt;/em&gt; to push from your local hg repository to the remote git repository.&lt;/p&gt;
+
+&lt;h3 id=&#34;mercurial-abort-revision-cannot-be-pushed:33244ccf98c3384a766b4a593c1bd113&#34;&gt;mercurial abort: revision cannot be pushed&lt;/h3&gt;
+
+&lt;p&gt;You may get the error &lt;em&gt;mercurial abort: revision cannot be pushed since it doesn&amp;rsquo;t have a ref&lt;/em&gt; when pushing from hg to git, or you might notice that your hg work isn&amp;rsquo;t being pushed. The solution here is to reset the hg bookmark for git&amp;rsquo;s master branch:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hg book -f -r tip master
+hg push bbgit
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you find yourself doing this regularly, this small shell function (in your ~/.bashrc) will help:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+   &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $1 is hg remote name in hgrc for repo&lt;/span&gt;
+   &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $2 is branch (defaults to master)&lt;/span&gt;
+   hg book -f -r tip &lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;master&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+   hg push &lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Then from your shell you can run commands like:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush bbgit dev
+hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# defaults to pushing to master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SaltStack Essential Reading</title>
+      <link>http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/</link>
+      <pubDate>Tue, 23 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/</guid>
+      <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html&#34;&gt;How Do I Use Salt State&lt;/a&gt;s,  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/states_pt1.html&#34;&gt;States tutorial&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html&#34;&gt;Pillar Walkthrough&lt;/a&gt; - the tutorials&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/highstate.html&#34;&gt;Highstate data structure definitions&lt;/a&gt; and  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/yaml/index.html&#34;&gt;Understanding YAML&lt;/a&gt; - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/requisites.html&#34;&gt;Requisites and Other Global State Arguments&lt;/a&gt; - do something before something else, restart a service if a file changes, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html&#34;&gt;salt.states.file&lt;/a&gt; - most config management is going to involve working with files&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.jinja.html&#34;&gt;salt.renderers.jinja&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/best_practices.html&#34;&gt;Salt Best Practices&lt;/a&gt; - working with Jinja&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

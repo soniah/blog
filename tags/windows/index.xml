@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/windows/</link>
+    <description>Recent content in Windows on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Mar 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Backup multiple MySQL databases into separate files – Windows</title>
+      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
+
+&lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;rsquo;s a script submitted by one of my readers:&lt;/p&gt;
+
+&lt;pre&gt;:: MySQl DB user
+set dbuser=xxxx
+
+:: MySQl DB users password
+set dbpass=xxxx
+
+:: Switch to the MySQL data directory and collect the folder names
+pushd &#34;C:\Documents and Settings\All Users\Application Data\MySQL\MySQL Server 5.5\data&#34;
+
+:: Loop through the folders and use the fnames for the sql filenames, collects all databases automatically this way
+
+echo &#34;hello&#34;
+
+echo &#34;Pass each name to mysqldump.exe and output an individual .sql file for each&#34;
+
+FOR /D %%F IN (*) DO (
+&#34;C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe&#34; --user=%dbuser% --password=%dbpass% --databases %%F &amp;gt; &#34;C:\SQLBackup\%%F.%backupdate%.sql&#34;
+)&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Windows autologon</title>
+      <link>http://blog2.snowfrog.net/2010/06/23/windows-autologon/</link>
+      <pubDate>Wed, 23 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/06/23/windows-autologon/</guid>
+      <description>&lt;p&gt;The only time I use Windows is as a virtual machine &amp;ldquo;appliance&amp;rdquo; ie it&amp;rsquo;s running some application that I have to run, that only runs on Windows.&lt;/p&gt;
+
+&lt;p&gt;Often I want the VM to just logon automagically; here&amp;rsquo;s a registry file to do so. Save it as foo.reg and double click on it:&lt;/p&gt;
+
+&lt;pre&gt;Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindows NTCurrentVersionWinlogon]
+&#34;DefaultUserName&#34;=&#34;sonia&#34;
+&#34;DefaultPassword&#34;=&#34;secret&#34;
+&#34;AutoAdminLogon&#34;=&#34;1&#34;&lt;/pre&gt;
+
+&lt;p&gt;No rocket science, I&amp;rsquo;m just blogging it so I don&amp;rsquo;t have to look it up again.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Windows recovery tools</title>
+      <link>http://blog2.snowfrog.net/2006/07/04/windows-recovery-tools/</link>
+      <pubDate>Wed, 05 Jul 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/07/04/windows-recovery-tools/</guid>
+      <description>&lt;p&gt;Here are some useful tools for troubleshooting/recovering windows systems:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;look up events at &lt;a href=&#34;http://www.eventid.net&#34;&gt;eventid.net&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ultimatebootcd.com/&#34;&gt;Ultimate Boot CD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ubcd4win.com/&#34;&gt;Ultimate Boot CD for Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.grc.com/spinrite.htm&#34;&gt;SpinRite&lt;/a&gt;. The same guy also has a useful tool called &amp;lsquo;Shields Up&amp;rsquo;, and a podcast called &lt;a href=&#34;http://www.grc.com/securitynow.htm&#34;&gt;Security Now!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://bootdisks.com/&#34;&gt;BootDisks.Com&lt;/a&gt; has a collection of prebuilt boot disks you can download&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.winternals.com/Products/ERDCommander/&#34;&gt;ERD Commander&lt;/a&gt; allows you to repair unbootable or locked-out systems, restore lost data, remove malware from infected systems while the system is safely offline using your existing antivirus software, and diagnose system and network issues&lt;/li&gt;
+&lt;li&gt;all tools from &lt;a href=&#34;http://sysinternals.com/&#34;&gt;Sysinternals.Com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Linux tools (and &lt;em&gt;&lt;a href=&#34;http://www.catb.org/jargon/html/R/religious-issues.html&#34;&gt;religion&lt;/a&gt;&lt;/em&gt;.):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.knoppix.org/&#34;&gt;Knoppix&lt;/a&gt; is a CD bootable Linux distribution, that is &lt;em&gt;The Swiss Army Chainsaw&lt;/em&gt; of distros &amp;ndash; it does everything. &lt;a href=&#34;http://www.inside-security.de/insert_en.html&#34;&gt;Insert Linux&lt;/a&gt; and &lt;a href=&#34;http://www.damnsmalllinux.org/&#34;&gt;Damn Small Linux&lt;/a&gt; are also useful, as they fit on business card CDs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://home.eunet.no/pnordahl/ntpasswd/&#34;&gt;PNordahl&lt;/a&gt; has a tool for resetting forgotten Administrator passwords&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dban.sourceforge.net/&#34;&gt;DBAN&lt;/a&gt; completely solves all Windows problems, by wiping the hard disk :-) &lt;em&gt;You can then install a decent Operating System like &lt;a href=&#34;http://www.ubuntu.com/&#34;&gt;Ubuntu Linux&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;see also my article on &lt;a href=&#34;http://blog.snowfrog.net/?q=node/365&#34;&gt;DD Rescue&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>sharing application data on a dual boot laptop</title>
+      <link>http://blog2.snowfrog.net/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/</link>
+      <pubDate>Tue, 20 Jun 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/</guid>
+      <description>
+
+&lt;p&gt;sharing application data on a dual boot laptop&lt;/p&gt;
+
+&lt;p&gt;I dual boot my laptop between Linux and Windows &amp;ndash; mostly Linux, but occasionally Windows. Here&amp;rsquo;s how to make applications like Firefox, Thunderbird, etc share their configuration &amp;ndash; especially useful for bookmarks and saved passwords for Firefox. This how-to presumes that your Linux username is &lt;em&gt;sonia&lt;/em&gt; and your user id is &lt;em&gt;1000&lt;/em&gt; (check by running the &lt;strong&gt;id&lt;/strong&gt; function). It also presumes that you can see system folders in Windows &amp;ndash; setup in Windows Explorer under Tools, Options, View, Show hidden files and Folders, Click &lt;em&gt;Apply to All Folders&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-a-shared-partition:2b63aabf1d8adf5b13fd969a76428dfa&#34;&gt;Create a Shared Partition&lt;/h3&gt;
+
+&lt;p&gt;First you need a filesystem that will be shared between both Linux and Windows &amp;ndash; it has to be FAT, as this is the only filesystem that both operating systems (easily) read. This may involve shrinking an existing filesystem and partition. (You could of course lose data doing this, so check your backups first).&lt;/p&gt;
+
+&lt;p&gt;The key idea here is that each partition (eg /dev/hda6) has a filesystem (eg Reiserfs or Ext3) located inside. To shrink a partition, the filesystem needs to be shrunk first; the easiest way to do this is to shrink the filesystem too small, delete the partition and recreate it smaller, then expand the filesystem to fit the newly shrunk partition:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;boot off Knoppix&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;shrink the &lt;em&gt;filesystem&lt;/em&gt; before the &lt;em&gt;partition&lt;/em&gt;. For example if using ReiserFS and hda6:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;resize_reiserfs -s 10G /dev/hda6
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;using fdisk/cfdisk, resize the &lt;em&gt;partition&lt;/em&gt; by deleting the existing partition and recreating it with a smaller size. Ensure the new &lt;em&gt;partition&lt;/em&gt; is &lt;strong&gt;larger&lt;/strong&gt; than the resized &lt;em&gt;filesystem&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;expand the previous &lt;em&gt;filesystem&lt;/em&gt; so it fills the shrunk &lt;em&gt;partition&lt;/em&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;resize_reiserfs /dev/hda6
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check and mount the shrunk partition before creating the new partition and filesystem, in case you&amp;rsquo;ve made a mistake&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;reiserfsck /dev/hda6
+ mount /dev/hda6
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;in fdisk/cfdisk, also create the new partition (/dev/hda7 in this case), set the type to 0C (Windows FAT LBA)&lt;/li&gt;
+&lt;li&gt;create the new shared &lt;em&gt;filesystem&lt;/em&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mkfs.vfat /dev/hda7
+&lt;/pre&gt;
+
+&lt;h3 id=&#34;mount-the-shared-partition-in-linux-p:2b63aabf1d8adf5b13fd969a76428dfa&#34;&gt;Mount the Shared Partition in Linux&lt;/p&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;create a mount directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;cd /
+ sudo mkdir /configs
+ sudo chown 1000. /configs
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add an entry to /etc/fstab to mount at boot:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;/dev/hda7       /configs        vfat    defaults,uid=1000,gid=1000        0       0
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;reboot to linux and check the partition mounts OK by trying to create a test file in /configs &lt;em&gt;using your normal user account&lt;/em&gt;, not root&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;get-firefox-to-locate-configuration-in-linux:2b63aabf1d8adf5b13fd969a76428dfa&#34;&gt;Get Firefox to Locate Configuration in Linux&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;close Firefox and move your profile &amp;ndash; it&amp;rsquo;ll be a directory named something like &lt;em&gt;123456.default&lt;/em&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mkdir -p /configs/.mozilla/firefox
+ mv ~/.mozilla/123456.default /configs/.mozilla/firefox
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;config Firefox to use the new location; change these settings in ~/.mozilla/firefox/profiles.ini:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;IsRelative=0
+ Path=/configs/.mozilla/firefox/123456.default
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check Firefox runs OK &amp;ndash; if the Profiles screen pops up, you&amp;rsquo;ve got some sort of error&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;mount-the-shared-partition-in-windows-p:2b63aabf1d8adf5b13fd969a76428dfa&#34;&gt;Mount the Shared Partition in Windows&lt;/p&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;boot into Windows. The partition should be located automatically, you may want to change the drive letter (to say Z:) using Computer Management&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;get-firefox-to-locate-configuration-in-windows:2b63aabf1d8adf5b13fd969a76428dfa&#34;&gt;Get Firefox to Locate Configuration in Windows&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;edit the file profiles.ini, located in the directory C:Documents and SettingssoniaApplication DataMozillaFirefox&lt;/li&gt;
+&lt;li&gt;change the following settings&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;IsRelative=0
+ Path=Z:.mozillafirefox123456.default
+
+&lt;/pre&gt;
+
+&lt;h3 id=&#34;thunderbird:2b63aabf1d8adf5b13fd969a76428dfa&#34;&gt;Thunderbird&lt;/h3&gt;
+
+&lt;p&gt;The process is similar for Thunderbird. Under Linux the file is &lt;em&gt;~/mozilla-thunderbird/profiles.ini&lt;/em&gt;, under Windows &lt;em&gt;C:Documents and SettingssoniaApplication DataThunderbirdprofiles.ini&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;notes:2b63aabf1d8adf5b13fd969a76428dfa&#34;&gt;Notes&lt;/h3&gt;
+
+&lt;p&gt;Notes taken from Linux Journal article, June 2006&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

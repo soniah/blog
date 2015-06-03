@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Iptables on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/iptables/</link>
+    <description>Recent content in Iptables on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 10 Jul 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ipcalc</title>
+      <link>http://blog2.snowfrog.net/2009/07/10/ipcalc/</link>
+      <pubDate>Fri, 10 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/07/10/ipcalc/</guid>
+      <description>&lt;p&gt;ipcalc &amp;ndash; a tool I used to use years ago but had forgotten about.&lt;/p&gt;
+
+&lt;pre&gt;sudo aptitude install ipcalc&lt;/pre&gt;
+
+&lt;pre&gt;% ipcalc 192.168.1.0/26
+Address:   192.168.1.0          11000000.10101000.00000001.00 000000
+Netmask:   255.255.255.192 = 26 11111111.11111111.11111111.11 000000
+Wildcard:  0.0.0.63             00000000.00000000.00000000.00 111111
+=&amp;gt;
+Network:   192.168.1.0/26       11000000.10101000.00000001.00 000000
+HostMin:   192.168.1.1          11000000.10101000.00000001.00 000001
+HostMax:   192.168.1.62         11000000.10101000.00000001.00 111110
+Broadcast: 192.168.1.63         11000000.10101000.00000001.00 111111
+Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Firewalling on Solaris 10</title>
+      <link>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</link>
+      <pubDate>Fri, 22 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</guid>
+      <description>&lt;p&gt;Firewalling on Solaris 10:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;config file: /etc/ipf/ipf.conf&lt;/li&gt;
+&lt;li&gt;flush all rules: ipf -Fa&lt;/li&gt;
+&lt;li&gt;reload: ipf -f /etc/ipf/ipf.conf&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Email from Julian:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The native firewall that comes with Solaris is &amp;ldquo;ipf&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Configuration files are in the directory /etc/ipf and the file is &amp;ldquo;ipf.conf&amp;rdquo;, NAT rules in &amp;ldquo;ipnat.conf&amp;rdquo;. Unlike iptables, where the configuration file is a series of &amp;ldquo;iptable&amp;rdquo; commands, &amp;ldquo;ipf.conf&amp;rdquo; is purely a configuration file. Traffiic must be enabled on each interface, so you have &amp;ldquo;pass in&amp;rdquo; to allow traffic in on interface A and a &amp;ldquo;pass out&amp;rdquo; to allow traffic out on interface B, if it is acting as a firewall, obviously this is not.&lt;/p&gt;
+
+&lt;p&gt;As of Solaris 10, processes are started via service manager. To check if ipf is running, you can:&lt;/p&gt;
+
+&lt;p&gt;# svcs -a |grep ipf&lt;br /&gt;
+online May_05 svc:/network/ipfilter:default&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;online&amp;rdquo; status tells you that it is running.&lt;/p&gt;
+
+&lt;p&gt;Commands to see what is happening.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipfstat&amp;rdquo;: show statistics, bytes in, bytes out etc.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipfstat -i&amp;rdquo; to display input running rule set&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipfstat -o&amp;rdquo; to display output running rule set&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipf -f /etc/ipf/ipf.conf&amp;rdquo; to load rules from config file.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;ipmon -s [file]&amp;rdquo; to have ipf log to &amp;ldquo;file&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;To restart using service manager&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;svcadm restart svc:/network/ipfilter:default&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;See man page for &amp;ldquo;ipnat&amp;rdquo; for options to display NAT options.&lt;/p&gt;
+
+&lt;p&gt;Link from Rusty&amp;rsquo;s blog: &lt;a href=&#34;http://ozlabs.org/~rusty/index.cgi/2006/08/15&#34;&gt;http://ozlabs.org/~rusty/index.cgi/2006/08/15&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last word: Solaris&amp;rsquo;s version of tcpdump is &amp;ldquo;snoop&amp;rdquo;. So to monitor traffic: &amp;ldquo;snoop -d e1000g0 not port 22&amp;rdquo; you can add &amp;ldquo;-v&amp;rdquo; etc.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

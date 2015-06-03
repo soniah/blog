@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rsync on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/rsync/</link>
+    <description>Recent content in Rsync on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 28 Jul 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>rsyncp – provide ssh password to rsync using expect</title>
+      <link>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
+      <pubDate>Thu, 28 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
+      <description>&lt;p&gt;A script I wrote &amp;ndash; rsyncp. It allows you to provide a password to rsync over ssh, when you&amp;rsquo;re unable to use ssh key-based authentication:&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/bin/rsyncp
+#!/usr/bin/expect
+eval spawn rsync $argv
+expect  &#34;*?assword:&#34; { send &#34;secretstuffr&#34;}
+expect eof&lt;/pre&gt;
+
+&lt;p&gt;You can then use rsyncp in another script, like this:&lt;/p&gt;
+
+&lt;pre&gt;for h in foo bar ; do
+  rsyncp -av --progress srcdir/ $h:dstdir/
+done&lt;/pre&gt;
+
+&lt;p&gt;And before you add a comment saying &lt;em&gt;use &lt;a href=&#34;http://blog.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/&#34;&gt;ssh keys&lt;/a&gt; or &lt;a href=&#34;http://blog.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/&#34;&gt;keychain&lt;/a&gt;, this is totally insecure&lt;/em&gt;, I agree with you! Key based authentication is disabled on the target server, and I&amp;rsquo;m still trying to resolve the &lt;em&gt;politics&lt;/em&gt; around this at my current company, and &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;sshpass&lt;/a&gt; seems broken &lt;sigh&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>fuzzy rsync</title>
+      <link>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</link>
+      <pubDate>Thu, 03 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</guid>
+      <description>&lt;p&gt;A nice option I discovered in &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; &amp;ndash; the &lt;strong&gt;&amp;ndash;fuzzy&lt;/strong&gt; option.&lt;/p&gt;
+
+&lt;p&gt;If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &amp;ldquo;similar&amp;rdquo; algorithm is &amp;ldquo;identical size and modified time&amp;rdquo;, or &amp;ldquo;similarly-named&amp;rdquo;. For example:&lt;/p&gt;
+
+&lt;pre&gt;rsync foo/ example.com:video/foo/ --fuzzy --delete-delay
+...
+sent 69712 bytes  received 118992 bytes  75481.60 bytes/sec   &amp;lt;-- small amount of data xferred
+total size is 4966997090  speedup is 26321.63                 &amp;lt;-- woohoo! big speed up&lt;/pre&gt;
+
+&lt;p&gt;Notice the &lt;strong&gt;&amp;ndash;delete-delay **option is fairly much required, as rsync by default does a **&amp;ndash;delete-before&lt;/strong&gt;, thus removing the base file before it can be copied/moved.&lt;/p&gt;
+
+&lt;p&gt;When to use this? When you&amp;rsquo;re rsync&amp;rsquo;ing large binary files, and the only change you&amp;rsquo;ve made is to copy or rename files within the same directory. Which is often what I&amp;rsquo;m doing &amp;ndash; at work moving around isos or install packages, and at home organising &lt;a href=&#34;http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu&#34;&gt;BJJ&lt;/a&gt; videos :-)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Addendum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Also, the &lt;strong&gt;&amp;ndash;partial&lt;/strong&gt; and &lt;strong&gt;&amp;ndash;partial-dir&lt;/strong&gt; options are handy when working with large binary files. Tells rsync not to delete partially tranferred files if your transfer gets interrupted, for example by a network glitch. (Thanks AndyS).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DeltaCopy – rsync for Windows</title>
+      <link>http://blog2.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</link>
+      <pubDate>Thu, 12 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</guid>
+      <description>&lt;p&gt;A nice little tool I came across &amp;ndash; &lt;a href=&#34;http://www.aboutmyip.com/AboutMyXApp/DeltaCopy.jsp&#34;&gt;DeltaCopy&lt;/a&gt; &amp;ndash;&lt;/p&gt;
+
+&lt;p&gt;for when you have to work with Windows desktops and want to rsync (and don&amp;rsquo;t want to install &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt;). I haven&amp;rsquo;t had time to play with it yet, but apparently the DeltaCopy client will connect to an rsync server.&lt;/p&gt;
+
+&lt;p&gt;Out of interest, there&amp;rsquo;s also a &lt;a href=&#34;http://sshwindows.sourceforge.net/&#34;&gt;SourceForge package&lt;/a&gt; for installing a minimal ssh server on Windows, rather than the full Cygwin.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>rsync notes</title>
+      <link>http://blog2.snowfrog.net/2006/05/14/rsync-notes/</link>
+      <pubDate>Mon, 15 May 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/05/14/rsync-notes/</guid>
+      <description>
+
+&lt;p&gt;rsync notes&lt;/p&gt;
+
+&lt;h3 id=&#34;summary:187f524daa2701b883332f74025b41f5&#34;&gt;Summary&lt;/h3&gt;
+
+&lt;pre&gt;$ rsync -av -e ssh --delete --force source_host:source_dir/ dest_dir
+ $ rsync -av -e ssh --delete --force source dest_host:dest_dir/&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;eg&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$ rsync -av -e ssh                  sandia:stripes/music/spanish-french/ spanish-french/
+ $ rsync -av -e ssh --delete --force sandia:stripes/music/spanish-french/ spanish-french/&lt;/pre&gt;
+
+&lt;h3 id=&#34;using-ssh:187f524daa2701b883332f74025b41f5&#34;&gt;Using SSH&lt;/h3&gt;
+
+&lt;p&gt;Use rsync over ssh with the &lt;strong&gt;-e&lt;/strong&gt; flag:&lt;/p&gt;
+
+&lt;pre&gt;$ rsync -av -e ssh source dest_host:dest_dir&lt;/pre&gt;
+
+&lt;p&gt;To automate rsync over ssh backups, use &lt;strong&gt;keychain&lt;/strong&gt;. For example, for a user called &lt;em&gt;backupuser&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;$ cat ~sonia/bin/rsyncup.sh
+ #!/bin/bash
+ . /home/backupuser/.keychain/$HOSTNAME-sh
+ rsync -av -e ssh  --delete --force /home /etc dest_host:home-etc-backup/&lt;/pre&gt;
+
+&lt;pre&gt;$ crontab -l
+ 1 4 * * * ~sonia/bin/rsyncup.sh&lt;/pre&gt;
+
+&lt;h3 id=&#34;trailing-slash:187f524daa2701b883332f74025b41f5&#34;&gt;Trailing Slash&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Summary&lt;/em&gt; &amp;ndash; these are equivalent:&lt;/p&gt;
+
+&lt;pre&gt;rsync $myflags sandia:stripes/books/     books/
+ rsync $myflags sandia:stripes/books      .&lt;/pre&gt;
+
+&lt;p&gt;A &lt;strong&gt;trailing slash&lt;/strong&gt; on the source directory syncs the directory contents, &lt;em&gt;but not the directory itself&lt;/em&gt;; without a trailing slash the source directory itself will be synced. The trailing slash has no affect on the destination directory.&lt;/p&gt;
+
+&lt;p&gt;For example, with this source directory structure:&lt;/p&gt;
+
+&lt;pre&gt;~/a
+ ~/a/dir1
+ ~/a/dir2&lt;/pre&gt;
+
+&lt;pre&gt;$ rsync -av --stats ~/a/ destination_dir
+ $ ls -F destination_dir
+ dir1/ dir2/                 # ie synced as destination_dir/dir1&lt;/pre&gt;
+
+&lt;pre&gt;$ rsync -av --stats ~/a destination_dir
+ $ ls -F destination_dir
+ a/
+ $ ls -F destination_dir/a
+ dir1/ dir2/                 # ie synced as destination_dir/a/dir1&lt;/pre&gt;
+
+&lt;h3 id=&#34;limiting-bandwidth:187f524daa2701b883332f74025b41f5&#34;&gt;Limiting Bandwidth&lt;/h3&gt;
+
+&lt;p&gt;Limit bandwidth used by rsync with the &lt;strong&gt;&amp;ndash;bwlimit&lt;/strong&gt; option; the value is in kilobytes/s (many network speeds are measured in kilobits, which are 1/8th of kilobytes).&lt;/p&gt;
+
+&lt;pre&gt;$ rsync -av --bwlimit=256 src1 src2 dest&lt;/pre&gt;
+
+&lt;h3 id=&#34;deleting-files:187f524daa2701b883332f74025b41f5&#34;&gt;Deleting Files&lt;/h3&gt;
+
+&lt;p&gt;If files are deleted from the source directory, they will only be deleted from the destination directory if the &lt;strong&gt;&amp;ndash;delete&lt;/strong&gt; option is used:&lt;/p&gt;
+
+&lt;pre&gt;$ rsync -av --delete ~/a/ destination_dir&lt;/pre&gt;
+
+&lt;h3 id=&#34;file-selection:187f524daa2701b883332f74025b41f5&#34;&gt;File Selection&lt;/h3&gt;
+
+&lt;p&gt;Files can be included or excluded from syncing using &lt;strong&gt;&amp;ndash;include-from&lt;/strong&gt; or &lt;strong&gt;&amp;ndash;exclude-from&lt;/strong&gt;; it&amp;rsquo;s better not to use both as things can get rather confusing.&lt;/p&gt;
+
+&lt;pre&gt;$ cat exclude.txt
+ *tmp
+ /etc/skel&lt;/pre&gt;
+
+&lt;pre&gt;$ rsync -av src1 src2 --exclude-from=exclude.txt dest_host:dest_dir&lt;/pre&gt;
+
+&lt;h3 id=&#34;filepaths:187f524daa2701b883332f74025b41f5&#34;&gt;Filepaths&lt;/h3&gt;
+
+&lt;p&gt;You can specify that directories specified in the source path be created at the destination using the &lt;strong&gt;-R&lt;/strong&gt; option (usually &lt;strong&gt;not&lt;/strong&gt; desired):&lt;/p&gt;
+
+&lt;pre&gt;$ rsync -av -e ssh src_host:/var/www /dest
+ $ ls -F /dest
+ www/                     # notice /dest/var not created&lt;/pre&gt;
+
+&lt;pre&gt;$ rsync -avR -e ssh src_host:/var/www /dest
+ $ ls -F /dest
+ var/
+ $ ls -F /dest/var
+ www/                    # ie synced as /dest/var/www, not /dest/www&lt;/pre&gt;
+
+&lt;h3 id=&#34;rsync-on-windows:187f524daa2701b883332f74025b41f5&#34;&gt;Rsync on Windows&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;on Windows, install Cygwin, rsync, OpenSSH, vim&lt;/li&gt;
+&lt;li&gt;add &lt;strong&gt;c:cygwinbin&lt;/strong&gt; to the PATH system environment variable&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;either&lt;/em&gt; get into a bash shell and run rsync normally, by running cmd then &lt;strong&gt;c:cygwincygwin.bat&lt;/strong&gt;, &lt;em&gt;or&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;run rsync directly from the Windows command prompt:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;c:cygwinbinrsync -av -e ssh src dest_host:dest_dir&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Msaccess on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/msaccess/</link>
+    <description>Recent content in Msaccess on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 17 Nov 2005 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/msaccess/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Connect to MySQL across network using MS Access</title>
+      <link>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</link>
+      <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</guid>
+      <description>&lt;p&gt;Connect to MySQL across network using MS Access&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;comment out line in /etc/mysql/my.cnf that reads:
+&lt;pre&gt;bind-address = 127.0.0.1&lt;/pre&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;grant root access across network (see &lt;a href=&#34;http://dev.mysql.com/doc/refman/4.1/en/connection-access.html&#34;&gt;MySQL Documentation&lt;/a&gt;)
+&lt;pre&gt;mysql&amp;gt; use mysql;
+mysql&amp;gt; select Host, User, Password from user;
+mysql&amp;gt; update user set host=&amp;lsquo;%&amp;rsquo; where user = &amp;lsquo;root&amp;rsquo;;
+mysql&amp;gt; q&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;restart&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;$ /etc/init.d/mysql restart&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;install/configure odbc on server
+&lt;pre&gt;$ aptitude install libmyodbc&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;configure Access on client&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;download/install MyODBC&lt;/li&gt;
+&lt;li&gt;create a new database (not a project)&lt;/li&gt;
+&lt;li&gt;File, Get External Data, Link Tables, ODBC Databases&lt;/li&gt;
+&lt;li&gt;Create a MyODBC DSN&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

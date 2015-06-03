@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/ssh/</link>
+    <description>Recent content in Ssh on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 07 Jul 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>vnc ssh tunnel for remote graphical support</title>
+      <link>http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/</link>
+      <pubDate>Sat, 07 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/</guid>
+      <description>&lt;p&gt;I was doing remote internet support the other day for a friend in England - here&amp;rsquo;s how I connect remotely to the person&amp;rsquo;s desktop in graphical mode, using vnc and an ssh tunnel.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;I setup a dyndns client (eg dyndns, tinydyndns, ez-ipupdate) so I can connect to the changing ip address of their machine by a dns name eg fredbox.dyndns.org&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% sudo apt-get install ez-ipupdate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;I copy my ssh key to their account - this way I&amp;rsquo;ll always have access and they can change their password in the future:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% ssh-copy-id fred@fredbox.dyndns.org
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;I want to connect to vnc running on their desktop, so I can see what they see. But vnc runs on port 5900 and I don&amp;rsquo;t want to leave that open to the Internet. So I build an ssh tunnel, and startup vnc on the remote machine:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;fredbox% ssh -L 5900:localhost:5900 fred@fredbox.dyndns.org
+fredbox% x11vnc -safer -usepw -localhost -once -noxdamage &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+         -nowf -ncache &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; -scale 2/3 -display :0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;And finally, I start up my vncviewer on my local Linux/Mac machine, and enter my vnc password when prompted:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% vncviewer -encodings &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;copyrect tight zrle hextile&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+  -bgr233 -compresslevel &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; localhost
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So here&amp;rsquo;s a little script that brings it all together:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# kill any previous/hung vnc&amp;#39;s&lt;/span&gt;
+ssh fred@fredbox.dyndns.org &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;pkill x11vnc&amp;#39;&lt;/span&gt;
+ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+    &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;x11vnc -safer -usepw -localhost -once -noxdamage \&lt;/span&gt;
+&lt;span style=&#34;color: #ed9d13&#34;&gt;      -nowf -ncache 0 -scale 2/3 -display :0&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sleep &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; vncviewer -encodings &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;copyrect tight zrle hextile&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+         -bgr233 -compresslevel &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; localhost
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Denyhosts for sshd – usernames dictionary</title>
+      <link>http://blog2.snowfrog.net/2012/02/03/denyhosts-for-sshd-usernames-dictionary/</link>
+      <pubDate>Thu, 02 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/02/03/denyhosts-for-sshd-usernames-dictionary/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just setup the venerable &lt;a href=&#34;http://denyhosts.sourceforge.net/&#34;&gt;denyhosts&lt;/a&gt; on one of my servers, to stop the usual script-kiddies from &lt;em&gt;filling up my logs&lt;/em&gt; (I&amp;rsquo;m not particularly worried about them getting in.).&lt;/p&gt;
+
+&lt;p&gt;Anyway, here is &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/02/restricted-usernames.gz&#34;&gt;restricted-usernames.gz&lt;/a&gt;, a list of denied usernames from the log &amp;ndash; handy to add to your denyhosts &lt;a href=&#34;http://denyhosts.sourceforge.net/faq.html#restricted&#34;&gt;restricted-usernames file&lt;/a&gt;. There&amp;rsquo;s probably a better dictionary of usernames out there &amp;ndash; I&amp;rsquo;ll attach it if I &lt;del&gt;find it&lt;/del&gt; stumble upon it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh – DISPLAY is not set – Failed to allocate internet-domain X11 display socket</title>
+      <link>http://blog2.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</link>
+      <pubDate>Sun, 06 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</guid>
+      <description>&lt;p&gt;A little ssh error I came across while trying to work remotely on an Ubuntu machine. &lt;a href=&#34;http://tldp.org/HOWTO/XDMCP-HOWTO/ssh.html&#34;&gt;ssh X Display Forwarding&lt;/a&gt; wasn&amp;rsquo;t working, and I was getting an error:&lt;/p&gt;
+
+&lt;pre&gt;DISPLAY is not set&lt;/pre&gt;
+
+&lt;p&gt;Digging through /var/log/auth.log, I also noticed this error:&lt;/p&gt;
+
+&lt;pre&gt;Failed to allocate internet-domain X11 display socket&lt;/pre&gt;
+
+&lt;p&gt;After much Googling, it seems that IPv6 was causing the problem. It was solved by adding:&lt;/p&gt;
+
+&lt;pre&gt;AddressFamily inet&lt;/pre&gt;
+
+&lt;p&gt;to &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt;, and restarting the ssh server.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>rsyncp – provide ssh password to rsync using expect</title>
+      <link>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
+      <pubDate>Thu, 28 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
+      <description>&lt;p&gt;A script I wrote &amp;ndash; rsyncp. It allows you to provide a password to rsync over ssh, when you&amp;rsquo;re unable to use ssh key-based authentication:&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/bin/rsyncp
+#!/usr/bin/expect
+eval spawn rsync $argv
+expect  &#34;*?assword:&#34; { send &#34;secretstuffr&#34;}
+expect eof&lt;/pre&gt;
+
+&lt;p&gt;You can then use rsyncp in another script, like this:&lt;/p&gt;
+
+&lt;pre&gt;for h in foo bar ; do
+  rsyncp -av --progress srcdir/ $h:dstdir/
+done&lt;/pre&gt;
+
+&lt;p&gt;And before you add a comment saying &lt;em&gt;use &lt;a href=&#34;http://blog.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/&#34;&gt;ssh keys&lt;/a&gt; or &lt;a href=&#34;http://blog.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/&#34;&gt;keychain&lt;/a&gt;, this is totally insecure&lt;/em&gt;, I agree with you! Key based authentication is disabled on the target server, and I&amp;rsquo;m still trying to resolve the &lt;em&gt;politics&lt;/em&gt; around this at my current company, and &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;sshpass&lt;/a&gt; seems broken &lt;sigh&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh – fix long login times – disable Kerberos</title>
+      <link>http://blog2.snowfrog.net/2011/06/23/ssh-fix-long-login-times-disable-kerberos/</link>
+      <pubDate>Thu, 23 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/06/23/ssh-fix-long-login-times-disable-kerberos/</guid>
+      <description>&lt;p&gt;If ssh logins are taking a long time (but are ultimately successful), it may be because Kerberos (gssapi) is being attempted as an authentication method, and the destination is incorrectly configured (often seems to be CentOS or RHEL):&lt;/p&gt;
+
+&lt;pre&gt;% ssh -v foo
+...
+debug1: Authentications that can continue: publickey,gssapi-with-mic,password
+                                                     ^^^^^^^^^^^^^^^&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Quick fix:&lt;/strong&gt; disable Kerberos on the client:&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/.ssh/config
+...
+GSSAPIAuthentication no&lt;/pre&gt;
+
+&lt;p&gt;Of course the problem could also be DNS or other network issues. Thanks to &lt;a href=&#34;http://linuxsysadminblog.com/2009/07/waiting-for-ssh-login-prompt/&#34;&gt;Waiting for SSH login prompt&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DeltaCopy – rsync for Windows</title>
+      <link>http://blog2.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</link>
+      <pubDate>Thu, 12 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</guid>
+      <description>&lt;p&gt;A nice little tool I came across &amp;ndash; &lt;a href=&#34;http://www.aboutmyip.com/AboutMyXApp/DeltaCopy.jsp&#34;&gt;DeltaCopy&lt;/a&gt; &amp;ndash;&lt;/p&gt;
+
+&lt;p&gt;for when you have to work with Windows desktops and want to rsync (and don&amp;rsquo;t want to install &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt;). I haven&amp;rsquo;t had time to play with it yet, but apparently the DeltaCopy client will connect to an rsync server.&lt;/p&gt;
+
+&lt;p&gt;Out of interest, there&amp;rsquo;s also a &lt;a href=&#34;http://sshwindows.sourceforge.net/&#34;&gt;SourceForge package&lt;/a&gt; for installing a minimal ssh server on Windows, rather than the full Cygwin.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Source keychain credentials in Perl</title>
+      <link>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</link>
+      <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
+      <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://blog.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mail-archive.com/centos@centos.org/msg12887.html&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; how to use keychain with Perl scripts:&lt;/p&gt;
+
+&lt;pre&gt;Create a wrapper script:
+source ~/.keychain/hostname-sh
+run_perl_program.pl&lt;/pre&gt;
+
+&lt;p&gt;To run a one-off command do:&lt;/p&gt;
+
+&lt;pre&gt;system(&#34;source ~/.keychain/hostname-sh; cmd&#34;);&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OpenSSH Server for Windows</title>
+      <link>http://blog2.snowfrog.net/2009/02/03/openssh-server-for-windows/</link>
+      <pubDate>Tue, 03 Feb 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/02/03/openssh-server-for-windows/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve used &lt;a href=&#34;http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html&#34;&gt;putty.exe&lt;/a&gt; for doing ssh client work on Windows machines for years.&lt;/p&gt;
+
+&lt;p&gt;But I always thought that any Windows ssh servers were commercial, so when I&amp;rsquo;ve really had to have Windows ssh access I&amp;rsquo;ve setup &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But here&amp;rsquo;s a free (as in speech and beer) .exe that installs just an ssh server &amp;ndash; &lt;a href=&#34;http://sshwindows.sourceforge.net/&#34;&gt;sshwindows&lt;/a&gt;. Probably been around forever, but since I use Windows so little nowadays I&amp;rsquo;ve haven&amp;rsquo;t heard about it until now.&lt;/p&gt;
+
+&lt;p&gt;Of course the nice thing about this coming from the &lt;a href=&#34;http://www.openssh.com/&#34;&gt;OpenSSH project&lt;/a&gt; is that Mi¢ro$oft haven&amp;rsquo;t been able to get their &lt;a href=&#34;http://www.catb.org/~esr/halloween/&#34;&gt;grubby little fingers into the protocol and pervert it&lt;/a&gt; (an old conspiracy theory, I know).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>autossh – automatically restart SSH tunnels</title>
+      <link>http://blog2.snowfrog.net/2008/12/10/autossh-automatically-restart-ssh-tunnels/</link>
+      <pubDate>Wed, 10 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/12/10/autossh-automatically-restart-ssh-tunnels/</guid>
+      <description>&lt;p&gt;A tool I&amp;rsquo;d forgotten about &amp;ndash; &lt;a href=&#34;http://www.harding.motd.ca/autossh/&#34;&gt;autossh&lt;/a&gt;. Also an article &lt;a href=&#34;http://www.linux.com/feature/134133&#34;&gt;here&lt;/a&gt;. Thanks Dean.&lt;/p&gt;
+
+&lt;p&gt;Some links on getting autossh going:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cygwin to Linux: &lt;a href=&#34;http://www.matthanger.net/2008/04/creating-persistent-ssh-tunnels-in.html&#34;&gt;Matt&amp;rsquo;s stuff&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to use putty with ssh keys on Windows</title>
+      <link>http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</link>
+      <pubDate>Fri, 05 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like &lt;a href=&#34;http://monkey.org/~dugsong/dsniff/&#34;&gt;dsniff&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&amp;rsquo;ve only ever used Windows).&lt;/p&gt;
+
+&lt;p&gt;So here&amp;rsquo;s how you do it using putty.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;download putty.exe, pscp.exe, pageant.exe, and puttygen.exe from &lt;a href=&#34;http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html&#34;&gt;chiark.greenend.org.uk&lt;/a&gt;, and put them into an easily accessible folder (eg My Documents\putty, or c:\putty if you want to use putty from the command line)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Generating your SSH Key&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you need to generate a key, do this first. If you have been supplied with a key, skip down to &lt;strong&gt;Changing your Password&lt;/strong&gt; and &lt;strong&gt;Using your SSH Key&lt;/strong&gt; (below).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;run puttygen.exe to generate your key, and save it in the putty folder:
+
+&lt;ul&gt;
+&lt;li&gt;for &lt;strong&gt;Type of Key to generate&lt;/strong&gt;, choose SSH2-DSA, 2048 bits, click &lt;strong&gt;Generate&lt;/strong&gt;, and wave your mouse around to generate randomness&lt;/li&gt;
+&lt;li&gt;once finished generating, put your name in the &lt;strong&gt;comment&lt;/strong&gt; (eg firstname.lastname)&lt;/li&gt;
+&lt;li&gt;put a good password on your key in the &lt;strong&gt;Key Passphrase **field (and repeat in the **confirm&lt;/strong&gt; field)&lt;/li&gt;
+&lt;li&gt;click &lt;strong&gt;Save Public Key&lt;/strong&gt;, save to putty folder; call the file firstname.lastname&lt;/li&gt;
+&lt;li&gt;click &lt;strong&gt;Save Private Key&lt;/strong&gt;, save to putty folder; call the file firstname.lastname (.ppk extension will be added)&lt;/li&gt;
+&lt;li&gt;your Linux sysadmin will have asked you to provide them with &lt;strong&gt;your public key&lt;/strong&gt;, and this is where problems come up. Putty uses a different key format than OpenSSH, so don&amp;rsquo;t send the public key file from the putty folder. Instead, paste into an email the field called &lt;strong&gt;Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you&amp;rsquo;ve accidently sent the putty format file, you can re-run puttygen.exe, click the **Load&lt;/strong&gt; button to load your existing private key, and then copy and paste the OpenSSH format into an email.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-155&#34; title=&#34;putty_openssh&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;467&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Changing the Password on your SSH Key&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;run &lt;strong&gt;puttygen.exe&lt;/strong&gt;, and load your key by clicking the &lt;strong&gt;Load&lt;/strong&gt; button and browsing to your private key (the file without the .ppk extension). You will be prompted for your old password when loading the key&lt;/li&gt;
+&lt;li&gt;put in a new password in the two passphrase fields&lt;/li&gt;
+&lt;li&gt;click on &lt;strong&gt;Save private key&lt;/strong&gt; &amp;ndash; save it on top of your existing private key&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Using Your SSH Key:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &amp;lsquo;load your key&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;once your sysadmin has setup your account, there&amp;rsquo;s three ways you can use your key
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;strong&gt;painful&lt;/strong&gt; way. Run putty.exe, enter the hostname/ip, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, load your key in **Connection, SSH, Auth&lt;/strong&gt;, &lt;strong&gt;Private key file for authentication&lt;/strong&gt;, then click &lt;strong&gt;Open&lt;/strong&gt; to connect&lt;/li&gt;
+&lt;li&gt;the &lt;strong&gt;better&lt;/strong&gt; way &amp;ndash; caching your key in memory. Run pageant.exe &amp;ndash; you&amp;rsquo;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-164&#34; title=&#34;pageant&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34; alt=&#34;&#34; width=&#34;162&#34; height=&#34;49&#34; /&gt;&lt;/a&gt; Right click on this icon, choose &lt;strong&gt;Add Key&lt;/strong&gt;, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the &lt;strong&gt;Saved Sessions&lt;/strong&gt; field, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, then click the **Save&lt;/strong&gt; button. You can then right click on the pageant icon, &lt;strong&gt;Saved Sessions&lt;/strong&gt;, choose your saved session, and rapidly login to your target system&lt;/li&gt;
+&lt;li&gt;the &lt;strong&gt;best&lt;/strong&gt; way &amp;ndash; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Troubleshooting&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;From experience, I&amp;rsquo;ve found most problems connecting with ssh servers come from network/firewall settings:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check basic connectivity using the ping command &amp;ndash; Start, Run, cmd, ping 1.2.3.4&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;check a firewall isn&amp;rsquo;t blocking port 22 (ssh) by trying to telnet on port 22 &amp;ndash; Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
+&lt;pre&gt;telnet 1.2.3.4 22
+Trying 1.2.3.4&amp;hellip;
+Connected to foo.bar.com.au.
+Escape character is &amp;lsquo;^]&amp;rsquo;.
+SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;if using *nix, use &lt;strong&gt;ssh -vvv&lt;/strong&gt; to get more verbose output &amp;ndash; often you can see why the key exchange is failing&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Next steps.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After using putty on Windows for a while, you may want to investigate &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; &amp;ndash; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; with ssh is handy &amp;ndash; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my &lt;a href=&#34;http://blog.snowfrog.net/tag/ssh/&#34;&gt;other posts on ssh tools&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ssh SOCKS proxying, DNS proxying, Tunnelling</title>
+      <link>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</link>
+      <pubDate>Thu, 12 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://puzzling.org/&#34;&gt;Mary Gardiner&lt;/a&gt; &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2008/06/msg00135.html&#34;&gt;answered&lt;/a&gt; one of Voytek Eymont&amp;rsquo;s questions on the &lt;a href=&#34;http://lists.slug.org.au/listinfo/slug&#34;&gt;SLUG list&lt;/a&gt; by referring to the &lt;a href=&#34;http://ubuntu.wordpress.com/2006/12/08/ssh-tunnel-socks-proxy-forwarding-secure-browsing/&#34;&gt;ssh socks proxying&lt;/a&gt; post on Ubuntu Blog.&lt;/p&gt;
+
+&lt;p&gt;I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;setup via &lt;code&gt;$ssh -D 9999 username@ip-address-of-ssh-server&lt;/code&gt;, configure web browser **socks 5 host **(not http proxy) to localhost:9999 (On Firefox: Preferences, Advanced, Network, Settings, Manual, SOCKS Host. &lt;a href=&#34;http://foxyproxy.mozdev.org/&#34;&gt;FoxyProxy&lt;/a&gt; really helps with this &amp;ndash; you can setup wildcards to send certain URLs via certain proxies eg for when connecting via a VPN to work)&lt;/li&gt;
+&lt;li&gt;http proxying can be setup at the command line (for use by wget, apt, etc) with the &lt;strong&gt;http_proxy&lt;/strong&gt; environment variable. For example &lt;em&gt;export http_proxy=&amp;lsquo;&lt;a href=&#34;http://user:password@1.2.3.4:3128/&#39;&#34;&gt;http://user:password@1.2.3.4:3128/&#39;&lt;/a&gt;; cmd1; cmd2; export http_proxy=&amp;rdquo;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;configure apt to use a proxy via &lt;strong&gt;/etc/apt/apt.conf&lt;/strong&gt; by using &lt;strong&gt;Acquire::http::Proxy &amp;ldquo;&lt;a href=&#34;http://username:password@proxyserver:port/&amp;quot;&#34;&gt;http://username:password@proxyserver:port/&amp;quot;&lt;/a&gt;;&lt;/strong&gt; See &lt;a href=&#34;http://blogs.oracle.com/avinashjoshi/entry/using_apt_get_behind_a&#34;&gt;Using apt-get behind a proxy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;there&amp;rsquo;s also &lt;a href=&#34;http://www.mtu.net/~engstrom/ssh-proxy.php&#34;&gt;corkscrew&lt;/a&gt; (preferred), connect.c, and &lt;a href=&#34;http://proxychains.sourceforge.net/&#34;&gt;proxychains&lt;/a&gt; to secure other traffic or setup tunnels automagically in ~/.ssh/config. For example:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;% sudo aptitude install corkscrew
+
+% cat ~/.ssh/config
+Host foo.bar.com
+    User me
+    Port 443
+    ProxyCommand corkscrew 1.2.3.4 8080 %h %p ~/.ssh/proxyauth
+
+% cat ~/.ssh/proxyauth
+username:password&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sshmenu.sourceforge.net/articles/transparent-mulithop.html&#34;&gt;Transparent Multi-hop SSH&lt;/a&gt; &amp;ndash; using ProxyCommand and netcat to automate double ssh hops (also, my &lt;a href=&#34;http://www.mail-archive.com/slug@slug.org.au/msg62991.html&#34;&gt;SLUG question&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;non socks-ifiable programs can use socks via &lt;a href=&#34;http://tsocks.sourceforge.net/&#34;&gt;tsocks&lt;/a&gt;. This is really handy for getting &lt;strong&gt;apt&lt;/strong&gt; to work &amp;ndash; remember ssh is acting as a &lt;em&gt;socks&lt;/em&gt; proxy and not as an &lt;em&gt;http&lt;/em&gt; proxy. For example *sudo tsocks aptitude install foo&lt;br /&gt;
+*&lt;/li&gt;
+&lt;li&gt;lots of good tunnelling ideas on the &lt;a href=&#34;https://trac.torproject.org/projects/tor/wiki/TheOnionRouter/TorifyHOWTO/Misc&#34;&gt;Tor Wiki HOWTO&lt;/a&gt; and &lt;a href=&#34;http://fooninja.net/2010/09/06/how-to-tunnel-everything-through-ssh/&#34;&gt;How to tunnel everything through ssh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;also secure your dns traffic by setting &lt;strong&gt;network.proxy.socks_remote_dns = true&lt;/strong&gt; in Firefox&amp;rsquo;s about:config&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://blog.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;another similar article &lt;a href=&#34;http://www.linux.com/articles/56945&#34;&gt;Secure your Wi-Fi traffic using FOSS utilities&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Jan/2011:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;http://getfoxyproxy.org/&#34;&gt;FoxyProxy website&lt;/a&gt; has some good tutorials, and links to other material&lt;/li&gt;
+&lt;li&gt;Linux Magazine has an article called &lt;a href=&#34;http://www.linux-mag.com/id/2062/&#34;&gt;Tunnelling Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PaulDotCom &amp;ndash; &lt;a href=&#34;http://pauldotcom.com/2010/03/ssh-gymnastics-with-proxychain.html&#34;&gt;SSH gymnastics with proxychains&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&#34;_mcePaste&#34; class=&#34;mcePaste&#34; style=&#34;position:absolute;left:-10000px;top:0;width:1px;height:1px;overflow:hidden;&#34;&gt;
+  &lt;pre&gt;&lt;code&gt;export http_proxy=&#39;http://219.93.2.113:3128/&#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mysql, localhost, and ssh work-around</title>
+      <link>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</link>
+      <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</guid>
+      <description>&lt;p&gt;I use ssh to tunnel all the time, especially to get around brain-dead firewalls.&lt;/p&gt;
+
+&lt;p&gt;But this doesn&amp;rsquo;t work easily for mysql &amp;ndash; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &amp;lsquo;localhost&amp;rsquo; and try to connect via the local socket. Very broken &amp;ndash; there&amp;rsquo;s bugs lodged &lt;a href=&#34;http://bugs.mysql.com/bug.php?id=27361&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://bugs.mysql.com/bug.php?id=31577&#34;&gt;here&lt;/a&gt; about this (and lots of chest beating and wailing, too).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution:&lt;/strong&gt; tunnel ssh via an intermediate machine. For example:&lt;/p&gt;
+
+&lt;pre&gt;intermediate$ ssh -o GatewayPorts=yes -L 3306:targetdb:3306 targetdb
+localhost$ mysql -h intermediate -P 3306&lt;/pre&gt;
+
+&lt;p&gt;GatewayPorts &amp;ndash; dangerous yes &amp;ndash; but so is life.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The problem seems to have been fixed; either that or I was having a very blond moment last time I tried using &lt;strong&gt;&amp;ndash; &amp;ndash; protocol&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;localhost$ mysql --version
+localhost$ mysql  Ver 14.12 Distrib 5.0.51a, for debian-linux-gnu (i486) using readline 5.2
+localhost$ ssh -fN -L3306:targetdb:3306 targetdb
+localhost$ mysql --protocol=tcp -hlocalhost -uroot
+Welcome to the MySQL monitor.  Commands end with ; or g.
+Your MySQL connection id is 14788104
+Server version: 4.0.21-Max-log
+Type &#39;help;&#39; or &#39;h&#39; for help. Type &#39;c&#39; to clear the buffer.
+mysql&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;However graphical tools like OpenOffice Base, GMySqlCC and MySQL Query Browser either don&amp;rsquo;t obey the &amp;ndash; &amp;ndash; protocol=tcp flag or don&amp;rsquo;t have a place to set it, and therefore try to connect via the local socket file when connecting to localhost. Aarghhhhh..&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update 3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using 127.0.0.1 instead of localhost works for OpenOffice &amp;ndash; yay.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>svn over an ssh tunnel</title>
+      <link>http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/</link>
+      <pubDate>Wed, 05 Dec 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/</guid>
+      <description>&lt;p&gt;Often a subversion server is on an internal server that can&amp;rsquo;t be reached by a DMZ server, and ssh+svn isn&amp;rsquo;t setup. Here&amp;rsquo;s a quick recipe for ssh tunnelling from the subversion server to the DMZ server and using svn.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;br /&amp;gt;
+root@svnserver$ ssh -R dmzserver 3690:svnserver:3690&amp;lt;br /&amp;gt;
+root@dmzserver$ svn co --username sonia svn://localhost/unix/trunk/foo/ # so root not used&amp;lt;br /&amp;gt;
+root@dmzserver$ svn ci --username sonia --password secret&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh, ssh-agent, keychain and cron notes</title>
+      <link>http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</link>
+      <pubDate>Fri, 16 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To setup &lt;strong&gt;ssh&lt;/strong&gt; and &lt;strong&gt;keychain&lt;/strong&gt; to allow ssh related jobs to run from cron:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;generate keys &lt;em&gt;with a password&lt;/em&gt; (&lt;strong&gt;ssh-keygen -t dsa&lt;/strong&gt;) and install keychain. Do only on &lt;em&gt;secure machines&lt;/em&gt; ie ones that only you (or a small number of trusted admins) can logon to as root &amp;ndash; typically your laptop/desktop and a secure admin server&lt;/li&gt;
+&lt;li&gt;add the following lines to your &lt;strong&gt;~/.profile&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;some sites say &lt;strong&gt;.bash_profile&lt;/strong&gt;, but I use .profile as I use both bash and zsh (don&amp;rsquo;t have both as then only .bash_profile will be read)&lt;/li&gt;
+&lt;li&gt;I check keychain is executable with -x as I have the same .profile on all machines (synced via a script)&lt;/li&gt;
+&lt;li&gt;I use rsa keys as I work with older ssh1 machines; dsa keys are preferable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;export HOSTNAME=`hostname` # HOSTNAME not set some machines&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;if [ -x /usr/bin/keychain -a -f $HOME/.keychain/${HOSTNAME}-sh ] ; then&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;/usr/bin/keychain $HOME/.ssh/id_rsa&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;source $HOME/.keychain/${HOSTNAME}-sh&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;fi&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;on machines where others are able to login as root (and hence possibly piggyback onto your private key), keychain should be started with &amp;ndash;clear in .profile and ssh-agent shouldn&amp;rsquo;t be run. Use &amp;ndash;nocolor on non-VT100 compat terminals&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;unless &lt;strong&gt;~/.hushlogin&lt;/strong&gt; exists, keychain will display a colourful message showing known keys being loaded on login:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;Copyright 2002-2004 Gentoo Foundation; Distributed under the GPL&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;* Found existing ssh-agent (11703)&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;* Known ssh key: /home/shamilton/.ssh/id_rsa&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;any ssh-using scripts started from crontab on keychain&amp;rsquo;d machines should include the following lines at the start:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;source $HOME/.keychain/${HOSTNAME}-sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;[Off Topic] To manually load keys into ssh-agent, typically on admin servers or non-X machines when not using keychain:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;eval `ssh-agent`&lt;/li&gt;
+&lt;li&gt;ssh-add&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[Off Topic] When ssh&amp;rsquo;ing between multiple machines, &lt;strong&gt;ForwardAgent Yes&lt;/strong&gt; must be set in &lt;strong&gt;/etc/ssh/ssh_config&lt;/strong&gt;. Otherwise add to &lt;strong&gt;~/.ssh/config&lt;/strong&gt; or startup ssh as &lt;strong&gt;ssh -A&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;See also:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;gentoo homepage for &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ibm developer works series on &lt;a href=&#34;http://www.ibm.com/developerworks/library/l-keyc.html&#34;&gt;key management and keychain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;oceanpark on &lt;a href=&#34;http://oceanpark.com/notes/howto_ssh_keychain_public_key_authentication_forwarding.html&#34;&gt;passwordless connections&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;reflux on &lt;a href=&#34;http://rephlux.sourceforge.net/running.rephlux.php&#34;&gt;notes on keychain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;my &lt;a href=&#34;http://blog.snowfrog.net/2007/10/29/ssh-notes/&#34;&gt;ssh-notes&lt;/a&gt; on tunnelling&lt;/li&gt;
+&lt;li&gt;Troy Johnson&amp;rsquo;s notes on &lt;a href=&#34;http://troy.jdmz.net/rsync/index.html&#34;&gt;Using RSync and SSH: Keys, Validating and Automation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;sshpass &amp;ndash; &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;rsync + ssh keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>tcpdump notes</title>
+      <link>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</link>
+      <pubDate>Mon, 12 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</guid>
+      <description>&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;tcpdump host 172.26.24.58 and (port 20 or port 21)
+tcpdump host 172.26.24.58 and not arp
+tcpdump -s0 -w foo -i eth0 # whole packet not 96 bytes, write to file foo, listen on eth0)
+tcpdump -s 0 -i eth6 -w snmpget.pcap host 1.2.3.4 and port 161 # capture snmp traffic
+&lt;/pre&gt;
+
+&lt;p&gt;Three Way Handshake (from&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment&#34;&gt;Wikipedia&lt;/a&gt;):&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The initiating host (client) sends a synchronization packet (SYN flag set to 1) to initiate a connection. It sets the packet&amp;rsquo;s sequence number to a random value &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The other host receives the packet, records the sequence number &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt; from the client, and replies with an acknowledgment and synchronization (SYN-ACK). The Acknowledgment is a 32-bit field in TCP segment header. It contains the next sequence number that this host is expecting to receive &lt;span class=&#34;texhtml&#34;&gt;(&lt;em&gt;x&lt;/em&gt; + 1)&lt;/span&gt;. The host also initiates a return session. This includes a TCP segment with its own initial Sequence Number of value &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;y&lt;/em&gt;&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The initiating host responds with the next Sequence Number &lt;span class=&#34;texhtml&#34;&gt;(&lt;em&gt;x&lt;/em&gt; + 1)&lt;/span&gt; and a simple Acknowledgment Number value of &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;y&lt;/em&gt; + 1&lt;/span&gt;, which is the Sequence Number value of the other host + 1.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This ssh example:&lt;/p&gt;
+
+&lt;p&gt;soniah.local.36126 &amp;gt; 172.31.144.98.ssh: S &lt;strong&gt;4193395019&lt;/strong&gt;:4193395019(0)&lt;br /&gt;
+win 5840 &lt;mss 1460,sackOK,timestamp 3073372 0,nop,wscale 6&gt;&lt;/p&gt;
+
+&lt;p&gt;172.31.144.98.ssh &amp;gt; soniah.local.36126: S 4235467031:4235467031(0)&lt;br /&gt;
+ack &lt;strong&gt;4193395020&lt;/strong&gt; win 5792 &lt;mss 1460,sackOK,timestamp 1343461014 3073372,nop,wscale 2&gt;&lt;/p&gt;
+
+&lt;p&gt;soniah.local.36126 &amp;gt; 172.31.144.98.ssh: . ack 1 win 92 &lt;nop,nop,timestamp 3073372 1343461014&gt;&lt;/p&gt;
+
+&lt;p&gt;The first line contains a SYN (S) followed by a sequence number of &lt;strong&gt;.19&lt;/strong&gt;. The second line contains a SYN &lt;strong&gt;S&lt;/strong&gt; followed by an &lt;strong&gt;ack&lt;/strong&gt; incremented by 1 to &lt;strong&gt;.20&lt;/strong&gt;. The third line contains an &lt;strong&gt;ack&lt;/strong&gt;, but tcpdump has renumbered it to 1 to make the subsequent packets easier to follow.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

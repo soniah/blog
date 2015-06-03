@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Audio on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/audio/</link>
+    <description>Recent content in Audio on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 27 Jul 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/audio/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Troubleshooting Sound on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</link>
+      <pubDate>Mon, 27 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</guid>
+      <description>&lt;p&gt;Some good documentation on &lt;a href=&#34;https://help.ubuntu.com/community/SoundTroubleshooting&#34;&gt;Troubleshooting Sound on Ubuntu&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And a nice post on &lt;a href=&#34;http://chanweiyee.blogspot.com/2009/04/ubuntu-904-amarok-2-sound-problem.html&#34;&gt;getting Amarok going on Jaunty&lt;/a&gt; &amp;ndash; remove phonon-backend-gstreamer and install phonon-backend-xine (&lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/amarok/+bug/349847&#34;&gt;bug 349847&lt;/a&gt;). I can now go back to grooving to some laid-back Brazilian Reggae &amp;ndash; &lt;em&gt;Tribo de Jah &amp;ndash; Ruinas de Babilonia:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Veja a face sofrida dessa gente, Tanta gente sofrida,&lt;br /&gt;
+Buscando uma vida decente, Buscando um pouco de paz em suas vidas.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dell Latitude D830 No volume control GStreamer plugins and/or devices found</title>
+      <link>http://blog2.snowfrog.net/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/</link>
+      <pubDate>Tue, 15 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/Gutsy_Intel_HD_Audio_Controller&#34;&gt;Gutsy Intel HD Audio Controller&lt;/a&gt;, &amp;ldquo;Method G&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;In a nutshell:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;enable backports&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sudo aptitude install linux-backports-modules-generic&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sudo vi /etc/modprobe.d/alsa-base&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;add &lt;strong&gt;options snd-hda-intel model=dell-m42&lt;/strong&gt; to end of file&lt;/li&gt;
+&lt;li&gt;reboot ($DEITY, that sounds so Window$)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>howto rip Real Audio streams to mp3 on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/</link>
+      <pubDate>Mon, 14 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/</guid>
+      <description>&lt;p&gt;I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&amp;rsquo;m writing my own).&lt;/p&gt;
+
+&lt;p&gt;But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &amp;ldquo;Real Audio&amp;rdquo;. Bah! By the curse of RMS&amp;rsquo;s Beard!&lt;/p&gt;
+
+&lt;p&gt;There seems to be conflicting advice (see links below) on how to rip Real Audio to mp3, here&amp;rsquo;s how I got it going on Ubuntu 7.10:&lt;/p&gt;
+
+&lt;p&gt;First of all I installed Real Player using instructions &lt;a href=&#34;https://help.ubuntu.com/community/HowToRipRealaudioStreamsToMp3&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://help.ubuntu.com/community/RealPlayerInstallationMethods?action=show&amp;amp;redirect=RealplayerInstallationMethods&#34;&gt;here&lt;/a&gt;, and checked I could listen to a stream using the GUI tool &amp;ndash; a quick sanity check for firewalls, etc.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add repo &lt;strong&gt;deb &lt;a href=&#34;http://archive.canonical.com/ubuntu&#34;&gt;http://archive.canonical.com/ubuntu&lt;/a&gt; feisty partner&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;sudo aptitude install realplay&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then I installed mplayer and lame: &lt;strong&gt;sudo aptitude install mplayer lame&lt;/strong&gt;. I got the source for a stream by right clicking a link, saving it as file, extracting the rstp:// url out of the file, and tested downloading:&lt;/p&gt;
+
+&lt;p&gt;$ mplayer rtsp://xyz.net.uk/foo.ra -ao pcm:file=audiofile.wav -vc dummy -vo null&lt;/p&gt;
+
+&lt;p&gt;And it failed with these errors:&lt;/p&gt;
+
+&lt;p&gt;Opening audio decoder: [realaud] RealAudio decoder&lt;br /&gt;
+Error: /usr/lib/win32/sipr.so.6.0: cannot open shared object file: No such file or directory&lt;br /&gt;
+Win32 LoadLibrary failed to load: sipr.so.6.0, /usr/lib/win32/sipr.so.6.0, /usr/local/lib/win32/sipr.so.6.0&lt;/p&gt;
+
+&lt;p&gt;So I located the &lt;strong&gt;sipr.so&lt;/strong&gt; library, and based on the error message and digging around in mplayer using &lt;strong&gt;strings&lt;/strong&gt; I linked the installed realplayer codecs to /usr/lib/win32:&lt;/p&gt;
+
+&lt;p&gt;$ sudo find / -type f -name &amp;ldquo;sipr.so&amp;rdquo;&lt;br /&gt;
+$ strings /usr/bin/mplayer | grep usr&lt;br /&gt;
+$ sudo ln -s /usr/lib/realplay-10.0.9/codecs /usr/lib/win32&lt;/p&gt;
+
+&lt;p&gt;I repeated the above mplayer command (which worked) then converted to mp3:&lt;/p&gt;
+
+&lt;p&gt;$ mplayer rtsp://xyz.net.uk/foo.ra -ao pcm:file=audiofile.wav -vc dummy -vo null&lt;br /&gt;
+$ lame -h -b 128 audiofile.wav audiofile.mp3&lt;/p&gt;
+
+&lt;p&gt;Now, all this works for pages that have a direct link to a .ram file. But some sites (for example the BBC) have an embedded Real Player that hides the links to the .ram file &amp;ndash; here&amp;rsquo;s how to find the .ram file:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;click on the link and start playback the embedded Real Player in Firefox&lt;/li&gt;
+&lt;li&gt;a file called &lt;strong&gt;~/.realplayerrc&lt;/strong&gt; will be created &amp;ndash; towards the end of the file there will be a section like this:
+&lt;pre&gt;[recent_urls]&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;url0=file:///tmp/foo.ram&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;cat the &lt;strong&gt;/tmp/foo.ram&lt;/strong&gt; file, and copy the &lt;strong&gt;rstp://&lt;/strong&gt; link &amp;ndash; ignore the part after the ? (the UID, etc)&lt;/li&gt;
+&lt;li&gt;follow the above instructions for ripping :-)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Links&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://crashrecovery.org/mp3-ripkit/utils/realaudio-to-mp3.html&#34;&gt;Convert Real audio to MP3 using Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stommel.tamu.edu/~baum/linux-music.html#realaudio&#34;&gt;Converting Real Audio Streams to MP3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://grimthing.com/archives/2004/05/20/recording-streaming-audio-with-mplayer/&#34;&gt;Recording streaming audio with MPlayer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ubuntuforums.org/showthread.php?t=624643&#34;&gt;Problems with streaming Real Audio files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ubuntuforums.org/archive/index.php/t-447200.html&#34;&gt;BBC RealPlayer &amp;ndash; make your voice heard!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>iAudio mp3 player mount errors Ubuntu Gutsy</title>
+      <link>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</link>
+      <pubDate>Wed, 30 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;gconf-editor
+
+&lt;ul&gt;
+&lt;li&gt;/system/storage/default_options/vfat/mount_options&lt;/li&gt;
+&lt;li&gt;remove the &amp;ldquo;usefree&amp;rdquo; option from the list&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/gnome-mount/+bug/151025&#34;&gt;Launchpad Bug 151025&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Good Copy Bad Copy</title>
+      <link>http://blog2.snowfrog.net/2007/10/24/good-copy-bad-copy/</link>
+      <pubDate>Wed, 24 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/10/24/good-copy-bad-copy/</guid>
+      <description>&lt;p&gt;&lt;em&gt;a documentary about copyright and culture by Andreas Johsen, Ralf Christensen and Henrik Moltke&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://goodcopybadcopy.blip.tv/&#34;&gt;http://goodcopybadcopy.blip.tv&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>dvd ripping</title>
+      <link>http://blog2.snowfrog.net/2007/09/30/rip-audio-track-from-a-dvd/</link>
+      <pubDate>Sun, 30 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/09/30/rip-audio-track-from-a-dvd/</guid>
+      <description>&lt;p&gt;**Rip audio from a dvd **&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mencoder dvd://2 -oac mp3lame -lameopts br=96:cbr:vol=6 -ovc frameno -o track2.mp3&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;for i in ../vobs/* ; do j=${i##*/} mencoder &amp;quot;${i}&amp;quot; -oac pcm -ovc frameno -o &amp;quot;${j}&amp;quot; done&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;See also:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://axljab.homelinux.org/Mencoder_DVD_to_MPEG-4&#34;&gt;http://axljab.homelinux.org/Mencoder_DVD_to_MPEG-4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://f0rked.com/projects/simplerip&#34;&gt;http://f0rked.com/projects/simplerip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gentoo-wiki.com/HOWTO_Rip_DVD_mencoder&#34;&gt;http://gentoo-wiki.com/HOWTO_Rip_DVD_mencoder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Rip entire dvd&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.kalysto.org/utilities/dd_rhelp/index.en.html&#34; title=&#34;dd_rhelp&#34;&gt;dd_rhelp&lt;/a&gt; + dd_rescue
+&lt;code&gt;for i in /media/cdrom0/video_ts/* ; do j=${i##*/} dd_rhelp &amp;quot;${i}&amp;quot; &amp;quot;${j}&amp;quot; done&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;vobcopy&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Split mp3 Music Files – mp3splt</title>
+      <link>http://blog2.snowfrog.net/2007/05/20/split-mp3-music-files-mp3splt/</link>
+      <pubDate>Mon, 21 May 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/05/20/split-mp3-music-files-mp3splt/</guid>
+      <description>&lt;p&gt;A useful tool for splitting mp3 music files on Linux is &lt;strong&gt;mp3splt.&lt;/strong&gt; To install it on Ubuntu or Debian based distributions, type:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$ sudo aptitude install mp3splt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s an example of using it to split a collection of large mp3 files into 11 minute chunks; the -a option automatically finds silences near the 11 minute mark to split on:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;for i in ../origs/* ; do mp3splt -a -t 11.00 ./${i} ; done&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

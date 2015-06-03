@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Storage on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/storage/</link>
+    <description>Recent content in Storage on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 16 Jul 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>netapp – disabling and deleting snapshots</title>
+      <link>http://blog2.snowfrog.net/2009/07/16/netapp-disabling-and-deleting-snapshots/</link>
+      <pubDate>Thu, 16 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/07/16/netapp-disabling-and-deleting-snapshots/</guid>
+      <description>&lt;p&gt;Netapp volumes by default are created with snapshots turned on; if the volume is being used for backups (for example), the snapshots just use up space.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how to delete them:&lt;/p&gt;
+
+&lt;pre&gt;df vm_dev                     # see space usage for vm_dev volume
+snap sched vm_dev             # see the current snapshot schedule
+snap sched vm_dev 0 0 0       # zero out the current schedule
+vol options vm_dev nosnap on  # disable snapshots (not required, but &#34;belts and braces&#34;)
+snap delete -a vm_dev         # delete all old snapshots&lt;/pre&gt;
+
+&lt;p&gt;On a multi terabyte volume, the actual deletion can take a while &amp;ndash; don&amp;rsquo;t expect the space to return immediately.&lt;/p&gt;
+
+&lt;p&gt;See Netapp&amp;rsquo;s &amp;ldquo;Data Protection Online Backup and Recovery Guide&amp;rdquo; for more details.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Disk MTBF – Mean Time Between Failures</title>
+      <link>http://blog2.snowfrog.net/2008/12/03/disk-mtbf-mean-time-between-failures/</link>
+      <pubDate>Wed, 03 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/12/03/disk-mtbf-mean-time-between-failures/</guid>
+      <description>&lt;p&gt;A good &lt;a href=&#34;http://www.pcguide.com/ref/hdd/perf/qual/specMTBF-c.html&#34;&gt;article&lt;/a&gt; on disk MTBF (Mean Time Between Failures), that clarified my understanding (thanks Jarek).&lt;/p&gt;
+
+&lt;p&gt;The key paragraph:&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;To be interpreted properly, the MTBF figure is intended to be used in conjunction with the useful &lt;a href=&#34;http://www.pcguide.com/ref/hdd/perf/qual/specLife-c.html&#34;&gt;service life&lt;/a&gt; of the drive, the typical amount of time before the drive enters the period where failures due to component wear-out increase. MTBF only applies to the aggregate analysis of large numbers of drives; it says nothing about a particular unit. If the MTBF of a model is 500,000 hours and the service life is five years, this means that a drive of that type is supposed to last for five years, and that of a large group of drives operating within this timeframe, on average they will accumulate 500,000 of total run time (amongst all the drives) before the first failure of any drive. Or, you can think of it this way: if you used one of these drives and replaced it every five years with another identical one, in theory it should last 57 years before failing, on average (though I somehow doubt we&amp;rsquo;ll be using 10 to 100 GB spinning-platter hard disk drives in the year 2057. :^) )&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;The link on &lt;a href=&#34;http://www.pcguide.com/ref/hdd/perf/qual/specLife-c.html&#34;&gt;service life&lt;/a&gt; explains:&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;The service life of a modern hard disk is usually about three to five years. . Interestingly, the claimed service life is often longer than the warranty period for the drive. For example, the service life might be five years but the warranty period only three years. Think about what this means. ;^) Basically, it says that the manufacturer thinks the drive should last five years, but they aren&amp;rsquo;t going to bet on it lasting more than three! I personally think the warranty period is a better indication of a drive&amp;rsquo;s true useful life&amp;ndash;to a point&amp;ndash;because the warranty period is where the manufacturer &amp;ldquo;puts their money where their mouth is&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

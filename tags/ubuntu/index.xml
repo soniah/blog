@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 18 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SaltStack Ubuntu Hostname</title>
+      <link>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</link>
+      <pubDate>Sun, 18 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;network.system:&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;enabled:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;True&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hostname:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;server1.example.com&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a little shell script I wrote, to get around this problem:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat set_hostname.sh 
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span style=&#34;color: #40ffff&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
+hostname &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
+sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Then apply it using cmd.script, for example:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;foo-hostname:&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd.script:&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;source:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;salt://soe/set_hostname.sh&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;args:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;foo.bar.com&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;unless:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;grep -q &amp;quot;foo.bar.com&amp;quot; /etc/hosts&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>debfoster - keeping a Debian system small</title>
+      <link>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
+      <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
+      <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;debfoster has a more elaborate approach, very similar to aptitude&amp;rsquo;s: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation. If new packages appear on the system and if debfoster doesn&amp;rsquo;t know them as required packages, they will be shown on the screen together with a list of their dependencies. The program then offers a choice: remove the package (possibly together with those that depend on it), mark it as explicitly required, or ignore it temporarily.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Other useful tools are &lt;strong&gt;dpigs&lt;/strong&gt; (from the package debian-goodies) and &lt;strong&gt;wajig large&lt;/strong&gt;. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% dpigs
+88963 libgl1-mesa-dri
+78624 linux-image-3.2.0-4-486
+42613 gimp-data
+42128 smbclient
+33224 freepats
+28731 xulrunner-17.0
+26400 vlc-data
+23332 libwebkitgtk-1.0-0
+22368 vim-runtime
+21723 libicu48
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The commandlinefu.com topic &lt;a href=&#34;http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu&#34;&gt;List your largest installed packages (on Debian/Ubuntu)&lt;/a&gt; has some useful commands:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;\&lt;/span&gt;
+  /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -rn
+
+% dpkg-query -Wf &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;${Installed-Size}\t${Package}\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n
+
+% dpkg --get-selections &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; cut -f1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;read &lt;/span&gt;pkg&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt; dpkg -L &lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; xargs -I&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{}&amp;#39;&lt;/span&gt; bash -c &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+  &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;if [ ! -d &amp;quot;{}&amp;quot; ]; then echo &amp;quot;{}&amp;quot;; fi&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tr &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\000&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; du -c --files0-from - &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+   tail -1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sed &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;s/total/&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+
+% awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;quot;%9d %s\n&amp;quot;, $2, p)}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+   /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.auroraos.org/release/eeebuntu&#34;&gt;download sources for Eeebuntu&lt;/a&gt; seem to be broken, and nowadays I&amp;rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&amp;rsquo;m running &lt;a href=&#34;http://wiki.debian.org/LXDE&#34;&gt;Debian with LXDE&lt;/a&gt; - it seems to work well.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ASUS_Eee_PC_PIC_0971.JPG/220px-ASUS_Eee_PC_PIC_0971.JPG&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu - HowTo Recover Encrypted Home Directory</title>
+      <link>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</link>
+      <pubDate>Mon, 03 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</guid>
+      <description>
+
+&lt;p&gt;There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below).&lt;/p&gt;
+
+&lt;p&gt;These are merely notes for my future reference; they need tidying at there may be errors/mis-attributions in it.&lt;/p&gt;
+
+&lt;p&gt;Start by booting from an Ubuntu Live CD.&lt;/p&gt;
+
+&lt;h2 id=&#34;passwords:33ade79a5747fd03584f84a543a518de&#34;&gt;Passwords&lt;/h2&gt;
+
+&lt;p&gt;Three different &amp;ldquo;passwords&amp;rdquo; are referred to when recovering:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;boot password ie the password used when your laptop is first booted and the partitions are decrypted&lt;/li&gt;
+&lt;li&gt;user password ie your unix account password&lt;/li&gt;
+&lt;li&gt;mount password - will look something like f0bddb4c533fddb2c89e890098ed65d1. The one that you didn&amp;rsquo;t write down when prompted to do so&amp;hellip; See &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Mount_Passphrase&#34;&gt;Recovering Your Mount Passphrase&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;partitions-and-disk-layout:33ade79a5747fd03584f84a543a518de&#34;&gt;Partitions and Disk Layout&lt;/h2&gt;
+
+&lt;p&gt;If you selected the default Ubuntu encryption setup, the partitions will
+be laid out like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;/dev/sda1 * &lt;span style=&#34;color: #3677a9&#34;&gt;2048&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;499711&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;248832&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;83&lt;/span&gt; Linux
+/dev/sda2 &lt;span style=&#34;color: #3677a9&#34;&gt;501758&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;488134657&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; Extended
+/dev/sda5 &lt;span style=&#34;color: #3677a9&#34;&gt;501760&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;488134656&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;83&lt;/span&gt; Linux
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/dev/sda1 contains /boot ie kernel and grub&lt;/li&gt;
+&lt;li&gt;/dev/sda5 is an encrypted partition (&lt;code&gt;crypto_LUKS&lt;/code&gt;) that contains
+LVM. The Logical Volumes will be for /root, /home and swap. /home
+will be encrypted with a second level of encryption if you chose
+&amp;ldquo;encrypt home directory&amp;rdquo; during installation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mounting-encrypted-lvm-partition:33ade79a5747fd03584f84a543a518de&#34;&gt;Mounting Encrypted LVM Partition&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;confirm /dev/sda5 is the correct partition [1]:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksDump /dev/sda5
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;mount the encrypted partition containing the LVM volumes:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksOpen /dev/sda5 sda5_crypt
+vgdisplay
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;(you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lvdisplay &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; less
+mkdir /mnt/home
+mount -t ext4 /dev/vg/home /mnt/home
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;mounting-encrypted-home-luks-vs-ecryptfs:33ade79a5747fd03584f84a543a518de&#34;&gt;Mounting Encrypted Home, LUKS vs eCryptfs&lt;/h2&gt;
+
+&lt;p&gt;The partition was encrypted with LUKS, and /home will be encrypted with a second level of encryption (eCryptfs) if you chose &amp;ldquo;encrypt home directory&amp;rdquo; during installation.&lt;/p&gt;
+
+&lt;p&gt;Note for future installs: you&amp;rsquo;d only want to have both if multiple people were using the same machine. Otherwise use only LUKS especially for laptops; eCryptfs is an extra hurdle during recovery and doesn&amp;rsquo;t give extra security. Also, using only LUKS is more secure than only encrypting your home directory using eCryptfs:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;it will encrypt other things beside /home eg swap, /tmp&lt;/li&gt;
+&lt;li&gt;you&amp;rsquo;ll only type in your long LUKS passphrase occasionally (ie at reboot), whereas the eCryptfs password will be typed in every time you login or unlock the screen ie will be more vulnerable to shoulder-surfing, and more likely to be too short&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;However, eCryptfs does have some advantages (&lt;a href=&#34;http://www.privacydusk.com/tag/ecryptfs-vs-luks/):&#34;&gt;http://www.privacydusk.com/tag/ecryptfs-vs-luks/):&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All the cryptographic metadata is stored in the header of the file. This means that the encrypted file can be copied and moved from one location to another not leaving any metadata behind&lt;/li&gt;
+&lt;li&gt;Files can be encrypted with multiple keys so that multiple different users can have access to encrypted but shared files. You can have different files encrypted by different users and each user can access only his files&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;automated-approach-2:33ade79a5747fd03584f84a543a518de&#34;&gt;Automated Approach [2]&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;remount&amp;rdquo; /mnt/home on home:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;umount /mnt/home
+mount -t ext4 /dev/vg/home /home
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# add a user with the same name as the broken system&lt;/span&gt;
+adduser --no-create-home sonia
+su sonia
+ecryptfs-mount-private
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;manual-approach-3:33ade79a5747fd03584f84a543a518de&#34;&gt;Manual Approach [3]&lt;/h2&gt;
+
+&lt;p&gt;The Ubuntu documentation on EncryptedPrivateDirectory has lots of
+information [4]. These commands are copied from there, in case the page
+moves or disappears.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo ecryptfs-add-passphrase --fnek
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Passphrase: (Enter the mount passphrase you recorded when you setup the mount&amp;ndash;this passphrase is different from your login passphrase.)&lt;/p&gt;
+
+&lt;p&gt;You should now get two lines looking like this:&lt;/p&gt;
+
+&lt;p&gt;Inserted auth tok with sig [9986ad986f986af7] into the user session keyring&lt;/p&gt;
+
+&lt;p&gt;Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mkdir /mnt/Private
+mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Selection: 3 (use a passphrase key type)&lt;/p&gt;
+
+&lt;p&gt;Passphrase: (Enter the mount passphrase you recorded when you setup the mount&amp;ndash;this passphrase is different from your login passphrase.)&lt;/p&gt;
+
+&lt;p&gt;Selection: aes (use the aes cipher)&lt;/p&gt;
+
+&lt;p&gt;Selection: 16 (use a 16 byte key)&lt;/p&gt;
+
+&lt;p&gt;Enable plaintext passthrough: n&lt;/p&gt;
+
+&lt;p&gt;Enable filename encryption: y (This and the following options only apply if you are using filename encryption)&lt;/p&gt;
+
+&lt;p&gt;Filename Encryption Key (FNEK) Signature: (the value you wrote down from
+the second line above)&lt;/p&gt;
+
+&lt;h2 id=&#34;see-also:33ade79a5747fd03584f84a543a518de&#34;&gt;See Also&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[1] &lt;a href=&#34;http://blog.miketoscano.com/?p=72&#34;&gt;http://blog.miketoscano.com/?p=72&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[2] &lt;a href=&#34;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&#34;&gt;http://goshawknest.wordpress.com/2010/04/16/how-to-recover-crypted-home-directory-in-ubuntu/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[3] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[4] &lt;a href=&#34;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&#34;&gt;https://help.ubuntu.com/community/EncryptedPrivateDirectory#Recovering_Your_Data_Manually&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Network access with Exetel HSPA and Antenna</title>
+      <link>http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</link>
+      <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</guid>
+      <description>&lt;p&gt;I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with &lt;a href=&#34;http://www.exetel.com.au/residential-hspa-pricing.php&#34;&gt;Exetel&amp;rsquo;s $5/month Zero Gig plan&lt;/a&gt; (uses the Optus network). Great for when I&amp;rsquo;m out and about and can&amp;rsquo;t find a wireless signal to jump onto, or I&amp;rsquo;m at some client who doesn&amp;rsquo;t allow laptops onto their network.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update November 2012&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On Ubuntu Precise (12.04.1) mobile broadband now &amp;ldquo;just works&amp;rdquo;. Plug in the device, right click on Network Manager, follow the configuration wizard for &amp;ldquo;New Mobile Connection&amp;rdquo;, choose your provider (eg Exetel) and the correct APN will be filled in (exetel1).&lt;/p&gt;
+
+&lt;p&gt;**Original Article 2009
+**&lt;/p&gt;
+
+&lt;p&gt;I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with &lt;a href=&#34;http://www.exetel.com.au/residential-hspa-pricing.php&#34;&gt;Exetel&amp;rsquo;s $5/month Zero Gig plan&lt;/a&gt; (uses the Optus network). Great for when I&amp;rsquo;m out and about and can&amp;rsquo;t find a wireless signal to jump onto, or I&amp;rsquo;m at some client who doesn&amp;rsquo;t allow laptops onto their network. I&amp;rsquo;ve been using it regularly and still haven&amp;rsquo;t gone over about 100M usage, so it&amp;rsquo;s worked out to be very cheap.&lt;/p&gt;
+
+&lt;p&gt;Using Network Manager on Ubuntu Jaunty it mostly &amp;ldquo;just works&amp;rdquo; - all I needed to do was set the APN to &amp;lsquo;exetel1&amp;rsquo;. I&amp;rsquo;ve also bought an antenna for it from &lt;a href=&#34;http://www.antennashop.com.au/home.html&#34;&gt;The Antenna Shop&lt;/a&gt; - gives me better coverage in shadows in the CBD and out in the country. There&amp;rsquo;s also other bigger antennas available, as well as car antennas.&lt;/p&gt;
+
+&lt;p&gt;[caption id=&amp;ldquo;attachment_600&amp;rdquo; align=&amp;ldquo;alignnone&amp;rdquo; width=&amp;ldquo;372&amp;rdquo;]&lt;img src=&#34;http://blog.snowfrog.net/wp-content/uploads/2009/11/antenna.jpg&#34; alt=&#34;antenna&#34; /&gt;
+ antenna[/caption]&lt;/p&gt;
+
+&lt;p&gt;All-in-all a good buy - thanks Dean for the tip.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Addendum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As per Matt&amp;rsquo;s comment below, Huawei modems currently have problems on Ubuntu Karmic - &lt;a href=&#34;http://ubuntuforums.org/showthread.php?t=1311021&#34;&gt;Problem with Huawei E1762 Mobile Broadband in Karmic&lt;/a&gt;, &lt;a href=&#34;https://bugs.launchpad.net/network-manager/+bug/413989&#34;&gt;Bug #413989&lt;/a&gt;, &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/linux/+bug/446146&#34;&gt;Bug # 446146&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also, if you&amp;rsquo;re ever prompted to enter an &amp;ldquo;SP CODE&amp;rdquo; (ie Mac &amp;amp; Windows), enter &amp;ldquo;BROADBAND&amp;rdquo;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang - setup and producing .debs</title>
+      <link>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
+      <pubDate>Tue, 02 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&amp;rsquo;s to package them and &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; for README&amp;rsquo;s - &lt;em&gt;notes for me&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Install build pre-requisites:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install gcc libc6-dev libc6-dev-i386 make &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+  markdown build-essential debhelper dh-make fakeroot devscripts
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Install Go from source (so can cross-compile). Download from &lt;a href=&#34;http://code.google.com/p/go/downloads/list&#34;&gt;Go Downloads&lt;/a&gt; eg go1.0.2.src.tar.gz&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /usr/local/go/src
+sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;amd64 ./all.bash &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;386&lt;/span&gt; ./all.bash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Add to /etc/profile, source or re-login:
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOROOT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;/usr/local/go&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$GOROOT&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/bin:&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linux, Ubuntu: how to tell if 32 or 64 bit installed</title>
+      <link>http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</link>
+      <pubDate>Wed, 05 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</guid>
+      <description>&lt;p&gt;A question I get regularly from other sysadmins - how to tell if you&amp;rsquo;re running a 32 or 64 bit &lt;strong&gt;install&lt;/strong&gt; (vs &lt;strong&gt;CPU&lt;/strong&gt;) of Linux?&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s one way - use the file command on /sbin/init:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# on a 32 bit install&lt;/span&gt;
+% file /sbin/init
+/sbin/init: ELF 32-bit LSB executable....
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# on a 64 bit install&lt;/span&gt;
+% file /sbin/init
+/sbin/init: ELF 64-bit LSB shared object, x86-64...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I got a few comments on this (thank you) saying that I was wrong or &amp;ldquo;haven&amp;rsquo;t you heard of uname?&amp;rdquo;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. CPU vs Kernel&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One comment said I was wrong and should use grep against the cpu info:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;grep ^flags /proc/cpuinfo &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep lm
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Unfortunately the commenter hadn&amp;rsquo;t read my post correctly - I&amp;rsquo;m interested in whether the &lt;em&gt;operating system&lt;/em&gt; is &lt;sup&gt;32&lt;/sup&gt;&amp;frasl;&lt;sub&gt;64&lt;/sub&gt; bit, not the &lt;em&gt;cpu&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Use uname&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Other comments said I should use uname with particular flags (as if I&amp;rsquo;d never heard of uname before&amp;hellip;.). Unfortunately the manpage for uname is a good example of &lt;a href=&#34;http://en.wikipedia.org/wiki/Considered_harmful&#34;&gt;manpage considered harmful&lt;/a&gt;. Let&amp;rsquo;s have a look at what it says for the various options:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% man uname
+...
+-m, --machine
+    print the machine hardware name
+
+-p, --processor
+    print the processor &lt;span style=&#34;color: #24909d&#34;&gt;type &lt;/span&gt;or &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;unknown&amp;quot;&lt;/span&gt;
+
+-i, --hardware-platform
+    print the hardware platform or &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;unknown&amp;quot;&lt;/span&gt;
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;What is the difference between the &amp;ldquo;machine hardware name&amp;rdquo;, the &amp;ldquo;processor type&amp;rdquo;, and the &amp;ldquo;hardware platform&amp;rdquo;? Googling doesn&amp;rsquo;t turn up a good explanation. I could look at the source code for uname, or run uname on a machine I which already has known hardware and interpret the results, then work out the flags to use on the target machine. Or I could just rote-memorise &lt;strong&gt;uname -m&lt;/strong&gt; and not know what it means.&lt;/p&gt;
+
+&lt;p&gt;Bzzt, fail. I know what the &lt;strong&gt;file&lt;/strong&gt; command does, I use it regularly for cross-compiling stuff.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;file /sbin/init&lt;/strong&gt; is what I use.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh – DISPLAY is not set – Failed to allocate internet-domain X11 display socket</title>
+      <link>http://blog2.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</link>
+      <pubDate>Sun, 06 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</guid>
+      <description>&lt;p&gt;A little ssh error I came across while trying to work remotely on an Ubuntu machine. &lt;a href=&#34;http://tldp.org/HOWTO/XDMCP-HOWTO/ssh.html&#34;&gt;ssh X Display Forwarding&lt;/a&gt; wasn&amp;rsquo;t working, and I was getting an error:&lt;/p&gt;
+
+&lt;pre&gt;DISPLAY is not set&lt;/pre&gt;
+
+&lt;p&gt;Digging through /var/log/auth.log, I also noticed this error:&lt;/p&gt;
+
+&lt;pre&gt;Failed to allocate internet-domain X11 display socket&lt;/pre&gt;
+
+&lt;p&gt;After much Googling, it seems that IPv6 was causing the problem. It was solved by adding:&lt;/p&gt;
+
+&lt;pre&gt;AddressFamily inet&lt;/pre&gt;
+
+&lt;p&gt;to &lt;strong&gt;/etc/ssh/sshd_config&lt;/strong&gt;, and restarting the ssh server.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 10.10 (Maverick Meerkat) Download</title>
+      <link>http://blog2.snowfrog.net/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</link>
+      <pubDate>Wed, 18 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</guid>
+      <description>&lt;p&gt;Opinions around the latest Ubuntu (11.04) range from &amp;ldquo;interesting&amp;rdquo; (as in the curse &amp;ldquo;may you live in interesting times&amp;rdquo;) to &amp;ldquo;it sucks&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Anyway, there no longer appears to be a link to the previous version (10.10 Maverick) on the main Ubuntu page &amp;ndash; marketing droids seem to have finally taken over Ubuntu. It can be downloaded from &lt;a href=&#34;http://releases.ubuntu.com/maverick/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;No rocket science &amp;ndash; I just don&amp;rsquo;t want to have to look for the location in future.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Script to correct first day of week in en_AU locale</title>
+      <link>http://blog2.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/</link>
+      <pubDate>Sun, 25 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/</guid>
+      <description>&lt;p&gt;I blogged &lt;a href=&#34;http://blog.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/&#34;&gt;previously&lt;/a&gt; about how the Australian locale in Ubuntu incorrectly uses Sunday rather than Monday as the first day of the week, and how to manually fix it. Unfortunately, whenever the locale gets updated (eg via one of Ubuntu&amp;rsquo;s regular package updates), the locale reverts and you have to manually fix it again.&lt;/p&gt;
+
+&lt;p&gt;So I&amp;rsquo;ve written a script that fixes the locale, and also hooked it into dpkg:&lt;/p&gt;
+
+&lt;pre&gt;% cat fix_locale.sh
+#!/bin/bash
+
+LOCALE_FILE=&#39;/usr/share/i18n/locales/en_AU&#39;
+if [ -f $LOCALE_FILE ] ; then
+ sudo sed -i &#39;s/^first_weekday.*/first_weekday 2/&#39; $LOCALE_FILE
+ sudo locale-gen
+ killall gnome-panel
+fi
+&lt;/pre&gt;
+
+&lt;p&gt;To run this automatically, add a stanza like this to /etc/apt/apt.conf:&lt;/p&gt;
+
+&lt;pre&gt;APT {
+ Update {
+ Post-Invoke {&#34;/home/sonia/bin/fix_locale.sh&#34;; };
+ };
+};
+
+&lt;/pre&gt;
+
+&lt;p&gt;The script could be smarter ie check the existing value of first_weekday and only change it if it&amp;rsquo;s different, but I&amp;rsquo;ll fix that when I&amp;rsquo;ve got more time.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Howto install Virtualbox on Ubuntu Jaunty</title>
+      <link>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</link>
+      <pubDate>Fri, 23 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are &lt;a href=&#34;http://www.ubuntugeek.com/how-to-install-virtualbox-220-in-ubuntu-904-jaunty.html&#34;&gt;saying&lt;/a&gt; 2.2.0 is buggy). And now that Oracle owns Sun, Virtualbox may go the way of the dodo.&lt;/p&gt;
+
+&lt;p&gt;No rocket science here &amp;ndash; just saving myself time in future.&lt;/p&gt;
+
+&lt;pre&gt;sudo aptitude install virtualbox-ose virtualbox-ose-qt virtualbox-ose-source dkms virtualbox-guest-additions&lt;/pre&gt;
+
+&lt;p&gt;Applications -&amp;gt; Accessories -&amp;gt; VirtualBox OSE&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installing Aptana &#43; RadRails on Ubuntu Jaunty</title>
+      <link>http://blog2.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</link>
+      <pubDate>Mon, 17 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve always used vim as my main editor, but I thought I&amp;rsquo;d try RadRails since so many Rails people rave about it.&lt;/p&gt;
+
+&lt;p&gt;Installing it on Ubuntu Jaunty is a bit non-obvious:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;sudo aptitude install openjdk-6-jre (or your preferred jre)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.aptana.com/rails&#34;&gt;download&lt;/a&gt; and unpack aptana zip to ~/.aptana&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.8.1.3/contrib/linux-i686/xulrunner-1.8.1.3.en-US.linux-i686-20080128.tar.gz&#34;&gt;download&lt;/a&gt; and unpack xulrunner to ~/.xulrunner&lt;/li&gt;
+&lt;li&gt;create a script like ~/bin/aptana:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;#!/bin/bash
+MOZILLA_FIVE_HOME=~/.xulrunner
+if [ $LD_LIBRARY_PATH ]; then
+    LD_LIBRARY_PATH=$MOZILLA_FIVE_HOME:$LD_LIBRARY_PATH
+else
+    LD_LIBRARY_PATH=$MOZILLA_FIVE_HOME
+fi
+export MOZILLA_FIVE_HOME LD_LIBRARY_PATH
+~/.aptana/AptanaStudio -vm /usr/lib/jvm/java-6-openjdk/bin&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ubuntuforums.org/showthread.php?t=1139154&#34;&gt;[ubuntu] Installing Aptana on Jaunty &amp;ndash; Ubuntu Forums&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu and Toshiba Satellite Pro L300 fan</title>
+      <link>http://blog2.snowfrog.net/2009/08/07/ubuntu-and-toshiba-satellite-pro-l300-fan/</link>
+      <pubDate>Fri, 07 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/08/07/ubuntu-and-toshiba-satellite-pro-l300-fan/</guid>
+      <description>
+
+&lt;p&gt;I recently bought a new laptop &amp;ndash; a &lt;em&gt;bottom&lt;/em&gt; of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up).&lt;/p&gt;
+
+&lt;p&gt;I used to buy high-end laptops but my thinking was changed when my latest one got stolen and I started using an old one I&amp;rsquo;d (literally) dredged out of a rubbish bin. I mostly use shell/vi/ssh, Thunderbird and Firefox, don&amp;rsquo;t carry my laptop around with me, and all my stuff is backed up across multiple machines using git, so why shell out the big bucks?&lt;/p&gt;
+
+&lt;p&gt;So far I&amp;rsquo;m liking the Satellite Pro. Ubuntu 9.04 installed without a hitch, sound and wireless worked straight out of the box, the keyboard has a nice feel to it and all the keys are in the proper places (unlike Dell laptops that seem to scatter them all over the place).&lt;/p&gt;
+
+&lt;p&gt;Only problem was the fan. The poor little cpu is a bit underpowered so the cpu load average continually sits on or above 1, and the fan was going mental. A quick &lt;a href=&#34;http://www.google.com.au/search?hl=en&amp;amp;client=firefox-a&amp;amp;rls=com.ubuntu%3Aen-US%3Aunofficial&amp;amp;hs=HTI&amp;amp;q=ubuntu+Toshiba+satellite+pro+L300+cpu+fan&amp;amp;btnG=Search&amp;amp;meta=&#34;&gt;search on Google&lt;/a&gt; found the solution: in &lt;strong&gt;/boot/grub/menu.lst&lt;/strong&gt; change defoptions to&lt;/p&gt;
+
+&lt;pre&gt;# defoptions=acpi_osi=&#34;Linux&#34;&lt;/pre&gt;
+
+&lt;p&gt;run &lt;strong&gt;sudo update-grub&lt;/strong&gt;, reboot.&lt;/p&gt;
+
+&lt;h3 id=&#34;update-for-grub2-nov-13:644226b3e8d26b636874923a1df823d3&#34;&gt;Update for Grub2 (Nov/13)&lt;/h3&gt;
+
+&lt;p&gt;Edit &lt;strong&gt;/etc/default/grub&lt;/strong&gt;, change this setting:&lt;/p&gt;
+
+&lt;pre&gt;GRUB_CMDLINE_LINUX_DEFAULT=&#34;acpi_osi=Linux&#34;&lt;/pre&gt;
+
+&lt;p&gt;Then update and reboot:&lt;/p&gt;
+
+&lt;pre&gt;sudo update-grub
+sudo reboot&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting Sound on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</link>
+      <pubDate>Mon, 27 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</guid>
+      <description>&lt;p&gt;Some good documentation on &lt;a href=&#34;https://help.ubuntu.com/community/SoundTroubleshooting&#34;&gt;Troubleshooting Sound on Ubuntu&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And a nice post on &lt;a href=&#34;http://chanweiyee.blogspot.com/2009/04/ubuntu-904-amarok-2-sound-problem.html&#34;&gt;getting Amarok going on Jaunty&lt;/a&gt; &amp;ndash; remove phonon-backend-gstreamer and install phonon-backend-xine (&lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/amarok/+bug/349847&#34;&gt;bug 349847&lt;/a&gt;). I can now go back to grooving to some laid-back Brazilian Reggae &amp;ndash; &lt;em&gt;Tribo de Jah &amp;ndash; Ruinas de Babilonia:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Veja a face sofrida dessa gente, Tanta gente sofrida,&lt;br /&gt;
+Buscando uma vida decente, Buscando um pouco de paz em suas vidas.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Syncing Palm Pilot with JPilot and visor on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</link>
+      <pubDate>Mon, 04 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</guid>
+      <description>
+
+&lt;p&gt;(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&amp;rsquo;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.&lt;/p&gt;
+
+&lt;p&gt;Turns out I wasn&amp;rsquo;t reading my own instructions. here&amp;rsquo;s the cleaned up version:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;load visor module &lt;strong&gt;sudo modprobe visor&lt;/strong&gt; and check loaded &lt;strong&gt;lsmod | grep visor&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;add visor module to &lt;strong&gt;/etc/modules&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;click sync button on Palm Pilot and check USB devices are being created:
+
+&lt;ul&gt;
+&lt;li&gt;in one terminal, &lt;strong&gt;tail -f /var/log/syslog &lt;s&gt;/var/log/messages&lt;/s&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;in a second terminal, check the ownership of links &lt;strong&gt;ls -al /dev/ttyUSB&lt;/strong&gt;* and check you are a member of the appropriate group (usually dialout) &lt;strong&gt;grep dialout /etc/group&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sudo aptitude install jpilot&lt;/strong&gt; and start JPilot&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;read this step carefully:&lt;/em&gt; no need to change the Serial Port setting in Preferences &amp;ndash; JPilot will pick up the correct one on the first sync (which is now unexpectedly &lt;em&gt;Other&lt;/em&gt; rather than &lt;em&gt;/dev/ttyUSBO&lt;/em&gt; or &lt;em&gt;usb:&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;read this step carefully:&lt;/em&gt; from jpilot &lt;strong&gt;File &amp;gt; Install User&lt;/strong&gt;, click sync button on Palm Pilot, count to 5, then click &lt;strong&gt;Install User&lt;/strong&gt; button in JPilot dialog box&lt;/li&gt;
+&lt;li&gt;click sync button on Palm Pilot, count to 5, then click &lt;strong&gt;Sync&lt;/strong&gt; in JPilot&lt;/li&gt;
+&lt;li&gt;if syncing isn&amp;rsquo;t working (especially on a machine that&amp;rsquo;s been upgraded from an older version of Ubuntu), try closing JPilot, &lt;strong&gt;mv .jpilot .jpilot.bak&lt;/strong&gt;, restarting JPilot, then doing the &lt;strong&gt;Install User&lt;/strong&gt; steps again&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;span-style-text-decoration-underline-see-also-span:30acd8bf1d7677c6c7fe94558b2bfaa7&#34;&gt;&lt;span style=&#34;text-decoration: underline;&#34;&gt;See also:&lt;/span&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(totally off-topic): &lt;a href=&#34;http://www.computechgroup.com/?p=381&#34;&gt;HOWTO: Import iCalendar (ics) Appointments Into JPilot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;some pages mention installing pilot-link &amp;ndash; this isn&amp;rsquo;t required&lt;/li&gt;
+&lt;li&gt;some pages mention modifying files in&lt;strong&gt;/etc/udev/rules.d&lt;/strong&gt; &amp;ndash; this no longer seems required&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxquestions.org/questions/showthread.php?t=79965&#34;&gt;http://www.linuxquestions.org/questions/showthread.php?t=79965&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ask.slashdot.org/article.pl?sid=05/05/13/0234225&#34;&gt;http://ask.slashdot.org/article.pl?sid=05/05/13/0234225&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxmuse.com/articles.php?action=printerf&amp;amp;article=29&#34;&gt;http://www.linuxmuse.com/articles.php?action=printerf&amp;amp;article=29&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxquestions.org/questions/showthread.php?t=177780&#34;&gt;http://www.linuxquestions.org/questions/showthread.php?t=177780&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linuxquestions.org/questions/showthread.php?t=221854&#34;&gt;http://www.linuxquestions.org/questions/showthread.php?t=221854&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.rockhopper.dk/linux/hardware/pda.html#chap5_sect1&#34;&gt;http://www.rockhopper.dk/linux/hardware/pda.html#chap5_sect1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://archives.mandrivalinux.com/expert/2003-02/msg02508.php&#34;&gt;http://archives.mandrivalinux.com/expert/2003-02/msg02508.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.faqs.org/docs/Linux-HOWTO/PalmOS-HOWTO.html#PC-CONNECT-USB&#34;&gt;http://www.faqs.org/docs/Linux-HOWTO/PalmOS-HOWTO.html#PC-CONNECT-USB&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pilot-link.org/README.usb&#34;&gt;http://pilot-link.org/README.usb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.clasohm.com/blog/one-entry?entry%5fid=12096&#34;&gt;Carsten Clasohm&amp;rsquo;s Blog : USB Palm and Fedora Core 3&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.reactivated.net/writing_udev_rules.html&#34;&gt;Writing udev rules by Daniel Drake&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.linux-mag.com/id/2617&#34;&gt;Linux Magazine &amp;ndash; The Linux Device Model&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>apt sources.list for old versions of Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/</link>
+      <pubDate>Fri, 01 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/</guid>
+      <description>&lt;p&gt;Discontinued versions of Ubuntu are mirrored under &lt;a href=&#34;http://old-releases.ubuntu.com/ubuntu/&#34;&gt;http://old-releases.ubuntu.com/ubuntu/&lt;/a&gt;, which can be used to setup apt&amp;rsquo;s sources.list.&lt;/p&gt;
+
+&lt;p&gt;For example, for Gutsy (7.10), &lt;strong&gt;sources.list&lt;/strong&gt; would look like:&lt;/p&gt;
+
+&lt;pre&gt;deb http://old-releases.ubuntu.com/ubuntu/ gutsy main restricted
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy-updates main restricted
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy universe
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy-updates universe
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy-updates multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy-security main restricted
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy-security universe
+deb http://old-releases.ubuntu.com/ubuntu/ gutsy-security multiverse&lt;/pre&gt;
+
+&lt;p&gt;Thanks to Marty, JohnF, and others on the SLUG list.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update August/2012&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also use &lt;a href=&#34;http://au.archive.ubuntu.com/ubuntu/&#34;&gt;http://archive.ubuntu.com/ubuntu/&lt;/a&gt; and country specific repos like &lt;a href=&#34;http://au.archive.ubuntu.com/ubuntu/&#34;&gt;http://au.archive.ubuntu.com/ubuntu/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

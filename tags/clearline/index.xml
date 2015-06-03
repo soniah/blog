@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clearline on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/clearline/</link>
+    <description>Recent content in Clearline on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 30 Jan 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/clearline/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>WordPress Clear Line Theme – Previous Page Newer Posts</title>
+      <link>http://blog2.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
+      <pubDate>Mon, 30 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
+      <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;ndash; you need to edit the following four files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;archive.php&lt;/li&gt;
+&lt;li&gt;author.php&lt;/li&gt;
+&lt;li&gt;index.php&lt;/li&gt;
+&lt;li&gt;search.php&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In these files, search for the lines that look like:&lt;/p&gt;
+
+&lt;pre&gt;posts_nav_link(&#39; -- &#39;, __(&#39;&amp;laquo; Previous Page&#39;),...&lt;/pre&gt;
+
+&lt;p&gt;Edit each file and change &lt;strong&gt;Previous Page&lt;/strong&gt; to &lt;strong&gt;Newer Posts&lt;/strong&gt;, and &lt;strong&gt;Next Page&lt;/strong&gt; to &lt;strong&gt;Older Posts&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Alternatively if you&amp;rsquo;ve got &lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; shell access (and you&amp;rsquo;re hosted on a Unix-like environment eg Linux), you can run the following commands:&lt;/p&gt;
+
+&lt;pre&gt;cd /var/www/wp-content/themes/clear-line
+sed -i &#39;s/Previous Page/Newer Posts/&#39; archive.php author.php index.php search.php
+sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php search.php&lt;/pre&gt;
+
+&lt;p&gt;Of course before running these &lt;a href=&#34;http://en.wikipedia.org/wiki/Sed&#34;&gt;sed&lt;/a&gt; commands you should backup your files, in case anything goes wrong.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</title>
+      <link>http://blog2.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
+      <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
+      <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;ldquo;Site Admin&amp;rdquo;, &amp;ldquo;Login&amp;rdquo;, &amp;ldquo;Entries RSS&amp;rdquo;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;rsquo;s a slight security risk (though hiding it won&amp;rsquo;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;rsquo;re running WordPress).&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s a couple of options for hiding the Meta Widget:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;don&amp;rsquo;t display it at all. Go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt;, find the Sidebar that Meta is being displayed in, and delete it. You can then login to your blog by going to the &lt;strong&gt;/wp-login.php&lt;/strong&gt; page. For example if your blog is &lt;strong&gt;&lt;a href=&#34;http://myblog.info&#34;&gt;http://myblog.info&lt;/a&gt;&lt;/strong&gt;, go to &lt;strong&gt;&lt;a href=&#34;http://myblog.info/wp-login.php&#34;&gt;http://myblog.info/wp-login.php&lt;/a&gt;&lt;/strong&gt; to login&lt;/li&gt;
+&lt;li&gt;make it smaller and barely visible (the option I prefer). First of all, go to &lt;em&gt;Appearance -&amp;gt; Widgets&lt;/em&gt; and move/add a Meta Widget to the &lt;strong&gt;Footer Counters&lt;/strong&gt; Sidebar (this Sidebar is specific to the Clearline Theme). Then, you need to edit the &lt;strong&gt;wp-includes/default-widgets.php&lt;/strong&gt; file. Search for the line that contains &lt;strong&gt;wp_register&lt;/strong&gt; (about line 293), then delete the three lines that contain &amp;lsquo;rss2_url&amp;rsquo;, &amp;lsquo;comments_rss2_url&amp;rsquo;, and &amp;lsquo;wordpress.org&amp;rsquo;, and remove the bulleting from &amp;lsquo;wp_loginout&amp;rsquo;. The changes are easier to see with some before and after code:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Before:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;?php wp_loginout(); ?&amp;gt;&amp;lt;/li&amp;gt;
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;rss2_url&#39;); ?&amp;gt;&#34; title=...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;&amp;lt;?php bloginfo(&#39;comments_rss2_url&#39;); ?...
+&amp;lt;li&amp;gt;&amp;lt;a href=&#34;http://wordpress.org/&#34; title=&#34;&amp;lt;?php ec...
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;After:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;ul&amp;gt;
+&amp;lt;?php wp_register(); ?&amp;gt;
+&amp;lt;?php wp_loginout(); ?&amp;gt;
+&amp;lt;?php wp_meta(); ?&amp;gt;
+&amp;lt;/ul&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, you&amp;rsquo;ll have a small Login link at the bottom right-hand corner of your blog!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Addendum&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you take the second option (making the Meta Widget smaller and barely visible), you may have noticed you get a small &amp;ldquo;Site Admin&amp;rdquo; link when logged in (at the bottom right of the page). You can fix this by editing the &lt;strong&gt;wp-includes/general-template.php&lt;/strong&gt; file. At about line 319, &lt;strong&gt;change:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = $before . &#39;&amp;lt;a href=&#34;&#39; . admin_url()...&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;to:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;$link = &#39;&#39;;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress Clear Line Theme – Display Tags not Categories</title>
+      <link>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
+      <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;rsquo;t have a way of modifying it&amp;rsquo;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
+
+&lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_category(&#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;with this:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;?php the_tags(&#39;&#39;, &#39;, &#39;); ?&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;The path to the &lt;strong&gt;functions.php&lt;/strong&gt; file may be slightly different on your server; you can quickly locate it using &lt;strong&gt;find&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;find / -type f -name functions.php 2&amp;gt; /dev/null&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/emacs/</link>
+    <description>Recent content in Emacs on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 02 Jun 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Emacs Paredit Notes for OSX</title>
+      <link>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</link>
+      <pubDate>Sat, 02 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</guid>
+      <description>&lt;p&gt;Some notes on &lt;a href=&#34;http://emacswiki.org/emacs/ParEdit&#34;&gt;Emacs&amp;rsquo; Paredit mode&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;More so I can stop fighting with Paredit and do some &lt;strong&gt;Clojure&lt;/strong&gt; programming than show any expertise - see &lt;a href=&#34;http://www.slideshare.net/mudphone/paredit-preso&#34;&gt;Mudphone&amp;rsquo;s Paredit Preso&lt;/a&gt; for the real deal, as well as &lt;a href=&#34;http://p.hagelb.org/paredit-screencast.html&#34;&gt;hagelb&amp;rsquo;s Paredit screencast notes&lt;/a&gt; and the &lt;a href=&#34;http://www.emacswiki.org/pics/static/PareditCheatsheet.png&#34;&gt;Paredit Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-(&lt;/strong&gt;  wrap parens around something. Also for { [ &amp;ldquo;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-s&lt;/strong&gt;  remove parens from something&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-S-s&lt;/strong&gt;  split sexpr into two&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-S-j&lt;/strong&gt;  join sexprs&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-q ♦&lt;/strong&gt;  just do what I say, dammit! force insert of paren or bracket ♦&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-u DEL&lt;/strong&gt;  force delete paren or bracket&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;ldquo;Barfage and slurpage&amp;rdquo; ie moving parens left and right.  I had some trouble getting this going on OSX, as the terminal doesn&amp;rsquo;t seem to map control key sequences correctly. After modifying emacs (see below), I got these going:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;C-&lt;right&gt;, C-&lt;left&gt;&lt;/strong&gt;  move right paren right or left&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;ESC C-&lt;right&gt;, ESC C-&lt;left&gt;&lt;/strong&gt; move left paren right or left&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I wrote this elisp for my &lt;strong&gt;~/.emacs.d/sonia.el&lt;/strong&gt; (I&amp;rsquo;m using &lt;a href=&#34;http://github.com/technomancy/emacs-starter-kit&#34;&gt;Technomancy&amp;rsquo;s Emacs Starter Kit&lt;/a&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;when &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eq&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;system-type&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;darwin&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eval-after-load&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;#39;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;progn&lt;/span&gt;
+       &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;;; C-left&lt;/span&gt;
+       &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;define-key&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;paredit-mode-map&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;kbd&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;M-[ 5 d&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+                   &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit-forward-barf-sexp&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+       &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;;; C-right&lt;/span&gt;
+       &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;define-key&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;paredit-mode-map&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;kbd&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;M-[ 5 c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+                   &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit-forward-slurp-sexp&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+       &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;;; ESC-C-left&lt;/span&gt;
+       &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;define-key&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;paredit-mode-map&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;kbd&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;ESC M-[ 5 d&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+                   &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit-backward-slurp-sexp&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+       &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;;; ESC-C-right&lt;/span&gt;
+       &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;define-key&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;paredit-mode-map&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;kbd&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;ESC M-[ 5 c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+                   &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit-backward-barf-sexp&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+     &lt;span style=&#34;color: #d0d0d0&#34;&gt;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp_cycles.png&#34; alt=&#34;Lisp Parens&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Vim Buffers Cheatsheet</title>
+      <link>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</guid>
+      <description>&lt;p&gt;A small Vim Buffers cheatsheet:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:bu &amp;lt;tab&amp;gt;    - select a buffer
+:buN         - select buffer N
+:ls          - list buffers
+:sb tab      - split screen on another buffer
+:sbN         - split screen on buffer N
+:only        - make this the only buffer (ie maximise)
+^w^o         - make this the only buffer (ie maximise)
+:ball        - split screen on all buffers
+:hide        - hide this buffer
+:bdel        - remove buffer from list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vim buffers don&amp;rsquo;t seem as flexible as the Emacs equivalent, but then _nothing_ is as flexible as Emacs:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/real_programmers.png&#34; alt=&#34;Xkcd Emacs&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://xkcd.com/378/&#34;&gt;http://xkcd.com/378/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

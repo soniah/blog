@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Links on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/links/</link>
+    <description>Recent content in Links on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 13 Jun 2007 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MSSQL Resources</title>
+      <link>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</link>
+      <pubDate>Wed, 13 Jun 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</guid>
+      <description>
+
+&lt;p&gt;MSSQL Resources&lt;/p&gt;
+
+&lt;h3 id=&#34;web-sites:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Web Sites&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqlservercentral.com/&#34;&gt;SQL Server Central&lt;/a&gt;, especially the &lt;a href=&#34;http://www.sqlservercentral.com/other/links.asp&#34;&gt;links&lt;/a&gt; section&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sqljunkies.com&#34;&gt;SQL Junkies&lt;/a&gt;. Good article on &lt;a href=&#34;http://sqljunkies.com/Article/5CCAC423-1407-4A36-AF71-ED6A67D9646A.scuk&#34;&gt;Troubleshooting Endpoints&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sqlskills.com/&#34;&gt;SQL Skills.com (Kimberley Tripp)&lt;/a&gt; &amp;ndash; especially the Resources section &amp;ndash; whitepapers, articles, etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;user-groups:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;User Groups&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqldownunder.com/&#34;&gt;SQL Down Under&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqlserver.org.au/&#34;&gt;Australian SQL Server User Group&lt;/a&gt; &amp;ndash; especially the Resources section&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ssw.com.au/ssw/netug/&#34;&gt;Sydney .NET Users Group&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;sql@informare.com.au (email list)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;podcasts-webcasts:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Podcasts/Webcasts&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://dotnetrocks.com/archives.aspx&#34;&gt;.NET Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dnrtv.com/&#34;&gt;dnrTV&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.microsoft.com/events/podcasts/default.mspx#ITMgrMicrosoftSQLServer2005&#34;&gt;microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sqlpass.org/webcasts.html&#34;&gt;PASS Webcasts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://searchsqlserver.bitpipe.com/webcasts?asrc=SS_NAV_WC&#34;&gt;SearchSQLServer.com Webcasts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;useful-addins:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Useful addins&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ankhsvn.tigris.org/&#34;&gt;AnkhSVN&lt;/a&gt; &amp;ndash; &lt;a href=&#34;http://subversion.tigris.org/&#34;&gt;Subversion&lt;/a&gt; source code control plugin for Visual Studio&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.logpi.com&#34;&gt;Log PI&lt;/a&gt; and &lt;a href=&#34;http://www.lumigent.com/products/le_sql.html&#34;&gt;Log Explorer&lt;/a&gt; &amp;ndash; both allow manipulation of SQL Server logs eg remove a single transaction&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://promptsql.com/&#34;&gt;PromptSQL&lt;/a&gt; &amp;ndash; provides SQL Intellisense style word completion for various Microsoft SQL editors, and UltraEdit&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.jetbrains.com/resharper/&#34;&gt;ReSharper&lt;/a&gt; &amp;ndash; features such as intelligent coding assistance, on-the-fly error highlighting and quick error correction, support for code refactoring&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://aisto.com/roeder/dotnet/&#34;&gt;Reflector&lt;/a&gt; &amp;ndash; allows you to view, navigate, search, decompile and analyze .NET assemblies. Other tools also on the same site.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.quest.com/spotlight-on-sql-server-enterprise/&#34;&gt;Quest Spotlight&lt;/a&gt; &amp;ndash; &amp;ldquo;&lt;em&gt;Spotlight on SQL Server Enterprise provides an agent-less easy-to-use database issue discovery solution that enables you to identify and resolve SQL Server performance problems within your SQL Server environment.&lt;/em&gt;&amp;ldquo;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;xml-tools:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;XML Tools&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;xsd, xslt, etc tools in MS Visual Studio 2005&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.oxygenxml.com/&#34;&gt;oXygen XML editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.altova.com/products/xmlspy/xml_editor.html&#34;&gt;Altova xmlspy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;tools in &lt;a href=&#34;http://www.ultraedit.com/&#34;&gt;UltraEdit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;blogs:4e759e81631f36b33ee0de448f9ae23e&#34;&gt;Blogs&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqlclr/&#34;&gt;CLR Integration&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqltips/&#34;&gt;SQL Server Engine Tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqlcat/&#34;&gt;Microsoft SQL Server Development Customer Advisory Team&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sql%5Fprotocols/&#34;&gt;SQL Protocols&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/sqlrem/&#34;&gt;SQL Server Relational Engine Manageability Team Blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/queryoptteam/&#34;&gt;Tips, Tricks, and Advice from the SQL Server Query Optimization Team&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/ianjo/&#34;&gt;Ian Jose&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/slavao/&#34;&gt;Slava Oks&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/khen1234/&#34;&gt;Ken Henderson&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/weix/&#34;&gt;Engine Watch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.msdn.com/mandar/default.aspx&#34;&gt;Mandar&amp;rsquo;s WebLog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

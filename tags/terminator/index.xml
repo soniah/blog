@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminator on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/terminator/</link>
+    <description>Recent content in Terminator on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 18 Mar 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/terminator/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GNU Screen Alternative - Terminator?</title>
+      <link>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</link>
+      <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;http://www.gnu.org/software/screen/manual/screen.html&#34;&gt;GNU Screen&lt;/a&gt; for years, and I always wished it had a &amp;ldquo;broadcast&amp;rdquo; functionality like &lt;a href=&#34;http://expect.sourceforge.net/example/multixterm.man.html&#34;&gt;MultiXterm&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Anyway, this morning I came across &lt;a href=&#34;http://www.tenshu.net/p/terminator.html&#34;&gt;Terminator&lt;/a&gt; - it splits screens, has broadcasts, etc (probably old news for some people&amp;hellip;).&lt;/p&gt;
+
+&lt;p&gt;By the way, you can &lt;a href=&#34;http://blog.snowfrog.net/2012/03/19/gnu-screen-split-screens/&#34;&gt;split screens in GNU Screen&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

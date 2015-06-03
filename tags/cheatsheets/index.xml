@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cheatsheets on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/cheatsheets/</link>
+    <description>Recent content in Cheatsheets on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 02 Feb 2008 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/cheatsheets/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Setup a forwarding caching-only DNS Server on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</link>
+      <pubDate>Sat, 02 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</guid>
+      <description>&lt;p&gt;A quick cheatsheet for setting up a forwarding, caching-only DNS Server on Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Edit /etc/bind/named.conf.options:&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;options {&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; directory &amp;ldquo;/var/cache/bind&amp;rdquo;;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // prevent firewall problems&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; query-source address * port 53;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; forwarders {&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // forward requests to&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; 1.2.3.4;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; 5.6.7.8;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // don&amp;rsquo;t iterate&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; forward only;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // but DO cache (make it explicit)&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; recursion yes;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; auth-nxdomain no; # conform to RFC1035&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // don&amp;rsquo;t do IPv6&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // listen-on-v6 { any; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; listen-on-v6 { none; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // only listen on internal interfaces&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; listen-on { 10.0.0.1; 127.0.0.1; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;};&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Edit /etc/dhcp3/dhclient.conf, add the following lines:&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;# sonia: use this server&amp;rsquo;s dns server first!!&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;interface &amp;ldquo;eth0&amp;rdquo; {&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; prepend domain-name-servers 127.0.0.1;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;}&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Finally, restart services and check work:&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;/etc/init.d/bind9 restart&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;netstat -tanp | grep named&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;grep bind /var/log/* | less&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;/etc/init.d/networking restart&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;cat /etc/resolv.conf&lt;/tt&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>tcpdump notes</title>
+      <link>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</link>
+      <pubDate>Mon, 12 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</guid>
+      <description>&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;tcpdump host 172.26.24.58 and (port 20 or port 21)
+tcpdump host 172.26.24.58 and not arp
+tcpdump -s0 -w foo -i eth0 # whole packet not 96 bytes, write to file foo, listen on eth0)
+tcpdump -s 0 -i eth6 -w snmpget.pcap host 1.2.3.4 and port 161 # capture snmp traffic
+&lt;/pre&gt;
+
+&lt;p&gt;Three Way Handshake (from&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment&#34;&gt;Wikipedia&lt;/a&gt;):&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The initiating host (client) sends a synchronization packet (SYN flag set to 1) to initiate a connection. It sets the packet&amp;rsquo;s sequence number to a random value &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The other host receives the packet, records the sequence number &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt; from the client, and replies with an acknowledgment and synchronization (SYN-ACK). The Acknowledgment is a 32-bit field in TCP segment header. It contains the next sequence number that this host is expecting to receive &lt;span class=&#34;texhtml&#34;&gt;(&lt;em&gt;x&lt;/em&gt; + 1)&lt;/span&gt;. The host also initiates a return session. This includes a TCP segment with its own initial Sequence Number of value &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;y&lt;/em&gt;&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The initiating host responds with the next Sequence Number &lt;span class=&#34;texhtml&#34;&gt;(&lt;em&gt;x&lt;/em&gt; + 1)&lt;/span&gt; and a simple Acknowledgment Number value of &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;y&lt;/em&gt; + 1&lt;/span&gt;, which is the Sequence Number value of the other host + 1.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This ssh example:&lt;/p&gt;
+
+&lt;p&gt;soniah.local.36126 &amp;gt; 172.31.144.98.ssh: S &lt;strong&gt;4193395019&lt;/strong&gt;:4193395019(0)&lt;br /&gt;
+win 5840 &lt;mss 1460,sackOK,timestamp 3073372 0,nop,wscale 6&gt;&lt;/p&gt;
+
+&lt;p&gt;172.31.144.98.ssh &amp;gt; soniah.local.36126: S 4235467031:4235467031(0)&lt;br /&gt;
+ack &lt;strong&gt;4193395020&lt;/strong&gt; win 5792 &lt;mss 1460,sackOK,timestamp 1343461014 3073372,nop,wscale 2&gt;&lt;/p&gt;
+
+&lt;p&gt;soniah.local.36126 &amp;gt; 172.31.144.98.ssh: . ack 1 win 92 &lt;nop,nop,timestamp 3073372 1343461014&gt;&lt;/p&gt;
+
+&lt;p&gt;The first line contains a SYN (S) followed by a sequence number of &lt;strong&gt;.19&lt;/strong&gt;. The second line contains a SYN &lt;strong&gt;S&lt;/strong&gt; followed by an &lt;strong&gt;ack&lt;/strong&gt; incremented by 1 to &lt;strong&gt;.20&lt;/strong&gt;. The third line contains an &lt;strong&gt;ack&lt;/strong&gt;, but tcpdump has renumbered it to 1 to make the subsequent packets easier to follow.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Subversion Cheatsheet</title>
+      <link>http://blog2.snowfrog.net/2007/10/09/subversion-cheatsheet/</link>
+      <pubDate>Tue, 09 Oct 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/10/09/subversion-cheatsheet/</guid>
+      <description>&lt;p&gt;Subversion Cheatsheet&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;See also: &lt;a href=&#34;http://linux.byexamples.com/archives/255/svn-command-line-tutorial-for-beginners-1/&#34;&gt;svn command line tutorial for beginners 1 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Notes from: &lt;a href=&#34;http://svnbook.red-bean.com/&#34;&gt;Version Control with Subversion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tsavo&amp;rsquo;s great &lt;a href=&#34;http://jwamicha.wordpress.com/2008/05/29/subversion-a-summary-cheat-sheet-learn-svn-in-10-minutes/&#34;&gt;svn cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Quickstart&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;sudo aptitude install subversion&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svnserve -d&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Create source project, splitting into trunk, tags and branches (latter 2 directories initially empty).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;project&lt;/strong&gt; is a dummy name that is just used to build repo, so actually use the name &lt;strong&gt;project&lt;/strong&gt;, &lt;strong&gt;original&lt;/strong&gt; is the name of the original code directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;mkdir -p project/{trunk,tags,branches}&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv ~/original ~/project/trunk&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Using &lt;em&gt;trunk/tags/branches&lt;/em&gt; for a small project is overkill &amp;ndash; tags and branches can be added later. Therefore for a small project, just do:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;mkdir -p project&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv ~/original ~/project&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Create subversion repository:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;cd&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svnadmin create svnrepo&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Import project into repository, and archive original data:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn import project file:///home/sonia/svnrepo -m &amp;ldquo;initial import&amp;rdquo;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv project /tmp&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;After the repo is setup, you&amp;rsquo;ll probably want to add other directories eg to import &lt;strong&gt;projectb&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn import projectb file:///home/sonia/svnrepo/trunk/projectb -m &amp;ldquo;initial import&amp;rdquo;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;mv projectb /tmp&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Checkout a working copy:&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn checkout file:///home/sonia/svnrepo/trunk original&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Make changes to working copy, then get a list of changes:&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn status &amp;ndash;show-updates &amp;ndash;verbose foo&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svn diff&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, save changes back to repository:&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn commit&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;Or, cancel some changes:&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn revert foo&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Repository URLS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;file:///&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;http://&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;https://&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svn://&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;svn+ssh://&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Get Help&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;svn help foo&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Other Common Tasks&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ignoring files &lt;tt&gt;svn propedit svn:ignore targetdir&lt;/tt&gt; (see&amp;rdquo;&lt;a href=&#34;http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.ignore.html&#34;&gt;Ignoring Unversioned Items&lt;/a&gt;&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;to always ignore files of type x (eg .mp3), edit &lt;strong&gt;~/.subversion/config&lt;/strong&gt; or &lt;strong&gt;/etc/subversion/config&lt;/strong&gt; and set &lt;strong&gt;global-ignores&lt;/strong&gt; under &lt;strong&gt;[miscellany]&lt;/strong&gt; (see &lt;a href=&#34;http://svnbook.red-bean.com/en/1.4/svn.advanced.confarea.html&#34;&gt;Runtime Configuration Area&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>misc cheat sheets</title>
+      <link>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</link>
+      <pubDate>Sun, 28 Jan 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</guid>
+      <description>&lt;p&gt;misc cheat sheets&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://mypage.bluewin.ch/a-z/yuppi/links/cheatsheets.html&#34;&gt;BlueWin Cheat Sheets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://whatis.techtarget.com/definition/0,,sid9_gci826135,00.html&#34;&gt;Tech Target Cheat Sheets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webdeveloper.econsultant.com/cheat-sheets/&#34;&gt;econsultant Top 119 Cheat Sheets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.smashingmagazine.com/2007/01/26/tutorials-round-up-ajax-css-javascript-php-mysql-and-more/&#34;&gt;Tutorials Round-Up&lt;/a&gt; &amp;ndash; miscellaneous cheat sheets and tutorials, covering Ajax through to XML, web programming and scripting.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://72.14.253.104/search?q=cache:E-lgXKJvLX8J:www.cs.stir.ac.uk/~kjt/research/pdf/expl-m4.pdf+m4+cookbook%22&amp;amp;hl=en&amp;amp;ct=clnk&amp;amp;cd=10&amp;amp;gl=au&amp;amp;client=firefox-a&#34;&gt;m4 cookbook&lt;/a&gt; (&lt;a href=&#34;http://www.google.com.au/url?sa=t&amp;amp;ct=res&amp;amp;cd=10&amp;amp;url=http%3A%2F%2Fwww.cs.stir.ac.uk%2F~kjt%2Fresearch%2Fpdf%2Fexpl-m4.pdf&amp;amp;ei=MCMxR8atKYO4pgSZ76mXAg&amp;amp;usg=AFQjCNEO-XqWI7qWBlQwIWavWLIMMbXmKg&amp;amp;sig2=VczKzAehDdALPXA3sY3p4w&#34;&gt;pdf version&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Perl&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://juerd.nl/site.plp/perlcheat&#34;&gt;Juerd&amp;rsquo;s&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://perldoc.perl.org/perlcheat.html&#34;&gt;perldoc perlcheat&lt;/a&gt; (dupe of previous)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://goldenink.com/perl/perlcheat.html&#34;&gt;Golden Ink&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.catonmat.net/blog/perl-pack-unpack-printf-cheat-sheet/&#34;&gt;pack/unpack&lt;/a&gt;. See also Peteris&amp;rsquo; excellent articles on &lt;a href=&#34;http://www.catonmat.net/blog/downloading-youtube-videos-with-a-perl-one-liner/&#34;&gt;Downloading YouTube Videos&lt;/a&gt; and &lt;a href=&#34;http://www.catonmat.net/blog/perls-special-variable-cheat-sheet/&#34;&gt;Perls&amp;rsquo; Special Variables&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pkturner.org/programming/Perl_cheat_sheet.html&#34;&gt;pkturner&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>sed notes 2</title>
+      <link>http://blog2.snowfrog.net/2006/09/14/sed-notes-2/</link>
+      <pubDate>Fri, 15 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/09/14/sed-notes-2/</guid>
+      <description>
+
+&lt;p&gt;sed notes 2&lt;/p&gt;
+
+&lt;h3 id=&#34;sed-sites:cb57af079396ff477a2c677b039fc07d&#34;&gt;Sed Sites&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.grymoire.com/Unix/Sed.html&#34;&gt;Sed &amp;ndash; An Introduction and Tutorial &amp;ndash; Bruce Barnett&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.faqs.org/faqs/editor-faq/sed/&#34;&gt;sed FAQ &amp;ndash; alt.comp.editors.batch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.dreamwvr.com/sed-info/sed-faq.html&#34;&gt;sed FAQ &amp;ndash; DREAMWVR.COM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sed.sourceforge.net/sed1line.txt&#34;&gt;Sed One Liners &amp;ndash; sourceforge.net &amp;ndash; Eric Pement&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;see-also:cb57af079396ff477a2c677b039fc07d&#34;&gt;See Also&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://freecomputerbooks.com/unixBooksIndex.html&#34;&gt;FreeComputerBooks.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.linux-mag.com/id/1505/&#34;&gt;Linux Magazine &amp;ndash; (Very) Small Editors&lt;/a&gt; &amp;ndash; ed, ex, sed&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

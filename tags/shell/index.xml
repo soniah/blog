@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/shell/</link>
+    <description>Recent content in Shell on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 19 Jul 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>shell – all parameters – $* vs $@</title>
+      <link>http://blog2.snowfrog.net/2011/07/19/shell-all-parameters/</link>
+      <pubDate>Tue, 19 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/07/19/shell-all-parameters/</guid>
+      <description>&lt;p&gt;Both &lt;strong&gt;$&lt;/strong&gt;* and &lt;strong&gt;$@&lt;/strong&gt; expand to &amp;ldquo;all positional parameters&amp;rdquo;; in a nutshell &amp;ndash; &lt;strong&gt;&amp;rdquo;$@&amp;rdquo;&lt;/strong&gt; is &lt;em&gt;often&lt;/em&gt; desired as it handles spaces correctly; see man bash &amp;ldquo;Special Parameters&amp;rdquo;.&lt;/p&gt;
+
+&lt;pre&gt;% ls my*     
+myfoo  my foo  myqux
+
+----------------
+
+% ./star_test my*
+$*
+myfoo
+my     :-(
+foo    :-(
+myqux
+
+$@
+myfoo
+my     :-(
+foo    :-(
+myqux
+
+&#34;$*&#34;
+myfoo my foo myqux    &amp;lt;-- probably not desired :-|
+
+&#34;$@&#34;
+myfoo
+my foo  :-)
+myqux
+
+----------------
+
+% cat star_test
+#!/bin/bash
+echo &#39;$*&#39;
+./pargs $*
+echo
+
+echo &#39;$@&#39;
+./pargs $@
+echo
+
+echo &#39;&#34;$*&#34;&#39;
+./pargs &#34;$*&#34;
+echo
+
+echo &#39;&#34;$@&#34;&#39;
+./pargs &#34;$@&#34;
+
+----------------
+
+% cat pargs
+#!/bin/bash
+for i ; do
+    echo $i
+done&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ssh, sudo, tty, shell</title>
+      <link>http://blog2.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</link>
+      <pubDate>Thu, 14 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</guid>
+      <description>&lt;p&gt;A nice little script snippet I like to remember for automating quick stuff across multiple hosts. &lt;strong&gt;-t&lt;/strong&gt; forces tty (so sudo will work); &lt;strong&gt;-q&lt;/strong&gt; quiet &amp;ndash; disable banners; &lt;strong&gt;-c&lt;/strong&gt; script (&amp;ldquo;command&amp;rdquo;) to su. Presumes sudo doesn&amp;rsquo;t prompt for a password; otherwise, see &lt;a href=&#34;http://www.nist.gov/el/msid/expect.cfm&#34;&gt;Expect&lt;/a&gt; and &lt;a href=&#34;http://oreilly.com/catalog/9781565920903&#34;&gt;Exploring Expect&lt;/a&gt; :-)&lt;/p&gt;
+
+&lt;pre&gt;for h in $hosts ; do
+  echo -e &#34;nnhost: $hn------------------------------------&#34;
+  ssh -t -q $h &#34;sudo su - -c &#34;magic_stuff&#34; &#34;
+done&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>cygwin: zsh: zsh compinit: insecure directories</title>
+      <link>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</link>
+      <pubDate>Thu, 19 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</guid>
+      <description>&lt;p&gt;Using cygwin under Windows, I&amp;rsquo;ve setup my shell as zsh by editing the launch script:&lt;/p&gt;
+
+&lt;pre&gt;@echo off
+C:
+chdir C:cygwinbin
+zsh -l -i
+&lt;/pre&gt;
+
+&lt;p&gt;Unfortunately, this gives a nasty error everytime the shell is started up, due to Cygwin installing zsh incorrectly:&lt;/p&gt;
+
+&lt;pre&gt;zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]? y&lt;/pre&gt;
+
+&lt;p&gt;Solution, thanks to &lt;a href=&#34;http://www.wezm.net/2008/09/zsh-cygwin-and-insecure-directories/&#34;&gt;wezm.net&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;compaudit | xargs chmod g-w&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>vim modelines</title>
+      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
+
+&lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Some typical modelines for copying and pasting:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Go&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;//
+// vim: tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab tw=72
+// run &#39;go fmt&#39; before checking in your code!
+//&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Text files&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim:tw=75
+# vim:textwidth=75&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Shell/Bash&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sw=2 et sts=2 ft=sh
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=sh&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=2 sts=2 et sw=2 ft=ruby
+# vim: autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=ruby&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=python
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=python&lt;/pre&gt;
+
+&lt;p&gt;Or when using vi (eg on Solaris) INVESTIGATE FURTHER:&lt;/p&gt;
+
+&lt;pre&gt;:set sw=4&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Perl&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;# vim: ai ts=4 sts=4 et sw=4 ft=perl
+# vim: autoindent tabstop=4 shiftwidth=4 expandtab softtabstop=4 filetype=perl&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;LISP/Scheme&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;; vim: ft=lisp&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>bang history</title>
+      <link>http://blog2.snowfrog.net/2007/09/10/bang-history/</link>
+      <pubDate>Tue, 11 Sep 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/09/10/bang-history/</guid>
+      <description>&lt;p&gt;There are three fields (separated by colons) that can be manipulated using the bang history command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;EventDesignator:WordDesignator:Modifier&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Event Designator&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;An event designator is a reference to a command line entry in the history list &amp;ndash; &lt;code&gt;man bash&lt;/code&gt; for more.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;!n&lt;/code&gt; &amp;ndash; Refer to command line n.&lt;br /&gt;
+&lt;code&gt;!-n&lt;/code&gt; &amp;ndash; Refer to the current command line minus n.&lt;br /&gt;
+&lt;code&gt;!!&lt;/code&gt; &amp;ndash; Refers to the previous command (synonym for ‘!-1) &amp;ndash; useful if you after typing a command you release you need to add sudo: &lt;tt&gt;vi /etc/apt/source.list, error, sudo !!&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For example:&lt;/em&gt;&lt;br /&gt;
+&lt;code&gt;&amp;lt;br /&amp;gt;
+$ history | tail -3&amp;lt;br /&amp;gt;
+195  echo foo&amp;lt;br /&amp;gt;
+196  echo bar&amp;lt;br /&amp;gt;
+197  history | tail -3&amp;lt;br /&amp;gt;
+$ !195&amp;lt;br /&amp;gt;
+echo foo&amp;lt;br /&amp;gt;
+foo&amp;lt;br /&amp;gt;
+$ !-3&amp;lt;br /&amp;gt;
+echo bar&amp;lt;br /&amp;gt;
+bar&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Word Designator&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Word designators are used to select desired words from the event- &lt;code&gt;man bash&lt;/code&gt; for more. An event designator such as !! is followed by a colon then a word designator.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Numbers&lt;/code&gt;, where 0 is the command name and 1 the first argument, 2 the second arg, etc&lt;br /&gt;
+&lt;code&gt;*&lt;/code&gt; for everything except the command name&lt;br /&gt;
+&lt;code&gt;^&lt;/code&gt; for the first argument, $ for the last argument&lt;br /&gt;
+&lt;code&gt;x-y&lt;/code&gt; for a range, where x and y can be numbers or ^,$&lt;br /&gt;
+&lt;code&gt;-y, x*, x-&lt;/code&gt; and other combinations&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For example:&lt;/em&gt;&lt;br /&gt;
+&lt;code&gt;&amp;lt;br /&amp;gt;
+$ echo foo bar qux&amp;lt;br /&amp;gt;
+foo bar qux&amp;lt;br /&amp;gt;
+$ echo !!:0&amp;lt;br /&amp;gt;
+echo echo&amp;lt;br /&amp;gt;
+echo&amp;lt;br /&amp;gt;
+$ echo foo bar qux&amp;lt;br /&amp;gt;
+foo bar qux&amp;lt;br /&amp;gt;
+$ echo !!:1-2&amp;lt;br /&amp;gt;
+echo foo bar&amp;lt;br /&amp;gt;
+foo bar&amp;lt;br /&amp;gt;
+$ echo foo bar qux&amp;lt;br /&amp;gt;
+foo bar qux&amp;lt;br /&amp;gt;
+$ echo !!:2-$&amp;lt;br /&amp;gt;
+echo bar qux&amp;lt;br /&amp;gt;
+bar qux&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Modifier&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Modifies the word picked out so far &amp;ndash; &lt;code&gt;man bash&lt;/code&gt; for more.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;h&lt;/code&gt; &amp;ndash; remove a trailing file name component, leaving only the head.&lt;br /&gt;
+&lt;code&gt;t&lt;/code&gt; &amp;ndash; remove all leading file name components, leaving the tail.&lt;br /&gt;
+&lt;code&gt;r&lt;/code&gt; &amp;ndash; remove a trailing suffix of the form .xxx, leaving the basename.&lt;br /&gt;
+&lt;em&gt;etc.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For example:&lt;/em&gt;&lt;br /&gt;
+&lt;code&gt;&amp;lt;br /&amp;gt;
+$ ls /etc/apt/sources.list&amp;lt;br /&amp;gt;
+/etc/apt/sources.list&amp;lt;br /&amp;gt;
+$ cd !:1:h&amp;lt;br /&amp;gt;
+cd /etc/apt&amp;lt;br /&amp;gt;
+$ cat !-2:1:t&amp;lt;br /&amp;gt;
+cat sources.list&amp;lt;br /&amp;gt;
+$ cd; ls /etc/apt/sources.list&amp;lt;br /&amp;gt;
+/etc/apt/sources.list&amp;lt;br /&amp;gt;
+$ ls !:1:r&amp;lt;br /&amp;gt;
+ls /etc/apt/sources&amp;lt;br /&amp;gt;
+$ ls !:1:t:r&amp;lt;br /&amp;gt;
+ls sources&amp;lt;br /&amp;gt;
+!:s/apt/foo/&amp;lt;br /&amp;gt;
+ls /etc/foo/sources.list&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;br /&gt;
+Notice how multiple operators can be combined, and how &lt;strong&gt;!!&lt;/strong&gt; can be replaced with &lt;strong&gt;!&lt;/strong&gt; if immediately followed by a &lt;strong&gt;colon&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

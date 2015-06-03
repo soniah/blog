@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/networking/</link>
+    <description>Recent content in Networking on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 Nov 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Solaris IP Multipathing – an example</title>
+      <link>http://blog2.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</link>
+      <pubDate>Tue, 09 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</guid>
+      <description>&lt;p&gt;An example of Solaris IP Multipathing, for future reference:&lt;/p&gt;
+
+&lt;pre&gt;# cat /etc/hostname.bge2
+10.888.999.133 netmask + broadcast + mtu 1380 deprecated -failover group inner-prod up 
+ addif 10.888.999.132 netmask + broadcast + mtu 1380 group inner-prod up
+# cat /etc/hostname.bge3
+10.888.999.134 netmask + broadcast + mtu 1380 deprecated -failover standby group inner-prod up&lt;/pre&gt;
+
+&lt;p&gt;giving:&lt;/p&gt;
+
+&lt;pre&gt;# ifconfig bge2
+bge2: flags=9040843&amp;lt;UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAILOVER&amp;gt; mtu 1380 index 4
+ inet 10.888.999.133 netmask fffffff0 broadcast 10.225.228.143
+ groupname inner-prod
+ ether 0:xx:xx:xx:xx:xx
+# ifconfig bge3
+bge3: flags=69040843&amp;lt;UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAILOVER,STANDBY,INACTIVE&amp;gt; mtu 1380 index 5
+ inet 10.888.999.134 netmask fffffff0 broadcast 10.888.999.143
+ groupname inner-prod
+ ether 0:xx:xx:xx:xx:xx
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linux and Cisco VPN Client “Remote peer is no longer responding”</title>
+      <link>http://blog2.snowfrog.net/2009/11/10/linux-and-cisco-vpn-client-remote-peer-is-no-longer-responding/</link>
+      <pubDate>Tue, 10 Nov 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/11/10/linux-and-cisco-vpn-client-remote-peer-is-no-longer-responding/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m using the Cisco VPN client, and it seems unreliable on Linux &amp;ndash; it occasionally connects but often just gives up with &amp;ldquo;Remote peer is no longer responding&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Apart from the obvious firewall/nat checks [&lt;a href=&#34;http://www.lamnk.com/blog/vpn/cisco-vpn-client-reason-412-the-remote-peer-is-no-longer-responding/&#34;&gt;1&lt;/a&gt;][&lt;a href=&#34;http://www.cisco.com/en/US/products/sw/secursw/ps2308/products_qanda_item09186a00801c2dbe.shtml&#34;&gt;2&lt;/a&gt;], a solution seems to be to edit the .pcf file, bump up the timeout and force keepalives:&lt;/p&gt;
+
+&lt;pre&gt;PeerTimeout=180
+ForceKeepAlive=1&lt;/pre&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ipcalc</title>
+      <link>http://blog2.snowfrog.net/2009/07/10/ipcalc/</link>
+      <pubDate>Fri, 10 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/07/10/ipcalc/</guid>
+      <description>&lt;p&gt;ipcalc &amp;ndash; a tool I used to use years ago but had forgotten about.&lt;/p&gt;
+
+&lt;pre&gt;sudo aptitude install ipcalc&lt;/pre&gt;
+
+&lt;pre&gt;% ipcalc 192.168.1.0/26
+Address:   192.168.1.0          11000000.10101000.00000001.00 000000
+Netmask:   255.255.255.192 = 26 11111111.11111111.11111111.11 000000
+Wildcard:  0.0.0.63             00000000.00000000.00000000.00 111111
+=&amp;gt;
+Network:   192.168.1.0/26       11000000.10101000.00000001.00 000000
+HostMin:   192.168.1.1          11000000.10101000.00000001.00 000001
+HostMax:   192.168.1.62         11000000.10101000.00000001.00 111110
+Broadcast: 192.168.1.63         11000000.10101000.00000001.00 111111
+Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Blueman – Bluetooth for Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</link>
+      <pubDate>Sat, 10 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</guid>
+      <description>&lt;p&gt;The Reverand Simon Rumble wrote a nice post on &lt;a href=&#34;http://www.rumble.net/blog/&#34;&gt;Mobile broadband over Bluetooth with Ubuntu 8.10&lt;/a&gt; using &lt;a href=&#34;http://blueman.tuxfamily.org/&#34;&gt;Blueman&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve always wanted to get Bluetooth working on Ubuntu, but it was never at the top of my &amp;lsquo;todo&amp;rsquo; list and I&amp;rsquo;ve always had other things to do (thank PHB). But Blueman makes it so easy &amp;ndash; thanks Simon.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://tanere.blogspot.com/2008/11/mobile-broadband-over-bluetooth-on.html&#34;&gt;This article&lt;/a&gt; was also mentioned.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Speed up Firefox on Linux – Disable IPv6 Lookups</title>
+      <link>http://blog2.snowfrog.net/2009/01/09/speed-up-firefox-on-linux-disable-ipv6-lookups/</link>
+      <pubDate>Fri, 09 Jan 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/01/09/speed-up-firefox-on-linux-disable-ipv6-lookups/</guid>
+      <description>&lt;p&gt;A post a stumbled upon &amp;ndash; &lt;a href=&#34;http://rojs-techcorner.com/blog/2007/07/27/speed-up-firefox-on-linux-disable-ipv6-lookups/trackback/&#34;&gt;Speed up Firefox on Linux &amp;ndash; Disable IPv6 Lookups&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t know if it works but I&amp;rsquo;m trying it now.&lt;/p&gt;
+
+&lt;p&gt;In a nutshell:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;about:config&lt;/li&gt;
+&lt;li&gt;in the filter field, type “DNS” and hit enter&lt;/li&gt;
+&lt;li&gt;double-click on “network.dns.disableIPv6″, changing its value from False to True&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See also my other post &lt;a href=&#34;http://blog.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/&#34;&gt;pdnsd on Ubuntu for faster dns&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>udev, HAL, DBUS</title>
+      <link>http://blog2.snowfrog.net/2008/12/19/udev-hal-dbus/</link>
+      <pubDate>Fri, 19 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/12/19/udev-hal-dbus/</guid>
+      <description>&lt;p&gt;A good post from Glen Turner on SLUG about udev, HAL, DBUS (in the context of GSM modems):&lt;/p&gt;
+
+&lt;pre&gt;- you insert the device
+ - UDEV tells HAL that it has been inserted
+ - HAL looks up a XML-based &#34;information&#34; file. These are where the
+   rubber hits the road.  The system files are in
+     /usr/share/hal/fdi/
+   and any files you may write go into
+     /etc/hal/fdi/
+ - HAL determines from the USB vendor/model codes it was handed
+   that you&#39;ve got a GSM modem. The policy files contain related
+   details like which USB Serial port to use for PPP, what dialing
+   algorithm to use, etc.
+ - HAL pumps these details to NetworkManager, probably via DBUS
+ - NetworkManager daemon chats with the NetworkManager applet to
+   grab other data, such as PIN numbers
+ - NetworkManager kicks off PPP using the combined information
+   from HAL and the NM applet.&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wicd – replacement for Network Mananger</title>
+      <link>http://blog2.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</link>
+      <pubDate>Tue, 25 Nov 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://wicd.sourceforge.net/&#34;&gt;wicd&lt;/a&gt; &amp;ndash; &amp;ldquo;an open source wired and wireless network manager&amp;rdquo; &amp;ndash; a possible replacement for Ubuntu&amp;rsquo;s annoying Network Manager (Mangler?).&lt;/p&gt;
+
+&lt;p&gt;Mentioned by Martin B on SLUG &amp;ndash; thanks.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to use putty with ssh keys on Windows</title>
+      <link>http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</link>
+      <pubDate>Fri, 05 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like &lt;a href=&#34;http://monkey.org/~dugsong/dsniff/&#34;&gt;dsniff&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&amp;rsquo;ve only ever used Windows).&lt;/p&gt;
+
+&lt;p&gt;So here&amp;rsquo;s how you do it using putty.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;download putty.exe, pscp.exe, pageant.exe, and puttygen.exe from &lt;a href=&#34;http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html&#34;&gt;chiark.greenend.org.uk&lt;/a&gt;, and put them into an easily accessible folder (eg My Documents\putty, or c:\putty if you want to use putty from the command line)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Generating your SSH Key&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you need to generate a key, do this first. If you have been supplied with a key, skip down to &lt;strong&gt;Changing your Password&lt;/strong&gt; and &lt;strong&gt;Using your SSH Key&lt;/strong&gt; (below).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;run puttygen.exe to generate your key, and save it in the putty folder:
+
+&lt;ul&gt;
+&lt;li&gt;for &lt;strong&gt;Type of Key to generate&lt;/strong&gt;, choose SSH2-DSA, 2048 bits, click &lt;strong&gt;Generate&lt;/strong&gt;, and wave your mouse around to generate randomness&lt;/li&gt;
+&lt;li&gt;once finished generating, put your name in the &lt;strong&gt;comment&lt;/strong&gt; (eg firstname.lastname)&lt;/li&gt;
+&lt;li&gt;put a good password on your key in the &lt;strong&gt;Key Passphrase **field (and repeat in the **confirm&lt;/strong&gt; field)&lt;/li&gt;
+&lt;li&gt;click &lt;strong&gt;Save Public Key&lt;/strong&gt;, save to putty folder; call the file firstname.lastname&lt;/li&gt;
+&lt;li&gt;click &lt;strong&gt;Save Private Key&lt;/strong&gt;, save to putty folder; call the file firstname.lastname (.ppk extension will be added)&lt;/li&gt;
+&lt;li&gt;your Linux sysadmin will have asked you to provide them with &lt;strong&gt;your public key&lt;/strong&gt;, and this is where problems come up. Putty uses a different key format than OpenSSH, so don&amp;rsquo;t send the public key file from the putty folder. Instead, paste into an email the field called &lt;strong&gt;Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you&amp;rsquo;ve accidently sent the putty format file, you can re-run puttygen.exe, click the **Load&lt;/strong&gt; button to load your existing private key, and then copy and paste the OpenSSH format into an email.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-155&#34; title=&#34;putty_openssh&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;467&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Changing the Password on your SSH Key&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;run &lt;strong&gt;puttygen.exe&lt;/strong&gt;, and load your key by clicking the &lt;strong&gt;Load&lt;/strong&gt; button and browsing to your private key (the file without the .ppk extension). You will be prompted for your old password when loading the key&lt;/li&gt;
+&lt;li&gt;put in a new password in the two passphrase fields&lt;/li&gt;
+&lt;li&gt;click on &lt;strong&gt;Save private key&lt;/strong&gt; &amp;ndash; save it on top of your existing private key&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Using Your SSH Key:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to &amp;lsquo;load your key&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;once your sysadmin has setup your account, there&amp;rsquo;s three ways you can use your key
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;strong&gt;painful&lt;/strong&gt; way. Run putty.exe, enter the hostname/ip, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, load your key in **Connection, SSH, Auth&lt;/strong&gt;, &lt;strong&gt;Private key file for authentication&lt;/strong&gt;, then click &lt;strong&gt;Open&lt;/strong&gt; to connect&lt;/li&gt;
+&lt;li&gt;the &lt;strong&gt;better&lt;/strong&gt; way &amp;ndash; caching your key in memory. Run pageant.exe &amp;ndash; you&amp;rsquo;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-164&#34; title=&#34;pageant&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34; alt=&#34;&#34; width=&#34;162&#34; height=&#34;49&#34; /&gt;&lt;/a&gt; Right click on this icon, choose &lt;strong&gt;Add Key&lt;/strong&gt;, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the &lt;strong&gt;Saved Sessions&lt;/strong&gt; field, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, then click the **Save&lt;/strong&gt; button. You can then right click on the pageant icon, &lt;strong&gt;Saved Sessions&lt;/strong&gt;, choose your saved session, and rapidly login to your target system&lt;/li&gt;
+&lt;li&gt;the &lt;strong&gt;best&lt;/strong&gt; way &amp;ndash; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Troubleshooting&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;From experience, I&amp;rsquo;ve found most problems connecting with ssh servers come from network/firewall settings:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check basic connectivity using the ping command &amp;ndash; Start, Run, cmd, ping 1.2.3.4&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;check a firewall isn&amp;rsquo;t blocking port 22 (ssh) by trying to telnet on port 22 &amp;ndash; Start, Run, cmd, telnet 1.2.3.4 22. You should get a result like this, showing that ssh is accessible:
+&lt;pre&gt;telnet 1.2.3.4 22
+Trying 1.2.3.4&amp;hellip;
+Connected to foo.bar.com.au.
+Escape character is &amp;lsquo;^]&amp;rsquo;.
+SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;if using *nix, use &lt;strong&gt;ssh -vvv&lt;/strong&gt; to get more verbose output &amp;ndash; often you can see why the key exchange is failing&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Next steps.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After using putty on Windows for a while, you may want to investigate &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; &amp;ndash; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; with ssh is handy &amp;ndash; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my &lt;a href=&#34;http://blog.snowfrog.net/tag/ssh/&#34;&gt;other posts on ssh tools&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>useful tool – socat</title>
+      <link>http://blog2.snowfrog.net/2008/09/04/useful-tool-socat/</link>
+      <pubDate>Thu, 04 Sep 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/09/04/useful-tool-socat/</guid>
+      <description>&lt;p&gt;A useful tool I&amp;rsquo;ve come across (thanks JB) &amp;ndash; &lt;strong&gt;socat&lt;/strong&gt;. As the &lt;a href=&#34;http://www.dest-unreach.org/socat/&#34;&gt;homepage&lt;/a&gt; says, sort of netcat++.&lt;/p&gt;
+
+&lt;p&gt;From the manpage: Socat  is a command line based utility that establishes two bidirectional byte streams and transfers data between them. the streams can be constructed from a large set of different types of data sinks and sources (TCP, UDP, SOCKS, files, processes, pipes, file-descriptors, readline, .).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>network monitoring tools</title>
+      <link>http://blog2.snowfrog.net/2008/03/21/network-monitoring-tools/</link>
+      <pubDate>Fri, 21 Mar 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/03/21/network-monitoring-tools/</guid>
+      <description>&lt;p&gt;A list of useful tools for network monitoring on Linux:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;iptraf&lt;/strong&gt; &amp;ndash; console tool with updating display&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tcpdump&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;trafshow&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ngrep&lt;/strong&gt; &amp;ndash; good for getting user agent strings in HTTP headers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ntop&lt;/strong&gt; &amp;ndash; though has been reported as unstable over longer periods&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ethereal&lt;/strong&gt; for protocal analysis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ettercap&lt;/strong&gt; for arp cache spoofing &amp;ndash; force traffic to come via your machine for analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thanks to Andy and AndrewMc for these pointers.&lt;/p&gt;
+
+&lt;p&gt;(21-Mar-2008) Here are some more tools I&amp;rsquo;ve come across since then, some for network troubleshooting, some for general troubleshooting:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;mrt&lt;/strong&gt; &amp;ndash; an ncurses program that combines the functionality of the &amp;lsquo;traceroute&amp;rsquo; and &amp;lsquo;ping&amp;rsquo; programs in a single network diagnostic tool&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sysstat&lt;/strong&gt; package &amp;ndash; contains sar, iostat, mpstat, sadf and sa. The &lt;strong&gt;sar&lt;/strong&gt; command collects and reports system activity information. The &lt;strong&gt;iostat&lt;/strong&gt; command reports CPU utilization and I/O statistics for disks. The &lt;strong&gt;mpstat&lt;/strong&gt; command reports global and per-processor statistics. The &lt;strong&gt;sadf&lt;/strong&gt; command is used to display data collected by sar in various formats&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lsof&lt;/strong&gt; &amp;ndash; list open files/sockets/etc for a process&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;inotify-tools&lt;/strong&gt; &amp;ndash; can be used to programatically monitor and act upon filesystem events&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setup a forwarding caching-only DNS Server on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</link>
+      <pubDate>Sat, 02 Feb 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</guid>
+      <description>&lt;p&gt;A quick cheatsheet for setting up a forwarding, caching-only DNS Server on Ubuntu.&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Edit /etc/bind/named.conf.options:&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;options {&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; directory &amp;ldquo;/var/cache/bind&amp;rdquo;;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // prevent firewall problems&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; query-source address * port 53;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; forwarders {&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // forward requests to&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; 1.2.3.4;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; 5.6.7.8;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // don&amp;rsquo;t iterate&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; forward only;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // but DO cache (make it explicit)&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; recursion yes;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; auth-nxdomain no; # conform to RFC1035&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // don&amp;rsquo;t do IPv6&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // listen-on-v6 { any; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; listen-on-v6 { none; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; // only listen on internal interfaces&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; listen-on { 10.0.0.1; 127.0.0.1; };&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;};&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Edit /etc/dhcp3/dhclient.conf, add the following lines:&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;# sonia: use this server&amp;rsquo;s dns server first!!&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;interface &amp;ldquo;eth0&amp;rdquo; {&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt; prepend domain-name-servers 127.0.0.1;&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;}&lt;/tt&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;Finally, restart services and check work:&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;tt&gt;/etc/init.d/bind9 restart&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;netstat -tanp | grep named&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;grep bind /var/log/* | less&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;/etc/init.d/networking restart&lt;/tt&gt;&lt;br /&gt;
+&lt;tt&gt;cat /etc/resolv.conf&lt;/tt&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HowTo setup NoMachineNX on Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</link>
+      <pubDate>Wed, 30 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</guid>
+      <description>&lt;p&gt;The instructions given by NoMachine for setting up on Linux are a bit thin; here&amp;rsquo;s my own version:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check not installed already, remove if desired&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;dpkg &amp;ndash;list | grep NX&lt;br /&gt;
+sudo dpkg &amp;ndash;purge nxclient nxnode nxserver&lt;br /&gt;
+sudo rm -rf /usr/NX&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;for the user being used to install, check/fix .ssh perms&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;su &amp;ndash;&lt;br /&gt;
+cd /root&lt;br /&gt;
+chown -R root. .ssh&lt;br /&gt;
+chmod 700 .ssh&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;download &amp;amp; install all 3 packages on both client (local) and server (remote)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;wget -b http://../nxclient.deb http://../nxnode.deb http://../nxserver.deb&lt;br /&gt;
+dpkg &amp;ndash;install nx*deb&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;on client and server, add aliases to /root/.bashrc and ~sonia/.bashrc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;alias nxserver=&amp;lsquo;/usr/NX/scripts/setup/nxserver&amp;rsquo;&lt;br /&gt;
+alias nxsetup=&amp;lsquo;/usr/NX/bin/nxsetup&amp;rsquo;&lt;br /&gt;
+source ~/.bashrc&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;generate new keys on the server and check permissions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;/usr/NX/scripts/setup/nxserver &amp;ndash;keygen&lt;br /&gt;
+cd /usr/NX/share/keys&lt;br /&gt;
+chown nx:root * ; chmod 644 *&lt;br /&gt;
+cd ~nx/.ssh&lt;br /&gt;
+chown nx:root * ; chmod 644 *&lt;br /&gt;
+/etc/init.d/nxserver restart&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;copy keys from server to client, and rename key for ease of identification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(client:)&lt;br /&gt;
+sudo bash; cd /usr/NX/share/keys&lt;br /&gt;
+scp root@servername:/usr/NX/share/keys/default.id_dsa.key servername.id_dsa.key&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;import the key using the NX Client (General, Key, Import, Save)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>pdnsd on Ubuntu for faster dns</title>
+      <link>http://blog2.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/</link>
+      <pubDate>Tue, 22 Jan 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/</guid>
+      <description>&lt;p&gt;Whilst traveling through Mexico and Guatemala, I&amp;rsquo;ve had various problems with slow and/or faulty dns resolution.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how to install pdnsd, in order to cache dns entries locally and speed up internet access in general (whether or not you&amp;rsquo;re in Guatemala.):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LANG= ; sudo apt-get update; sudo aptitude install pdnsd&lt;/strong&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;sudo vi /etc/pdnsd.conf&lt;/strong&gt;, add the following lines:
+&lt;code&gt;&amp;lt;br /&amp;gt;
+server {&amp;lt;br /&amp;gt;
+label=OpenDNS;&amp;lt;br /&amp;gt;
+ip=208.67.222.222;&amp;lt;br /&amp;gt;
+ip=208.67.220.220;&amp;lt;br /&amp;gt;
+timeout=30;&amp;lt;br /&amp;gt;
+interval=30;&amp;lt;br /&amp;gt;
+uptest=ping;&amp;lt;br /&amp;gt;
+ping_timeout=50;&amp;lt;br /&amp;gt;
+purge_cache=off;&amp;lt;br /&amp;gt;
+}&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;in the same file, comment out the resolvconf server:
+&lt;code&gt;&amp;lt;br /&amp;gt;
+/*&amp;lt;br /&amp;gt;
+server {&amp;lt;br /&amp;gt;
+label=&amp;quot;resolvconf&amp;quot;;&amp;lt;br /&amp;gt;
+}&amp;lt;br /&amp;gt;
+*/&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;sudo vi /etc/dhcp3/dhclient.conf&lt;/strong&gt;, and uncomment the line that says &lt;strong&gt;prepend domain-name-servers 127.0.0.1&lt;/strong&gt;;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;to prevent rebooting, &lt;strong&gt;sudo vi /etc/resolv.conf&lt;/strong&gt; and insert as the first line &lt;strong&gt;nameserver 127.0.0.1&lt;/strong&gt;. Otherwise just reboot&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;sudo /etc/init.d/pdnsd restart&lt;/strong&gt; (if not rebooting)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;check name resolution using the host command eg &lt;strong&gt;host google.com&lt;/strong&gt; should return about 6 lines of output &amp;ndash; 3 lines saying google.com has address. and 3 lines saying google.mail is handled by.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Taken initially from bmt&amp;rsquo;s excellent &lt;a href=&#34;http://ubuntuforums.org/showthread.php?t=331850&#34;&gt;article&lt;/a&gt; on Ubuntu Forums; I&amp;rsquo;ve written my own article as I want to add my own customisation as I understand the interactions between dhclient, resolvconf and NetworkManager. See also &lt;a href=&#34;http://www.debian-administration.org/articles/390&#34;&gt;Steve&amp;rsquo;s article&lt;/a&gt; on Debian Administration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting mac addresses in Ubuntu</title>
+      <link>http://blog2.snowfrog.net/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/</link>
+      <pubDate>Thu, 29 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/</guid>
+      <description>&lt;p&gt;As far as /etc/iftab goes, this is not used in Ubuntu 7.10&lt;br /&gt;
+anymore..this functionality is moved to hotplug,. and maybe causing&lt;br /&gt;
+your prob.&lt;/p&gt;
+
+&lt;p&gt;As you said, the NIC was in when Ubuntu was installed. However, some&lt;br /&gt;
+NICs for some curious reason do sometimes change MAC address between&lt;br /&gt;
+powerups.&lt;/p&gt;
+
+&lt;p&gt;Checkout the file /etc/udev/rules.d/70-persistent-net.rules . If there&lt;br /&gt;
+are lots of entries in their for different MAC addresses, there is&lt;br /&gt;
+your problem.&lt;/p&gt;
+
+&lt;p&gt;This file is generated during bootup by&lt;br /&gt;
+/etc/udev/rules.d/75-persistent-net-generator.rules. The suggestion at&lt;br /&gt;
+&lt;a href=&#34;http://ubuntuforums.org/showthread.php?p=3816892&#34;&gt;http://ubuntuforums.org/showthread.php?p=3816892&lt;/a&gt; suggests to backup&lt;br /&gt;
+and delete these two files. The system will then just assign ethernet&lt;br /&gt;
+devices numbers in the order it finds them, and if it only every finds&lt;br /&gt;
+one NIC then it will always be eth0&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Copied verbatim from Martin&amp;rsquo;s post on SLUG.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>tcpdump notes</title>
+      <link>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</link>
+      <pubDate>Mon, 12 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</guid>
+      <description>&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;tcpdump host 172.26.24.58 and (port 20 or port 21)
+tcpdump host 172.26.24.58 and not arp
+tcpdump -s0 -w foo -i eth0 # whole packet not 96 bytes, write to file foo, listen on eth0)
+tcpdump -s 0 -i eth6 -w snmpget.pcap host 1.2.3.4 and port 161 # capture snmp traffic
+&lt;/pre&gt;
+
+&lt;p&gt;Three Way Handshake (from&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment&#34;&gt;Wikipedia&lt;/a&gt;):&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The initiating host (client) sends a synchronization packet (SYN flag set to 1) to initiate a connection. It sets the packet&amp;rsquo;s sequence number to a random value &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The other host receives the packet, records the sequence number &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;x&lt;/em&gt;&lt;/span&gt; from the client, and replies with an acknowledgment and synchronization (SYN-ACK). The Acknowledgment is a 32-bit field in TCP segment header. It contains the next sequence number that this host is expecting to receive &lt;span class=&#34;texhtml&#34;&gt;(&lt;em&gt;x&lt;/em&gt; + 1)&lt;/span&gt;. The host also initiates a return session. This includes a TCP segment with its own initial Sequence Number of value &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;y&lt;/em&gt;&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;The initiating host responds with the next Sequence Number &lt;span class=&#34;texhtml&#34;&gt;(&lt;em&gt;x&lt;/em&gt; + 1)&lt;/span&gt; and a simple Acknowledgment Number value of &lt;span class=&#34;texhtml&#34;&gt;&lt;em&gt;y&lt;/em&gt; + 1&lt;/span&gt;, which is the Sequence Number value of the other host + 1.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This ssh example:&lt;/p&gt;
+
+&lt;p&gt;soniah.local.36126 &amp;gt; 172.31.144.98.ssh: S &lt;strong&gt;4193395019&lt;/strong&gt;:4193395019(0)&lt;br /&gt;
+win 5840 &lt;mss 1460,sackOK,timestamp 3073372 0,nop,wscale 6&gt;&lt;/p&gt;
+
+&lt;p&gt;172.31.144.98.ssh &amp;gt; soniah.local.36126: S 4235467031:4235467031(0)&lt;br /&gt;
+ack &lt;strong&gt;4193395020&lt;/strong&gt; win 5792 &lt;mss 1460,sackOK,timestamp 1343461014 3073372,nop,wscale 2&gt;&lt;/p&gt;
+
+&lt;p&gt;soniah.local.36126 &amp;gt; 172.31.144.98.ssh: . ack 1 win 92 &lt;nop,nop,timestamp 3073372 1343461014&gt;&lt;/p&gt;
+
+&lt;p&gt;The first line contains a SYN (S) followed by a sequence number of &lt;strong&gt;.19&lt;/strong&gt;. The second line contains a SYN &lt;strong&gt;S&lt;/strong&gt; followed by an &lt;strong&gt;ack&lt;/strong&gt; incremented by 1 to &lt;strong&gt;.20&lt;/strong&gt;. The third line contains an &lt;strong&gt;ack&lt;/strong&gt;, but tcpdump has renumbered it to 1 to make the subsequent packets easier to follow.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

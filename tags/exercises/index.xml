@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exercises on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/exercises/</link>
+    <description>Recent content in Exercises on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 25 Aug 2006 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/exercises/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>exercise – move system databases</title>
+      <link>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</link>
+      <pubDate>Fri, 25 Aug 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</guid>
+      <description>&lt;p&gt;In this exerise, you are required to move two of the system databases (&lt;strong&gt;master&lt;/strong&gt; and &lt;strong&gt;model&lt;/strong&gt;) to &lt;strong&gt;c:data&lt;/strong&gt;. Here are some web pages that may help:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://support.microsoft.com/kb/224071/&#34;&gt;KB224071&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sql-server-performance.com/rd_sql_server_startup_parameters.asp&#34;&gt;sql-server-performance.com SQL Startup Parameters&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;move &lt;strong&gt;master&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change the startup properties for the server, to point to a different location for master&lt;/li&gt;
+&lt;li&gt;stop the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;manually move master&amp;rsquo;s database files using Windows Explorer to c:data&lt;/li&gt;
+&lt;li&gt;start the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;in Enterprise Manager, check the properties of the master database, to ensure that master is running from the new location&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;move &lt;strong&gt;model&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change the startup properties of the server, to use the correct trace flag&lt;/li&gt;
+&lt;li&gt;restart the server using Administrative Tools, Services&lt;/li&gt;
+&lt;li&gt;detach model using &lt;strong&gt;sp_detach_db&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;manually move model&amp;rsquo;s database files using Windows Explorer to c:data&lt;/li&gt;
+&lt;li&gt;attach model using &lt;strong&gt;sp_attach_db&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;in Enterprise Manager, check the properties of the model database, to ensure that model is running from the new location&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;If you make a mistake moving master and SQL Server won&amp;rsquo;t start, you can edit the registry directly at:&lt;/p&gt;
+
+&lt;pre&gt;HKLMSOFTWAREMicrosoftMSSQLServerMSSQLServerParameters&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>multiserver jobs exercise</title>
+      <link>http://blog2.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</link>
+      <pubDate>Thu, 15 Dec 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</guid>
+      <description>
+
+&lt;p&gt;multiserver jobs exercise&lt;/p&gt;
+
+&lt;h3 id=&#34;exercise:c1ebe2bed5f700f88af474a522edbdf4&#34;&gt;Exercise&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Have a second instance of SQL Server running, either by:
+
+&lt;ul&gt;
+&lt;li&gt;installing a second instance of SQL Server&lt;/li&gt;
+&lt;li&gt;starting up a second Virtual PC&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If using Virtual PC&amp;rsquo;s, check that you have network connectivity between both VPC&amp;rsquo;s:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ipconfig&lt;/li&gt;
+&lt;li&gt;ping&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Ensure that both instances of SQL are using &lt;strong&gt;Mixed Mode Authentication&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Using &lt;strong&gt;Tools, Wizards, Management, Make Master Server Wizard&lt;/strong&gt;, setup Multiserver Jobs. Notice how an account called &lt;strong&gt;MSXOperator&lt;/strong&gt; is created on both instances&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create a simple job on the Master, and get it to run on the Secondary&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;hints:c1ebe2bed5f700f88af474a522edbdf4&#34;&gt;Hints&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;remember to regularly refresh your display in Enterprise Manager, especially the &lt;strong&gt;Jobs&lt;/strong&gt; node&lt;/li&gt;
+&lt;li&gt;the job may take some minutes to copy. Be patient; if taking too long restart both agents&lt;/li&gt;
+&lt;li&gt;check your setup by running this select statement on both instances:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;SELECT * FROM msdb..systargetservers&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>sql 2000 administration exercise</title>
+      <link>http://blog2.snowfrog.net/2005/11/09/sql-2000-administration-exercise/</link>
+      <pubDate>Thu, 10 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/09/sql-2000-administration-exercise/</guid>
+      <description>
+
+&lt;p&gt;sql 2000 administration exercise&lt;/p&gt;
+
+&lt;h3 id=&#34;scenario:027b04a4499e6a4172a6c8057001120d&#34;&gt;Scenario&lt;/h3&gt;
+
+&lt;p&gt;A complete install of a Microsoft Sql 2000 Server instance, and the creation of some additional objects.&lt;/p&gt;
+
+&lt;h3 id=&#34;members:027b04a4499e6a4172a6c8057001120d&#34;&gt;Members&lt;/h3&gt;
+
+&lt;p&gt;Work in groups of three. One member of each team will be nominated as the TEAM LEADER who will co-ordinate job responsibilities with the rest of the group.&lt;/p&gt;
+
+&lt;h3 id=&#34;time-limit:027b04a4499e6a4172a6c8057001120d&#34;&gt;Time Limit&lt;/h3&gt;
+
+&lt;p&gt;2 hours&lt;/p&gt;
+
+&lt;h3 id=&#34;budget:027b04a4499e6a4172a6c8057001120d&#34;&gt;Budget&lt;/h3&gt;
+
+&lt;p&gt;$200.00&lt;/p&gt;
+
+&lt;h3 id=&#34;consultancy-fee:027b04a4499e6a4172a6c8057001120d&#34;&gt;Consultancy Fee&lt;/h3&gt;
+
+&lt;p&gt;A $50.00 Consultancy Fee applies to each team that requires assistence from the Instructor; assistance can only be requested by the TEAM LEADER. A Penalty of $50 per uncompleted requirement also applies.&lt;/p&gt;
+
+&lt;h3 id=&#34;requirements:027b04a4499e6a4172a6c8057001120d&#34;&gt;Requirements&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;each team has to install another instance of MS-SQL 2000 on their server&lt;/li&gt;
+&lt;li&gt;each team has to create 2 login accounts using TSQL&lt;/li&gt;
+&lt;li&gt;each team has to create 2 databases &amp;ndash; any name will do &amp;ndash; using TSQL&lt;/li&gt;
+&lt;li&gt;each team has to create 2 user accounts each, for those databases using TSQL&lt;/li&gt;
+&lt;li&gt;each team has to create a VIEW of your choice from the NORTHWIND database&lt;/li&gt;
+&lt;li&gt;each team has to create a STORED PROCEDURE from the NORTHWIND database&lt;/li&gt;
+&lt;li&gt;each team has to create a backup procedure of any user database created&lt;/li&gt;
+&lt;li&gt;each team has send mail via SQL using &lt;strong&gt;xp_sendmail&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;each team has to create a Database Maintenance Plan copying any data from the Northwind database into a database that you have just newly created&lt;/li&gt;
+&lt;li&gt;TWO MEMBERS of each team have to show ANY REPLICATION between them&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

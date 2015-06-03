@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Procmail on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/procmail/</link>
+    <description>Recent content in Procmail on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 04 Feb 2007 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/procmail/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>beat image spam with procmail</title>
+      <link>http://blog2.snowfrog.net/2007/02/03/beat-image-spam-with-procmail/</link>
+      <pubDate>Sun, 04 Feb 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/02/03/beat-image-spam-with-procmail/</guid>
+      <description>&lt;p&gt;I blogged a while ago about &lt;a href=&#34;http://blog.snowfrog.net/?q=node/417&#34;&gt;using FuzzyOcr for detecting image spam&lt;/a&gt;. My FuzzyOcr isn&amp;rsquo;t working and at the moment I haven&amp;rsquo;t got time to fix it, so I wrote a procmail recipe to solve the problem instead:&lt;/p&gt;
+
+&lt;pre&gt;# test if body contains gif, html, etc, and get procmail score
+:0 Bc
+* 3.5^0 Content-Type: image/gif
+* 2^0 Content-Type: text/html
+/dev/null
+SCORE_PM=$=
+
+# pull out SA score and required; if 2 scores &amp;gt; SA req&#39;d, ISGT = 1 (true)
+SCORE_SA=`formail -c -xX-Spam-Status: | awk &#39;{print $2}&#39; | awk -F= &#39;{print $2}&#39;`
+REQD_SA=`formail -c -xX-Spam-Status: | awk &#39;{print $3}&#39; | awk -F= &#39;{print $2}&#39;`
+ISGT=`echo &#34;${SCORE_SA} + ${SCORE_PM} &amp;gt; ${REQD_SA}&#34; | bc -l`
+
+# test if ISGT = 1, if so, spam prob
+:0 :
+* ISGT ?? ^^1^^
+.y_spam_probable/&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>procmail notes</title>
+      <link>http://blog2.snowfrog.net/2006/09/13/procmail-notes/</link>
+      <pubDate>Thu, 14 Sep 2006 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2006/09/13/procmail-notes/</guid>
+      <description>
+
+&lt;p&gt;procmail notes&lt;/p&gt;
+
+&lt;h3 id=&#34;good-procmail-sites:c2065c0a7f62eceaec8cb256685ef66a&#34;&gt;Good procmail sites&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://lipas.uwasa.fi/~ts/info/proctips.html&#34;&gt;Timo&amp;rsquo;s procmail tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ii.com/internet/robots/procmail/qs/&#34;&gt;ii.com &amp;ndash; procmail quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pm-doc.sourceforge.net/pm-tips.html&#34;&gt;procmail tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.inwa.net/~m3047/procmail/procmail-guide.html&#34;&gt;Halcyon guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://partmaps.org/era/procmail/mini-faq.html&#34;&gt;Partmaps procmail FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.stimpy.net/procmail/tutorial/formail.html&#34;&gt;Stimpy&amp;rsquo;s formail tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;procmail-commands-can-consist-of:c2065c0a7f62eceaec8cb256685ef66a&#34;&gt;Procmail commands can consist of.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a statement&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;FOO=`formail ... | sed ...`&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a recipe&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;a-recipe-consists-of-three-parts:c2065c0a7f62eceaec8cb256685ef66a&#34;&gt;A recipe consists of three parts.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a colon line&lt;/li&gt;
+&lt;li&gt;zero or more condition lines&lt;/li&gt;
+&lt;li&gt;an action section&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;:0
+ email_folder/&lt;/pre&gt;
+
+&lt;pre&gt;:0
+ * From: ...
+ email_folder/&lt;/pre&gt;
+
+&lt;h3 id=&#34;an-action-is-one-of:c2065c0a7f62eceaec8cb256685ef66a&#34;&gt;An action is one of.&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a folder&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;email_folder
+ email_folder/&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a forward&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;!foo@bar&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a pipe (with &lt;strong&gt;:0 fwh&lt;/strong&gt; or &lt;strong&gt;:0 fwb&lt;/strong&gt; colon flags)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;| formail -I ...&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a curly brace&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;{&lt;/pre&gt;
+
+&lt;h3 id=&#34;curly-braces:c2065c0a7f62eceaec8cb256685ef66a&#34;&gt;Curly Braces&lt;/h3&gt;
+
+&lt;p&gt;A curly brace starts a nesting block ie a recipe can be:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a colon line, zero or more conditions, and curly brackets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;:0
+ {
+     ...
+ }&lt;/pre&gt;
+
+&lt;pre&gt;:0
+ * From: ...
+ {
+     ...
+ }&lt;/pre&gt;
+
+&lt;p&gt;Inside curly brackets there must be one or more recipes.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-to-do-if-else:c2065c0a7f62eceaec8cb256685ef66a&#34;&gt;How to do if-else&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Do if-else using the E colon line flag&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;:0
+ {
+     :0
+     * ^From: ...
+     # deliver to default destination (inbox)
+     ${DEFAULT}
+ }
+ :0E
+ {
+     # else
+     ...
+ }&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

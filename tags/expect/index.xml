@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Expect on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/expect/</link>
+    <description>Recent content in Expect on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 28 Jul 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/expect/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>rsyncp – provide ssh password to rsync using expect</title>
+      <link>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
+      <pubDate>Thu, 28 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
+      <description>&lt;p&gt;A script I wrote &amp;ndash; rsyncp. It allows you to provide a password to rsync over ssh, when you&amp;rsquo;re unable to use ssh key-based authentication:&lt;/p&gt;
+
+&lt;pre&gt;% cat ~/bin/rsyncp
+#!/usr/bin/expect
+eval spawn rsync $argv
+expect  &#34;*?assword:&#34; { send &#34;secretstuffr&#34;}
+expect eof&lt;/pre&gt;
+
+&lt;p&gt;You can then use rsyncp in another script, like this:&lt;/p&gt;
+
+&lt;pre&gt;for h in foo bar ; do
+  rsyncp -av --progress srcdir/ $h:dstdir/
+done&lt;/pre&gt;
+
+&lt;p&gt;And before you add a comment saying &lt;em&gt;use &lt;a href=&#34;http://blog.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/&#34;&gt;ssh keys&lt;/a&gt; or &lt;a href=&#34;http://blog.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/&#34;&gt;keychain&lt;/a&gt;, this is totally insecure&lt;/em&gt;, I agree with you! Key based authentication is disabled on the target server, and I&amp;rsquo;m still trying to resolve the &lt;em&gt;politics&lt;/em&gt; around this at my current company, and &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;sshpass&lt;/a&gt; seems broken &lt;sigh&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>expect notes</title>
+      <link>http://blog2.snowfrog.net/2007/11/14/expect-notes/</link>
+      <pubDate>Thu, 15 Nov 2007 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2007/11/14/expect-notes/</guid>
+      <description>&lt;p&gt;(draft)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://expect.nist.gov/&#34;&gt;Expect Language&lt;/a&gt;, &lt;a href=&#34;http://&#34;&gt;Expect Book&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;set timeout x (in seconds)&lt;/li&gt;
+&lt;li&gt;spawn&lt;/li&gt;
+&lt;li&gt;expect&lt;/li&gt;
+&lt;li&gt;send&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Example of Using with Perl and &lt;a href=&#34;http://search.cpan.org/~rgiersig/Expect-1.21/Expect.pod&#34;&gt;Expect.pm&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;#!/usr/bin/perl -w&amp;lt;br /&amp;gt;
+use Expect;&amp;lt;br /&amp;gt;
+my %accounts = (&#39;user&#39; =&amp;gt; &#39;secret&#39; );&amp;lt;br /&amp;gt;
+foreach my $key (sort keys %accounts ) {&amp;lt;br /&amp;gt;
+my $password = $accounts{$key};&amp;lt;br /&amp;gt;
+my $exp = Expect-&amp;gt;spawn(&#39;ssh root@host.foo.bar&#39;);&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2,[ qr/mailer/i, sub {     my $self = shift; $self-&amp;gt;send(&amp;quot;adduser $keyn&amp;quot;); }] );&amp;lt;br /&amp;gt;
+$exp-&amp;gt;send(&amp;quot;passwd $keyn&amp;quot;);&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2, [ qr/password:/i, sub { my $self = shift; $self-&amp;gt;send(&amp;quot;$passwordn&amp;quot;); }] );&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2, [ qr/password:/i, sub { my $self = shift; $self-&amp;gt;send(&amp;quot;$passwordn&amp;quot;); }] );&amp;lt;br /&amp;gt;
+$exp-&amp;gt;expect(2, [ qr/bar/i ] ); $exp-&amp;gt;hard_close();&amp;lt;br /&amp;gt;
+}&amp;lt;br /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Actions &amp;ndash; Pattern-Command Pairs&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Patterns can be directly associated with Commands &amp;ndash; &amp;ldquo;Actions&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;expect {&amp;lt;br /&amp;gt;
+eof {break}&amp;lt;br /&amp;gt;
+timeout {exit}&amp;lt;br /&amp;gt;
+&amp;quot;fred&amp;quot; {send &amp;quot;flintstoner&amp;quot;}&amp;lt;br /&amp;gt;
+&amp;quot;denied&amp;quot; {close}&amp;lt;br /&amp;gt;
+&amp;quot;\? &amp;quot; {interact +}&amp;lt;br /&amp;gt;
+}&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;interact&lt;/em&gt; &amp;ndash; returns the keyboard to the user &amp;ndash; in the above example typing the + key then returns to expect&lt;/li&gt;
+&lt;li&gt;be aware of r vs n &amp;ndash; use r with send, use rn when looking for an end-of-line in patterns&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;eof&lt;/em&gt; &amp;ndash; spawned program exits&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;timeout&lt;/em&gt; &amp;ndash; spawned program doesn&amp;rsquo;t respond within time&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;default&lt;/em&gt; = eof + timeout&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; &amp;ndash; close spawned program: do when you don&amp;rsquo;t want to wait for spawned program to eof and you want to do more in the script&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

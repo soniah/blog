@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/google/</link>
+    <description>Recent content in Google on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 16 Jan 2012 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Migrating from Palm to Android</title>
+      <link>http://blog2.snowfrog.net/2012/01/17/migrating-from-palm-to-android/</link>
+      <pubDate>Mon, 16 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/01/17/migrating-from-palm-to-android/</guid>
+      <description>&lt;p&gt;My venerable &lt;a href=&#34;https://www.google.com/search?q=palm+treo+550&amp;amp;hl=en&amp;amp;client=firefox-a&amp;amp;hs=Kqs&amp;amp;rls=org.mozilla:en-US:official&amp;amp;prmd=imvns&amp;amp;tbm=isch&amp;amp;tbo=u&amp;amp;source=univ&amp;amp;sa=X&amp;amp;ei=U3MUT7LmAePX0QHXlf2LAw&amp;amp;ved=0CFUQsAQ&amp;amp;biw=1200&amp;amp;bih=592&#34;&gt;Palm Treo 550&lt;/a&gt; is showing it&amp;rsquo;s age (&lt;a href=&#34;http://ces.cnet.com/2300-33363_1-10010775.html&#34;&gt;as is the company&lt;/a&gt;), so I&amp;rsquo;ve been looking for a new phone platform to migrate to for a few years. And since I&amp;rsquo;m now working for Google, Android is the obvious choice (&lt;a href=&#34;http://en.wikipedia.org/wiki/Eating_your_own_dog_food&#34;&gt;dog-fooding&lt;/a&gt; and all that).&lt;/p&gt;
+
+&lt;p&gt;Some tricks and tools I&amp;rsquo;ve find useful in my migration from Palm to Android:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.synthesis.ch/&#34;&gt;Synthesis SyncML clients&lt;/a&gt; are great for syncing to a SyncML server. Not $free like Funambol, but Synthesis has nice extra things like syncing of memos.&lt;/li&gt;
+&lt;li&gt;for a SyncML server I&amp;rsquo;m using &lt;a href=&#34;https://www.memotoo.com/&#34;&gt;Memotoo&lt;/a&gt;. I could&amp;rsquo;ve setup my own SyncML server, but at $5/month Memotoo is cheap, and I know it works.&lt;/li&gt;
+&lt;li&gt;on the Android Market there&amp;rsquo;s a &lt;a href=&#34;http://gnukeyring.sourceforge.net/&#34;&gt;Keyring&lt;/a&gt; client, thus enabling me to bring across my Palm Treo Keyring (full of Secret Squirrel Stuff, like passwords for servers, etc). I&amp;rsquo;m yet to work out how I&amp;rsquo;m going to back this up, but probably something with Memotoo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, I&amp;rsquo;m using SyncML clients on my Treo and Android to sync up to Memotoo, keeping both in sync. Memotoo gives me a nice desktop that sort of replaces the &lt;a href=&#34;http://www.jpilot.org/images/jpilot-address.png&#34;&gt;JPilot desktop&lt;/a&gt; (so I can type stuff in at a real keyboard and sync it to my phones). Shweeeet, I&amp;rsquo;m almost migrated!&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>First Day at Google – Floating Fish</title>
+      <link>http://blog2.snowfrog.net/2012/01/12/first-day-at-google-floating-fish/</link>
+      <pubDate>Wed, 11 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2012/01/12/first-day-at-google-floating-fish/</guid>
+      <description>&lt;p&gt;My first day at Google &amp;ndash; a fish floated through the kitchen.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+  &lt;iframe
+    class=&#34;youtube-player&#34;
+    type=&#34;text/html&#34;
+    width=&#34;640&#34;
+    height=&#34;385&#34;
+    src=&#34;http://www.youtube.com/embed/FoTRfO6BqIc&#34;
+    allowfullscreen
+    frameborder=&#34;0&#34;&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

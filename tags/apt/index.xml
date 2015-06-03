@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apt on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/apt/</link>
+    <description>Recent content in Apt on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 14 Mar 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/apt/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>apt-cache policy</title>
+      <link>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</link>
+      <pubDate>Sat, 14 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/03/14/apt-cache-policy/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s years since I&amp;rsquo;ve dealt with apt-pinning, so all my knowledge on it has paged-out.&lt;/p&gt;
+
+&lt;p&gt;But I want to use it again because I&amp;rsquo;ve backgraded to Ubuntu Gutsy to get my Palm Treo syncing, but I want a few new packages from Hardy or Intrepid. (It seems that Palm syncing using the visor module and JPilot &lt;a href=&#34;https://bugs.launchpad.net/ubuntu/intrepid/+source/pilot-link/+bug/282491&#34;&gt;&lt;em&gt;still&lt;/em&gt; isn&amp;rsquo;t working&lt;/a&gt;, due to an unfixed regression in the kernel. Or maybe I just didn&amp;rsquo;t look hard enough. Bah &amp;ndash; I dislike Hardy and Intrepid anyway).&lt;/p&gt;
+
+&lt;p&gt;Anyway, on my (ongoing) apt-pinning travels, I came across a good post on &lt;a href=&#34;http://shallowsky.com/blog/linux/install/pinning.html&#34;&gt;Simple Pinning&lt;/a&gt;, and somewhere else read about a neat command I never knew about &amp;ndash; &lt;strong&gt;apt-cache policy&lt;/strong&gt; &amp;ndash; it shows what apt thinks the current pinning levels are:&lt;/p&gt;
+
+&lt;pre&gt;Package files:
+ 100 /var/lib/dpkg/status
+     release a=now
+ 500 http://au.archive.ubuntu.com gutsy-backports/universe Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=universe
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-backports/multiverse Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=multiverse
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-backports/main Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=main
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-backports/restricted Packages
+     release v=7.10,o=Ubuntu,a=gutsy-backports,l=Ubuntu,c=restricted
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-updates/universe Packages
+     release v=7.10,o=Ubuntu,a=gutsy-updates,l=Ubuntu,c=universe
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-updates/restricted Packages
+     release v=7.10,o=Ubuntu,a=gutsy-updates,l=Ubuntu,c=restricted
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy-updates/main Packages
+     release v=7.10,o=Ubuntu,a=gutsy-updates,l=Ubuntu,c=main
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy/universe Packages
+     release v=7.10,o=Ubuntu,a=gutsy,l=Ubuntu,c=universe
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy/restricted Packages
+     release v=7.10,o=Ubuntu,a=gutsy,l=Ubuntu,c=restricted
+     origin au.archive.ubuntu.com
+ 500 http://au.archive.ubuntu.com gutsy/main Packages
+     release v=7.10,o=Ubuntu,a=gutsy,l=Ubuntu,c=main
+     origin au.archive.ubuntu.com
+Pinned packages:
+     vinagre -&amp;gt; (not found)&lt;/pre&gt;
+
+&lt;p&gt;Nice! Now, armed with this command I&amp;rsquo;ll start tinkering with &lt;strong&gt;/etc/apt/preferences&lt;/strong&gt; to get Hardy and Intrepid in with proper preferences. TODO: RTFM &lt;strong&gt;man apt_preferences&lt;/strong&gt; :-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>dpkg-reconfigure debconf</title>
+      <link>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</link>
+      <pubDate>Mon, 23 Feb 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</guid>
+      <description>&lt;p&gt;Note to &lt;em&gt;brain&lt;/em&gt; (because I keep forgetting it and having to look it up) &amp;ndash; to reconfigure level and style of questions asked by dpkg (and hence apt):&lt;/p&gt;
+
+&lt;pre&gt;dpkg-reconfigure debconf&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ssh SOCKS proxying, DNS proxying, Tunnelling</title>
+      <link>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</link>
+      <pubDate>Thu, 12 Jun 2008 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://puzzling.org/&#34;&gt;Mary Gardiner&lt;/a&gt; &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2008/06/msg00135.html&#34;&gt;answered&lt;/a&gt; one of Voytek Eymont&amp;rsquo;s questions on the &lt;a href=&#34;http://lists.slug.org.au/listinfo/slug&#34;&gt;SLUG list&lt;/a&gt; by referring to the &lt;a href=&#34;http://ubuntu.wordpress.com/2006/12/08/ssh-tunnel-socks-proxy-forwarding-secure-browsing/&#34;&gt;ssh socks proxying&lt;/a&gt; post on Ubuntu Blog.&lt;/p&gt;
+
+&lt;p&gt;I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;setup via &lt;code&gt;$ssh -D 9999 username@ip-address-of-ssh-server&lt;/code&gt;, configure web browser **socks 5 host **(not http proxy) to localhost:9999 (On Firefox: Preferences, Advanced, Network, Settings, Manual, SOCKS Host. &lt;a href=&#34;http://foxyproxy.mozdev.org/&#34;&gt;FoxyProxy&lt;/a&gt; really helps with this &amp;ndash; you can setup wildcards to send certain URLs via certain proxies eg for when connecting via a VPN to work)&lt;/li&gt;
+&lt;li&gt;http proxying can be setup at the command line (for use by wget, apt, etc) with the &lt;strong&gt;http_proxy&lt;/strong&gt; environment variable. For example &lt;em&gt;export http_proxy=&amp;lsquo;&lt;a href=&#34;http://user:password@1.2.3.4:3128/&#39;&#34;&gt;http://user:password@1.2.3.4:3128/&#39;&lt;/a&gt;; cmd1; cmd2; export http_proxy=&amp;rdquo;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;configure apt to use a proxy via &lt;strong&gt;/etc/apt/apt.conf&lt;/strong&gt; by using &lt;strong&gt;Acquire::http::Proxy &amp;ldquo;&lt;a href=&#34;http://username:password@proxyserver:port/&amp;quot;&#34;&gt;http://username:password@proxyserver:port/&amp;quot;&lt;/a&gt;;&lt;/strong&gt; See &lt;a href=&#34;http://blogs.oracle.com/avinashjoshi/entry/using_apt_get_behind_a&#34;&gt;Using apt-get behind a proxy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;there&amp;rsquo;s also &lt;a href=&#34;http://www.mtu.net/~engstrom/ssh-proxy.php&#34;&gt;corkscrew&lt;/a&gt; (preferred), connect.c, and &lt;a href=&#34;http://proxychains.sourceforge.net/&#34;&gt;proxychains&lt;/a&gt; to secure other traffic or setup tunnels automagically in ~/.ssh/config. For example:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;% sudo aptitude install corkscrew
+
+% cat ~/.ssh/config
+Host foo.bar.com
+    User me
+    Port 443
+    ProxyCommand corkscrew 1.2.3.4 8080 %h %p ~/.ssh/proxyauth
+
+% cat ~/.ssh/proxyauth
+username:password&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sshmenu.sourceforge.net/articles/transparent-mulithop.html&#34;&gt;Transparent Multi-hop SSH&lt;/a&gt; &amp;ndash; using ProxyCommand and netcat to automate double ssh hops (also, my &lt;a href=&#34;http://www.mail-archive.com/slug@slug.org.au/msg62991.html&#34;&gt;SLUG question&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;non socks-ifiable programs can use socks via &lt;a href=&#34;http://tsocks.sourceforge.net/&#34;&gt;tsocks&lt;/a&gt;. This is really handy for getting &lt;strong&gt;apt&lt;/strong&gt; to work &amp;ndash; remember ssh is acting as a &lt;em&gt;socks&lt;/em&gt; proxy and not as an &lt;em&gt;http&lt;/em&gt; proxy. For example *sudo tsocks aptitude install foo&lt;br /&gt;
+*&lt;/li&gt;
+&lt;li&gt;lots of good tunnelling ideas on the &lt;a href=&#34;https://trac.torproject.org/projects/tor/wiki/TheOnionRouter/TorifyHOWTO/Misc&#34;&gt;Tor Wiki HOWTO&lt;/a&gt; and &lt;a href=&#34;http://fooninja.net/2010/09/06/how-to-tunnel-everything-through-ssh/&#34;&gt;How to tunnel everything through ssh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;also secure your dns traffic by setting &lt;strong&gt;network.proxy.socks_remote_dns = true&lt;/strong&gt; in Firefox&amp;rsquo;s about:config&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://blog.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;another similar article &lt;a href=&#34;http://www.linux.com/articles/56945&#34;&gt;Secure your Wi-Fi traffic using FOSS utilities&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Jan/2011:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;http://getfoxyproxy.org/&#34;&gt;FoxyProxy website&lt;/a&gt; has some good tutorials, and links to other material&lt;/li&gt;
+&lt;li&gt;Linux Magazine has an article called &lt;a href=&#34;http://www.linux-mag.com/id/2062/&#34;&gt;Tunnelling Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PaulDotCom &amp;ndash; &lt;a href=&#34;http://pauldotcom.com/2010/03/ssh-gymnastics-with-proxychain.html&#34;&gt;SSH gymnastics with proxychains&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id=&#34;_mcePaste&#34; class=&#34;mcePaste&#34; style=&#34;position:absolute;left:-10000px;top:0;width:1px;height:1px;overflow:hidden;&#34;&gt;
+  &lt;pre&gt;&lt;code&gt;export http_proxy=&#39;http://219.93.2.113:3128/&#39;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>using kpkg to build kernels</title>
+      <link>http://blog2.snowfrog.net/2005/11/26/using-kpkg-to-build-kernels/</link>
+      <pubDate>Sun, 27 Nov 2005 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2005/11/26/using-kpkg-to-build-kernels/</guid>
+      <description>
+
+&lt;p&gt;using kpkg to build kernels&lt;/p&gt;
+
+&lt;h3 id=&#34;using-kpkg-to-build-kernels:04f1df7e23dc332813cb6df950753b58&#34;&gt;Using kpkg to Build Kernels&lt;/h3&gt;
+
+&lt;p&gt;See also &lt;a href=&#34;http://www.howtoforge.com/kernel_compilation_ubuntu&#34;&gt;How To Compile A Kernel &amp;ndash; The Ubuntu Way&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;preparation:04f1df7e23dc332813cb6df950753b58&#34;&gt;Preparation&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;make backup floppy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mkboot /boot/kernel...&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add myself to src group (logout &amp;amp; login)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;sudo adduser sonia src&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check groups&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;groups&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;install pre-reqs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;apt-get install gcc kernel-package debhelper
+ dpkg-dev libncurses5-dev fakeroot g++ build-essential devscripts&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;configure package compiler name, etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;vi /etc/kernel-pkg.conf&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;clean up old sources/links, if required&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;cd /usr/src
+ sudo rm -rf linux*&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;download &amp;amp; install debian kernel source&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;sudo apt-get install linux-source-2.6.10
+ sudo tar jxvf linux-source-2.6.123.tar.bz
+ sudo chown -R root.src linux-source-2.6.123
+ sudo ln -s linux-source-2.6.123 linux&lt;/pre&gt;
+
+&lt;p&gt;Use linux-source (or linux-tree?) for Ubuntu; kernel-source comes from Debian, linux-source comes from Ubuntu. All the dependencies haven&amp;rsquo;t been changed over yet, though, so if you get warnings about &amp;ldquo;uninstalled package kernel-source&amp;rdquo; even though linux-source is installed, you can safely ignore them. Can sometimes also just download linux-headers-`uname -r`&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;check prereqs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;cd /usr/src/linux/scripts
+ ./ver_linux&lt;/pre&gt;
+
+&lt;h3 id=&#34;configure:04f1df7e23dc332813cb6df950753b58&#34;&gt;Configure&lt;/h3&gt;
+
+&lt;pre&gt;cd /usr/src/linux
+ cp /boot/config_foo .config
+ make oldconfig (can also use --config oldconfig in make-kpkg)
+ make xconfig or make menuconfig&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;update debian/changelog (will appear after first build)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;dch -i&lt;/pre&gt;
+
+&lt;h3 id=&#34;build-image:04f1df7e23dc332813cb6df950753b58&#34;&gt;Build Image&lt;/h3&gt;
+
+&lt;pre&gt;cd /usr/src/linux
+ make-kpkg clean
+ fakeroot make-kpkg --initrd --append-to-version=.sonia.001 kernel-image --config oldconfig
+ fakeroot make-kpkg --initrd --append-to-version=.sonia.001 kernel_image modules_image
+ fakeroot make-kpkg --initrd --append-to-version=.sonia.001 --added-modules=madwifi modules_image&lt;/pre&gt;
+
+&lt;p&gt;or some combo of the above.&lt;br /&gt;
+&lt;strong&gt;don&amp;rsquo;t use &amp;ndash;revision&lt;/strong&gt; &amp;ndash; versions aren&amp;rsquo;t handled correctly&lt;/p&gt;
+
+&lt;h3 id=&#34;install:04f1df7e23dc332813cb6df950753b58&#34;&gt;Install&lt;/h3&gt;
+
+&lt;pre&gt;cd ..
+ dpkg -i kernel-image-2.6.....
+ dpkg -i modules...&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;hold kernel, so not accidently upgraded&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;aptitude, search for sonia&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;find current status&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(dpkg -l truncates) ?? gives wrong result.&lt;/p&gt;
+
+&lt;pre&gt;dpkg --get-selections | grep kernel&lt;/pre&gt;
+
+&lt;p&gt;backup config from /boot, and .deb files&lt;/p&gt;
+
+&lt;h2 id=&#34;distcc:04f1df7e23dc332813cb6df950753b58&#34;&gt;distcc&lt;/h2&gt;
+
+&lt;p&gt;&amp;ldquo;Note&amp;rdquo;&lt;br /&gt;
+If distcc process killed whilst troubleshooting, etc, remove ~/.distcc check all gcc&amp;rsquo;s about the same version, with `gcc -v` (first 2 digits important)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;install pre-reqs (probably excessive)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;apt-get install distcc gcc kernel-package debhelper dpkg-dev libncurses5-dev fakeroot&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;config /etc/default/distcc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;ALLOWEDNETS=&#34;127.0.0.1 192.168.1.0/24&#34;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;setup &amp;ldquo;masquerade&amp;rdquo; directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;mkdir -p /usr/local/distcc/bin
+ cd /usr/local/distcc/bin
+ ln -s /usr/bin/distcc c++
+ ln -s /usr/bin/distcc cc
+ ln -s /usr/bin/distcc g++
+ ln -s /usr/bin/distcc gcc&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;configure environment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;CONCURRENCY_LEVEL=40
+ DISTCC_HOSTS=&#34;localhost hp mango pomelo armada&#34;
+ PATH=&#34;/usr/local/distcc/bin:${PATH}&#34;
+
+ export CONCURRENCY_LEVEL DISTCC_HOSTS PATH&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;see&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.myrddin.org/howto/debian-distcc.php&#34;&gt;http://www.myrddin.org/howto/debian-distcc.php&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://distcc.planetmirror.com/faq.html&#34;&gt;http://distcc.planetmirror.com/faq.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;see-also:04f1df7e23dc332813cb6df950753b58&#34;&gt;See also&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://newbiedoc.sourceforge.net/system/kernel-pkg.html&#34;&gt;http://newbiedoc.sourceforge.net/system/kernel-pkg.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://myrddin.org/howto/debian-kernel-recompile.php&#34;&gt;http://myrddin.org/howto/debian-kernel-recompile.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ubuntulinux.org/wiki/KernelBuildpackageDetailedHowto&#34;&gt;https://www.ubuntulinux.org/wiki/KernelBuildpackageDetailedHowto&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ubuntulinux.org/wiki/KernelBuildpackageHowto&#34;&gt;https://www.ubuntulinux.org/wiki/KernelBuildpackageHowto&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ubuntulinux.org/wiki/KernelByHandHowto&#34;&gt;https://www.ubuntulinux.org/wiki/KernelByHandHowto&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ubuntulinux.org/wiki/KernelCompileHowto&#34;&gt;https://www.ubuntulinux.org/wiki/KernelCompileHowto&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
