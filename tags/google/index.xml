@@ -38,7 +38,7 @@
       <guid>http://blog2.snowfrog.net/2012/01/12/first-day-at-google-floating-fish/</guid>
       <description>&lt;p&gt;My first day at Google &amp;ndash; a fish floated through the kitchen.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
   &lt;iframe
     class=&#34;youtube-player&#34;
     type=&#34;text/html&#34;
@@ -49,7 +49,7 @@
     frameborder=&#34;0&#34;&gt;
   &lt;/iframe&gt;
 &lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     

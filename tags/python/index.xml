@@ -53,9 +53,11 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
       <guid>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</guid>
       <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% git diff -w
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
+
+% git diff -w
+
+
 
 &lt;p&gt;Ignore white space in diffs. Unfortunately, &lt;a href=&#34;http://stackoverflow.com/questions/4350678/git-diff-w-ignore-whitespace-only-at-start-end-of-lines&#34;&gt;there doesn&amp;rsquo;t seem to be an option for just ignoring whitespace changes at the start of  line&lt;/a&gt; - would be handy for Python.&lt;/p&gt;
 </description>

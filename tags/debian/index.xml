@@ -18,45 +18,45 @@
 
 &lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; dialout
-sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; tty
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
+sudo adduser $USER dialout
+sudo adduser $USER tty
+
 
 &lt;p&gt;Confirm the port &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt; is being used by Arduino - tail messages then plug in the Arduino.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tail -f /var/log/messages
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
+sudo tail -f /var/log/messages
+
+# you should see something like:
 FTDI USB Serial Device converter now attached to ttyUSB0
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# out of interest, inspect permissions on port&lt;/span&gt;
+# out of interest, inspect permissions on port
 ls -al /dev/ttyUSB0
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Logout and login (or run a login shell). Confirm permissions.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;zsh -l
+
+zsh -l
 id
 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
-&lt;span style=&#34;color: #40ffff&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;1000&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;sonia&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,5&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;tty&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,20&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;dialout&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,...
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+# you should see something like:
+groups=1000(sonia),5(tty),20(dialout),...
+
 
 &lt;p&gt;Install Arduino pre-requisites.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install arduino arduino-core
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
+sudo aptitude install arduino arduino-core
+
 
 &lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/arduino-1.0.5
-./arduino&lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
+cd ~/arduino-1.0.5
+./arduino&amp;
+
 
 &lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;
 
@@ -107,24 +107,23 @@ id
 
 &lt;p&gt;The commandlinefu.com topic &lt;a href=&#34;http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu&#34;&gt;List your largest installed packages (on Debian/Ubuntu)&lt;/a&gt; has some useful commands:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;\&lt;/span&gt;
-  /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -rn
 
-% dpkg-query -Wf &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;${Installed-Size}\t${Package}\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n
+% sed -ne &#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&#39;\
+  /var/lib/dpkg/status | sort -rn
 
-% dpkg --get-selections &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; cut -f1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;read &lt;/span&gt;pkg&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt; dpkg -L &lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; xargs -I&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{}&amp;#39;&lt;/span&gt; bash -c &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-  &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;if [ ! -d &amp;quot;{}&amp;quot; ]; then echo &amp;quot;{}&amp;quot;; fi&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tr &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\000&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; du -c --files0-from - &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-   tail -1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sed &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;s/total/&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+% dpkg-query -Wf &#39;${Installed-Size}\t${Package}\n&#39; | sort -n
 
-% awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;quot;%9d %s\n&amp;quot;, $2, p)}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-   /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+% dpkg --get-selections | cut -f1 | while read pkg; do dpkg -L $pkg | xargs -I&#39;{}&#39; bash -c \
+  &#39;if [ ! -d &#34;{}&#34; ]; then echo &#34;{}&#34;; fi&#39; | tr &#39;\n&#39; &#39;\000&#39; | du -c --files0-from - |\
+   tail -1 | sed &#34;s/total/$pkg/&#34;; done
+
+% awk &#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&#34;%9d %s\n&#34;, $2, p)}&#39; \
+   /var/lib/dpkg/status | sort -n | tail
+
 
 &lt;p&gt;The &lt;a href=&#34;http://www.auroraos.org/release/eeebuntu&#34;&gt;download sources for Eeebuntu&lt;/a&gt; seem to be broken, and nowadays I&amp;rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&amp;rsquo;m running &lt;a href=&#34;http://wiki.debian.org/LXDE&#34;&gt;Debian with LXDE&lt;/a&gt; - it seems to work well.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ASUS_Eee_PC_PIC_0971.JPG/220px-ASUS_Eee_PC_PIC_0971.JPG&#34; alt=&#34;&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ASUS_Eee_PC_PIC_0971.JPG/220px-ASUS_Eee_PC_PIC_0971.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -138,22 +137,22 @@ id
 
 &lt;p&gt;Install build pre-requisites:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install gcc libc6-dev libc6-dev-i386 make &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+
+sudo aptitude install gcc libc6-dev libc6-dev-i386 make \
   markdown build-essential debhelper dh-make fakeroot devscripts
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Install Go from source (so can cross-compile). Download from &lt;a href=&#34;http://code.google.com/p/go/downloads/list&#34;&gt;Go Downloads&lt;/a&gt; eg go1.0.2.src.tar.gz&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /usr/local/go/src
-sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;amd64 ./all.bash &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;386&lt;/span&gt; ./all.bash
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
+sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz ; cd /usr/local/go/src
+sudo GOARCH=amd64 ./all.bash ; sudo GOARCH=386 ./all.bash
+
 
 &lt;p&gt;Add to /etc/profile, source or re-login:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOROOT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;/usr/local/go&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$GOROOT&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/bin:&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+
+export GOROOT=&#34;/usr/local/go&#34;
+export PATH=&#34;$GOROOT/bin:$PATH&#34;
 &lt;/p&gt;
 </description>
     </item>

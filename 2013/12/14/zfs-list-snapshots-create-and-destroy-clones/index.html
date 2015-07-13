@@ -92,21 +92,21 @@
 
 <p>Some notes for me on listing ZFS snapshots, and creating and destroying clones.</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> /mnt/vol01/bjj
-zfs list -t snapshot <span style="color: #d0d0d0">|</span> grep bjj <span style="color: #d0d0d0">|</span> grep -v vobs
-zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
-<span style="color: #24909d">cd </span>auto-20131214.12d
 
-<span style="color: #999999; font-style: italic"># after recovery tasks, umount snapshot</span>
-<span style="color: #24909d">cd</span> /mnt/vol01/bjj
+cd /mnt/vol01/bjj
+zfs list -t snapshot | grep bjj | grep -v vobs
+zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
+cd auto-20131214.12d
+
+# after recovery tasks, umount snapshot
+cd /mnt/vol01/bjj
 umount auto-20131214.12d
 rmdir auto-20131214.12d
 
-<span style="color: #999999; font-style: italic"># usually want to umount not destroy, as a</span>
-<span style="color: #999999; font-style: italic"># destroy may cascade delete other dependent snapshots</span>
+# usually want to umount not destroy, as a
+# destroy may cascade delete other dependent snapshots
 zfs destroy vol01/bjj/foo
-</pre></div>
-</p>
+
 
         </section>
 

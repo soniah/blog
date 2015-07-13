@@ -16,43 +16,35 @@
       <guid>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&amp;rsquo;s a list of the books I&amp;rsquo;ve read on my journey to Clojure enlightenment (I&amp;rsquo;ve still got a long way to go&amp;hellip;).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;My first Clojure book wasn&amp;rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across &lt;a href=&#34;http://nostarch.com/lisp.htm&#34;&gt;Land of Lisp&lt;/a&gt;.  I&amp;rsquo;d heard about Lisp, that &amp;ldquo;obsolete&amp;rdquo; language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;cartoons&lt;/a&gt; were great, and before I knew it I&amp;rsquo;d read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://mitpress.mit.edu/sicp/full-text/book/cover.jpg&#34; alt=&#34;SICP book&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://mitpress.mit.edu/sicp/full-text/book/cover.jpg&#34; alt=&#34;SICP book&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;But after reading it for a while and getting sidetracked by Scheme and &lt;a href=&#34;http://mitpress.mit.edu/sicp/full-text/book/book.html&#34;&gt;the greatest book every written about programming&lt;/a&gt;, Land of Lisp languished on my bookshelf. The example used in the book (yet another game) didn&amp;rsquo;t relate to my day-to-day use of programming. I was getting lost because I wasn&amp;rsquo;t doing any exercises, and &lt;a href=&#34;http://steve-yegge.blogspot.com.au/2006/04/lisp-is-not-acceptable-lisp.html&#34;&gt;Lisp just didn&amp;rsquo;t seem to be an acceptable Lisp&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://imagery.pragprog.com/products/195/btlang_xlargecover.jpg?1298589937&#34; alt=&#34;Seven Languages in Seven Weeks&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://imagery.pragprog.com/products/195/btlang_xlargecover.jpg?1298589937&#34; alt=&#34;Seven Languages in Seven Weeks&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://pragprog.com/book/btlang/seven-languages-in-seven-weeks&#34;&gt;Seven Languages in Seven Weeks&lt;/a&gt; pointed me towards Erlang, Haskell and Clojure. Ah-hah! Clojure - runs on the JVM (so I can use it machines where I can&amp;rsquo;t/don&amp;rsquo;t want to install stuff, just like JRuby). A modern Lisp with cleaned up syntax that has access to all the Java libraries for doing real world stuff. I&amp;rsquo;m hooked!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://joyofclojure.com/wp-content/uploads/2011/07/joy-of-clojure-cover-239x300.jpg&#34; alt=&#34;The Joy of Clojure&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://joyofclojure.com/wp-content/uploads/2011/07/joy-of-clojure-cover-239x300.jpg&#34; alt=&#34;The Joy of Clojure&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;At a &lt;a href=&#34;http://ruby.org.au/&#34;&gt;Ruby on Rails Oceania (RORO)&lt;/a&gt; meetup someone was raving about &lt;a href=&#34;http://www.amazon.com/The-Joy-Clojure-Thinking-Way/dp/1935182641&#34;&gt;The Joy of Clojure&lt;/a&gt;. So I drank from the firehose and my brain exploded and nothing made sense. As &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; (a fellow Googler) says in the intro, &amp;ldquo;you&amp;rsquo;ll learn fast&amp;rdquo; - but only if you&amp;rsquo;re already comfortable with Lisp. The book moves too fast, the explanations are cryptic, and it seems to bounce all over the place. Another book to languish on my book shelf.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://www.apress.com/media/catalog/product/cache/9/image/9df78eab33525d08d6e5fb8d27136e95/A/9/A9781430272311-3d_11.png&#34; alt=&#34;Practical Clojure&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.apress.com/media/catalog/product/cache/9/image/9df78eab33525d08d6e5fb8d27136e95/A/9/A9781430272311-3d_11.png&#34; alt=&#34;Practical Clojure&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;My next book &lt;a href=&#34;http://www.amazon.com/Practical-Clojure-Experts-Voice-Source/dp/1430272317/ref=pd_sim_b_4&#34;&gt;Practical Clojure&lt;/a&gt; was where things started to make sense. It&amp;rsquo;s more directed at beginners and just explains how the language works. But it&amp;rsquo;s a thin book (not enough detail) and some sections just seem to be reprints of the API (function foo does this and here&amp;rsquo;s a 5 line example; function bar does this and here&amp;rsquo;s a 5 line example). No real digging into the how and why of using Clojure.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://photo.goodreads.com/books/1328761653l/10883803.jpg&#34; alt=&#34;Clojure Programming&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://photo.goodreads.com/books/1328761653l/10883803.jpg&#34; alt=&#34;Clojure Programming&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And onto my favourite Clojure book - &lt;a href=&#34;http://www.clojurebook.com/&#34;&gt;Clojure Programming by Emerick et al&lt;/a&gt;. Like many O&amp;rsquo;Reilly books it&amp;rsquo;s &lt;em&gt;definitive&lt;/em&gt;. Lots of detailed examples, clear explanations, great diagrams, coverage of related areas (eg Clojure for web programming). Example code comparing how you do things in Clojure with other languages (Java, Python, Ruby). This is the book where I&amp;rsquo;ve really started to understand Clojure.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://ep.yimg.com/ca/I/paulgraham_2202_3475946&#34; alt=&#34;On Lisp&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://ep.yimg.com/ca/I/paulgraham_2202_3475946&#34; alt=&#34;On Lisp&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now I&amp;rsquo;m working through the &lt;a href=&#34;http://www.4clojure.com/&#34;&gt;4clojure problem list&lt;/a&gt; (really interesting). Then I&amp;rsquo;ll probably buy some more books from &lt;a href=&#34;http://www.amazon.com/Clojure-Bookshelf/lm/R3LG3ZBZS4GCTH&#34;&gt;The Clojure Bookshelf&lt;/a&gt;. And continue reading Paul Graham&amp;rsquo;s On Lisp (I got it &lt;a href=&#34;http://www.lurklurk.org/onlisp/onlisp.html&#34;&gt;printed through Lulu&lt;/a&gt;). And one day I&amp;rsquo;ll reach enlightenment :-)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp.jpg&#34; alt=&#34;Lisp&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp.jpg&#34; alt=&#34;Lisp&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
