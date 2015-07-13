@@ -28,8 +28,10 @@ Some notes on [Docker](https://www.docker.com/)
   ```"$*"``` for shell scripts) -- allowing a docker image to be thought
   of as a "wrapped" executable
 
-* ```RUN``` - install stuff. Chain ```RUN``` commands with ```&&``` or
-  ```;``` as multiple RUN commands cause multiple layers
+* ```RUN``` - install stuff. For dev, separate out ```RUN``` commands,
+  so layers are cached and builds are faster. For prod, chain ```RUN```
+  commands with ```&&``` or ```;``` as multiple RUN commands cause
+  multiple layers
 
 * ```COPY```, ```ADD``` and ```VOLUME```. COPY copies file into the
   image; ADD does the same but also does things like untar or retrieving
@@ -47,10 +49,13 @@ Some notes on [Docker](https://www.docker.com/)
 {{< highlight bash >}}
 # build the image & tag it; use current dir as context
 docker build -t="soniah/foo:1.0" .
-# run, automap ports
+# run, automap ports. For dev, omit -D -- stdout is tailed and
+# container is automatically stopped on ctrl-c.
 docker run -P sonia/foo
 # get an interactive shell
 docker exec -it random_name /bin/bash
+# remove all old images, except ubuntu "base" images
+docker rmi -f `docker images | tail -n +2 | grep -v 'ubuntu' | awk {'print $3'}`
 # remove all old containers, including stopped containers
 docker rm `docker ps --no-trunc -aq`
 {{< /highlight >}}
