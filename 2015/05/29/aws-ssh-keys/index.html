@@ -93,10 +93,10 @@
 <p>AWS distributes their ssh keys as <strong>.pem</strong> certificates. The usual process with
 working with them is:</p>
 
-
-mv ~/Downloads/foo.pem ~/.ssh
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">mv ~/Downloads/foo.pem ~/.ssh
 chmod 0600 ~/.ssh/foo.pem
 ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
+</pre></div>
 
 
 <p>However, sometimes it&rsquo;s handy to generate a public key out of the
@@ -104,10 +104,10 @@ ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
 <a href="http://en.wikipedia.org/wiki/Seahorse_%28software%29">Seahorse</a> key
 manager easier:</p>
 
-
-cd ~/.ssh
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/.ssh
 mv foo.pem foo
-ssh-keygen -y -f ~/.ssh/foo > ~/.ssh/foo.pub
+ssh-keygen -y -f ~/.ssh/foo &gt; ~/.ssh/foo.pub
+</pre></div>
 
 
         </section>
@@ -121,6 +121,10 @@ ssh-keygen -y -f ~/.ssh/foo > ~/.ssh/foo.pub
 
 <div class="container">
   <hr />
+  
+    <span class="left">
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/">Dockerfile Notes</a>
+    </span>
   
 
   

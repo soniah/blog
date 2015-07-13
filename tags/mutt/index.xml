@@ -16,13 +16,13 @@
       <guid>http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/</guid>
       <description>&lt;p&gt;A quick example of sending email from the shell via mutt.&lt;/p&gt;
 
-
-% cat msg.txt 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat msg.txt 
 pdf attached. Sonia.
 
-for i in *.pdf ; do              
-  mutt -s &#34;pdf - $i&#34; -a $i -- &#39;foo@hotmail.com&#39; &lt; msg.txt
-done
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for &lt;/span&gt;i in *.pdf ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do              &lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;  &lt;/span&gt;mutt -s &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;pdf - $i&amp;quot;&lt;/span&gt; -a &lt;span style=&#34;color: #40ffff&#34;&gt;$i&lt;/span&gt; -- &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;foo@hotmail.com&amp;#39;&lt;/span&gt; &amp;lt; msg.txt
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;No rocket science, just saving me from RTFM&amp;rsquo;ing next time&amp;hellip;&lt;/p&gt;

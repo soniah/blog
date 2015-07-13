@@ -5,8 +5,53 @@
     <link>http://blog2.snowfrog.net/posts/</link>
     <description>Recent content in Posts on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 29 May 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://blog2.snowfrog.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerfile Notes</title>
+      <link>http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/</link>
+      <pubDate>Mon, 13 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/</guid>
+      <description>
+
+&lt;p&gt;Some notes on &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;
+&lt;a href=&#34;https://docs.docker.com/reference/builder/&#34;&gt;Dockerfiles&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;commands:62690b4e4e2be0f330c66d76376225a7&#34;&gt;Commands&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MAINTAINER&lt;/code&gt; - author, email, etc&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FROM&lt;/code&gt; - base image eg &lt;strong&gt;ubuntu&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMD&lt;/code&gt; and &lt;code&gt;ENTRYPOINT&lt;/code&gt;. In theory CMD sets parameters for
+whatever is run by ENTRYPOINT. In practice, use ENTRYPOINT to set the
+daemon or one-time executable to be run, and use CMD to a shell to
+allow for debugging when running &lt;code&gt;docker run -it&lt;/code&gt;. Both should use
+the &lt;em&gt;exec&lt;/em&gt; form eg &lt;code&gt;[&amp;quot;/bin/foo&amp;quot;,&amp;quot;arg1&amp;quot;,&amp;quot;arg2&amp;quot;]&lt;/code&gt;, as the string format
+prepends &lt;code&gt;/bin/sh -c&lt;/code&gt; and therefore prevents signal handling&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RUN&lt;/code&gt; - install stuff. Chain with &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; or &lt;code&gt;;&lt;/code&gt; - multiple
+RUN commands cause multiple layers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;COPY&lt;/code&gt;, &lt;code&gt;ADD&lt;/code&gt; and &lt;code&gt;VOLUME&lt;/code&gt;. COPY copies file into the
+image; ADD does the same but also does things like untar or retrieving
+from URL - avoid as behaviour is too overloaded. VOLUME mounts a
+directory from server filesystem&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ENV&lt;/code&gt;, &lt;code&gt;WORKDIR&lt;/code&gt; and &lt;code&gt;USER&lt;/code&gt; - environment variables, cwd
+and userid for CMD/ENTRYPOINT??&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EXPOSE&lt;/code&gt; - expose a network port. Use &lt;code&gt;nn&lt;/code&gt; not &lt;code&gt;nn:mm&lt;/code&gt;
+form - allow operator to decide public port using &lt;code&gt;-p&lt;/code&gt; option&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;see-also:62690b4e4e2be0f330c66d76376225a7&#34;&gt;See also&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://crosbymichael.com/dockerfile-best-practices.html&#34;&gt;Dockerfile Best Practices - MCrosby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/articles/dockerfile_best-practices/&#34;&gt;Dockerfile Best Practices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.centurylinklabs.com/dockerfile-entrypoint-vs-cmd/&#34;&gt;Dockerfile: ENTRYPOINT vs CMD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.centurylinklabs.com/dockerfile-add-vs-copy/&#34;&gt;Dockerfile: ADD vs COPY&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>AWS ssh keys</title>
@@ -19,10 +64,10 @@
 &lt;p&gt;AWS distributes their ssh keys as &lt;strong&gt;.pem&lt;/strong&gt; certificates. The usual process with
 working with them is:&lt;/p&gt;
 
-
-mv ~/Downloads/foo.pem ~/.ssh
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mv ~/Downloads/foo.pem ~/.ssh
 chmod 0600 ~/.ssh/foo.pem
 ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;However, sometimes it&amp;rsquo;s handy to generate a public key out of the
@@ -30,10 +75,10 @@ ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
 &lt;a href=&#34;http://en.wikipedia.org/wiki/Seahorse_%28software%29&#34;&gt;Seahorse&lt;/a&gt; key
 manager easier:&lt;/p&gt;
 
-
-cd ~/.ssh
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/.ssh
 mv foo.pem foo
-ssh-keygen -y -f ~/.ssh/foo &gt; ~/.ssh/foo.pub
+ssh-keygen -y -f ~/.ssh/foo &amp;gt; ~/.ssh/foo.pub
+&lt;/pre&gt;&lt;/div&gt;
 
 </description>
     </item>
@@ -57,43 +102,43 @@ see the book.&lt;/p&gt;
 code eg logging, opening/closing files or databases, etc. Value can be
 passed in via parameters, or passed out via &lt;em&gt;yield&lt;/em&gt;.&lt;/p&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# &amp;amp;block is optional, but helps document function&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #447fcf&#34;&gt;with_logging&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(text,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;block)&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;begin&lt;/span&gt;
+    &lt;span style=&#34;color: #24909d&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&amp;gt;&amp;gt; START:  #{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;yield&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# no if, so need a block&lt;/span&gt;
+    &lt;span style=&#34;color: #24909d&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&amp;lt;&amp;lt; END:    #{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# return result of block - chaining&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;rescue&lt;/span&gt;
+    &lt;span style=&#34;color: #24909d&#34;&gt;puts&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;-- FAILED: #{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&amp;quot;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;raise&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-# &amp;block is optional, but helps document function
-def with_logging(text, &amp;block)
-  begin
-    puts &#34;&gt;&gt; START:  #{text}&#34;
-    result = yield # no if, so need a block
-    puts &#34;&lt;&lt; END:    #{text}&#34;
-    result # return result of block - chaining
-  rescue
-    puts &#34;-- FAILED: #{text}&#34;
-    raise
-  end
-end
-
-def someFunction
-  # var1 will be visible inside with_logging - blocks are closures
-  var1 = &#39;something&#39;
-  # someFunction will return 3 because with_logging returns &#39;result&#39;
-  with_logging(&#39;doing addition&#39;) { 1 + 2 }
-end
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #447fcf&#34;&gt;someFunction&lt;/span&gt;
+  &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# var1 will be visible inside with_logging - blocks are closures&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;var1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;something&amp;#39;&lt;/span&gt;
+  &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# someFunction will return 3 because with_logging returns &amp;#39;result&amp;#39;&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;with_logging(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;doing addition&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Another example is &lt;em&gt;yielding for flexible initialization&lt;/em&gt;:&lt;/p&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color: #447fcf; text-decoration: underline&#34;&gt;EC2&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825&#34;&gt;attr_accessor&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;:json&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color: #447fcf&#34;&gt;initialize&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(cmd)&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;`#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}`&lt;/span&gt;
+    &lt;span style=&#34;color: #40ffff&#34;&gt;@json&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;JSON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.parse(result)&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;yield&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;block_given?&lt;/span&gt;
+  &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
 
-class EC2
-  attr_accessor :json
-  def initialize(cmd)
-    result = `#{cmd}`
-    @json = JSON.parse(result)
-    yield(self) if block_given?
-  end
-end
-
-instance = new EC2(&#39;aws ec2 describe-instances&#39;) do |ec2|
-  ec2.json[insertDate] = Time.new.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;).to_s
-end
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;instance&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;EC2&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aws ec2 describe-instances&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|ec2|&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;ec2.json[insertDate]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;Time&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.new.strftime(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;%Y-%m-%d %H:%M:%S&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;).to_s&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 </description>
     </item>
@@ -113,30 +158,30 @@ using the type system to help you write a function.&lt;/p&gt;
 allow code to compile (without producing error messages) while you&amp;rsquo;re
 working on other parts. The two placeholders are:&lt;/p&gt;
 
-
-error &#34;todo&#34; (or any string)
-undefined
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #bbbbbb&#34;&gt;error&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;todo&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(or&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;any&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;undefined&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &amp;ldquo;hole driven&amp;rdquo; part involves using the underscore to get the
 compiler to print types:&lt;/p&gt;
 
-
-_undefined
-_x
-_foo
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;_undefined&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;_x&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;_foo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;For example if I used &lt;code&gt;_x&lt;/code&gt; then re-loaded my code in ghci, I would get
 output like:&lt;/p&gt;
 
-
-Found hole ‘_x’ with type: a
-...
-g2 :: a -&gt; b (bound at GetSetLens.hs:312:31)
-s2 :: a -&gt; b -&gt; a (bound at GetSetLens.hs:312:28)
-g1 :: b -&gt; c (bound at GetSetLens.hs:312:18)
-s1 :: b -&gt; c -&gt; b (bound at GetSetLens.hs:312:15)
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;Found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hole&lt;/span&gt; &lt;span style=&#34;color: #a61717; background-color: #e3d2d2&#34;&gt;‘&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;_x&lt;/span&gt;&lt;span style=&#34;color: #a61717; background-color: #e3d2d2&#34;&gt;’&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;type:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;...&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;g2&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;31&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;s2&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;28&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;g1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;18&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #447fcf&#34;&gt;s1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;::&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;b&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(bound&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;at&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GetSetLens&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;.hs&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;312&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;15&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Showing me that where I had &lt;code&gt;_x&lt;/code&gt; a type &lt;code&gt;a&lt;/code&gt; was expected, and that I already
@@ -179,33 +224,33 @@ scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;
       <guid>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
-
-system:
-    network.system:
-      - enabled: True
-      - hostname: server1.example.com
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;network.system:&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;enabled:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;True&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hostname:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;server1.example.com&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here&amp;rsquo;s a little shell script I wrote, to get around this problem:&lt;/p&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat set_hostname.sh 
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 
-% cat set_hostname.sh 
-#!/bin/bash
-
-hn=$1
-hostname $hn
-echo $hn &gt; /etc/hostname
-sed -i &#34;1s/.*/127.0.0.1 localhost $hn/&#34; /etc/hosts
+&lt;span style=&#34;color: #40ffff&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
+hostname &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
+sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost $hn/&amp;quot;&lt;/span&gt; /etc/hosts
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then apply it using cmd.script, for example:&lt;/p&gt;
 
-
-foo-hostname:
-  cmd.script:
-    - source: salt://soe/set_hostname.sh
-    - args: foo.bar.com
-    - unless: grep -q &#34;foo.bar.com&#34; /etc/hosts
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;foo-hostname:&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd.script:&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;source:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;salt://soe/set_hostname.sh&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;args:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;foo.bar.com&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;unless:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;grep -q &amp;quot;foo.bar.com&amp;quot; /etc/hosts&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 </description>
     </item>
@@ -234,84 +279,84 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 
-#!/bin/bash
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## install go&lt;/span&gt;
 
-## install go
+&lt;span style=&#34;color: #40ffff&#34;&gt;tgz&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;go1.3.3.linux-amd64.tar.gz
+&lt;span style=&#34;color: #40ffff&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;https://storage.googleapis.com/golang/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
 
-tgz=go1.3.3.linux-amd64.tar.gz
-url=https://storage.googleapis.com/golang/$tgz
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -f /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /var/tmp
+	wget &lt;span style=&#34;color: #40ffff&#34;&gt;$url&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-if ! [ -f /var/tmp/$tgz ] ; then
-	cd /var/tmp
-	wget $url
-fi
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d /usr/local/go &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;sudo tar -C /usr/local -xzf /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-if ! [ -d /usr/local/go ] ; then
-	sudo tar -C /usr/local -xzf /var/tmp/$tgz
-fi
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## setup dev directory structure&lt;/span&gt;
 
-## setup dev directory structure
+mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thirdparty&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;bin,pkg,src&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 
-mkdir -p ~/go/{sonia,thirdparty}/{bin,pkg,src}
+&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#---------------------&lt;/span&gt;
 
-cd ~/go/thirdparty/src
-#---------------------
-
-read -p &#34;Install third party repos? (go-bindata, lint)&#34;
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-	if ! [ -d github.com/jteeuwen/go-bindata ] ; then
-		go get github.com/jteeuwen/go-bindata/...
+&lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install third party repos? (go-bindata, lint)&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/jteeuwen/go-bindata &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;go get github.com/jteeuwen/go-bindata/...
 		cp ~/go/thirdparty/bin/go-bindata ~/bin
-	fi
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-	if ! [ -d github.com/golang/lint ] ; then
-		go get github.com/golang/lint/golint
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/golang/lint &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;go get github.com/golang/lint/golint
 		cp ~/go/thirdparty/bin/golint ~/bin
-	fi
-fi
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-cd ~/go/sonia/src
-#----------------
+&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/sonia/src
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#----------------&lt;/span&gt;
 
-read -p &#34;Install soniah repos? (gosnmp, evaler)&#34;
-if [[ $REPLY =~ ^[Yy]$ ]] ; then
-	# do &#39;git clone&#39; not &#39;go get&#39; so origin is writeable
-	dir=github.com/soniah
-	if ! [ -d $dir/evaler ] ; then
-		mkdir -p $dir
-		cd $dir
+&lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install soniah repos? (gosnmp, evaler)&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# do &amp;#39;git clone&amp;#39; not &amp;#39;go get&amp;#39; so origin is writeable&lt;/span&gt;
+	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/evaler &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		git clone git@github.com:soniah/evaler.git
-		cd -
-	fi
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-	dir=github.com/soniah
-	if ! [ -d $dir/gosnmp ] ; then
-		mkdir -p $dir
-		cd $dir
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/gosnmp &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		git clone git@github.com:soniah/gosnmp.git
-		cd -
-	fi
-fi
+		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
 
-
-export GOPATH=~/go/thirdparty:~/go/sonia
-export PATH=${GOPATH//://bin:}/bin:$PATH
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
+&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then you need to follow the &lt;a href=&#34;https://github.com/hashicorp/terraform&#34;&gt;Terraform instructions&lt;/a&gt; for building, that is:&lt;/p&gt;
 
-
-$ cd ~/go/thirdparty/src
-$ go get -u github.com/mitchellh/gox
-$ cd ~/go/thirdparty/src/github.com/hashicorp/terraform
-$ make updatedeps
-$ make dev
-# put the binaries somewhere in your path, eg /usr/local/bin
-$ sudo cp bin/terraform* /usr/local/bin
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;go get -u github.com/mitchellh/gox
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src/github.com/hashicorp/terraform
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make updatedeps
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make dev
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# put the binaries somewhere in your path, eg /usr/local/bin&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;sudo cp bin/terraform* /usr/local/bin
+&lt;/pre&gt;&lt;/div&gt;
 
 </description>
     </item>
@@ -328,29 +373,29 @@ $ sudo cp bin/terraform* /usr/local/bin
 
 &lt;p&gt;First install the &lt;a href=&#34;http://hg-git.github.io/&#34;&gt;hg-git&lt;/a&gt; tools; for example on Ubuntu:&lt;/p&gt;
 
-
-sudo aptitude install python-setuptools python-dev
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install python-setuptools python-dev
 sudo easy_install hg-git
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Make sure the following is in your ~/.hgrc:&lt;/p&gt;
 
-
-[extensions]
-hgext.bookmarks =
-hggit = 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;extensions&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+hgext.bookmarks &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;hggit&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then, in your existing mercurial repository, add a new remote that points to the git repository. For example for a BitBucket repository:&lt;/p&gt;
 
-
-cd &lt;mercurial repository&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &amp;lt;mercurial repository&amp;gt;
 cat .hg/hgrc
-[paths]
-# the original hg repository
-default = https://username@abcde.org/foo/barhg
-# the git version (on BitBucket in this case)
-bbgit   = git+ssh://git@bitbucket.org:foo/bar.git
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;paths&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# the original hg repository&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; https://username@abcde.org/foo/barhg
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# the git version (on BitBucket in this case)&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;bbgit&lt;/span&gt;   &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; git+ssh://git@bitbucket.org:foo/bar.git
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then you can go an &lt;em&gt;hg push bbgit&lt;/em&gt; to push from your local hg repository to the remote git repository.&lt;/p&gt;
@@ -359,27 +404,27 @@ bbgit   = git+ssh://git@bitbucket.org:foo/bar.git
 
 &lt;p&gt;You may get the error &lt;em&gt;mercurial abort: revision cannot be pushed since it doesn&amp;rsquo;t have a ref&lt;/em&gt; when pushing from hg to git, or you might notice that your hg work isn&amp;rsquo;t being pushed. The solution here is to reset the hg bookmark for git&amp;rsquo;s master branch:&lt;/p&gt;
 
-
-hg book -f -r tip master
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hg book -f -r tip master
 hg push bbgit
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If you find yourself doing this regularly, this small shell function (in your ~/.bashrc) will help:&lt;/p&gt;
 
-
-hggitpush () {
-   # $1 is hg remote name in hgrc for repo
-   # $2 is branch (defaults to master)
-   hg book -f -r tip ${2:-master}
-   hg push $1
-}
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+   &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $1 is hg remote name in hgrc for repo&lt;/span&gt;
+   &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $2 is branch (defaults to master)&lt;/span&gt;
+   hg book -f -r tip &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;master&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;
+   hg push &lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then from your shell you can run commands like:&lt;/p&gt;
 
-
-hggitpush bbgit dev
-hggitpush foogit      # defaults to pushing to master
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush bbgit dev
+hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# defaults to pushing to master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 </description>
     </item>
@@ -412,44 +457,44 @@ hggitpush foogit      # defaults to pushing to master
 
 &lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
 
-
-sudo adduser $USER dialout
-sudo adduser $USER tty
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; dialout
+sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; tty
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Confirm the port &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt; is being used by Arduino - tail messages then plug in the Arduino.&lt;/p&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tail -f /var/log/messages
 
-sudo tail -f /var/log/messages
-
-# you should see something like:
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
 FTDI USB Serial Device converter now attached to ttyUSB0
 
-# out of interest, inspect permissions on port
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# out of interest, inspect permissions on port&lt;/span&gt;
 ls -al /dev/ttyUSB0
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Logout and login (or run a login shell). Confirm permissions.&lt;/p&gt;
 
-
-zsh -l
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;zsh -l
 id
 
-# you should see something like:
-groups=1000(sonia),5(tty),20(dialout),...
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;1000&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;sonia&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,5&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;tty&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,20&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;dialout&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,...
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Install Arduino pre-requisites.&lt;/p&gt;
 
-
-sudo aptitude install arduino arduino-core
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install arduino arduino-core
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
 
-
-cd ~/arduino-1.0.5
-./arduino&amp;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/arduino-1.0.5
+./arduino&amp;amp;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;
@@ -468,55 +513,55 @@ cd ~/arduino-1.0.5
 
 &lt;p&gt;It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[split]&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;varchar&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;MAX&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;CHAR&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@pos&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt; 
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURNS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;varchar&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;DECLARE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt; 
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;CHARINDEX(@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;WHILE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;LEN(@string)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; 
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;LEN(@string)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
 
-CREATE FUNCTION [dbo].[split]
-(
-    @string varchar(MAX),
-    @delimiter CHAR(1),
-    @pos INT 
-)
-RETURNS varchar(255)
-AS
-BEGIN
-    DECLARE @start INT, @end INT, @count INT 
-    SELECT @start = 1, @end = CHARINDEX(@delimiter, @string), @count = 1 
-    WHILE @start &lt; LEN(@string) + 1 BEGIN
-        IF @end = 0 
-            SET @end = LEN(@string) + 1 
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@pos&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@string,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
 
-        IF @count = @pos
-            RETURN SUBSTRING(@string, @start, @end - @start)
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;CHARINDEX(@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
 
-        SET @start = @end + 1 
-        SET @end = CHARINDEX(@delimiter, @string, @start)
-        SET @count = @count + 1 
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt; 
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- not found&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
 
-    END 
-    RETURN &#39;&#39; -- not found
-END
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
 
-select dbo.split(&#39;aa,bb,cc&#39;, &#39;,&#39;, 0)
-select dbo.split(&#39;aa,bb,cc&#39;, &#39;,&#39;, 1)
-select dbo.split(&#39;aa,bb,cc&#39;, &#39;,&#39;, 2)
-select dbo.split(&#39;aa,bb,cc&#39;, &#39;,&#39;, 3)
-select dbo.split(&#39;aa,bb,cc&#39;, &#39;,&#39;, 4)
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
 
---------------
-
-                   # 0: zero length string
-(1 row(s) affected)
---------------
-aa                 # 1
-(1 row(s) affected)
---------------
-bb                 # 2
-(1 row(s) affected)
---------------
-cc                 # 3
-(1 row(s) affected)
---------------
-                   # 4: zero length string
-(1 row(s) affected)
+                   &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;zero&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;aa&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;bb&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;cc&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
+                   &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;zero&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 </description>
     </item>
@@ -539,55 +584,55 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
 &lt;li&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
 
-SET ANSI_NULLS ON;
-GO
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;QUOTED_IDENTIFIER&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
 
-SET QUOTED_IDENTIFIER ON;
-GO
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[my_substring_index]&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@delim&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURNS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;DECLARE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; 
+			&lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;WHILE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;charindex(@delim,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;);&lt;/span&gt;
+            &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+                &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+                    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str;&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
+                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+                    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+                        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn);&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
+            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn));&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
 
-CREATE FUNCTION [dbo].[my_substring_index]
-(@str VARCHAR (255), @delim VARCHAR (1), @count INT)
-RETURNS VARCHAR (255)
-AS
-BEGIN
-    DECLARE @result AS VARCHAR (255), @posn AS INT, @loop AS INT, 
-			@found AS INT, @reversed AS INT;
-    SET @loop = 0;
-    SET @posn = -1;
-    SET @found = 0;
-    SET @reversed = 0;
-    IF @count &lt; 0
-        BEGIN
-            SET @reversed = 1;
-            SET @count = @count * -1;
-            SET @str = REVERSE(@str);
-        END
-    WHILE @loop &lt; @count
-        BEGIN
-            SET @posn = charindex(@delim, @str, @posn + 1);
-            IF @posn &gt; 0
-                SET @found = 1;
-            ELSE
-                IF @found = 1 AND @reversed = 0
-                    RETURN @str; -- ie mimic mysql behaviour
-                ELSE
-                    IF @found = 1 AND @reversed = 1
-                        RETURN REVERSE(@str); -- ie mimic mysql behaviour
-            SET @loop = @loop + 1;
-        END
-    IF @posn &gt;= 0 AND @reversed = 0
-        RETURN SUBSTRING(@str, 0, @posn);
-    ELSE
-        IF @posn &gt;= 0 AND @reversed = 1
-            RETURN REVERSE(SUBSTRING(@str, 0, @posn));
-    RETURN &#39;&#39;;
-END
-
-SELECT dbo.my_substring_index(&#39;www.mysql.com&#39;, &#39;.&#39;, -1)
---------------------------------------------------------
-com
-(1 row(s) affected)
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.my_substring_index(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;www.mysql.com&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------------------------------------------------&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;com&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 </description>
     </item>
@@ -622,63 +667,18 @@ new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why forc
 a tablet interface down my throat? Sort of reminds me of Ubuntu Unity).
 Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
 
-
-sp_configure &#39;show advanced options&#39;, 1;
-GO
-RECONFIGURE;
-GO
-sp_configure &#39;clr enabled&#39;, 1;
-GO
-RECONFIGURE;
-GO
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;clr enabled&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</title>
-      <link>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
-      <pubDate>Sun, 22 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
-      <description>&lt;p&gt;When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&amp;rsquo;ll get an error in the console log like:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Unable to copy file foo to /var/private/bar&amp;hellip;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;The solution comes from the &lt;a href=&#34;https://groups.google.com/forum/#!msg/tunnelblick-discuss/Gp6OJn_8NxI/nAuvDP1RMxIJ&#34;&gt;TunnelBlick forum&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk. When you double-click that &amp;ldquo;outer&amp;rdquo; .tblk, you should be asked once if you want to install &amp;ldquo;n&amp;rdquo; configurations.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;For example:&lt;/p&gt;
-
-
-cd ~/Desktop/foo.tblk
-for f in * ; do
-  g=`basename $f`
-  mkdir $g.tblk
-  mv $f $g.tblk
-done
-
-
-&lt;p&gt;Also, the .ovpn files will have &amp;ldquo;com.apple.quarantine&amp;rdquo; xattr&amp;rsquo;s. This may or may not cause problems. I removed them in this way:&lt;/p&gt;
-
-
-for f in * ; do
-  echo $f
-  xattr -d com.apple.quarantine $f
-done
-
-
-&lt;p&gt;Also, to &lt;a href=&#34;https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo&#34;&gt;remove old private configuration files&lt;/a&gt;:&lt;/p&gt;
-
-
-cd ~/Library/Application\ Support/Tunnelblick/Configurations
-rm -rf *
-
-
-&lt;p&gt;(or, click on VPN icon top right of screen, select &amp;lsquo;VPN Details&amp;rsquo;, +/- in the &amp;lsquo;Configurations&amp;rsquo; tab).&lt;/p&gt;
 </description>
     </item>
     

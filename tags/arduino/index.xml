@@ -18,44 +18,44 @@
 
 &lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
 
-
-sudo adduser $USER dialout
-sudo adduser $USER tty
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; dialout
+sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; tty
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Confirm the port &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt; is being used by Arduino - tail messages then plug in the Arduino.&lt;/p&gt;
 
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tail -f /var/log/messages
 
-sudo tail -f /var/log/messages
-
-# you should see something like:
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
 FTDI USB Serial Device converter now attached to ttyUSB0
 
-# out of interest, inspect permissions on port
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# out of interest, inspect permissions on port&lt;/span&gt;
 ls -al /dev/ttyUSB0
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Logout and login (or run a login shell). Confirm permissions.&lt;/p&gt;
 
-
-zsh -l
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;zsh -l
 id
 
-# you should see something like:
-groups=1000(sonia),5(tty),20(dialout),...
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
+&lt;span style=&#34;color: #40ffff&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;1000&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;sonia&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,5&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;tty&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,20&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;dialout&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,...
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Install Arduino pre-requisites.&lt;/p&gt;
 
-
-sudo aptitude install arduino arduino-core
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install arduino arduino-core
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
 
-
-cd ~/arduino-1.0.5
-./arduino&amp;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/arduino-1.0.5
+./arduino&amp;amp;
+&lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;

@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8">
     <base href="http://blog2.snowfrog.net">
-    <title> GNU Screen Alternative - Terminator? </title>
-    <link rel="canonical" href="http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/">
+    <title> Dockerfile Notes </title>
+    <link rel="canonical" href="http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/">
     
 
 <link rel="stylesheet" href="http://blog2.snowfrog.net/css/poole.css">
@@ -85,14 +85,45 @@
 
     
     <div class="container content">
-      <h1 class="post-title">GNU Screen Alternative - Terminator?</h1>
+      <h1 class="post-title">Dockerfile Notes</h1>
         <section id="main">
-          <h5 id="date"> 18 Mar 2012 </h5>
-          <p>I&rsquo;ve been using <a href="http://www.gnu.org/software/screen/manual/screen.html">GNU Screen</a> for years, and I always wished it had a &ldquo;broadcast&rdquo; functionality like <a href="http://expect.sourceforge.net/example/multixterm.man.html">MultiXterm</a>.</p>
+          <h5 id="date"> 13 Jul 2015 </h5>
+          
 
-<p>Anyway, this morning I came across <a href="http://www.tenshu.net/p/terminator.html">Terminator</a> - it splits screens, has broadcasts, etc (probably old news for some people&hellip;).</p>
+<p>Some notes on <a href="https://www.docker.com/">Docker</a>
+<a href="https://docs.docker.com/reference/builder/">Dockerfiles</a>.</p>
 
-<p>By the way, you can <a href="http://blog.snowfrog.net/2012/03/19/gnu-screen-split-screens/">split screens in GNU Screen</a>.</p>
+<h1 id="commands:62690b4e4e2be0f330c66d76376225a7">Commands</h1>
+
+<ul>
+<li><code>MAINTAINER</code> - author, email, etc</li>
+<li><code>FROM</code> - base image eg <strong>ubuntu</strong></li>
+<li><code>CMD</code> and <code>ENTRYPOINT</code>. In theory CMD sets parameters for
+whatever is run by ENTRYPOINT. In practice, use ENTRYPOINT to set the
+daemon or one-time executable to be run, and use CMD to a shell to
+allow for debugging when running <code>docker run -it</code>. Both should use
+the <em>exec</em> form eg <code>[&quot;/bin/foo&quot;,&quot;arg1&quot;,&quot;arg2&quot;]</code>, as the string format
+prepends <code>/bin/sh -c</code> and therefore prevents signal handling</li>
+<li><code>RUN</code> - install stuff. Chain with <code>&amp;&amp;</code> or <code>;</code> - multiple
+RUN commands cause multiple layers</li>
+<li><code>COPY</code>, <code>ADD</code> and <code>VOLUME</code>. COPY copies file into the
+image; ADD does the same but also does things like untar or retrieving
+from URL - avoid as behaviour is too overloaded. VOLUME mounts a
+directory from server filesystem</li>
+<li><code>ENV</code>, <code>WORKDIR</code> and <code>USER</code> - environment variables, cwd
+and userid for CMD/ENTRYPOINT??</li>
+<li><code>EXPOSE</code> - expose a network port. Use <code>nn</code> not <code>nn:mm</code>
+form - allow operator to decide public port using <code>-p</code> option</li>
+</ul>
+
+<h1 id="see-also:62690b4e4e2be0f330c66d76376225a7">See also</h1>
+
+<ul>
+<li><a href="http://crosbymichael.com/dockerfile-best-practices.html">Dockerfile Best Practices - MCrosby</a></li>
+<li><a href="https://docs.docker.com/articles/dockerfile_best-practices/">Dockerfile Best Practices</a></li>
+<li><a href="http://www.centurylinklabs.com/dockerfile-entrypoint-vs-cmd/">Dockerfile: ENTRYPOINT vs CMD</a></li>
+<li><a href="http://www.centurylinklabs.com/dockerfile-add-vs-copy/">Dockerfile: ADD vs COPY</a></li>
+</ul>
 
         </section>
 
@@ -106,14 +137,10 @@
 <div class="container">
   <hr />
   
-    <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/">Gnu Screen - split screens</a>
-    </span>
-  
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/"> &nbsp; Backup multiple MySQL databases into separate files – Windows</a> &raquo;
+    <em>Next: </em><a class="next" href="http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/"> &nbsp; AWS ssh keys</a> &raquo;
     </span>
   
   <br />
@@ -136,9 +163,7 @@
   <ul class="catlist">
     <li><em>Tags: </em></li>
     
-      <li><a href="http://blog2.snowfrog.net/tags/gnu-screen">Gnu Screen</a> </li>
-    
-      <li><a href="http://blog2.snowfrog.net/tags/terminator">Terminator</a> </li>
+      <li><a href="http://blog2.snowfrog.net/tags/docker">Docker</a> </li>
     
   </ul>
 </div>

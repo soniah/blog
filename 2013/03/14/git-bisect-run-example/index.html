@@ -100,32 +100,32 @@
 
 <p>So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was <strong>good</strong>, but I&rsquo;d added more features since good and now results were <strong>bad</strong>. The first step was to write a shell script to be called from <strong>git bisect run</strong>:</p>
 
-
-% cat bisect.sh
-#!/bin/bash
-# copy this to ~ before running with `git bisect run ~/bisect.sh`
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">% cat bisect.sh
+<span style="color: #999999; font-style: italic">#!/bin/bash</span>
+<span style="color: #999999; font-style: italic"># copy this to ~ before running with `git bisect run ~/bisect.sh`</span>
 
 cp ~/Makefile .
 make clean
 
-# make modifies manpage output, so stash after build
-if make &> /dev/null ; then
-	git stash
+<span style="color: #999999; font-style: italic"># make modifies manpage output, so stash after build</span>
+<span style="color: #6ab825; font-weight: bold">if </span>make &amp;&gt; /dev/null ; <span style="color: #6ab825; font-weight: bold">then</span>
+<span style="color: #6ab825; font-weight: bold">	</span>git stash
 	git stash clear
-else
-	git stash
+<span style="color: #6ab825; font-weight: bold">else</span>
+<span style="color: #6ab825; font-weight: bold">	</span>git stash
 	git stash clear
-	exit 125
-fi
+	<span style="color: #24909d">exit </span>125
+<span style="color: #6ab825; font-weight: bold">fi</span>
 
-sudo cat /var/tmp/empty > /var/log/abc/abc-poller.log
-sudo ./abc-poller --tmp --once -d 2 -c 150 || exit 125
-echo "=== poller finished"
+sudo cat /var/tmp/empty &gt; /var/log/abc/abc-poller.log
+sudo ./abc-poller --tmp --once -d 2 -c 150 <span style="color: #d0d0d0">||</span> <span style="color: #24909d">exit </span>125
+<span style="color: #24909d">echo</span> <span style="color: #ed9d13">&quot;=== poller finished&quot;</span>
 
-percent=`godir=/var/tmp/data/abcmon/poll_queue/new ~/checker | \
-  tail -1 | awk '{print $5}' | awk -F. '{print $1}'`
-echo "=== percent is $percent"
-(( percent < 5 ))
+<span style="color: #40ffff">percent</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">`</span><span style="color: #40ffff">godir</span><span style="color: #d0d0d0">=</span>/var/tmp/data/abcmon/poll_queue/new ~/checker | <span style="color: #ed9d13">\</span>
+  tail -1 | awk <span style="color: #ed9d13">&#39;{print $5}&#39;</span> | awk -F. <span style="color: #ed9d13">&#39;{print $1}&#39;`</span>
+<span style="color: #24909d">echo</span> <span style="color: #ed9d13">&quot;=== percent is $percent&quot;</span>
+<span style="color: #d0d0d0">((</span> percent &lt; 5 <span style="color: #d0d0d0">))</span>
+</pre></div>
 
 
 <p>Things that make writing the test script easier:</p>
@@ -191,10 +191,10 @@ bffd430 rules: add note about &quot;too many open files&quot;
 
 <p>I have a useful shell function <strong>gri()</strong> - I used that to interactively rebase and break up 557a5e3 into many small commits:</p>
 
-
-gri () {
-  git rebase -i HEAD~${1:-7}
-}
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">gri <span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
+  git rebase -i HEAD~<span style="color: #6ab825; font-weight: bold">${</span><span style="color: #40ffff">1</span><span style="color: #6ab825; font-weight: bold">:-</span><span style="color: #40ffff">7</span><span style="color: #6ab825; font-weight: bold">}</span>
+<span style="color: #d0d0d0">}</span>
+</pre></div>
 
 
 <p>After rebasing git log looked like this - notice the many small commits named &ldquo;bisect1&rdquo; etc:</p>

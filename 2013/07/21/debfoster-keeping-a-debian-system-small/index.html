@@ -111,18 +111,18 @@
 
 <p>The commandlinefu.com topic <a href="http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu">List your largest installed packages (on Debian/Ubuntu)</a> has some useful commands:</p>
 
-
-% sed -ne '/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}'\
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">% sed -ne <span style="color: #ed9d13">&#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&#39;\</span>
   /var/lib/dpkg/status | sort -rn
 
-% dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n
+% dpkg-query -Wf <span style="color: #ed9d13">&#39;${Installed-Size}\t${Package}\n&#39;</span> | sort -n
 
-% dpkg --get-selections | cut -f1 | while read pkg; do dpkg -L $pkg | xargs -I'{}' bash -c \
-  'if [ ! -d "{}" ]; then echo "{}"; fi' | tr '\n' '\000' | du -c --files0-from - |\
-   tail -1 | sed "s/total/$pkg/"; done
+% dpkg --get-selections | cut -f1 | <span style="color: #6ab825; font-weight: bold">while </span><span style="color: #24909d">read </span>pkg; <span style="color: #6ab825; font-weight: bold">do </span>dpkg -L <span style="color: #40ffff">$pkg</span> | xargs -I<span style="color: #ed9d13">&#39;{}&#39;</span> bash -c <span style="color: #ed9d13">\</span>
+  <span style="color: #ed9d13">&#39;if [ ! -d &quot;{}&quot; ]; then echo &quot;{}&quot;; fi&#39;</span> | tr <span style="color: #ed9d13">&#39;\n&#39;</span> <span style="color: #ed9d13">&#39;\000&#39;</span> | du -c --files0-from - |<span style="color: #ed9d13">\</span>
+   tail -1 | sed <span style="color: #ed9d13">&quot;s/total/$pkg/&quot;</span>; <span style="color: #6ab825; font-weight: bold">done</span>
 
-% awk '{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf("%9d %s\n", $2, p)}' \
+% awk <span style="color: #ed9d13">&#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&quot;%9d %s\n&quot;, $2, p)}&#39;</span> <span style="color: #ed9d13">\</span>
    /var/lib/dpkg/status | sort -n | tail
+</pre></div>
 
 
 <p>The <a href="http://www.auroraos.org/release/eeebuntu">download sources for Eeebuntu</a> seem to be broken, and nowadays I&rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&rsquo;m running <a href="http://wiki.debian.org/LXDE">Debian with LXDE</a> - it seems to work well.</p>

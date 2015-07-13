@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Sonia Hamilton - Blog</title>
+    <link>http://blog2.snowfrog.net/tags/docker/</link>
+    <description>Recent content in Docker on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 13 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://blog2.snowfrog.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerfile Notes</title>
+      <link>http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/</link>
+      <pubDate>Mon, 13 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/</guid>
+      <description>
+
+&lt;p&gt;Some notes on &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;
+&lt;a href=&#34;https://docs.docker.com/reference/builder/&#34;&gt;Dockerfiles&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;commands:62690b4e4e2be0f330c66d76376225a7&#34;&gt;Commands&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MAINTAINER&lt;/code&gt; - author, email, etc&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FROM&lt;/code&gt; - base image eg &lt;strong&gt;ubuntu&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMD&lt;/code&gt; and &lt;code&gt;ENTRYPOINT&lt;/code&gt;. In theory CMD sets parameters for
+whatever is run by ENTRYPOINT. In practice, use ENTRYPOINT to set the
+daemon or one-time executable to be run, and use CMD to a shell to
+allow for debugging when running &lt;code&gt;docker run -it&lt;/code&gt;. Both should use
+the &lt;em&gt;exec&lt;/em&gt; form eg &lt;code&gt;[&amp;quot;/bin/foo&amp;quot;,&amp;quot;arg1&amp;quot;,&amp;quot;arg2&amp;quot;]&lt;/code&gt;, as the string format
+prepends &lt;code&gt;/bin/sh -c&lt;/code&gt; and therefore prevents signal handling&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RUN&lt;/code&gt; - install stuff. Chain with &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; or &lt;code&gt;;&lt;/code&gt; - multiple
+RUN commands cause multiple layers&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;COPY&lt;/code&gt;, &lt;code&gt;ADD&lt;/code&gt; and &lt;code&gt;VOLUME&lt;/code&gt;. COPY copies file into the
+image; ADD does the same but also does things like untar or retrieving
+from URL - avoid as behaviour is too overloaded. VOLUME mounts a
+directory from server filesystem&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ENV&lt;/code&gt;, &lt;code&gt;WORKDIR&lt;/code&gt; and &lt;code&gt;USER&lt;/code&gt; - environment variables, cwd
+and userid for CMD/ENTRYPOINT??&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EXPOSE&lt;/code&gt; - expose a network port. Use &lt;code&gt;nn&lt;/code&gt; not &lt;code&gt;nn:mm&lt;/code&gt;
+form - allow operator to decide public port using &lt;code&gt;-p&lt;/code&gt; option&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;see-also:62690b4e4e2be0f330c66d76376225a7&#34;&gt;See also&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://crosbymichael.com/dockerfile-best-practices.html&#34;&gt;Dockerfile Best Practices - MCrosby&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.docker.com/articles/dockerfile_best-practices/&#34;&gt;Dockerfile Best Practices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.centurylinklabs.com/dockerfile-entrypoint-vs-cmd/&#34;&gt;Dockerfile: ENTRYPOINT vs CMD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.centurylinklabs.com/dockerfile-add-vs-copy/&#34;&gt;Dockerfile: ADD vs COPY&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

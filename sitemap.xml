@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://blog2.snowfrog.net/</loc>
-    <lastmod>2015-05-29T00:00:00+00:00</lastmod>
+    <lastmod>2015-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/</loc>
+    <lastmod>2015-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -178,12 +183,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/11/11/training-with-baseball-bats/</loc>
+    <loc>http://blog2.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/</loc>
     <lastmod>2012-11-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -298,12 +303,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</loc>
+    <loc>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</loc>
     <lastmod>2012-03-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -458,12 +463,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/05/09/books-are-better/</loc>
+    <loc>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</loc>
     <lastmod>2011-05-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</loc>
+    <loc>http://blog2.snowfrog.net/2011/05/09/books-are-better/</loc>
     <lastmod>2011-05-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -503,12 +508,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
+    <loc>http://blog2.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -618,12 +623,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -798,12 +803,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -853,12 +858,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
+    <loc>http://blog2.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -903,12 +908,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -938,12 +943,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -1028,12 +1033,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</loc>
+    <loc>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</loc>
     <lastmod>2008-06-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -1268,12 +1273,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
+    <loc>http://blog2.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -1518,7 +1523,7 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -1528,7 +1533,7 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
