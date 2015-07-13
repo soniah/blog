@@ -28,7 +28,7 @@ Using **git bisect run** is easy if you've make small atomic commits and you hav
 
 So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was **good**, but I'd added more features since good and now results were **bad**. The first step was to write a shell script to be called from **git bisect run**:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 % cat bisect.sh
 #!/bin/bash
 # copy this to ~ before running with `git bisect run ~/bisect.sh`
@@ -121,7 +121,7 @@ I get the result that the ominously named **557a5e3 more work on stats** is the 
 
 I have a useful shell function **gri()** - I used that to interactively rebase and break up 557a5e3 into many small commits:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 gri () {
   git rebase -i HEAD~${1:-7}
 }

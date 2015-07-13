@@ -16,7 +16,7 @@ Instructions on how to build the development version of [Terraform](https://www.
 
 First you need to install [Go](http://en.wikipedia.org/wiki/Go_%28programming_language%29), I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects ([go-bindata](https://github.com/jteeuwen/go-bindata), [lint](https://github.com/jteeuwen/go-bindata)) and my own projects ([gosnmp](https://github.com/soniah/gosnmp), [evaler](https://github.com/soniah/evaler)).
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 #!/bin/bash
 
 ## install go
@@ -79,14 +79,14 @@ fi
 
 A common pattern in Go (which my setup script demonstrates) is to [split your code from thirdparty code](http://code.google.com/p/go-wiki/wiki/GOPATH). This requires configuring your shell (~/.zshrc, ~/.bashrc):
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 export GOPATH=~/go/thirdparty:~/go/sonia
 export PATH=${GOPATH//://bin:}/bin:$PATH
 {{< /highlight >}}
 
 Then you need to follow the [Terraform instructions](https://github.com/hashicorp/terraform) for building, that is:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 $ cd ~/go/thirdparty/src
 $ go get -u github.com/mitchellh/gox
 $ cd ~/go/thirdparty/src/github.com/hashicorp/terraform

@@ -15,7 +15,7 @@ Git has a "force push" option (**git push -f remote branch**), but it doesn't ha
 
 This works:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 % git fetch remote branch
 % git reset --hard FETCH_HEAD
 % git clean -df
@@ -23,7 +23,7 @@ This works:
 
 Or, as a function for your bash/zsh config file:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 gpuf () {
    # git pull -f $1
    remote=${1:?"need remote to force pull from"}

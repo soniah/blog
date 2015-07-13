@@ -15,14 +15,14 @@ I've been migrating some repositories from Mercurial to Git; as part of this mig
 
 First install the [hg-git](http://hg-git.github.io/) tools; for example on Ubuntu:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 sudo aptitude install python-setuptools python-dev
 sudo easy_install hg-git
 {{< /highlight >}}
 
 Make sure the following is in your ~/.hgrc:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 [extensions]
 hgext.bookmarks =
 hggit = 
@@ -30,7 +30,7 @@ hggit =
 
 Then, in your existing mercurial repository, add a new remote that points to the git repository. For example for a BitBucket repository:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 cd <mercurial repository>
 cat .hg/hgrc
 [paths]
@@ -50,14 +50,14 @@ Then you can go an _hg push bbgit_ to push from your local hg repository to the 
 
 You may get the error _mercurial abort: revision cannot be pushed since it doesn't have a ref_ when pushing from hg to git, or you might notice that your hg work isn't being pushed. The solution here is to reset the hg bookmark for git's master branch:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 hg book -f -r tip master
 hg push bbgit
 {{< /highlight >}}
 
 If you find yourself doing this regularly, this small shell function (in your ~/.bashrc) will help:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 hggitpush () {
    # $1 is hg remote name in hgrc for repo
    # $2 is branch (defaults to master)
@@ -68,7 +68,7 @@ hggitpush () {
 
 Then from your shell you can run commands like:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 hggitpush bbgit dev
 hggitpush foogit      # defaults to pushing to master
 {{< /highlight >}}

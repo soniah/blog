@@ -15,19 +15,19 @@ tags:
 
 To delete a local tracking branch (without deleting the remote branch), do:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 git branch -rd remote/branch
 {{< /highlight >}}
 
 And of course to delete the remote branch:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 git push remote :branch
 {{< /highlight >}}
 
 Occasionally a gc will help, but usually shouldn't be used:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 git gc --prune=now
 {{< /highlight >}}
 
@@ -35,7 +35,7 @@ So, when would you want to use this? Let's say the repository you're tracking ha
 
 In either case you've got a collection of tracking branches you don't want to see anymore, so clean them up:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 % git branch -r
   soniah/dev.a
   soniah/dev.b

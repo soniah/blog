@@ -26,7 +26,7 @@ _There is a way to install multiple configurations all at once: use a .tblk fold
 
 For example:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 cd ~/Desktop/foo.tblk
 for f in * ; do
   g=`basename $f`
@@ -37,7 +37,7 @@ done
 
 Also, the .ovpn files will have "com.apple.quarantine" xattr's. This may or may not cause problems. I removed them in this way:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 for f in * ; do
   echo $f
   xattr -d com.apple.quarantine $f
@@ -46,7 +46,7 @@ done
 
 Also, to [remove old private configuration files](https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo):
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 cd ~/Library/Application\ Support/Tunnelblick/Configurations
 rm -rf *
 {{< /highlight >}}

@@ -23,7 +23,7 @@ system:
 
 Here's a little shell script I wrote, to get around this problem:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 % cat set_hostname.sh 
 #!/bin/bash
 

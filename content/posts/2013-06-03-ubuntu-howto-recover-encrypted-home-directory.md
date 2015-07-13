@@ -30,7 +30,7 @@ Three different "passwords" are referred to when recovering:
 If you selected the default Ubuntu encryption setup, the partitions will
 be laid out like this:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 /dev/sda1 * 2048 499711 248832 83 Linux
 /dev/sda2 501758 976771071 488134657 5 Extended
 /dev/sda5 501760 976771071 488134656 83 Linux
@@ -46,20 +46,20 @@ be laid out like this:
 
 * confirm /dev/sda5 is the correct partition [1]:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 cryptsetup -v luksDump /dev/sda5
 {{< /highlight >}}
 
 * mount the encrypted partition containing the LVM volumes:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 cryptsetup -v luksOpen /dev/sda5 sda5_crypt
 vgdisplay
 {{< /highlight >}}
 
 (you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 lvdisplay | less
 mkdir /mnt/home
 mount -t ext4 /dev/vg/home /mnt/home
@@ -84,7 +84,7 @@ However, eCryptfs does have some advantages (http://www.privacydusk.com/tag/ecry
 
 
 * "remount" /mnt/home on home:
-{{< highlight shell >}}
+{{< highlight bash >}}
 umount /mnt/home
 mount -t ext4 /dev/vg/home /home
 # add a user with the same name as the broken system
@@ -99,7 +99,7 @@ The Ubuntu documentation on EncryptedPrivateDirectory has lots of
 information [4]. These commands are copied from there, in case the page
 moves or disappears.
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 sudo ecryptfs-add-passphrase --fnek
 {{< /highlight >}}
 
@@ -111,7 +111,7 @@ Inserted auth tok with sig [9986ad986f986af7] into the user session keyring
 
 Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 mkdir /mnt/Private
 mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private
 {{< /highlight >}}

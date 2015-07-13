@@ -13,7 +13,7 @@ A quick example of sending email from the shell via mutt.
 
 <!--more-->
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 % cat msg.txt 
 pdf attached. Sonia.
 

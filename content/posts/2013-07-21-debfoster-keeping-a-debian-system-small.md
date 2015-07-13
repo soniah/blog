@@ -39,7 +39,7 @@ Other useful tools are **dpigs** (from the package debian-goodies) and **wajig l
 
 The commandlinefu.com topic [List your largest installed packages (on Debian/Ubuntu)](http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu) has some useful commands:
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 % sed -ne '/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}'\
   /var/lib/dpkg/status | sort -rn
 

@@ -17,7 +17,7 @@ I'm using [FreeNAS](http://www.freenas.org/) for my storage at home, liking it a
 
 Some notes for me on listing ZFS snapshots, and creating and destroying clones.
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 cd /mnt/vol01/bjj
 zfs list -t snapshot | grep bjj | grep -v vobs
 zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d

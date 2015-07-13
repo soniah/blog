@@ -16,14 +16,14 @@ Some notes on setting up Arduino on Debian.
 
 Add yourself to the required groups - dialout and tty.
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 sudo adduser $USER dialout
 sudo adduser $USER tty
 {{< /highlight >}}
 
 Confirm the port **/dev/ttyUSB0** is being used by Arduino - tail messages then plug in the Arduino.
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 sudo tail -f /var/log/messages
 
 # you should see something like:
@@ -35,7 +35,7 @@ ls -al /dev/ttyUSB0
 
 Logout and login (or run a login shell). Confirm permissions.
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 zsh -l
 id
 
@@ -45,13 +45,13 @@ groups=1000(sonia),5(tty),20(dialout),...
 
 Install Arduino pre-requisites.
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 sudo aptitude install arduino arduino-core
 {{< /highlight >}}
 
 If preferred, download the **latest** Arduino environment, run the shell script to start it.
 
-{{< highlight shell >}}
+{{< highlight bash >}}
 cd ~/arduino-1.0.5
 ./arduino&
 {{< /highlight >}}
