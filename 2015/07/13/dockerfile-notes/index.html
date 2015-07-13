@@ -96,25 +96,43 @@
 <h1 id="commands:62690b4e4e2be0f330c66d76376225a7">Commands</h1>
 
 <ul>
-<li><code>MAINTAINER</code> - author, email, etc</li>
-<li><code>FROM</code> - base image eg <strong>ubuntu</strong></li>
-<li><code>CMD</code> and <code>ENTRYPOINT</code>. In theory CMD sets parameters for
-whatever is run by ENTRYPOINT. In practice, use ENTRYPOINT to set the
-daemon or one-time executable to be run, and use CMD to a shell to
-allow for debugging when running <code>docker run -it</code>. Both should use
-the <em>exec</em> form eg <code>[&quot;/bin/foo&quot;,&quot;arg1&quot;,&quot;arg2&quot;]</code>, as the string format
-prepends <code>/bin/sh -c</code> and therefore prevents signal handling</li>
-<li><code>RUN</code> - install stuff. Chain with <code>&amp;&amp;</code> or <code>;</code> - multiple
-RUN commands cause multiple layers</li>
-<li><code>COPY</code>, <code>ADD</code> and <code>VOLUME</code>. COPY copies file into the
+<li><p><code>MAINTAINER</code> - author, email, etc</p></li>
+
+<li><p><code>FROM</code> - base image eg <strong>ubuntu</strong></p></li>
+
+<li><p><code>CMD</code> and <code>ENTRYPOINT</code>. Separately, either can be used to
+specify the default executable. When both are used, CMD is appended to
+ENTRYPOINT to give the container&rsquo;s command line.  Either can be
+overridden from <code>docker run</code> however CMD is easier &ndash; it&rsquo;s just
+picks up the remainder of the <code>docker run</code> command (like
+<code>&quot;$*&quot;</code> for shell scripts) &ndash; allowing a docker image to be thought
+of as a &ldquo;wrapped&rdquo; executable</p></li>
+
+<li><p><code>RUN</code> - install stuff. Chain <code>RUN</code> commands with <code>&amp;&amp;</code> or
+<code>;</code> as multiple RUN commands cause multiple layers</p></li>
+
+<li><p><code>COPY</code>, <code>ADD</code> and <code>VOLUME</code>. COPY copies file into the
 image; ADD does the same but also does things like untar or retrieving
 from URL - avoid as behaviour is too overloaded. VOLUME mounts a
-directory from server filesystem</li>
-<li><code>ENV</code>, <code>WORKDIR</code> and <code>USER</code> - environment variables, cwd
-and userid for CMD/ENTRYPOINT??</li>
-<li><code>EXPOSE</code> - expose a network port. Use <code>nn</code> not <code>nn:mm</code>
-form - allow operator to decide public port using <code>-p</code> option</li>
+directory from server filesystem</p></li>
+
+<li><p><code>ENV</code>, <code>WORKDIR</code> and <code>USER</code> - environment variables, cwd
+and userid for CMD/ENTRYPOINT</p></li>
+
+<li><p><code>EXPOSE</code> - expose a network port. Use <code>nn</code> not <code>nn:mm</code>
+form - allow operator to decide public port using <code>-p</code> option</p></li>
 </ul>
+
+<h1 id="build-run-exec:62690b4e4e2be0f330c66d76376225a7">Build, Run, Exec</h1>
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># build the image, name it</span>
+docker build -t<span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&quot;soniah/foo&quot;</span> .
+<span style="color: #999999; font-style: italic"># run the image, give container similar name</span>
+docker run -d -P --name<span style="color: #d0d0d0">=</span>foo sonia/foo
+<span style="color: #999999; font-style: italic"># get an interactive shell</span>
+docker <span style="color: #24909d">exec</span> -it foo /bin/bash
+</pre></div>
+
 
 <h1 id="see-also:62690b4e4e2be0f330c66d76376225a7">See also</h1>
 

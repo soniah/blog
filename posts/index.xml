@@ -22,25 +22,43 @@
 &lt;h1 id=&#34;commands:62690b4e4e2be0f330c66d76376225a7&#34;&gt;Commands&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;MAINTAINER&lt;/code&gt; - author, email, etc&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;FROM&lt;/code&gt; - base image eg &lt;strong&gt;ubuntu&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CMD&lt;/code&gt; and &lt;code&gt;ENTRYPOINT&lt;/code&gt;. In theory CMD sets parameters for
-whatever is run by ENTRYPOINT. In practice, use ENTRYPOINT to set the
-daemon or one-time executable to be run, and use CMD to a shell to
-allow for debugging when running &lt;code&gt;docker run -it&lt;/code&gt;. Both should use
-the &lt;em&gt;exec&lt;/em&gt; form eg &lt;code&gt;[&amp;quot;/bin/foo&amp;quot;,&amp;quot;arg1&amp;quot;,&amp;quot;arg2&amp;quot;]&lt;/code&gt;, as the string format
-prepends &lt;code&gt;/bin/sh -c&lt;/code&gt; and therefore prevents signal handling&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;RUN&lt;/code&gt; - install stuff. Chain with &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; or &lt;code&gt;;&lt;/code&gt; - multiple
-RUN commands cause multiple layers&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;COPY&lt;/code&gt;, &lt;code&gt;ADD&lt;/code&gt; and &lt;code&gt;VOLUME&lt;/code&gt;. COPY copies file into the
+&lt;li&gt;&lt;p&gt;&lt;code&gt;MAINTAINER&lt;/code&gt; - author, email, etc&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;FROM&lt;/code&gt; - base image eg &lt;strong&gt;ubuntu&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;CMD&lt;/code&gt; and &lt;code&gt;ENTRYPOINT&lt;/code&gt;. Separately, either can be used to
+specify the default executable. When both are used, CMD is appended to
+ENTRYPOINT to give the container&amp;rsquo;s command line.  Either can be
+overridden from &lt;code&gt;docker run&lt;/code&gt; however CMD is easier &amp;ndash; it&amp;rsquo;s just
+picks up the remainder of the &lt;code&gt;docker run&lt;/code&gt; command (like
+&lt;code&gt;&amp;quot;$*&amp;quot;&lt;/code&gt; for shell scripts) &amp;ndash; allowing a docker image to be thought
+of as a &amp;ldquo;wrapped&amp;rdquo; executable&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;RUN&lt;/code&gt; - install stuff. Chain &lt;code&gt;RUN&lt;/code&gt; commands with &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; or
+&lt;code&gt;;&lt;/code&gt; as multiple RUN commands cause multiple layers&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;COPY&lt;/code&gt;, &lt;code&gt;ADD&lt;/code&gt; and &lt;code&gt;VOLUME&lt;/code&gt;. COPY copies file into the
 image; ADD does the same but also does things like untar or retrieving
 from URL - avoid as behaviour is too overloaded. VOLUME mounts a
-directory from server filesystem&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ENV&lt;/code&gt;, &lt;code&gt;WORKDIR&lt;/code&gt; and &lt;code&gt;USER&lt;/code&gt; - environment variables, cwd
-and userid for CMD/ENTRYPOINT??&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;EXPOSE&lt;/code&gt; - expose a network port. Use &lt;code&gt;nn&lt;/code&gt; not &lt;code&gt;nn:mm&lt;/code&gt;
-form - allow operator to decide public port using &lt;code&gt;-p&lt;/code&gt; option&lt;/li&gt;
+directory from server filesystem&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;ENV&lt;/code&gt;, &lt;code&gt;WORKDIR&lt;/code&gt; and &lt;code&gt;USER&lt;/code&gt; - environment variables, cwd
+and userid for CMD/ENTRYPOINT&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;EXPOSE&lt;/code&gt; - expose a network port. Use &lt;code&gt;nn&lt;/code&gt; not &lt;code&gt;nn:mm&lt;/code&gt;
+form - allow operator to decide public port using &lt;code&gt;-p&lt;/code&gt; option&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h1 id=&#34;build-run-exec:62690b4e4e2be0f330c66d76376225a7&#34;&gt;Build, Run, Exec&lt;/h1&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# build the image, name it&lt;/span&gt;
+docker build -t&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;soniah/foo&amp;quot;&lt;/span&gt; .
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# run the image, give container similar name&lt;/span&gt;
+docker run -d -P --name&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;foo sonia/foo
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# get an interactive shell&lt;/span&gt;
+docker &lt;span style=&#34;color: #24909d&#34;&gt;exec&lt;/span&gt; -it foo /bin/bash
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;h1 id=&#34;see-also:62690b4e4e2be0f330c66d76376225a7&#34;&gt;See also&lt;/h1&gt;
 
