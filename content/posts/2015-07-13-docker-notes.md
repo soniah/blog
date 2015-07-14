@@ -42,7 +42,8 @@ Some notes on [Docker](https://www.docker.com/)
   and userid for CMD/ENTRYPOINT
 
 * ```EXPOSE``` - expose a network port. Use ```nn``` not ```nn:mm```
-  form - allow operator to decide public port using ```-p``` option
+  form - allow user to specify ublic port using ```-p``` option.
+  EXPOSE'd ports can be automatically mapped using ```-P``` option.
 
 # Build, Run, Exec
 
@@ -53,11 +54,11 @@ docker build -t="soniah/foo:1.0" .
 # container is automatically stopped on ctrl-c.
 docker run -P sonia/foo
 # get an interactive shell
-docker exec -it random_name /bin/bash
+docker exec -it random_name bash
 # remove all old images, except ubuntu "base" images
 docker rmi -f `docker images | tail -n +2 | grep -v 'ubuntu' | awk {'print $3'}`
-# remove all old containers, including stopped containers
-docker rm `docker ps --no-trunc -aq`
+# remove all containers, including stopped containers
+docker rm -f `docker ps --no-trunc -aq`
 {{< /highlight >}}
 
 # See also
