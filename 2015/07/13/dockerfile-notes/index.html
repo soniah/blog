@@ -113,10 +113,14 @@ so layers are cached and builds are faster. For prod, chain <code>RUN</code>
 commands with <code>&amp;&amp;</code> or <code>;</code> as multiple RUN commands cause
 multiple layers</p></li>
 
-<li><p><code>COPY</code>, <code>ADD</code> and <code>VOLUME</code>. COPY copies file into the
+<li><p><code>COPY</code> and <code>ADD</code>. COPY copies file into the
 image; ADD does the same but also does things like untar or retrieving
-from URL - avoid as behaviour is too overloaded. VOLUME mounts a
-directory from server filesystem</p></li>
+from URL - avoid as behaviour is too overloaded.</p></li>
+
+<li><p><code>VOLUME</code> persists a directory to host filesystem under
+<code>/var/lib/docker/volumes</code>; to get the expected behaviour (a
+directory shared between host and container) use <code>docker run -v
+/var/tmp/foo:/var/tmp/foo</code>.</p></li>
 
 <li><p><code>ENV</code>, <code>WORKDIR</code> and <code>USER</code> - environment variables, cwd
 and userid for CMD/ENTRYPOINT</p></li>
