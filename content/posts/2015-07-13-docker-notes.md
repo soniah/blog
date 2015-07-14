@@ -33,10 +33,14 @@ Some notes on [Docker](https://www.docker.com/)
   commands with ```&&``` or ```;``` as multiple RUN commands cause
   multiple layers
 
-* ```COPY```, ```ADD``` and ```VOLUME```. COPY copies file into the
+* ```COPY``` and ```ADD```. COPY copies file into the
   image; ADD does the same but also does things like untar or retrieving
-  from URL - avoid as behaviour is too overloaded. VOLUME mounts a
-  directory from server filesystem
+  from URL - avoid as behaviour is too overloaded.
+
+* ```VOLUME``` persists a directory to host filesystem under
+  ```/var/lib/docker/volumes```; to get the expected behaviour (a
+  directory shared between host and container) use ```docker run -v
+  /var/tmp/foo:/var/tmp/foo```.
 
 * ```ENV```, ```WORKDIR``` and ```USER``` - environment variables, cwd
   and userid for CMD/ENTRYPOINT
