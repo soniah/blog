@@ -73,12 +73,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</loc>
+    <loc>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</loc>
     <lastmod>2013-12-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</loc>
+    <loc>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</loc>
     <lastmod>2013-12-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -258,12 +258,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
+    <loc>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -623,22 +623,22 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
-    <lastmod>2010-03-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
-    <lastmod>2010-02-26T00:00:00+00:00</lastmod>
+    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
+    <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</loc>
+    <lastmod>2010-02-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</loc>
     <lastmod>2010-02-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -803,12 +803,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -908,12 +908,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -1103,17 +1103,17 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
-    <lastmod>2008-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog2.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
+    <lastmod>2008-01-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1338,12 +1338,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
+    <loc>http://blog2.snowfrog.net/2007/01/27/pgp-tools/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -1408,12 +1408,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</loc>
+    <loc>http://blog2.snowfrog.net/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
+    <loc>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   
