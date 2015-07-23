@@ -8,10 +8,15 @@
 * DONE complete tags html/templates - eg peter aba, virt.co.uk, stou.dk
   (sort of tag cloud)
 * DONE privacy policy
+* DONE images - wp-content
 
-* images - wp-content
-* disqus eg alexandre-normand
-* fixup share/follow links eg spf13.com, heyitsalex
-* Google search of site
 * joker - redirects on all old www blog posts? (so can get rid of uva
   eventually)
+
+* release
+  * sed blog2.snowfrog -> blog.snowfrog
+
+* post-release
+  * disqus eg alexandre-normand
+  * fixup share/follow links eg spf13.com, heyitsalex
+  * linkchecker on site - how to triage - most important problems...
