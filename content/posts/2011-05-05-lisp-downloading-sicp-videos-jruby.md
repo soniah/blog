@@ -27,4 +27,4 @@ I've also been getting good mileage out of JRuby. I was [complaining][8] a few w
  [5]: http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs
  [6]: https://github.com/soniah/get_sicp
  [7]: http://inst.eecs.berkeley.edu/~cs61a/sp11/
- [8]: http://blog.snowfrog.net/2011/03/27/lisp-and-python/
+ [8]: http://blog2.snowfrog.net/2011/03/27/lisp-and-python/

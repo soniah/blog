@@ -41,4 +41,4 @@ Linux tools (and *[religion][9]*.):
  [13]: http://home.eunet.no/pnordahl/ntpasswd/
  [14]: http://dban.sourceforge.net/
  [15]: http://www.ubuntu.com/
- [16]: http://blog.snowfrog.net/?q=node/365
+ [16]: http://blog2.snowfrog.net/?q=node/365

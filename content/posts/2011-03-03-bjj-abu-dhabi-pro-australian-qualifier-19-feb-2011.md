@@ -24,14 +24,14 @@ The second fight. I made the error of trying a flying armbar from standup, which
 
 And some photos:
 
-[<img class="aligncenter size-medium wp-image-869" title="DSC_0674" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0674.jpg?w=300" alt="" width="300" height="199" />][3]
+[<img class="aligncenter size-medium wp-image-869" title="DSC_0674" src="http://blog2.snowfrog.net/wp-content/uploads/2011/03/dsc_0674.jpg?w=300" alt="" width="300" height="199" />][3]
 
-[<img class="aligncenter size-medium wp-image-870" title="DSC_0676" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0676.jpg?w=199" alt="" width="199" height="300" />][4]
+[<img class="aligncenter size-medium wp-image-870" title="DSC_0676" src="http://blog2.snowfrog.net/wp-content/uploads/2011/03/dsc_0676.jpg?w=199" alt="" width="199" height="300" />][4]
 
-[<img class="aligncenter size-medium wp-image-871" title="DSC_0677" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0677.jpg?w=199" alt="" width="199" height="300" />][5]
+[<img class="aligncenter size-medium wp-image-871" title="DSC_0677" src="http://blog2.snowfrog.net/wp-content/uploads/2011/03/dsc_0677.jpg?w=199" alt="" width="199" height="300" />][5]
 
  [1]: http://en.wikipedia.org/wiki/Brazilian_Jiu-Jitsu
  [2]: http://www.abudhabiproaustralia.com/
- [3]: http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0674.jpg
- [4]: http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0676.jpg
- [5]: http://blog.snowfrog.net/wp-content/uploads/2011/03/dsc_0677.jpg
+ [3]: http://blog2.snowfrog.net/wp-content/uploads/2011/03/dsc_0674.jpg
+ [4]: http://blog2.snowfrog.net/wp-content/uploads/2011/03/dsc_0676.jpg
+ [5]: http://blog2.snowfrog.net/wp-content/uploads/2011/03/dsc_0677.jpg

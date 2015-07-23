@@ -15,4 +15,4 @@ John Russell and I training Balintawak Arnis on Mindil Beach, Darwin.
 
 {{% youtube CWlc1nfMLj0 %}}
 
-[![Parap Beach](http://blog.snowfrog.net/wp-content/uploads/2012/07/parap_beach-576x1024.png)](http://blog.snowfrog.net/wp-content/uploads/2012/07/parap_beach.png)
+[![Parap Beach](http://blog2.snowfrog.net/wp-content/uploads/2012/07/parap_beach-576x1024.png)](http://blog2.snowfrog.net/wp-content/uploads/2012/07/parap_beach.png)

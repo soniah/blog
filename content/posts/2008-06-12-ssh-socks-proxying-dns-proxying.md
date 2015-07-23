@@ -69,7 +69,7 @@ username:password</pre>
  [12]: https://trac.torproject.org/projects/tor/wiki/TheOnionRouter/TorifyHOWTO/Misc
  [13]: http://fooninja.net/2010/09/06/how-to-tunnel-everything-through-ssh/
  [14]: http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/
- [15]: http://blog.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/
+ [15]: http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/
  [16]: http://www.linux.com/articles/56945
  [17]: http://getfoxyproxy.org/
  [18]: http://www.linux-mag.com/id/2062/

@@ -35,4 +35,4 @@ FOR /D %%F IN (*) DO (
 "C:\Program Files\MySQL\MySQL Server 5.5\bin\mysqldump.exe" --user=%dbuser% --password=%dbpass% --databases %%F &gt; "C:\SQLBackup\%%F.%backupdate%.sql"
 )</pre>
 
- [1]: http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/
+ [1]: http://blog2.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/

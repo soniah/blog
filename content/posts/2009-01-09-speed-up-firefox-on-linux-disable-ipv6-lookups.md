@@ -24,4 +24,4 @@ In a nutshell:
 See also my other post [pdnsd on Ubuntu for faster dns][2]
 
  [1]: http://rojs-techcorner.com/blog/2007/07/27/speed-up-firefox-on-linux-disable-ipv6-lookups/trackback/
- [2]: http://blog.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/
+ [2]: http://blog2.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/

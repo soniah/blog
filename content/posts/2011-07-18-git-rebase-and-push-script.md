@@ -15,7 +15,7 @@ For development projects, I use the standard git workflow ie master is my main b
 (** this site also suggests always using **--no-ff** with merge -- a practice I now follow -- it certainly makes reading history easier)
 
 <div id="attachment_1086" class="wp-caption aligncenter" style="width: 608px">
-  <a href="http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png"><img class="size-full wp-image-1086" title="branch-model" src="http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png" alt="nvie.com - A successful Git branching model" width="600" height="262" /></a>
+  <a href="http://blog2.snowfrog.net/wp-content/uploads/2011/07/branch-model.png"><img class="size-full wp-image-1086" title="branch-model" src="http://blog2.snowfrog.net/wp-content/uploads/2011/07/branch-model.png" alt="nvie.com - A successful Git branching model" width="600" height="262" /></a>
   
   <p class="wp-caption-text">
     nvie.com - A successful Git branching model
@@ -27,7 +27,7 @@ When I'm happy with my work in a dev branch I cherry-pick or merge into master. 
 I'm doing this regularly, and it's boring and error prone. So I've written a script to automate the whole process ie rebase each dev branch against master, and push all local branches somewhere else. If you have branches off (non-master) branches, this script won't work. But I've found in my day-to-day development as a sysadmin ([devop][2]?) my branching isn't that complicated, so this script is adequate.
 
 <div id="attachment_1084" class="wp-caption aligncenter" style="width: 869px">
-  <a href="http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png"><img class="size-full wp-image-1084  " title="branching" src="http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png" alt="If you branch off (non-master) branches, don't use this script! (image: Jon Loelger, &quot;Version Control with Git&quot;)" width="861" height="272" /></a>
+  <a href="http://blog2.snowfrog.net/wp-content/uploads/2011/07/branching.png"><img class="size-full wp-image-1084  " title="branching" src="http://blog2.snowfrog.net/wp-content/uploads/2011/07/branching.png" alt="If you branch off (non-master) branches, don't use this script! (image: Jon Loelger, &quot;Version Control with Git&quot;)" width="861" height="272" /></a>
   
   <p class="wp-caption-text">
     If you branch off (non-master) branches, don't use this script! (image: Jon Loelger, "Version Control with Git")

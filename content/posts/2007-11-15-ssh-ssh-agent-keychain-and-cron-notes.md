@@ -61,6 +61,6 @@ To setup **ssh** and **keychain** to allow ssh related jobs to run from cron:
  [2]: http://www.ibm.com/developerworks/library/l-keyc.html
  [3]: http://oceanpark.com/notes/howto_ssh_keychain_public_key_authentication_forwarding.html
  [4]: http://rephlux.sourceforge.net/running.rephlux.php
- [5]: http://blog.snowfrog.net/2007/10/29/ssh-notes/
+ [5]: http://blog2.snowfrog.net/2007/10/29/ssh-notes/
  [6]: http://troy.jdmz.net/rsync/index.html
  [7]: http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/

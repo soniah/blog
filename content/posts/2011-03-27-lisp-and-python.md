@@ -25,7 +25,7 @@ Oh yeh, I'm also learning Python -- it seems the sanest general purpose scriptin
 
 What kicked this all off? This great SlashDot post on why Expensify [doesn't hire .NET programmers][6] :-)
 
-[<img class="aligncenter size-full wp-image-943" title="stroustrup" src="http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png" alt="" width="600" height="352" />][7]
+[<img class="aligncenter size-full wp-image-943" title="stroustrup" src="http://blog2.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png" alt="" width="600" height="352" />][7]
 
 PS I like Paul Graham's [Tweet][8] on the book: "Turns out the border between genius and insanity is a pretty cheery place".
 
@@ -35,5 +35,5 @@ PS I like Paul Graham's [Tweet][8] on the book: "Turns out the border between ge
  [4]: http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html
  [5]: http://www.pchristensen.com/blog/lisp-companies/
  [6]: http://blog.expensify.com/2011/03/25/ceo-friday-why-we-dont-hire-net-programmers/
- [7]: http://blog.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png
+ [7]: http://blog2.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png
  [8]: http://twitter.com/paulg/status/28864657734

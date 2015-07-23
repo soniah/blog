@@ -20,4 +20,4 @@ Why don't I just use emacs? Because as sysadmin/devop I'm often working on other
 
 I found the best way to use bufexplorer is to open up all possible source files (eg **vim src/*.go other/*.go**) at the start of an editing session, then just skip between them (shown here with the excellent [xMonad](http://xmonad.org/) window manager, [GNU Screen](https://www.gnu.org/software/screen/), and [Gnome Terminal](http://library.gnome.org/users/gnome-terminal/stable/gnome-terminal-get-started.html.en)):
 
-[![](http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png)](http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png)
+[![](http://blog2.snowfrog.net/wp-content/uploads/2012/11/bufexp.png)](http://blog2.snowfrog.net/wp-content/uploads/2012/11/bufexp.png)

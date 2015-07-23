@@ -37,4 +37,4 @@ To run this automatically, add a stanza like this to /etc/apt/apt.conf:
 
 The script could be smarter ie check the existing value of first_weekday and only change it if it's different, but I'll fix that when I've got more time.
 
- [1]: http://blog.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/
+ [1]: http://blog2.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/

@@ -63,4 +63,4 @@ delete expired archivelog all;
 backup archivelog all delete input;
 backup database;</pre>
 
- [1]: http://blog.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/
+ [1]: http://blog2.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/

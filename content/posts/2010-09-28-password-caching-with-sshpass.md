@@ -17,6 +17,6 @@ A work mate came across sshpass, and we use it by caching the password in an env
 [More ssh notes][4].
 
  [1]: http://sourceforge.net/projects/sshpass/
- [2]: http://blog.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/
+ [2]: http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/
  [3]: http://www.nist.gov/mel/msid/expect.cfm
- [4]: http://blog.snowfrog.net/tag/ssh/
+ [4]: http://blog2.snowfrog.net/tag/ssh/

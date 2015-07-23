@@ -29,4 +29,4 @@ ISGT=`echo "${SCORE_SA} + ${SCORE_PM} &gt; ${REQD_SA}" | bc -l`
 * ISGT ?? ^^1^^
 .y_spam_probable/</pre>
 
- [1]: http://blog.snowfrog.net/?q=node/417
+ [1]: http://blog2.snowfrog.net/?q=node/417
