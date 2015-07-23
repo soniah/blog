@@ -42,7 +42,7 @@ username:password&lt;/pre&gt;
 *&lt;/li&gt;
 &lt;li&gt;lots of good tunnelling ideas on the &lt;a href=&#34;https://trac.torproject.org/projects/tor/wiki/TheOnionRouter/TorifyHOWTO/Misc&#34;&gt;Tor Wiki HOWTO&lt;/a&gt; and &lt;a href=&#34;http://fooninja.net/2010/09/06/how-to-tunnel-everything-through-ssh/&#34;&gt;How to tunnel everything through ssh&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;also secure your dns traffic by setting &lt;strong&gt;network.proxy.socks_remote_dns = true&lt;/strong&gt; in Firefox&amp;rsquo;s about:config&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://blog.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;another similar article &lt;a href=&#34;http://www.linux.com/articles/56945&#34;&gt;Secure your Wi-Fi traffic using FOSS utilities&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

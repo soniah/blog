@@ -558,7 +558,7 @@ sudo git push -f web
 &lt;p&gt;(** this site also suggests always using &lt;strong&gt;&amp;ndash;no-ff&lt;/strong&gt; with merge &amp;ndash; a practice I now follow &amp;ndash; it certainly makes reading history easier)&lt;/p&gt;
 
 &lt;div id=&#34;attachment_1086&#34; class=&#34;wp-caption aligncenter&#34; style=&#34;width: 608px&#34;&gt;
-  &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1086&#34; title=&#34;branch-model&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34; alt=&#34;nvie.com - A successful Git branching model&#34; width=&#34;600&#34; height=&#34;262&#34; /&gt;&lt;/a&gt;
+  &lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1086&#34; title=&#34;branch-model&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/07/branch-model.png&#34; alt=&#34;nvie.com - A successful Git branching model&#34; width=&#34;600&#34; height=&#34;262&#34; /&gt;&lt;/a&gt;
   
   &lt;p class=&#34;wp-caption-text&#34;&gt;
     nvie.com - A successful Git branching model
@@ -570,7 +570,7 @@ sudo git push -f web
 &lt;p&gt;I&amp;rsquo;m doing this regularly, and it&amp;rsquo;s boring and error prone. So I&amp;rsquo;ve written a script to automate the whole process ie rebase each dev branch against master, and push all local branches somewhere else. If you have branches off (non-master) branches, this script won&amp;rsquo;t work. But I&amp;rsquo;ve found in my day-to-day development as a sysadmin (&lt;a href=&#34;http://devopsdownunder.org/&#34;&gt;devop&lt;/a&gt;?) my branching isn&amp;rsquo;t that complicated, so this script is adequate.&lt;/p&gt;
 
 &lt;div id=&#34;attachment_1084&#34; class=&#34;wp-caption aligncenter&#34; style=&#34;width: 869px&#34;&gt;
-  &lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1084  &#34; title=&#34;branching&#34; src=&#34;http://blog.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34; alt=&#34;If you branch off (non-master) branches, don&#39;t use this script! (image: Jon Loelger, &amp;quot;Version Control with Git&amp;quot;)&#34; width=&#34;861&#34; height=&#34;272&#34; /&gt;&lt;/a&gt;
+  &lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34;&gt;&lt;img class=&#34;size-full wp-image-1084  &#34; title=&#34;branching&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/07/branching.png&#34; alt=&#34;If you branch off (non-master) branches, don&#39;t use this script! (image: Jon Loelger, &amp;quot;Version Control with Git&amp;quot;)&#34; width=&#34;861&#34; height=&#34;272&#34; /&gt;&lt;/a&gt;
   
   &lt;p class=&#34;wp-caption-text&#34;&gt;
     If you branch off (non-master) branches, don&#39;t use this script! (image: Jon Loelger, &#34;Version Control with Git&#34;)
@@ -698,7 +698,7 @@ done&lt;/pre&gt;
 
 &lt;p&gt;I&amp;rsquo;m following along with the &lt;a href=&#34;http://mitpress.mit.edu/sicp/&#34;&gt;MIT&lt;/a&gt; &lt;a href=&#34;http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs&#34;&gt;SICP&lt;/a&gt; videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &amp;ndash; &lt;a href=&#34;https://github.com/soniah/get_sicp&#34;&gt;get_sicp&lt;/a&gt;. Next, a script for the &lt;a href=&#34;http://inst.eecs.berkeley.edu/~cs61a/sp11/&#34;&gt;UC Berkeley SICP videos&lt;/a&gt; (getting through the flash player should be a learning experience).&lt;/p&gt;
 
-&lt;p&gt;I&amp;rsquo;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://blog.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;ndash; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;rsquo;t litter /usr. Good: Ruby &amp;ndash; fun, Python &amp;ndash; &lt;snore&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://blog2.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;ndash; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;rsquo;t litter /usr. Good: Ruby &amp;ndash; fun, Python &amp;ndash; &lt;snore&gt;.&lt;/p&gt;
 </description>
     </item>
     

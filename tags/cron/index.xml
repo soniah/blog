@@ -28,7 +28,7 @@
       <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
-      <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://blog.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.mail-archive.com/centos@centos.org/msg12887.html&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; how to use keychain with Perl scripts:&lt;/p&gt;
 
@@ -103,7 +103,7 @@ run_perl_program.pl&lt;/pre&gt;
 &lt;li&gt;ibm developer works series on &lt;a href=&#34;http://www.ibm.com/developerworks/library/l-keyc.html&#34;&gt;key management and keychain&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;oceanpark on &lt;a href=&#34;http://oceanpark.com/notes/howto_ssh_keychain_public_key_authentication_forwarding.html&#34;&gt;passwordless connections&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;reflux on &lt;a href=&#34;http://rephlux.sourceforge.net/running.rephlux.php&#34;&gt;notes on keychain&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;my &lt;a href=&#34;http://blog.snowfrog.net/2007/10/29/ssh-notes/&#34;&gt;ssh-notes&lt;/a&gt; on tunnelling&lt;/li&gt;
+&lt;li&gt;my &lt;a href=&#34;http://blog2.snowfrog.net/2007/10/29/ssh-notes/&#34;&gt;ssh-notes&lt;/a&gt; on tunnelling&lt;/li&gt;
 &lt;li&gt;Troy Johnson&amp;rsquo;s notes on &lt;a href=&#34;http://troy.jdmz.net/rsync/index.html&#34;&gt;Using RSync and SSH: Keys, Validating and Automation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;sshpass &amp;ndash; &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;rsync + ssh keys&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;

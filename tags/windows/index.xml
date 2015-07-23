@@ -14,7 +14,7 @@
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
-      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
+      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog2.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
 
 &lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;rsquo;s a script submitted by one of my readers:&lt;/p&gt;
 
@@ -84,7 +84,7 @@ FOR /D %%F IN (*) DO (
 &lt;li&gt;&lt;a href=&#34;http://www.knoppix.org/&#34;&gt;Knoppix&lt;/a&gt; is a CD bootable Linux distribution, that is &lt;em&gt;The Swiss Army Chainsaw&lt;/em&gt; of distros &amp;ndash; it does everything. &lt;a href=&#34;http://www.inside-security.de/insert_en.html&#34;&gt;Insert Linux&lt;/a&gt; and &lt;a href=&#34;http://www.damnsmalllinux.org/&#34;&gt;Damn Small Linux&lt;/a&gt; are also useful, as they fit on business card CDs&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://home.eunet.no/pnordahl/ntpasswd/&#34;&gt;PNordahl&lt;/a&gt; has a tool for resetting forgotten Administrator passwords&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://dban.sourceforge.net/&#34;&gt;DBAN&lt;/a&gt; completely solves all Windows problems, by wiping the hard disk :-) &lt;em&gt;You can then install a decent Operating System like &lt;a href=&#34;http://www.ubuntu.com/&#34;&gt;Ubuntu Linux&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;see also my article on &lt;a href=&#34;http://blog.snowfrog.net/?q=node/365&#34;&gt;DD Rescue&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;see also my article on &lt;a href=&#34;http://blog2.snowfrog.net/?q=node/365&#34;&gt;DD Rescue&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

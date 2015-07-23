@@ -509,7 +509,7 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
 
 &lt;p&gt;I found the best way to use bufexplorer is to open up all possible source files (eg &lt;strong&gt;vim src/&lt;em&gt;.go other/&lt;/em&gt;.go&lt;/strong&gt;) at the start of an editing session, then just skip between them (shown here with the excellent &lt;a href=&#34;http://xmonad.org/&#34;&gt;xMonad&lt;/a&gt; window manager, &lt;a href=&#34;https://www.gnu.org/software/screen/&#34;&gt;GNU Screen&lt;/a&gt;, and &lt;a href=&#34;http://library.gnome.org/users/gnome-terminal/stable/gnome-terminal-get-started.html.en&#34;&gt;Gnome Terminal&lt;/a&gt;):&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34;&gt;&lt;img src=&#34;http://blog.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34;&gt;&lt;img src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2012/11/bufexp.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
