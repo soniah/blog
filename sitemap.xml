@@ -623,12 +623,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
+    <loc>http://blog2.snowfrog.net/2010/03/30/vim-folding/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -658,12 +658,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</loc>
+    <loc>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</loc>
     <lastmod>2009-11-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -688,12 +688,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</loc>
     <lastmod>2009-10-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -723,12 +723,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
+    <loc>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -803,12 +803,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</loc>
+    <loc>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</loc>
     <lastmod>2009-05-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -908,12 +908,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
+    <loc>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -1473,12 +1473,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
+    <loc>http://blog2.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
+    <loc>http://blog2.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -1528,12 +1528,12 @@
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
+    <loc>http://blog2.snowfrog.net/2005/11/16/notes-2/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -1550,6 +1550,10 @@
   <url>
     <loc>http://blog2.snowfrog.net/2005/11/07/automatix-nice-ubuntu-tool/</loc>
     <lastmod>2005-11-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog2.snowfrog.net/privacy/</loc>
   </url>
   
 </urlset>
