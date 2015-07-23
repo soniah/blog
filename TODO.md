@@ -7,8 +7,9 @@
 * DONE &#8211 and similar in content
 * DONE complete tags html/templates - eg peter aba, virt.co.uk, stou.dk
   (sort of tag cloud)
+* DONE privacy policy
+
 * images - wp-content
-* privacy policy
 * disqus eg alexandre-normand
 * fixup share/follow links eg spf13.com, heyitsalex
 * Google search of site
