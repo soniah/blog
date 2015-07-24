@@ -75,7 +75,7 @@ ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org &lt;span style=&#34;color:
       <guid>http://blog2.snowfrog.net/2012/02/03/denyhosts-for-sshd-usernames-dictionary/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve just setup the venerable &lt;a href=&#34;http://denyhosts.sourceforge.net/&#34;&gt;denyhosts&lt;/a&gt; on one of my servers, to stop the usual script-kiddies from &lt;em&gt;filling up my logs&lt;/em&gt; (I&amp;rsquo;m not particularly worried about them getting in.).&lt;/p&gt;
 
-&lt;p&gt;Anyway, here is &lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2012/02/restricted-usernames.gz&#34;&gt;restricted-usernames.gz&lt;/a&gt;, a list of denied usernames from the log &amp;ndash; handy to add to your denyhosts &lt;a href=&#34;http://denyhosts.sourceforge.net/faq.html#restricted&#34;&gt;restricted-usernames file&lt;/a&gt;. There&amp;rsquo;s probably a better dictionary of usernames out there &amp;ndash; I&amp;rsquo;ll attach it if I &lt;del&gt;find it&lt;/del&gt; stumble upon it.&lt;/p&gt;
+&lt;p&gt;Anyway, here is &lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2012/02/restricted-usernames.gz&#34;&gt;restricted-usernames.gz&lt;/a&gt;, a list of denied usernames from the log &amp;ndash; handy to add to your denyhosts &lt;a href=&#34;http://denyhosts.sourceforge.net/faq.html#restricted&#34;&gt;restricted-usernames file&lt;/a&gt;. There&amp;rsquo;s probably a better dictionary of usernames out there &amp;ndash; I&amp;rsquo;ll attach it if I &lt;del&gt;find it&lt;/del&gt; stumble upon it.&lt;/p&gt;
 </description>
     </item>
     
@@ -121,7 +121,7 @@ expect eof&lt;/pre&gt;
   rsyncp -av --progress srcdir/ $h:dstdir/
 done&lt;/pre&gt;
 
-&lt;p&gt;And before you add a comment saying &lt;em&gt;use &lt;a href=&#34;http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/&#34;&gt;ssh keys&lt;/a&gt; or &lt;a href=&#34;http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/&#34;&gt;keychain&lt;/a&gt;, this is totally insecure&lt;/em&gt;, I agree with you! Key based authentication is disabled on the target server, and I&amp;rsquo;m still trying to resolve the &lt;em&gt;politics&lt;/em&gt; around this at my current company, and &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;sshpass&lt;/a&gt; seems broken &lt;sigh&gt;&lt;/p&gt;
+&lt;p&gt;And before you add a comment saying &lt;em&gt;use &lt;a href=&#34;http://www.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/&#34;&gt;ssh keys&lt;/a&gt; or &lt;a href=&#34;http://www.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/&#34;&gt;keychain&lt;/a&gt;, this is totally insecure&lt;/em&gt;, I agree with you! Key based authentication is disabled on the target server, and I&amp;rsquo;m still trying to resolve the &lt;em&gt;politics&lt;/em&gt; around this at my current company, and &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;sshpass&lt;/a&gt; seems broken &lt;sigh&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -168,7 +168,7 @@ GSSAPIAuthentication no&lt;/pre&gt;
       <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
-      <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://www.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.mail-archive.com/centos@centos.org/msg12887.html&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; how to use keychain with Perl scripts:&lt;/p&gt;
 
@@ -247,7 +247,7 @@ run_perl_program.pl&lt;/pre&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-155&#34; title=&#34;putty_openssh&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;467&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-155&#34; title=&#34;putty_openssh&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;467&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Changing the Password on your SSH Key&lt;/strong&gt;&lt;/p&gt;
 
@@ -265,7 +265,7 @@ run_perl_program.pl&lt;/pre&gt;
 
 &lt;ul&gt;
 &lt;li&gt;the &lt;strong&gt;painful&lt;/strong&gt; way. Run putty.exe, enter the hostname/ip, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, load your key in **Connection, SSH, Auth&lt;/strong&gt;, &lt;strong&gt;Private key file for authentication&lt;/strong&gt;, then click &lt;strong&gt;Open&lt;/strong&gt; to connect&lt;/li&gt;
-&lt;li&gt;the &lt;strong&gt;better&lt;/strong&gt; way &amp;ndash; caching your key in memory. Run pageant.exe &amp;ndash; you&amp;rsquo;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). &lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-164&#34; title=&#34;pageant&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34; alt=&#34;&#34; width=&#34;162&#34; height=&#34;49&#34; /&gt;&lt;/a&gt; Right click on this icon, choose &lt;strong&gt;Add Key&lt;/strong&gt;, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the &lt;strong&gt;Saved Sessions&lt;/strong&gt; field, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, then click the **Save&lt;/strong&gt; button. You can then right click on the pageant icon, &lt;strong&gt;Saved Sessions&lt;/strong&gt;, choose your saved session, and rapidly login to your target system&lt;/li&gt;
+&lt;li&gt;the &lt;strong&gt;better&lt;/strong&gt; way &amp;ndash; caching your key in memory. Run pageant.exe &amp;ndash; you&amp;rsquo;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). &lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-164&#34; title=&#34;pageant&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34; alt=&#34;&#34; width=&#34;162&#34; height=&#34;49&#34; /&gt;&lt;/a&gt; Right click on this icon, choose &lt;strong&gt;Add Key&lt;/strong&gt;, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the &lt;strong&gt;Saved Sessions&lt;/strong&gt; field, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, then click the **Save&lt;/strong&gt; button. You can then right click on the pageant icon, &lt;strong&gt;Saved Sessions&lt;/strong&gt;, choose your saved session, and rapidly login to your target system&lt;/li&gt;
 &lt;li&gt;the &lt;strong&gt;best&lt;/strong&gt; way &amp;ndash; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -289,7 +289,7 @@ SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;&lt;strong&gt;Next steps.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;After using putty on Windows for a while, you may want to investigate &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; &amp;ndash; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; with ssh is handy &amp;ndash; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my &lt;a href=&#34;http://blog2.snowfrog.net/tag/ssh/&#34;&gt;other posts on ssh tools&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After using putty on Windows for a while, you may want to investigate &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; &amp;ndash; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; with ssh is handy &amp;ndash; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my &lt;a href=&#34;http://www.snowfrog.net/tag/ssh/&#34;&gt;other posts on ssh tools&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -327,7 +327,7 @@ username:password&lt;/pre&gt;
 *&lt;/li&gt;
 &lt;li&gt;lots of good tunnelling ideas on the &lt;a href=&#34;https://trac.torproject.org/projects/tor/wiki/TheOnionRouter/TorifyHOWTO/Misc&#34;&gt;Tor Wiki HOWTO&lt;/a&gt; and &lt;a href=&#34;http://fooninja.net/2010/09/06/how-to-tunnel-everything-through-ssh/&#34;&gt;How to tunnel everything through ssh&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;also secure your dns traffic by setting &lt;strong&gt;network.proxy.socks_remote_dns = true&lt;/strong&gt; in Firefox&amp;rsquo;s about:config&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://www.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;another similar article &lt;a href=&#34;http://www.linux.com/articles/56945&#34;&gt;Secure your Wi-Fi traffic using FOSS utilities&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -463,7 +463,7 @@ root@dmzserver$ svn ci --username sonia --password secret&amp;lt;br /&amp;gt;
 &lt;li&gt;ibm developer works series on &lt;a href=&#34;http://www.ibm.com/developerworks/library/l-keyc.html&#34;&gt;key management and keychain&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;oceanpark on &lt;a href=&#34;http://oceanpark.com/notes/howto_ssh_keychain_public_key_authentication_forwarding.html&#34;&gt;passwordless connections&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;reflux on &lt;a href=&#34;http://rephlux.sourceforge.net/running.rephlux.php&#34;&gt;notes on keychain&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;my &lt;a href=&#34;http://blog2.snowfrog.net/2007/10/29/ssh-notes/&#34;&gt;ssh-notes&lt;/a&gt; on tunnelling&lt;/li&gt;
+&lt;li&gt;my &lt;a href=&#34;http://www.snowfrog.net/2007/10/29/ssh-notes/&#34;&gt;ssh-notes&lt;/a&gt; on tunnelling&lt;/li&gt;
 &lt;li&gt;Troy Johnson&amp;rsquo;s notes on &lt;a href=&#34;http://troy.jdmz.net/rsync/index.html&#34;&gt;Using RSync and SSH: Keys, Validating and Automation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;sshpass &amp;ndash; &lt;a href=&#34;http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/&#34;&gt;rsync + ssh keys&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;

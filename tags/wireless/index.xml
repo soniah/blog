@@ -27,7 +27,7 @@
 
 &lt;p&gt;Using Network Manager on Ubuntu Jaunty it mostly &amp;ldquo;just works&amp;rdquo; - all I needed to do was set the APN to &amp;lsquo;exetel1&amp;rsquo;. I&amp;rsquo;ve also bought an antenna for it from &lt;a href=&#34;http://www.antennashop.com.au/home.html&#34;&gt;The Antenna Shop&lt;/a&gt; - gives me better coverage in shadows in the CBD and out in the country. There&amp;rsquo;s also other bigger antennas available, as well as car antennas.&lt;/p&gt;
 
-&lt;p&gt;[caption id=&amp;ldquo;attachment_600&amp;rdquo; align=&amp;ldquo;alignnone&amp;rdquo; width=&amp;ldquo;372&amp;rdquo;]&lt;img src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2009/11/antenna.jpg&#34; alt=&#34;antenna&#34; /&gt; antenna[/caption]&lt;/p&gt;
+&lt;p&gt;[caption id=&amp;ldquo;attachment_600&amp;rdquo; align=&amp;ldquo;alignnone&amp;rdquo; width=&amp;ldquo;372&amp;rdquo;]&lt;img src=&#34;http://www.snowfrog.net/wp-content/uploads/2009/11/antenna.jpg&#34; alt=&#34;antenna&#34; /&gt; antenna[/caption]&lt;/p&gt;
 
 &lt;p&gt;All-in-all a good buy - thanks Dean for the tip.&lt;/p&gt;
 
@@ -99,7 +99,7 @@ username:password&lt;/pre&gt;
 *&lt;/li&gt;
 &lt;li&gt;lots of good tunnelling ideas on the &lt;a href=&#34;https://trac.torproject.org/projects/tor/wiki/TheOnionRouter/TorifyHOWTO/Misc&#34;&gt;Tor Wiki HOWTO&lt;/a&gt; and &lt;a href=&#34;http://fooninja.net/2010/09/06/how-to-tunnel-everything-through-ssh/&#34;&gt;How to tunnel everything through ssh&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;also secure your dns traffic by setting &lt;strong&gt;network.proxy.socks_remote_dns = true&lt;/strong&gt; in Firefox&amp;rsquo;s about:config&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://blog2.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://lbolla.wordpress.com/2008/04/21/cvs-behind-a-firewall-through-an-http-proxy/&#34;&gt;cvs + socks&lt;/a&gt; using connect.c (similar to my post on &lt;a href=&#34;http://www.snowfrog.net/2007/12/04/svn-over-an-ssh-tunnel/&#34;&gt;svn over an ssh tunnel&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;another similar article &lt;a href=&#34;http://www.linux.com/articles/56945&#34;&gt;Secure your Wi-Fi traffic using FOSS utilities&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

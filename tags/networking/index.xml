@@ -112,7 +112,7 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
 &lt;li&gt;double-click on “network.dns.disableIPv6″, changing its value from False to True&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;See also my other post &lt;a href=&#34;http://blog2.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/&#34;&gt;pdnsd on Ubuntu for faster dns&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;See also my other post &lt;a href=&#34;http://www.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/&#34;&gt;pdnsd on Ubuntu for faster dns&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -188,7 +188,7 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-155&#34; title=&#34;putty_openssh&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;467&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-155&#34; title=&#34;putty_openssh&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png&#34; alt=&#34;&#34; width=&#34;480&#34; height=&#34;467&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Changing the Password on your SSH Key&lt;/strong&gt;&lt;/p&gt;
 
@@ -206,7 +206,7 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
 
 &lt;ul&gt;
 &lt;li&gt;the &lt;strong&gt;painful&lt;/strong&gt; way. Run putty.exe, enter the hostname/ip, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, load your key in **Connection, SSH, Auth&lt;/strong&gt;, &lt;strong&gt;Private key file for authentication&lt;/strong&gt;, then click &lt;strong&gt;Open&lt;/strong&gt; to connect&lt;/li&gt;
-&lt;li&gt;the &lt;strong&gt;better&lt;/strong&gt; way &amp;ndash; caching your key in memory. Run pageant.exe &amp;ndash; you&amp;rsquo;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). &lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-164&#34; title=&#34;pageant&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34; alt=&#34;&#34; width=&#34;162&#34; height=&#34;49&#34; /&gt;&lt;/a&gt; Right click on this icon, choose &lt;strong&gt;Add Key&lt;/strong&gt;, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the &lt;strong&gt;Saved Sessions&lt;/strong&gt; field, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, then click the **Save&lt;/strong&gt; button. You can then right click on the pageant icon, &lt;strong&gt;Saved Sessions&lt;/strong&gt;, choose your saved session, and rapidly login to your target system&lt;/li&gt;
+&lt;li&gt;the &lt;strong&gt;better&lt;/strong&gt; way &amp;ndash; caching your key in memory. Run pageant.exe &amp;ndash; you&amp;rsquo;ll see a little terminal with a hat in the Notification area (bottom RHS of screen). &lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-164&#34; title=&#34;pageant&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2008/09/pageant.png&#34; alt=&#34;&#34; width=&#34;162&#34; height=&#34;49&#34; /&gt;&lt;/a&gt; Right click on this icon, choose &lt;strong&gt;Add Key&lt;/strong&gt;, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the &lt;strong&gt;Saved Sessions&lt;/strong&gt; field, put your username in &lt;strong&gt;Connection, Data&lt;/strong&gt;,** Auto-login username&lt;strong&gt;, then click the **Save&lt;/strong&gt; button. You can then right click on the pageant icon, &lt;strong&gt;Saved Sessions&lt;/strong&gt;, choose your saved session, and rapidly login to your target system&lt;/li&gt;
 &lt;li&gt;the &lt;strong&gt;best&lt;/strong&gt; way &amp;ndash; use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -230,7 +230,7 @@ SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;p&gt;&lt;strong&gt;Next steps.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;After using putty on Windows for a while, you may want to investigate &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; &amp;ndash; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; with ssh is handy &amp;ndash; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my &lt;a href=&#34;http://blog2.snowfrog.net/tag/ssh/&#34;&gt;other posts on ssh tools&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After using putty on Windows for a while, you may want to investigate &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; &amp;ndash; it allows you to install a Unix-like environment on Windows, giving you native versions of ssh, scp, key caching, and many other tools. If working with websites, &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; with ssh is handy &amp;ndash; it allows you to rapidly sync your development and production work, as rsync sends file changes not every file. See also my &lt;a href=&#34;http://www.snowfrog.net/tag/ssh/&#34;&gt;other posts on ssh tools&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

@@ -329,7 +329,7 @@ rm -rf *
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
       <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
-      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://blog2.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
+      <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://www.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
 
 &lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;rsquo;s a script submitted by one of my readers:&lt;/p&gt;
 

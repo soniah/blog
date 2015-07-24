@@ -97,7 +97,7 @@ args (left-to-right).
 
 &lt;p&gt;&lt;img src=&#34;http://upload.wikimedia.org/wikipedia/en/math/5/b/3/5b3f3c62dd59cc5594af7b2ece3798fb.png&#34; alt=&#34;LCM from GCD&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;From there it was just a matter of balancing parentheses (thanks &lt;a href=&#34;http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/&#34;&gt;paredit&lt;/a&gt;) by breaking up the problem into stages, starting with calculating the GCD of two numbers:&lt;/p&gt;
+&lt;p&gt;From there it was just a matter of balancing parentheses (thanks &lt;a href=&#34;http://www.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/&#34;&gt;paredit&lt;/a&gt;) by breaking up the problem into stages, starting with calculating the GCD of two numbers:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;defn &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;gcd&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;
   &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;cond&lt;/span&gt;
@@ -342,7 +342,7 @@ args (left-to-right).
 
 &lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;My first Clojure book wasn&amp;rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across &lt;a href=&#34;http://nostarch.com/lisp.htm&#34;&gt;Land of Lisp&lt;/a&gt;.  I&amp;rsquo;d heard about Lisp, that &amp;ldquo;obsolete&amp;rdquo; language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the &lt;a href=&#34;http://blog2.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;cartoons&lt;/a&gt; were great, and before I knew it I&amp;rsquo;d read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.&lt;/p&gt;
+&lt;p&gt;My first Clojure book wasn&amp;rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across &lt;a href=&#34;http://nostarch.com/lisp.htm&#34;&gt;Land of Lisp&lt;/a&gt;.  I&amp;rsquo;d heard about Lisp, that &amp;ldquo;obsolete&amp;rdquo; language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the &lt;a href=&#34;http://www.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;cartoons&lt;/a&gt; were great, and before I knew it I&amp;rsquo;d read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://mitpress.mit.edu/sicp/full-text/book/cover.jpg&#34; alt=&#34;SICP book&#34; /&gt;&lt;/p&gt;
 

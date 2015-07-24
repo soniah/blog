@@ -115,7 +115,7 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
 
 &lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;My first Clojure book wasn&amp;rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across &lt;a href=&#34;http://nostarch.com/lisp.htm&#34;&gt;Land of Lisp&lt;/a&gt;.  I&amp;rsquo;d heard about Lisp, that &amp;ldquo;obsolete&amp;rdquo; language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the &lt;a href=&#34;http://blog2.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;cartoons&lt;/a&gt; were great, and before I knew it I&amp;rsquo;d read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.&lt;/p&gt;
+&lt;p&gt;My first Clojure book wasn&amp;rsquo;t even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across &lt;a href=&#34;http://nostarch.com/lisp.htm&#34;&gt;Land of Lisp&lt;/a&gt;.  I&amp;rsquo;d heard about Lisp, that &amp;ldquo;obsolete&amp;rdquo; language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the &lt;a href=&#34;http://www.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;cartoons&lt;/a&gt; were great, and before I knew it I&amp;rsquo;d read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://mitpress.mit.edu/sicp/full-text/book/cover.jpg&#34; alt=&#34;SICP book&#34; /&gt;&lt;/p&gt;
 
@@ -368,7 +368,7 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
 
 &lt;p&gt;I&amp;rsquo;m following along with the &lt;a href=&#34;http://mitpress.mit.edu/sicp/&#34;&gt;MIT&lt;/a&gt; &lt;a href=&#34;http://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs&#34;&gt;SICP&lt;/a&gt; videos, but got tired of manually downloading each video. So I wrote a quick little script to download all the videos &amp;ndash; &lt;a href=&#34;https://github.com/soniah/get_sicp&#34;&gt;get_sicp&lt;/a&gt;. Next, a script for the &lt;a href=&#34;http://inst.eecs.berkeley.edu/~cs61a/sp11/&#34;&gt;UC Berkeley SICP videos&lt;/a&gt; (getting through the flash player should be a learning experience).&lt;/p&gt;
 
-&lt;p&gt;I&amp;rsquo;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://blog2.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;ndash; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;rsquo;t litter /usr. Good: Ruby &amp;ndash; fun, Python &amp;ndash; &lt;snore&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve also been getting good mileage out of JRuby. I was &lt;a href=&#34;http://www.snowfrog.net/2011/03/27/lisp-and-python/&#34;&gt;complaining&lt;/a&gt; a few weeks ago about not being able to run Ruby on production servers (and therefore having to learn Python). Well JRuby is the perfect solution &amp;ndash; installing/building Ruby on production servers is often verboten, but most production servers already have a JVM so installing JRuby in ${HOME} is a non-brainer and doesn&amp;rsquo;t litter /usr. Good: Ruby &amp;ndash; fun, Python &amp;ndash; &lt;snore&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -390,7 +390,7 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
 
 &lt;p&gt;What kicked this all off? This great SlashDot post on why Expensify &lt;a href=&#34;http://blog.expensify.com/2011/03/25/ceo-friday-why-we-dont-hire-net-programmers/&#34;&gt;doesn&amp;rsquo;t hire .NET programmers&lt;/a&gt; :-)&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-943&#34; title=&#34;stroustrup&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;352&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-943&#34; title=&#34;stroustrup&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/stroustrup2.png&#34; alt=&#34;&#34; width=&#34;600&#34; height=&#34;352&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;PS I like Paul Graham&amp;rsquo;s &lt;a href=&#34;http://twitter.com/paulg/status/28864657734&#34;&gt;Tweet&lt;/a&gt; on the book: &amp;ldquo;Turns out the border between genius and insanity is a pretty cheery place&amp;rdquo;.&lt;/p&gt;
 </description>
@@ -404,7 +404,7 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
       <guid>http://blog2.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</guid>
       <description>&lt;p&gt;A SlashDot linked &lt;a href=&#34;http://cogitations.arbia.co.uk/post/3984477935/fun-java-with-mirah&#34;&gt;article on Mirah&lt;/a&gt; &amp;ndash; Java with Ruby syntax (different from JRuby).&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-916&#34; title=&#34;programadorjava&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg?w=285&#34; alt=&#34;&#34; width=&#34;285&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-916&#34; title=&#34;programadorjava&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg?w=285&#34; alt=&#34;&#34; width=&#34;285&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;religion&gt;So when is someone going to do this to Perl? Or is that Perl6? Or Ruby just the &amp;ldquo;new Perl&amp;rdquo;?&lt;/religion&gt;&lt;/p&gt;
 </description>
@@ -519,7 +519,7 @@ end
       <guid>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</guid>
       <description>&lt;p&gt;A good summary (for my reference) of the assertions that can be used with Test::Unit (&lt;a href=&#34;http://www.pragprog.com/titles/ruby/programming-ruby&#34;&gt;from Pragmatic Programmers&amp;rsquo; Programming Ruby&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;img class=&#34;alignleft size-full wp-image-553&#34; title=&#34;test unit assertions&#34; src=&#34;http://blog2.snowfrog.net/wp-content/uploads/2009/10/test-unit-assertions.png&#34; alt=&#34;test unit assertions&#34; width=&#34;433&#34; height=&#34;611&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img class=&#34;alignleft size-full wp-image-553&#34; title=&#34;test unit assertions&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2009/10/test-unit-assertions.png&#34; alt=&#34;test unit assertions&#34; width=&#34;433&#34; height=&#34;611&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
