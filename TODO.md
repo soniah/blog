@@ -9,12 +9,8 @@
   (sort of tag cloud)
 * DONE privacy policy
 * DONE images - wp-content
-
-* joker - redirects on all old www blog posts? (so can get rid of uva
-  eventually)
-
-* release
-  * sed blog2.snowfrog -> blog.snowfrog
+* DONE release, sed blog2.snowfrog -> www.snowfrog
+* DONE joker - redirects
 
 * post-release
   * disqus eg alexandre-normand
