@@ -5,8 +5,42 @@
     <link>http://www.snowfrog.net/tags/docker/</link>
     <description>Recent content in Docker on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerfile Images</title>
+      <link>http://www.snowfrog.net/2015/07/24/dockerfile-images/</link>
+      <pubDate>Fri, 24 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/07/24/dockerfile-images/</guid>
+      <description>&lt;p&gt;My work associate &lt;a href=&#34;https://www.linkedin.com/pub/peter-viertel/0/26b/3a8&#34;&gt;Peter
+Viertel&lt;/a&gt; recently gave a
+lunchtime brownbag on &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A topic that came up - the problems around large Docker base images that
+are just copies of full Linux installs eg the Ubuntu image that is used
+in many tutorials. Examples of problems: PID 1 (init) not cleaning up
+processes correctly, no cron, no logrotate, no syslog, EXEC shells
+requiring root access to docker daemon.&lt;/p&gt;
+
+&lt;p&gt;The phusion/baseimage site has good material on the issues (even if
+you prefer .rpm over .deb).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://phusion.github.io/baseimage-docker/&#34;&gt;Phusion baseimage-docker overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/phusion/baseimage-docker#readme&#34;&gt;phusion/baseimage-docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, Mark van Holsteijn&amp;rsquo;s article on creating small images based off
+Docker scratch is good.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.xebia.com/2015/06/30/how-to-create-the-smallest-possible-docker-container-of-any-image/&#34;&gt;Mark van Holsteijn - Create Small Container&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mvanholsteijn/strip-docker-image&#34;&gt;mvanholsteijn/strip-docker-image&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Dockerfile Notes</title>

@@ -5,8 +5,42 @@
     <link>http://www.snowfrog.net/posts/</link>
     <description>Recent content in Posts on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerfile Images</title>
+      <link>http://www.snowfrog.net/2015/07/24/dockerfile-images/</link>
+      <pubDate>Fri, 24 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/07/24/dockerfile-images/</guid>
+      <description>&lt;p&gt;My work associate &lt;a href=&#34;https://www.linkedin.com/pub/peter-viertel/0/26b/3a8&#34;&gt;Peter
+Viertel&lt;/a&gt; recently gave a
+lunchtime brownbag on &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A topic that came up - the problems around large Docker base images that
+are just copies of full Linux installs eg the Ubuntu image that is used
+in many tutorials. Examples of problems: PID 1 (init) not cleaning up
+processes correctly, no cron, no logrotate, no syslog, EXEC shells
+requiring root access to docker daemon.&lt;/p&gt;
+
+&lt;p&gt;The phusion/baseimage site has good material on the issues (even if
+you prefer .rpm over .deb).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://phusion.github.io/baseimage-docker/&#34;&gt;Phusion baseimage-docker overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/phusion/baseimage-docker#readme&#34;&gt;phusion/baseimage-docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, Mark van Holsteijn&amp;rsquo;s article on creating small images based off
+Docker scratch is good.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.xebia.com/2015/06/30/how-to-create-the-smallest-possible-docker-container-of-any-image/&#34;&gt;Mark van Holsteijn - Create Small Container&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mvanholsteijn/strip-docker-image&#34;&gt;mvanholsteijn/strip-docker-image&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Dockerfile Notes</title>
@@ -678,37 +712,6 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
 &lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
-      <link>http://www.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</link>
-      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</guid>
-      <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an
-interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption
-password&amp;rdquo;, but the options are mutually exclusive ie when I tried to
-type in a password, the interface locks the password fields.&lt;/p&gt;
-
-&lt;p&gt;Maybe this was some sort of bad magic due to me coming over RDP to the
-new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why force
-a tablet interface down my throat? Sort of reminds me of Ubuntu Unity).
-Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;clr enabled&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
 </description>
     </item>
     

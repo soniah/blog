@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8">
     <base href="http://www.snowfrog.net">
-    <title> Training with Baseball Bats </title>
-    <link rel="canonical" href="http://www.snowfrog.net/2012/11/11/training-with-baseball-bats/">
+    <title> Dockerfile Images </title>
+    <link rel="canonical" href="http://www.snowfrog.net/2015/07/24/dockerfile-images/">
     
 
 <link rel="stylesheet" href="http://www.snowfrog.net/css/poole.css">
@@ -85,23 +85,34 @@
 
     
     <div class="container content">
-      <h1 class="post-title">Training with Baseball Bats</h1>
+      <h1 class="post-title">Dockerfile Images</h1>
         <section id="main">
-          <h5 id="date"> 11 Nov 2012 </h5>
-          <p>At <a href="http://www.meetup.com/sydney-stick-fighting">Sydney Stick Fighting</a> we train with a variety of weapons - knives, sticks, staffs and even baseball bats!</p>
+          <h5 id="date"> 24 Jul 2015 </h5>
+          <p>My work associate <a href="https://www.linkedin.com/pub/peter-viertel/0/26b/3a8">Peter
+Viertel</a> recently gave a
+lunchtime brownbag on <a href="https://www.docker.com/">Docker</a>.</p>
 
-<div class="embed video-player">
-  <iframe
-    class="youtube-player"
-    type="text/html"
-    width="640"
-    height="385"
-    src="http://www.youtube.com/embed/YnyyIYPcBIo"
-    allowfullscreen
-    frameborder="0">
-  </iframe>
-</div>
+<p>A topic that came up - the problems around large Docker base images that
+are just copies of full Linux installs eg the Ubuntu image that is used
+in many tutorials. Examples of problems: PID 1 (init) not cleaning up
+processes correctly, no cron, no logrotate, no syslog, EXEC shells
+requiring root access to docker daemon.</p>
 
+<p>The phusion/baseimage site has good material on the issues (even if
+you prefer .rpm over .deb).</p>
+
+<ul>
+<li><a href="https://phusion.github.io/baseimage-docker/">Phusion baseimage-docker overview</a></li>
+<li><a href="https://github.com/phusion/baseimage-docker#readme">phusion/baseimage-docker</a></li>
+</ul>
+
+<p>Also, Mark van Holsteijn&rsquo;s article on creating small images based off
+Docker scratch is good.</p>
+
+<ul>
+<li><a href="http://blog.xebia.com/2015/06/30/how-to-create-the-smallest-possible-docker-container-of-any-image/">Mark van Holsteijn - Create Small Container</a></li>
+<li><a href="https://github.com/mvanholsteijn/strip-docker-image">mvanholsteijn/strip-docker-image</a></li>
+</ul>
 
         </section>
 
@@ -115,14 +126,10 @@
 <div class="container">
   <hr />
   
-    <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2012/11/11/ubuntu-minimal-xmonad/">Ubuntu Minimal &#43; Xmonad</a>
-    </span>
-  
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/"> &nbsp; Sending email from shell via mutt</a> &raquo;
+    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2015/07/13/dockerfile-notes/"> &nbsp; Dockerfile Notes</a> &raquo;
     </span>
   
   <br />
@@ -134,7 +141,7 @@
   <ul class="catlist">
     <li><em>Categories: </em></li>
     
-      <li><a href="http://www.snowfrog.net/categories/martial-arts">Martial Arts</a> </li>
+      <li><a href="http://www.snowfrog.net/categories/linux">Linux</a> </li>
     
   </ul>
 </div>
@@ -145,7 +152,7 @@
   <ul class="catlist">
     <li><em>Tags: </em></li>
     
-      <li><a href="http://www.snowfrog.net/tags/balintawak">Balintawak</a> </li>
+      <li><a href="http://www.snowfrog.net/tags/docker">Docker</a> </li>
     
   </ul>
 </div>

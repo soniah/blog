@@ -5,8 +5,42 @@
     <link>http://www.snowfrog.net/categories/linux/</link>
     <description>Recent content in Linux on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 13 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerfile Images</title>
+      <link>http://www.snowfrog.net/2015/07/24/dockerfile-images/</link>
+      <pubDate>Fri, 24 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/07/24/dockerfile-images/</guid>
+      <description>&lt;p&gt;My work associate &lt;a href=&#34;https://www.linkedin.com/pub/peter-viertel/0/26b/3a8&#34;&gt;Peter
+Viertel&lt;/a&gt; recently gave a
+lunchtime brownbag on &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A topic that came up - the problems around large Docker base images that
+are just copies of full Linux installs eg the Ubuntu image that is used
+in many tutorials. Examples of problems: PID 1 (init) not cleaning up
+processes correctly, no cron, no logrotate, no syslog, EXEC shells
+requiring root access to docker daemon.&lt;/p&gt;
+
+&lt;p&gt;The phusion/baseimage site has good material on the issues (even if
+you prefer .rpm over .deb).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://phusion.github.io/baseimage-docker/&#34;&gt;Phusion baseimage-docker overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/phusion/baseimage-docker#readme&#34;&gt;phusion/baseimage-docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, Mark van Holsteijn&amp;rsquo;s article on creating small images based off
+Docker scratch is good.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.xebia.com/2015/06/30/how-to-create-the-smallest-possible-docker-container-of-any-image/&#34;&gt;Mark van Holsteijn - Create Small Container&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mvanholsteijn/strip-docker-image&#34;&gt;mvanholsteijn/strip-docker-image&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Dockerfile Notes</title>
@@ -588,55 +622,6 @@ zfs destroy vol01/bjj/foo
 &lt;p&gt;From &lt;a href=&#34;http://ask.libreoffice.org/en/question/21916/cli-convert-ods-to-csv-with-semicolon-as-delimiter/&#34;&gt;CLI - convert ods to csv with semicolon as delimiter&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;No rocket science, just a handy note for myself&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>debfoster - keeping a Debian system small</title>
-      <link>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
-      <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
-      <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;debfoster has a more elaborate approach, very similar to aptitude&amp;rsquo;s: it maintains a list of packages that have been explicitly installed, and remembers what packages are really required between each invocation. If new packages appear on the system and if debfoster doesn&amp;rsquo;t know them as required packages, they will be shown on the screen together with a list of their dependencies. The program then offers a choice: remove the package (possibly together with those that depend on it), mark it as explicitly required, or ignore it temporarily.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Other useful tools are &lt;strong&gt;dpigs&lt;/strong&gt; (from the package debian-goodies) and &lt;strong&gt;wajig large&lt;/strong&gt;. For example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;% dpigs
-88963 libgl1-mesa-dri
-78624 linux-image-3.2.0-4-486
-42613 gimp-data
-42128 smbclient
-33224 freepats
-28731 xulrunner-17.0
-26400 vlc-data
-23332 libwebkitgtk-1.0-0
-22368 vim-runtime
-21723 libicu48
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The commandlinefu.com topic &lt;a href=&#34;http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu&#34;&gt;List your largest installed packages (on Debian/Ubuntu)&lt;/a&gt; has some useful commands:&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;\&lt;/span&gt;
-  /var/lib/dpkg/status | sort -rn
-
-% dpkg-query -Wf &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;${Installed-Size}\t${Package}\n&amp;#39;&lt;/span&gt; | sort -n
-
-% dpkg --get-selections | cut -f1 | &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;read &lt;/span&gt;pkg; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do &lt;/span&gt;dpkg -L &lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt; | xargs -I&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{}&amp;#39;&lt;/span&gt; bash -c &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-  &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;if [ ! -d &amp;quot;{}&amp;quot; ]; then echo &amp;quot;{}&amp;quot;; fi&amp;#39;&lt;/span&gt; | tr &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\000&amp;#39;&lt;/span&gt; | du -c --files0-from - |&lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-   tail -1 | sed &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;s/total/$pkg/&amp;quot;&lt;/span&gt;; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
-
-% awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;quot;%9d %s\n&amp;quot;, $2, p)}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
-   /var/lib/dpkg/status | sort -n | tail
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;The &lt;a href=&#34;http://www.auroraos.org/release/eeebuntu&#34;&gt;download sources for Eeebuntu&lt;/a&gt; seem to be broken, and nowadays I&amp;rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&amp;rsquo;m running &lt;a href=&#34;http://wiki.debian.org/LXDE&#34;&gt;Debian with LXDE&lt;/a&gt; - it seems to work well.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/ASUS_Eee_PC_PIC_0971.JPG/220px-ASUS_Eee_PC_PIC_0971.JPG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
