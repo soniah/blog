@@ -33,8 +33,8 @@
         <section id="main">
           <h5 id="date"> {{ .Date.Format "2 Jan 2006" }} </h5>
           {{ .Content }}
+          {{ template "chrome/disqus.html" . }}
         </section>
-
     </div>
   </div>
 
@@ -45,7 +45,6 @@
   {{ template "chrome/categories.html" . }}
   <br />
   {{ template "chrome/tags.html" . }}
-
 
   <!-- Include footer (ends <body class="theme-base-0b"> and <html>) -->
   {{ template "chrome/footer.html" }}

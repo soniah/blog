@@ -14,6 +14,6 @@
 * DONE google analytics
 
 * post-release
-  * disqus eg alexandre-normand
+  * STARTED disqus eg alexandre-normand. Can export from wordpress.
   * fixup share/follow links eg spf13.com, heyitsalex
   * linkchecker on site - how to triage - most important problems...
