@@ -11,6 +11,7 @@
 * DONE images - wp-content
 * DONE release, sed blog2.snowfrog -> www.snowfrog
 * DONE joker - redirects
+* DONE google analytics
 
 * post-release
   * disqus eg alexandre-normand
