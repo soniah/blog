@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Msaccess on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/msaccess/</link>
+    <link>http://www.snowfrog.net/tags/msaccess/</link>
     <description>Recent content in Msaccess on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 17 Nov 2005 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/msaccess/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/msaccess/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Connect to MySQL across network using MS Access</title>
-      <link>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</link>
+      <link>http://www.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</link>
       <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</guid>
+      <guid>http://www.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</guid>
       <description>&lt;p&gt;Connect to MySQL across network using MS Access&lt;/p&gt;
 
 &lt;ul&gt;

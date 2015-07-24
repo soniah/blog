@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wireless on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/wireless/</link>
+    <link>http://www.snowfrog.net/tags/wireless/</link>
     <description>Recent content in Wireless on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 22 Nov 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/wireless/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/wireless/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Network access with Exetel HSPA and Antenna</title>
-      <link>http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</link>
+      <link>http://www.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</link>
       <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</guid>
+      <guid>http://www.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</guid>
       <description>&lt;p&gt;I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with &lt;a href=&#34;http://www.exetel.com.au/residential-hspa-pricing.php&#34;&gt;Exetel&amp;rsquo;s $5/month Zero Gig plan&lt;/a&gt; (uses the Optus network). Great for when I&amp;rsquo;m out and about and can&amp;rsquo;t find a wireless signal to jump onto, or I&amp;rsquo;m at some client who doesn&amp;rsquo;t allow laptops onto their network.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Update November 2012&lt;/strong&gt;&lt;/p&gt;
@@ -41,10 +41,10 @@
     
     <item>
       <title>Blueman – Bluetooth for Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</link>
+      <link>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</link>
       <pubDate>Sat, 10 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</guid>
       <description>&lt;p&gt;The Reverand Simon Rumble wrote a nice post on &lt;a href=&#34;http://www.rumble.net/blog/&#34;&gt;Mobile broadband over Bluetooth with Ubuntu 8.10&lt;/a&gt; using &lt;a href=&#34;http://blueman.tuxfamily.org/&#34;&gt;Blueman&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;ve always wanted to get Bluetooth working on Ubuntu, but it was never at the top of my &amp;lsquo;todo&amp;rsquo; list and I&amp;rsquo;ve always had other things to do (thank PHB). But Blueman makes it so easy &amp;ndash; thanks Simon.&lt;/p&gt;
@@ -55,10 +55,10 @@
     
     <item>
       <title>wicd – replacement for Network Mananger</title>
-      <link>http://blog2.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</link>
+      <link>http://www.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</link>
       <pubDate>Tue, 25 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</guid>
+      <guid>http://www.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://wicd.sourceforge.net/&#34;&gt;wicd&lt;/a&gt; &amp;ndash; &amp;ldquo;an open source wired and wireless network manager&amp;rdquo; &amp;ndash; a possible replacement for Ubuntu&amp;rsquo;s annoying Network Manager (Mangler?).&lt;/p&gt;
 
 &lt;p&gt;Mentioned by Martin B on SLUG &amp;ndash; thanks.&lt;/p&gt;
@@ -67,10 +67,10 @@
     
     <item>
       <title>Ssh SOCKS proxying, DNS proxying, Tunnelling</title>
-      <link>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</link>
+      <link>http://www.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</link>
       <pubDate>Thu, 12 Jun 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</guid>
+      <guid>http://www.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://puzzling.org/&#34;&gt;Mary Gardiner&lt;/a&gt; &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2008/06/msg00135.html&#34;&gt;answered&lt;/a&gt; one of Voytek Eymont&amp;rsquo;s questions on the &lt;a href=&#34;http://lists.slug.org.au/listinfo/slug&#34;&gt;SLUG list&lt;/a&gt; by referring to the &lt;a href=&#34;http://ubuntu.wordpress.com/2006/12/08/ssh-tunnel-socks-proxy-forwarding-secure-browsing/&#34;&gt;ssh socks proxying&lt;/a&gt; post on Ubuntu Blog.&lt;/p&gt;
 
 &lt;p&gt;I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes:&lt;/p&gt;
@@ -119,10 +119,10 @@ username:password&lt;/pre&gt;
     
     <item>
       <title>Huawei E220 on Ubuntu Gutsy for Vodafone Australia</title>
-      <link>http://blog2.snowfrog.net/2008/02/21/huawei-e220-on-ubuntu-gutsy-for-vodafone-australia/</link>
+      <link>http://www.snowfrog.net/2008/02/21/huawei-e220-on-ubuntu-gutsy-for-vodafone-australia/</link>
       <pubDate>Thu, 21 Feb 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/02/21/huawei-e220-on-ubuntu-gutsy-for-vodafone-australia/</guid>
+      <guid>http://www.snowfrog.net/2008/02/21/huawei-e220-on-ubuntu-gutsy-for-vodafone-australia/</guid>
       <description>&lt;p&gt;If running a recent kernel, just plugin and check &lt;strong&gt;option&lt;/strong&gt; module is being loaded&lt;/p&gt;
 
 &lt;pre&gt;$ lsmod | grep option&lt;/pre&gt;
@@ -178,10 +178,10 @@ username:password&lt;/pre&gt;
     
     <item>
       <title>Troubleshooting Ubuntu NetworkManager</title>
-      <link>http://blog2.snowfrog.net/2008/01/25/troubleshooting-ubuntu-networkmanager/</link>
+      <link>http://www.snowfrog.net/2008/01/25/troubleshooting-ubuntu-networkmanager/</link>
       <pubDate>Fri, 25 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/25/troubleshooting-ubuntu-networkmanager/</guid>
+      <guid>http://www.snowfrog.net/2008/01/25/troubleshooting-ubuntu-networkmanager/</guid>
       <description>&lt;p&gt;NetworkManager: &amp;ldquo;When I&amp;rsquo;m good, I&amp;rsquo;m &lt;em&gt;really really&lt;/em&gt; good. But when I&amp;rsquo;m bad.&amp;ldquo;. Some tricks I&amp;rsquo;ve found for troubleshooting NetworkManager:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -199,10 +199,10 @@ username:password&lt;/pre&gt;
     
     <item>
       <title>Using ndiswrapper with Ubuntu 64 on a Presario V6000 with a Dell 1390 mini-PCI wireless card</title>
-      <link>http://blog2.snowfrog.net/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/</link>
+      <link>http://www.snowfrog.net/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/</link>
       <pubDate>Mon, 21 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/</guid>
+      <guid>http://www.snowfrog.net/2008/01/21/using-ndiswrapper-with-ubuntu-64-on-a-presario-v6000-with-a-dell-1390-mini-pci-wireless-card/</guid>
       <description>&lt;p&gt;My first &lt;em&gt;task&lt;/em&gt; in Guatemala was to get Jesus&amp;rsquo;s wireless going.&lt;/p&gt;
 
 &lt;p&gt;He&amp;rsquo;s running Ubuntu Feisty 64 on a Compaq Presario V6000 (AMD Turion 64 x2). The wireless card is a &lt;em&gt;Dell 1390 mini-PCI&lt;/em&gt; (wireless chipset bcm43xx).&lt;/p&gt;
@@ -223,10 +223,10 @@ username:password&lt;/pre&gt;
     
     <item>
       <title>Ubuntu Linux Compaq nc4200 ipw2200 blue LED</title>
-      <link>http://blog2.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</link>
+      <link>http://www.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</link>
       <pubDate>Wed, 16 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</guid>
+      <guid>http://www.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</guid>
       <description>&lt;p&gt;A couple of notes on working with the ipw2200 wireless card on a Compaq nc4200 running Ubuntu (7.04 and 7.10), including how to get the blue LED to work:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -243,10 +243,10 @@ username:password&lt;/pre&gt;
     
     <item>
       <title>HowTo Setup 3 Broadband Wireless on Ubuntu Linux</title>
-      <link>http://blog2.snowfrog.net/2007/05/04/howto-setup-3-broadband-wireless-on-ubuntu-linux/</link>
+      <link>http://www.snowfrog.net/2007/05/04/howto-setup-3-broadband-wireless-on-ubuntu-linux/</link>
       <pubDate>Sat, 05 May 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/05/04/howto-setup-3-broadband-wireless-on-ubuntu-linux/</guid>
+      <guid>http://www.snowfrog.net/2007/05/04/howto-setup-3-broadband-wireless-on-ubuntu-linux/</guid>
       <description>
 
 &lt;p&gt;HowTo Setup 3 Broadband Wireless on Ubuntu Linux&lt;/p&gt;
@@ -417,10 +417,10 @@ data is a bit expensive though of course.&lt;/p&gt;
     
     <item>
       <title>ipw2200 wireless on linux</title>
-      <link>http://blog2.snowfrog.net/2006/09/27/ipw2200-wireless-on-linux/</link>
+      <link>http://www.snowfrog.net/2006/09/27/ipw2200-wireless-on-linux/</link>
       <pubDate>Thu, 28 Sep 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/09/27/ipw2200-wireless-on-linux/</guid>
+      <guid>http://www.snowfrog.net/2006/09/27/ipw2200-wireless-on-linux/</guid>
       <description>&lt;p&gt;ipw2200 wireless on linux&lt;/p&gt;
 
 &lt;p&gt;Useful link &lt;a href=&#34;http://www.de-brauwer.be/wiki/wikka.php?wakka=LinuxTecraS2&#34;&gt;http://www.de-brauwer.be/wiki/wikka.php?wakka=LinuxTecraS2&lt;/a&gt;&lt;/p&gt;
@@ -449,10 +449,10 @@ data is a bit expensive though of course.&lt;/p&gt;
     
     <item>
       <title>Telstra evdo MiniMax on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2006/03/09/telstra-evdo-minimax-on-ubuntu/</link>
+      <link>http://www.snowfrog.net/2006/03/09/telstra-evdo-minimax-on-ubuntu/</link>
       <pubDate>Fri, 10 Mar 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/03/09/telstra-evdo-minimax-on-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2006/03/09/telstra-evdo-minimax-on-ubuntu/</guid>
       <description>
 
 &lt;p&gt;A while ago I bought a &lt;a href=&#34;http://www.telstra.com/countrywide/telstramobility/default.asp?sn=9&amp;amp;vp=1322&amp;amp;SMSESSION=NO&#34;&gt;account&lt;/a&gt; from Telstra for roaming wireless on my laptop &amp;ndash; it uses a Maxon MiniMax &lt;a href=&#34;http://www.maxon.com.au/products/consumers/consumers-minimax-home.asp&#34;&gt;MM-5500U&lt;/a&gt; to connect on the CDMA phone network. I got this rather than other wireless products as I was going to be doing some work in Perth, and this was the only network that had coverage.&lt;/p&gt;
@@ -561,10 +561,10 @@ Persistent Routes:
     
     <item>
       <title>atheros wireless</title>
-      <link>http://blog2.snowfrog.net/2006/02/23/atheros-wireless/</link>
+      <link>http://www.snowfrog.net/2006/02/23/atheros-wireless/</link>
       <pubDate>Fri, 24 Feb 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/02/23/atheros-wireless/</guid>
+      <guid>http://www.snowfrog.net/2006/02/23/atheros-wireless/</guid>
       <description>&lt;p&gt;atheros wireless&lt;/p&gt;
 
 &lt;ul&gt;

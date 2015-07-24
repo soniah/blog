@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/python/</link>
+    <link>http://www.snowfrog.net/tags/python/</link>
     <description>Recent content in Python on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 12 Feb 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>refactoring in Go - rather pleasant actually...</title>
-      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <link>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
       <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <guid>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
 
 &lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
@@ -47,10 +47,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Git - ignore whitespace</title>
-      <link>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</link>
+      <link>http://www.snowfrog.net/2012/06/13/git-ignore-whitespace/</link>
       <pubDate>Wed, 13 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</guid>
+      <guid>http://www.snowfrog.net/2012/06/13/git-ignore-whitespace/</guid>
       <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% git diff -w
@@ -63,10 +63,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Ruby, Lisp, Python</title>
-      <link>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
+      <link>http://www.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
       <pubDate>Tue, 20 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
+      <guid>http://www.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
       <description>&lt;p&gt;Up late tonight reading about &lt;a href=&#34;http://www.emacswiki.org/emacs/EmacsLisp&#34;&gt;Emacs Lisp&lt;/a&gt;, I came across &lt;a href=&#34;https://sites.google.com/site/steveyegge2/tour-de-babel&#34;&gt;Tour de Babel&lt;/a&gt; by &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul:&lt;/p&gt;
@@ -79,10 +79,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Python-iView</title>
-      <link>http://blog2.snowfrog.net/2011/04/11/python-iview/</link>
+      <link>http://www.snowfrog.net/2011/04/11/python-iview/</link>
       <pubDate>Mon, 11 Apr 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/04/11/python-iview/</guid>
+      <guid>http://www.snowfrog.net/2011/04/11/python-iview/</guid>
       <description>&lt;p&gt;A nice tool written by Jeremy Visser &amp;ndash; &lt;a href=&#34;https://launchpad.net/~jeremy-visser/+archive/python-iview&#34;&gt;Python-iView&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;As Jeremy &lt;a href=&#34;https://jeremy.visser.name/2009/08/30/python-iview/&#34;&gt;says&lt;/a&gt; on his blog: &amp;ldquo;Python-iView is an alternative frontend to ABC iView, which . is an awesome ABC TV programme catchup service that lets you watch most ABC programs from the last month in your browser. However, the iView website has some major problems. To address this, I wrote the open source (GPLv3) application Python-iView, which . allows you to download episodes to your hard drive in their original FLV format.&amp;rdquo;&lt;/p&gt;
@@ -93,10 +93,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Python, Lambda, Closures</title>
-      <link>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</link>
+      <link>http://www.snowfrog.net/2011/04/05/python-lambda-closures/</link>
       <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</guid>
+      <guid>http://www.snowfrog.net/2011/04/05/python-lambda-closures/</guid>
       <description>&lt;p&gt;A very interesting &lt;a href=&#34;http://algorithm.com.au/blog/files/immutability-blocks-lambdas-closures.php#unique-entry-id-613&#34;&gt;post&lt;/a&gt; from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&amp;rsquo;m playing with Lisp and Python at the moment.&lt;/p&gt;
 
 &lt;p&gt;Some links from his blog, in case the original post ever disappears:&lt;/p&gt;
@@ -122,10 +122,10 @@ for f in funcList:
     
     <item>
       <title>Lisp and Python</title>
-      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <link>http://www.snowfrog.net/2011/03/27/lisp-and-python/</link>
       <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <guid>http://www.snowfrog.net/2011/03/27/lisp-and-python/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
 
 &lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
@@ -146,10 +146,10 @@ for f in funcList:
     
     <item>
       <title>vim modelines</title>
-      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <link>http://www.snowfrog.net/2009/01/08/vim-modelines/</link>
       <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <guid>http://www.snowfrog.net/2009/01/08/vim-modelines/</guid>
       <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
 
 &lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;

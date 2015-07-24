@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debian on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/debian/</link>
+    <link>http://www.snowfrog.net/tags/debian/</link>
     <description>Recent content in Debian on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 26 Feb 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/debian/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Setup Arduino on Debian</title>
-      <link>http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/</link>
+      <link>http://www.snowfrog.net/2014/02/26/setup-arduino-on-debian/</link>
       <pubDate>Wed, 26 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/</guid>
+      <guid>http://www.snowfrog.net/2014/02/26/setup-arduino-on-debian/</guid>
       <description>&lt;p&gt;Some notes on setting up Arduino on Debian.&lt;/p&gt;
 
 &lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
@@ -66,10 +66,10 @@ id
     
     <item>
       <title>Change default editor in Debian</title>
-      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
+      <link>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
       <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
+      <guid>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
       <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
@@ -80,10 +80,10 @@ id
     
     <item>
       <title>debfoster - keeping a Debian system small</title>
-      <link>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
+      <link>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
       <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
+      <guid>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
       <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
@@ -129,10 +129,10 @@ id
     
     <item>
       <title>Golang - setup and producing .debs</title>
-      <link>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
+      <link>http://www.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
       <pubDate>Tue, 02 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
+      <guid>http://www.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&amp;rsquo;s to package them and &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; for README&amp;rsquo;s - &lt;em&gt;notes for me&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Install build pre-requisites:&lt;/p&gt;

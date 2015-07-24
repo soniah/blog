@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Humour on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/humour/</link>
+    <link>http://www.snowfrog.net/tags/humour/</link>
     <description>Recent content in Humour on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 26 Feb 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/humour/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/humour/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Problem: braindead screensaver timeouts</title>
-      <link>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</link>
+      <link>http://www.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</link>
       <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</guid>
+      <guid>http://www.snowfrog.net/2010/02/26/problem-braindead-screensaver-timeouts/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; You work in an organisation with locked down desktops that have stupidly short screensaver timeouts.&lt;/p&gt;
 
 &lt;p&gt;And you&amp;rsquo;re connected via multiple rdp&amp;rsquo;s to a process that you want to keep running all day, but the timeouts keep halting the process.&lt;/p&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>Andre may have to go…</title>
-      <link>http://blog2.snowfrog.net/2009/03/28/andre-may-have-to-go/</link>
+      <link>http://www.snowfrog.net/2009/03/28/andre-may-have-to-go/</link>
       <pubDate>Fri, 27 Mar 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/03/28/andre-may-have-to-go/</guid>
+      <guid>http://www.snowfrog.net/2009/03/28/andre-may-have-to-go/</guid>
       <description>&lt;p&gt;This financial crisis is forcing companies to make tough decisions, there is a risk that we might need to lay off Andre.&lt;/p&gt;
 
 &lt;div id=&#34;attachment_344&#34; class=&#34;wp-caption aligncenter&#34; style=&#34;width: 453px&#34;&gt;
@@ -54,10 +54,10 @@
     
     <item>
       <title>CityFail does it again…</title>
-      <link>http://blog2.snowfrog.net/2009/03/06/cityfail-does-it-again/</link>
+      <link>http://www.snowfrog.net/2009/03/06/cityfail-does-it-again/</link>
       <pubDate>Thu, 05 Mar 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/03/06/cityfail-does-it-again/</guid>
+      <guid>http://www.snowfrog.net/2009/03/06/cityfail-does-it-again/</guid>
       <description>&lt;p&gt;&amp;ldquo;RailCorp is threatening a Sydney man with legal action after he created an iPhone application that allows people to monitor timetables for Sydney trains and ferries.&amp;rdquo; &amp;ndash; from today&amp;rsquo;s &lt;a href=&#34;http://www.smh.com.au/news/digital-life/mobiles--handhelds/articles/cityrail-puts-brakes-on-iphone-app/2009/03/05/1235842537210.html&#34;&gt;SMH&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The author (Alvin Singh) is currently working for News Digital, so RailCorp probably can&amp;rsquo;t contract him out for a few months or offer him a monetary payment for the app (which he has offered to RailCorp for free). How about accepting his offer of the code and giving him a yearly train pass.? Or letting him add in the bus, travel planner and service interruption stuff he&amp;rsquo;s said he wants to do, and giving him a yearly TravelPass?&lt;/p&gt;

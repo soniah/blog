@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dns on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/dns/</link>
+    <link>http://www.snowfrog.net/tags/dns/</link>
     <description>Recent content in Dns on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 07 Jul 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/dns/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>vnc ssh tunnel for remote graphical support</title>
-      <link>http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/</link>
+      <link>http://www.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/</link>
       <pubDate>Sat, 07 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/</guid>
+      <guid>http://www.snowfrog.net/2012/07/07/vnc-ssh-tunnel-for-remote-graphical-support/</guid>
       <description>&lt;p&gt;I was doing remote internet support the other day for a friend in England - here&amp;rsquo;s how I connect remotely to the person&amp;rsquo;s desktop in graphical mode, using vnc and an ssh tunnel.&lt;/p&gt;
 
 &lt;ol&gt;
@@ -69,10 +69,10 @@ ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org &lt;span style=&#34;color:
     
     <item>
       <title>Ssh SOCKS proxying, DNS proxying, Tunnelling</title>
-      <link>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</link>
+      <link>http://www.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</link>
       <pubDate>Thu, 12 Jun 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</guid>
+      <guid>http://www.snowfrog.net/2008/06/12/ssh-socks-proxying-dns-proxying/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://puzzling.org/&#34;&gt;Mary Gardiner&lt;/a&gt; &lt;a href=&#34;http://lists.slug.org.au/archives/slug/2008/06/msg00135.html&#34;&gt;answered&lt;/a&gt; one of Voytek Eymont&amp;rsquo;s questions on the &lt;a href=&#34;http://lists.slug.org.au/listinfo/slug&#34;&gt;SLUG list&lt;/a&gt; by referring to the &lt;a href=&#34;http://ubuntu.wordpress.com/2006/12/08/ssh-tunnel-socks-proxy-forwarding-secure-browsing/&#34;&gt;ssh socks proxying&lt;/a&gt; post on Ubuntu Blog.&lt;/p&gt;
 
 &lt;p&gt;I was already familiar with ssh socks proxying, but that page has a good set of comments and links. A summary of that post, plus some other notes:&lt;/p&gt;

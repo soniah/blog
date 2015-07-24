@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clojure on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/clojure/</link>
+    <link>http://www.snowfrog.net/tags/clojure/</link>
     <description>Recent content in Clojure on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 16 Jul 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/clojure/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>4Clojure 59 Juxtaposition</title>
-      <link>http://blog2.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/</link>
+      <link>http://www.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/</link>
       <pubDate>Mon, 16 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/</guid>
+      <guid>http://www.snowfrog.net/2012/07/16/4clojure-59-juxtaposition/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.4clojure.com/problem/59&#34;&gt;4clojure problem 59 Juxtapostion&lt;/a&gt; - here&amp;rsquo;s how I approached the problem (warts and all) in the hope that it helps others who are learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Clojure&#34;&gt;Clojure&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;A reminder of what the &lt;strong&gt;juxt&lt;/strong&gt; function does:&lt;/p&gt;
@@ -83,10 +83,10 @@ args (left-to-right).
     
     <item>
       <title>4clojure 100 Least Common Multiple</title>
-      <link>http://blog2.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/</link>
+      <link>http://www.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/</link>
       <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/</guid>
+      <guid>http://www.snowfrog.net/2012/07/05/4clojure-100-least-common-multiple/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.4clojure.com/problem/100&#34;&gt;4clojure problem 100&lt;/a&gt; - calculate the &lt;a href=&#34;http://en.wikipedia.org/wiki/Least_common_multiple&#34;&gt;Least Common Multiple (LCM)&lt;/a&gt; of two or more numbers.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://upload.wikimedia.org/wikipedia/en/math/c/b/0/cb0d245e78e328c29095b9522fd16200.png&#34; alt=&#34;LCM Example&#34; /&gt;&lt;/p&gt;
@@ -151,10 +151,10 @@ args (left-to-right).
     
     <item>
       <title>4clojure 97 Pascal&#39;s Triangle</title>
-      <link>http://blog2.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/</link>
+      <link>http://www.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/</link>
       <pubDate>Mon, 04 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/</guid>
+      <guid>http://www.snowfrog.net/2012/06/04/4clojure-97-pascals-triangle/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.4clojure.com/&#34;&gt;4clojure&lt;/a&gt; problem 97 &lt;strong&gt;Pascal&amp;rsquo;s Triangle&lt;/strong&gt; - calculate the nth row:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Pascal%27s_triangle_5.svg/250px-Pascal%27s_triangle_5.svg.png&#34; alt=&#34;Pascal&#39;s Triangle&#34; /&gt;&lt;/p&gt;
@@ -184,10 +184,10 @@ args (left-to-right).
     
     <item>
       <title>4clojure 63 Group a Sequence</title>
-      <link>http://blog2.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/</link>
+      <link>http://www.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/</link>
       <pubDate>Sun, 03 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/</guid>
+      <guid>http://www.snowfrog.net/2012/06/03/4clojure-63-group-a-sequence/</guid>
       <description>&lt;p&gt;My first attempt at writing up one of my &lt;a href=&#34;http://www.4clojure.com/&#34;&gt;4clojure&lt;/a&gt; solutions. Problem 63 &amp;ldquo;Group a Sequence&amp;rdquo; requires you to re-implement &lt;strong&gt;group-by&lt;/strong&gt;. As always looking at the source code is cheating :-)&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Given a function f and a sequence s, write a function which returns a map. The keys should be the values of f applied to each item in s. The value at each key should be a vector of corresponding items in the order they appear in s.&lt;/em&gt;&lt;/p&gt;
@@ -277,10 +277,10 @@ args (left-to-right).
     
     <item>
       <title>Emacs Paredit Notes for OSX</title>
-      <link>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</link>
+      <link>http://www.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</link>
       <pubDate>Sat, 02 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</guid>
+      <guid>http://www.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</guid>
       <description>&lt;p&gt;Some notes on &lt;a href=&#34;http://emacswiki.org/emacs/ParEdit&#34;&gt;Emacs&amp;rsquo; Paredit mode&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;More so I can stop fighting with Paredit and do some &lt;strong&gt;Clojure&lt;/strong&gt; programming than show any expertise - see &lt;a href=&#34;http://www.slideshare.net/mudphone/paredit-preso&#34;&gt;Mudphone&amp;rsquo;s Paredit Preso&lt;/a&gt; for the real deal, as well as &lt;a href=&#34;http://p.hagelb.org/paredit-screencast.html&#34;&gt;hagelb&amp;rsquo;s Paredit screencast notes&lt;/a&gt; and the &lt;a href=&#34;http://www.emacswiki.org/pics/static/PareditCheatsheet.png&#34;&gt;Paredit Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
@@ -334,10 +334,10 @@ args (left-to-right).
     
     <item>
       <title>Learning Clojure - my books</title>
-      <link>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
+      <link>http://www.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
       <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
+      <guid>http://www.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&amp;rsquo;s a list of the books I&amp;rsquo;ve read on my journey to Clojure enlightenment (I&amp;rsquo;ve still got a long way to go&amp;hellip;).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;&lt;/p&gt;

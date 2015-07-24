@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sysadmin on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/sysadmin/</link>
+    <link>http://www.snowfrog.net/tags/sysadmin/</link>
     <description>Recent content in Sysadmin on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 04 Oct 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/sysadmin/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/sysadmin/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>RFC 1178 and server naming</title>
-      <link>http://blog2.snowfrog.net/2011/10/04/rfc-1178-and-server-naming/</link>
+      <link>http://www.snowfrog.net/2011/10/04/rfc-1178-and-server-naming/</link>
       <pubDate>Tue, 04 Oct 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/10/04/rfc-1178-and-server-naming/</guid>
+      <guid>http://www.snowfrog.net/2011/10/04/rfc-1178-and-server-naming/</guid>
       <description>&lt;p&gt;Whenever I come across servers with names like &lt;strong&gt;chpvuat01&lt;/strong&gt;, I&amp;rsquo;m reminded of &lt;a href=&#34;http://tools.ietf.org/html/rfc1178&#34;&gt;RFC 1178&lt;/a&gt; &amp;ldquo;Choosing a name for your computer&amp;rdquo;. Especially when &lt;strong&gt;ch&lt;/strong&gt; stands for &lt;strong&gt;crack house&lt;/strong&gt;, &lt;strong&gt;pv&lt;/strong&gt; stands for &lt;strong&gt;paid verbiage&lt;/strong&gt;, but &lt;strong&gt;uat&lt;/strong&gt; &lt;em&gt;doesn&amp;rsquo;t&lt;/em&gt; stand for &lt;strong&gt;user acceptance testing&lt;/strong&gt;: the box used to be in UAT, was moved to SIT (System Integration Testing), but &lt;em&gt;kept it&amp;rsquo;s old name because renaming it would be too hard.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;From the RFC:&lt;br /&gt;

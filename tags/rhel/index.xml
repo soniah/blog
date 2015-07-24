@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rhel on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/rhel/</link>
+    <link>http://www.snowfrog.net/tags/rhel/</link>
     <description>Recent content in Rhel on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 29 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/rhel/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/rhel/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Ghostscript ImageMagick RHEL libgs.so errors</title>
-      <link>http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/</link>
+      <link>http://www.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/</link>
       <pubDate>Thu, 29 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/</guid>
+      <guid>http://www.snowfrog.net/2012/03/29/ghostscript-imagemagick-rhel-libgs-so-errors/</guid>
       <description>&lt;p&gt;A little problem I came across today. When you install ImageMagick (IM) on &lt;a href=&#34;http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux&#34;&gt;RHEL&lt;/a&gt; (or &lt;a href=&#34;http://en.wikipedia.org/wiki/Oracle_Enterprise_Linux&#34;&gt;OEL&lt;/a&gt; or similar), IM fails when converting pdfs.&lt;/p&gt;
 
 &lt;p&gt;You can see the problem (&lt;strong&gt;libgs.so&lt;/strong&gt;) by logging the output of IM. For example, here&amp;rsquo;s an attempted conversion of &lt;strong&gt;test.pdf&lt;/strong&gt; to &lt;strong&gt;test.tif&lt;/strong&gt;:&lt;/p&gt;

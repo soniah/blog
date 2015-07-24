@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Oracle on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/oracle/</link>
+    <link>http://www.snowfrog.net/tags/oracle/</link>
     <description>Recent content in Oracle on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 29 Jun 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Oracle RMAN backups</title>
-      <link>http://blog2.snowfrog.net/2009/06/29/oracle-rman-backups/</link>
+      <link>http://www.snowfrog.net/2009/06/29/oracle-rman-backups/</link>
       <pubDate>Mon, 29 Jun 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/06/29/oracle-rman-backups/</guid>
+      <guid>http://www.snowfrog.net/2009/06/29/oracle-rman-backups/</guid>
       <description>&lt;p&gt;More notes on Oracle RMAN backups, see also &lt;a href=&#34;http://www.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/&#34;&gt;Oracle – how to purge old RMAN backups&lt;/a&gt;. Thanks Raoul for your email.&lt;/p&gt;
 
 &lt;pre&gt;&lt;pre&gt;Are the backups being deleted using RMAN or simply &#39;rm&#39;?
@@ -71,10 +71,10 @@ backup database;&lt;/pre&gt;
     
     <item>
       <title>Oracle and shmmax and shmall</title>
-      <link>http://blog2.snowfrog.net/2009/02/16/oracleoracle-and-shmmax-and-shmall/</link>
+      <link>http://www.snowfrog.net/2009/02/16/oracleoracle-and-shmmax-and-shmall/</link>
       <pubDate>Mon, 16 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/02/16/oracleoracle-and-shmmax-and-shmall/</guid>
+      <guid>http://www.snowfrog.net/2009/02/16/oracleoracle-and-shmmax-and-shmall/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;http://www.pythian.com/blogs/245/the-mysterious-world-of-shmmax-and-shmall&#34;&gt;good article&lt;/a&gt; on Oracle and shmmax and shmall. In a nutshell:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -86,10 +86,10 @@ backup database;&lt;/pre&gt;
     
     <item>
       <title>Shutdown/Startup Oracle</title>
-      <link>http://blog2.snowfrog.net/2009/01/12/shutdownstartup-oracle/</link>
+      <link>http://www.snowfrog.net/2009/01/12/shutdownstartup-oracle/</link>
       <pubDate>Sun, 11 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/12/shutdownstartup-oracle/</guid>
+      <guid>http://www.snowfrog.net/2009/01/12/shutdownstartup-oracle/</guid>
       <description>&lt;p&gt;Some notes on shutting down and starting up Oracle, taken from an email.&lt;/p&gt;
 
 &lt;div dir=&#34;ltr&#34;&gt;
@@ -340,10 +340,10 @@ backup database;&lt;/pre&gt;
     
     <item>
       <title>Oracle – how to purge old RMAN backups</title>
-      <link>http://blog2.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/</link>
+      <link>http://www.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/</link>
       <pubDate>Thu, 18 Dec 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/</guid>
+      <guid>http://www.snowfrog.net/2008/12/18/oracle-how-to-purge-old-rman-backups/</guid>
       <description>&lt;p&gt;Oracle runs on Linux, therefore I must be an Oracle expert (so goes management thinking).&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s how to correctly purge old RMAN backups when storage runs out of space (thanks Nakrob):&lt;/p&gt;

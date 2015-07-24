@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clearline on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/clearline/</link>
+    <link>http://www.snowfrog.net/tags/clearline/</link>
     <description>Recent content in Clearline on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 30 Jan 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/clearline/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/clearline/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>WordPress Clear Line Theme – Previous Page Newer Posts</title>
-      <link>http://blog2.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
+      <link>http://www.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</link>
       <pubDate>Mon, 30 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
+      <guid>http://www.snowfrog.net/2012/01/30/wordpress-clear-line-theme-previous-page-newer-posts/</guid>
       <description>&lt;p&gt;The WordPress Clear Line Theme has paginators at the bottom of pages, that have links to &lt;strong&gt;Previous Page&lt;/strong&gt; and &lt;strong&gt;Next Page&lt;/strong&gt;. Changing them to say something like &lt;strong&gt;Newer Posts&lt;/strong&gt; and &lt;strong&gt;Older Posts&lt;/strong&gt; is easy &amp;ndash; you need to edit the following four files:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -41,10 +41,10 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
     
     <item>
       <title>WordPress Clear Line Theme – Hide Site Admin, Login, Entries RSS</title>
-      <link>http://blog2.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
+      <link>http://www.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</link>
       <pubDate>Sun, 29 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
+      <guid>http://www.snowfrog.net/2012/01/29/wordpress-clearline-theme-hide-site-admin-login-entries-rss/</guid>
       <description>&lt;p&gt;The default settings in the WordPress Clearline Theme (and most WordPress themes) will display a box of settings containing things like &amp;ldquo;Site Admin&amp;rdquo;, &amp;ldquo;Login&amp;rdquo;, &amp;ldquo;Entries RSS&amp;rdquo;, etc. This is called the &lt;strong&gt;Meta Widget&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Unfortunately this Meta Widget can really distract from the visual quality of your site, and it&amp;rsquo;s a slight security risk (though hiding it won&amp;rsquo;t stop &lt;em&gt;evildoers&lt;/em&gt; from working out that you&amp;rsquo;re running WordPress).&lt;/p&gt;
@@ -91,10 +91,10 @@ sed -i &#39;s/Next Page/Older Posts/&#39; archive.php author.php index.php searc
     
     <item>
       <title>WordPress Clear Line Theme – Display Tags not Categories</title>
-      <link>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
+      <link>http://www.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
       <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
+      <guid>http://www.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
       <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;rsquo;t have a way of modifying it&amp;rsquo;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
 
 &lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;

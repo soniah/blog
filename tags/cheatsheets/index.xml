@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cheatsheets on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/cheatsheets/</link>
+    <link>http://www.snowfrog.net/tags/cheatsheets/</link>
     <description>Recent content in Cheatsheets on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 02 Feb 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/cheatsheets/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/cheatsheets/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Setup a forwarding caching-only DNS Server on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</link>
+      <link>http://www.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</link>
       <pubDate>Sat, 02 Feb 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</guid>
       <description>&lt;p&gt;A quick cheatsheet for setting up a forwarding, caching-only DNS Server on Ubuntu.&lt;/p&gt;
 
 &lt;p&gt;&lt;u&gt;Edit /etc/bind/named.conf.options:&lt;/u&gt;&lt;/p&gt;
@@ -65,10 +65,10 @@
     
     <item>
       <title>tcpdump notes</title>
-      <link>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</link>
+      <link>http://www.snowfrog.net/2007/11/11/tcpdump-notes/</link>
       <pubDate>Mon, 12 Nov 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</guid>
+      <guid>http://www.snowfrog.net/2007/11/11/tcpdump-notes/</guid>
       <description>&lt;p&gt;Examples:&lt;/p&gt;
 
 &lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;tcpdump host 172.26.24.58 and (port 20 or port 21)
@@ -103,10 +103,10 @@ ack &lt;strong&gt;4193395020&lt;/strong&gt; win 5792 &lt;mss 1460,sackOK,timesta
     
     <item>
       <title>Subversion Cheatsheet</title>
-      <link>http://blog2.snowfrog.net/2007/10/09/subversion-cheatsheet/</link>
+      <link>http://www.snowfrog.net/2007/10/09/subversion-cheatsheet/</link>
       <pubDate>Tue, 09 Oct 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/10/09/subversion-cheatsheet/</guid>
+      <guid>http://www.snowfrog.net/2007/10/09/subversion-cheatsheet/</guid>
       <description>&lt;p&gt;Subversion Cheatsheet&lt;/p&gt;
 
 &lt;ul&gt;
@@ -190,10 +190,10 @@ ack &lt;strong&gt;4193395020&lt;/strong&gt; win 5792 &lt;mss 1460,sackOK,timesta
     
     <item>
       <title>misc cheat sheets</title>
-      <link>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</link>
+      <link>http://www.snowfrog.net/2007/01/27/misc-cheat-sheets/</link>
       <pubDate>Sun, 28 Jan 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/01/27/misc-cheat-sheets/</guid>
+      <guid>http://www.snowfrog.net/2007/01/27/misc-cheat-sheets/</guid>
       <description>&lt;p&gt;misc cheat sheets&lt;/p&gt;
 
 &lt;ul&gt;
@@ -218,10 +218,10 @@ ack &lt;strong&gt;4193395020&lt;/strong&gt; win 5792 &lt;mss 1460,sackOK,timesta
     
     <item>
       <title>sed notes 2</title>
-      <link>http://blog2.snowfrog.net/2006/09/14/sed-notes-2/</link>
+      <link>http://www.snowfrog.net/2006/09/14/sed-notes-2/</link>
       <pubDate>Fri, 15 Sep 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/09/14/sed-notes-2/</guid>
+      <guid>http://www.snowfrog.net/2006/09/14/sed-notes-2/</guid>
       <description>
 
 &lt;p&gt;sed notes 2&lt;/p&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Salt on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/salt/</link>
+    <link>http://www.snowfrog.net/tags/salt/</link>
     <description>Recent content in Salt on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 29 Sep 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/salt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/salt/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Git and mercurial abort: revision cannot be pushed</title>
-      <link>http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
+      <link>http://www.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
+      <guid>http://www.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.&lt;/p&gt;
@@ -78,10 +78,10 @@ hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34
     
     <item>
       <title>SaltStack Essential Reading</title>
-      <link>http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/</link>
+      <link>http://www.snowfrog.net/2014/09/23/saltstack-essential-reading/</link>
       <pubDate>Tue, 23 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/</guid>
+      <guid>http://www.snowfrog.net/2014/09/23/saltstack-essential-reading/</guid>
       <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
 
 &lt;ul&gt;

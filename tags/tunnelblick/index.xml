@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tunnelblick on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/tunnelblick/</link>
+    <link>http://www.snowfrog.net/tags/tunnelblick/</link>
     <description>Recent content in Tunnelblick on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 22 Dec 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/tunnelblick/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/tunnelblick/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</title>
-      <link>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
+      <link>http://www.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
       <pubDate>Sun, 22 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
+      <guid>http://www.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
       <description>&lt;p&gt;When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&amp;rsquo;ll get an error in the console log like:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Unable to copy file foo to /var/private/bar&amp;hellip;&lt;/em&gt;&lt;/p&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Snmp on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/snmp/</link>
+    <link>http://www.snowfrog.net/tags/snmp/</link>
     <description>Recent content in Snmp on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 10 Feb 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/snmp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/snmp/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>gsnmpgo - SNMP for Golang using gsnmp</title>
-      <link>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</link>
+      <link>http://www.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</link>
       <pubDate>Sun, 10 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</guid>
+      <guid>http://www.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</guid>
       <description>
 
 &lt;p&gt;Update 8/Mar/13. Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;http://github.com/soniah/gosnmp&lt;/a&gt; instead.&lt;/p&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/golang/</link>
+    <link>http://www.snowfrog.net/tags/golang/</link>
     <description>Recent content in Golang on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 13 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Terraform Presentation</title>
-      <link>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</link>
+      <link>http://www.snowfrog.net/2015/01/13/terraform-presentation/</link>
       <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</guid>
+      <guid>http://www.snowfrog.net/2015/01/13/terraform-presentation/</guid>
       <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
 
 &lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/43462586&#34;
@@ -24,10 +24,10 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
     
     <item>
       <title>Building the development version of Terraform</title>
-      <link>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</link>
+      <link>http://www.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</link>
       <pubDate>Wed, 03 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</guid>
+      <guid>http://www.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</guid>
       <description>&lt;p&gt;Instructions on how to build the development version of &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
@@ -116,10 +116,10 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
     
     <item>
       <title>Golang - building with Makefile and Jenkins</title>
-      <link>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</link>
+      <link>http://www.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</link>
       <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</guid>
+      <guid>http://www.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins.&lt;/p&gt;
@@ -215,10 +215,10 @@ build-stamp: file1.go file2.go file3.go
     
     <item>
       <title>Golang - profiling libraries and GoSNMP for SNMP</title>
-      <link>http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</link>
+      <link>http://www.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</link>
       <pubDate>Mon, 03 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</guid>
+      <guid>http://www.snowfrog.net/2013/06/03/golang-profiling-libraries-and-gosnmp-for-snmp/</guid>
       <description>&lt;p&gt;There is already a great article on &lt;a href=&#34;blog.golang.org/2011/06/profiling-go-programs.html&#34;&gt;Profiling Go Programs&lt;/a&gt;. However that article only discusses how to profile a standalone binary - what about a library?&lt;/p&gt;
 
 &lt;p&gt;For example, I&amp;rsquo;ve been working on the &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;GoSNMP SNMP library&lt;/a&gt;, here&amp;rsquo;s how I profiled it (it wasn&amp;rsquo;t obvious):&lt;/p&gt;
@@ -248,10 +248,10 @@ build-stamp: file1.go file2.go file3.go
     
     <item>
       <title>git bisect run - example</title>
-      <link>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</link>
+      <link>http://www.snowfrog.net/2013/03/14/git-bisect-run-example/</link>
       <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</guid>
+      <guid>http://www.snowfrog.net/2013/03/14/git-bisect-run-example/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html&#34;&gt;Git bisect&lt;/a&gt; is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&amp;rsquo;s an example of automating the process using &lt;strong&gt;git bisect run&lt;/strong&gt;.&lt;/p&gt;
@@ -396,10 +396,10 @@ Date:   Thu Mar 14 10:02:42 2013 +1100
     
     <item>
       <title>GoSnmp - SNMP for GoLang</title>
-      <link>http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/</link>
+      <link>http://www.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/</link>
       <pubDate>Mon, 11 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/</guid>
+      <guid>http://www.snowfrog.net/2013/03/11/gosnmp-snmp-for-golang/</guid>
       <description>&lt;p&gt;Today I released &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;soniah/gosnmp&lt;/a&gt; - an update of &lt;a href=&#34;http://github.com/alouca&#34;&gt;alouca/gosnmp&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Many, many thanks to Andreas Louca for writing &lt;strong&gt;alouca/gosnmp&lt;/strong&gt;. The
@@ -425,10 +425,10 @@ uint64 values)&lt;/p&gt;
     
     <item>
       <title>refactoring in Go - rather pleasant actually...</title>
-      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <link>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
       <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <guid>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
 
 &lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
@@ -462,10 +462,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>gsnmpgo - SNMP for Golang using gsnmp</title>
-      <link>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</link>
+      <link>http://www.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</link>
       <pubDate>Sun, 10 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</guid>
+      <guid>http://www.snowfrog.net/2013/02/10/gsnmpgo-snmp-for-golang-using-gsnmp/</guid>
       <description>
 
 &lt;p&gt;Update 8/Mar/13. Work on gsnmpgo has halted. Making the gsnmp C library multithreaded was proving too time consuming. Use &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;http://github.com/soniah/gosnmp&lt;/a&gt; instead.&lt;/p&gt;
@@ -497,10 +497,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>vim - bufexplorer</title>
-      <link>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</link>
+      <link>http://www.snowfrog.net/2012/11/20/vim-bufexplorer/</link>
       <pubDate>Tue, 20 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</guid>
+      <guid>http://www.snowfrog.net/2012/11/20/vim-bufexplorer/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.vim.org/scripts/script.php?script_id=42&#34;&gt;Bufexplorer&lt;/a&gt; - my new favourite add-on for vim.&lt;/p&gt;
 
 &lt;p&gt;Why do I like it? It allows you to emulate the buffer list feature of emacs, as well as switch between horizontal/vertical buffer splits and find recently edited files. All this can already be done with vim buffers, but bufexplorer makes it easy.&lt;/p&gt;
@@ -515,10 +515,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Golang - setup and producing .debs</title>
-      <link>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
+      <link>http://www.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
       <pubDate>Tue, 02 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
+      <guid>http://www.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&amp;rsquo;s to package them and &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; for README&amp;rsquo;s - &lt;em&gt;notes for me&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Install build pre-requisites:&lt;/p&gt;
@@ -545,10 +545,10 @@ sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
     
     <item>
       <title>Golang: checking open files and memory usage</title>
-      <link>http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/</link>
+      <link>http://www.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/</link>
       <pubDate>Fri, 14 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/</guid>
+      <guid>http://www.snowfrog.net/2012/09/14/golang-checking-open-files-and-memory-usage/</guid>
       <description>&lt;p&gt;Notes to myself more than anything, and not really specific to Go (but that&amp;rsquo;s where I was using it).&lt;/p&gt;
 
 &lt;p&gt;To watch the memory usage of a process with pid PID:&lt;/p&gt;

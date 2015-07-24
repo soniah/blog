@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Links on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/links/</link>
+    <link>http://www.snowfrog.net/tags/links/</link>
     <description>Recent content in Links on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 13 Jun 2007 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/links/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>MSSQL Resources</title>
-      <link>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</link>
+      <link>http://www.snowfrog.net/2007/06/13/ms-sql-resources/</link>
       <pubDate>Wed, 13 Jun 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</guid>
+      <guid>http://www.snowfrog.net/2007/06/13/ms-sql-resources/</guid>
       <description>
 
 &lt;p&gt;MSSQL Resources&lt;/p&gt;

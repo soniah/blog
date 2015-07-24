@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Terraform on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/terraform/</link>
+    <link>http://www.snowfrog.net/tags/terraform/</link>
     <description>Recent content in Terraform on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 13 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Terraform Presentation</title>
-      <link>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</link>
+      <link>http://www.snowfrog.net/2015/01/13/terraform-presentation/</link>
       <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</guid>
+      <guid>http://www.snowfrog.net/2015/01/13/terraform-presentation/</guid>
       <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
 
 &lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/43462586&#34;
@@ -24,10 +24,10 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
     
     <item>
       <title>Building the development version of Terraform</title>
-      <link>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</link>
+      <link>http://www.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</link>
       <pubDate>Wed, 03 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</guid>
+      <guid>http://www.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</guid>
       <description>&lt;p&gt;Instructions on how to build the development version of &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;

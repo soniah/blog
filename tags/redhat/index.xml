@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Redhat on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/redhat/</link>
+    <link>http://www.snowfrog.net/tags/redhat/</link>
     <description>Recent content in Redhat on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 22 Oct 2006 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/redhat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/redhat/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>using kickstart to automate Redhat/Fedora setups</title>
-      <link>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</link>
+      <link>http://www.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</link>
       <pubDate>Sun, 22 Oct 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</guid>
+      <guid>http://www.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</guid>
       <description>&lt;p&gt;Using kickstart to automate Redhat/Fedora setups&lt;/p&gt;
 
 &lt;p&gt;(tested on Fedora Core 3)&lt;/p&gt;

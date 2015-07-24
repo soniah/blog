@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vim on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/vim/</link>
+    <link>http://www.snowfrog.net/tags/vim/</link>
     <description>Recent content in Vim on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 24 Dec 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Change default editor in Debian</title>
-      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
+      <link>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
       <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
+      <guid>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
       <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
@@ -24,10 +24,10 @@
     
     <item>
       <title>refactoring in Go - rather pleasant actually...</title>
-      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <link>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
       <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <guid>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
 
 &lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
@@ -61,10 +61,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>vim - bufexplorer</title>
-      <link>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</link>
+      <link>http://www.snowfrog.net/2012/11/20/vim-bufexplorer/</link>
       <pubDate>Tue, 20 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/11/20/vim-bufexplorer/</guid>
+      <guid>http://www.snowfrog.net/2012/11/20/vim-bufexplorer/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.vim.org/scripts/script.php?script_id=42&#34;&gt;Bufexplorer&lt;/a&gt; - my new favourite add-on for vim.&lt;/p&gt;
 
 &lt;p&gt;Why do I like it? It allows you to emulate the buffer list feature of emacs, as well as switch between horizontal/vertical buffer splits and find recently edited files. All this can already be done with vim buffers, but bufexplorer makes it easy.&lt;/p&gt;
@@ -79,10 +79,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Vim Buffers Cheatsheet</title>
-      <link>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</link>
+      <link>http://www.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</link>
       <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</guid>
+      <guid>http://www.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</guid>
       <description>&lt;p&gt;A small Vim Buffers cheatsheet:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;:bu &amp;lt;tab&amp;gt;    - select a buffer
@@ -107,10 +107,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Vimdiff – refresh or update after changes</title>
-      <link>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</link>
+      <link>http://www.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</link>
       <pubDate>Fri, 02 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</guid>
+      <guid>http://www.snowfrog.net/2012/03/02/vimdiff-refresh-or-update-after-changes/</guid>
       <description>&lt;p&gt;I little command I always have to search for when using vimdiff &amp;ndash; &lt;strong&gt;:diffupdate&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;After you&amp;rsquo;ve made changes in vimdiff &lt;strong&gt;:diffupdate&lt;/strong&gt; will recalculate the diffs.&lt;/p&gt;
@@ -127,10 +127,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>vim folding</title>
-      <link>http://blog2.snowfrog.net/2010/03/30/vim-folding/</link>
+      <link>http://www.snowfrog.net/2010/03/30/vim-folding/</link>
       <pubDate>Tue, 30 Mar 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/03/30/vim-folding/</guid>
+      <guid>http://www.snowfrog.net/2010/03/30/vim-folding/</guid>
       <description>&lt;p&gt;A concise &lt;a href=&#34;http://www.linux.com/archive/feature/114138&#34;&gt;article&lt;/a&gt; on Linux.com (that I keep referring back to) about vim folding.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;ve been using vi/vim for years and vi keystrokes just &amp;ldquo;happen&amp;rdquo;, but it&amp;rsquo;s always nice to learn a few more tricks, especially when working with larger scripts.&lt;/p&gt;
@@ -153,10 +153,10 @@ au BufWinEnter * silent loadview
     
     <item>
       <title>git – ignore vim temporary files in all directories</title>
-      <link>http://blog2.snowfrog.net/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/</link>
+      <link>http://www.snowfrog.net/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/</link>
       <pubDate>Fri, 24 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/</guid>
+      <guid>http://www.snowfrog.net/2009/07/24/git-ignore-vim-temporary-files-in-all-directories/</guid>
       <description>&lt;p&gt;Up until a few weeks ago I was using subversion for all my personal stuff.&lt;/p&gt;
 
 &lt;p&gt;But then I got fredded when my free subversion hosting (xp-dev.com) went down for a few days, so I&amp;rsquo;ve moved to git. Yay, no more central repository to go down.&lt;/p&gt;
@@ -188,10 +188,10 @@ tmp/**/*&lt;/pre&gt;
     
     <item>
       <title>Prevent auto-indenting when pasting code into Vim</title>
-      <link>http://blog2.snowfrog.net/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/</link>
+      <link>http://www.snowfrog.net/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/</link>
       <pubDate>Fri, 23 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/</guid>
+      <guid>http://www.snowfrog.net/2009/01/24/prevent-auto-indenting-when-pasting-code-into-vim/</guid>
       <description>&lt;p&gt;When posting code into vim, it often auto-indents it in a staircase fashion off to the right &amp;ndash; really annoying.&lt;/p&gt;
 
 &lt;p&gt;To prevent this, use &lt;strong&gt;:set paste&lt;/strong&gt;, and &lt;strong&gt;:set nopaste&lt;/strong&gt; to turn it off.&lt;/p&gt;
@@ -202,10 +202,10 @@ tmp/**/*&lt;/pre&gt;
     
     <item>
       <title>vim modelines</title>
-      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <link>http://www.snowfrog.net/2009/01/08/vim-modelines/</link>
       <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <guid>http://www.snowfrog.net/2009/01/08/vim-modelines/</guid>
       <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
 
 &lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
@@ -256,10 +256,10 @@ tmp/**/*&lt;/pre&gt;
     
     <item>
       <title>visual diff tools</title>
-      <link>http://blog2.snowfrog.net/2006/06/20/visual-diff-tools/</link>
+      <link>http://www.snowfrog.net/2006/06/20/visual-diff-tools/</link>
       <pubDate>Wed, 21 Jun 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/06/20/visual-diff-tools/</guid>
+      <guid>http://www.snowfrog.net/2006/06/20/visual-diff-tools/</guid>
       <description>&lt;p&gt;I usually use &lt;em&gt;vimdiff&lt;/em&gt; to find the differences between two files; here are some gui tools that do the same thing:&lt;/p&gt;
 
 &lt;ul&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fonts on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/fonts/</link>
+    <link>http://www.snowfrog.net/tags/fonts/</link>
     <description>Recent content in Fonts on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 26 Mar 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/fonts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/fonts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Firefox fonts on Gutsy</title>
-      <link>http://blog2.snowfrog.net/2009/03/26/firefox-fonts-on-gutsy/</link>
+      <link>http://www.snowfrog.net/2009/03/26/firefox-fonts-on-gutsy/</link>
       <pubDate>Thu, 26 Mar 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/03/26/firefox-fonts-on-gutsy/</guid>
+      <guid>http://www.snowfrog.net/2009/03/26/firefox-fonts-on-gutsy/</guid>
       <description>&lt;p&gt;I recently reinstalled Ubuntu Gutsy on one of my laptops, and the fonts in Firefox came up ugly.&lt;/p&gt;
 
 &lt;p&gt;I can&amp;rsquo;t remember what I did last time to improve the fonts, but this techniques in &lt;a href=&#34;http://blog.rfquerin.org/2008/03/05/ubuntu-firefox-gnome-and-slight-hinting/&#34;&gt;this post&lt;/a&gt; made things a bit better. Also checkout &lt;a href=&#34;http://ubuntusite.com/fix-get-best-firefox-font-linux/&#34;&gt;this&lt;/a&gt; and &lt;a href=&#34;http://ubuntuforums.org/showpost.php?p=1209754&amp;amp;postcount=1&#34;&gt;this&lt;/a&gt;.&lt;/p&gt;

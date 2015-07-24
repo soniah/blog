@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>High Availability on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/high-availability/</link>
+    <link>http://www.snowfrog.net/tags/high-availability/</link>
     <description>Recent content in High Availability on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 14 Jan 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/high-availability/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/high-availability/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The RAID5 Write Hole</title>
-      <link>http://blog2.snowfrog.net/2011/01/14/the-raid5-write-hole/</link>
+      <link>http://www.snowfrog.net/2011/01/14/the-raid5-write-hole/</link>
       <pubDate>Fri, 14 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/01/14/the-raid5-write-hole/</guid>
+      <guid>http://www.snowfrog.net/2011/01/14/the-raid5-write-hole/</guid>
       <description>&lt;p&gt;The latest edition of the venerable &lt;a href=&#34;http://www.amazon.com/UNIX-Linux-System-Administration-Handbook/dp/0131480057/ref=sr_1_1?s=books&amp;amp;ie=UTF8&amp;amp;qid=1294981909&amp;amp;sr=1-1&#34;&gt;UNIX and Linux System Administration Handbook&lt;/a&gt; (Nemeth et al) has a good section discussing the &amp;ldquo;RAID5 Write Hole&amp;rdquo;:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Finally, RAID 5 is vulnerable to corruption in certain circumstances. Its incremental updating of parity data is more efficient than reading the entire stripe and recalculating the stripe’s parity based on the original data. On the other hand, it means that at no point is parity data ever validated or recalculated. If any block in a stripe should fall out of sync with the parity block, that fact will never become evident in normal use; reads of the data blocks will still return the correct data.&lt;/em&gt;&lt;/p&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>Troubleshooting Linux HA (High Availability)</title>
-      <link>http://blog2.snowfrog.net/2009/02/25/troubleshooting-linux-ha-high-availability/</link>
+      <link>http://www.snowfrog.net/2009/02/25/troubleshooting-linux-ha-high-availability/</link>
       <pubDate>Wed, 25 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/02/25/troubleshooting-linux-ha-high-availability/</guid>
+      <guid>http://www.snowfrog.net/2009/02/25/troubleshooting-linux-ha-high-availability/</guid>
       <description>&lt;p&gt;When Linux HA (High Availability) is setup, each machine will have a physical address, and one machine should also have the virtual address.&lt;/p&gt;
 
 &lt;p&gt;This can be checked via &lt;strong&gt;ip addr&lt;/strong&gt;:&lt;/p&gt;

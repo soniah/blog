@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cisco on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/cisco/</link>
+    <link>http://www.snowfrog.net/tags/cisco/</link>
     <description>Recent content in Cisco on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 26 Feb 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/cisco/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/cisco/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Serial Port Access on OSX to Cisco devices</title>
-      <link>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
+      <link>http://www.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
       <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
+      <guid>http://www.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
       <description>&lt;p&gt;How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).&lt;/p&gt;
 
 &lt;p&gt;Googling, everyone says to use zterm, but I couldn&amp;rsquo;t get it to work (and zterm looks and feels like a toy).&lt;/p&gt;

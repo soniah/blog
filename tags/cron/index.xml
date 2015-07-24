@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cron on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/cron/</link>
+    <link>http://www.snowfrog.net/tags/cron/</link>
     <description>Recent content in Cron on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/cron/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/cron/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Solaris – max of 100 cron jobs</title>
-      <link>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</link>
+      <link>http://www.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</link>
       <pubDate>Mon, 09 May 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</guid>
+      <guid>http://www.snowfrog.net/2011/05/09/solaris-max-of-100-cron-jobs/</guid>
       <description>&lt;p&gt;I stumbled across a &lt;s&gt;limitation&lt;/s&gt; &lt;s&gt;feature&lt;/s&gt; behaviour of Solaris over the weekend &amp;ndash; by default it only allows you to run a maximum of 100 cron jobs at once. I suppose this to protect against &amp;ldquo;shooting oneself in the head&amp;rdquo;, but aaaarghhh. Reminds me why I love Monday mornings.&lt;/p&gt;
 
 &lt;p&gt;Anyway, the file to edit is &lt;strong&gt;/etc/cron.d/queuedefs&lt;/strong&gt;, see &lt;strong&gt;man queuedefs&lt;/strong&gt;.&lt;/p&gt;
@@ -24,10 +24,10 @@
     
     <item>
       <title>Source keychain credentials in Perl</title>
-      <link>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</link>
+      <link>http://www.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</link>
       <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
+      <guid>http://www.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
       <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://www.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.mail-archive.com/centos@centos.org/msg12887.html&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; how to use keychain with Perl scripts:&lt;/p&gt;
@@ -44,10 +44,10 @@ run_perl_program.pl&lt;/pre&gt;
     
     <item>
       <title>ssh, ssh-agent, keychain and cron notes</title>
-      <link>http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</link>
+      <link>http://www.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</link>
       <pubDate>Fri, 16 Nov 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</guid>
+      <guid>http://www.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;To setup &lt;strong&gt;ssh&lt;/strong&gt; and &lt;strong&gt;keychain&lt;/strong&gt; to allow ssh related jobs to run from cron:&lt;/p&gt;

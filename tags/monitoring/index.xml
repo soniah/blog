@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Monitoring on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/monitoring/</link>
+    <link>http://www.snowfrog.net/tags/monitoring/</link>
     <description>Recent content in Monitoring on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 29 Oct 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Monitoring disk activity using block_dump</title>
-      <link>http://blog2.snowfrog.net/2009/10/29/monitoring-disk-activity-using-block_dump/</link>
+      <link>http://www.snowfrog.net/2009/10/29/monitoring-disk-activity-using-block_dump/</link>
       <pubDate>Thu, 29 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/29/monitoring-disk-activity-using-block_dump/</guid>
+      <guid>http://www.snowfrog.net/2009/10/29/monitoring-disk-activity-using-block_dump/</guid>
       <description>&lt;p&gt;A couple of good links [&lt;a href=&#34;http://ubuntuforums.org/archive/index.php/t-369759.html&#34;&gt;1&lt;/a&gt;][&lt;a href=&#34;http://sprocket.io/blog/2006/05/monitoring-filesystem-activity-under-linux-with-block_dump/&#34;&gt;2&lt;/a&gt;] came up on the &lt;a href=&#34;http://axxs.org/&#34;&gt;Axxs collective&lt;/a&gt; email list about monitoring disk activity under Linux using block_dump.&lt;/p&gt;
 
 &lt;p&gt;In a nutshell:&lt;/p&gt;

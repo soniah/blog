@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Php on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/php/</link>
+    <link>http://www.snowfrog.net/tags/php/</link>
     <description>Recent content in Php on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 19 Jan 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>WordPress Clear Line Theme – Display Tags not Categories</title>
-      <link>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
+      <link>http://www.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</link>
       <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
+      <guid>http://www.snowfrog.net/2012/01/19/wordpress-clearline-theme-display-tags-not-categories/</guid>
       <description>&lt;p&gt;The WordPress Clearline theme displays &lt;strong&gt;categories&lt;/strong&gt; not &lt;strong&gt;tags&lt;/strong&gt; for posts, and doesn&amp;rsquo;t have a way of modifying it&amp;rsquo;s behaviour through the settings area. This is easily fixed with a one line code change:&lt;/p&gt;
 
 &lt;p&gt;Edit the file &lt;strong&gt;/var/www/wp-content/themes/clear-line/functions.php&lt;/strong&gt;, and at approximately line 340 replace:&lt;/p&gt;

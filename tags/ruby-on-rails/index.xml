@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ruby On Rails on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/ruby-on-rails/</link>
+    <link>http://www.snowfrog.net/tags/ruby-on-rails/</link>
     <description>Recent content in Ruby On Rails on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 29 Jun 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/ruby-on-rails/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Ruby and Rails – Time, Date, DateTime, TZInfo</title>
-      <link>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
+      <link>http://www.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
       <pubDate>Wed, 29 Jun 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
+      <guid>http://www.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
       <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;ndash; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;ndash; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
 
 &lt;p style=&#34;padding-left: 30px;&#34;&gt;
@@ -32,10 +32,10 @@
     
     <item>
       <title>Installing Aptana &#43; RadRails on Ubuntu Jaunty</title>
-      <link>http://blog2.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</link>
+      <link>http://www.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</link>
       <pubDate>Mon, 17 Aug 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</guid>
+      <guid>http://www.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve always used vim as my main editor, but I thought I&amp;rsquo;d try RadRails since so many Rails people rave about it.&lt;/p&gt;
 
 &lt;p&gt;Installing it on Ubuntu Jaunty is a bit non-obvious:&lt;/p&gt;
@@ -63,10 +63,10 @@ export MOZILLA_FIVE_HOME LD_LIBRARY_PATH
     
     <item>
       <title>ruby gem server</title>
-      <link>http://blog2.snowfrog.net/2009/06/05/ruby-gem-server/</link>
+      <link>http://www.snowfrog.net/2009/06/05/ruby-gem-server/</link>
       <pubDate>Fri, 05 Jun 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/06/05/ruby-gem-server/</guid>
+      <guid>http://www.snowfrog.net/2009/06/05/ruby-gem-server/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m back to Rails development after a few months doing other things.&lt;/p&gt;
 
 &lt;p&gt;Note to brain: the ruby gem server is now started using &lt;strong&gt;gem server &amp;amp;&lt;/strong&gt; rather than &lt;strong&gt;gem_server &amp;amp;&lt;/strong&gt;, like it used to be. &lt;/frustration&gt;&lt;/p&gt;
@@ -77,10 +77,10 @@ export MOZILLA_FIVE_HOME LD_LIBRARY_PATH
     
     <item>
       <title>Ruby on Rails select_tag default value</title>
-      <link>http://blog2.snowfrog.net/2009/03/02/ruby-on-rails-select_tag-default-value/</link>
+      <link>http://www.snowfrog.net/2009/03/02/ruby-on-rails-select_tag-default-value/</link>
       <pubDate>Mon, 02 Mar 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/03/02/ruby-on-rails-select_tag-default-value/</guid>
+      <guid>http://www.snowfrog.net/2009/03/02/ruby-on-rails-select_tag-default-value/</guid>
       <description>&lt;p&gt;When using the Rails helper &lt;strong&gt;select_tag&lt;/strong&gt;, the selected value (ie highlighted value) is a parameter to &lt;strong&gt;options_for_select&lt;/strong&gt;, not select_tag.&lt;/p&gt;
 
 &lt;p&gt;Eg:&lt;/p&gt;
@@ -93,10 +93,10 @@ export MOZILLA_FIVE_HOME LD_LIBRARY_PATH
     
     <item>
       <title>Ruby on Rails – Foreign Key Constraints in MySQL</title>
-      <link>http://blog2.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</link>
+      <link>http://www.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</link>
       <pubDate>Wed, 01 Oct 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</guid>
+      <guid>http://www.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</guid>
       <description>&lt;p&gt;As an ex-DBA, one of the things that annoys me about Rails is that migrations don&amp;rsquo;t have a way of setting up referential integrity (I&amp;rsquo;m still using Rails 1.2.3, so this may have changed).&lt;/p&gt;
 
 &lt;p&gt;But apart from that, I lurv Rails :-)&lt;/p&gt;

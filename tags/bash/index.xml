@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bash on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/bash/</link>
+    <link>http://www.snowfrog.net/tags/bash/</link>
     <description>Recent content in Bash on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 08 Jan 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>vim modelines</title>
-      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <link>http://www.snowfrog.net/2009/01/08/vim-modelines/</link>
       <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <guid>http://www.snowfrog.net/2009/01/08/vim-modelines/</guid>
       <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
 
 &lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;

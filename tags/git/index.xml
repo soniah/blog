@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/git/</link>
+    <link>http://www.snowfrog.net/tags/git/</link>
     <description>Recent content in Git on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 25 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Devops and Old Git Branches</title>
-      <link>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</link>
+      <link>http://www.snowfrog.net/2015/03/25/devops-and-old-git-branches/</link>
       <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</guid>
+      <guid>http://www.snowfrog.net/2015/03/25/devops-and-old-git-branches/</guid>
       <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
 
 &lt;p&gt;When doing Devops we all know that using source code control is a “good
@@ -34,10 +34,10 @@ scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;
     
     <item>
       <title>git bisect run - example</title>
-      <link>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</link>
+      <link>http://www.snowfrog.net/2013/03/14/git-bisect-run-example/</link>
       <pubDate>Thu, 14 Mar 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/03/14/git-bisect-run-example/</guid>
+      <guid>http://www.snowfrog.net/2013/03/14/git-bisect-run-example/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/git-bisect.html&#34;&gt;Git bisect&lt;/a&gt; is a great tool for finding bugs in a program. But many examples show manual uses of git bisect - here&amp;rsquo;s an example of automating the process using &lt;strong&gt;git bisect run&lt;/strong&gt;.&lt;/p&gt;
@@ -182,10 +182,10 @@ Date:   Thu Mar 14 10:02:42 2013 +1100
     
     <item>
       <title>git - delete local tracking branches</title>
-      <link>http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/</link>
+      <link>http://www.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/</link>
       <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/</guid>
+      <guid>http://www.snowfrog.net/2013/01/22/git-delete-local-tracking-branches/</guid>
       <description>&lt;p&gt;(Just a summary of &lt;a href=&#34;http://stackoverflow.com/questions/1072171/how-do-you-remove-an-invalid-remote-branch-reference-from-git&#34;&gt;Stack Overflow &amp;ldquo;How do you Remove an Invalid Remote Branch Reference from Git?&amp;rdquo;&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;To delete a local tracking branch (without deleting the remote branch), do:&lt;/p&gt;
@@ -235,10 +235,10 @@ Deleted remote branch soniah/dev.b &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&
     
     <item>
       <title>git pull -f (git force pull)</title>
-      <link>http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/</link>
+      <link>http://www.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/</link>
       <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/</guid>
+      <guid>http://www.snowfrog.net/2012/12/03/git-pull-f-git-force-pull/</guid>
       <description>&lt;p&gt;Git has a &amp;ldquo;force push&amp;rdquo; option (&lt;strong&gt;git push -f remote branch&lt;/strong&gt;), but it doesn&amp;rsquo;t have a &amp;ldquo;force pull&amp;rdquo; option (like &lt;strong&gt;git pull -f remote branch&lt;/strong&gt;).&lt;/p&gt;
 
 &lt;p&gt;This works:&lt;/p&gt;
@@ -275,10 +275,10 @@ Deleted remote branch soniah/dev.b &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&
     
     <item>
       <title>git push to non-bare repo: warning: updating the current branch</title>
-      <link>http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/</link>
+      <link>http://www.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/</link>
       <pubDate>Fri, 17 Aug 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/</guid>
+      <guid>http://www.snowfrog.net/2012/08/17/git-push-to-non-bare-repo-warning-updating-the-current-branch/</guid>
       <description>&lt;p&gt;Some doco for my work mates, and others learners of git&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;When I was starting with git (many moons ago), learning to pull from a remote repository was easy. But &lt;a href=&#34;http://pragprog.com/book/tsgit/pragmatic-version-control-using-git&#34;&gt;the book I read&lt;/a&gt; didn&amp;rsquo;t explain how to push to a remote repository. There was &lt;a href=&#34;https://help.github.com/&#34;&gt;lots of doco on pushing to github&lt;/a&gt;, but I wanted to push and pull between my own repositories. When I pushed, I got messages saying &lt;strong&gt;warning: updating the current branch&lt;/strong&gt;, and sometimes I&amp;rsquo;d have to manually clean up the remote branch - yuk.&lt;/p&gt;
@@ -390,10 +390,10 @@ remotebox% git br -d push          &lt;span style=&#34;color: #999999; font-styl
     
     <item>
       <title>Git - ignore whitespace</title>
-      <link>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</link>
+      <link>http://www.snowfrog.net/2012/06/13/git-ignore-whitespace/</link>
       <pubDate>Wed, 13 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/06/13/git-ignore-whitespace/</guid>
+      <guid>http://www.snowfrog.net/2012/06/13/git-ignore-whitespace/</guid>
       <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% git diff -w
@@ -406,10 +406,10 @@ remotebox% git br -d push          &lt;span style=&#34;color: #999999; font-styl
     
     <item>
       <title>git patch add</title>
-      <link>http://blog2.snowfrog.net/2011/09/13/git-patch-add/</link>
+      <link>http://www.snowfrog.net/2011/09/13/git-patch-add/</link>
       <pubDate>Tue, 13 Sep 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/09/13/git-patch-add/</guid>
+      <guid>http://www.snowfrog.net/2011/09/13/git-patch-add/</guid>
       <description>&lt;p&gt;My new favourite git option:&lt;/p&gt;
 
 &lt;pre&gt;git add -p&lt;/pre&gt;
@@ -424,10 +424,10 @@ remotebox% git br -d push          &lt;span style=&#34;color: #999999; font-styl
     
     <item>
       <title>git – make an existing git branch track a remote branch</title>
-      <link>http://blog2.snowfrog.net/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</link>
+      <link>http://www.snowfrog.net/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</link>
       <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</guid>
+      <guid>http://www.snowfrog.net/2011/08/09/git-make-an-existing-git-branch-track-a-remote-branch/</guid>
       <description>&lt;p&gt;A script to make an existing git branch track a remote branch. For example when you&amp;rsquo;ve cloned from somewhere else and now want to track your normal remote.&lt;/p&gt;
 
 &lt;pre&gt;% cat ~/bin/gittrack
@@ -457,10 +457,10 @@ git branch --set-upstream $current_branch $remote/$current_branch&lt;/pre&gt;
     
     <item>
       <title>Setting up Gitweb on your Ubuntu workstation</title>
-      <link>http://blog2.snowfrog.net/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</link>
+      <link>http://www.snowfrog.net/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</link>
       <pubDate>Tue, 02 Aug 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</guid>
+      <guid>http://www.snowfrog.net/2011/08/02/setting-up-gitweb-on-your-ubuntu-workstation/</guid>
       <description>
 
 &lt;p&gt;If you work in an IT environment, it&amp;rsquo;s nice to be able to quickly share some of your git repositories from your workstation, without setting up accounts and ssh keys ie using http.&lt;/p&gt;
@@ -549,10 +549,10 @@ sudo git push -f web
     
     <item>
       <title>git – rebase and push script</title>
-      <link>http://blog2.snowfrog.net/2011/07/18/git-rebase-and-push-script/</link>
+      <link>http://www.snowfrog.net/2011/07/18/git-rebase-and-push-script/</link>
       <pubDate>Mon, 18 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/07/18/git-rebase-and-push-script/</guid>
+      <guid>http://www.snowfrog.net/2011/07/18/git-rebase-and-push-script/</guid>
       <description>&lt;p&gt;For development projects, I use the standard git workflow ie master is my main branch, and I do development in branches (read more about this recommended workflow at &lt;a href=&#34;http://nvie.com/posts/a-successful-git-branching-model/&#34;&gt;A successful Git branching model&lt;/a&gt;**).&lt;/p&gt;
 
 &lt;p&gt;(** this site also suggests always using &lt;strong&gt;&amp;ndash;no-ff&lt;/strong&gt; with merge &amp;ndash; a practice I now follow &amp;ndash; it certainly makes reading history easier)&lt;/p&gt;
@@ -634,10 +634,10 @@ git co $original_branch&lt;/pre&gt;
     
     <item>
       <title>git hooks – prepare-commit-msg</title>
-      <link>http://blog2.snowfrog.net/2011/06/22/git-hooks-prepare-commit-msg/</link>
+      <link>http://www.snowfrog.net/2011/06/22/git-hooks-prepare-commit-msg/</link>
       <pubDate>Wed, 22 Jun 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/06/22/git-hooks-prepare-commit-msg/</guid>
+      <guid>http://www.snowfrog.net/2011/06/22/git-hooks-prepare-commit-msg/</guid>
       <description>&lt;p&gt;When I&amp;rsquo;m working with git, I like being able to see a list of files that have changed (new, modified, deleted, etc) in the commit message. So when I do a &lt;strong&gt;git log&lt;/strong&gt;, rather than getting this:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; foo commented that this was a &amp;ldquo;bad idea&amp;rdquo; (bordering on wrong?) and suggested I use options like &lt;strong&gt;git log &amp;ndash;stat&lt;/strong&gt; instead. See the comments below. Thanks foo!&lt;/p&gt;
@@ -688,10 +688,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>LISP – downloading SICP videos, JRuby</title>
-      <link>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
+      <link>http://www.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
       <pubDate>Thu, 05 May 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
+      <guid>http://www.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m busy learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Lisp_%28programming_language%29&#34;&gt;LISP&lt;/a&gt;/&lt;a href=&#34;http://en.wikipedia.org/wiki/Scheme_%28programming_language%29&#34;&gt;Scheme&lt;/a&gt; at the moment (in order to later move on to &lt;a href=&#34;http://clojure.org/&#34;&gt;Clojure&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;And, improving my programming learning LISP is :-)&lt;/p&gt;
@@ -704,10 +704,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>git amend</title>
-      <link>http://blog2.snowfrog.net/2011/04/28/git-amend/</link>
+      <link>http://www.snowfrog.net/2011/04/28/git-amend/</link>
       <pubDate>Thu, 28 Apr 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/04/28/git-amend/</guid>
+      <guid>http://www.snowfrog.net/2011/04/28/git-amend/</guid>
       <description>&lt;p&gt;A nice git option I stumbled upon today &amp;ndash; &lt;a href=&#34;http://www.kernel.org/pub/software/scm/git/docs/user-manual.html#fixing-a-mistake-by-rewriting-history&#34;&gt;amend&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Typical scenario &amp;ndash; you&amp;rsquo;ve done a local check-in, then notice there&amp;rsquo;s a typo in your code comments. Fix up the typo, then use &lt;strong&gt;&amp;ndash; &amp;ndash; amend&lt;/strong&gt; to re-check-in, without having to do a reset/revert. For example:&lt;/p&gt;
@@ -736,10 +736,10 @@ git ci --amend&lt;/pre&gt;
     
     <item>
       <title>macports: git-upload-pack: command not found</title>
-      <link>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</link>
+      <link>http://www.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</link>
       <pubDate>Thu, 19 Nov 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</guid>
+      <guid>http://www.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</guid>
       <description>&lt;p&gt;When doing a &lt;strong&gt;git clone&lt;/strong&gt; from a repo hosted on a Mac OSX machine (installed using macports), I get this error on the client (Linux, cygwin, whatever):&lt;/p&gt;
 
 &lt;pre&gt;git-upload-pack: command not found&lt;/pre&gt;
@@ -759,10 +759,10 @@ sudo ln -s /opt/local/bin/git* .
     
     <item>
       <title>git branch management scripts</title>
-      <link>http://blog2.snowfrog.net/2009/08/28/git-branch-management-scripts/</link>
+      <link>http://www.snowfrog.net/2009/08/28/git-branch-management-scripts/</link>
       <pubDate>Thu, 27 Aug 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/08/28/git-branch-management-scripts/</guid>
+      <guid>http://www.snowfrog.net/2009/08/28/git-branch-management-scripts/</guid>
       <description>&lt;p&gt;A couple of scripts I (very) quickly wrote for managing git branches, so I don&amp;rsquo;t have to keep reading&lt;a href=&#34;http://cheat.errtheblog.com/s/git&#34;&gt; git cheat&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;No error checking or intelligence in the scripts &amp;ndash; YMMV.&lt;/p&gt;

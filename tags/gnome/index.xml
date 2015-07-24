@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gnome on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/gnome/</link>
+    <link>http://www.snowfrog.net/tags/gnome/</link>
     <description>Recent content in Gnome on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 23 Feb 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/gnome/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/gnome/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Gnome Session Management</title>
-      <link>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</link>
+      <link>http://www.snowfrog.net/2009/02/23/gnome-session-management/</link>
       <pubDate>Mon, 23 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/02/23/gnome-session-management/</guid>
+      <guid>http://www.snowfrog.net/2009/02/23/gnome-session-management/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;http://blogs.sun.com/mattman/entry/gnome_2_24_session_save1&#34;&gt;nice article&lt;/a&gt; I came across while trying to remotely solve a gnome-session issue.&lt;/p&gt;
 
 &lt;p&gt;In a nutshell: Gnome 2.24 now uses a new mechanism for specifying startup programs &amp;ndash; &lt;strong&gt;.desktop&lt;/strong&gt; files in &lt;strong&gt;$HOME/.config/autostart&lt;/strong&gt; and &lt;strong&gt;/usr/share/gnome/autostart/&lt;/strong&gt;&lt;/p&gt;
@@ -22,10 +22,10 @@
     
     <item>
       <title>Creating global keyboard shortcuts in GNOME</title>
-      <link>http://blog2.snowfrog.net/2008/08/28/creating-global-keyboard-shortcuts-in-gnome/</link>
+      <link>http://www.snowfrog.net/2008/08/28/creating-global-keyboard-shortcuts-in-gnome/</link>
       <pubDate>Thu, 28 Aug 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/08/28/creating-global-keyboard-shortcuts-in-gnome/</guid>
+      <guid>http://www.snowfrog.net/2008/08/28/creating-global-keyboard-shortcuts-in-gnome/</guid>
       <description>&lt;p&gt;Good post on &lt;a href=&#34;http://www.debian-administration.org/&#34;&gt;Debian Administration&lt;/a&gt; about &lt;a href=&#34;http://www.debian-administration.org/articles/611&#34;&gt;Creating global keyboard shortcuts in GNOME&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In a nutshell, in gconf-editor navigate to &lt;em&gt;apps, metacity, keybinding_commands&lt;/em&gt; and edit stuff.&lt;/p&gt;

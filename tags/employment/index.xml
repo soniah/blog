@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Employment on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/employment/</link>
+    <link>http://www.snowfrog.net/tags/employment/</link>
     <description>Recent content in Employment on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 19 Jan 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/employment/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/employment/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Salary vs Contract Rates</title>
-      <link>http://blog2.snowfrog.net/2010/01/19/salary-vs-contract-rates/</link>
+      <link>http://www.snowfrog.net/2010/01/19/salary-vs-contract-rates/</link>
       <pubDate>Tue, 19 Jan 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/01/19/salary-vs-contract-rates/</guid>
+      <guid>http://www.snowfrog.net/2010/01/19/salary-vs-contract-rates/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve always wondered what recruitment agents use as their formula to convert between salaries and contract rates.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s a formula (for giving ballpark figures) &amp;ndash; thanks CK:&lt;/p&gt;
@@ -458,10 +458,10 @@
     
     <item>
       <title>how to recognise a good programmer (and system adminstrator)</title>
-      <link>http://blog2.snowfrog.net/2008/01/11/how-to-recognise-a-good-programmer-and-system-adminstrator/</link>
+      <link>http://www.snowfrog.net/2008/01/11/how-to-recognise-a-good-programmer-and-system-adminstrator/</link>
       <pubDate>Sat, 12 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/11/how-to-recognise-a-good-programmer-and-system-adminstrator/</guid>
+      <guid>http://www.snowfrog.net/2008/01/11/how-to-recognise-a-good-programmer-and-system-adminstrator/</guid>
       <description>&lt;p&gt;KDan (via &lt;a href=&#34;http://developers.slashdot.org/article.pl?sid=08/01/11/1746250&amp;amp;from=rss&#34;&gt;Slashdot&lt;/a&gt;) has a great post on &lt;a href=&#34;http://www.inter-sections.net/2007/11/13/how-to-recognise-a-good-programmer/&#34;&gt;how to recognise a good programmer&lt;/a&gt;; I think many of his points also apply to system administrators.&lt;/p&gt;
 
 &lt;p&gt;Some of the key points:&lt;/p&gt;

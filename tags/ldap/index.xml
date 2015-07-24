@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ldap on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/ldap/</link>
+    <link>http://www.snowfrog.net/tags/ldap/</link>
     <description>Recent content in Ldap on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 22 Mar 2006 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/ldap/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/ldap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Seting up an LDAP address book on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/</link>
+      <link>http://www.snowfrog.net/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/</link>
       <pubDate>Wed, 22 Mar 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2006/03/21/seting-up-an-ldap-address-book-on-ubuntu/</guid>
       <description>&lt;p&gt;Quick and dirty on installing OpenLDAP as an addressbook server.&lt;/p&gt;
 
 &lt;ul&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eeepc on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/eeepc/</link>
+    <link>http://www.snowfrog.net/tags/eeepc/</link>
     <description>Recent content in Eeepc on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 21 Jul 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/eeepc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/eeepc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>debfoster - keeping a Debian system small</title>
-      <link>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
+      <link>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
       <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
+      <guid>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
       <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
@@ -59,10 +59,10 @@
     
     <item>
       <title>Shutdown does not power off EeePC</title>
-      <link>http://blog2.snowfrog.net/2008/10/14/shutdown-does-not-power-off-eeepc/</link>
+      <link>http://www.snowfrog.net/2008/10/14/shutdown-does-not-power-off-eeepc/</link>
       <pubDate>Mon, 13 Oct 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/10/14/shutdown-does-not-power-off-eeepc/</guid>
+      <guid>http://www.snowfrog.net/2008/10/14/shutdown-does-not-power-off-eeepc/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve noticed that issuing a &lt;strong&gt;sudo halt&lt;/strong&gt; on my &lt;a href=&#34;http://www.asus.com/news_show.aspx?id=7317&#34;&gt;EeePC 701&lt;/a&gt; shuts down the operating system (&lt;a href=&#34;http://www.eeeuser.com/&#34;&gt;eeeXubuntu&lt;/a&gt;), but doesn&amp;rsquo;t power down the system.&lt;/p&gt;
 
 &lt;p&gt;So I&amp;rsquo;d be watching videos on my way home from work, sudo halt, get home, and pull a red-hot E out of my bag &amp;ndash; ouch!&lt;/p&gt;

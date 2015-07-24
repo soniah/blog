@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Emacs on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/emacs/</link>
+    <link>http://www.snowfrog.net/tags/emacs/</link>
     <description>Recent content in Emacs on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 02 Jun 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Emacs Paredit Notes for OSX</title>
-      <link>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</link>
+      <link>http://www.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</link>
       <pubDate>Sat, 02 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</guid>
+      <guid>http://www.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/</guid>
       <description>&lt;p&gt;Some notes on &lt;a href=&#34;http://emacswiki.org/emacs/ParEdit&#34;&gt;Emacs&amp;rsquo; Paredit mode&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;More so I can stop fighting with Paredit and do some &lt;strong&gt;Clojure&lt;/strong&gt; programming than show any expertise - see &lt;a href=&#34;http://www.slideshare.net/mudphone/paredit-preso&#34;&gt;Mudphone&amp;rsquo;s Paredit Preso&lt;/a&gt; for the real deal, as well as &lt;a href=&#34;http://p.hagelb.org/paredit-screencast.html&#34;&gt;hagelb&amp;rsquo;s Paredit screencast notes&lt;/a&gt; and the &lt;a href=&#34;http://www.emacswiki.org/pics/static/PareditCheatsheet.png&#34;&gt;Paredit Cheat Sheet&lt;/a&gt;.&lt;/p&gt;
@@ -67,10 +67,10 @@
     
     <item>
       <title>Vim Buffers Cheatsheet</title>
-      <link>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</link>
+      <link>http://www.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</link>
       <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</guid>
+      <guid>http://www.snowfrog.net/2012/04/26/vim-buffers-cheatsheet/</guid>
       <description>&lt;p&gt;A small Vim Buffers cheatsheet:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;:bu &amp;lt;tab&amp;gt;    - select a buffer

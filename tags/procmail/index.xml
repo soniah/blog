@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Procmail on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/procmail/</link>
+    <link>http://www.snowfrog.net/tags/procmail/</link>
     <description>Recent content in Procmail on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 04 Feb 2007 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/procmail/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/procmail/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>beat image spam with procmail</title>
-      <link>http://blog2.snowfrog.net/2007/02/03/beat-image-spam-with-procmail/</link>
+      <link>http://www.snowfrog.net/2007/02/03/beat-image-spam-with-procmail/</link>
       <pubDate>Sun, 04 Feb 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/02/03/beat-image-spam-with-procmail/</guid>
+      <guid>http://www.snowfrog.net/2007/02/03/beat-image-spam-with-procmail/</guid>
       <description>&lt;p&gt;I blogged a while ago about &lt;a href=&#34;http://www.snowfrog.net/?q=node/417&#34;&gt;using FuzzyOcr for detecting image spam&lt;/a&gt;. My FuzzyOcr isn&amp;rsquo;t working and at the moment I haven&amp;rsquo;t got time to fix it, so I wrote a procmail recipe to solve the problem instead:&lt;/p&gt;
 
 &lt;pre&gt;# test if body contains gif, html, etc, and get procmail score
@@ -37,10 +37,10 @@ ISGT=`echo &#34;${SCORE_SA} + ${SCORE_PM} &amp;gt; ${REQD_SA}&#34; | bc -l`
     
     <item>
       <title>procmail notes</title>
-      <link>http://blog2.snowfrog.net/2006/09/13/procmail-notes/</link>
+      <link>http://www.snowfrog.net/2006/09/13/procmail-notes/</link>
       <pubDate>Thu, 14 Sep 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/09/13/procmail-notes/</guid>
+      <guid>http://www.snowfrog.net/2006/09/13/procmail-notes/</guid>
       <description>
 
 &lt;p&gt;procmail notes&lt;/p&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mssql on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/mssql/</link>
+    <link>http://www.snowfrog.net/tags/mssql/</link>
     <description>Recent content in Mssql on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 07 Jan 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/mssql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/mssql/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Split() function for Microsoft MSSQL</title>
-      <link>http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</link>
+      <link>http://www.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</link>
       <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</guid>
+      <guid>http://www.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</guid>
       <description>&lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote.&lt;/p&gt;
 
 &lt;p&gt;It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
@@ -73,10 +73,10 @@
     
     <item>
       <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
-      <link>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</link>
+      <link>http://www.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</link>
       <pubDate>Mon, 06 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
+      <guid>http://www.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately
 MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt;
 function. Here&amp;rsquo;s a version I quickly implemented, called
@@ -144,10 +144,10 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
     
     <item>
       <title>Microsoft SQL 2012 SSIS Create Catalog Password</title>
-      <link>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</link>
+      <link>http://www.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</link>
       <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</guid>
+      <guid>http://www.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/</guid>
       <description>&lt;p&gt;Creating an SSIS Catalogue on Microsoft SQL 2012 seems to have an
 interface bug - you need to both &amp;ldquo;enable CLR&amp;rdquo; and provide an &amp;ldquo;encryption
 password&amp;rdquo;, but the options are mutually exclusive ie when I tried to
@@ -175,10 +175,10 @@ Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
     
     <item>
       <title>MSSQL Resources</title>
-      <link>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</link>
+      <link>http://www.snowfrog.net/2007/06/13/ms-sql-resources/</link>
       <pubDate>Wed, 13 Jun 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/06/13/ms-sql-resources/</guid>
+      <guid>http://www.snowfrog.net/2007/06/13/ms-sql-resources/</guid>
       <description>
 
 &lt;p&gt;MSSQL Resources&lt;/p&gt;
@@ -250,10 +250,10 @@ Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
     
     <item>
       <title>log shipping hints</title>
-      <link>http://blog2.snowfrog.net/2006/08/25/log-shipping-hints/</link>
+      <link>http://www.snowfrog.net/2006/08/25/log-shipping-hints/</link>
       <pubDate>Sat, 26 Aug 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/08/25/log-shipping-hints/</guid>
+      <guid>http://www.snowfrog.net/2006/08/25/log-shipping-hints/</guid>
       <description>&lt;p&gt;log shipping hints&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;select * from msdb..log_shipping_databases&amp;lt;br /&amp;gt;
@@ -270,10 +270,10 @@ sp_delete_log_shipping_database&lt;/code&gt;&lt;/p&gt;
     
     <item>
       <title>exercise – move system databases</title>
-      <link>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</link>
+      <link>http://www.snowfrog.net/2006/08/24/exercise-move-system-databases/</link>
       <pubDate>Fri, 25 Aug 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/08/24/exercise-move-system-databases/</guid>
+      <guid>http://www.snowfrog.net/2006/08/24/exercise-move-system-databases/</guid>
       <description>&lt;p&gt;In this exerise, you are required to move two of the system databases (&lt;strong&gt;master&lt;/strong&gt; and &lt;strong&gt;model&lt;/strong&gt;) to &lt;strong&gt;c:data&lt;/strong&gt;. Here are some web pages that may help:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -314,10 +314,10 @@ sp_delete_log_shipping_database&lt;/code&gt;&lt;/p&gt;
     
     <item>
       <title>howto move sql server system databases</title>
-      <link>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</link>
+      <link>http://www.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</link>
       <pubDate>Wed, 23 Aug 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</guid>
+      <guid>http://www.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s a couple of links on how to move the MS SQL Server system databases:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -339,10 +339,10 @@ sp_delete_log_shipping_database&lt;/code&gt;&lt;/p&gt;
     
     <item>
       <title>multiserver jobs exercise</title>
-      <link>http://blog2.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</link>
+      <link>http://www.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</link>
       <pubDate>Thu, 15 Dec 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</guid>
+      <guid>http://www.snowfrog.net/2005/12/14/multiserver-jobs-exercise/</guid>
       <description>
 
 &lt;p&gt;multiserver jobs exercise&lt;/p&gt;
@@ -385,10 +385,10 @@ sp_delete_log_shipping_database&lt;/code&gt;&lt;/p&gt;
     
     <item>
       <title>guest and public</title>
-      <link>http://blog2.snowfrog.net/2005/11/22/guest-and-public/</link>
+      <link>http://www.snowfrog.net/2005/11/22/guest-and-public/</link>
       <pubDate>Wed, 23 Nov 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/11/22/guest-and-public/</guid>
+      <guid>http://www.snowfrog.net/2005/11/22/guest-and-public/</guid>
       <description>&lt;p&gt;guest and public&lt;/p&gt;
 
 &lt;ul&gt;

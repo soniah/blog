@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/shell/</link>
+    <link>http://www.snowfrog.net/tags/shell/</link>
     <description>Recent content in Shell on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 19 Jul 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>shell – all parameters – $* vs $@</title>
-      <link>http://blog2.snowfrog.net/2011/07/19/shell-all-parameters/</link>
+      <link>http://www.snowfrog.net/2011/07/19/shell-all-parameters/</link>
       <pubDate>Tue, 19 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/07/19/shell-all-parameters/</guid>
+      <guid>http://www.snowfrog.net/2011/07/19/shell-all-parameters/</guid>
       <description>&lt;p&gt;Both &lt;strong&gt;$&lt;/strong&gt;* and &lt;strong&gt;$@&lt;/strong&gt; expand to &amp;ldquo;all positional parameters&amp;rdquo;; in a nutshell &amp;ndash; &lt;strong&gt;&amp;rdquo;$@&amp;rdquo;&lt;/strong&gt; is &lt;em&gt;often&lt;/em&gt; desired as it handles spaces correctly; see man bash &amp;ldquo;Special Parameters&amp;rdquo;.&lt;/p&gt;
 
 &lt;pre&gt;% ls my*     
@@ -73,10 +73,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>ssh, sudo, tty, shell</title>
-      <link>http://blog2.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</link>
+      <link>http://www.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</link>
       <pubDate>Thu, 14 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</guid>
+      <guid>http://www.snowfrog.net/2011/07/14/ssh-sudo-tty-shell/</guid>
       <description>&lt;p&gt;A nice little script snippet I like to remember for automating quick stuff across multiple hosts. &lt;strong&gt;-t&lt;/strong&gt; forces tty (so sudo will work); &lt;strong&gt;-q&lt;/strong&gt; quiet &amp;ndash; disable banners; &lt;strong&gt;-c&lt;/strong&gt; script (&amp;ldquo;command&amp;rdquo;) to su. Presumes sudo doesn&amp;rsquo;t prompt for a password; otherwise, see &lt;a href=&#34;http://www.nist.gov/el/msid/expect.cfm&#34;&gt;Expect&lt;/a&gt; and &lt;a href=&#34;http://oreilly.com/catalog/9781565920903&#34;&gt;Exploring Expect&lt;/a&gt; :-)&lt;/p&gt;
 
 &lt;pre&gt;for h in $hosts ; do
@@ -88,10 +88,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>cygwin: zsh: zsh compinit: insecure directories</title>
-      <link>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</link>
+      <link>http://www.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</link>
       <pubDate>Thu, 19 Nov 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</guid>
+      <guid>http://www.snowfrog.net/2009/11/19/cygwin-zsh-zsh-compinit-insecure-directories/</guid>
       <description>&lt;p&gt;Using cygwin under Windows, I&amp;rsquo;ve setup my shell as zsh by editing the launch script:&lt;/p&gt;
 
 &lt;pre&gt;@echo off
@@ -113,10 +113,10 @@ Ignore insecure directories and continue [y] or abort compinit [n]? y&lt;/pre&gt
     
     <item>
       <title>vim modelines</title>
-      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <link>http://www.snowfrog.net/2009/01/08/vim-modelines/</link>
       <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <guid>http://www.snowfrog.net/2009/01/08/vim-modelines/</guid>
       <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
 
 &lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
@@ -167,10 +167,10 @@ Ignore insecure directories and continue [y] or abort compinit [n]? y&lt;/pre&gt
     
     <item>
       <title>bang history</title>
-      <link>http://blog2.snowfrog.net/2007/09/10/bang-history/</link>
+      <link>http://www.snowfrog.net/2007/09/10/bang-history/</link>
       <pubDate>Tue, 11 Sep 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/09/10/bang-history/</guid>
+      <guid>http://www.snowfrog.net/2007/09/10/bang-history/</guid>
       <description>&lt;p&gt;There are three fields (separated by colons) that can be manipulated using the bang history command:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;EventDesignator:WordDesignator:Modifier&lt;/code&gt;&lt;/p&gt;

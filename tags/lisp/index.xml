@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lisp on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/lisp/</link>
+    <link>http://www.snowfrog.net/tags/lisp/</link>
     <description>Recent content in Lisp on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 11 May 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/lisp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/lisp/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Learning Clojure - my books</title>
-      <link>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
+      <link>http://www.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
       <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
+      <guid>http://www.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&amp;rsquo;s a list of the books I&amp;rsquo;ve read on my journey to Clojure enlightenment (I&amp;rsquo;ve still got a long way to go&amp;hellip;).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;&lt;/p&gt;
@@ -50,10 +50,10 @@
     
     <item>
       <title>Ruby, Lisp, Python</title>
-      <link>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
+      <link>http://www.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
       <pubDate>Tue, 20 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
+      <guid>http://www.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
       <description>&lt;p&gt;Up late tonight reading about &lt;a href=&#34;http://www.emacswiki.org/emacs/EmacsLisp&#34;&gt;Emacs Lisp&lt;/a&gt;, I came across &lt;a href=&#34;https://sites.google.com/site/steveyegge2/tour-de-babel&#34;&gt;Tour de Babel&lt;/a&gt; by &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul:&lt;/p&gt;
@@ -66,10 +66,10 @@
     
     <item>
       <title>LISP – downloading SICP videos, JRuby</title>
-      <link>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
+      <link>http://www.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
       <pubDate>Thu, 05 May 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
+      <guid>http://www.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m busy learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Lisp_%28programming_language%29&#34;&gt;LISP&lt;/a&gt;/&lt;a href=&#34;http://en.wikipedia.org/wiki/Scheme_%28programming_language%29&#34;&gt;Scheme&lt;/a&gt; at the moment (in order to later move on to &lt;a href=&#34;http://clojure.org/&#34;&gt;Clojure&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;And, improving my programming learning LISP is :-)&lt;/p&gt;
@@ -82,10 +82,10 @@
     
     <item>
       <title>Python, Lambda, Closures</title>
-      <link>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</link>
+      <link>http://www.snowfrog.net/2011/04/05/python-lambda-closures/</link>
       <pubDate>Tue, 05 Apr 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/04/05/python-lambda-closures/</guid>
+      <guid>http://www.snowfrog.net/2011/04/05/python-lambda-closures/</guid>
       <description>&lt;p&gt;A very interesting &lt;a href=&#34;http://algorithm.com.au/blog/files/immutability-blocks-lambdas-closures.php#unique-entry-id-613&#34;&gt;post&lt;/a&gt; from André Pang about some issues he came across with lamdas and closures in Python. Well, interesting to me because I&amp;rsquo;m playing with Lisp and Python at the moment.&lt;/p&gt;
 
 &lt;p&gt;Some links from his blog, in case the original post ever disappears:&lt;/p&gt;
@@ -111,10 +111,10 @@ for f in funcList:
     
     <item>
       <title>Lisp and Python</title>
-      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <link>http://www.snowfrog.net/2011/03/27/lisp-and-python/</link>
       <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <guid>http://www.snowfrog.net/2011/03/27/lisp-and-python/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
 
 &lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
@@ -135,10 +135,10 @@ for f in funcList:
     
     <item>
       <title>vim modelines</title>
-      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <link>http://www.snowfrog.net/2009/01/08/vim-modelines/</link>
       <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <guid>http://www.snowfrog.net/2009/01/08/vim-modelines/</guid>
       <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
 
 &lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;

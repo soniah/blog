@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nc4200 on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/nc4200/</link>
+    <link>http://www.snowfrog.net/tags/nc4200/</link>
     <description>Recent content in Nc4200 on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 16 Jan 2008 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/nc4200/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/nc4200/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Ubuntu Linux Compaq nc4200 ipw2200 blue LED</title>
-      <link>http://blog2.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</link>
+      <link>http://www.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</link>
       <pubDate>Wed, 16 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</guid>
+      <guid>http://www.snowfrog.net/2008/01/16/ubuntu-linux-compaq-nc4200-ipw2200-blue-led/</guid>
       <description>&lt;p&gt;A couple of notes on working with the ipw2200 wireless card on a Compaq nc4200 running Ubuntu (7.04 and 7.10), including how to get the blue LED to work:&lt;/p&gt;
 
 &lt;ul&gt;

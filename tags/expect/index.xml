@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Expect on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/expect/</link>
+    <link>http://www.snowfrog.net/tags/expect/</link>
     <description>Recent content in Expect on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 28 Jul 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/expect/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/expect/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>rsyncp – provide ssh password to rsync using expect</title>
-      <link>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
+      <link>http://www.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
       <pubDate>Thu, 28 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
+      <guid>http://www.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
       <description>&lt;p&gt;A script I wrote &amp;ndash; rsyncp. It allows you to provide a password to rsync over ssh, when you&amp;rsquo;re unable to use ssh key-based authentication:&lt;/p&gt;
 
 &lt;pre&gt;% cat ~/bin/rsyncp
@@ -34,10 +34,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>expect notes</title>
-      <link>http://blog2.snowfrog.net/2007/11/14/expect-notes/</link>
+      <link>http://www.snowfrog.net/2007/11/14/expect-notes/</link>
       <pubDate>Thu, 15 Nov 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/11/14/expect-notes/</guid>
+      <guid>http://www.snowfrog.net/2007/11/14/expect-notes/</guid>
       <description>&lt;p&gt;(draft)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://expect.nist.gov/&#34;&gt;Expect Language&lt;/a&gt;, &lt;a href=&#34;http://&#34;&gt;Expect Book&lt;/a&gt;.&lt;/p&gt;

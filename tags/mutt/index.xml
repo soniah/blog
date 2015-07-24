@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mutt on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/mutt/</link>
+    <link>http://www.snowfrog.net/tags/mutt/</link>
     <description>Recent content in Mutt on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 09 Oct 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/mutt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/mutt/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Sending email from shell via mutt</title>
-      <link>http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/</link>
+      <link>http://www.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/</link>
       <pubDate>Tue, 09 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/</guid>
+      <guid>http://www.snowfrog.net/2012/10/09/sending-email-from-shell-via-mutt/</guid>
       <description>&lt;p&gt;A quick example of sending email from the shell via mutt.&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat msg.txt 
@@ -31,10 +31,10 @@ pdf attached. Sonia.
     
     <item>
       <title>reload mutt configuration</title>
-      <link>http://blog2.snowfrog.net/2011/10/20/reload-mutt-configuration/</link>
+      <link>http://www.snowfrog.net/2011/10/20/reload-mutt-configuration/</link>
       <pubDate>Thu, 20 Oct 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/10/20/reload-mutt-configuration/</guid>
+      <guid>http://www.snowfrog.net/2011/10/20/reload-mutt-configuration/</guid>
       <description>&lt;p&gt;To reload your &lt;a href=&#34;http://www.mutt.org/&#34;&gt;mutt&lt;/a&gt; configuration (for example after editing muttrc):&lt;/p&gt;
 
 &lt;pre&gt;:source /path/to/muttrc&lt;/pre&gt;

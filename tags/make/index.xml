@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Make on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/make/</link>
+    <link>http://www.snowfrog.net/tags/make/</link>
     <description>Recent content in Make on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 18 Jun 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/make/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Golang - building with Makefile and Jenkins</title>
-      <link>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</link>
+      <link>http://www.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</link>
       <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</guid>
+      <guid>http://www.snowfrog.net/2013/06/18/golang-building-with-makefile-and-jenkins/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve recently been working on a large Go project, and one of the deliverables was that the project be buildable using Jenkins.&lt;/p&gt;

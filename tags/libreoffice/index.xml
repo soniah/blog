@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Libreoffice on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/libreoffice/</link>
+    <link>http://www.snowfrog.net/tags/libreoffice/</link>
     <description>Recent content in Libreoffice on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 04 Nov 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/libreoffice/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/libreoffice/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>convert LibreOffice (OpenOffice) .ods files to .csv command line</title>
-      <link>http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
+      <link>http://www.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
       <pubDate>Mon, 04 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
+      <guid>http://www.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
       <description>&lt;p&gt;How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;soffice --headless --convert-to csv test.ods&lt;/code&gt;&lt;/p&gt;

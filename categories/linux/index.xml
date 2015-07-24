@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/categories/linux/</link>
+    <link>http://www.snowfrog.net/categories/linux/</link>
     <description>Recent content in Linux on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 13 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Dockerfile Notes</title>
-      <link>http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/</link>
+      <link>http://www.snowfrog.net/2015/07/13/dockerfile-notes/</link>
       <pubDate>Mon, 13 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/07/13/dockerfile-notes/</guid>
+      <guid>http://www.snowfrog.net/2015/07/13/dockerfile-notes/</guid>
       <description>
 
 &lt;p&gt;Some notes on &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;
@@ -85,10 +85,10 @@ docker rm -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker ps 
     
     <item>
       <title>AWS ssh keys</title>
-      <link>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</link>
+      <link>http://www.snowfrog.net/2015/05/29/aws-ssh-keys/</link>
       <pubDate>Fri, 29 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</guid>
+      <guid>http://www.snowfrog.net/2015/05/29/aws-ssh-keys/</guid>
       <description>&lt;p&gt;A quick &lt;em&gt;howto&lt;/em&gt; on working with AWS &lt;strong&gt;.pem&lt;/strong&gt; ssh certificates.&lt;/p&gt;
 
 &lt;p&gt;AWS distributes their ssh keys as &lt;strong&gt;.pem&lt;/strong&gt; certificates. The usual process with
@@ -115,10 +115,10 @@ ssh-keygen -y -f ~/.ssh/foo &amp;gt; ~/.ssh/foo.pub
     
     <item>
       <title>Eloquent Ruby</title>
-      <link>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</link>
+      <link>http://www.snowfrog.net/2015/05/28/eloquent-ruby/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
+      <guid>http://www.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
       <description>
 
 &lt;p&gt;My notes on Russ Olsen&amp;rsquo;s excellent book &lt;a href=&#34;http://eloquentruby.com/&#34;&gt;Eloquent
@@ -175,10 +175,10 @@ passed in via parameters, or passed out via &lt;em&gt;yield&lt;/em&gt;.&lt;/p&gt
     
     <item>
       <title>Haskell Hole Driven Development</title>
-      <link>http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/</link>
+      <link>http://www.snowfrog.net/2015/05/22/haskell-hole-driven-development/</link>
       <pubDate>Fri, 22 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/05/22/haskell-hole-driven-development/</guid>
+      <guid>http://www.snowfrog.net/2015/05/22/haskell-hole-driven-development/</guid>
       <description>&lt;p&gt;I just finished attending the excellent &lt;a href=&#34;http://lambdajam.yowconference.com.au/&#34;&gt;Brisbane YOW! Lambda
 Jam&lt;/a&gt;. One of the really useful
 things I learned was &amp;ldquo;Hole Driven Development&amp;rdquo; for Haskell - basically
@@ -224,10 +224,10 @@ Haskell&lt;/a&gt;.&lt;/p&gt;
     
     <item>
       <title>Devops and Old Git Branches</title>
-      <link>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</link>
+      <link>http://www.snowfrog.net/2015/03/25/devops-and-old-git-branches/</link>
       <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/03/25/devops-and-old-git-branches/</guid>
+      <guid>http://www.snowfrog.net/2015/03/25/devops-and-old-git-branches/</guid>
       <description>&lt;p&gt;A guest blog post I wrote on managing git branches when doing devops.&lt;/p&gt;
 
 &lt;p&gt;When doing Devops we all know that using source code control is a “good
@@ -248,10 +248,10 @@ scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;
     
     <item>
       <title>SaltStack Ubuntu Hostname</title>
-      <link>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</link>
+      <link>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</link>
       <pubDate>Sun, 18 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
+      <guid>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;
@@ -287,10 +287,10 @@ sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 loca
     
     <item>
       <title>Terraform Presentation</title>
-      <link>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</link>
+      <link>http://www.snowfrog.net/2015/01/13/terraform-presentation/</link>
       <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/01/13/terraform-presentation/</guid>
+      <guid>http://www.snowfrog.net/2015/01/13/terraform-presentation/</guid>
       <description>&lt;p&gt;Here are the slides from my Terrraform presentation at the Sydney Puppet Meetup.&lt;/p&gt;
 
 &lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/43462586&#34;
@@ -301,10 +301,10 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
     
     <item>
       <title>Building the development version of Terraform</title>
-      <link>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</link>
+      <link>http://www.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</link>
       <pubDate>Wed, 03 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</guid>
+      <guid>http://www.snowfrog.net/2014/12/03/building-the-development-version-of-terraform/</guid>
       <description>&lt;p&gt;Instructions on how to build the development version of &lt;a href=&#34;https://www.terraform.io/&#34;&gt;Terraform&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
@@ -393,10 +393,10 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
     
     <item>
       <title>Git and mercurial abort: revision cannot be pushed</title>
-      <link>http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
+      <link>http://www.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
+      <guid>http://www.snowfrog.net/2014/09/29/git-and-mercurial-abort-revision-cannot-be-pushed/</guid>
       <description>
 
 &lt;p&gt;I&amp;rsquo;ve been migrating some repositories from Mercurial to Git; as part of this migration process some users want to keep using Mercurial locally until they have time to learn git.&lt;/p&gt;
@@ -461,10 +461,10 @@ hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34
     
     <item>
       <title>SaltStack Essential Reading</title>
-      <link>http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/</link>
+      <link>http://www.snowfrog.net/2014/09/23/saltstack-essential-reading/</link>
       <pubDate>Tue, 23 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/09/23/saltstack-essential-reading/</guid>
+      <guid>http://www.snowfrog.net/2014/09/23/saltstack-essential-reading/</guid>
       <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -479,10 +479,10 @@ hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34
     
     <item>
       <title>Setup Arduino on Debian</title>
-      <link>http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/</link>
+      <link>http://www.snowfrog.net/2014/02/26/setup-arduino-on-debian/</link>
       <pubDate>Wed, 26 Feb 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/02/26/setup-arduino-on-debian/</guid>
+      <guid>http://www.snowfrog.net/2014/02/26/setup-arduino-on-debian/</guid>
       <description>&lt;p&gt;Some notes on setting up Arduino on Debian.&lt;/p&gt;
 
 &lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
@@ -535,10 +535,10 @@ id
     
     <item>
       <title>Change default editor in Debian</title>
-      <link>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
+      <link>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
       <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
+      <guid>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
       <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
@@ -549,10 +549,10 @@ id
     
     <item>
       <title>ZFS List Snapshots, Create and Destroy Clones</title>
-      <link>http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</link>
+      <link>http://www.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</link>
       <pubDate>Sat, 14 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</guid>
+      <guid>http://www.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m using &lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, &lt;a href=&#34;http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line&#34;&gt;as always the shell is faster&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Some notes for me on listing ZFS snapshots, and creating and destroying clones.&lt;/p&gt;
@@ -577,10 +577,10 @@ zfs destroy vol01/bjj/foo
     
     <item>
       <title>convert LibreOffice (OpenOffice) .ods files to .csv command line</title>
-      <link>http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
+      <link>http://www.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
       <pubDate>Mon, 04 Nov 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
+      <guid>http://www.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
       <description>&lt;p&gt;How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;soffice --headless --convert-to csv test.ods&lt;/code&gt;&lt;/p&gt;
@@ -593,10 +593,10 @@ zfs destroy vol01/bjj/foo
     
     <item>
       <title>debfoster - keeping a Debian system small</title>
-      <link>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
+      <link>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
       <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
+      <guid>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
       <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Iptables on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/iptables/</link>
+    <link>http://www.snowfrog.net/tags/iptables/</link>
     <description>Recent content in Iptables on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 10 Jul 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ipcalc</title>
-      <link>http://blog2.snowfrog.net/2009/07/10/ipcalc/</link>
+      <link>http://www.snowfrog.net/2009/07/10/ipcalc/</link>
       <pubDate>Fri, 10 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/07/10/ipcalc/</guid>
+      <guid>http://www.snowfrog.net/2009/07/10/ipcalc/</guid>
       <description>&lt;p&gt;ipcalc &amp;ndash; a tool I used to use years ago but had forgotten about.&lt;/p&gt;
 
 &lt;pre&gt;sudo aptitude install ipcalc&lt;/pre&gt;
@@ -33,10 +33,10 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
     
     <item>
       <title>Firewalling on Solaris 10</title>
-      <link>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</link>
+      <link>http://www.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</link>
       <pubDate>Fri, 22 May 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</guid>
+      <guid>http://www.snowfrog.net/2009/05/22/firewalling-on-solaris-10/</guid>
       <description>&lt;p&gt;Firewalling on Solaris 10:&lt;/p&gt;
 
 &lt;ul&gt;

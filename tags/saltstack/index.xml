@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Saltstack on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/saltstack/</link>
+    <link>http://www.snowfrog.net/tags/saltstack/</link>
     <description>Recent content in Saltstack on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 18 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/saltstack/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/saltstack/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>SaltStack Ubuntu Hostname</title>
-      <link>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</link>
+      <link>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</link>
       <pubDate>Sun, 18 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
+      <guid>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;

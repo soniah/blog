@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aws on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/aws/</link>
+    <link>http://www.snowfrog.net/tags/aws/</link>
     <description>Recent content in Aws on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 29 May 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AWS ssh keys</title>
-      <link>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</link>
+      <link>http://www.snowfrog.net/2015/05/29/aws-ssh-keys/</link>
       <pubDate>Fri, 29 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/05/29/aws-ssh-keys/</guid>
+      <guid>http://www.snowfrog.net/2015/05/29/aws-ssh-keys/</guid>
       <description>&lt;p&gt;A quick &lt;em&gt;howto&lt;/em&gt; on working with AWS &lt;strong&gt;.pem&lt;/strong&gt; ssh certificates.&lt;/p&gt;
 
 &lt;p&gt;AWS distributes their ssh keys as &lt;strong&gt;.pem&lt;/strong&gt; certificates. The usual process with

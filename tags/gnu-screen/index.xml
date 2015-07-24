@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gnu Screen on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/gnu-screen/</link>
+    <link>http://www.snowfrog.net/tags/gnu-screen/</link>
     <description>Recent content in Gnu Screen on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 18 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/gnu-screen/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/gnu-screen/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>GNU Screen Alternative - Terminator?</title>
-      <link>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</link>
+      <link>http://www.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</link>
       <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</guid>
+      <guid>http://www.snowfrog.net/2012/03/18/gnu-screen-alternative-terminator/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;http://www.gnu.org/software/screen/manual/screen.html&#34;&gt;GNU Screen&lt;/a&gt; for years, and I always wished it had a &amp;ldquo;broadcast&amp;rdquo; functionality like &lt;a href=&#34;http://expect.sourceforge.net/example/multixterm.man.html&#34;&gt;MultiXterm&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Anyway, this morning I came across &lt;a href=&#34;http://www.tenshu.net/p/terminator.html&#34;&gt;Terminator&lt;/a&gt; - it splits screens, has broadcasts, etc (probably old news for some people&amp;hellip;).&lt;/p&gt;
@@ -24,10 +24,10 @@
     
     <item>
       <title>Gnu Screen - split screens</title>
-      <link>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</link>
+      <link>http://www.snowfrog.net/2012/03/18/gnu-screen-split-screens/</link>
       <pubDate>Sun, 18 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/18/gnu-screen-split-screens/</guid>
+      <guid>http://www.snowfrog.net/2012/03/18/gnu-screen-split-screens/</guid>
       <description>&lt;p&gt;One of the features I&amp;rsquo;ve always wished &lt;a href=&#34;http://www.gnu.org/software/screen/manual/screen.html&#34;&gt;Gnu screen&lt;/a&gt; had was the ability to split a screen horizontally, so you can for example run a grep or &lt;a href=&#34;https://www.midnight-commander.org/&#34;&gt;mc&lt;/a&gt; in the top half of the terminal, and some commands in the bottom half.&lt;/p&gt;
 
 &lt;p&gt;Well it turns out that you can split screens in Screen, here&amp;rsquo;s how to you do it:&lt;/p&gt;
@@ -54,10 +54,10 @@ bind b focus bottom
     
     <item>
       <title>Serial Port Access on OSX to Cisco devices</title>
-      <link>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
+      <link>http://www.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
       <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
+      <guid>http://www.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
       <description>&lt;p&gt;How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).&lt;/p&gt;
 
 &lt;p&gt;Googling, everyone says to use zterm, but I couldn&amp;rsquo;t get it to work (and zterm looks and feels like a toy).&lt;/p&gt;
@@ -113,10 +113,10 @@ sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
     
     <item>
       <title>Gnu Screen .screenrc tricks</title>
-      <link>http://blog2.snowfrog.net/2008/01/31/gnu-screen-screenrc-tricks/</link>
+      <link>http://www.snowfrog.net/2008/01/31/gnu-screen-screenrc-tricks/</link>
       <pubDate>Thu, 31 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/31/gnu-screen-screenrc-tricks/</guid>
+      <guid>http://www.snowfrog.net/2008/01/31/gnu-screen-screenrc-tricks/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s a variety of tricks I&amp;rsquo;ve picked up for Gnu screen and .screenrc from the &lt;a href=&#34;http://lists.gnu.org/mailman/listinfo/screen-users&#34;&gt;Screen Users Email List&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -141,10 +141,10 @@ sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
     
     <item>
       <title>multiuser gnu screen</title>
-      <link>http://blog2.snowfrog.net/2008/01/09/multiuser-gnu-screen/</link>
+      <link>http://www.snowfrog.net/2008/01/09/multiuser-gnu-screen/</link>
       <pubDate>Wed, 09 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/09/multiuser-gnu-screen/</guid>
+      <guid>http://www.snowfrog.net/2008/01/09/multiuser-gnu-screen/</guid>
       <description>&lt;p&gt;A &lt;a href=&#34;http://www.debian-administration.org/articles/572&#34;&gt;good post on debian-administration&lt;/a&gt; on multi-user screen. The key points:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -156,10 +156,10 @@ sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
     
     <item>
       <title>howto move windows in gnu screen</title>
-      <link>http://blog2.snowfrog.net/2007/11/07/howto-move-windows-in-gnu-screen/</link>
+      <link>http://www.snowfrog.net/2007/11/07/howto-move-windows-in-gnu-screen/</link>
       <pubDate>Thu, 08 Nov 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/11/07/howto-move-windows-in-gnu-screen/</guid>
+      <guid>http://www.snowfrog.net/2007/11/07/howto-move-windows-in-gnu-screen/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;change to the window you want to move&lt;/p&gt;
 
@@ -177,10 +177,10 @@ sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
     
     <item>
       <title>share a screen session</title>
-      <link>http://blog2.snowfrog.net/2006/07/16/share-a-screen-session/</link>
+      <link>http://www.snowfrog.net/2006/07/16/share-a-screen-session/</link>
       <pubDate>Mon, 17 Jul 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/07/16/share-a-screen-session/</guid>
+      <guid>http://www.snowfrog.net/2006/07/16/share-a-screen-session/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.gnu.org/software/screen/&#34;&gt;Screen&lt;/a&gt; is a really useful console tool that allows you to copy and paste text, scroll back through screen output, reattach if you lose your connection, and so on. One useful trick is sharing a screen between 2 or more users, so you can see what each other is doing whilsts typing &amp;ndash; useful for learning or solving a difficult problem (see also &lt;a href=&#34;http://wiki.linuxquestions.org/wiki/Screen&#34;&gt;LinuxQuestions.Org&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;To do this, all users need to be logged in as the same account &amp;ndash; the easiest way to do this is as root:&lt;/p&gt;

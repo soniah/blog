@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Perl on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/perl/</link>
+    <link>http://www.snowfrog.net/tags/perl/</link>
     <description>Recent content in Perl on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 12 Feb 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/perl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/perl/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>refactoring in Go - rather pleasant actually...</title>
-      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <link>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
       <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <guid>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
 
 &lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
@@ -47,10 +47,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Perl - debug fork() with no X</title>
-      <link>http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/</link>
+      <link>http://www.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/</link>
       <pubDate>Fri, 03 Aug 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/</guid>
+      <guid>http://www.snowfrog.net/2012/08/03/perl-debug-fork-with-no-x/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s how to debug a Perl program that&amp;rsquo;s running remotely on a server that doesn&amp;rsquo;t have X. It&amp;rsquo;s pretty simple, these are just notes for me&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;You&amp;rsquo;ve ssh&amp;rsquo;d into a remote server (headless), to debug a perl script that forks:&lt;/p&gt;
@@ -120,10 +120,10 @@ server% perl -d foo.pl               &lt;span style=&#34;color: #999999; font-st
     
     <item>
       <title>Lisp and Python</title>
-      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <link>http://www.snowfrog.net/2011/03/27/lisp-and-python/</link>
       <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <guid>http://www.snowfrog.net/2011/03/27/lisp-and-python/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
 
 &lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
@@ -144,10 +144,10 @@ server% perl -d foo.pl               &lt;span style=&#34;color: #999999; font-st
     
     <item>
       <title>Source keychain credentials in Perl</title>
-      <link>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</link>
+      <link>http://www.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</link>
       <pubDate>Tue, 09 Jun 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
+      <guid>http://www.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/</guid>
       <description>&lt;p&gt;I use &lt;a href=&#34;http://www.gentoo.org/proj/en/keychain/&#34;&gt;keychain&lt;/a&gt; for securely &lt;a href=&#34;http://www.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/&#34;&gt;caching my ssh key credentials when running scripts from cron&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.mail-archive.com/centos@centos.org/msg12887.html&#34;&gt;Here&amp;rsquo;s&lt;/a&gt; how to use keychain with Perl scripts:&lt;/p&gt;
@@ -164,10 +164,10 @@ run_perl_program.pl&lt;/pre&gt;
     
     <item>
       <title>Perl – @INC</title>
-      <link>http://blog2.snowfrog.net/2009/06/02/perl-inc/</link>
+      <link>http://www.snowfrog.net/2009/06/02/perl-inc/</link>
       <pubDate>Mon, 01 Jun 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/06/02/perl-inc/</guid>
+      <guid>http://www.snowfrog.net/2009/06/02/perl-inc/</guid>
       <description>&lt;p&gt;&lt;strong&gt;@INC&lt;/strong&gt; &amp;ndash; like $PATH for &lt;strong&gt;do&lt;/strong&gt;, &lt;strong&gt;require&lt;/strong&gt;, &lt;strong&gt;use&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Display existing @INC:&lt;/p&gt;
@@ -198,10 +198,10 @@ run_perl_program.pl&lt;/pre&gt;
     
     <item>
       <title>Perl – my, use vars, our, local, use strict</title>
-      <link>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</link>
+      <link>http://www.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</link>
       <pubDate>Fri, 22 May 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</guid>
+      <guid>http://www.snowfrog.net/2009/05/22/perl-my-use-vars-our-local-use-strict/</guid>
       <description>&lt;p&gt;Some notes for me as I attempt to get a better understanding of Perl&amp;rsquo;s variable scoping rules. A work in progress.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -250,10 +250,10 @@ run_perl_program.pl&lt;/pre&gt;
     
     <item>
       <title>Perl – use, require, import, and do</title>
-      <link>http://blog2.snowfrog.net/2009/05/09/perl-use-require-import-and-do/</link>
+      <link>http://www.snowfrog.net/2009/05/09/perl-use-require-import-and-do/</link>
       <pubDate>Sat, 09 May 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/05/09/perl-use-require-import-and-do/</guid>
+      <guid>http://www.snowfrog.net/2009/05/09/perl-use-require-import-and-do/</guid>
       <description>&lt;p&gt;Some notes on Perl&amp;rsquo;s &lt;em&gt;use, require, import&lt;/em&gt; and *do. *Quick notes for me; not meant to be authoritative.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -314,10 +314,10 @@ bar();              # carks
     
     <item>
       <title>vim modelines</title>
-      <link>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</link>
+      <link>http://www.snowfrog.net/2009/01/08/vim-modelines/</link>
       <pubDate>Thu, 08 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/08/vim-modelines/</guid>
+      <guid>http://www.snowfrog.net/2009/01/08/vim-modelines/</guid>
       <description>&lt;p&gt;I can never remember what those comments that change vim settings are called, and spend hours trawling through vim&amp;rsquo;s help.&lt;/p&gt;
 
 &lt;p&gt;They&amp;rsquo;re called &lt;strong&gt;modelines. :help modeline&lt;/strong&gt; brings up the documentation.&lt;/p&gt;
@@ -368,10 +368,10 @@ bar();              # carks
     
     <item>
       <title>Installing CPAN as non-root</title>
-      <link>http://blog2.snowfrog.net/2008/03/28/installing-cpan-as-non-root/</link>
+      <link>http://www.snowfrog.net/2008/03/28/installing-cpan-as-non-root/</link>
       <pubDate>Fri, 28 Mar 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/03/28/installing-cpan-as-non-root/</guid>
+      <guid>http://www.snowfrog.net/2008/03/28/installing-cpan-as-non-root/</guid>
       <description>&lt;p&gt;(todo &amp;ndash; test/verify/summarize these links:)&lt;/p&gt;
 
 &lt;ul&gt;
@@ -385,10 +385,10 @@ bar();              # carks
     
     <item>
       <title>expect notes</title>
-      <link>http://blog2.snowfrog.net/2007/11/14/expect-notes/</link>
+      <link>http://www.snowfrog.net/2007/11/14/expect-notes/</link>
       <pubDate>Thu, 15 Nov 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/11/14/expect-notes/</guid>
+      <guid>http://www.snowfrog.net/2007/11/14/expect-notes/</guid>
       <description>&lt;p&gt;(draft)&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://expect.nist.gov/&#34;&gt;Expect Language&lt;/a&gt;, &lt;a href=&#34;http://&#34;&gt;Expect Book&lt;/a&gt;.&lt;/p&gt;

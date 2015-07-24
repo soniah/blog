@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/java/</link>
+    <link>http://www.snowfrog.net/tags/java/</link>
     <description>Recent content in Java on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 21 Mar 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Making Java Fun with Mirah</title>
-      <link>http://blog2.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</link>
+      <link>http://www.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</link>
       <pubDate>Mon, 21 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</guid>
+      <guid>http://www.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</guid>
       <description>&lt;p&gt;A SlashDot linked &lt;a href=&#34;http://cogitations.arbia.co.uk/post/3984477935/fun-java-with-mirah&#34;&gt;article on Mirah&lt;/a&gt; &amp;ndash; Java with Ruby syntax (different from JRuby).&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-916&#34; title=&#34;programadorjava&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg?w=285&#34; alt=&#34;&#34; width=&#34;285&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;

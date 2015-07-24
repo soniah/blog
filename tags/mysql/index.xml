@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysql on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/mysql/</link>
+    <link>http://www.snowfrog.net/tags/mysql/</link>
     <description>Recent content in Mysql on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 06 Jan 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
-      <link>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</link>
+      <link>http://www.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</link>
       <pubDate>Mon, 06 Jan 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
+      <guid>http://www.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately
 MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt;
 function. Here&amp;rsquo;s a version I quickly implemented, called
@@ -81,10 +81,10 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
     
     <item>
       <title>Backup multiple MySQL databases into separate files – Windows</title>
-      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <link>http://www.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <guid>http://www.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
       <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://www.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
 
 &lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;rsquo;s a script submitted by one of my readers:&lt;/p&gt;
@@ -112,10 +112,10 @@ FOR /D %%F IN (*) DO (
     
     <item>
       <title>Ruby on Rails – Foreign Key Constraints in MySQL</title>
-      <link>http://blog2.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</link>
+      <link>http://www.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</link>
       <pubDate>Wed, 01 Oct 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</guid>
+      <guid>http://www.snowfrog.net/2008/10/01/ruby-on-rails-foreign-key-constraints-in-mysql/</guid>
       <description>&lt;p&gt;As an ex-DBA, one of the things that annoys me about Rails is that migrations don&amp;rsquo;t have a way of setting up referential integrity (I&amp;rsquo;m still using Rails 1.2.3, so this may have changed).&lt;/p&gt;
 
 &lt;p&gt;But apart from that, I lurv Rails :-)&lt;/p&gt;
@@ -202,10 +202,10 @@ end&lt;/pre&gt;
     
     <item>
       <title>Connect to mysql from OpenOffice using ODBC</title>
-      <link>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</link>
+      <link>http://www.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</link>
       <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</guid>
+      <guid>http://www.snowfrog.net/2008/06/05/connect-to-mysql-from-openoffice-using-odbc/</guid>
       <description>&lt;p&gt;There&amp;rsquo;s an article &lt;a href=&#34;http://www.linux.com/feature/60185&#34;&gt;here&lt;/a&gt; that explains how to connect to a mysql database from OpenOffice.org Base using odbc,&lt;/p&gt;
 
 &lt;p&gt;but the author makes it sound like rocket science. It&amp;rsquo;s easy &amp;ndash; summary:&lt;/p&gt;
@@ -227,10 +227,10 @@ end&lt;/pre&gt;
     
     <item>
       <title>mysql, localhost, and ssh work-around</title>
-      <link>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</link>
+      <link>http://www.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</link>
       <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</guid>
+      <guid>http://www.snowfrog.net/2008/06/05/mysql-localhost-and-ssh-work-around/</guid>
       <description>&lt;p&gt;I use ssh to tunnel all the time, especially to get around brain-dead firewalls.&lt;/p&gt;
 
 &lt;p&gt;But this doesn&amp;rsquo;t work easily for mysql &amp;ndash; if you tunnel a port from localhost (eg localhost:3306) to the target db, mysql client tools will see &amp;lsquo;localhost&amp;rsquo; and try to connect via the local socket. Very broken &amp;ndash; there&amp;rsquo;s bugs lodged &lt;a href=&#34;http://bugs.mysql.com/bug.php?id=27361&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://bugs.mysql.com/bug.php?id=31577&#34;&gt;here&lt;/a&gt; about this (and lots of chest beating and wailing, too).&lt;/p&gt;
@@ -268,10 +268,10 @@ mysql&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>MySQL Backups</title>
-      <link>http://blog2.snowfrog.net/2007/12/21/mysql-backups/</link>
+      <link>http://www.snowfrog.net/2007/12/21/mysql-backups/</link>
       <pubDate>Fri, 21 Dec 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/12/21/mysql-backups/</guid>
+      <guid>http://www.snowfrog.net/2007/12/21/mysql-backups/</guid>
       <description>&lt;p&gt;See Also:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -285,10 +285,10 @@ mysql&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>MySQL Logging and LogRotation</title>
-      <link>http://blog2.snowfrog.net/2007/10/24/mysql-logging-and-logrotation/</link>
+      <link>http://www.snowfrog.net/2007/10/24/mysql-logging-and-logrotation/</link>
       <pubDate>Thu, 25 Oct 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/10/24/mysql-logging-and-logrotation/</guid>
+      <guid>http://www.snowfrog.net/2007/10/24/mysql-logging-and-logrotation/</guid>
       <description>&lt;p&gt;dev.msql.com &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/log-files.html&#34;&gt;logging documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;On Debian based systems, MySQL logging (and logrotation) is setup automatically so I&amp;rsquo;ve never had to worry about it. Unfortunately, I&amp;rsquo;m not using Debian at the moment.&lt;/p&gt;
@@ -315,10 +315,10 @@ mysql&amp;gt;&lt;/pre&gt;
     
     <item>
       <title>MySQL Replication Notes</title>
-      <link>http://blog2.snowfrog.net/2007/10/23/mysql-replication-notes/</link>
+      <link>http://www.snowfrog.net/2007/10/23/mysql-replication-notes/</link>
       <pubDate>Tue, 23 Oct 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/10/23/mysql-replication-notes/</guid>
+      <guid>http://www.snowfrog.net/2007/10/23/mysql-replication-notes/</guid>
       <description>
 
 &lt;p&gt;dev.mysql.com &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/replication.html&#34;&gt;replication documentation&lt;/a&gt;. Replication on MySQL is similar to &lt;em&gt;Log Shipping&lt;/em&gt; on MS SQL; the default is &lt;em&gt;statement level&lt;/em&gt; replication, but newer versions also offer &lt;em&gt;row-based&lt;/em&gt; replication.&lt;/p&gt;
@@ -459,10 +459,10 @@ log-error=/var/log/mysql/mysql-error.log # log errors
     
     <item>
       <title>MySQL Security</title>
-      <link>http://blog2.snowfrog.net/2007/10/15/mysql-security/</link>
+      <link>http://www.snowfrog.net/2007/10/15/mysql-security/</link>
       <pubDate>Mon, 15 Oct 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/10/15/mysql-security/</guid>
+      <guid>http://www.snowfrog.net/2007/10/15/mysql-security/</guid>
       <description>&lt;p&gt;Some guidelines for understanding MySQL security:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -494,10 +494,10 @@ log-error=/var/log/mysql/mysql-error.log # log errors
     
     <item>
       <title>multiple mysql versions on same machine</title>
-      <link>http://blog2.snowfrog.net/2007/09/12/multiple-mysql-versions-on-same-machine/</link>
+      <link>http://www.snowfrog.net/2007/09/12/multiple-mysql-versions-on-same-machine/</link>
       <pubDate>Thu, 13 Sep 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/09/12/multiple-mysql-versions-on-same-machine/</guid>
+      <guid>http://www.snowfrog.net/2007/09/12/multiple-mysql-versions-on-same-machine/</guid>
       <description>&lt;p&gt;Examples of working with multiple mysql versions on the same machine:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;/usr/local/mysql/bin/mysqldump -uroot --sock=/tmp/mysql5.sock directaccesscms &amp;gt; directaccesscms_tpldb1.sql&lt;/code&gt;&lt;br /&gt;
@@ -509,10 +509,10 @@ log-error=/var/log/mysql/mysql-error.log # log errors
     
     <item>
       <title>Backup multiple MySQL databases into separate files</title>
-      <link>http://blog2.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</link>
+      <link>http://www.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</link>
       <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</guid>
+      <guid>http://www.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</guid>
       <description>&lt;p&gt;Backup multiple MySQL databases into separate files&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; want to know how to do this on Windows? See my post &lt;a href=&#34;http://www.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/&#34;&gt;Backup multiple MySQL databases into separate files – Windows&lt;/a&gt;.&lt;/p&gt;
@@ -546,10 +546,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>Connect to MySQL across network using MS Access</title>
-      <link>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</link>
+      <link>http://www.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</link>
       <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</guid>
+      <guid>http://www.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</guid>
       <description>&lt;p&gt;Connect to MySQL across network using MS Access&lt;/p&gt;
 
 &lt;ul&gt;
@@ -587,10 +587,10 @@ mysql&amp;gt; q&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
     
     <item>
       <title>MySQL notes 2</title>
-      <link>http://blog2.snowfrog.net/2005/11/16/notes-2/</link>
+      <link>http://www.snowfrog.net/2005/11/16/notes-2/</link>
       <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/11/16/notes-2/</guid>
+      <guid>http://www.snowfrog.net/2005/11/16/notes-2/</guid>
       <description>
 
 &lt;p&gt;MySQL notes 2&lt;/p&gt;
@@ -750,10 +750,10 @@ exit(0);&lt;/pre&gt;
     
     <item>
       <title>Reset lost MySQL root password</title>
-      <link>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</link>
+      <link>http://www.snowfrog.net/2005/11/16/reset-lost-root-password/</link>
       <pubDate>Thu, 17 Nov 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/11/16/reset-lost-root-password/</guid>
+      <guid>http://www.snowfrog.net/2005/11/16/reset-lost-root-password/</guid>
       <description>&lt;p&gt;Reset lost MySQL root password&lt;/p&gt;
 
 &lt;ul&gt;
@@ -785,10 +785,10 @@ exit(0);&lt;/pre&gt;
     
     <item>
       <title>MySQL notes</title>
-      <link>http://blog2.snowfrog.net/2005/11/14/mysql-notes/</link>
+      <link>http://www.snowfrog.net/2005/11/14/mysql-notes/</link>
       <pubDate>Tue, 15 Nov 2005 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2005/11/14/mysql-notes/</guid>
+      <guid>http://www.snowfrog.net/2005/11/14/mysql-notes/</guid>
       <description>
 
 &lt;p&gt;MySQL notes&lt;/p&gt;

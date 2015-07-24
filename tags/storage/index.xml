@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Storage on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/storage/</link>
+    <link>http://www.snowfrog.net/tags/storage/</link>
     <description>Recent content in Storage on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 16 Jul 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/storage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/storage/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>netapp – disabling and deleting snapshots</title>
-      <link>http://blog2.snowfrog.net/2009/07/16/netapp-disabling-and-deleting-snapshots/</link>
+      <link>http://www.snowfrog.net/2009/07/16/netapp-disabling-and-deleting-snapshots/</link>
       <pubDate>Thu, 16 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/07/16/netapp-disabling-and-deleting-snapshots/</guid>
+      <guid>http://www.snowfrog.net/2009/07/16/netapp-disabling-and-deleting-snapshots/</guid>
       <description>&lt;p&gt;Netapp volumes by default are created with snapshots turned on; if the volume is being used for backups (for example), the snapshots just use up space.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s how to delete them:&lt;/p&gt;
@@ -32,10 +32,10 @@ snap delete -a vm_dev         # delete all old snapshots&lt;/pre&gt;
     
     <item>
       <title>Disk MTBF – Mean Time Between Failures</title>
-      <link>http://blog2.snowfrog.net/2008/12/03/disk-mtbf-mean-time-between-failures/</link>
+      <link>http://www.snowfrog.net/2008/12/03/disk-mtbf-mean-time-between-failures/</link>
       <pubDate>Wed, 03 Dec 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/12/03/disk-mtbf-mean-time-between-failures/</guid>
+      <guid>http://www.snowfrog.net/2008/12/03/disk-mtbf-mean-time-between-failures/</guid>
       <description>&lt;p&gt;A good &lt;a href=&#34;http://www.pcguide.com/ref/hdd/perf/qual/specMTBF-c.html&#34;&gt;article&lt;/a&gt; on disk MTBF (Mean Time Between Failures), that clarified my understanding (thanks Jarek).&lt;/p&gt;
 
 &lt;p&gt;The key paragraph:&lt;/p&gt;

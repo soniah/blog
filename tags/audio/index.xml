@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Audio on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/audio/</link>
+    <link>http://www.snowfrog.net/tags/audio/</link>
     <description>Recent content in Audio on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 27 Jul 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/audio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/audio/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Troubleshooting Sound on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</link>
+      <link>http://www.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</link>
       <pubDate>Mon, 27 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</guid>
       <description>&lt;p&gt;Some good documentation on &lt;a href=&#34;https://help.ubuntu.com/community/SoundTroubleshooting&#34;&gt;Troubleshooting Sound on Ubuntu&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;And a nice post on &lt;a href=&#34;http://chanweiyee.blogspot.com/2009/04/ubuntu-904-amarok-2-sound-problem.html&#34;&gt;getting Amarok going on Jaunty&lt;/a&gt; &amp;ndash; remove phonon-backend-gstreamer and install phonon-backend-xine (&lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/amarok/+bug/349847&#34;&gt;bug 349847&lt;/a&gt;). I can now go back to grooving to some laid-back Brazilian Reggae &amp;ndash; &lt;em&gt;Tribo de Jah &amp;ndash; Ruinas de Babilonia:&lt;/em&gt;&lt;/p&gt;
@@ -25,10 +25,10 @@ Buscando uma vida decente, Buscando um pouco de paz em suas vidas.&lt;/em&gt;&lt
     
     <item>
       <title>Dell Latitude D830 No volume control GStreamer plugins and/or devices found</title>
-      <link>http://blog2.snowfrog.net/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/</link>
+      <link>http://www.snowfrog.net/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/</link>
       <pubDate>Tue, 15 Apr 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/</guid>
+      <guid>http://www.snowfrog.net/2008/04/15/dell-latitude-d830-no-volume-control-gstreamer-plugins-andor-devices-found/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://wiki.ubuntu.com/Gutsy_Intel_HD_Audio_Controller&#34;&gt;Gutsy Intel HD Audio Controller&lt;/a&gt;, &amp;ldquo;Method G&amp;rdquo;&lt;/p&gt;
 
 &lt;p&gt;In a nutshell:&lt;/p&gt;
@@ -45,10 +45,10 @@ Buscando uma vida decente, Buscando um pouco de paz em suas vidas.&lt;/em&gt;&lt
     
     <item>
       <title>howto rip Real Audio streams to mp3 on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/</link>
+      <link>http://www.snowfrog.net/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/</link>
       <pubDate>Mon, 14 Apr 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2008/04/14/howto-rip-real-audio-streams-to-mp3-on-ubuntu/</guid>
       <description>&lt;p&gt;I enjoy listening to podcasts during my commute, and most podcasts can be easily downloaded using my favourite podcasting tool (currently customised bashpodder, but I&amp;rsquo;m writing my own).&lt;/p&gt;
 
 &lt;p&gt;But unfortunately some broadcasters (for example a large British one) persist in using weird proprietary formats like &amp;ldquo;Real Audio&amp;rdquo;. Bah! By the curse of RMS&amp;rsquo;s Beard!&lt;/p&gt;
@@ -112,10 +112,10 @@ $ lame -h -b 128 audiofile.wav audiofile.mp3&lt;/p&gt;
     
     <item>
       <title>iAudio mp3 player mount errors Ubuntu Gutsy</title>
-      <link>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</link>
+      <link>http://www.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</link>
       <pubDate>Wed, 30 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</guid>
+      <guid>http://www.snowfrog.net/2008/01/29/iaudio-mp3-player-mount-errors-ubuntu-gutsy/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;gconf-editor
 
@@ -131,10 +131,10 @@ $ lame -h -b 128 audiofile.wav audiofile.mp3&lt;/p&gt;
     
     <item>
       <title>Good Copy Bad Copy</title>
-      <link>http://blog2.snowfrog.net/2007/10/24/good-copy-bad-copy/</link>
+      <link>http://www.snowfrog.net/2007/10/24/good-copy-bad-copy/</link>
       <pubDate>Wed, 24 Oct 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/10/24/good-copy-bad-copy/</guid>
+      <guid>http://www.snowfrog.net/2007/10/24/good-copy-bad-copy/</guid>
       <description>&lt;p&gt;&lt;em&gt;a documentary about copyright and culture by Andreas Johsen, Ralf Christensen and Henrik Moltke&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://goodcopybadcopy.blip.tv/&#34;&gt;http://goodcopybadcopy.blip.tv&lt;/a&gt;&lt;/p&gt;
@@ -143,10 +143,10 @@ $ lame -h -b 128 audiofile.wav audiofile.mp3&lt;/p&gt;
     
     <item>
       <title>dvd ripping</title>
-      <link>http://blog2.snowfrog.net/2007/09/30/rip-audio-track-from-a-dvd/</link>
+      <link>http://www.snowfrog.net/2007/09/30/rip-audio-track-from-a-dvd/</link>
       <pubDate>Sun, 30 Sep 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/09/30/rip-audio-track-from-a-dvd/</guid>
+      <guid>http://www.snowfrog.net/2007/09/30/rip-audio-track-from-a-dvd/</guid>
       <description>&lt;p&gt;**Rip audio from a dvd **&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;mencoder dvd://2 -oac mp3lame -lameopts br=96:cbr:vol=6 -ovc frameno -o track2.mp3&lt;/code&gt;&lt;/p&gt;
@@ -174,10 +174,10 @@ $ lame -h -b 128 audiofile.wav audiofile.mp3&lt;/p&gt;
     
     <item>
       <title>Split mp3 Music Files – mp3splt</title>
-      <link>http://blog2.snowfrog.net/2007/05/20/split-mp3-music-files-mp3splt/</link>
+      <link>http://www.snowfrog.net/2007/05/20/split-mp3-music-files-mp3splt/</link>
       <pubDate>Mon, 21 May 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/05/20/split-mp3-music-files-mp3splt/</guid>
+      <guid>http://www.snowfrog.net/2007/05/20/split-mp3-music-files-mp3splt/</guid>
       <description>&lt;p&gt;A useful tool for splitting mp3 music files on Linux is &lt;strong&gt;mp3splt.&lt;/strong&gt; To install it on Ubuntu or Debian based distributions, type:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;$ sudo aptitude install mp3splt&lt;/code&gt;&lt;/p&gt;

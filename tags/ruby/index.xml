@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ruby on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/ruby/</link>
+    <link>http://www.snowfrog.net/tags/ruby/</link>
     <description>Recent content in Ruby on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 28 May 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Eloquent Ruby</title>
-      <link>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</link>
+      <link>http://www.snowfrog.net/2015/05/28/eloquent-ruby/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
+      <guid>http://www.snowfrog.net/2015/05/28/eloquent-ruby/</guid>
       <description>
 
 &lt;p&gt;My notes on Russ Olsen&amp;rsquo;s excellent book &lt;a href=&#34;http://eloquentruby.com/&#34;&gt;Eloquent
@@ -70,10 +70,10 @@ passed in via parameters, or passed out via &lt;em&gt;yield&lt;/em&gt;.&lt;/p&gt
     
     <item>
       <title>refactoring in Go - rather pleasant actually...</title>
-      <link>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
+      <link>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</link>
       <pubDate>Tue, 12 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
+      <guid>http://www.snowfrog.net/2013/02/12/refactoring-in-go-rather-pleasant-actually/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve just finished refactoring a large Go program, and the process was rather&amp;hellip;. pleasant.&lt;/p&gt;
 
 &lt;p&gt;Static typing catches all those obscure errors I wouldn&amp;rsquo;t think about in
@@ -107,10 +107,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Learning Clojure - my books</title>
-      <link>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
+      <link>http://www.snowfrog.net/2012/05/11/learning-clojure-my-books/</link>
       <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
+      <guid>http://www.snowfrog.net/2012/05/11/learning-clojure-my-books/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been playing with Lisp and now Clojure for a couple of years now. Here&amp;rsquo;s a list of the books I&amp;rsquo;ve read on my journey to Clojure enlightenment (I&amp;rsquo;ve still got a long way to go&amp;hellip;).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://nostarch.com/sites/default/files/imagecache/product_full/lisp.png&#34; alt=&#34;Land of Lisp&#34; /&gt;&lt;/p&gt;
@@ -147,10 +147,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Ruby, Lisp, Python</title>
-      <link>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
+      <link>http://www.snowfrog.net/2012/03/20/ruby-lisp-python/</link>
       <pubDate>Tue, 20 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
+      <guid>http://www.snowfrog.net/2012/03/20/ruby-lisp-python/</guid>
       <description>&lt;p&gt;Up late tonight reading about &lt;a href=&#34;http://www.emacswiki.org/emacs/EmacsLisp&#34;&gt;Emacs Lisp&lt;/a&gt;, I came across &lt;a href=&#34;https://sites.google.com/site/steveyegge2/tour-de-babel&#34;&gt;Tour de Babel&lt;/a&gt; by &lt;a href=&#34;http://en.wikipedia.org/wiki/Steve_Yegge&#34;&gt;Steve Yegge&lt;/a&gt; comparing different languages (C, C++, Java, etc), and why he likes Lisp and Ruby so much.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;m stuck in stodgy Python land at the moment, this is balm for the soul:&lt;/p&gt;
@@ -163,10 +163,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
     
     <item>
       <title>Ruby, blocks and procs</title>
-      <link>http://blog2.snowfrog.net/2011/08/30/ruby-blocks-and-procs/</link>
+      <link>http://www.snowfrog.net/2011/08/30/ruby-blocks-and-procs/</link>
       <pubDate>Tue, 30 Aug 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/08/30/ruby-blocks-and-procs/</guid>
+      <guid>http://www.snowfrog.net/2011/08/30/ruby-blocks-and-procs/</guid>
       <description>
 
 &lt;p&gt;Some notes on ruby, blocks, and procs.&lt;/p&gt;
@@ -336,10 +336,10 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
     
     <item>
       <title>Ruby and Rails – Time, Date, DateTime, TZInfo</title>
-      <link>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
+      <link>http://www.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</link>
       <pubDate>Wed, 29 Jun 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
+      <guid>http://www.snowfrog.net/2011/06/30/ruby-and-rails-time-date-datetime-tzinfo/</guid>
       <description>&lt;p&gt;From a discussion (&lt;a href=&#34;http://groups.google.com/group/rails-oceania/browse_thread/thread/6062f24822b3b3fc/981124480429da9f?lnk=gst&amp;amp;q=Re%3A+Ruby%3A+the+non-awesome+parts#981124480429da9f&#34;&gt;Ruby &amp;ndash; The Non-awesome parts&lt;/a&gt;) on the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; email list &amp;ndash; the differences between Time, Date, DateTime and TZInfo:&lt;/p&gt;
 
 &lt;p style=&#34;padding-left: 30px;&#34;&gt;
@@ -358,10 +358,10 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
     
     <item>
       <title>LISP – downloading SICP videos, JRuby</title>
-      <link>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
+      <link>http://www.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</link>
       <pubDate>Thu, 05 May 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
+      <guid>http://www.snowfrog.net/2011/05/05/lisp-downloading-sicp-videos-jruby/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m busy learning &lt;a href=&#34;http://en.wikipedia.org/wiki/Lisp_%28programming_language%29&#34;&gt;LISP&lt;/a&gt;/&lt;a href=&#34;http://en.wikipedia.org/wiki/Scheme_%28programming_language%29&#34;&gt;Scheme&lt;/a&gt; at the moment (in order to later move on to &lt;a href=&#34;http://clojure.org/&#34;&gt;Clojure&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;And, improving my programming learning LISP is :-)&lt;/p&gt;
@@ -374,10 +374,10 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
     
     <item>
       <title>Lisp and Python</title>
-      <link>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</link>
+      <link>http://www.snowfrog.net/2011/03/27/lisp-and-python/</link>
       <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/03/27/lisp-and-python/</guid>
+      <guid>http://www.snowfrog.net/2011/03/27/lisp-and-python/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m bored, so I&amp;rsquo;m going to learn Lisp.&lt;/p&gt;
 
 &lt;p&gt;Why am I bored? I hurt my knee at &lt;a href=&#34;http://www.youtube.com/watch?v=mlleDPgmDVM&#34;&gt;BJJ&lt;/a&gt; and have to take a week or two off training :-( Fortunately it&amp;rsquo;s not too bad and I&amp;rsquo;ll be back getting beaten up (and beating up) soon!&lt;/p&gt;
@@ -398,10 +398,10 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
     
     <item>
       <title>Making Java Fun with Mirah</title>
-      <link>http://blog2.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</link>
+      <link>http://www.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</link>
       <pubDate>Mon, 21 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</guid>
+      <guid>http://www.snowfrog.net/2011/03/21/making-java-fun-with-mirah/</guid>
       <description>&lt;p&gt;A SlashDot linked &lt;a href=&#34;http://cogitations.arbia.co.uk/post/3984477935/fun-java-with-mirah&#34;&gt;article on Mirah&lt;/a&gt; &amp;ndash; Java with Ruby syntax (different from JRuby).&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg&#34;&gt;&lt;img class=&#34;aligncenter size-medium wp-image-916&#34; title=&#34;programadorjava&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2011/03/programadorjava.jpg?w=285&#34; alt=&#34;&#34; width=&#34;285&#34; height=&#34;300&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -412,10 +412,10 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
     
     <item>
       <title>Why “require ‘rubygems&#39;” Is Wrong</title>
-      <link>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</link>
+      <link>http://www.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</link>
       <pubDate>Fri, 23 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</guid>
+      <guid>http://www.snowfrog.net/2009/10/23/why-require-rubygems-is-wrong/</guid>
       <description>&lt;p&gt;A link off the &lt;a href=&#34;http://rubyonrails.com.au/&#34;&gt;RORO&lt;/a&gt; list about &lt;a href=&#34;http://tomayko.com/writings/require-rubygems-antipattern&#34;&gt;Why &amp;ldquo;require &amp;lsquo;rubygems&amp;rsquo;&amp;rdquo; Is Wrong&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In a nutshell, the environment variable RUBYOPT should include rubygems eg&lt;/p&gt;
@@ -426,10 +426,10 @@ foo( bar { |s| puts(s) } )&lt;/pre&gt;
     
     <item>
       <title>Ruby 1.9 shell aliases</title>
-      <link>http://blog2.snowfrog.net/2009/10/19/ruby-1-9-shell-aliases/</link>
+      <link>http://www.snowfrog.net/2009/10/19/ruby-1-9-shell-aliases/</link>
       <pubDate>Mon, 19 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/19/ruby-1-9-shell-aliases/</guid>
+      <guid>http://www.snowfrog.net/2009/10/19/ruby-1-9-shell-aliases/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve started playing with Ruby 1.9 &amp;ndash; the latest and greatest version of Ruby. On Ubuntu Jaunty, 1.8 is considered mainline and 1.9 experimental &amp;ndash; here are the shell aliases if using 1.9:&lt;/p&gt;
 
 &lt;pre&gt;alias ri=&#39;/usr/bin/ri1.9&#39;
@@ -442,10 +442,10 @@ alias gem=&#39;/usr/bin/gem1.9&#39; # belts-and-braces - gem 1.8 &amp; 1.9 are t
     
     <item>
       <title>Ruby, Struct, OpenStruct, hashes</title>
-      <link>http://blog2.snowfrog.net/2009/10/10/ruby-struct-openstruct-hashes/</link>
+      <link>http://www.snowfrog.net/2009/10/10/ruby-struct-openstruct-hashes/</link>
       <pubDate>Sat, 10 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/10/ruby-struct-openstruct-hashes/</guid>
+      <guid>http://www.snowfrog.net/2009/10/10/ruby-struct-openstruct-hashes/</guid>
       <description>&lt;p&gt;An interesting Ruby example of an easy way to setup classes that are really just for passing around data using &lt;strong&gt;Struct&lt;/strong&gt; &amp;ndash; essentially a neat wrapper around a hash of values:&lt;/p&gt;
 
 &lt;pre&gt;class Node &amp;lt; Struct.new( :level, :tag, :data, :refid )
@@ -475,10 +475,10 @@ print node[:value]
     
     <item>
       <title>Ruby ARGV, options and OptionParser</title>
-      <link>http://blog2.snowfrog.net/2009/10/02/ruby-argv-options-and-optionparser/</link>
+      <link>http://www.snowfrog.net/2009/10/02/ruby-argv-options-and-optionparser/</link>
       <pubDate>Fri, 02 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/02/ruby-argv-options-and-optionparser/</guid>
+      <guid>http://www.snowfrog.net/2009/10/02/ruby-argv-options-and-optionparser/</guid>
       <description>&lt;p&gt;A nice Ruby example (for my reference) showing how to parse commandline options; the results are put in a hash called options (created on line 3).&lt;/p&gt;
 
 &lt;p&gt;Interestingly, the ARGV array is automatically extended to include the options method even before &lt;strong&gt;require &amp;lsquo;optparse&amp;rsquo;&lt;/strong&gt; is run. See also &lt;strong&gt;ri OptionParser&lt;/strong&gt; and &lt;a href=&#34;http://stderr.org/doc/liboptparse-ruby/optparse.html&#34;&gt;stderr.org&lt;/a&gt;. From &lt;a href=&#34;http://www.pragprog.com/titles/fr_quiz/best-of-ruby-quiz&#34;&gt;Pragmattic Programmers&amp;rsquo; Best of Ruby Quiz&lt;/a&gt;:&lt;/p&gt;
@@ -513,10 +513,10 @@ end
     
     <item>
       <title>Ruby Test::Unit Assertions</title>
-      <link>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</link>
+      <link>http://www.snowfrog.net/2009/10/01/ruby-testunit-assertions/</link>
       <pubDate>Thu, 01 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/01/ruby-testunit-assertions/</guid>
+      <guid>http://www.snowfrog.net/2009/10/01/ruby-testunit-assertions/</guid>
       <description>&lt;p&gt;A good summary (for my reference) of the assertions that can be used with Test::Unit (&lt;a href=&#34;http://www.pragprog.com/titles/ruby/programming-ruby&#34;&gt;from Pragmatic Programmers&amp;rsquo; Programming Ruby&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;&lt;img class=&#34;alignleft size-full wp-image-553&#34; title=&#34;test unit assertions&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2009/10/test-unit-assertions.png&#34; alt=&#34;test unit assertions&#34; width=&#34;433&#34; height=&#34;611&#34; /&gt;&lt;/p&gt;
@@ -525,10 +525,10 @@ end
     
     <item>
       <title>Ruby here document example</title>
-      <link>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</link>
+      <link>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</link>
       <pubDate>Thu, 01 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/01/ruby-here-document-example/</guid>
+      <guid>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</guid>
       <description>&lt;p&gt;A nice ruby example (for my reference) of using here documents to load data/logic. From &lt;a href=&#34;http://www.pragprog.com/titles/fr_quiz/best-of-ruby-quiz&#34;&gt;Pragmattic Programmers&amp;rsquo; Best of Ruby Quiz&lt;/a&gt;:&lt;/p&gt;
 
 &lt;pre&gt;DIGITS = &amp;lt;&amp;lt;END_DIGITS.split(&#34;n&#34;).map { |row| row.split(&#34; # &#34;) }.transpose

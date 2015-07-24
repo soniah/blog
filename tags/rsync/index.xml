@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rsync on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/rsync/</link>
+    <link>http://www.snowfrog.net/tags/rsync/</link>
     <description>Recent content in Rsync on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 28 Jul 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>rsyncp – provide ssh password to rsync using expect</title>
-      <link>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
+      <link>http://www.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</link>
       <pubDate>Thu, 28 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
+      <guid>http://www.snowfrog.net/2011/07/28/rsyncp-provide-ssh-password-to-rsync-using-expect/</guid>
       <description>&lt;p&gt;A script I wrote &amp;ndash; rsyncp. It allows you to provide a password to rsync over ssh, when you&amp;rsquo;re unable to use ssh key-based authentication:&lt;/p&gt;
 
 &lt;pre&gt;% cat ~/bin/rsyncp
@@ -34,10 +34,10 @@ done&lt;/pre&gt;
     
     <item>
       <title>fuzzy rsync</title>
-      <link>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</link>
+      <link>http://www.snowfrog.net/2011/03/03/fuzzy-rsync/</link>
       <pubDate>Thu, 03 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/03/03/fuzzy-rsync/</guid>
+      <guid>http://www.snowfrog.net/2011/03/03/fuzzy-rsync/</guid>
       <description>&lt;p&gt;A nice option I discovered in &lt;a href=&#34;http://en.wikipedia.org/wiki/Rsync&#34;&gt;rsync&lt;/a&gt; &amp;ndash; the &lt;strong&gt;&amp;ndash;fuzzy&lt;/strong&gt; option.&lt;/p&gt;
 
 &lt;p&gt;If a destination file is missing rsync looks for a similar file in the same directory, and copies/moves it. The current &amp;ldquo;similar&amp;rdquo; algorithm is &amp;ldquo;identical size and modified time&amp;rdquo;, or &amp;ldquo;similarly-named&amp;rdquo;. For example:&lt;/p&gt;
@@ -59,10 +59,10 @@ total size is 4966997090  speedup is 26321.63                 &amp;lt;-- woohoo!
     
     <item>
       <title>DeltaCopy – rsync for Windows</title>
-      <link>http://blog2.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</link>
+      <link>http://www.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</link>
       <pubDate>Thu, 12 Nov 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</guid>
+      <guid>http://www.snowfrog.net/2009/11/12/deltacopy-rsync-for-windows/</guid>
       <description>&lt;p&gt;A nice little tool I came across &amp;ndash; &lt;a href=&#34;http://www.aboutmyip.com/AboutMyXApp/DeltaCopy.jsp&#34;&gt;DeltaCopy&lt;/a&gt; &amp;ndash;&lt;/p&gt;
 
 &lt;p&gt;for when you have to work with Windows desktops and want to rsync (and don&amp;rsquo;t want to install &lt;a href=&#34;http://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt;). I haven&amp;rsquo;t had time to play with it yet, but apparently the DeltaCopy client will connect to an rsync server.&lt;/p&gt;
@@ -73,10 +73,10 @@ total size is 4966997090  speedup is 26321.63                 &amp;lt;-- woohoo!
     
     <item>
       <title>rsync notes</title>
-      <link>http://blog2.snowfrog.net/2006/05/14/rsync-notes/</link>
+      <link>http://www.snowfrog.net/2006/05/14/rsync-notes/</link>
       <pubDate>Mon, 15 May 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/05/14/rsync-notes/</guid>
+      <guid>http://www.snowfrog.net/2006/05/14/rsync-notes/</guid>
       <description>
 
 &lt;p&gt;rsync notes&lt;/p&gt;

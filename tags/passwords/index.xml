@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Passwords on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/passwords/</link>
+    <link>http://www.snowfrog.net/tags/passwords/</link>
     <description>Recent content in Passwords on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 13 Jun 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/passwords/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/passwords/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Change your passwords</title>
-      <link>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</link>
+      <link>http://www.snowfrog.net/2012/06/13/change-your-passwords/</link>
       <pubDate>Wed, 13 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/06/13/change-your-passwords/</guid>
+      <guid>http://www.snowfrog.net/2012/06/13/change-your-passwords/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve written this post for the non-technical people I do &amp;ldquo;tech support&amp;rdquo; for.&lt;/p&gt;
 
 &lt;p&gt;Do you use the &lt;em&gt;same&lt;/em&gt; password on different websites? Or, the same password with &lt;em&gt;slight variations&lt;/em&gt; (for example &lt;strong&gt;secret-abc&lt;/strong&gt; on website &lt;strong&gt;abc.com&lt;/strong&gt; and &lt;strong&gt;secret-xyz&lt;/strong&gt; on website &lt;strong&gt;xyz.com&lt;/strong&gt;). Or, do you make your password &amp;ldquo;secure&amp;rdquo; (it&amp;rsquo;s not) by changing one of the letters for a number or symbol (eg &lt;strong&gt;secret&lt;/strong&gt; becomes &lt;strong&gt;s3cret&lt;/strong&gt;, &lt;strong&gt;password&lt;/strong&gt; becomes &lt;strong&gt;p@ssword&lt;/strong&gt;).&lt;/p&gt;

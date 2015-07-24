@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Squid on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/squid/</link>
+    <link>http://www.snowfrog.net/tags/squid/</link>
     <description>Recent content in Squid on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 16 Oct 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/squid/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/squid/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Squid Notes</title>
-      <link>http://blog2.snowfrog.net/2010/10/16/squid-notes/</link>
+      <link>http://www.snowfrog.net/2010/10/16/squid-notes/</link>
       <pubDate>Sat, 16 Oct 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/10/16/squid-notes/</guid>
+      <guid>http://www.snowfrog.net/2010/10/16/squid-notes/</guid>
       <description>&lt;p&gt;Some quick Squid notes, from O&amp;rsquo;Reilly&amp;rsquo;s &amp;ldquo;&lt;a href=&#34;http://squidbook.org/&#34;&gt;Squid The Definitive Guide&lt;/a&gt;&amp;ldquo;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Debugging&lt;/strong&gt;&lt;/p&gt;

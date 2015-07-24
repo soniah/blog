@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zfs on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/zfs/</link>
+    <link>http://www.snowfrog.net/tags/zfs/</link>
     <description>Recent content in Zfs on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sat, 14 Dec 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ZFS List Snapshots, Create and Destroy Clones</title>
-      <link>http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</link>
+      <link>http://www.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</link>
       <pubDate>Sat, 14 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</guid>
+      <guid>http://www.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m using &lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, &lt;a href=&#34;http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line&#34;&gt;as always the shell is faster&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Some notes for me on listing ZFS snapshots, and creating and destroying clones.&lt;/p&gt;

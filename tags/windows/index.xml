@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/windows/</link>
+    <link>http://www.snowfrog.net/tags/windows/</link>
     <description>Recent content in Windows on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 05 Mar 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Backup multiple MySQL databases into separate files – Windows</title>
-      <link>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
+      <link>http://www.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</link>
       <pubDate>Mon, 05 Mar 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
+      <guid>http://www.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/</guid>
       <description>&lt;p&gt;Years ago I wrote a post on how to &lt;a href=&#34;http://www.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/&#34;&gt;Backup multiple MySQL databases into separate files&lt;/a&gt; (Linux).&lt;/p&gt;
 
 &lt;p&gt;I get a lot of questions about how to do the same on Windows; here&amp;rsquo;s a script submitted by one of my readers:&lt;/p&gt;
@@ -41,10 +41,10 @@ FOR /D %%F IN (*) DO (
     
     <item>
       <title>Windows autologon</title>
-      <link>http://blog2.snowfrog.net/2010/06/23/windows-autologon/</link>
+      <link>http://www.snowfrog.net/2010/06/23/windows-autologon/</link>
       <pubDate>Wed, 23 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/06/23/windows-autologon/</guid>
+      <guid>http://www.snowfrog.net/2010/06/23/windows-autologon/</guid>
       <description>&lt;p&gt;The only time I use Windows is as a virtual machine &amp;ldquo;appliance&amp;rdquo; ie it&amp;rsquo;s running some application that I have to run, that only runs on Windows.&lt;/p&gt;
 
 &lt;p&gt;Often I want the VM to just logon automagically; here&amp;rsquo;s a registry file to do so. Save it as foo.reg and double click on it:&lt;/p&gt;
@@ -62,10 +62,10 @@ FOR /D %%F IN (*) DO (
     
     <item>
       <title>Windows recovery tools</title>
-      <link>http://blog2.snowfrog.net/2006/07/04/windows-recovery-tools/</link>
+      <link>http://www.snowfrog.net/2006/07/04/windows-recovery-tools/</link>
       <pubDate>Wed, 05 Jul 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/07/04/windows-recovery-tools/</guid>
+      <guid>http://www.snowfrog.net/2006/07/04/windows-recovery-tools/</guid>
       <description>&lt;p&gt;Here are some useful tools for troubleshooting/recovering windows systems:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -91,10 +91,10 @@ FOR /D %%F IN (*) DO (
     
     <item>
       <title>sharing application data on a dual boot laptop</title>
-      <link>http://blog2.snowfrog.net/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/</link>
+      <link>http://www.snowfrog.net/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/</link>
       <pubDate>Tue, 20 Jun 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/</guid>
+      <guid>http://www.snowfrog.net/2006/06/19/sharing-application-data-on-a-dual-boot-laptop/</guid>
       <description>
 
 &lt;p&gt;sharing application data on a dual boot laptop&lt;/p&gt;

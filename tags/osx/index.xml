@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Osx on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/osx/</link>
+    <link>http://www.snowfrog.net/tags/osx/</link>
     <description>Recent content in Osx on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 22 Dec 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/osx/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</title>
-      <link>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
+      <link>http://www.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</link>
       <pubDate>Sun, 22 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
+      <guid>http://www.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/</guid>
       <description>&lt;p&gt;When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&amp;rsquo;ll get an error in the console log like:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Unable to copy file foo to /var/private/bar&amp;hellip;&lt;/em&gt;&lt;/p&gt;
@@ -55,10 +55,10 @@ rm -rf *
     
     <item>
       <title>OSX, iPhone, iTunes – finer grained syncing</title>
-      <link>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</link>
+      <link>http://www.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</link>
       <pubDate>Tue, 28 Jun 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
+      <guid>http://www.snowfrog.net/2011/06/28/osx-iphone-itunes-finer-grained-syncing/</guid>
       <description>&lt;p&gt;iTunes&amp;rsquo; syncing of movies and podcasts is a big lame &amp;ndash; there&amp;rsquo;s not enough fine grained control.&lt;/p&gt;
 
 &lt;p&gt;For example, you can&amp;rsquo;t say &amp;ldquo;sync only this category of movies&amp;rdquo;, or &amp;ldquo;sync 30 minutes of podcast X, and 4 episodes of podcast Y, and only remove episodes of podcast Z after they&amp;rsquo;ve been listened to &lt;em&gt;twice&lt;/em&gt;&amp;rdquo;. And at the moment I don&amp;rsquo;t have the time to migrate to Android and/or write my own podcast sync tools on Linux, so I&amp;rsquo;m stuck with iTunes/OSX. (I used to have some scripts for doing this for an ancient device, but device is dead and scripts are suffering from bit-rot).&lt;/p&gt;
@@ -69,10 +69,10 @@ rm -rf *
     
     <item>
       <title>Serial Port Access on OSX to Cisco devices</title>
-      <link>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
+      <link>http://www.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</link>
       <pubDate>Fri, 26 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
+      <guid>http://www.snowfrog.net/2010/02/26/serial-port-access-on-osx-to-cisco-devices/</guid>
       <description>&lt;p&gt;How to connect to a Cisco device (or other serial devices) using OSX and a USB to Serial converter (eg ATEN).&lt;/p&gt;
 
 &lt;p&gt;Googling, everyone says to use zterm, but I couldn&amp;rsquo;t get it to work (and zterm looks and feels like a toy).&lt;/p&gt;
@@ -128,10 +128,10 @@ sudo ln -s tty.PL2303-00002006 ttyusb&lt;/pre&gt;
     
     <item>
       <title>macports: git-upload-pack: command not found</title>
-      <link>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</link>
+      <link>http://www.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</link>
       <pubDate>Thu, 19 Nov 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</guid>
+      <guid>http://www.snowfrog.net/2009/11/19/macports-git-upload-pack-command-not-found/</guid>
       <description>&lt;p&gt;When doing a &lt;strong&gt;git clone&lt;/strong&gt; from a repo hosted on a Mac OSX machine (installed using macports), I get this error on the client (Linux, cygwin, whatever):&lt;/p&gt;
 
 &lt;pre&gt;git-upload-pack: command not found&lt;/pre&gt;
@@ -151,10 +151,10 @@ sudo ln -s /opt/local/bin/git* .
     
     <item>
       <title>Mac OSX Startup</title>
-      <link>http://blog2.snowfrog.net/2007/05/15/mac-osx-startup/</link>
+      <link>http://www.snowfrog.net/2007/05/15/mac-osx-startup/</link>
       <pubDate>Wed, 16 May 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/05/15/mac-osx-startup/</guid>
+      <guid>http://www.snowfrog.net/2007/05/15/mac-osx-startup/</guid>
       <description>
 
 &lt;p&gt;Some notes on the startup sequence for Mac OSX 10.4 (Tiger), and troubleshooting the startup process. These will be corrected/expanded as I learn more about the process.&lt;/p&gt;

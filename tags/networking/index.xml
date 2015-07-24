@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Networking on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/networking/</link>
+    <link>http://www.snowfrog.net/tags/networking/</link>
     <description>Recent content in Networking on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 09 Nov 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Solaris IP Multipathing – an example</title>
-      <link>http://blog2.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</link>
+      <link>http://www.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</link>
       <pubDate>Tue, 09 Nov 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</guid>
+      <guid>http://www.snowfrog.net/2010/11/09/solaris-ip-multipathing-an-example/</guid>
       <description>&lt;p&gt;An example of Solaris IP Multipathing, for future reference:&lt;/p&gt;
 
 &lt;pre&gt;# cat /etc/hostname.bge2
@@ -40,10 +40,10 @@ bge3: flags=69040843&amp;lt;UP,BROADCAST,RUNNING,MULTICAST,DEPRECATED,IPv4,NOFAI
     
     <item>
       <title>Linux and Cisco VPN Client “Remote peer is no longer responding”</title>
-      <link>http://blog2.snowfrog.net/2009/11/10/linux-and-cisco-vpn-client-remote-peer-is-no-longer-responding/</link>
+      <link>http://www.snowfrog.net/2009/11/10/linux-and-cisco-vpn-client-remote-peer-is-no-longer-responding/</link>
       <pubDate>Tue, 10 Nov 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/11/10/linux-and-cisco-vpn-client-remote-peer-is-no-longer-responding/</guid>
+      <guid>http://www.snowfrog.net/2009/11/10/linux-and-cisco-vpn-client-remote-peer-is-no-longer-responding/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m using the Cisco VPN client, and it seems unreliable on Linux &amp;ndash; it occasionally connects but often just gives up with &amp;ldquo;Remote peer is no longer responding&amp;rdquo;.&lt;/p&gt;
 
 &lt;p&gt;Apart from the obvious firewall/nat checks [&lt;a href=&#34;http://www.lamnk.com/blog/vpn/cisco-vpn-client-reason-412-the-remote-peer-is-no-longer-responding/&#34;&gt;1&lt;/a&gt;][&lt;a href=&#34;http://www.cisco.com/en/US/products/sw/secursw/ps2308/products_qanda_item09186a00801c2dbe.shtml&#34;&gt;2&lt;/a&gt;], a solution seems to be to edit the .pcf file, bump up the timeout and force keepalives:&lt;/p&gt;
@@ -59,10 +59,10 @@ ForceKeepAlive=1&lt;/pre&gt;
     
     <item>
       <title>ipcalc</title>
-      <link>http://blog2.snowfrog.net/2009/07/10/ipcalc/</link>
+      <link>http://www.snowfrog.net/2009/07/10/ipcalc/</link>
       <pubDate>Fri, 10 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/07/10/ipcalc/</guid>
+      <guid>http://www.snowfrog.net/2009/07/10/ipcalc/</guid>
       <description>&lt;p&gt;ipcalc &amp;ndash; a tool I used to use years ago but had forgotten about.&lt;/p&gt;
 
 &lt;pre&gt;sudo aptitude install ipcalc&lt;/pre&gt;
@@ -82,10 +82,10 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
     
     <item>
       <title>Blueman – Bluetooth for Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</link>
+      <link>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</link>
       <pubDate>Sat, 10 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</guid>
       <description>&lt;p&gt;The Reverand Simon Rumble wrote a nice post on &lt;a href=&#34;http://www.rumble.net/blog/&#34;&gt;Mobile broadband over Bluetooth with Ubuntu 8.10&lt;/a&gt; using &lt;a href=&#34;http://blueman.tuxfamily.org/&#34;&gt;Blueman&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;ve always wanted to get Bluetooth working on Ubuntu, but it was never at the top of my &amp;lsquo;todo&amp;rsquo; list and I&amp;rsquo;ve always had other things to do (thank PHB). But Blueman makes it so easy &amp;ndash; thanks Simon.&lt;/p&gt;
@@ -96,10 +96,10 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
     
     <item>
       <title>Speed up Firefox on Linux – Disable IPv6 Lookups</title>
-      <link>http://blog2.snowfrog.net/2009/01/09/speed-up-firefox-on-linux-disable-ipv6-lookups/</link>
+      <link>http://www.snowfrog.net/2009/01/09/speed-up-firefox-on-linux-disable-ipv6-lookups/</link>
       <pubDate>Fri, 09 Jan 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/01/09/speed-up-firefox-on-linux-disable-ipv6-lookups/</guid>
+      <guid>http://www.snowfrog.net/2009/01/09/speed-up-firefox-on-linux-disable-ipv6-lookups/</guid>
       <description>&lt;p&gt;A post a stumbled upon &amp;ndash; &lt;a href=&#34;http://rojs-techcorner.com/blog/2007/07/27/speed-up-firefox-on-linux-disable-ipv6-lookups/trackback/&#34;&gt;Speed up Firefox on Linux &amp;ndash; Disable IPv6 Lookups&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I don&amp;rsquo;t know if it works but I&amp;rsquo;m trying it now.&lt;/p&gt;
@@ -118,10 +118,10 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
     
     <item>
       <title>udev, HAL, DBUS</title>
-      <link>http://blog2.snowfrog.net/2008/12/19/udev-hal-dbus/</link>
+      <link>http://www.snowfrog.net/2008/12/19/udev-hal-dbus/</link>
       <pubDate>Fri, 19 Dec 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/12/19/udev-hal-dbus/</guid>
+      <guid>http://www.snowfrog.net/2008/12/19/udev-hal-dbus/</guid>
       <description>&lt;p&gt;A good post from Glen Turner on SLUG about udev, HAL, DBUS (in the context of GSM modems):&lt;/p&gt;
 
 &lt;pre&gt;- you insert the device
@@ -145,10 +145,10 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
     
     <item>
       <title>wicd – replacement for Network Mananger</title>
-      <link>http://blog2.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</link>
+      <link>http://www.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</link>
       <pubDate>Tue, 25 Nov 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</guid>
+      <guid>http://www.snowfrog.net/2008/11/25/wicd-replacement-for-network-mananger/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://wicd.sourceforge.net/&#34;&gt;wicd&lt;/a&gt; &amp;ndash; &amp;ldquo;an open source wired and wireless network manager&amp;rdquo; &amp;ndash; a possible replacement for Ubuntu&amp;rsquo;s annoying Network Manager (Mangler?).&lt;/p&gt;
 
 &lt;p&gt;Mentioned by Martin B on SLUG &amp;ndash; thanks.&lt;/p&gt;
@@ -157,10 +157,10 @@ Hosts/Net: 62                    Class C, Private Internet&lt;/pre&gt;
     
     <item>
       <title>How to use putty with ssh keys on Windows</title>
-      <link>http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</link>
+      <link>http://www.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</link>
       <pubDate>Fri, 05 Sep 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</guid>
+      <guid>http://www.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Secure_Shell&#34;&gt;ssh&lt;/a&gt; is normally used nowadays instead of telnet for remotely accessing Linux servers (and other devices), as telnet is an insecure plain text protocol (and passwords can be easily captured using tools like &lt;a href=&#34;http://monkey.org/~dugsong/dsniff/&#34;&gt;dsniff&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;Most people can usually understand ssh with a username and a password, but when it comes to password-less authentication using keys, they get lost (especially if they&amp;rsquo;ve only ever used Windows).&lt;/p&gt;
@@ -236,10 +236,10 @@ SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
     
     <item>
       <title>useful tool – socat</title>
-      <link>http://blog2.snowfrog.net/2008/09/04/useful-tool-socat/</link>
+      <link>http://www.snowfrog.net/2008/09/04/useful-tool-socat/</link>
       <pubDate>Thu, 04 Sep 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/09/04/useful-tool-socat/</guid>
+      <guid>http://www.snowfrog.net/2008/09/04/useful-tool-socat/</guid>
       <description>&lt;p&gt;A useful tool I&amp;rsquo;ve come across (thanks JB) &amp;ndash; &lt;strong&gt;socat&lt;/strong&gt;. As the &lt;a href=&#34;http://www.dest-unreach.org/socat/&#34;&gt;homepage&lt;/a&gt; says, sort of netcat++.&lt;/p&gt;
 
 &lt;p&gt;From the manpage: Socat  is a command line based utility that establishes two bidirectional byte streams and transfers data between them. the streams can be constructed from a large set of different types of data sinks and sources (TCP, UDP, SOCKS, files, processes, pipes, file-descriptors, readline, .).&lt;/p&gt;
@@ -248,10 +248,10 @@ SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
     
     <item>
       <title>network monitoring tools</title>
-      <link>http://blog2.snowfrog.net/2008/03/21/network-monitoring-tools/</link>
+      <link>http://www.snowfrog.net/2008/03/21/network-monitoring-tools/</link>
       <pubDate>Fri, 21 Mar 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/03/21/network-monitoring-tools/</guid>
+      <guid>http://www.snowfrog.net/2008/03/21/network-monitoring-tools/</guid>
       <description>&lt;p&gt;A list of useful tools for network monitoring on Linux:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -279,10 +279,10 @@ SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
     
     <item>
       <title>Setup a forwarding caching-only DNS Server on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</link>
+      <link>http://www.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</link>
       <pubDate>Sat, 02 Feb 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2008/02/01/setup-a-forwarding-caching-only-dns-server-on-ubuntu/</guid>
       <description>&lt;p&gt;A quick cheatsheet for setting up a forwarding, caching-only DNS Server on Ubuntu.&lt;/p&gt;
 
 &lt;p&gt;&lt;u&gt;Edit /etc/bind/named.conf.options:&lt;/u&gt;&lt;/p&gt;
@@ -334,10 +334,10 @@ SSH-1.99-OpenSSH_3.9p1&lt;/pre&gt;&lt;/p&gt;&lt;/li&gt;
     
     <item>
       <title>HowTo setup NoMachineNX on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</link>
+      <link>http://www.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</link>
       <pubDate>Wed, 30 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</guid>
       <description>&lt;p&gt;The instructions given by NoMachine for setting up on Linux are a bit thin; here&amp;rsquo;s my own version:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -399,10 +399,10 @@ scp root@servername:/usr/NX/share/keys/default.id_dsa.key servername.id_dsa.key&
     
     <item>
       <title>pdnsd on Ubuntu for faster dns</title>
-      <link>http://blog2.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/</link>
+      <link>http://www.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/</link>
       <pubDate>Tue, 22 Jan 2008 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/</guid>
+      <guid>http://www.snowfrog.net/2008/01/21/pdnsd-on-ubuntu-for-faster-dns/</guid>
       <description>&lt;p&gt;Whilst traveling through Mexico and Guatemala, I&amp;rsquo;ve had various problems with slow and/or faulty dns resolution.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s how to install pdnsd, in order to cache dns entries locally and speed up internet access in general (whether or not you&amp;rsquo;re in Guatemala.):&lt;/p&gt;
@@ -448,10 +448,10 @@ label=&amp;quot;resolvconf&amp;quot;;&amp;lt;br /&amp;gt;
     
     <item>
       <title>Troubleshooting mac addresses in Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/</link>
+      <link>http://www.snowfrog.net/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/</link>
       <pubDate>Thu, 29 Nov 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2007/11/28/troubleshooting-mac-addresses-in-ubuntu/</guid>
       <description>&lt;p&gt;As far as /etc/iftab goes, this is not used in Ubuntu 7.10&lt;br /&gt;
 anymore..this functionality is moved to hotplug,. and maybe causing&lt;br /&gt;
 your prob.&lt;/p&gt;
@@ -477,10 +477,10 @@ one NIC then it will always be eth0&lt;/p&gt;
     
     <item>
       <title>tcpdump notes</title>
-      <link>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</link>
+      <link>http://www.snowfrog.net/2007/11/11/tcpdump-notes/</link>
       <pubDate>Mon, 12 Nov 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2007/11/11/tcpdump-notes/</guid>
+      <guid>http://www.snowfrog.net/2007/11/11/tcpdump-notes/</guid>
       <description>&lt;p&gt;Examples:&lt;/p&gt;
 
 &lt;pre class=&#34;brush: bash; title: ; notranslate&#34; title=&#34;&#34;&gt;tcpdump host 172.26.24.58 and (port 20 or port 21)

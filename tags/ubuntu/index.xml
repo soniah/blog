@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ubuntu on Sonia Hamilton - Blog</title>
-    <link>http://blog2.snowfrog.net/tags/ubuntu/</link>
+    <link>http://www.snowfrog.net/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Sun, 18 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog2.snowfrog.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://www.snowfrog.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>SaltStack Ubuntu Hostname</title>
-      <link>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</link>
+      <link>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</link>
       <pubDate>Sun, 18 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
+      <guid>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;
@@ -49,10 +49,10 @@ sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 loca
     
     <item>
       <title>debfoster - keeping a Debian system small</title>
-      <link>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
+      <link>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</link>
       <pubDate>Sun, 21 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
+      <guid>http://www.snowfrog.net/2013/07/21/debfoster-keeping-a-debian-system-small/</guid>
       <description>&lt;p&gt;I recently came across a useful tool while reading &lt;a href=&#34;http://debian-handbook.info/&#34;&gt;The Debian Administrator&amp;rsquo;s Handbook&lt;/a&gt; - &lt;strong&gt;debfoster&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;I use it on space constrained machines, like my venerable &lt;a href=&#34;https://en.wikipedia.org/wiki/Asus_Eee_PC#Eee_700_series&#34;&gt;Asus eeePC 701&lt;/a&gt; (which is great for travelling). As Raphaël Hertzog and Roland Mas &lt;a href=&#34;http://debian-handbook.info/browse/stable/sect.apt-frontends.html&#34;&gt;explain&lt;/a&gt;:&lt;/p&gt;
@@ -98,10 +98,10 @@ sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 loca
     
     <item>
       <title>Ubuntu - HowTo Recover Encrypted Home Directory</title>
-      <link>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</link>
+      <link>http://www.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</link>
       <pubDate>Mon, 03 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</guid>
+      <guid>http://www.snowfrog.net/2013/06/03/ubuntu-howto-recover-encrypted-home-directory/</guid>
       <description>
 
 &lt;p&gt;There are many pages out there discussing how to recover an Ubuntu encrypted home directory (see also below).&lt;/p&gt;
@@ -249,10 +249,10 @@ the second line above)&lt;/p&gt;
     
     <item>
       <title>Network access with Exetel HSPA and Antenna</title>
-      <link>http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</link>
+      <link>http://www.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</link>
       <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</guid>
+      <guid>http://www.snowfrog.net/2012/11/22/network-access-with-exetel-hspa-and-antenna/</guid>
       <description>&lt;p&gt;I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, together with &lt;a href=&#34;http://www.exetel.com.au/residential-hspa-pricing.php&#34;&gt;Exetel&amp;rsquo;s $5/month Zero Gig plan&lt;/a&gt; (uses the Optus network). Great for when I&amp;rsquo;m out and about and can&amp;rsquo;t find a wireless signal to jump onto, or I&amp;rsquo;m at some client who doesn&amp;rsquo;t allow laptops onto their network.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Update November 2012&lt;/strong&gt;&lt;/p&gt;
@@ -280,10 +280,10 @@ the second line above)&lt;/p&gt;
     
     <item>
       <title>Golang - setup and producing .debs</title>
-      <link>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
+      <link>http://www.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</link>
       <pubDate>Tue, 02 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
+      <guid>http://www.snowfrog.net/2012/10/02/golang-setup-and-producing-debs/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s the setup I use for compiling Go binaries, as well as for writing .deb&amp;rsquo;s to package them and &lt;a href=&#34;http://en.wikipedia.org/wiki/Markdown&#34;&gt;markdown&lt;/a&gt; for README&amp;rsquo;s - &lt;em&gt;notes for me&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;Install build pre-requisites:&lt;/p&gt;
@@ -310,10 +310,10 @@ sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
     
     <item>
       <title>Linux, Ubuntu: how to tell if 32 or 64 bit installed</title>
-      <link>http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</link>
+      <link>http://www.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</link>
       <pubDate>Wed, 05 Sep 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</guid>
+      <guid>http://www.snowfrog.net/2012/09/05/linux-ubuntu-how-to-tell-if-32-or-64-bit-installed/</guid>
       <description>&lt;p&gt;A question I get regularly from other sysadmins - how to tell if you&amp;rsquo;re running a 32 or 64 bit &lt;strong&gt;install&lt;/strong&gt; (vs &lt;strong&gt;CPU&lt;/strong&gt;) of Linux?&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s one way - use the file command on /sbin/init:&lt;/p&gt;
@@ -370,10 +370,10 @@ sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
     
     <item>
       <title>ssh – DISPLAY is not set – Failed to allocate internet-domain X11 display socket</title>
-      <link>http://blog2.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</link>
+      <link>http://www.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</link>
       <pubDate>Sun, 06 Nov 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</guid>
+      <guid>http://www.snowfrog.net/2011/11/06/ssh-display-is-not-set-failed-to-allocate-internet-domain-x11-display-socket/</guid>
       <description>&lt;p&gt;A little ssh error I came across while trying to work remotely on an Ubuntu machine. &lt;a href=&#34;http://tldp.org/HOWTO/XDMCP-HOWTO/ssh.html&#34;&gt;ssh X Display Forwarding&lt;/a&gt; wasn&amp;rsquo;t working, and I was getting an error:&lt;/p&gt;
 
 &lt;pre&gt;DISPLAY is not set&lt;/pre&gt;
@@ -392,10 +392,10 @@ sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
     
     <item>
       <title>Ubuntu 10.10 (Maverick Meerkat) Download</title>
-      <link>http://blog2.snowfrog.net/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</link>
+      <link>http://www.snowfrog.net/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</link>
       <pubDate>Wed, 18 May 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</guid>
+      <guid>http://www.snowfrog.net/2011/05/18/ubuntu-10-10-maverick-meerkat-download/</guid>
       <description>&lt;p&gt;Opinions around the latest Ubuntu (11.04) range from &amp;ldquo;interesting&amp;rdquo; (as in the curse &amp;ldquo;may you live in interesting times&amp;rdquo;) to &amp;ldquo;it sucks&amp;rdquo;.&lt;/p&gt;
 
 &lt;p&gt;Anyway, there no longer appears to be a link to the previous version (10.10 Maverick) on the main Ubuntu page &amp;ndash; marketing droids seem to have finally taken over Ubuntu. It can be downloaded from &lt;a href=&#34;http://releases.ubuntu.com/maverick/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -406,10 +406,10 @@ sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
     
     <item>
       <title>Script to correct first day of week in en_AU locale</title>
-      <link>http://blog2.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/</link>
+      <link>http://www.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/</link>
       <pubDate>Sun, 25 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/</guid>
+      <guid>http://www.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/</guid>
       <description>&lt;p&gt;I blogged &lt;a href=&#34;http://www.snowfrog.net/2008/02/06/change-first-day-of-week-in-ubuntus-gnome-calendar/&#34;&gt;previously&lt;/a&gt; about how the Australian locale in Ubuntu incorrectly uses Sunday rather than Monday as the first day of the week, and how to manually fix it. Unfortunately, whenever the locale gets updated (eg via one of Ubuntu&amp;rsquo;s regular package updates), the locale reverts and you have to manually fix it again.&lt;/p&gt;
 
 &lt;p&gt;So I&amp;rsquo;ve written a script that fixes the locale, and also hooked it into dpkg:&lt;/p&gt;
@@ -441,10 +441,10 @@ fi
     
     <item>
       <title>Howto install Virtualbox on Ubuntu Jaunty</title>
-      <link>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</link>
+      <link>http://www.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</link>
       <pubDate>Fri, 23 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</guid>
+      <guid>http://www.snowfrog.net/2009/10/23/howto-install-virtualbox-on-ubuntu-jaunty/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s how to install Virtualbox 2.1.4 on Ubuntu Jaunty (people are &lt;a href=&#34;http://www.ubuntugeek.com/how-to-install-virtualbox-220-in-ubuntu-904-jaunty.html&#34;&gt;saying&lt;/a&gt; 2.2.0 is buggy). And now that Oracle owns Sun, Virtualbox may go the way of the dodo.&lt;/p&gt;
 
 &lt;p&gt;No rocket science here &amp;ndash; just saving myself time in future.&lt;/p&gt;
@@ -457,10 +457,10 @@ fi
     
     <item>
       <title>Installing Aptana &#43; RadRails on Ubuntu Jaunty</title>
-      <link>http://blog2.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</link>
+      <link>http://www.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</link>
       <pubDate>Mon, 17 Aug 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</guid>
+      <guid>http://www.snowfrog.net/2009/08/17/installing-aptana-radrails-on-ubuntu-jaunty/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve always used vim as my main editor, but I thought I&amp;rsquo;d try RadRails since so many Rails people rave about it.&lt;/p&gt;
 
 &lt;p&gt;Installing it on Ubuntu Jaunty is a bit non-obvious:&lt;/p&gt;
@@ -488,10 +488,10 @@ export MOZILLA_FIVE_HOME LD_LIBRARY_PATH
     
     <item>
       <title>Ubuntu and Toshiba Satellite Pro L300 fan</title>
-      <link>http://blog2.snowfrog.net/2009/08/07/ubuntu-and-toshiba-satellite-pro-l300-fan/</link>
+      <link>http://www.snowfrog.net/2009/08/07/ubuntu-and-toshiba-satellite-pro-l300-fan/</link>
       <pubDate>Fri, 07 Aug 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/08/07/ubuntu-and-toshiba-satellite-pro-l300-fan/</guid>
+      <guid>http://www.snowfrog.net/2009/08/07/ubuntu-and-toshiba-satellite-pro-l300-fan/</guid>
       <description>
 
 &lt;p&gt;I recently bought a new laptop &amp;ndash; a &lt;em&gt;bottom&lt;/em&gt; of the range Toshiba Satellite Pro L300 costing $780 (extra RAM pushed the price up).&lt;/p&gt;
@@ -521,10 +521,10 @@ sudo reboot&lt;/pre&gt;
     
     <item>
       <title>Troubleshooting Sound on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</link>
+      <link>http://www.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</link>
       <pubDate>Mon, 27 Jul 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2009/07/27/troubleshooting-sound-n-ubuntu/</guid>
       <description>&lt;p&gt;Some good documentation on &lt;a href=&#34;https://help.ubuntu.com/community/SoundTroubleshooting&#34;&gt;Troubleshooting Sound on Ubuntu&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;And a nice post on &lt;a href=&#34;http://chanweiyee.blogspot.com/2009/04/ubuntu-904-amarok-2-sound-problem.html&#34;&gt;getting Amarok going on Jaunty&lt;/a&gt; &amp;ndash; remove phonon-backend-gstreamer and install phonon-backend-xine (&lt;a href=&#34;https://bugs.launchpad.net/ubuntu/+source/amarok/+bug/349847&#34;&gt;bug 349847&lt;/a&gt;). I can now go back to grooving to some laid-back Brazilian Reggae &amp;ndash; &lt;em&gt;Tribo de Jah &amp;ndash; Ruinas de Babilonia:&lt;/em&gt;&lt;/p&gt;
@@ -536,10 +536,10 @@ Buscando uma vida decente, Buscando um pouco de paz em suas vidas.&lt;/em&gt;&lt
     
     <item>
       <title>Syncing Palm Pilot with JPilot and visor on Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</link>
+      <link>http://www.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</link>
       <pubDate>Mon, 04 May 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2009/05/04/syncing-palm-pilot-with-jpilot-and-visor-on-ubuntu/</guid>
       <description>
 
 &lt;p&gt;(Updated May/09 for Ubuntu 8.10/Ibex): for a long time I couldn&amp;rsquo;t get JPilot syncing with my Palm Pilot on Ubuntu 8.04 and 8.10.&lt;/p&gt;
@@ -598,10 +598,10 @@ Buscando uma vida decente, Buscando um pouco de paz em suas vidas.&lt;/em&gt;&lt
     
     <item>
       <title>apt sources.list for old versions of Ubuntu</title>
-      <link>http://blog2.snowfrog.net/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/</link>
+      <link>http://www.snowfrog.net/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/</link>
       <pubDate>Fri, 01 May 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://blog2.snowfrog.net/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/</guid>
+      <guid>http://www.snowfrog.net/2009/05/02/apt-sourceslist-for-old-versions-of-ubuntu/</guid>
       <description>&lt;p&gt;Discontinued versions of Ubuntu are mirrored under &lt;a href=&#34;http://old-releases.ubuntu.com/ubuntu/&#34;&gt;http://old-releases.ubuntu.com/ubuntu/&lt;/a&gt;, which can be used to setup apt&amp;rsquo;s sources.list.&lt;/p&gt;
 
 &lt;p&gt;For example, for Gutsy (7.10), &lt;strong&gt;sources.list&lt;/strong&gt; would look like:&lt;/p&gt;
