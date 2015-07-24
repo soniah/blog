@@ -5,7 +5,7 @@ publishdir: "public"
 indexes:
   category: "categories"
   tag: "tags"
-baseurl: "http://blog2.snowfrog.net"
+baseurl: "http://www.snowfrog.net"
 title: "Sonia Hamilton - Blog"
 canonifyurls: true
 pygmentsstyle: "native"

@@ -1,7 +1,7 @@
 blog.snowfrog.net
 =================
 
-Content for blog http://blog.snowfrog.net built with Gohugo and deployed on
+Content for blog http://www.snowfrog.net built with Gohugo and deployed on
 github-pages.
 
 # Setup on Debian'ish systems
