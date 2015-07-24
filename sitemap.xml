@@ -263,12 +263,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
+    <loc>http://www.snowfrog.net/2012/06/13/change-your-passwords/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2012/06/13/change-your-passwords/</loc>
+    <loc>http://www.snowfrog.net/2012/06/13/git-ignore-whitespace/</loc>
     <lastmod>2012-06-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -513,12 +513,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
+    <loc>http://www.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2011/03/03/fuzzy-rsync/</loc>
+    <loc>http://www.snowfrog.net/2011/03/03/bjj-abu-dhabi-pro-australian-qualifier-19-feb-2011/</loc>
     <lastmod>2011-03-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -628,12 +628,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2010/03/30/vim-folding/</loc>
+    <loc>http://www.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2010/03/30/bjj-black-eye/</loc>
+    <loc>http://www.snowfrog.net/2010/03/30/vim-folding/</loc>
     <lastmod>2010-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -728,12 +728,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
+    <loc>http://www.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
+    <loc>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -858,17 +858,17 @@
   </url>
   
   <url>
+    <loc>http://www.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
+    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
-    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -883,12 +883,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/03/05/parameter-passing-in-ruby/</loc>
+    <loc>http://www.snowfrog.net/2009/03/06/cityfail-does-it-again/</loc>
     <lastmod>2009-03-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/03/06/cityfail-does-it-again/</loc>
+    <loc>http://www.snowfrog.net/2009/03/05/parameter-passing-in-ruby/</loc>
     <lastmod>2009-03-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -913,12 +913,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
+    <loc>http://www.snowfrog.net/2009/02/23/gnome-session-management/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/02/23/gnome-session-management/</loc>
+    <loc>http://www.snowfrog.net/2009/02/23/dpkg-reconfigure-debconf/</loc>
     <lastmod>2009-02-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -948,12 +948,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -1113,12 +1113,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
+    <loc>http://www.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1278,12 +1278,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -1368,12 +1368,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
+    <loc>http://www.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/10/21/checkinstall-build-debs-from-targzs/</loc>
+    <loc>http://www.snowfrog.net/2006/10/21/using-kickstart-to-automate-redhatfedora-setups-2/</loc>
     <lastmod>2006-10-22T00:00:00+00:00</lastmod>
   </url>
   
@@ -1478,12 +1478,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
+    <loc>http://www.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
+    <loc>http://www.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -1523,6 +1523,11 @@
   </url>
   
   <url>
+    <loc>http://www.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</loc>
+    <lastmod>2005-11-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.snowfrog.net/2005/11/16/connect-to-mysql-from-network-using-ms-access/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
@@ -1534,11 +1539,6 @@
   
   <url>
     <loc>http://www.snowfrog.net/2005/11/16/reset-lost-root-password/</loc>
-    <lastmod>2005-11-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.snowfrog.net/2005/11/16/backup-multiple-databases-into-separate-files/</loc>
     <lastmod>2005-11-17T00:00:00+00:00</lastmod>
   </url>
   
