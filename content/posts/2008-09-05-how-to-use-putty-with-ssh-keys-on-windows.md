@@ -31,7 +31,7 @@ If you need to generate a key, do this first. If you have been supplied with a k
       * click **Save Private Key**, save to putty folder; call the file firstname.lastname (.ppk extension will be added)
       * your Linux sysadmin will have asked you to provide them with **your public key**, and this is where problems come up. Putty uses a different key format than OpenSSH, so don't send the public key file from the putty folder. Instead, paste into an email the field called **Public key for pasting into OpenSSH authorized_keys file **(very top of screen). If you've accidently sent the putty format file, you can re-run puttygen.exe, click the **Load** button to load your existing private key, and then copy and paste the OpenSSH format into an email.
 
-[<img class="alignnone size-full wp-image-155" title="putty_openssh" src="http://blog2.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png" alt="" width="480" height="467" />][4]
+[<img class="alignnone size-full wp-image-155" title="putty_openssh" src="http://www.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png" alt="" width="480" height="467" />][4]
 
 **Changing the Password on your SSH Key**
 
@@ -44,7 +44,7 @@ If you need to generate a key, do this first. If you have been supplied with a k
   * if you have been separately provided with an ssh public and private key, save them into an easily accessible folder (eg My Documents/putty). Then browse to that key when instructed below to 'load your key'
   * once your sysadmin has setup your account, there's three ways you can use your key 
       * the **painful** way. Run putty.exe, enter the hostname/ip, put your username in **Connection, Data**,** Auto-login username**, load your key in **Connection, SSH, Auth**, **Private key file for authentication**, then click **Open** to connect
-      * the **better** way -- caching your key in memory. Run pageant.exe -- you'll see a little terminal with a hat in the Notification area (bottom RHS of screen). [<img class="alignnone size-full wp-image-164" title="pageant" src="http://blog2.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" />][5] Right click on this icon, choose **Add Key**, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the **Saved Sessions** field, put your username in **Connection, Data**,** Auto-login username**, then click the **Save** button. You can then right click on the pageant icon, **Saved Sessions**, choose your saved session, and rapidly login to your target system
+      * the **better** way -- caching your key in memory. Run pageant.exe -- you'll see a little terminal with a hat in the Notification area (bottom RHS of screen). [<img class="alignnone size-full wp-image-164" title="pageant" src="http://www.snowfrog.net/wp-content/uploads/2008/09/pageant.png" alt="" width="162" height="49" />][5] Right click on this icon, choose **Add Key**, browse to your private key in the putty folder, enter your password when prompted. Then right click on the icon, choose New Session. Enter the hostname/ip, give the session a name in the **Saved Sessions** field, put your username in **Connection, Data**,** Auto-login username**, then click the **Save** button. You can then right click on the pageant icon, **Saved Sessions**, choose your saved session, and rapidly login to your target system
       * the **best** way -- use a decent operating system (ie Unix style), like Linux, FreeBSD, PC-BSD or Mac OSX, and automatically load your ssh keys on login :-)
 
 **Troubleshooting**
@@ -68,8 +68,8 @@ After using putty on Windows for a while, you may want to investigate [Cygwin][6
  [1]: http://en.wikipedia.org/wiki/Secure_Shell
  [2]: http://monkey.org/~dugsong/dsniff/
  [3]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
- [4]: http://blog2.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png
- [5]: http://blog2.snowfrog.net/wp-content/uploads/2008/09/pageant.png
+ [4]: http://www.snowfrog.net/wp-content/uploads/2008/09/putty_openssh.png
+ [5]: http://www.snowfrog.net/wp-content/uploads/2008/09/pageant.png
  [6]: http://www.cygwin.com/
  [7]: http://en.wikipedia.org/wiki/Rsync
- [8]: http://blog2.snowfrog.net/tag/ssh/
+ [8]: http://www.snowfrog.net/tag/ssh/

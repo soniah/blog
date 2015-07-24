@@ -17,6 +17,6 @@ While we were training on Darwin Wharf (nice cool sea-breeze), a Filipino man El
 
 Thanks for training with us Ely!
 
-[![Darwin Ely John](http://blog2.snowfrog.net/wp-content/uploads/2012/07/darwin_ely_johnB2-300x236.png)](http://blog2.snowfrog.net/wp-content/uploads/2012/07/darwin_ely_johnB2.png)
+[![Darwin Ely John](http://www.snowfrog.net/wp-content/uploads/2012/07/darwin_ely_johnB2-300x236.png)](http://www.snowfrog.net/wp-content/uploads/2012/07/darwin_ely_johnB2.png)
 
 {{% youtube PDWEBtbM7xk %}}

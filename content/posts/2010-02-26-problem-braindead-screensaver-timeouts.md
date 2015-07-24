@@ -16,10 +16,10 @@ And you're connected via multiple rdp's to a process that you want to keep runni
 
 **Solution:** an optical mouse on top of an analog watch (that has a second hand):
 
-[<img class="aligncenter size-full wp-image-658" title="Mouse on jar" src="http://blog2.snowfrog.net/wp-content/uploads/2010/02/photo_021810_001.jpg" alt="" width="640" height="480" />][1]
+[<img class="aligncenter size-full wp-image-658" title="Mouse on jar" src="http://www.snowfrog.net/wp-content/uploads/2010/02/photo_021810_001.jpg" alt="" width="640" height="480" />][1]
 
 Take that Group Policy!
 
 (Tip of the Hat to Stu).
 
- [1]: http://blog2.snowfrog.net/wp-content/uploads/2010/02/photo_021810_001.jpg
+ [1]: http://www.snowfrog.net/wp-content/uploads/2010/02/photo_021810_001.jpg

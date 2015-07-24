@@ -25,5 +25,5 @@ To run a one-off command do:
 <pre>system("source ~/.keychain/hostname-sh; cmd");</pre>
 
  [1]: http://www.gentoo.org/proj/en/keychain/
- [2]: http://blog2.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/
+ [2]: http://www.snowfrog.net/2007/11/15/ssh-ssh-agent-keychain-and-cron-notes/
  [3]: http://www.mail-archive.com/centos@centos.org/msg12887.html

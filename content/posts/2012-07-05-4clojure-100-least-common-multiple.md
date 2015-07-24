@@ -21,7 +21,7 @@ I first thought about using the meaning of LCM to solve this (as given in Wikipe
 
 ![LCM from GCD](http://upload.wikimedia.org/wikipedia/en/math/5/b/3/5b3f3c62dd59cc5594af7b2ece3798fb.png)
 
-From there it was just a matter of balancing parentheses (thanks [paredit](http://blog2.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/)) by breaking up the problem into stages, starting with calculating the GCD of two numbers:
+From there it was just a matter of balancing parentheses (thanks [paredit](http://www.snowfrog.net/2012/06/02/emacs-paredit-notes-for-osx/)) by breaking up the problem into stages, starting with calculating the GCD of two numbers:
 
 {{< highlight clojure >}}
 (defn gcd [a b]

@@ -37,4 +37,4 @@ for db in $databases; do
     --databases $db &gt; "$OUTPUTDIR/$db.bak"
 done</pre>
 
- [1]: http://blog2.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/
+ [1]: http://www.snowfrog.net/2012/03/06/backup-multiple-mysql-databases-into-separate-files-windows/

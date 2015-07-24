@@ -16,4 +16,4 @@ I've been using [GNU Screen](http://www.gnu.org/software/screen/manual/screen.ht
 
 Anyway, this morning I came across [Terminator](http://www.tenshu.net/p/terminator.html) - it splits screens, has broadcasts, etc (probably old news for some people...).
 
-By the way, you can [split screens in GNU Screen](http://blog2.snowfrog.net/2012/03/19/gnu-screen-split-screens/).
+By the way, you can [split screens in GNU Screen](http://www.snowfrog.net/2012/03/19/gnu-screen-split-screens/).

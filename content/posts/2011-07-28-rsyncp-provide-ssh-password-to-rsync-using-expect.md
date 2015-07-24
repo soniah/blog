@@ -28,6 +28,6 @@ done</pre>
 
 And before you add a comment saying *use [ssh keys][1] or [keychain][2], this is totally insecure*, I agree with you! Key based authentication is disabled on the target server, and I'm still trying to resolve the *politics* around this at my current company, and [sshpass][3] seems broken <sigh>
 
- [1]: http://blog2.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/
- [2]: http://blog2.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/
+ [1]: http://www.snowfrog.net/2008/09/05/how-to-use-putty-with-ssh-keys-on-windows/
+ [2]: http://www.snowfrog.net/2009/06/09/source-keychain-credentials-in-perl/
  [3]: http://www.cyberciti.biz/faq/noninteractive-shell-script-ssh-password-provider/

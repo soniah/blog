@@ -26,7 +26,7 @@ I got a Huawei HSPA E1762 USB stick a few months ago for 3G network access, toge
 
 Using Network Manager on Ubuntu Jaunty it mostly "just works" - all I needed to do was set the APN to 'exetel1'. I've also bought an antenna for it from [The Antenna Shop](http://www.antennashop.com.au/home.html) - gives me better coverage in shadows in the CBD and out in the country. There's also other bigger antennas available, as well as car antennas.
 
-[caption id="attachment_600" align="alignnone" width="372"]![antenna](http://blog2.snowfrog.net/wp-content/uploads/2009/11/antenna.jpg) antenna[/caption]
+[caption id="attachment_600" align="alignnone" width="372"]![antenna](http://www.snowfrog.net/wp-content/uploads/2009/11/antenna.jpg) antenna[/caption]
 
 All-in-all a good buy - thanks Dean for the tip.
 

@@ -21,7 +21,7 @@ I've been playing with Lisp and now Clojure for a couple of years now. Here's a 
 
 
 
-My first Clojure book wasn't even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across [Land of Lisp](http://nostarch.com/lisp.htm).  I'd heard about Lisp, that "obsolete" language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the [cartoons](http://blog2.snowfrog.net/2011/03/27/lisp-and-python/) were great, and before I knew it I'd read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.
+My first Clojure book wasn't even about Clojure, it was about Lisp! One Sunday afternoon I was lurking in the computer section of a local bookshop (a great way to spend a Sunday afternoon), and came across [Land of Lisp](http://nostarch.com/lisp.htm).  I'd heard about Lisp, that "obsolete" language that used to be used for Artificial Intelligence but who uses it nowadays? Anyway, the cover was colourful and the [cartoons](http://www.snowfrog.net/2011/03/27/lisp-and-python/) were great, and before I knew it I'd read a couple of chapters and wanted to know about this Lisp stuff and I bought the book.
 
 
 

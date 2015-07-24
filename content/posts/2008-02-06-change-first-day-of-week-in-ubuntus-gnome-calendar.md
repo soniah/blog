@@ -24,6 +24,6 @@ See also:
   * [Ubuntu Forums][2]
   * [Google][3]
 
- [1]: http://blog2.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/
+ [1]: http://www.snowfrog.net/2009/10/26/script-to-correct-first-day-of-week-in-en_au-locale/
  [2]: http://ubuntuforums.org/showthread.php?t=101924&page=2
  [3]: http://www.google.com.au/search?q=gnome+calendar+first+day+of+week&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-US:official&client=firefox-a
