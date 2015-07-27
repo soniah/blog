@@ -7,7 +7,6 @@ categories:
 - Linux
 tags:
 - CGo
-- Go
 - Golang
 - SNMP
 ---
