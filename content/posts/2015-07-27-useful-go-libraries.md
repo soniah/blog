@@ -15,7 +15,7 @@ A list of [Go](https://golang.org/) libraries and tools I find useful.
 <!--more-->
 
 * [spf13/viper](https://github.com/spf13/viper) - configuration for
-  apps, using flags, env vars, json, etcd/consul. Good for general
+  apps, using command line flags, ENVIROMENT, json, etcd/consul. Good for general
   devops 'munging' scripts.
 * [kr/pretty](https://github.com/kr/pretty) - pretty printing for Go
   values
