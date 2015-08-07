@@ -22,3 +22,21 @@ A list of [Go](https://golang.org/) libraries and tools I find useful.
   Go library for decoding generic map values into native Go structures.
 * [spf13/cast](https://github.com/spf13/cast) - safe and easy casting
   from one type to another in Go.
+
+# Snippets
+
+## fatalIfErr
+
+{{< highlight go >}}
+// from https://github.com/FiloSottile/whosthere
+func fatalIfErr(err error) {
+  if err != nil {
+    log.Fatal(err)
+  }
+}
+
+// example
+db, err := sql.Open("mysql", C.MySQL)
+fatalIfErr(err)
+fatalIfErr(db.Ping())
+{{< /highlight >}}
