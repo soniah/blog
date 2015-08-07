@@ -5,8 +5,64 @@
     <link>http://www.snowfrog.net/categories/linux/</link>
     <description>Recent content in Linux on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 24 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>awsenv AWS environment config loader</title>
+      <link>http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/</link>
+      <pubDate>Fri, 07 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/</guid>
+      <description>&lt;p&gt;Today I released &lt;a href=&#34;https://github.com/soniah/awsenv&#34;&gt;soniah/awsenv&lt;/a&gt; - a
+small binary for helping load aws environment variables.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;awsenv&lt;/strong&gt; is a small binary that loads AWS environment variables for an AWS
+profile from &lt;strong&gt;~/.aws/credentials&lt;/strong&gt; - useful if you&amp;rsquo;re regularly switching
+credentials and using tools like &lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;. In
+addition to &lt;code&gt;aws_access_key_id&lt;/code&gt; and &lt;code&gt;aws_secret_access_key&lt;/code&gt;, it will also
+optionally load settings for &lt;code&gt;aws_keyname&lt;/code&gt; and &lt;code&gt;aws_keypath&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The accepted flags can be displayed using &lt;code&gt;-h&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% awsenv -h
+Usage:
+  awsenv [OPTIONS] Profile
+
+Application Options:
+  -v, --verbose   Verbose output
+  -f, --filename= Credentials file (~/.aws/credentials)
+
+Help Options:
+  -h, --help      Show this help message
+
+Arguments:
+  Profile
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Useful Go Libraries</title>
+      <link>http://www.snowfrog.net/2015/07/27/useful-go-libraries/</link>
+      <pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/07/27/useful-go-libraries/</guid>
+      <description>&lt;p&gt;A list of &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; libraries and tools I find useful.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;spf13/viper&lt;/a&gt; - configuration for
+apps, using command line flags, ENVIROMENT, json, etcd/consul. Good for general
+devops &amp;lsquo;munging&amp;rsquo; scripts.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kr/pretty&#34;&gt;kr/pretty&lt;/a&gt; - pretty printing for Go
+values&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mitchellh/mapstructure&#34;&gt;mitchellh/mapstructure&lt;/a&gt; -
+Go library for decoding generic map values into native Go structures.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;spf13/cast&lt;/a&gt; - safe and easy casting
+from one type to another in Go.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Dockerfile Images</title>
@@ -578,50 +634,6 @@ id
 &lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ZFS List Snapshots, Create and Destroy Clones</title>
-      <link>http://www.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</link>
-      <pubDate>Sat, 14 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m using &lt;a href=&#34;http://www.freenas.org/&#34;&gt;FreeNAS&lt;/a&gt; for my storage at home, liking it a lot. But the web interface can get rather slow when searching for snapshots, &lt;a href=&#34;http://en.wikipedia.org/wiki/In_the_Beginning..._Was_the_Command_Line&#34;&gt;as always the shell is faster&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some notes for me on listing ZFS snapshots, and creating and destroying clones.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /mnt/vol01/bjj
-zfs list -t snapshot | grep bjj | grep -v vobs
-zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
-&lt;span style=&#34;color: #24909d&#34;&gt;cd &lt;/span&gt;auto-20131214.12d
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# after recovery tasks, umount snapshot&lt;/span&gt;
-&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /mnt/vol01/bjj
-umount auto-20131214.12d
-rmdir auto-20131214.12d
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# usually want to umount not destroy, as a&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# destroy may cascade delete other dependent snapshots&lt;/span&gt;
-zfs destroy vol01/bjj/foo
-&lt;/pre&gt;&lt;/div&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>convert LibreOffice (OpenOffice) .ods files to .csv command line</title>
-      <link>http://www.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</link>
-      <pubDate>Mon, 04 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2013/11/04/convert-libreoffice-openoffice-ods-files-to-csv-command-line/</guid>
-      <description>&lt;p&gt;How to convert LibreOffice .ods files to .csv from the command line - useful for scripts or when working without X:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;soffice --headless --convert-to csv test.ods&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;From &lt;a href=&#34;http://ask.libreoffice.org/en/question/21916/cli-convert-ods-to-csv-with-semicolon-as-delimiter/&#34;&gt;CLI - convert ods to csv with semicolon as delimiter&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;No rocket science, just a handy note for myself&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     

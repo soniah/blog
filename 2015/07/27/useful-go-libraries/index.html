@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8">
     <base href="http://www.snowfrog.net">
-    <title> howto fix broken grub </title>
-    <link rel="canonical" href="http://www.snowfrog.net/2006/08/13/howto-fix-broken-grub/">
+    <title> Useful Go Libraries </title>
+    <link rel="canonical" href="http://www.snowfrog.net/2015/07/27/useful-go-libraries/">
     
 
 <link rel="stylesheet" href="http://www.snowfrog.net/css/poole.css">
@@ -94,35 +94,22 @@
 
     
     <div class="container content">
-      <h1 class="post-title">howto fix broken grub</h1>
+      <h1 class="post-title">Useful Go Libraries</h1>
         <section id="main">
-          <h5 id="date"> 14 Aug 2006 </h5>
-          <p>howto fix broken grub</p>
+          <h5 id="date"> 27 Jul 2015 </h5>
+          <p>A list of <a href="https://golang.org/">Go</a> libraries and tools I find useful.</p>
 
 <ul>
-<li>boot using Knoppix, Insert, etc</li>
-<li>mount required partition:</li>
+<li><a href="https://github.com/spf13/viper">spf13/viper</a> - configuration for
+apps, using command line flags, ENVIROMENT, json, etcd/consul. Good for general
+devops &lsquo;munging&rsquo; scripts.</li>
+<li><a href="https://github.com/kr/pretty">kr/pretty</a> - pretty printing for Go
+values</li>
+<li><a href="https://github.com/mitchellh/mapstructure">mitchellh/mapstructure</a> -
+Go library for decoding generic map values into native Go structures.</li>
+<li><a href="https://github.com/spf13/cast">spf13/cast</a> - safe and easy casting
+from one type to another in Go.</li>
 </ul>
-
-<pre> mount -o dev,rw /mnt/hda1, or
-
- mount -o remount,dev,rw /mnt/hda1</pre>
-
-<ul>
-<li>restore grub:</li>
-</ul>
-
-<pre> grub-install --root-directory=/mnt/hda1 /dev/hda, or
-
- chroot /mnt/hda1 grub-install /dev/hda</pre>
-
-<ul>
-<li>if problems because of change of partition names, etc, boot using grub shell, then:</li>
-</ul>
-
-<pre> vi /boot/grub/menu.lst
-
- update-grub</pre>
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -151,13 +138,13 @@
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/">howto move sql server system databases</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/">awsenv AWS environment config loader</a>
     </span>
   
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2006/07/27/activecollab/"> &nbsp; ActiveCollab</a> &raquo;
+    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2015/07/24/dockerfile-images/"> &nbsp; Dockerfile Images</a> &raquo;
     </span>
   
   <br />
@@ -179,6 +166,8 @@
 <div class="container">
   <ul class="catlist">
     <li><em>Tags: </em></li>
+    
+      <li><a href="http://www.snowfrog.net/tags/golang">Golang</a> </li>
     
   </ul>
 </div>

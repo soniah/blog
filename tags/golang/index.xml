@@ -5,8 +5,30 @@
     <link>http://www.snowfrog.net/tags/golang/</link>
     <description>Recent content in Golang on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 13 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Useful Go Libraries</title>
+      <link>http://www.snowfrog.net/2015/07/27/useful-go-libraries/</link>
+      <pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/07/27/useful-go-libraries/</guid>
+      <description>&lt;p&gt;A list of &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; libraries and tools I find useful.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;spf13/viper&lt;/a&gt; - configuration for
+apps, using command line flags, ENVIROMENT, json, etcd/consul. Good for general
+devops &amp;lsquo;munging&amp;rsquo; scripts.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kr/pretty&#34;&gt;kr/pretty&lt;/a&gt; - pretty printing for Go
+values&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mitchellh/mapstructure&#34;&gt;mitchellh/mapstructure&lt;/a&gt; -
+Go library for decoding generic map values into native Go structures.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;spf13/cast&lt;/a&gt; - safe and easy casting
+from one type to another in Go.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Terraform Presentation</title>

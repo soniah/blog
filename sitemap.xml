@@ -3,8 +3,18 @@
   
   <url>
     <loc>http://www.snowfrog.net/</loc>
-    <lastmod>2015-07-24T00:00:00+00:00</lastmod>
+    <lastmod>2015-08-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/</loc>
+    <lastmod>2015-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.snowfrog.net/2015/07/27/useful-go-libraries/</loc>
+    <lastmod>2015-07-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -543,12 +553,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
+    <loc>http://www.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2011/01/25/firefox-3-6-new-tab-opening-order-fix/</loc>
+    <loc>http://www.snowfrog.net/2011/01/24/solaris-increase-tmpfs-tmp-on-the-fly/</loc>
     <lastmod>2011-01-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -728,12 +738,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
+    <loc>http://www.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/10/01/ruby-testunit-assertions/</loc>
+    <loc>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</loc>
     <lastmod>2009-10-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -858,17 +868,17 @@
   </url>
   
   <url>
+    <loc>http://www.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
+    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.snowfrog.net/2009/03/14/apt-cache-policy/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.snowfrog.net/2009/03/14/vino-y-vinagre/</loc>
-    <lastmod>2009-03-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.snowfrog.net/2009/03/15/no-air-no-attitude/</loc>
     <lastmod>2009-03-14T00:00:00+00:00</lastmod>
   </url>
   
@@ -948,12 +958,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2009/01/10/blueman-bluetooth-for-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2009/01/10/jpilot-change-first-day-of-week-on-ubuntu/</loc>
     <lastmod>2009-01-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -1108,12 +1118,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2008/01/30/convert-english-language-ubuntu-to-spanish/</loc>
+    <loc>http://www.snowfrog.net/2008/01/29/howto-setup-nomachinenx-on-ubuntu/</loc>
     <lastmod>2008-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -1278,12 +1288,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2007/08/07/multisite-cvs-drupal-installation-on-ubuntu/</loc>
+    <loc>http://www.snowfrog.net/2007/08/07/libdvdcss2-and-w32codecs-for-ubuntu/</loc>
     <lastmod>2007-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -1343,12 +1353,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2007/01/27/pgp-tools/</loc>
+    <loc>http://www.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2007/01/27/misc-cheat-sheets/</loc>
+    <loc>http://www.snowfrog.net/2007/01/27/pgp-tools/</loc>
     <lastmod>2007-01-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -1413,12 +1423,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</loc>
+    <loc>http://www.snowfrog.net/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/08/22/howto-get-flash-sound-working-in-ubuntu-dapper/</loc>
+    <loc>http://www.snowfrog.net/2006/08/22/howto-move-sql-server-system-databases/</loc>
     <lastmod>2006-08-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -1478,12 +1488,12 @@
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
+    <loc>http://www.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.snowfrog.net/2006/03/03/unofficial-ubuntu-510-breezy-badger-starter-guide/</loc>
+    <loc>http://www.snowfrog.net/2006/03/03/ubuntuliteorg/</loc>
     <lastmod>2006-03-04T00:00:00+00:00</lastmod>
   </url>
   

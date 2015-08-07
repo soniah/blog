@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Todo on Sonia Hamilton - Blog</title>
+    <link>http://www.snowfrog.net/tags/todo/</link>
+    <description>Recent content in Todo on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 07 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://www.snowfrog.net/tags/todo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>awsenv AWS environment config loader</title>
+      <link>http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/</link>
+      <pubDate>Fri, 07 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/</guid>
+      <description>&lt;p&gt;Today I released &lt;a href=&#34;https://github.com/soniah/awsenv&#34;&gt;soniah/awsenv&lt;/a&gt; - a
+small binary for helping load aws environment variables.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;awsenv&lt;/strong&gt; is a small binary that loads AWS environment variables for an AWS
+profile from &lt;strong&gt;~/.aws/credentials&lt;/strong&gt; - useful if you&amp;rsquo;re regularly switching
+credentials and using tools like &lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;. In
+addition to &lt;code&gt;aws_access_key_id&lt;/code&gt; and &lt;code&gt;aws_secret_access_key&lt;/code&gt;, it will also
+optionally load settings for &lt;code&gt;aws_keyname&lt;/code&gt; and &lt;code&gt;aws_keypath&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The accepted flags can be displayed using &lt;code&gt;-h&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% awsenv -h
+Usage:
+  awsenv [OPTIONS] Profile
+
+Application Options:
+  -v, --verbose   Verbose output
+  -f, --filename= Credentials file (~/.aws/credentials)
+
+Help Options:
+  -h, --help      Show this help message
+
+Arguments:
+  Profile
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,8 +5,64 @@
     <link>http://www.snowfrog.net/</link>
     <description>Recent content on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 24 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>awsenv AWS environment config loader</title>
+      <link>http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/</link>
+      <pubDate>Fri, 07 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/</guid>
+      <description>&lt;p&gt;Today I released &lt;a href=&#34;https://github.com/soniah/awsenv&#34;&gt;soniah/awsenv&lt;/a&gt; - a
+small binary for helping load aws environment variables.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;awsenv&lt;/strong&gt; is a small binary that loads AWS environment variables for an AWS
+profile from &lt;strong&gt;~/.aws/credentials&lt;/strong&gt; - useful if you&amp;rsquo;re regularly switching
+credentials and using tools like &lt;a href=&#34;https://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;. In
+addition to &lt;code&gt;aws_access_key_id&lt;/code&gt; and &lt;code&gt;aws_secret_access_key&lt;/code&gt;, it will also
+optionally load settings for &lt;code&gt;aws_keyname&lt;/code&gt; and &lt;code&gt;aws_keypath&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The accepted flags can be displayed using &lt;code&gt;-h&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% awsenv -h
+Usage:
+  awsenv [OPTIONS] Profile
+
+Application Options:
+  -v, --verbose   Verbose output
+  -f, --filename= Credentials file (~/.aws/credentials)
+
+Help Options:
+  -h, --help      Show this help message
+
+Arguments:
+  Profile
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Useful Go Libraries</title>
+      <link>http://www.snowfrog.net/2015/07/27/useful-go-libraries/</link>
+      <pubDate>Mon, 27 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/07/27/useful-go-libraries/</guid>
+      <description>&lt;p&gt;A list of &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; libraries and tools I find useful.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;spf13/viper&lt;/a&gt; - configuration for
+apps, using command line flags, ENVIROMENT, json, etcd/consul. Good for general
+devops &amp;lsquo;munging&amp;rsquo; scripts.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kr/pretty&#34;&gt;kr/pretty&lt;/a&gt; - pretty printing for Go
+values&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mitchellh/mapstructure&#34;&gt;mitchellh/mapstructure&lt;/a&gt; -
+Go library for decoding generic map values into native Go structures.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;spf13/cast&lt;/a&gt; - safe and easy casting
+from one type to another in Go.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Dockerfile Images</title>
@@ -627,91 +683,6 @@ id
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>MySQL SUBSTRING_INDEX function on Microsoft MSSQL</title>
-      <link>http://www.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</link>
-      <pubDate>Mon, 06 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2014/01/06/mysql-substring_index-function-on-microsoft-mssql/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m porting some code from MySQL to Microsoft MSSQL, and unfortunately
-MSSQL doesn&amp;rsquo;t have a &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.1/en/string-functions.html#function_substring-index&#34;&gt;SUBSTRING_INDEX&lt;/a&gt;
-function. Here&amp;rsquo;s a version I quickly implemented, called
-&lt;strong&gt;my_substring_index&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Limitations:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;only accepts strings up to 255 chars long&lt;/li&gt;
-&lt;li&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
-
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;QUOTED_IDENTIFIER&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
-
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[my_substring_index]&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@delim&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURNS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;DECLARE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;result&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;VARCHAR&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; 
-			&lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt;
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;WHILE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt;
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;charindex(@delim,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;);&lt;/span&gt;
-            &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
-                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
-                &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
-                    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@str;&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
-                &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
-                    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;found&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
-                        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(@str);&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- ie mimic mysql behaviour&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@loop&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn);&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ELSE&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AND&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@reversed&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;REVERSE(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@str,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@posn));&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
-
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.my_substring_index(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;www.mysql.com&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------------------------------------------------&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;com&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>Change default editor in Debian</title>
-      <link>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</link>
-      <pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/</guid>
-      <description>&lt;p&gt;How to change the default editor in Debian (for root), as I keep forgetting:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;sudo update-alternatives --config editor&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;My &lt;a href=&#34;http://zshwiki.org/home/&#34;&gt;~/.zshrc&lt;/a&gt; takes care of this for my personal account, but it&amp;rsquo;s nice to change root&amp;rsquo;s settings so a better editor (than nano) comes up when editing (for example), root&amp;rsquo;s crontab, /etc/sudoers (via visudo), and so on.&lt;/p&gt;
 </description>
     </item>
     
