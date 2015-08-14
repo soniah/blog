@@ -14,445 +14,454 @@
       <pubDate>Tue, 19 Jan 2010 00:00:00 +0000</pubDate>
       
       <guid>http://www.snowfrog.net/2010/01/19/salary-vs-contract-rates/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve always wondered what recruitment agents use as their formula to convert between salaries and contract rates.&lt;/p&gt;
+      <description>
 
-&lt;p&gt;Here&amp;rsquo;s a formula (for giving ballpark figures) &amp;ndash; thanks CK:&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve always wondered what recruitment agents use as their formula to convert between salaries and contract rates.&lt;/p&gt;
 
-&lt;p&gt;Salary divided by 48 weeks, divided by 40 hours, plus 20% (super, training, sick leave, etc) =~ Hourly rate&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;(updated August 2015)&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;For example, $100K =~ $62.50/hour, $150K =~ $93.75/hour.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a formula for giving ballpark figures, given to me by a
+recruiter:&lt;/p&gt;
 
-&lt;p&gt;Here&amp;rsquo;s a quick ready reckoner &amp;ndash; handy to print out when you&amp;rsquo;re doing the &amp;ldquo;job mambo&amp;rdquo;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Salary divided by 48 weeks, divided by 40 hours, plus 20% (super,
+training, sick leave, etc) =~ Hourly rate
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;For example, &lt;strong&gt;$100K =~ $62.50/hour&lt;/strong&gt;, &lt;strong&gt;$150K =~ $93.75/hour&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-ready-reckoner:0894ca551441957a8efabecce8967c89&#34;&gt;A ready-reckoner:&lt;/h3&gt;
 
 &lt;table border=&#34;0&#34; rules=&#34;none&#34; cellspacing=&#34;0&#34;&gt;
-  &lt;colgroup&gt; &lt;col width=&#34;86&#34; /&gt; &lt;col width=&#34;86&#34; /&gt; &lt;col width=&#34;86&#34; /&gt;&lt;/colgroup&gt; &lt;tr&gt;
-    &lt;td align=&#34;right&#34; width=&#34;86&#34; height=&#34;17&#34;&gt;
+  &lt;colgroup&gt; &lt;col width=&#34;120&#34; /&gt; &lt;col width=&#34;120&#34; /&gt; &lt;col width=&#34;120&#34; /&gt;&lt;/colgroup&gt; &lt;tr&gt;
+    &lt;td align=&#34;right&#34; width=&#34;120&#34; height=&#34;17&#34;&gt;
       &lt;strong&gt;Salary&lt;/strong&gt;
     &lt;/td&gt;
-    
-    &lt;td align=&#34;right&#34; width=&#34;86&#34;&gt;
+
+    &lt;td align=&#34;right&#34; width=&#34;120&#34;&gt;
       &lt;strong&gt;Hourly&lt;/strong&gt;
     &lt;/td&gt;
-    
-    &lt;td align=&#34;right&#34; width=&#34;86&#34;&gt;
+
+    &lt;td align=&#34;right&#34; width=&#34;120&#34;&gt;
       &lt;strong&gt;Daily&lt;/strong&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $80,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $50.00
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $333.28
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $85,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $53.13
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $354.11
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $90,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $56.25
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $374.94
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $95,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $59.38
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $395.77
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $100,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $62.50
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $416.60
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $105,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $65.63
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $437.43
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $110,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $68.75
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $458.26
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $115,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $71.88
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $479.09
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $120,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $75.00
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $499.92
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $125,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $78.13
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $520.75
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $130,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $81.25
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $541.58
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $135,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $84.38
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $562.41
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $140,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $87.50
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $583.24
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $145,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $90.63
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $604.07
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $150,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $93.75
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $624.90
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $155,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $96.88
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $645.73
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $160,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $100.00
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $666.56
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $165,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $103.13
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $687.39
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $170,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $106.25
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $708.22
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $175,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $109.38
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $729.05
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $180,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $112.50
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $749.88
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $185,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $115.63
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $770.71
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $190,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $118.75
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $791.54
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $195,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $121.88
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $812.37
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;right&#34; height=&#34;17&#34;&gt;
       $200,000
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $125.00
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;right&#34;&gt;
       $833.20
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;p&gt;And here&amp;rsquo;s the numbers for doing quick calculations:&lt;/p&gt;
-
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
+&lt;p&gt;Here&amp;rsquo;s the numbers for doing quick calculations:&lt;/p&gt;
+
 &lt;table border=&#34;0&#34; rules=&#34;none&#34; cellspacing=&#34;0&#34;&gt;
-  &lt;colgroup&gt; &lt;col width=&#34;86&#34; /&gt; &lt;col width=&#34;86&#34; /&gt; &lt;col width=&#34;86&#34; /&gt;&lt;/colgroup&gt; &lt;tr&gt;
-    &lt;td align=&#34;left&#34; width=&#34;86&#34; height=&#34;17&#34;&gt;
+  &lt;colgroup&gt; &lt;col width=&#34;120&#34; /&gt; &lt;col width=&#34;120&#34; /&gt; &lt;col width=&#34;120&#34; /&gt;&lt;/colgroup&gt; &lt;tr&gt;
+    &lt;td align=&#34;left&#34; width=&#34;120&#34; height=&#34;17&#34;&gt;
       Salary Ks to
     &lt;/td&gt;
-    
-    &lt;td align=&#34;left&#34; width=&#34;86&#34;&gt;
+
+    &lt;td align=&#34;left&#34; width=&#34;120&#34;&gt;
       Hourly
     &lt;/td&gt;
-    
-    &lt;td align=&#34;left&#34; width=&#34;86&#34;&gt;
+
+    &lt;td align=&#34;left&#34; width=&#34;120&#34;&gt;
       * 0.625
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;left&#34; height=&#34;17&#34;&gt;
       Hourly to
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;left&#34;&gt;
       Salary Ks
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;left&#34;&gt;
       * 1.6
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;left&#34; height=&#34;17&#34;&gt;
       Salary Ks to
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;left&#34;&gt;
       Daily
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;left&#34;&gt;
       * 4.166
     &lt;/td&gt;
   &lt;/tr&gt;
-  
+
   &lt;tr&gt;
     &lt;td align=&#34;left&#34; height=&#34;17&#34;&gt;
       Daily to
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;left&#34;&gt;
       Salary
     &lt;/td&gt;
-    
+
     &lt;td align=&#34;left&#34;&gt;
       * 0.24
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
+
+&lt;h3 id=&#34;see-also:0894ca551441957a8efabecce8967c89&#34;&gt;See also&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.mgadams.com/2015/06/30/the-software-engineers-guide-to-negotiating-a-raise/&#34;&gt;The Software Engineer’s Guide to Negotiating a Raise&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
