@@ -34,7 +34,7 @@ creating and editing unknown or dynamic JSON in golang&lt;/li&gt;
 
 &lt;h1 id=&#34;snippets:f2ee626a81a6bcb754d53e6312958869&#34;&gt;Snippets&lt;/h1&gt;
 
-&lt;h2 id=&#34;fataliferr:f2ee626a81a6bcb754d53e6312958869&#34;&gt;fatalIfErr&lt;/h2&gt;
+&lt;h2 id=&#34;fataliferr-fatalifnotok:f2ee626a81a6bcb754d53e6312958869&#34;&gt;fatalIfErr, fatalIfNotOk&lt;/h2&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// from https://github.com/FiloSottile/whosthere&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;fatalIfErr(err&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
@@ -50,28 +50,30 @@ creating and editing unknown or dynamic JSON in golang&lt;/li&gt;
 
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// also&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;fatalIfNotOk(ok&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;bool&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!ok&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color: #d0d0d0&#34;&gt;log.Fatal(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;not ok: &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;msg)&lt;/span&gt;
-	&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!ok&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;log.Fatal(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;not ok: &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;msg)&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h2 id=&#34;runcmd:f2ee626a81a6bcb754d53e6312958869&#34;&gt;runcmd&lt;/h2&gt;
+
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// from https://stackoverflow.com/questions/6182369/exec-a-shell-command-in-go&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;runcmd(cmd&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;shell&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;bool&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[]&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;byte&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;shell&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color: #d0d0d0&#34;&gt;out,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;exec.Command(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;bash&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;-c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd).Output()&lt;/span&gt;
-		&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color: #24909d&#34;&gt;panic&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;some error found&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-		&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;out&lt;/span&gt;
-	&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-		&lt;span style=&#34;color: #d0d0d0&#34;&gt;out,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;exec.Command(cmd).Output()&lt;/span&gt;
-		&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
-			&lt;span style=&#34;color: #24909d&#34;&gt;panic&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;some error found&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-		&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
-		&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;out&lt;/span&gt;
-	&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;shell&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;out,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;exec.Command(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;bash&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;-c&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd).Output()&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color: #24909d&#34;&gt;panic&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;some error found&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;out&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;out,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;exec.Command(cmd).Output()&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color: #24909d&#34;&gt;panic&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;some error found&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;out&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
