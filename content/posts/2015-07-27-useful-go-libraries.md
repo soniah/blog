@@ -27,7 +27,7 @@ A list of [Go](https://golang.org/) libraries and tools I find useful.
 
 # Snippets
 
-## fatalIfErr
+## fatalIfErr, fatalIfNotOk
 
 {{< highlight go >}}
 // from https://github.com/FiloSottile/whosthere
@@ -44,27 +44,29 @@ fatalIfErr(db.Ping())
 
 // also
 func fatalIfNotOk(ok bool, msg string) {
-	if !ok {
-		log.Fatal("not ok: " + msg)
-	}
+    if !ok {
+        log.Fatal("not ok: " + msg)
+    }
 }
 {{< /highlight >}}
+
+## runcmd
 
 {{< highlight go >}}
 // from https://stackoverflow.com/questions/6182369/exec-a-shell-command-in-go
 func runcmd(cmd string, shell bool) []byte {
-	if shell {
-		out, err := exec.Command("bash", "-c", cmd).Output()
-		if err != nil {
-			panic("some error found")
-		}
-		return out
-	} else {
-		out, err := exec.Command(cmd).Output()
-		if err != nil {
-			panic("some error found")
-		}
-		return out
-	}
+    if shell {
+        out, err := exec.Command("bash", "-c", cmd).Output()
+        if err != nil {
+            panic("some error found")
+        }
+        return out
+    } else {
+        out, err := exec.Command(cmd).Output()
+        if err != nil {
+            panic("some error found")
+        }
+        return out
+    }
 }
 {{< /highlight >}}
