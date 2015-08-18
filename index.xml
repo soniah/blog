@@ -81,6 +81,13 @@ creating and editing unknown or dynamic JSON in golang&lt;/li&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;db,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;sql.Open(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;mysql&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;C.MySQL)&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;fatalIfErr(err)&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;fatalIfErr(db.Ping())&lt;/span&gt;
+
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// also&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;fatalIfNotOk(ok&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;bool&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;msg&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!ok&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color: #d0d0d0&#34;&gt;log.Fatal(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;not ok: &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;msg)&lt;/span&gt;
+	&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
