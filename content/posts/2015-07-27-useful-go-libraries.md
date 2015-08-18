@@ -41,6 +41,13 @@ func fatalIfErr(err error) {
 db, err := sql.Open("mysql", C.MySQL)
 fatalIfErr(err)
 fatalIfErr(db.Ping())
+
+// also
+func fatalIfNotOk(ok bool, msg string) {
+	if !ok {
+		log.Fatal("not ok: " + msg)
+	}
+}
 {{< /highlight >}}
 
 {{< highlight go >}}
