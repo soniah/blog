@@ -42,3 +42,22 @@ db, err := sql.Open("mysql", C.MySQL)
 fatalIfErr(err)
 fatalIfErr(db.Ping())
 {{< /highlight >}}
+
+{{< highlight go >}}
+// from https://stackoverflow.com/questions/6182369/exec-a-shell-command-in-go
+func runcmd(cmd string, shell bool) []byte {
+	if shell {
+		out, err := exec.Command("bash", "-c", cmd).Output()
+		if err != nil {
+			panic("some error found")
+		}
+		return out
+	} else {
+		out, err := exec.Command(cmd).Output()
+		if err != nil {
+			panic("some error found")
+		}
+		return out
+	}
+}
+{{< /highlight >}}
