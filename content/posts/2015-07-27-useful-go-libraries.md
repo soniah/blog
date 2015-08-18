@@ -62,12 +62,11 @@ func runcmd(cmd string, shell bool) []byte {
             panic("some error found")
         }
         return out
-    } else {
-        out, err := exec.Command(cmd).Output()
-        if err != nil {
-            panic("some error found")
-        }
-        return out
     }
+    out, err := exec.Command(cmd).Output()
+    if err != nil {
+        panic("some error found")
+    }
+    return out
 }
 {{< /highlight >}}
