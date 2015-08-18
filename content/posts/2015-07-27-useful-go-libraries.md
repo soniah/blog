@@ -53,6 +53,7 @@ func fatalIfNotOk(ok bool, msg string) {
 ## runcmd
 
 {{< highlight go >}}
+// run a command using the shell; no need to split args
 // from https://stackoverflow.com/questions/6182369/exec-a-shell-command-in-go
 func runcmd(cmd string, shell bool) []byte {
     if shell {
