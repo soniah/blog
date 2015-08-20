@@ -54,16 +54,16 @@ Arguments:
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;spf13/viper&lt;/a&gt; - configuration for
-apps, using command line flags, ENVIRONMENT, json, etcd/consul. Good for general
-devops &amp;lsquo;munging&amp;rsquo; scripts&lt;/li&gt;
+apps, using command line flags, ENVIRONMENT, json, etcd/consul. Good for
+general devops &amp;lsquo;munging&amp;rsquo; scripts&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Jeffail/gabs&#34;&gt;Jeffail/gabs&lt;/a&gt; - provides a dynamic language
+approach to JSON&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mitchellh/mapstructure&#34;&gt;mitchellh/mapstructure&lt;/a&gt; -
+JSON decoding tools - varying structure, weakly typed fields, squashing arrays&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;spf13/cast&lt;/a&gt; - safe and easy casting
+from one type to another in Go - useful for JSON, YAML, etc&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/kr/pretty&#34;&gt;kr/pretty&lt;/a&gt; - pretty printing for Go
 values&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/mitchellh/mapstructure&#34;&gt;mitchellh/mapstructure&lt;/a&gt; -
-Go library for decoding generic map values into native Go structures.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cast&#34;&gt;spf13/cast&lt;/a&gt; - safe and easy casting
-from one type to another in Go&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Jeffail/gabs&#34;&gt;Jeffail/gabs&lt;/a&gt; - parsing,
-creating and editing unknown or dynamic JSON in golang&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&#34;snippets:f2ee626a81a6bcb754d53e6312958869&#34;&gt;Snippets&lt;/h1&gt;
