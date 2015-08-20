@@ -27,6 +27,18 @@ A list of [Go](https://golang.org/) libraries and tools I find useful.
   from one type to another in Go - useful for JSON, YAML, etc
 * [kr/pretty](https://github.com/kr/pretty) - pretty printing for Go
   values
+* [armon/go-metrics](http://github.com/armon/go-metrics) - for exporting
+  performance and runtime metrics to external metrics systems (i.e.
+  statsite, statsd)
+* [ryanuber/columnize](http://github.com/ryanuber/columnize) - easy
+  column formatted output for golang
+* [package terminal](https://godoc.org/golang.org/x/crypto/ssh/terminal)
+  - support functions for dealing with terminals - raw mode, reading
+  passwords, foreground colors
+* [Songmu/prompter](https://github.com/Songmu/prompter) - utility for
+  easy prompting - Choose, Password, Prompt, etc
+* [gholt/brimtext](https://github.com/gholt/brimtext) - tools for
+  working with text - tables, colours, etc
 
 # Snippets
 
