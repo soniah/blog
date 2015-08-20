@@ -53,6 +53,9 @@ Arguments:
 &lt;p&gt;A list of &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; libraries and tools I find useful.&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fatih/vim-go&#34;&gt;fatih/vimgo&lt;/a&gt; - amazing Vim plugin
+for Go - auto format and vet code, fix imports, syntax highlighting,
+and many other features&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;spf13/viper&lt;/a&gt; - configuration for
 apps, using command line flags, ENVIRONMENT, json, etcd/consul. Good for
 general devops &amp;lsquo;munging&amp;rsquo; scripts&lt;/li&gt;
