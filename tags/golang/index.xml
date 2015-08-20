@@ -33,6 +33,21 @@ JSON decoding tools - varying structure, weakly typed fields, squashing arrays&l
 from one type to another in Go - useful for JSON, YAML, etc&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/kr/pretty&#34;&gt;kr/pretty&lt;/a&gt; - pretty printing for Go
 values&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/armon/go-metrics&#34;&gt;armon/go-metrics&lt;/a&gt; - for exporting
+performance and runtime metrics to external metrics systems (i.e.
+statsite, statsd)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/ryanuber/columnize&#34;&gt;ryanuber/columnize&lt;/a&gt; - easy
+column formatted output for golang&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://godoc.org/golang.org/x/crypto/ssh/terminal&#34;&gt;package terminal&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;support functions for dealing with terminals - raw mode, reading
+passwords, foreground colors&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Songmu/prompter&#34;&gt;Songmu/prompter&lt;/a&gt; - utility for
+easy prompting - Choose, Password, Prompt, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gholt/brimtext&#34;&gt;gholt/brimtext&lt;/a&gt; - tools for
+working with text - tables, colours, etc&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&#34;snippets:f2ee626a81a6bcb754d53e6312958869&#34;&gt;Snippets&lt;/h1&gt;
