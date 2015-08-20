@@ -13,6 +13,9 @@ A list of [Go](https://golang.org/) libraries and tools I find useful.
 
 <!--more-->
 
+* [fatih/vimgo](https://github.com/fatih/vim-go) - amazing Vim plugin
+  for Go - auto format and vet code, fix imports, syntax highlighting,
+  and many other features
 * [spf13/viper](https://github.com/spf13/viper) - configuration for
   apps, using command line flags, ENVIRONMENT, json, etcd/consul. Good for
   general devops 'munging' scripts
