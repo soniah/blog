@@ -14,16 +14,16 @@ A list of [Go](https://golang.org/) libraries and tools I find useful.
 <!--more-->
 
 * [spf13/viper](https://github.com/spf13/viper) - configuration for
-  apps, using command line flags, ENVIRONMENT, json, etcd/consul. Good for general
-  devops 'munging' scripts
+  apps, using command line flags, ENVIRONMENT, json, etcd/consul. Good for
+  general devops 'munging' scripts
+* [Jeffail/gabs](https://github.com/Jeffail/gabs) - provides a dynamic language
+  approach to JSON
+* [mitchellh/mapstructure](https://github.com/mitchellh/mapstructure) -
+  JSON decoding tools - varying structure, weakly typed fields, squashing arrays
+* [spf13/cast](https://github.com/spf13/cast) - safe and easy casting
+  from one type to another in Go - useful for JSON, YAML, etc
 * [kr/pretty](https://github.com/kr/pretty) - pretty printing for Go
   values
-* [mitchellh/mapstructure](https://github.com/mitchellh/mapstructure) -
-  Go library for decoding generic map values into native Go structures.
-* [spf13/cast](https://github.com/spf13/cast) - safe and easy casting
-  from one type to another in Go
-* [Jeffail/gabs](https://github.com/Jeffail/gabs) - parsing,
-  creating and editing unknown or dynamic JSON in golang
 
 # Snippets
 
