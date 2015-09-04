@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8">
     <base href="http://www.snowfrog.net">
-    <title> OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy </title>
-    <link rel="canonical" href="http://www.snowfrog.net/2013/12/22/osx-tunnelblick-multiple-openvpn-configurations-error-unable-to-copy/">
+    <title> Haskell Folds </title>
+    <link rel="canonical" href="http://www.snowfrog.net/2015/09/04/haskell-folds/">
     
 
 <link rel="stylesheet" href="http://www.snowfrog.net/css/poole.css">
@@ -94,45 +94,44 @@
 
     
     <div class="container content">
-      <h1 class="post-title">OSX TunnelBlick Multiple OpenVPN Configurations error unable to copy</h1>
+      <h1 class="post-title">Haskell Folds</h1>
         <section id="main">
-          <h5 id="date"> 22 Dec 2013 </h5>
-          <p>When setting up TunnelBlick, if you have multiple configurations in your ~/Desktop/foo.tblk folder, you&rsquo;ll get an error in the console log like:</p>
+          <h5 id="date"> 4 Sep 2015 </h5>
+          
 
-<p><em>Unable to copy file foo to /var/private/bar&hellip;</em></p>
+<p>Notes on Haskell Folds.</p>
 
-<p>The solution comes from the <a href="https://groups.google.com/forum/#!msg/tunnelblick-discuss/Gp6OJn_8NxI/nAuvDP1RMxIJ">TunnelBlick forum</a>:</p>
+<h1 id="foldr:a5bf4925444d0c7b3dca48c3539f5c97">foldr</h1>
 
-<p><em>There is a way to install multiple configurations all at once: use a .tblk folder that contains only .tblk folders inside it. So you create a .tblk for each configuration file, put a bunch of them into a folder, and rename the folder with a .tblk. When you double-click that &ldquo;outer&rdquo; .tblk, you should be asked once if you want to install &ldquo;n&rdquo; configurations.</em></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Right-fold-transformation.png" alt="foldr" /></p>
 
-<p>For example:</p>
+<p>&ldquo;It is best to think of foldr non-recursively as
+simultaneously replacing each (:) in a list by a
+given function, and [] by a given value.&rdquo; &ndash;
+<a href="http://www.cs.nott.ac.uk/~gmh/book.html">Programming in
+Haskell</a></p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Desktop/foo.tblk
-<span style="color: #6ab825; font-weight: bold">for</span> f in * <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
-  <span style="color: #40ffff">g</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">`</span>basename <span style="color: #40ffff">$f</span><span style="color: #ed9d13">`</span>
-  mkdir <span style="color: #40ffff">$g</span>.tblk
-  mv <span style="color: #40ffff">$f</span> <span style="color: #40ffff">$g</span>.tblk
-<span style="color: #6ab825; font-weight: bold">done</span>
+<h1 id="foldl:a5bf4925444d0c7b3dca48c3539f5c97">foldl</h1>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Left-fold-transformation.png" alt="foldl" /></p>
+
+<p>&ldquo;It is best to think of the behaviour of foldl in
+a non-recursive manner, in terms of a left
+associative operator ⊕ starting from a given
+value.&rdquo; &ndash; <a href="http://www.cs.nott.ac.uk/~gmh/book.html">Programming in
+Haskell</a></p>
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">((((</span> z ⊕ x1 <span style="color: #d0d0d0">)</span> ⊕ x2 <span style="color: #d0d0d0">)</span> ... ⊕ xn
 </pre></div>
 
 
-<p>Also, the .ovpn files will have &ldquo;com.apple.quarantine&rdquo; xattr&rsquo;s. This may or may not cause problems. I removed them in this way:</p>
+<h1 id="links:a5bf4925444d0c7b3dca48c3539f5c97">Links</h1>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">for</span> f in * <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
-  <span style="color: #24909d">echo</span> <span style="color: #40ffff">$f</span>
-  xattr -d com.apple.quarantine <span style="color: #40ffff">$f</span>
-<span style="color: #6ab825; font-weight: bold">done</span>
-</pre></div>
-
-
-<p>Also, to <a href="https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo">remove old private configuration files</a>:</p>
-
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Library/Application<span style="color: #ed9d13">\ </span>Support/Tunnelblick/Configurations
-rm -rf *
-</pre></div>
-
-
-<p>(or, click on VPN icon top right of screen, select &lsquo;VPN Details&rsquo;, +/- in the &lsquo;Configurations&rsquo; tab).</p>
+<ul>
+<li><a href="https://wiki.haskell.org/Fold">Haskell Wiki - Folds</a></li>
+<li><a href="http://www.cs.nott.ac.uk/~gmh/chapter7.ppt">Programming in Haskell Slides - Chapter 7
+Higher Order Functions</a></li>
+</ul>
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -160,14 +159,10 @@ rm -rf *
 <div class="container">
   <hr />
   
-    <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/">Microsoft SQL 2012 SSIS Create Catalog Password</a>
-    </span>
-  
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2013/12/14/zfs-list-snapshots-create-and-destroy-clones/"> &nbsp; ZFS List Snapshots, Create and Destroy Clones</a> &raquo;
+    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/"> &nbsp; awsenv AWS environment config loader</a> &raquo;
     </span>
   
   <br />
@@ -179,7 +174,7 @@ rm -rf *
   <ul class="catlist">
     <li><em>Categories: </em></li>
     
-      <li><a href="http://www.snowfrog.net/categories/other-tech">Other-Tech</a> </li>
+      <li><a href="http://www.snowfrog.net/categories/linux">Linux</a> </li>
     
   </ul>
 </div>
@@ -190,11 +185,7 @@ rm -rf *
   <ul class="catlist">
     <li><em>Tags: </em></li>
     
-      <li><a href="http://www.snowfrog.net/tags/osx">OSX</a> </li>
-    
-      <li><a href="http://www.snowfrog.net/tags/ovpn">ovpn</a> </li>
-    
-      <li><a href="http://www.snowfrog.net/tags/tunnelblick">tunnelblick</a> </li>
+      <li><a href="http://www.snowfrog.net/tags/haskell">Haskell</a> </li>
     
   </ul>
 </div>

@@ -103,8 +103,8 @@
 
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%">localbox% git push remotebox master
 Counting objects: 1, <span style="color: #6ab825; font-weight: bold">done</span>.
-Writing objects: 100% <span style="color: #d0d0d0">(</span>1/1<span style="color: #d0d0d0">)</span>, 252 bytes, <span style="color: #6ab825; font-weight: bold">done</span>.
-Total 1 <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>, reused 0 <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>
+Writing objects: 100% <span style="color: #d0d0d0">(</span>1/1<span style="color: #d0d0d0">)</span>, <span style="color: #3677a9">252</span> bytes, <span style="color: #6ab825; font-weight: bold">done</span>.
+Total <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>, reused <span style="color: #3677a9">0</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>
 remote: warning: updating the current branch
 To sonia@remotebox.net:/home/sonia/dotfiles
    f387640..13740c5  master -&gt; master
@@ -137,7 +137,7 @@ localbox% git br -a
 <span style="color: #999999; font-style: italic"># pushing to master, foo or bar will give problems, let&#39;s push to &#39;push&#39;</span>
 
 localbox% git push remotebox master:push
-Total 0 <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>, reused 0 <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>
+Total <span style="color: #3677a9">0</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>, reused <span style="color: #3677a9">0</span> <span style="color: #d0d0d0">(</span>delta 0<span style="color: #d0d0d0">)</span>
 To sonia@remotebox.net:/home/sonia/dotfiles
  * <span style="color: #d0d0d0">[</span>new branch<span style="color: #d0d0d0">]</span>      master -&gt; push
 
@@ -145,8 +145,8 @@ To sonia@remotebox.net:/home/sonia/dotfiles
 
 % git push remotebox master:push
            ^         ^      ^
-           remote    |      ^
-                     from   |
+           remote    <span style="color: #d0d0d0">|</span>      ^
+                     from   <span style="color: #d0d0d0">|</span>
                             to
 
 <span style="color: #999999; font-style: italic"># ie I&#39;m pushing from master branch to the push branch on remotebox</span>

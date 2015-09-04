@@ -5,8 +5,52 @@
     <link>http://www.snowfrog.net/tags/haskell/</link>
     <description>Recent content in Haskell on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 22 May 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Haskell Folds</title>
+      <link>http://www.snowfrog.net/2015/09/04/haskell-folds/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/09/04/haskell-folds/</guid>
+      <description>
+
+&lt;p&gt;Notes on Haskell Folds.&lt;/p&gt;
+
+&lt;h1 id=&#34;foldr:a5bf4925444d0c7b3dca48c3539f5c97&#34;&gt;foldr&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/3/3e/Right-fold-transformation.png&#34; alt=&#34;foldr&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;It is best to think of foldr non-recursively as
+simultaneously replacing each (:) in a list by a
+given function, and [] by a given value.&amp;rdquo; &amp;ndash;
+&lt;a href=&#34;http://www.cs.nott.ac.uk/~gmh/book.html&#34;&gt;Programming in
+Haskell&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;foldl:a5bf4925444d0c7b3dca48c3539f5c97&#34;&gt;foldl&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/5/5a/Left-fold-transformation.png&#34; alt=&#34;foldl&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;It is best to think of the behaviour of foldl in
+a non-recursive manner, in terms of a left
+associative operator ⊕ starting from a given
+value.&amp;rdquo; &amp;ndash; &lt;a href=&#34;http://www.cs.nott.ac.uk/~gmh/book.html&#34;&gt;Programming in
+Haskell&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;((((&lt;/span&gt; z ⊕ x1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; ⊕ x2 &lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; ... ⊕ xn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id=&#34;links:a5bf4925444d0c7b3dca48c3539f5c97&#34;&gt;Links&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.haskell.org/Fold&#34;&gt;Haskell Wiki - Folds&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cs.nott.ac.uk/~gmh/chapter7.ppt&#34;&gt;Programming in Haskell Slides - Chapter 7
+Higher Order Functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Haskell Hole Driven Development</title>

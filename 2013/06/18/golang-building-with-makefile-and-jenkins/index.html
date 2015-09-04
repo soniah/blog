@@ -141,9 +141,9 @@
 GOPATH :<span style="color: #d0d0d0">=</span> /var/lib/jenkins/workspace/go/project2
 
 myhostname :<span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">$(</span>shell hostname<span style="color: #6ab825; font-weight: bold">)</span>
-ifeq <span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">${</span><span style="color: #40ffff">myhostname</span><span style="color: #6ab825; font-weight: bold">}</span>, laptop<span style="color: #d0d0d0">)</span>
+ifeq <span style="color: #d0d0d0">(</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">myhostname</span><span style="color: #ed9d13">}</span>, laptop<span style="color: #d0d0d0">)</span>
     GOPATH :<span style="color: #d0d0d0">=</span> /home/sonia/go/project2
-<span style="color: #6ab825; font-weight: bold">else </span>ifeq <span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">${</span><span style="color: #40ffff">myhostname</span><span style="color: #6ab825; font-weight: bold">}</span>, testmachine<span style="color: #d0d0d0">)</span>
+<span style="color: #6ab825; font-weight: bold">else</span> ifeq <span style="color: #d0d0d0">(</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">myhostname</span><span style="color: #ed9d13">}</span>, testmachine<span style="color: #d0d0d0">)</span>
     GOPATH :<span style="color: #d0d0d0">=</span> /home/u1234/go/project2
     GOROOT :<span style="color: #d0d0d0">=</span> /usr/local/go
 endif

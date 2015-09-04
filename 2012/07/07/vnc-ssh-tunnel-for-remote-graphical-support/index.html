@@ -121,7 +121,7 @@
 
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%">fredbox% ssh -L 5900:localhost:5900 fred@fredbox.dyndns.org
 fredbox% x11vnc -safer -usepw -localhost -once -noxdamage <span style="color: #ed9d13">\</span>
-         -nowf -ncache 0 -scale 2/3 -display :0
+         -nowf -ncache <span style="color: #3677a9">0</span> -scale 2/3 -display :0
 </pre></div>
 
 
@@ -130,7 +130,7 @@ fredbox% x11vnc -safer -usepw -localhost -once -noxdamage <span style="color: #e
 </ol>
 
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">local</span>% vncviewer -encodings <span style="color: #ed9d13">&quot;copyrect tight zrle hextile&quot;</span> <span style="color: #ed9d13">\</span>
-  -bgr233 -compresslevel 5 localhost
+  -bgr233 -compresslevel <span style="color: #3677a9">5</span> localhost
 </pre></div>
 
 
@@ -142,9 +142,9 @@ ssh fred@fredbox.dyndns.org <span style="color: #ed9d13">&#39;pkill x11vnc&#39;<
 ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org <span style="color: #ed9d13">\</span>
     <span style="color: #ed9d13">&#39;x11vnc -safer -usepw -localhost -once -noxdamage \</span>
 <span style="color: #ed9d13">      -nowf -ncache 0 -scale 2/3 -display :0&#39;</span> <span style="color: #ed9d13">\</span>
-    <span style="color: #d0d0d0">&amp;&amp;</span> sleep 5 <span style="color: #ed9d13">\</span>
+    <span style="color: #d0d0d0">&amp;&amp;</span> sleep <span style="color: #3677a9">5</span> <span style="color: #ed9d13">\</span>
     <span style="color: #d0d0d0">&amp;&amp;</span> vncviewer -encodings <span style="color: #ed9d13">&quot;copyrect tight zrle hextile&quot;</span> <span style="color: #ed9d13">\</span>
-         -bgr233 -compresslevel 5 localhost
+         -bgr233 -compresslevel <span style="color: #3677a9">5</span> localhost
 </pre></div>
 
 

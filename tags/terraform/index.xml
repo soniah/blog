@@ -39,13 +39,13 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
 &lt;span style=&#34;color: #40ffff&#34;&gt;tgz&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;go1.3.3.linux-amd64.tar.gz
 &lt;span style=&#34;color: #40ffff&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;https://storage.googleapis.com/golang/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -f /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /var/tmp
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -f /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /var/tmp
 	wget &lt;span style=&#34;color: #40ffff&#34;&gt;$url&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d /usr/local/go &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;sudo tar -C /usr/local -xzf /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d /usr/local/go &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	sudo tar -C /usr/local -xzf /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## setup dev directory structure&lt;/span&gt;
@@ -56,14 +56,14 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#---------------------&lt;/span&gt;
 
 &lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install third party repos? (go-bindata, lint)&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/jteeuwen/go-bindata &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;go get github.com/jteeuwen/go-bindata/...
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/jteeuwen/go-bindata &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		go get github.com/jteeuwen/go-bindata/...
 		cp ~/go/thirdparty/bin/go-bindata ~/bin
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/golang/lint &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;go get github.com/golang/lint/golint
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/golang/lint &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		go get github.com/golang/lint/golint
 		cp ~/go/thirdparty/bin/golint ~/bin
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
@@ -72,19 +72,19 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#----------------&lt;/span&gt;
 
 &lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install soniah repos? (gosnmp, evaler)&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
 	&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# do &amp;#39;git clone&amp;#39; not &amp;#39;go get&amp;#39; so origin is writeable&lt;/span&gt;
 	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/evaler &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/evaler &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		git clone git@github.com:soniah/evaler.git
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/gosnmp &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/gosnmp &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		git clone git@github.com:soniah/gosnmp.git
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
@@ -96,7 +96,7 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
-&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

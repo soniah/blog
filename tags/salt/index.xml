@@ -61,7 +61,7 @@ hg push bbgit
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $1 is hg remote name in hgrc for repo&lt;/span&gt;
    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $2 is branch (defaults to master)&lt;/span&gt;
-   hg book -f -r tip &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;master&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;
+   hg book -f -r tip &lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;master&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
    hg push &lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;

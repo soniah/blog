@@ -31,7 +31,7 @@
 &lt;span style=&#34;color: #40ffff&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
 hostname &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;
 &lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
-sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost $hn/&amp;quot;&lt;/span&gt; /etc/hosts
+sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
 &lt;/pre&gt;&lt;/div&gt;
 
 

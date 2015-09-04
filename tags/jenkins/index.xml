@@ -58,9 +58,9 @@
 GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /var/lib/jenkins/workspace/go/project2
 
 myhostname :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;shell hostname&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt;
-ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;, laptop&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, laptop&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
     GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/sonia/go/project2
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else &lt;/span&gt;ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;, testmachine&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, testmachine&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
     GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/u1234/go/project2
     GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/local/go
 endif

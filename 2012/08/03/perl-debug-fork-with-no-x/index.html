@@ -151,10 +151,10 @@
 
 client% ssh -X server                <span style="color: #999999; font-style: italic"># reconnect, to setup DISPLAY</span>
 
-server% env | grep -i disp
+server% env <span style="color: #d0d0d0">|</span> grep -i disp
 <span style="color: #40ffff">DISPLAY</span><span style="color: #d0d0d0">=</span>localhost:11.0               <span style="color: #999999; font-style: italic"># DISPLAY is good</span>
 
-server% xterm &amp;                      <span style="color: #999999; font-style: italic"># an xterm should display locally</span>
+server% xterm <span style="color: #d0d0d0">&amp;</span>                      <span style="color: #999999; font-style: italic"># an xterm should display locally</span>
 
 server% perl -d foo.pl               <span style="color: #999999; font-style: italic"># start debugging</span>
 </pre></div>

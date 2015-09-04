@@ -5,8 +5,52 @@
     <link>http://www.snowfrog.net/posts/</link>
     <description>Recent content in Posts on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 07 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Haskell Folds</title>
+      <link>http://www.snowfrog.net/2015/09/04/haskell-folds/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2015/09/04/haskell-folds/</guid>
+      <description>
+
+&lt;p&gt;Notes on Haskell Folds.&lt;/p&gt;
+
+&lt;h1 id=&#34;foldr:a5bf4925444d0c7b3dca48c3539f5c97&#34;&gt;foldr&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/3/3e/Right-fold-transformation.png&#34; alt=&#34;foldr&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;It is best to think of foldr non-recursively as
+simultaneously replacing each (:) in a list by a
+given function, and [] by a given value.&amp;rdquo; &amp;ndash;
+&lt;a href=&#34;http://www.cs.nott.ac.uk/~gmh/book.html&#34;&gt;Programming in
+Haskell&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;foldl:a5bf4925444d0c7b3dca48c3539f5c97&#34;&gt;foldl&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/5/5a/Left-fold-transformation.png&#34; alt=&#34;foldl&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;It is best to think of the behaviour of foldl in
+a non-recursive manner, in terms of a left
+associative operator ⊕ starting from a given
+value.&amp;rdquo; &amp;ndash; &lt;a href=&#34;http://www.cs.nott.ac.uk/~gmh/book.html&#34;&gt;Programming in
+Haskell&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;((((&lt;/span&gt; z ⊕ x1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; ⊕ x2 &lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; ... ⊕ xn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id=&#34;links:a5bf4925444d0c7b3dca48c3539f5c97&#34;&gt;Links&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.haskell.org/Fold&#34;&gt;Haskell Wiki - Folds&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cs.nott.ac.uk/~gmh/chapter7.ppt&#34;&gt;Programming in Haskell Slides - Chapter 7
+Higher Order Functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>awsenv AWS environment config loader</title>
@@ -225,7 +269,7 @@ docker run -P sonia/foo
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# get an interactive shell&lt;/span&gt;
 docker &lt;span style=&#34;color: #24909d&#34;&gt;exec&lt;/span&gt; -it random_name bash
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# remove all old images, except ubuntu &amp;quot;base&amp;quot; images&lt;/span&gt;
-docker rmi -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker images | tail -n +2 | grep -v &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;ubuntu&amp;#39;&lt;/span&gt; | awk &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;print $3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
+docker rmi -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker images &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail -n +2 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep -v &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;ubuntu&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;print $3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# remove all containers, including stopped containers&lt;/span&gt;
 docker rm -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker ps --no-trunc -aq&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -254,7 +298,7 @@ docker rm -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker ps 
 working with them is:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mv ~/Downloads/foo.pem ~/.ssh
-chmod 0600 ~/.ssh/foo.pem
+chmod &lt;span style=&#34;color: #3677a9&#34;&gt;0600&lt;/span&gt; ~/.ssh/foo.pem
 ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -428,7 +472,7 @@ scripts  that make working with hundreds of git branches easier&amp;hellip;&lt;
 &lt;span style=&#34;color: #40ffff&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
 hostname &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;
 &lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
-sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost $hn/&amp;quot;&lt;/span&gt; /etc/hosts
+sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -475,13 +519,13 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
 &lt;span style=&#34;color: #40ffff&#34;&gt;tgz&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;go1.3.3.linux-amd64.tar.gz
 &lt;span style=&#34;color: #40ffff&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;https://storage.googleapis.com/golang/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -f /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /var/tmp
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -f /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /var/tmp
 	wget &lt;span style=&#34;color: #40ffff&#34;&gt;$url&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d /usr/local/go &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;sudo tar -C /usr/local -xzf /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d /usr/local/go &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	sudo tar -C /usr/local -xzf /var/tmp/&lt;span style=&#34;color: #40ffff&#34;&gt;$tgz&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## setup dev directory structure&lt;/span&gt;
@@ -492,14 +536,14 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#---------------------&lt;/span&gt;
 
 &lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install third party repos? (go-bindata, lint)&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/jteeuwen/go-bindata &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;go get github.com/jteeuwen/go-bindata/...
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/jteeuwen/go-bindata &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		go get github.com/jteeuwen/go-bindata/...
 		cp ~/go/thirdparty/bin/go-bindata ~/bin
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/golang/lint &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;go get github.com/golang/lint/golint
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d github.com/golang/lint &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		go get github.com/golang/lint/golint
 		cp ~/go/thirdparty/bin/golint ~/bin
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
@@ -508,19 +552,19 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#----------------&lt;/span&gt;
 
 &lt;span style=&#34;color: #24909d&#34;&gt;read&lt;/span&gt; -p &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Install soniah repos? (gosnmp, evaler)&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[[&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$REPLY&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~ ^&lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt;Yy&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
 	&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# do &amp;#39;git clone&amp;#39; not &amp;#39;go get&amp;#39; so origin is writeable&lt;/span&gt;
 	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/evaler &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/evaler &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		git clone git@github.com:soniah/evaler.git
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;	&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
-	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/gosnmp &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; ; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;		&lt;/span&gt;mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
+	&lt;span style=&#34;color: #40ffff&#34;&gt;dir&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;github.com/soniah
+	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; ! &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; -d &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;/gosnmp &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;then&lt;/span&gt;
+		mkdir -p &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$dir&lt;/span&gt;
 		git clone git@github.com:soniah/gosnmp.git
 		&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; -
@@ -532,7 +576,7 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
-&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -603,7 +647,7 @@ hg push bbgit
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;hggitpush &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $1 is hg remote name in hgrc for repo&lt;/span&gt;
    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# $2 is branch (defaults to master)&lt;/span&gt;
-   hg book -f -r tip &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;master&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;}&lt;/span&gt;
+   hg book -f -r tip &lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;master&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
    hg push &lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -682,76 +726,13 @@ id
 &lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/arduino-1.0.5
-./arduino&amp;amp;
+./arduino&lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Hello World&lt;/strong&gt; - upload Blink (File -&amp;gt; Examples -&amp;gt; 01.Basics -&amp;gt; Blink) to your Arduino, go crazy with that flashing LED!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Split() function for Microsoft MSSQL</title>
-      <link>http://www.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</link>
-      <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2014/01/07/split-function-for-microsoft-mssql/</guid>
-      <description>&lt;p&gt;Microsoft MSSQL doesn&amp;rsquo;t have a split() function (like in &lt;a href=&#34;http://ruby-doc.org/core-1.9.3/String.html#method-i-split&#34;&gt;Ruby&lt;/a&gt;, &lt;a href=&#34;http://perldoc.perl.org/functions/split.html&#34;&gt;Perl&lt;/a&gt;), so here&amp;rsquo;s one I wrote.&lt;/p&gt;
-
-&lt;p&gt;It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[split]&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;varchar&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;MAX&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;CHAR&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;@pos&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt; 
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURNS&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;varchar&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;255&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;AS&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;DECLARE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;INT&lt;/span&gt; 
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;CHARINDEX(@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string),&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;WHILE&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;LEN(@string)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;BEGIN&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; 
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;LEN(@string)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
-
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@pos&lt;/span&gt;
-            &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SUBSTRING&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(@string,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;end&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;CHARINDEX(@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;start&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-        &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;count&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; 
-
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt; 
-    &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;RETURN&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;-- not found&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;END&lt;/span&gt;
-
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;select&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;dbo.split(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;aa,bb,cc&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
-
-                   &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;zero&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;aa&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;bb&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;2&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;cc&lt;/span&gt;                 &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;3&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;--------------&lt;/span&gt;
-                   &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;zero&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string&lt;/span&gt;
-&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
 </description>
     </item>
     

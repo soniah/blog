@@ -108,13 +108,13 @@
 <span style="color: #40ffff">tgz</span><span style="color: #d0d0d0">=</span>go1.3.3.linux-amd64.tar.gz
 <span style="color: #40ffff">url</span><span style="color: #d0d0d0">=</span>https://storage.googleapis.com/golang/<span style="color: #40ffff">$tgz</span>
 
-<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -f /var/tmp/<span style="color: #40ffff">$tgz</span> <span style="color: #d0d0d0">]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
-<span style="color: #6ab825; font-weight: bold">	</span><span style="color: #24909d">cd</span> /var/tmp
+<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -f /var/tmp/<span style="color: #40ffff">$tgz</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+	<span style="color: #24909d">cd</span> /var/tmp
 	wget <span style="color: #40ffff">$url</span>
 <span style="color: #6ab825; font-weight: bold">fi</span>
 
-<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d /usr/local/go <span style="color: #d0d0d0">]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
-<span style="color: #6ab825; font-weight: bold">	</span>sudo tar -C /usr/local -xzf /var/tmp/<span style="color: #40ffff">$tgz</span>
+<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d /usr/local/go <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+	sudo tar -C /usr/local -xzf /var/tmp/<span style="color: #40ffff">$tgz</span>
 <span style="color: #6ab825; font-weight: bold">fi</span>
 
 <span style="color: #999999; font-style: italic">## setup dev directory structure</span>
@@ -125,14 +125,14 @@ mkdir -p ~/go/<span style="color: #d0d0d0">{</span>sonia,thirdparty<span style="
 <span style="color: #999999; font-style: italic">#---------------------</span>
 
 <span style="color: #24909d">read</span> -p <span style="color: #ed9d13">&quot;Install third party repos? (go-bindata, lint)&quot;</span>
-<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">[[</span> <span style="color: #40ffff">$REPLY</span> <span style="color: #d0d0d0">=</span>~ ^<span style="color: #d0d0d0">[</span>Yy<span style="color: #d0d0d0">]</span><span style="color: #40ffff">$ </span><span style="color: #d0d0d0">]]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
-<span style="color: #6ab825; font-weight: bold">	if</span> ! <span style="color: #d0d0d0">[</span> -d github.com/jteeuwen/go-bindata <span style="color: #d0d0d0">]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
-<span style="color: #6ab825; font-weight: bold">		</span>go get github.com/jteeuwen/go-bindata/...
+<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">[[</span> <span style="color: #40ffff">$REPLY</span> <span style="color: #d0d0d0">=</span>~ ^<span style="color: #d0d0d0">[</span>Yy<span style="color: #d0d0d0">]</span><span style="color: #40ffff">$ </span><span style="color: #d0d0d0">]]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d github.com/jteeuwen/go-bindata <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+		go get github.com/jteeuwen/go-bindata/...
 		cp ~/go/thirdparty/bin/go-bindata ~/bin
 	<span style="color: #6ab825; font-weight: bold">fi</span>
 
-<span style="color: #6ab825; font-weight: bold">	if</span> ! <span style="color: #d0d0d0">[</span> -d github.com/golang/lint <span style="color: #d0d0d0">]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
-<span style="color: #6ab825; font-weight: bold">		</span>go get github.com/golang/lint/golint
+	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d github.com/golang/lint <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+		go get github.com/golang/lint/golint
 		cp ~/go/thirdparty/bin/golint ~/bin
 	<span style="color: #6ab825; font-weight: bold">fi</span>
 <span style="color: #6ab825; font-weight: bold">fi</span>
@@ -141,19 +141,19 @@ mkdir -p ~/go/<span style="color: #d0d0d0">{</span>sonia,thirdparty<span style="
 <span style="color: #999999; font-style: italic">#----------------</span>
 
 <span style="color: #24909d">read</span> -p <span style="color: #ed9d13">&quot;Install soniah repos? (gosnmp, evaler)&quot;</span>
-<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">[[</span> <span style="color: #40ffff">$REPLY</span> <span style="color: #d0d0d0">=</span>~ ^<span style="color: #d0d0d0">[</span>Yy<span style="color: #d0d0d0">]</span><span style="color: #40ffff">$ </span><span style="color: #d0d0d0">]]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
+<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">[[</span> <span style="color: #40ffff">$REPLY</span> <span style="color: #d0d0d0">=</span>~ ^<span style="color: #d0d0d0">[</span>Yy<span style="color: #d0d0d0">]</span><span style="color: #40ffff">$ </span><span style="color: #d0d0d0">]]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
 	<span style="color: #999999; font-style: italic"># do &#39;git clone&#39; not &#39;go get&#39; so origin is writeable</span>
 	<span style="color: #40ffff">dir</span><span style="color: #d0d0d0">=</span>github.com/soniah
-	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d <span style="color: #40ffff">$dir</span>/evaler <span style="color: #d0d0d0">]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
-<span style="color: #6ab825; font-weight: bold">		</span>mkdir -p <span style="color: #40ffff">$dir</span>
+	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d <span style="color: #40ffff">$dir</span>/evaler <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+		mkdir -p <span style="color: #40ffff">$dir</span>
 		<span style="color: #24909d">cd</span> <span style="color: #40ffff">$dir</span>
 		git clone git@github.com:soniah/evaler.git
 		<span style="color: #24909d">cd</span> -
 	<span style="color: #6ab825; font-weight: bold">fi</span>
 
-<span style="color: #6ab825; font-weight: bold">	</span><span style="color: #40ffff">dir</span><span style="color: #d0d0d0">=</span>github.com/soniah
-	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d <span style="color: #40ffff">$dir</span>/gosnmp <span style="color: #d0d0d0">]</span> ; <span style="color: #6ab825; font-weight: bold">then</span>
-<span style="color: #6ab825; font-weight: bold">		</span>mkdir -p <span style="color: #40ffff">$dir</span>
+	<span style="color: #40ffff">dir</span><span style="color: #d0d0d0">=</span>github.com/soniah
+	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d <span style="color: #40ffff">$dir</span>/gosnmp <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+		mkdir -p <span style="color: #40ffff">$dir</span>
 		<span style="color: #24909d">cd</span> <span style="color: #40ffff">$dir</span>
 		git clone git@github.com:soniah/gosnmp.git
 		<span style="color: #24909d">cd</span> -
@@ -165,7 +165,7 @@ mkdir -p ~/go/<span style="color: #d0d0d0">{</span>sonia,thirdparty<span style="
 <p>A common pattern in Go (which my setup script demonstrates) is to <a href="http://code.google.com/p/go-wiki/wiki/GOPATH">split your code from thirdparty code</a>. This requires configuring your shell (~/.zshrc, ~/.bashrc):</p>
 
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">export </span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">=</span>~/go/thirdparty:~/go/sonia
-<span style="color: #24909d">export </span><span style="color: #40ffff">PATH</span><span style="color: #d0d0d0">=</span><span style="color: #6ab825; font-weight: bold">${</span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">//://bin:</span><span style="color: #6ab825; font-weight: bold">}</span>/bin:<span style="color: #40ffff">$PATH</span>
+<span style="color: #24909d">export </span><span style="color: #40ffff">PATH</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">//://bin:</span><span style="color: #ed9d13">}</span>/bin:<span style="color: #40ffff">$PATH</span>
 </pre></div>
 
 

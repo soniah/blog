@@ -20,7 +20,7 @@
 working with them is:&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mv ~/Downloads/foo.pem ~/.ssh
-chmod 0600 ~/.ssh/foo.pem
+chmod &lt;span style=&#34;color: #3677a9&#34;&gt;0600&lt;/span&gt; ~/.ssh/foo.pem
 ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
 &lt;/pre&gt;&lt;/div&gt;
 

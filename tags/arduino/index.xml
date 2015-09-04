@@ -54,7 +54,7 @@ id
 &lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
 
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/arduino-1.0.5
-./arduino&amp;amp;
+./arduino&lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

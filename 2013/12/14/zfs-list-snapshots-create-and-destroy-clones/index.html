@@ -102,7 +102,7 @@
 <p>Some notes for me on listing ZFS snapshots, and creating and destroying clones.</p>
 
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> /mnt/vol01/bjj
-zfs list -t snapshot | grep bjj | grep -v vobs
+zfs list -t snapshot <span style="color: #d0d0d0">|</span> grep bjj <span style="color: #d0d0d0">|</span> grep -v vobs
 zfs clone vol01/bjj@auto-20131214.12d vol01/bjj/auto-20131214.12d
 <span style="color: #24909d">cd </span>auto-20131214.12d
 

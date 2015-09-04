@@ -105,10 +105,10 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
 
 client% ssh -X server                &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# reconnect, to setup DISPLAY&lt;/span&gt;
 
-server% env | grep -i disp
+server% env &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep -i disp
 &lt;span style=&#34;color: #40ffff&#34;&gt;DISPLAY&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;localhost:11.0               &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# DISPLAY is good&lt;/span&gt;
 
-server% xterm &amp;amp;                      &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# an xterm should display locally&lt;/span&gt;
+server% xterm &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;                      &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# an xterm should display locally&lt;/span&gt;
 
 server% perl -d foo.pl               &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# start debugging&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;

@@ -120,9 +120,9 @@
 <p>If you selected the default Ubuntu encryption setup, the partitions will
 be laid out like this:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">/dev/sda1 * 2048 499711 248832 83 Linux
-/dev/sda2 501758 976771071 488134657 5 Extended
-/dev/sda5 501760 976771071 488134656 83 Linux
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">/dev/sda1 * <span style="color: #3677a9">2048</span> <span style="color: #3677a9">499711</span> <span style="color: #3677a9">248832</span> <span style="color: #3677a9">83</span> Linux
+/dev/sda2 <span style="color: #3677a9">501758</span> <span style="color: #3677a9">976771071</span> <span style="color: #3677a9">488134657</span> <span style="color: #3677a9">5</span> Extended
+/dev/sda5 <span style="color: #3677a9">501760</span> <span style="color: #3677a9">976771071</span> <span style="color: #3677a9">488134656</span> <span style="color: #3677a9">83</span> Linux
 </pre></div>
 
 
@@ -155,7 +155,7 @@ vgdisplay
 
 <p>(you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">lvdisplay | less
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">lvdisplay <span style="color: #d0d0d0">|</span> less
 mkdir /mnt/home
 mount -t ext4 /dev/vg/home /mnt/home
 </pre></div>

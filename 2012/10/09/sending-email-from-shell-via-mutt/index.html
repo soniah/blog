@@ -102,8 +102,8 @@
 <div class="highlight" style="background: #202020"><pre style="line-height: 125%">% cat msg.txt 
 pdf attached. Sonia.
 
-<span style="color: #6ab825; font-weight: bold">for </span>i in *.pdf ; <span style="color: #6ab825; font-weight: bold">do              </span>
-<span style="color: #6ab825; font-weight: bold">  </span>mutt -s <span style="color: #ed9d13">&quot;pdf - $i&quot;</span> -a <span style="color: #40ffff">$i</span> -- <span style="color: #ed9d13">&#39;foo@hotmail.com&#39;</span> &lt; msg.txt
+<span style="color: #6ab825; font-weight: bold">for</span> i in *.pdf <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>              
+  mutt -s <span style="color: #ed9d13">&quot;pdf - </span><span style="color: #40ffff">$i</span><span style="color: #ed9d13">&quot;</span> -a <span style="color: #40ffff">$i</span> -- <span style="color: #ed9d13">&#39;foo@hotmail.com&#39;</span> &lt; msg.txt
 <span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
 

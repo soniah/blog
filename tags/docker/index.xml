@@ -100,7 +100,7 @@ docker run -P sonia/foo
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# get an interactive shell&lt;/span&gt;
 docker &lt;span style=&#34;color: #24909d&#34;&gt;exec&lt;/span&gt; -it random_name bash
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# remove all old images, except ubuntu &amp;quot;base&amp;quot; images&lt;/span&gt;
-docker rmi -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker images | tail -n +2 | grep -v &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;ubuntu&amp;#39;&lt;/span&gt; | awk &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;print $3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
+docker rmi -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker images &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail -n +2 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep -v &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;ubuntu&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;print $3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# remove all containers, including stopped containers&lt;/span&gt;
 docker rm -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker ps --no-trunc -aq&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
