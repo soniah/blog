@@ -11,8 +11,9 @@ tags:
 
 I just finished attending the excellent [Brisbane YOW! Lambda
 Jam](http://lambdajam.yowconference.com.au/). One of the really useful
-things I learned was "Hole Driven Development" for Haskell - basically
-using the type system to help you write a function.
+things I learned from [Tony Morris](http://blog.tmorris.net/) was "Hole
+Driven Development" for Haskell - basically using the type system to
+help you write a function.
 
 <!--more-->
 
