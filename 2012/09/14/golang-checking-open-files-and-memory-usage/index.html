@@ -101,19 +101,19 @@
 
 <p>To watch the memory usage of a process with pid PID:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">[</span> <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">[</span> <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
   grep VmSize  /proc/PID/status <span style="color: #d0d0d0">;</span> sleep 10
 <span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
-
+</p>
 
 <p>To watch the number of file descriptors being used:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">[</span> <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">[</span> <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
   sudo lsof -p PID <span style="color: #d0d0d0">|</span> wc -l <span style="color: #d0d0d0">;</span> sleep 10
 <span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
-
+</p>
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">

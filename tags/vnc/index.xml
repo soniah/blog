@@ -20,40 +20,40 @@
 &lt;li&gt;I setup a dyndns client (eg dyndns, tinydyndns, ez-ipupdate) so I can connect to the changing ip address of their machine by a dns name eg fredbox.dyndns.org&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% sudo apt-get install ez-ipupdate
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% sudo apt-get install ez-ipupdate
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;I copy my ssh key to their account - this way I&amp;rsquo;ll always have access and they can change their password in the future:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% ssh-copy-id fred@fredbox.dyndns.org
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% ssh-copy-id fred@fredbox.dyndns.org
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;I want to connect to vnc running on their desktop, so I can see what they see. But vnc runs on port 5900 and I don&amp;rsquo;t want to leave that open to the Internet. So I build an ssh tunnel, and startup vnc on the remote machine:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;fredbox% ssh -L 5900:localhost:5900 fred@fredbox.dyndns.org
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;fredbox% ssh -L 5900:localhost:5900 fred@fredbox.dyndns.org
 fredbox% x11vnc -safer -usepw -localhost -once -noxdamage &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
          -nowf -ncache &lt;span style=&#34;color: #3677a9&#34;&gt;0&lt;/span&gt; -scale 2/3 -display :0
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;And finally, I start up my vncviewer on my local Linux/Mac machine, and enter my vnc password when prompted:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% vncviewer -encodings &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;copyrect tight zrle hextile&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;local&lt;/span&gt;% vncviewer -encodings &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;copyrect tight zrle hextile&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
   -bgr233 -compresslevel &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; localhost
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;p&gt;So here&amp;rsquo;s a little script that brings it all together:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# kill any previous/hung vnc&amp;#39;s&lt;/span&gt;
 ssh fred@fredbox.dyndns.org &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;pkill x11vnc&amp;#39;&lt;/span&gt;
 ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
@@ -63,7 +63,7 @@ ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org &lt;span style=&#34;color:
     &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; vncviewer -encodings &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;copyrect tight zrle hextile&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
          -bgr233 -compresslevel &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; localhost
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 </description>
     </item>
     

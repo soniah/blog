@@ -18,7 +18,7 @@
 
 &lt;p&gt;It&amp;rsquo;s different from the other MSSQL split() functions out there on the intertubes in that it accepts a @pos parameter that specifies which split item to return - easier than trying to tangle with tables inside a calling function when you want the n&amp;rsquo;th split item.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[split]&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;FUNCTION&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[dbo].[split]&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;
     &lt;span style=&#34;color: #d0d0d0&#34;&gt;@string&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;varchar&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;MAX&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
     &lt;span style=&#34;color: #d0d0d0&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;delimiter&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;CHAR&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;),&lt;/span&gt;
@@ -67,7 +67,7 @@
                    &lt;span style=&#34;color: #d0d0d0&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;zero&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;string&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 </description>
     </item>
     
@@ -89,7 +89,7 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
 &lt;li&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
 
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;QUOTED_IDENTIFIER&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
@@ -138,7 +138,7 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;com&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 </description>
     </item>
     
@@ -158,7 +158,7 @@ new failing Server 2012 interface (I&amp;rsquo;m not using a tablet, so why forc
 a tablet interface down my throat? Sort of reminds me of Ubuntu Unity).
 Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;sp_configure&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
@@ -167,7 +167,7 @@ Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;RECONFIGURE;&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;p&gt;Then the password field will be enabled when creating a catalog.&lt;/p&gt;
 </description>
@@ -189,30 +189,30 @@ Anyway, the solution is to first enable CLR using SQL:&lt;/p&gt;
 
 &lt;p&gt;For example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Desktop/foo.tblk
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Desktop/foo.tblk
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
   &lt;span style=&#34;color: #40ffff&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;basename &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
   mkdir &lt;span style=&#34;color: #40ffff&#34;&gt;$g&lt;/span&gt;.tblk
   mv &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$g&lt;/span&gt;.tblk
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;p&gt;Also, the .ovpn files will have &amp;ldquo;com.apple.quarantine&amp;rdquo; xattr&amp;rsquo;s. This may or may not cause problems. I removed them in this way:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
   &lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;
   xattr -d com.apple.quarantine &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;p&gt;Also, to &lt;a href=&#34;https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo&#34;&gt;remove old private configuration files&lt;/a&gt;:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Library/Application&lt;span style=&#34;color: #ed9d13&#34;&gt;\ &lt;/span&gt;Support/Tunnelblick/Configurations
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Library/Application&lt;span style=&#34;color: #ed9d13&#34;&gt;\ &lt;/span&gt;Support/Tunnelblick/Configurations
 rm -rf *
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;p&gt;(or, click on VPN icon top right of screen, select &amp;lsquo;VPN Details&amp;rsquo;, +/- in the &amp;lsquo;Configurations&amp;rsquo; tab).&lt;/p&gt;
 </description>
@@ -300,7 +300,7 @@ rm -rf *
 
 &lt;p&gt;I wrote this elisp for my &lt;strong&gt;~/.emacs.d/sonia.el&lt;/strong&gt; (I&amp;rsquo;m using &lt;a href=&#34;http://github.com/technomancy/emacs-starter-kit&#34;&gt;Technomancy&amp;rsquo;s Emacs Starter Kit&lt;/a&gt;):&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;when &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eq&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;system-type&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;darwin&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;when &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eq&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;system-type&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;darwin&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
   &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eval-after-load&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit&lt;/span&gt;
     &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;#39;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;progn&lt;/span&gt;
        &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;;; C-left&lt;/span&gt;
@@ -317,7 +317,7 @@ rm -rf *
                    &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit-backward-barf-sexp&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
      &lt;span style=&#34;color: #d0d0d0&#34;&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp_cycles.png&#34; alt=&#34;Lisp Parens&#34; /&gt;&lt;/p&gt;
 </description>

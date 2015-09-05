@@ -103,40 +103,40 @@
 <li>I setup a dyndns client (eg dyndns, tinydyndns, ez-ipupdate) so I can connect to the changing ip address of their machine by a dns name eg fredbox.dyndns.org</li>
 </ol>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">local</span>% sudo apt-get install ez-ipupdate
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">local</span>% sudo apt-get install ez-ipupdate
 </pre></div>
-
+</p>
 
 <ol>
 <li>I copy my ssh key to their account - this way I&rsquo;ll always have access and they can change their password in the future:</li>
 </ol>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">local</span>% ssh-copy-id fred@fredbox.dyndns.org
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">local</span>% ssh-copy-id fred@fredbox.dyndns.org
 </pre></div>
-
+</p>
 
 <ol>
 <li>I want to connect to vnc running on their desktop, so I can see what they see. But vnc runs on port 5900 and I don&rsquo;t want to leave that open to the Internet. So I build an ssh tunnel, and startup vnc on the remote machine:</li>
 </ol>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">fredbox% ssh -L 5900:localhost:5900 fred@fredbox.dyndns.org
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">fredbox% ssh -L 5900:localhost:5900 fred@fredbox.dyndns.org
 fredbox% x11vnc -safer -usepw -localhost -once -noxdamage <span style="color: #ed9d13">\</span>
          -nowf -ncache <span style="color: #3677a9">0</span> -scale 2/3 -display :0
 </pre></div>
-
+</p>
 
 <ol>
 <li>And finally, I start up my vncviewer on my local Linux/Mac machine, and enter my vnc password when prompted:</li>
 </ol>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">local</span>% vncviewer -encodings <span style="color: #ed9d13">&quot;copyrect tight zrle hextile&quot;</span> <span style="color: #ed9d13">\</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">local</span>% vncviewer -encodings <span style="color: #ed9d13">&quot;copyrect tight zrle hextile&quot;</span> <span style="color: #ed9d13">\</span>
   -bgr233 -compresslevel <span style="color: #3677a9">5</span> localhost
 </pre></div>
-
+</p>
 
 <p>So here&rsquo;s a little script that brings it all together:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">#!/bin/bash</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">#!/bin/bash</span>
 <span style="color: #999999; font-style: italic"># kill any previous/hung vnc&#39;s</span>
 ssh fred@fredbox.dyndns.org <span style="color: #ed9d13">&#39;pkill x11vnc&#39;</span>
 ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org <span style="color: #ed9d13">\</span>
@@ -146,7 +146,7 @@ ssh -f -L 5900:localhost:5900 fred@fredbox.dyndns.org <span style="color: #ed9d1
     <span style="color: #d0d0d0">&amp;&amp;</span> vncviewer -encodings <span style="color: #ed9d13">&quot;copyrect tight zrle hextile&quot;</span> <span style="color: #ed9d13">\</span>
          -bgr233 -compresslevel <span style="color: #3677a9">5</span> localhost
 </pre></div>
-
+</p>
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">

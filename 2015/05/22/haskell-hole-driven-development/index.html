@@ -99,38 +99,39 @@
           <h5 id="date"> 22 May 2015 </h5>
           <p>I just finished attending the excellent <a href="http://lambdajam.yowconference.com.au/">Brisbane YOW! Lambda
 Jam</a>. One of the really useful
-things I learned was &ldquo;Hole Driven Development&rdquo; for Haskell - basically
-using the type system to help you write a function.</p>
+things I learned from <a href="http://blog.tmorris.net/">Tony Morris</a> was &ldquo;Hole
+Driven Development&rdquo; for Haskell - basically using the type system to
+help you write a function.</p>
 
 <p>Firstly, when writing a function, you can use placeholders that will
 allow code to compile (without producing error messages) while you&rsquo;re
 working on other parts. The two placeholders are:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #bbbbbb">error</span> <span style="color: #ed9d13">&quot;todo&quot;</span> <span style="color: #d0d0d0">(or</span> <span style="color: #d0d0d0">any</span> <span style="color: #d0d0d0">string)</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #bbbbbb">error</span> <span style="color: #ed9d13">&quot;todo&quot;</span> <span style="color: #d0d0d0">(or</span> <span style="color: #d0d0d0">any</span> <span style="color: #d0d0d0">string)</span>
 <span style="color: #447fcf">undefined</span>
 </pre></div>
-
+</p>
 
 <p>The &ldquo;hole driven&rdquo; part involves using the underscore to get the
 compiler to print types:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #447fcf">_undefined</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #447fcf">_undefined</span>
 <span style="color: #447fcf">_x</span>
 <span style="color: #447fcf">_foo</span>
 </pre></div>
-
+</p>
 
 <p>For example if I used <code>_x</code> then re-loaded my code in ghci, I would get
 output like:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">Found</span> <span style="color: #d0d0d0">hole</span> <span style="color: #a61717; background-color: #e3d2d2">‘</span><span style="color: #d0d0d0">_x</span><span style="color: #a61717; background-color: #e3d2d2">’</span> <span style="color: #d0d0d0">with</span> <span style="color: #6ab825; font-weight: bold">type:</span> <span style="color: #d0d0d0">a</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">Found</span> <span style="color: #d0d0d0">hole</span> <span style="color: #a61717; background-color: #e3d2d2">‘</span><span style="color: #d0d0d0">_x</span><span style="color: #a61717; background-color: #e3d2d2">’</span> <span style="color: #d0d0d0">with</span> <span style="color: #6ab825; font-weight: bold">type:</span> <span style="color: #d0d0d0">a</span>
 <span style="color: #d0d0d0">...</span>
 <span style="color: #447fcf">g2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">31</span><span style="color: #d0d0d0">)</span>
 <span style="color: #447fcf">s2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">28</span><span style="color: #d0d0d0">)</span>
 <span style="color: #447fcf">g1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">18</span><span style="color: #d0d0d0">)</span>
 <span style="color: #447fcf">s1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">15</span><span style="color: #d0d0d0">)</span>
 </pre></div>
-
+</p>
 
 <p>Showing me that where I had <code>_x</code> a type <code>a</code> was expected, and that I already
 have functions <code>g2,s2,g1,s1</code> that consume and produce (curry) given types.</p>

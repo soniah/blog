@@ -101,7 +101,7 @@
 
 <p>You&rsquo;ve ssh&rsquo;d into a remote server (headless), to debug a perl script that forks:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #40ffff">$SIG</span><span style="color: #d0d0d0">{CHLD}</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">sub </span><span style="color: #d0d0d0">{</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #40ffff">$SIG</span><span style="color: #d0d0d0">{CHLD}</span> <span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">sub </span><span style="color: #d0d0d0">{</span>
   <span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">{</span>
     <span style="color: #6ab825; font-weight: bold">my</span> <span style="color: #40ffff">$nino</span> <span style="color: #d0d0d0">=</span> <span style="color: #24909d">waitpid</span><span style="color: #d0d0d0">(-</span><span style="color: #3677a9">1</span><span style="color: #d0d0d0">,</span> <span style="color: #d0d0d0">WNOHANG);</span>
     <span style="color: #6ab825; font-weight: bold">last</span> <span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #40ffff">$nino</span> <span style="color: #d0d0d0">&lt;=</span> <span style="color: #3677a9">0</span><span style="color: #d0d0d0">;</span>
@@ -128,11 +128,11 @@
   <span style="color: #24909d">exit</span><span style="color: #d0d0d0">;</span>
 <span style="color: #d0d0d0">}</span>
 </pre></div>
-
+</p>
 
 <p>But when you start debugging, you get output like this (which tells you what to do):</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">######### Forked, but do not know how to create a new TTY. #########</span>
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">######### Forked, but do not know how to create a new TTY. #########</span>
   <span style="color: #d0d0d0">Since</span> <span style="color: #d0d0d0">two</span> <span style="color: #d0d0d0">debuggers</span> <span style="color: #d0d0d0">fight</span> <span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">same</span> <span style="color: #d0d0d0">TTY,</span> <span style="color: #d0d0d0">input</span> <span style="color: #d0d0d0">is</span> <span style="color: #d0d0d0">severely</span> <span style="color: #d0d0d0">entangled.</span>
 
   <span style="color: #d0d0d0">I</span> <span style="color: #d0d0d0">know</span> <span style="color: #d0d0d0">how</span> <span style="color: #d0d0d0">to</span> <span style="color: #d0d0d0">switch</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">output</span> <span style="color: #d0d0d0">to</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">different</span> <span style="color: #d0d0d0">window</span> <span style="color: #d0d0d0">in</span> <span style="color: #d0d0d0">xterms,</span> <span style="color: #d0d0d0">OS/</span><span style="color: #3677a9">2</span>
@@ -143,11 +143,11 @@
   <span style="color: #d0d0d0">On</span> <span style="color: #d0d0d0">UNIX-like</span> <span style="color: #d0d0d0">systems</span> <span style="color: #d0d0d0">one</span> <span style="color: #d0d0d0">can</span> <span style="color: #d0d0d0">get</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">name</span> <span style="color: #d0d0d0">of</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">TTY</span> <span style="color: #6ab825; font-weight: bold">for</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">given</span> <span style="color: #d0d0d0">window</span>
   <span style="color: #d0d0d0">by</span> <span style="color: #d0d0d0">typing</span> <span style="color: #d0d0d0">tty,</span> <span style="color: #6ab825; font-weight: bold">and</span> <span style="color: #d0d0d0">disconnect</span> <span style="color: #d0d0d0">the</span> <span style="color: #d0d0d0">shell</span> <span style="color: #d0d0d0">from</span> <span style="color: #d0d0d0">TTY</span> <span style="color: #d0d0d0">by</span> <span style="color: #24909d">sleep</span> <span style="color: #3677a9">1000000</span><span style="color: #d0d0d0">.</span>
 </pre></div>
-
+</p>
 
 <p>The easiest solution is to install a minimal X on the target server, then reconnect via ssh, check your DISPLAY variable, then start up the debugger in xterm.</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">server% sudo aptitude install xinit xterm
+<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">server% sudo aptitude install xinit xterm
 
 client% ssh -X server                <span style="color: #999999; font-style: italic"># reconnect, to setup DISPLAY</span>
 
@@ -158,7 +158,7 @@ server% xterm <span style="color: #d0d0d0">&amp;</span>                      <sp
 
 server% perl -d foo.pl               <span style="color: #999999; font-style: italic"># start debugging</span>
 </pre></div>
-
+</p>
 
 <p>After forking, one or more additional xterms will display for each child, allowing you to debug.</p>
 

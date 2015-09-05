@@ -19,22 +19,22 @@
 &lt;p&gt;AWS distributes their ssh keys as &lt;strong&gt;.pem&lt;/strong&gt; certificates. The usual process with
 working with them is:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mv ~/Downloads/foo.pem ~/.ssh
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mv ~/Downloads/foo.pem ~/.ssh
 chmod &lt;span style=&#34;color: #3677a9&#34;&gt;0600&lt;/span&gt; ~/.ssh/foo.pem
 ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 
 &lt;p&gt;However, sometimes it&amp;rsquo;s handy to generate a public key out of the
 &lt;strong&gt;.pem&lt;/strong&gt; file, for example to make working with Gnome&amp;rsquo;s
 &lt;a href=&#34;http://en.wikipedia.org/wiki/Seahorse_%28software%29&#34;&gt;Seahorse&lt;/a&gt; key
 manager easier:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/.ssh
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/.ssh
 mv foo.pem foo
 ssh-keygen -y -f ~/.ssh/foo &amp;gt; ~/.ssh/foo.pub
 &lt;/pre&gt;&lt;/div&gt;
-
+&lt;/p&gt;
 </description>
     </item>
     
