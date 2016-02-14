@@ -42,7 +42,7 @@
 
 &lt;p&gt;I wrote this elisp for my &lt;strong&gt;~/.emacs.d/sonia.el&lt;/strong&gt; (I&amp;rsquo;m using &lt;a href=&#34;http://github.com/technomancy/emacs-starter-kit&#34;&gt;Technomancy&amp;rsquo;s Emacs Starter Kit&lt;/a&gt;):&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;when &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eq&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;system-type&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;darwin&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;when &lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eq&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;system-type&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;darwin&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
   &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;eval-after-load&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit&lt;/span&gt;
     &lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;#39;(&lt;/span&gt;&lt;span style=&#34;color: #447fcf&#34;&gt;progn&lt;/span&gt;
        &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;;; C-left&lt;/span&gt;
@@ -59,7 +59,7 @@
                    &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;paredit-backward-barf-sexp&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
      &lt;span style=&#34;color: #d0d0d0&#34;&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;&lt;img src=&#34;http://imgs.xkcd.com/comics/lisp_cycles.png&#34; alt=&#34;Lisp Parens&#34; /&gt;&lt;/p&gt;
 </description>

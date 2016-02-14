@@ -141,7 +141,7 @@ EXPOSE&rsquo;d ports can be automatically mapped using <code>-P</code> option.</
 
 <h1 id="build-run-exec:62690b4e4e2be0f330c66d76376225a7">Build, Run, Exec</h1>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># build the image &amp; tag it; use current dir as context</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># build the image &amp; tag it; use current dir as context</span>
 docker build -t<span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&quot;soniah/foo:1.0&quot;</span> .
 <span style="color: #999999; font-style: italic"># run, automap ports. For dev, omit -D -- stdout is tailed and</span>
 <span style="color: #999999; font-style: italic"># container is automatically stopped on ctrl-c.</span>
@@ -153,7 +153,7 @@ docker rmi -f <span style="color: #ed9d13">`</span>docker images <span style="co
 <span style="color: #999999; font-style: italic"># remove all containers, including stopped containers</span>
 docker rm -f <span style="color: #ed9d13">`</span>docker ps --no-trunc -aq<span style="color: #ed9d13">`</span>
 </pre></div>
-</p>
+
 
 <h1 id="see-also:62690b4e4e2be0f330c66d76376225a7">See also</h1>
 

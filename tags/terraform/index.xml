@@ -32,7 +32,7 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## install go&lt;/span&gt;
 
@@ -91,18 +91,18 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
 &lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Then you need to follow the &lt;a href=&#34;https://github.com/hashicorp/terraform&#34;&gt;Terraform instructions&lt;/a&gt; for building, that is:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;go get -u github.com/mitchellh/gox
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src/github.com/hashicorp/terraform
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make updatedeps
@@ -110,7 +110,7 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# put the binaries somewhere in your path, eg /usr/local/bin&lt;/span&gt;
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;sudo cp bin/terraform* /usr/local/bin
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     

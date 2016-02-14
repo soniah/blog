@@ -107,30 +107,30 @@
 
 <p>For example:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Desktop/foo.tblk
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Desktop/foo.tblk
 <span style="color: #6ab825; font-weight: bold">for</span> f in * <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
   <span style="color: #40ffff">g</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">`</span>basename <span style="color: #40ffff">$f</span><span style="color: #ed9d13">`</span>
   mkdir <span style="color: #40ffff">$g</span>.tblk
   mv <span style="color: #40ffff">$f</span> <span style="color: #40ffff">$g</span>.tblk
 <span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
-</p>
+
 
 <p>Also, the .ovpn files will have &ldquo;com.apple.quarantine&rdquo; xattr&rsquo;s. This may or may not cause problems. I removed them in this way:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">for</span> f in * <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">for</span> f in * <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
   <span style="color: #24909d">echo</span> <span style="color: #40ffff">$f</span>
   xattr -d com.apple.quarantine <span style="color: #40ffff">$f</span>
 <span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
-</p>
+
 
 <p>Also, to <a href="https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo">remove old private configuration files</a>:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Library/Application<span style="color: #ed9d13">\ </span>Support/Tunnelblick/Configurations
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Library/Application<span style="color: #ed9d13">\ </span>Support/Tunnelblick/Configurations
 rm -rf *
 </pre></div>
-</p>
+
 
 <p>(or, click on VPN icon top right of screen, select &lsquo;VPN Details&rsquo;, +/- in the &lsquo;Configurations&rsquo; tab).</p>
 
@@ -161,7 +161,7 @@ rm -rf *
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2013/12/24/change-default-editor-in-debian/">Change default editor in Debian</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2013/12/24/microsoft-sql-2012-ssis-create-catalog-password/">Microsoft SQL 2012 SSIS Create Catalog Password</a>
     </span>
   
 

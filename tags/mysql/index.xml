@@ -26,7 +26,7 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
 &lt;li&gt;only works with varchars - we speak ASCII here&amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;ANSI_NULLS&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;GO&lt;/span&gt;
 
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;QUOTED_IDENTIFIER&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;ON&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt;
@@ -75,7 +75,7 @@ function. Here&amp;rsquo;s a version I quickly implemented, called
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;com&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;(s)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;affected)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     

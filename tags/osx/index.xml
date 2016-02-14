@@ -24,30 +24,30 @@
 
 &lt;p&gt;For example:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Desktop/foo.tblk
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Desktop/foo.tblk
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
   &lt;span style=&#34;color: #40ffff&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;basename &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
   mkdir &lt;span style=&#34;color: #40ffff&#34;&gt;$g&lt;/span&gt;.tblk
   mv &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$g&lt;/span&gt;.tblk
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Also, the .ovpn files will have &amp;ldquo;com.apple.quarantine&amp;rdquo; xattr&amp;rsquo;s. This may or may not cause problems. I removed them in this way:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;for&lt;/span&gt; f in * &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
   &lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;
   xattr -d com.apple.quarantine &lt;span style=&#34;color: #40ffff&#34;&gt;$f&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Also, to &lt;a href=&#34;https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo&#34;&gt;remove old private configuration files&lt;/a&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Library/Application&lt;span style=&#34;color: #ed9d13&#34;&gt;\ &lt;/span&gt;Support/Tunnelblick/Configurations
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/Library/Application&lt;span style=&#34;color: #ed9d13&#34;&gt;\ &lt;/span&gt;Support/Tunnelblick/Configurations
 rm -rf *
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;(or, click on VPN icon top right of screen, select &amp;lsquo;VPN Details&amp;rsquo;, +/- in the &amp;lsquo;Configurations&amp;rsquo; tab).&lt;/p&gt;
 </description>

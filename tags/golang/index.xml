@@ -54,7 +54,7 @@ working with text - tables, colours, etc&lt;/li&gt;
 
 &lt;h2 id=&#34;fataliferr-fatalifnotok:f2ee626a81a6bcb754d53e6312958869&#34;&gt;fatalIfErr, fatalIfNotOk&lt;/h2&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// from https://github.com/FiloSottile/whosthere&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// from https://github.com/FiloSottile/whosthere&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;fatalIfErr(err&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;error&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
   &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #d0d0d0&#34;&gt;log.Fatal(err)&lt;/span&gt;
@@ -73,11 +73,11 @@ working with text - tables, colours, etc&lt;/li&gt;
     &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;h2 id=&#34;runcmd:f2ee626a81a6bcb754d53e6312958869&#34;&gt;runcmd&lt;/h2&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// run a command using the shell; no need to split args&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// run a command using the shell; no need to split args&lt;/span&gt;
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// from https://stackoverflow.com/questions/6182369/exec-a-shell-command-in-go&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;runcmd(cmd&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;shell&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;bool&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[]&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;byte&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;shell&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
@@ -95,7 +95,7 @@ working with text - tables, colours, etc&lt;/li&gt;
     &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;out&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     
@@ -123,7 +123,7 @@ marginheight=&#34;0&#34; scrolling=&#34;no&#34;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;First you need to install &lt;a href=&#34;http://en.wikipedia.org/wiki/Go_%28programming_language%29&#34;&gt;Go&lt;/a&gt;, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (&lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;go-bindata&lt;/a&gt;, &lt;a href=&#34;https://github.com/jteeuwen/go-bindata&#34;&gt;lint&lt;/a&gt;) and my own projects (&lt;a href=&#34;https://github.com/soniah/gosnmp&#34;&gt;gosnmp&lt;/a&gt;, &lt;a href=&#34;https://github.com/soniah/evaler&#34;&gt;evaler&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;## install go&lt;/span&gt;
 
@@ -182,18 +182,18 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 	&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;fi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;A common pattern in Go (which my setup script demonstrates) is to &lt;a href=&#34;http://code.google.com/p/go-wiki/wiki/GOPATH&#34;&gt;split your code from thirdparty code&lt;/a&gt;. This requires configuring your shell (~/.zshrc, ~/.bashrc):&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~/go/thirdparty:~/go/sonia
 &lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;//://bin:&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;/bin:&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Then you need to follow the &lt;a href=&#34;https://github.com/hashicorp/terraform&#34;&gt;Terraform instructions&lt;/a&gt; for building, that is:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;go get -u github.com/mitchellh/gox
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/go/thirdparty/src/github.com/hashicorp/terraform
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;make updatedeps
@@ -201,7 +201,7 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# put the binaries somewhere in your path, eg /usr/local/bin&lt;/span&gt;
 &lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;sudo cp bin/terraform* /usr/local/bin
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     
@@ -242,16 +242,16 @@ mkdir -p ~/go/&lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;sonia,thi
 
 &lt;p&gt;With this directory structure I set &lt;strong&gt;GOPATH&lt;/strong&gt; on the command line or in a Makefile:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~go/project2/src/github.com/soniah/gosnmp
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~go/project2/src/github.com/soniah/gosnmp
 % &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~go/project2 go build
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;h3 id=&#34;makefile:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Makefile&lt;/h3&gt;
 
 &lt;p&gt;For smaller projects you can just produce a binary using &lt;strong&gt;go run&lt;/strong&gt; or &lt;strong&gt;go build&lt;/strong&gt;. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/lib/go
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/lib/go
 GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /var/lib/jenkins/workspace/go/project2
 
 myhostname :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;shell hostname&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt;
@@ -276,7 +276,7 @@ build-stamp: file1.go file2.go file3.go
     &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# mark as done&lt;/span&gt;
     touch &lt;span style=&#34;color: #40ffff&#34;&gt;$@&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;h3 id=&#34;jenkins:7f3127c9ec03bce3057a7fc0b9a55245&#34;&gt;Jenkins&lt;/h3&gt;
 
@@ -314,7 +314,7 @@ build-stamp: file1.go file2.go file3.go
 
 &lt;p&gt;For example, I&amp;rsquo;ve been working on the &lt;a href=&#34;http://github.com/soniah/gosnmp&#34;&gt;GoSNMP SNMP library&lt;/a&gt;, here&amp;rsquo;s how I profiled it (it wasn&amp;rsquo;t obvious):&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# produce cpu profiling information from the tests - this part was well documented&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# produce cpu profiling information from the tests - this part was well documented&lt;/span&gt;
 % go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -cpuprofile cpu.out
 
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# compile the test binary to pkg.test but do not run it (from `go help test`)&lt;/span&gt;
@@ -325,15 +325,15 @@ build-stamp: file1.go file2.go file3.go
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# using gosnmp.test - this part wasn&amp;#39;t obvious&lt;/span&gt;
 % go tool pprof gosnmp.test cpu.out
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Doing a memory profile was similar:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -memprofile mem.out
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -memprofile mem.out
 % go &lt;span style=&#34;color: #24909d&#34;&gt;test&lt;/span&gt; -c
 % go tool pprof gosnmp.test mem.out
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     
@@ -355,7 +355,7 @@ build-stamp: file1.go file2.go file3.go
 
 &lt;p&gt;So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was &lt;strong&gt;good&lt;/strong&gt;, but I&amp;rsquo;d added more features since good and now results were &lt;strong&gt;bad&lt;/strong&gt;. The first step was to write a shell script to be called from &lt;strong&gt;git bisect run&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat bisect.sh
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat bisect.sh
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# copy this to ~ before running with `git bisect run ~/bisect.sh`&lt;/span&gt;
 
@@ -381,7 +381,7 @@ sudo ./abc-poller --tmp --once -d &lt;span style=&#34;color: #3677a9&#34;&gt;2&l
 &lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;=== percent is &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$percent&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;((&lt;/span&gt; percent &amp;lt; &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Things that make writing the test script easier:&lt;/p&gt;
 
@@ -446,11 +446,11 @@ bffd430 rules: add note about &amp;quot;too many open files&amp;quot;
 
 &lt;p&gt;I have a useful shell function &lt;strong&gt;gri()&lt;/strong&gt; - I used that to interactively rebase and break up 557a5e3 into many small commits:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;gri &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;gri &lt;span style=&#34;color: #d0d0d0&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;
   git rebase -i HEAD~&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;:-&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;7&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;After rebasing git log looked like this - notice the many small commits named &amp;ldquo;bisect1&amp;rdquo; etc:&lt;/p&gt;
 
@@ -567,7 +567,7 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
 
 &lt;p&gt;From the &lt;a href=&#34;http://godoc.org/github.com/soniah/gsnmpgo&#34;&gt;gsnmpgo documentation&lt;/a&gt;, here&amp;rsquo;s an example of usage:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// do an snmp get; RFC 4088 is used for uris&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// do an snmp get; RFC 4088 is used for uris&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;uri&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;`snmp://public@192.168.1.10//(1.3.6.1.2.1.1.1.0)`&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;params&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.NewDefaultParams(uri)&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;results,&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Query(params)&lt;/span&gt;
@@ -582,7 +582,7 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
 &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;// turn on debugging&lt;/span&gt;
 &lt;span style=&#34;color: #d0d0d0&#34;&gt;gsnmpgo.Debug&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     
@@ -614,17 +614,17 @@ autocmd BufRead *.go setlocal makeprg=go\ test\ \./..
 
 &lt;p&gt;Install build pre-requisites:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install gcc libc6-dev libc6-dev-i386 make &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install gcc libc6-dev libc6-dev-i386 make &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
   markdown build-essential debhelper dh-make fakeroot devscripts
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Install Go from source (so can cross-compile). Download from &lt;a href=&#34;http://code.google.com/p/go/downloads/list&#34;&gt;Go Downloads&lt;/a&gt; eg go1.0.2.src.tar.gz&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /usr/local/go/src
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /usr/local/go/src
 sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;amd64 ./all.bash &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;386&lt;/span&gt; ./all.bash
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Add to /etc/profile, source or re-login:
 &lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOROOT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;/usr/local/go&amp;quot;&lt;/span&gt;
@@ -644,19 +644,19 @@ sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
 
 &lt;p&gt;To watch the memory usage of a process with pid PID:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
   grep VmSize  /proc/PID/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sleep 10
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;To watch the number of file descriptors being used:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt;
   sudo lsof -p PID &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; wc -l &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sleep 10
 &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     

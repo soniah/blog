@@ -110,7 +110,7 @@ see the book.</p>
 code eg logging, opening/closing files or databases, etc. Value can be
 passed in via parameters, or passed out via <em>yield</em>.</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># &amp;block is optional, but helps document function</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic"># &amp;block is optional, but helps document function</span>
 <span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">with_logging</span><span style="color: #d0d0d0">(text,</span> <span style="color: #d0d0d0">&amp;block)</span>
   <span style="color: #6ab825; font-weight: bold">begin</span>
     <span style="color: #24909d">puts</span> <span style="color: #ed9d13">&quot;&gt;&gt; START:  #{</span><span style="color: #d0d0d0">text</span><span style="color: #ed9d13">}&quot;</span>
@@ -130,11 +130,11 @@ passed in via parameters, or passed out via <em>yield</em>.</p>
   <span style="color: #d0d0d0">with_logging(</span><span style="color: #ed9d13">&#39;doing addition&#39;</span><span style="color: #d0d0d0">)</span> <span style="color: #d0d0d0">{</span> <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">+</span> <span style="color: #3677a9">2</span> <span style="color: #d0d0d0">}</span>
 <span style="color: #6ab825; font-weight: bold">end</span>
 </pre></div>
-</p>
+
 
 <p>Another example is <em>yielding for flexible initialization</em>:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">class</span> <span style="color: #447fcf; text-decoration: underline">EC2</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">class</span> <span style="color: #447fcf; text-decoration: underline">EC2</span>
   <span style="color: #6ab825">attr_accessor</span> <span style="color: #ed9d13">:json</span>
   <span style="color: #6ab825; font-weight: bold">def</span> <span style="color: #447fcf">initialize</span><span style="color: #d0d0d0">(cmd)</span>
     <span style="color: #d0d0d0">result</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">`#{</span><span style="color: #d0d0d0">cmd</span><span style="color: #ed9d13">}`</span>
@@ -147,7 +147,7 @@ passed in via parameters, or passed out via <em>yield</em>.</p>
   <span style="color: #d0d0d0">ec2.json[insertDate]</span> <span style="color: #d0d0d0">=</span> <span style="color: #40ffff">Time</span><span style="color: #d0d0d0">.new.strftime(</span><span style="color: #ed9d13">&quot;%Y-%m-%d %H:%M:%S&quot;</span><span style="color: #d0d0d0">).to_s</span>
 <span style="color: #6ab825; font-weight: bold">end</span>
 </pre></div>
-</p>
+
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">

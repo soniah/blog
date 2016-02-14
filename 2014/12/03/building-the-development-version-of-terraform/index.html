@@ -101,7 +101,7 @@
 
 <p>First you need to install <a href="http://en.wikipedia.org/wiki/Go_%28programming_language%29">Go</a>, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (<a href="https://github.com/jteeuwen/go-bindata">go-bindata</a>, <a href="https://github.com/jteeuwen/go-bindata">lint</a>) and my own projects (<a href="https://github.com/soniah/gosnmp">gosnmp</a>, <a href="https://github.com/soniah/evaler">evaler</a>).</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">#!/bin/bash</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">#!/bin/bash</span>
 
 <span style="color: #999999; font-style: italic">## install go</span>
 
@@ -160,18 +160,18 @@ mkdir -p ~/go/<span style="color: #d0d0d0">{</span>sonia,thirdparty<span style="
 	<span style="color: #6ab825; font-weight: bold">fi</span>
 <span style="color: #6ab825; font-weight: bold">fi</span>
 </pre></div>
-</p>
+
 
 <p>A common pattern in Go (which my setup script demonstrates) is to <a href="http://code.google.com/p/go-wiki/wiki/GOPATH">split your code from thirdparty code</a>. This requires configuring your shell (~/.zshrc, ~/.bashrc):</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">export </span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">=</span>~/go/thirdparty:~/go/sonia
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">export </span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">=</span>~/go/thirdparty:~/go/sonia
 <span style="color: #24909d">export </span><span style="color: #40ffff">PATH</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">//://bin:</span><span style="color: #ed9d13">}</span>/bin:<span style="color: #40ffff">$PATH</span>
 </pre></div>
-</p>
+
 
 <p>Then you need to follow the <a href="https://github.com/hashicorp/terraform">Terraform instructions</a> for building, that is:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #40ffff">$ </span><span style="color: #24909d">cd</span> ~/go/thirdparty/src
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #40ffff">$ </span><span style="color: #24909d">cd</span> ~/go/thirdparty/src
 <span style="color: #40ffff">$ </span>go get -u github.com/mitchellh/gox
 <span style="color: #40ffff">$ </span><span style="color: #24909d">cd</span> ~/go/thirdparty/src/github.com/hashicorp/terraform
 <span style="color: #40ffff">$ </span>make updatedeps
@@ -179,7 +179,7 @@ mkdir -p ~/go/<span style="color: #d0d0d0">{</span>sonia,thirdparty<span style="
 <span style="color: #999999; font-style: italic"># put the binaries somewhere in your path, eg /usr/local/bin</span>
 <span style="color: #40ffff">$ </span>sudo cp bin/terraform* /usr/local/bin
 </pre></div>
-</p>
+
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">

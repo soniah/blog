@@ -37,7 +37,7 @@
 
 &lt;p&gt;The commandlinefu.com topic &lt;a href=&#34;http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu&#34;&gt;List your largest installed packages (on Debian/Ubuntu)&lt;/a&gt; has some useful commands:&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;\&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;\&lt;/span&gt;
   /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -rn
 
 % dpkg-query -Wf &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;${Installed-Size}\t${Package}\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n
@@ -49,7 +49,7 @@
 % awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;quot;%9d %s\n&amp;quot;, $2, p)}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
    /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;The &lt;a href=&#34;http://www.auroraos.org/release/eeebuntu&#34;&gt;download sources for Eeebuntu&lt;/a&gt; seem to be broken, and nowadays I&amp;rsquo;m generally preferring Debian over Ubuntu, so on my eeePC I&amp;rsquo;m running &lt;a href=&#34;http://wiki.debian.org/LXDE&#34;&gt;Debian with LXDE&lt;/a&gt; - it seems to work well.&lt;/p&gt;
 

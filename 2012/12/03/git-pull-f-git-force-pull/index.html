@@ -101,15 +101,15 @@
 
 <p>This works:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">% git fetch remote branch
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">% git fetch remote branch
 % git reset --hard FETCH_HEAD
 % git clean -df
 </pre></div>
-</p>
+
 
 <p>Or, as a function for your bash/zsh config file:</p>
 
-<p><div class="highlight" style="background: #202020"><pre style="line-height: 125%">gpuf <span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">gpuf <span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
    <span style="color: #999999; font-style: italic"># git pull -f $1</span>
    <span style="color: #40ffff">remote</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">1</span><span style="color: #d0d0d0">:?</span><span style="color: #ed9d13">&quot;need remote to force pull from&quot;}</span>
 
@@ -127,7 +127,7 @@
    git clean -df 
 <span style="color: #d0d0d0">}</span>
 </pre></div>
-</p>
+
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">
