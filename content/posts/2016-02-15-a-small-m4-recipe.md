@@ -14,16 +14,15 @@ tags:
 
 "They" say that [Linux m4 is a useful
 tool](https://en.wikipedia.org/wiki/M4_%28computer_language%29) but
-I've never been able to get my head around it. This is a small recipe.
+I've never had the time to get my head around it. This is a small recipe.
 
 <!--more-->
 
 I find `m4` difficult because the examples are more complex than what I
 need, therefore I never use it, therefore I never get better at it.
-Here's an example I used to get me going, which could've been done with
-any number of other tools (`sed`, `perl`, etc). But why use `m4`?
-Because it does the job, and no installation is required on (locked
-down) Linux servers.
+Here's a starter example, which could've been done with any number of
+other tools (`sed`, `perl`, etc). But why `m4`?  Because it does the
+job and no installation is required on (locked down) Linux servers.
 
 This snippet dynamically generates an ssh config file (with
 `ProxyCommand`):
