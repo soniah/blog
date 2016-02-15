@@ -12,7 +12,7 @@ tags:
 - Ruby
 ---
 
-"They" say that [Linux m4 is a really useful
+"They" say that [Linux m4 is a useful
 tool](https://en.wikipedia.org/wiki/M4_%28computer_language%29) but
 I've never been able to get my head around it. This is a small recipe.
 
