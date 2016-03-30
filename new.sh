@@ -56,6 +56,8 @@ content
 {{< highlight bash >}}
 
 {{< /highlight >}}
+
+This is a link: [title](http://foo.com/bar)
 EOF
 
 fi
