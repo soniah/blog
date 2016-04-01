@@ -13,3 +13,9 @@ github-pages.
     cd ~/git/blog
     hugo server &
     ./deploy.sh
+
+# Pygments colouring
+
+* config.yml, e.g. pygmentsstyle: "manni"
+* see https://help.farbox.com/pygments.html for samples
+* how to add other styles??
