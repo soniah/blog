@@ -107,29 +107,29 @@ help you write a function.</p>
 allow code to compile (without producing error messages) while you&rsquo;re
 working on other parts. The two placeholders are:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #a6e22e">error</span> <span style="color: #e6db74">&quot;todo&quot;</span> <span style="color: #f8f8f2">(or</span> <span style="color: #f8f8f2">any</span> <span style="color: #f8f8f2">string)</span>
-<span style="color: #a6e22e">undefined</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #bbbbbb">error</span> <span style="color: #ed9d13">&quot;todo&quot;</span> <span style="color: #d0d0d0">(or</span> <span style="color: #d0d0d0">any</span> <span style="color: #d0d0d0">string)</span>
+<span style="color: #447fcf">undefined</span>
 </pre></div>
 
 
 <p>The &ldquo;hole driven&rdquo; part involves using the underscore to get the
 compiler to print types:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #a6e22e">_undefined</span>
-<span style="color: #a6e22e">_x</span>
-<span style="color: #a6e22e">_foo</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #447fcf">_undefined</span>
+<span style="color: #447fcf">_x</span>
+<span style="color: #447fcf">_foo</span>
 </pre></div>
 
 
 <p>For example if I used <code>_x</code> then re-loaded my code in ghci, I would get
 output like:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #66d9ef">Found</span> <span style="color: #f8f8f2">hole</span> <span style="color: #960050; background-color: #1e0010">‘</span><span style="color: #f8f8f2">_x</span><span style="color: #960050; background-color: #1e0010">’</span> <span style="color: #f8f8f2">with</span> <span style="color: #66d9ef">type:</span> <span style="color: #f8f8f2">a</span>
-<span style="color: #f92672">...</span>
-<span style="color: #a6e22e">g2</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">(bound</span> <span style="color: #f8f8f2">at</span> <span style="color: #66d9ef">GetSetLens</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">hs</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">312</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">31</span><span style="color: #f8f8f2">)</span>
-<span style="color: #a6e22e">s2</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">a</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">a</span> <span style="color: #f8f8f2">(bound</span> <span style="color: #f8f8f2">at</span> <span style="color: #66d9ef">GetSetLens</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">hs</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">312</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">28</span><span style="color: #f8f8f2">)</span>
-<span style="color: #a6e22e">g1</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">c</span> <span style="color: #f8f8f2">(bound</span> <span style="color: #f8f8f2">at</span> <span style="color: #66d9ef">GetSetLens</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">hs</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">312</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">18</span><span style="color: #f8f8f2">)</span>
-<span style="color: #a6e22e">s1</span> <span style="color: #f92672">::</span> <span style="color: #f8f8f2">b</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">c</span> <span style="color: #f92672">-&gt;</span> <span style="color: #f8f8f2">b</span> <span style="color: #f8f8f2">(bound</span> <span style="color: #f8f8f2">at</span> <span style="color: #66d9ef">GetSetLens</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">hs</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">312</span><span style="color: #66d9ef">:</span><span style="color: #ae81ff">15</span><span style="color: #f8f8f2">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">Found</span> <span style="color: #d0d0d0">hole</span> <span style="color: #a61717; background-color: #e3d2d2">‘</span><span style="color: #d0d0d0">_x</span><span style="color: #a61717; background-color: #e3d2d2">’</span> <span style="color: #d0d0d0">with</span> <span style="color: #6ab825; font-weight: bold">type:</span> <span style="color: #d0d0d0">a</span>
+<span style="color: #d0d0d0">...</span>
+<span style="color: #447fcf">g2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">31</span><span style="color: #d0d0d0">)</span>
+<span style="color: #447fcf">s2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">28</span><span style="color: #d0d0d0">)</span>
+<span style="color: #447fcf">g1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">18</span><span style="color: #d0d0d0">)</span>
+<span style="color: #447fcf">s1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">15</span><span style="color: #d0d0d0">)</span>
 </pre></div>
 
 

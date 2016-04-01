@@ -103,28 +103,28 @@
 
 <p>First install the <a href="http://hg-git.github.io/">hg-git</a> tools; for example on Ubuntu:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">sudo aptitude install python-setuptools python-dev
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo aptitude install python-setuptools python-dev
 sudo easy_install hg-git
 </pre></div>
 
 
 <p>Make sure the following is in your ~/.hgrc:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f92672">[</span>extensions<span style="color: #f92672">]</span>
-hgext.bookmarks <span style="color: #f92672">=</span>
-<span style="color: #f8f8f2">hggit</span> <span style="color: #f92672">=</span> 
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">[</span>extensions<span style="color: #d0d0d0">]</span>
+hgext.bookmarks <span style="color: #d0d0d0">=</span>
+<span style="color: #40ffff">hggit</span> <span style="color: #d0d0d0">=</span> 
 </pre></div>
 
 
 <p>Then, in your existing mercurial repository, add a new remote that points to the git repository. For example for a BitBucket repository:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">cd</span> &lt;mercurial repository&gt;
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> &lt;mercurial repository&gt;
 cat .hg/hgrc
-<span style="color: #f92672">[</span>paths<span style="color: #f92672">]</span>
-<span style="color: #75715e"># the original hg repository</span>
-<span style="color: #f8f8f2">default</span> <span style="color: #f92672">=</span> https://username@abcde.org/foo/barhg
-<span style="color: #75715e"># the git version (on BitBucket in this case)</span>
-<span style="color: #f8f8f2">bbgit</span>   <span style="color: #f92672">=</span> git+ssh://git@bitbucket.org:foo/bar.git
+<span style="color: #d0d0d0">[</span>paths<span style="color: #d0d0d0">]</span>
+<span style="color: #999999; font-style: italic"># the original hg repository</span>
+<span style="color: #40ffff">default</span> <span style="color: #d0d0d0">=</span> https://username@abcde.org/foo/barhg
+<span style="color: #999999; font-style: italic"># the git version (on BitBucket in this case)</span>
+<span style="color: #40ffff">bbgit</span>   <span style="color: #d0d0d0">=</span> git+ssh://git@bitbucket.org:foo/bar.git
 </pre></div>
 
 
@@ -134,26 +134,26 @@ cat .hg/hgrc
 
 <p>You may get the error <em>mercurial abort: revision cannot be pushed since it doesn&rsquo;t have a ref</em> when pushing from hg to git, or you might notice that your hg work isn&rsquo;t being pushed. The solution here is to reset the hg bookmark for git&rsquo;s master branch:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">hg book -f -r tip master
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">hg book -f -r tip master
 hg push bbgit
 </pre></div>
 
 
 <p>If you find yourself doing this regularly, this small shell function (in your ~/.bashrc) will help:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">hggitpush <span style="color: #f92672">()</span> <span style="color: #f92672">{</span>
-   <span style="color: #75715e"># $1 is hg remote name in hgrc for repo</span>
-   <span style="color: #75715e"># $2 is branch (defaults to master)</span>
-   hg book -f -r tip <span style="color: #e6db74">${</span><span style="color: #f8f8f2">2</span><span style="color: #66d9ef">:-</span><span style="color: #f8f8f2">master</span><span style="color: #e6db74">}</span>
-   hg push <span style="color: #f8f8f2">$1</span>
-<span style="color: #f92672">}</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">hggitpush <span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
+   <span style="color: #999999; font-style: italic"># $1 is hg remote name in hgrc for repo</span>
+   <span style="color: #999999; font-style: italic"># $2 is branch (defaults to master)</span>
+   hg book -f -r tip <span style="color: #ed9d13">${</span><span style="color: #40ffff">2</span><span style="color: #6ab825; font-weight: bold">:-</span><span style="color: #40ffff">master</span><span style="color: #ed9d13">}</span>
+   hg push <span style="color: #40ffff">$1</span>
+<span style="color: #d0d0d0">}</span>
 </pre></div>
 
 
 <p>Then from your shell you can run commands like:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">hggitpush bbgit dev
-hggitpush foogit      <span style="color: #75715e"># defaults to pushing to master</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">hggitpush bbgit dev
+hggitpush foogit      <span style="color: #999999; font-style: italic"># defaults to pushing to master</span>
 </pre></div>
 
 

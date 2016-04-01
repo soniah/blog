@@ -112,51 +112,51 @@ args (left-to-right).
 
 <p>First of all, I need a function that takes a variable number of arguments (0-n) - standard destructuring:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">defn </span><span style="color: #f8f8f2">myjuxt</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">fs]</span>
-<span style="color: #f8f8f2">...</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">myjuxt</span> <span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span>
+<span style="color: #40ffff">...</span>
 </pre></div>
 
 
 <p>I don&rsquo;t know what to do with these functions yet, so I&rsquo;ll just loop through using <strong>for</strong> and return each function:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">defn </span><span style="color: #f8f8f2">myjuxt</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">fs]</span>
-  <span style="color: #f8f8f2">(for [f</span> <span style="color: #f8f8f2">fs]</span> <span style="color: #f8f8f2">f))</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">myjuxt</span> <span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span>
+  <span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span> <span style="color: #40ffff">f</span><span style="color: #d0d0d0">))</span>
 </pre></div>
 
 
 <p>And here you can see the returned list of function objects. Not very useful but a start:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">myjuxt</span> <span style="color: #f8f8f2">+ min max)</span>
-<span style="color: #f8f8f2">user</span> <span style="color: #f8f8f2">=&gt;</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">#</span><span style="color: #f8f8f2">core_plus</span> <span style="color: #f92672">#</span><span style="color: #f8f8f2">core_min</span> <span style="color: #f92672">#</span><span style="color: #f8f8f2">core_max)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #447fcf">myjuxt</span> <span style="color: #24909d">+ min </span><span style="color: #40ffff">max</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">user</span> <span style="color: #40ffff">=&gt;</span> <span style="color: #d0d0d0">(#</span><span style="color: #40ffff">core_plus</span> <span style="color: #d0d0d0">#</span><span style="color: #40ffff">core_min</span> <span style="color: #d0d0d0">#</span><span style="color: #40ffff">core_max</span><span style="color: #d0d0d0">)</span>
 </pre></div>
 
 
 <p>The question gives a good hint here: &ldquo;return a new function that takes a variable number of arguments&rdquo;. So do that, using the same destructuring approach for a variable number of arguments:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">defn </span><span style="color: #f8f8f2">myjuxt2</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">fs]</span>
-  <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">fn </span><span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">xs]</span>
-<span style="color: #f8f8f2">...</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">myjuxt2</span> <span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span>
+  <span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">fn </span><span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span>
+<span style="color: #40ffff">...</span>
 </pre></div>
 
 
 <p>So I want to run each function against these arguments, so I&rsquo;ll use <strong>for</strong> again:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">defn </span><span style="color: #f8f8f2">myjuxt2</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">fs]</span>
-  <span style="color: #f8f8f2">(</span><span style="color: #960050; background-color: #1e0010">ƒ</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">xs]</span>
-   <span style="color: #f8f8f2">(for [f</span> <span style="color: #f8f8f2">fs]</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">f</span> <span style="color: #f8f8f2">xs))))</span>
-<span style="color: #f8f8f2">((</span><span style="color: #a6e22e">myjuxt2</span> <span style="color: #f8f8f2">+ min max)</span> <span style="color: #ae81ff">1</span> <span style="color: #ae81ff">2</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">user=&gt;</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">ClassCastException</span> <span style="color: #f8f8f2">Cannot</span> <span style="color: #f8f8f2">cast clojure.lang.ArraySeq</span>
-<span style="color: #f8f8f2">to</span> <span style="color: #f8f8f2">java.lang.Number</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">myjuxt2</span> <span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span>
+  <span style="color: #d0d0d0">(</span><span style="color: #a61717; background-color: #e3d2d2">ƒ</span> <span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span>
+   <span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">))))</span>
+<span style="color: #d0d0d0">((</span><span style="color: #447fcf">myjuxt2</span> <span style="color: #24909d">+ min </span><span style="color: #40ffff">max</span><span style="color: #d0d0d0">)</span> <span style="color: #3677a9">1</span> <span style="color: #3677a9">2</span> <span style="color: #3677a9">3</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">user=&gt;</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">ClassCastException</span> <span style="color: #40ffff">Cannot</span> <span style="color: #24909d">cast </span><span style="color: #40ffff">clojure.lang.ArraySeq</span>
+<span style="color: #40ffff">to</span> <span style="color: #40ffff">java.lang.Number</span>
 </pre></div>
 
 
 <p>Ouch! But the error message gives a hint - something is seeing an array instead of a number. My three functions want numbers and they&rsquo;re getting arrays - I need <strong>apply</strong> to &ldquo;strip out&rdquo; the arguments:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">defn </span><span style="color: #f8f8f2">myjuxt2</span> <span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">fs]</span>
-  <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">fn </span><span style="color: #f8f8f2">[</span><span style="color: #f92672">&amp;</span> <span style="color: #f8f8f2">xs]</span>
-   <span style="color: #f8f8f2">(for [f</span> <span style="color: #f8f8f2">fs]</span> <span style="color: #f8f8f2">(apply f</span> <span style="color: #f8f8f2">xs))))</span>
-<span style="color: #f8f8f2">((</span><span style="color: #a6e22e">myjuxt2</span> <span style="color: #f8f8f2">+ min max)</span> <span style="color: #ae81ff">1</span> <span style="color: #ae81ff">2</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span>
-<span style="color: #f8f8f2">user=&gt;</span> <span style="color: #f8f8f2">(</span><span style="color: #ae81ff">6</span> <span style="color: #ae81ff">1</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">defn </span><span style="color: #40ffff">myjuxt2</span> <span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span>
+  <span style="color: #d0d0d0">(</span><span style="color: #6ab825; font-weight: bold">fn </span><span style="color: #d0d0d0">[&amp;</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">]</span>
+   <span style="color: #d0d0d0">(</span><span style="color: #24909d">for </span><span style="color: #d0d0d0">[</span><span style="color: #40ffff">f</span> <span style="color: #40ffff">fs</span><span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">(</span><span style="color: #24909d">apply </span><span style="color: #40ffff">f</span> <span style="color: #40ffff">xs</span><span style="color: #d0d0d0">))))</span>
+<span style="color: #d0d0d0">((</span><span style="color: #447fcf">myjuxt2</span> <span style="color: #24909d">+ min </span><span style="color: #40ffff">max</span><span style="color: #d0d0d0">)</span> <span style="color: #3677a9">1</span> <span style="color: #3677a9">2</span> <span style="color: #3677a9">3</span><span style="color: #d0d0d0">)</span>
+<span style="color: #40ffff">user=&gt;</span> <span style="color: #d0d0d0">(</span><span style="color: #3677a9">6</span> <span style="color: #3677a9">1</span> <span style="color: #3677a9">3</span><span style="color: #d0d0d0">)</span>
 </pre></div>
 
 

@@ -107,27 +107,27 @@
 
 <p>For example:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">cd</span> ~/Desktop/foo.tblk
-<span style="color: #66d9ef">for</span> f in * <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span>
-  <span style="color: #f8f8f2">g</span><span style="color: #f92672">=</span><span style="color: #e6db74">`</span>basename <span style="color: #f8f8f2">$f</span><span style="color: #e6db74">`</span>
-  mkdir <span style="color: #f8f8f2">$g</span>.tblk
-  mv <span style="color: #f8f8f2">$f</span> <span style="color: #f8f8f2">$g</span>.tblk
-<span style="color: #66d9ef">done</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Desktop/foo.tblk
+<span style="color: #6ab825; font-weight: bold">for</span> f in * <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
+  <span style="color: #40ffff">g</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">`</span>basename <span style="color: #40ffff">$f</span><span style="color: #ed9d13">`</span>
+  mkdir <span style="color: #40ffff">$g</span>.tblk
+  mv <span style="color: #40ffff">$f</span> <span style="color: #40ffff">$g</span>.tblk
+<span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
 
 
 <p>Also, the .ovpn files will have &ldquo;com.apple.quarantine&rdquo; xattr&rsquo;s. This may or may not cause problems. I removed them in this way:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #66d9ef">for</span> f in * <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span>
-  <span style="color: #f8f8f2">echo</span> <span style="color: #f8f8f2">$f</span>
-  xattr -d com.apple.quarantine <span style="color: #f8f8f2">$f</span>
-<span style="color: #66d9ef">done</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">for</span> f in * <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
+  <span style="color: #24909d">echo</span> <span style="color: #40ffff">$f</span>
+  xattr -d com.apple.quarantine <span style="color: #40ffff">$f</span>
+<span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
 
 
 <p>Also, to <a href="https://groups.google.com/forum/#!topic/tunnelblick-discuss/Th_ESRKPpCo">remove old private configuration files</a>:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">cd</span> ~/Library/Application<span style="color: #ae81ff">\ </span>Support/Tunnelblick/Configurations
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/Library/Application<span style="color: #ed9d13">\ </span>Support/Tunnelblick/Configurations
 rm -rf *
 </pre></div>
 

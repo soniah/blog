@@ -16,32 +16,32 @@
       <guid>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;system&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
-    &lt;span style=&#34;color: #ae81ff&#34;&gt;network.system&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;enabled&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;True&lt;/span&gt;
-      &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;hostname&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;server1.example.com&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;network.system:&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;enabled:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;True&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hostname:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;server1.example.com&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here&amp;rsquo;s a little shell script I wrote, to get around this problem:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat set_hostname.sh 
-&lt;span style=&#34;color: #75715e&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat set_hostname.sh 
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$1&lt;/span&gt;
-hostname &lt;span style=&#34;color: #f8f8f2&#34;&gt;$hn&lt;/span&gt;
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
-sed -i &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
+&lt;span style=&#34;color: #40ffff&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
+hostname &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
+sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then apply it using cmd.script, for example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;foo-hostname&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
-  &lt;span style=&#34;color: #ae81ff&#34;&gt;cmd.script&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;source&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;salt://soe/set_hostname.sh&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;args&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;foo.bar.com&lt;/span&gt;
-    &lt;span style=&#34;color: #f8f8f2&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;unless&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;grep -q &amp;quot;foo.bar.com&amp;quot; /etc/hosts&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;foo-hostname:&lt;/span&gt;
+  &lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd.script:&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;source:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;salt://soe/set_hostname.sh&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;args:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;foo.bar.com&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;unless:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;grep -q &amp;quot;foo.bar.com&amp;quot; /etc/hosts&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 </description>
@@ -76,17 +76,17 @@ sed -i &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;1s/.*/127.0.0.1 loca
 
 &lt;p&gt;The commandlinefu.com topic &lt;a href=&#34;http://www.commandlinefu.com/commands/view/3842/list-your-largest-installed-packages-on-debianubuntu&#34;&gt;List your largest installed packages (on Debian/Ubuntu)&lt;/a&gt; has some useful commands:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;\&lt;/span&gt;
-  /var/lib/dpkg/status &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; sort -rn
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% sed -ne &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;/^Package: \(.*\)/{s//\1/;h;};/^Installed-Size: \(.*\)/{s//\1/;G;s/\n/ /;p;}&amp;#39;\&lt;/span&gt;
+  /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -rn
 
-% dpkg-query -Wf &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;${Installed-Size}\t${Package}\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; sort -n
+% dpkg-query -Wf &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;${Installed-Size}\t${Package}\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n
 
-% dpkg --get-selections &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; cut -f1 &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;read &lt;/span&gt;pkg&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;do&lt;/span&gt; dpkg -L &lt;span style=&#34;color: #f8f8f2&#34;&gt;$pkg&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; xargs -I&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;{}&amp;#39;&lt;/span&gt; bash -c &lt;span style=&#34;color: #ae81ff&#34;&gt;\&lt;/span&gt;
-  &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;if [ ! -d &amp;quot;{}&amp;quot; ]; then echo &amp;quot;{}&amp;quot;; fi&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; tr &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;\000&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; du -c --files0-from - &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;\&lt;/span&gt;
-   tail -1 &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; sed &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;s/total/&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$pkg&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;done&lt;/span&gt;
+% dpkg --get-selections &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; cut -f1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;read &lt;/span&gt;pkg&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;do&lt;/span&gt; dpkg -L &lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; xargs -I&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{}&amp;#39;&lt;/span&gt; bash -c &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+  &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;if [ ! -d &amp;quot;{}&amp;quot; ]; then echo &amp;quot;{}&amp;quot;; fi&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tr &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;\000&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; du -c --files0-from - &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+   tail -1 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sed &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;s/total/&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$pkg&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;done&lt;/span&gt;
 
-% awk &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;quot;%9d %s\n&amp;quot;, $2, p)}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;\&lt;/span&gt;
-   /var/lib/dpkg/status &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; sort -n &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; tail
+% awk &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;{if ($1 ~ /Package/) p = $2; if ($1 ~ /Installed/) printf(&amp;quot;%9d %s\n&amp;quot;, $2, p)}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
+   /var/lib/dpkg/status &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; sort -n &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -125,9 +125,9 @@ sed -i &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;1s/.*/127.0.0.1 loca
 &lt;p&gt;If you selected the default Ubuntu encryption setup, the partitions will
 be laid out like this:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;/dev/sda1 * &lt;span style=&#34;color: #ae81ff&#34;&gt;2048&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;499711&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;248832&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;83&lt;/span&gt; Linux
-/dev/sda2 &lt;span style=&#34;color: #ae81ff&#34;&gt;501758&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;488134657&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;5&lt;/span&gt; Extended
-/dev/sda5 &lt;span style=&#34;color: #ae81ff&#34;&gt;501760&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;488134656&lt;/span&gt; &lt;span style=&#34;color: #ae81ff&#34;&gt;83&lt;/span&gt; Linux
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;/dev/sda1 * &lt;span style=&#34;color: #3677a9&#34;&gt;2048&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;499711&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;248832&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;83&lt;/span&gt; Linux
+/dev/sda2 &lt;span style=&#34;color: #3677a9&#34;&gt;501758&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;488134657&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;5&lt;/span&gt; Extended
+/dev/sda5 &lt;span style=&#34;color: #3677a9&#34;&gt;501760&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;976771071&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;488134656&lt;/span&gt; &lt;span style=&#34;color: #3677a9&#34;&gt;83&lt;/span&gt; Linux
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -145,7 +145,7 @@ will be encrypted with a second level of encryption if you chose
 &lt;li&gt;confirm /dev/sda5 is the correct partition [1]:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksDump /dev/sda5
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksDump /dev/sda5
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -153,14 +153,14 @@ will be encrypted with a second level of encryption if you chose
 &lt;li&gt;mount the encrypted partition containing the LVM volumes:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksOpen /dev/sda5 sda5_crypt
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;cryptsetup -v luksOpen /dev/sda5 sda5_crypt
 vgdisplay
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;(you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lvdisplay &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; less
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;lvdisplay &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; less
 mkdir /mnt/home
 mount -t ext4 /dev/vg/home /mnt/home
 &lt;/pre&gt;&lt;/div&gt;
@@ -188,9 +188,9 @@ mount -t ext4 /dev/vg/home /mnt/home
 
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;remount&amp;rdquo; /mnt/home on home:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;umount /mnt/home
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;umount /mnt/home
 mount -t ext4 /dev/vg/home /home
-&lt;span style=&#34;color: #75715e&#34;&gt;# add a user with the same name as the broken system&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# add a user with the same name as the broken system&lt;/span&gt;
 adduser --no-create-home sonia
 su sonia
 ecryptfs-mount-private
@@ -204,7 +204,7 @@ ecryptfs-mount-private
 information [4]. These commands are copied from there, in case the page
 moves or disappears.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo ecryptfs-add-passphrase --fnek
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo ecryptfs-add-passphrase --fnek
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -216,7 +216,7 @@ moves or disappears.&lt;/p&gt;
 
 &lt;p&gt;Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mkdir /mnt/Private
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;mkdir /mnt/Private
 mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -288,21 +288,21 @@ the second line above)&lt;/p&gt;
 
 &lt;p&gt;Install build pre-requisites:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install gcc libc6-dev libc6-dev-i386 make &lt;span style=&#34;color: #ae81ff&#34;&gt;\&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install gcc libc6-dev libc6-dev-i386 make &lt;span style=&#34;color: #ed9d13&#34;&gt;\&lt;/span&gt;
   markdown build-essential debhelper dh-make fakeroot devscripts
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Install Go from source (so can cross-compile). Download from &lt;a href=&#34;http://code.google.com/p/go/downloads/list&#34;&gt;Go Downloads&lt;/a&gt; eg go1.0.2.src.tar.gz&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz &lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;cd&lt;/span&gt; /usr/local/go/src
-sudo &lt;span style=&#34;color: #f8f8f2&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;amd64 ./all.bash &lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt; sudo &lt;span style=&#34;color: #f8f8f2&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ae81ff&#34;&gt;386&lt;/span&gt; ./all.bash
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tar -C /usr/local -xzf go1.0.2.src.tar.gz &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; /usr/local/go/src
+sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;amd64 ./all.bash &lt;span style=&#34;color: #d0d0d0&#34;&gt;;&lt;/span&gt; sudo &lt;span style=&#34;color: #40ffff&#34;&gt;GOARCH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #3677a9&#34;&gt;386&lt;/span&gt; ./all.bash
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Add to /etc/profile, source or re-login:
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;export GOROOT&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;/usr/local/go&amp;quot;&lt;/span&gt;
-&lt;span style=&#34;color: #f8f8f2&#34;&gt;export PATH&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$GOROOT&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;/bin:&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$PATH&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;GOROOT&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;/usr/local/go&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;PATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$GOROOT&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/bin:&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$PATH&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/p&gt;
 </description>
@@ -318,11 +318,11 @@ sudo &lt;span style=&#34;color: #f8f8f2&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
 
 &lt;p&gt;Here&amp;rsquo;s one way - use the file command on /sbin/init:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #75715e&#34;&gt;# on a 32 bit install&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# on a 32 bit install&lt;/span&gt;
 % file /sbin/init
 /sbin/init: ELF 32-bit LSB executable....
 
-&lt;span style=&#34;color: #75715e&#34;&gt;# on a 64 bit install&lt;/span&gt;
+&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# on a 64 bit install&lt;/span&gt;
 % file /sbin/init
 /sbin/init: ELF 64-bit LSB shared object, x86-64...
 &lt;/pre&gt;&lt;/div&gt;
@@ -336,7 +336,7 @@ sudo &lt;span style=&#34;color: #f8f8f2&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
 
 &lt;p&gt;One comment said I was wrong and should use grep against the cpu info:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$ &lt;/span&gt;grep ^flags /proc/cpuinfo &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep lm
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$ &lt;/span&gt;grep ^flags /proc/cpuinfo &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep lm
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -346,16 +346,16 @@ sudo &lt;span style=&#34;color: #f8f8f2&#34;&gt;GOARCH&lt;/span&gt;&lt;span styl
 
 &lt;p&gt;Other comments said I should use uname with particular flags (as if I&amp;rsquo;d never heard of uname before&amp;hellip;.). Unfortunately the manpage for uname is a good example of &lt;a href=&#34;http://en.wikipedia.org/wiki/Considered_harmful&#34;&gt;manpage considered harmful&lt;/a&gt;. Let&amp;rsquo;s have a look at what it says for the various options:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% man uname
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% man uname
 ...
 -m, --machine
     print the machine hardware name
 
 -p, --processor
-    print the processor &lt;span style=&#34;color: #f8f8f2&#34;&gt;type &lt;/span&gt;or &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;unknown&amp;quot;&lt;/span&gt;
+    print the processor &lt;span style=&#34;color: #24909d&#34;&gt;type &lt;/span&gt;or &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;unknown&amp;quot;&lt;/span&gt;
 
 -i, --hardware-platform
-    print the hardware platform or &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;unknown&amp;quot;&lt;/span&gt;
+    print the hardware platform or &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;unknown&amp;quot;&lt;/span&gt;
 ...
 &lt;/pre&gt;&lt;/div&gt;
 

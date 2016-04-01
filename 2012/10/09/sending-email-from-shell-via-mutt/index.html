@@ -99,12 +99,12 @@
           <h5 id="date"> 9 Oct 2012 </h5>
           <p>A quick example of sending email from the shell via mutt.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">% cat msg.txt 
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">% cat msg.txt 
 pdf attached. Sonia.
 
-<span style="color: #66d9ef">for</span> i in *.pdf <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span>              
-  mutt -s <span style="color: #e6db74">&quot;pdf - </span><span style="color: #f8f8f2">$i</span><span style="color: #e6db74">&quot;</span> -a <span style="color: #f8f8f2">$i</span> -- <span style="color: #e6db74">&#39;foo@hotmail.com&#39;</span> &lt; msg.txt
-<span style="color: #66d9ef">done</span>
+<span style="color: #6ab825; font-weight: bold">for</span> i in *.pdf <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>              
+  mutt -s <span style="color: #ed9d13">&quot;pdf - </span><span style="color: #40ffff">$i</span><span style="color: #ed9d13">&quot;</span> -a <span style="color: #40ffff">$i</span> -- <span style="color: #ed9d13">&#39;foo@hotmail.com&#39;</span> &lt; msg.txt
+<span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
 
 

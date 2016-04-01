@@ -101,43 +101,43 @@
 
 <p>Add yourself to the required groups - dialout and tty.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">sudo adduser <span style="color: #f8f8f2">$USER</span> dialout
-sudo adduser <span style="color: #f8f8f2">$USER</span> tty
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo adduser <span style="color: #40ffff">$USER</span> dialout
+sudo adduser <span style="color: #40ffff">$USER</span> tty
 </pre></div>
 
 
 <p>Confirm the port <strong>/dev/ttyUSB0</strong> is being used by Arduino - tail messages then plug in the Arduino.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">sudo tail -f /var/log/messages
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo tail -f /var/log/messages
 
-<span style="color: #75715e"># you should see something like:</span>
+<span style="color: #999999; font-style: italic"># you should see something like:</span>
 FTDI USB Serial Device converter now attached to ttyUSB0
 
-<span style="color: #75715e"># out of interest, inspect permissions on port</span>
+<span style="color: #999999; font-style: italic"># out of interest, inspect permissions on port</span>
 ls -al /dev/ttyUSB0
 </pre></div>
 
 
 <p>Logout and login (or run a login shell). Confirm permissions.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">zsh -l
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">zsh -l
 id
 
-<span style="color: #75715e"># you should see something like:</span>
-<span style="color: #f8f8f2">groups</span><span style="color: #f92672">=</span>1000<span style="color: #f92672">(</span>sonia<span style="color: #f92672">)</span>,5<span style="color: #f92672">(</span>tty<span style="color: #f92672">)</span>,20<span style="color: #f92672">(</span>dialout<span style="color: #f92672">)</span>,...
+<span style="color: #999999; font-style: italic"># you should see something like:</span>
+<span style="color: #40ffff">groups</span><span style="color: #d0d0d0">=</span>1000<span style="color: #d0d0d0">(</span>sonia<span style="color: #d0d0d0">)</span>,5<span style="color: #d0d0d0">(</span>tty<span style="color: #d0d0d0">)</span>,20<span style="color: #d0d0d0">(</span>dialout<span style="color: #d0d0d0">)</span>,...
 </pre></div>
 
 
 <p>Install Arduino pre-requisites.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">sudo aptitude install arduino arduino-core
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo aptitude install arduino arduino-core
 </pre></div>
 
 
 <p>If preferred, download the <strong>latest</strong> Arduino environment, run the shell script to start it.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">cd</span> ~/arduino-1.0.5
-./arduino<span style="color: #f8f8f2">&amp;</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/arduino-1.0.5
+./arduino<span style="color: #d0d0d0">&amp;</span>
 </pre></div>
 
 

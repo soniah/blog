@@ -101,17 +101,17 @@
 
 <p>To watch the memory usage of a process with pid PID:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #66d9ef">while</span> <span style="color: #f92672">[</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span>
-  grep VmSize  /proc/PID/status <span style="color: #f8f8f2">;</span> sleep 10
-<span style="color: #66d9ef">done</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">[</span> <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
+  grep VmSize  /proc/PID/status <span style="color: #d0d0d0">;</span> sleep 10
+<span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
 
 
 <p>To watch the number of file descriptors being used:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #66d9ef">while</span> <span style="color: #f92672">[</span> <span style="color: #ae81ff">1</span> <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">do</span>
-  sudo lsof -p PID <span style="color: #f8f8f2">|</span> wc -l <span style="color: #f8f8f2">;</span> sleep 10
-<span style="color: #66d9ef">done</span>
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">while</span> <span style="color: #d0d0d0">[</span> <span style="color: #3677a9">1</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">do</span>
+  sudo lsof -p PID <span style="color: #d0d0d0">|</span> wc -l <span style="color: #d0d0d0">;</span> sleep 10
+<span style="color: #6ab825; font-weight: bold">done</span>
 </pre></div>
 
 

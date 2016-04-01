@@ -128,8 +128,8 @@
 
 <p>With this directory structure I set <strong>GOPATH</strong> on the command line or in a Makefile:</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">% <span style="color: #f8f8f2">cd</span> ~go/project2/src/github.com/soniah/gosnmp
-% <span style="color: #f8f8f2">GOPATH</span><span style="color: #f92672">=</span>~go/project2 go build
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">% <span style="color: #24909d">cd</span> ~go/project2/src/github.com/soniah/gosnmp
+% <span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">=</span>~go/project2 go build
 </pre></div>
 
 
@@ -137,30 +137,30 @@
 
 <p>For smaller projects you can just produce a binary using <strong>go run</strong> or <strong>go build</strong>. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%">GOROOT :<span style="color: #f92672">=</span> /usr/lib/go
-GOPATH :<span style="color: #f92672">=</span> /var/lib/jenkins/workspace/go/project2
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">GOROOT :<span style="color: #d0d0d0">=</span> /usr/lib/go
+GOPATH :<span style="color: #d0d0d0">=</span> /var/lib/jenkins/workspace/go/project2
 
-myhostname :<span style="color: #f92672">=</span> <span style="color: #66d9ef">$(</span>shell hostname<span style="color: #66d9ef">)</span>
-ifeq <span style="color: #f92672">(</span><span style="color: #e6db74">${</span><span style="color: #f8f8f2">myhostname</span><span style="color: #e6db74">}</span>, laptop<span style="color: #f92672">)</span>
-    GOPATH :<span style="color: #f92672">=</span> /home/sonia/go/project2
-<span style="color: #66d9ef">else</span> ifeq <span style="color: #f92672">(</span><span style="color: #e6db74">${</span><span style="color: #f8f8f2">myhostname</span><span style="color: #e6db74">}</span>, testmachine<span style="color: #f92672">)</span>
-    GOPATH :<span style="color: #f92672">=</span> /home/u1234/go/project2
-    GOROOT :<span style="color: #f92672">=</span> /usr/local/go
+myhostname :<span style="color: #d0d0d0">=</span> <span style="color: #6ab825; font-weight: bold">$(</span>shell hostname<span style="color: #6ab825; font-weight: bold">)</span>
+ifeq <span style="color: #d0d0d0">(</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">myhostname</span><span style="color: #ed9d13">}</span>, laptop<span style="color: #d0d0d0">)</span>
+    GOPATH :<span style="color: #d0d0d0">=</span> /home/sonia/go/project2
+<span style="color: #6ab825; font-weight: bold">else</span> ifeq <span style="color: #d0d0d0">(</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">myhostname</span><span style="color: #ed9d13">}</span>, testmachine<span style="color: #d0d0d0">)</span>
+    GOPATH :<span style="color: #d0d0d0">=</span> /home/u1234/go/project2
+    GOROOT :<span style="color: #d0d0d0">=</span> /usr/local/go
 endif
 
 build: build-stamp
 build-stamp: file1.go file2.go file3.go
-    <span style="color: #75715e"># always format code</span>
-    <span style="color: #f8f8f2">GOPATH</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span>GOPATH<span style="color: #66d9ef">)</span> go fmt <span style="color: #f8f8f2">$^</span>
-    <span style="color: #75715e"># binary</span>
-    <span style="color: #f8f8f2">GOPATH</span><span style="color: #f92672">=</span><span style="color: #66d9ef">$(</span>GOPATH<span style="color: #66d9ef">)</span> go build -o project2 -v <span style="color: #f8f8f2">$^</span>
-    <span style="color: #75715e"># docs</span>
+    <span style="color: #999999; font-style: italic"># always format code</span>
+    <span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">=</span><span style="color: #6ab825; font-weight: bold">$(</span>GOPATH<span style="color: #6ab825; font-weight: bold">)</span> go fmt <span style="color: #40ffff">$^</span>
+    <span style="color: #999999; font-style: italic"># binary</span>
+    <span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">=</span><span style="color: #6ab825; font-weight: bold">$(</span>GOPATH<span style="color: #6ab825; font-weight: bold">)</span> go build -o project2 -v <span style="color: #40ffff">$^</span>
+    <span style="color: #999999; font-style: italic"># docs</span>
     markdown README.mkd &gt; README.html
-    help2man --no-info --include<span style="color: #f92672">=</span>help2man.roff --name <span style="color: #e6db74">&quot;Project2&quot;</span> ./project2 &gt; project2.roff
+    help2man --no-info --include<span style="color: #d0d0d0">=</span>help2man.roff --name <span style="color: #ed9d13">&quot;Project2&quot;</span> ./project2 &gt; project2.roff
     man -Tps -l project2.roff &gt; project2-man.ps
     ps2pdf project2-man.ps project2-man.pdf
-    <span style="color: #75715e"># mark as done</span>
-    touch <span style="color: #f8f8f2">$@</span>
+    <span style="color: #999999; font-style: italic"># mark as done</span>
+    touch <span style="color: #40ffff">$@</span>
 </pre></div>
 
 
