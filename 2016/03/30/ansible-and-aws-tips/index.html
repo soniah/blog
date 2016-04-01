@@ -184,7 +184,7 @@ everywhere, deep down in roles.</p>
 playbooks, giving flexibility but keeping clarity. But I wouldn&rsquo;t use
 them <em>within</em> a role. For example:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ansible-playbook config.yml --tags<span style="color: #555555">=</span><span style="color: #CC3300">&quot;java,splunk&quot;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #003333">$ </span>ansible-playbook config.yml --tags<span style="color: #555555">=</span><span style="color: #CC3300">&quot;java,splunk&quot;</span>
 </pre></div>
 
 
@@ -207,8 +207,8 @@ them <em>within</em> a role. For example:</p>
 development versus a &lsquo;real&rsquo; environment.  Using different <code>ansible.cfg</code> files
 can help here, and you swap using environment variables. For example:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #336666">export </span><span style="color: #003333">ANSIBLE_CONFIG</span><span style="color: #555555">=</span>ansible.cfg.dev
-    <span style="color: #336666">export </span><span style="color: #003333">ANSIBLE_CONFIG</span><span style="color: #555555">=</span>ansible.cfg.uat
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #003333">$ </span><span style="color: #336666">export </span><span style="color: #003333">ANSIBLE_CONFIG</span><span style="color: #555555">=</span>ansible.cfg.dev
+    <span style="color: #003333">$ </span><span style="color: #336666">export </span><span style="color: #003333">ANSIBLE_CONFIG</span><span style="color: #555555">=</span>ansible.cfg.uat
 </pre></div>
 
 
@@ -233,7 +233,7 @@ You can get <em>more</em> flexibility by dynamically loading your var files:</p>
 
 <p>Then run your playbook with the <em>dev</em> set of variables:</p>
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #003333">vf</span><span style="color: #555555">=</span>dev
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #003333">$ </span>ansible-playbook config.yml -e <span style="color: #003333">vf</span><span style="color: #555555">=</span>dev
 </pre></div>
 
 
@@ -249,7 +249,7 @@ You can get <em>more</em> flexibility by dynamically loading your var files:</p>
 </pre></div>
 
 
-<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #003333">nodes</span><span style="color: #555555">=</span><span style="color: #CC3300">&#39;tag_Owner_sonia&#39;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #003333">$ </span>ansible-playbook config.yml -e <span style="color: #003333">nodes</span><span style="color: #555555">=</span><span style="color: #CC3300">&#39;tag_Owner_sonia&#39;</span>
 </pre></div>
 
 
@@ -264,15 +264,17 @@ for switching AWS inventory this can be really useful.</p>
 
 <p>Your dev <code>ansible.cfg</code>:</p>
 
-<pre><code>[defaults]
-inventory = inventory.dev
-</code></pre>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #006699; font-weight: bold">[defaults]</span>
+    <span style="color: #330099">inventory</span> <span style="color: #555555">=</span> <span style="color: #CC3300">inventory.dev</span>
+</pre></div>
+
 
 <p>Your prod <code>ansible.cfg</code>:</p>
 
-<pre><code>[defaults]
-inventory = inventory.prod
-</code></pre>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #006699; font-weight: bold">[defaults]</span>
+    <span style="color: #330099">inventory</span> <span style="color: #555555">=</span> <span style="color: #CC3300">inventory.prod</span>
+</pre></div>
+
 
 <p>Some things you may want to change:</p>
 
@@ -296,33 +298,36 @@ difficult to work out the syntax. Is it:</p>
 
 <p>The solution is to use the lines at the end of the <code>ansible-ec2.cache</code> file, it will show the <em>exact</em> tags available, and which hosts they match:</p>
 
-<pre><code>&quot;security_group_ElasticMapReduce-master&quot;: [
-  &quot;10.666.666.253&quot;,
-  &quot;10.666.666.229&quot;,
-  &quot;10.666.666.210&quot;,
-  &quot;10.666.666.9&quot;,
-  &quot;10.666.666.239&quot;
-],
-</code></pre>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #CC3300">&quot;security_group_ElasticMapReduce-master&quot;</span>: [
+      <span style="color: #CC3300">&quot;10.666.666.253&quot;</span>,
+      <span style="color: #CC3300">&quot;10.666.666.229&quot;</span>,
+      <span style="color: #CC3300">&quot;10.666.666.210&quot;</span>,
+      <span style="color: #CC3300">&quot;10.666.666.9&quot;</span>,
+      <span style="color: #CC3300">&quot;10.666.666.239&quot;</span>
+    ]
+</pre></div>
+
 
 <h2 id="aws-inventory-ping:1faa7ee1a0c9f5e2153fb57be082cdf4">AWS Inventory Ping</h2>
 
 <p>Even after Spelunking the cache, it can <em>still</em> be difficult to determine <em>how</em>
 to target hosts. I use the following <code>ping.yml</code></p>
 
-<pre><code>---
-- hosts:
-  - &quot;{{ nodes }}&quot;
-  tasks:
-  - name: ping-pong
-    ping:
-</code></pre>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ---
+    - hosts:
+      - <span style="color: #CC3300">&quot;{{</span><span style="color: #003333"> </span><span style="color: #CC3300">nodes</span><span style="color: #003333"> </span><span style="color: #CC3300">}}&quot;</span>
+      tasks:
+      - name: ping-pong
+        ping:
+</pre></div>
+
 
 <p>And test it with more complex tag combinations:</p>
 
-<pre><code>ansible-playbook ping.yml \
--e nodes='tag_Name_DEADBEEF001:&amp;security_group_ElasticMapReduce-slave'
-</code></pre>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #003333">$ </span>ansible-playbook ping.yml <span style="color: #CC3300; font-weight: bold">\</span>
+    -e <span style="color: #003333">nodes</span><span style="color: #555555">=</span><span style="color: #CC3300">&#39;tag_Name_DEADBEEF001:&amp;security_group_ElasticMapReduce-slave&#39;</span>
+</pre></div>
+
 
 <h1 id="more:1faa7ee1a0c9f5e2153fb57be082cdf4">More</h1>
 

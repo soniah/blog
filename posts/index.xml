@@ -101,7 +101,7 @@ everywhere, deep down in roles.&lt;/p&gt;
 playbooks, giving flexibility but keeping clarity. But I wouldn&amp;rsquo;t use
 them &lt;em&gt;within&lt;/em&gt; a role. For example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml --tags&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;java,splunk&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #003333&#34;&gt;$ &lt;/span&gt;ansible-playbook config.yml --tags&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;java,splunk&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -124,8 +124,8 @@ them &lt;em&gt;within&lt;/em&gt; a role. For example:&lt;/p&gt;
 development versus a &amp;lsquo;real&amp;rsquo; environment.  Using different &lt;code&gt;ansible.cfg&lt;/code&gt; files
 can help here, and you swap using environment variables. For example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #336666&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;ansible.cfg.dev
-    &lt;span style=&#34;color: #336666&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;ansible.cfg.uat
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #003333&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #336666&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;ansible.cfg.dev
+    &lt;span style=&#34;color: #003333&#34;&gt;$ &lt;/span&gt;&lt;span style=&#34;color: #336666&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;ansible.cfg.uat
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -150,7 +150,7 @@ You can get &lt;em&gt;more&lt;/em&gt; flexibility by dynamically loading your va
 
 &lt;p&gt;Then run your playbook with the &lt;em&gt;dev&lt;/em&gt; set of variables:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #003333&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;dev
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #003333&#34;&gt;$ &lt;/span&gt;ansible-playbook config.yml -e &lt;span style=&#34;color: #003333&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;dev
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -166,7 +166,7 @@ You can get &lt;em&gt;more&lt;/em&gt; flexibility by dynamically loading your va
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #003333&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;tag_Owner_sonia&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #003333&#34;&gt;$ &lt;/span&gt;ansible-playbook config.yml -e &lt;span style=&#34;color: #003333&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;tag_Owner_sonia&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -181,15 +181,17 @@ for switching AWS inventory this can be really useful.&lt;/p&gt;
 
 &lt;p&gt;Your dev &lt;code&gt;ansible.cfg&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[defaults]
-inventory = inventory.dev
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;[defaults]&lt;/span&gt;
+    &lt;span style=&#34;color: #330099&#34;&gt;inventory&lt;/span&gt; &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;inventory.dev&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;Your prod &lt;code&gt;ansible.cfg&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[defaults]
-inventory = inventory.prod
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;[defaults]&lt;/span&gt;
+    &lt;span style=&#34;color: #330099&#34;&gt;inventory&lt;/span&gt; &lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #CC3300&#34;&gt;inventory.prod&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;Some things you may want to change:&lt;/p&gt;
 
@@ -213,33 +215,36 @@ difficult to work out the syntax. Is it:&lt;/p&gt;
 
 &lt;p&gt;The solution is to use the lines at the end of the &lt;code&gt;ansible-ec2.cache&lt;/code&gt; file, it will show the &lt;em&gt;exact&lt;/em&gt; tags available, and which hosts they match:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;quot;security_group_ElasticMapReduce-master&amp;quot;: [
-  &amp;quot;10.666.666.253&amp;quot;,
-  &amp;quot;10.666.666.229&amp;quot;,
-  &amp;quot;10.666.666.210&amp;quot;,
-  &amp;quot;10.666.666.9&amp;quot;,
-  &amp;quot;10.666.666.239&amp;quot;
-],
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;security_group_ElasticMapReduce-master&amp;quot;&lt;/span&gt;: [
+      &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;10.666.666.253&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;10.666.666.229&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;10.666.666.210&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;10.666.666.9&amp;quot;&lt;/span&gt;,
+      &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;10.666.666.239&amp;quot;&lt;/span&gt;
+    ]
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;h2 id=&#34;aws-inventory-ping:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;AWS Inventory Ping&lt;/h2&gt;
 
 &lt;p&gt;Even after Spelunking the cache, it can &lt;em&gt;still&lt;/em&gt; be difficult to determine &lt;em&gt;how&lt;/em&gt;
 to target hosts. I use the following &lt;code&gt;ping.yml&lt;/code&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;---
-- hosts:
-  - &amp;quot;{{ nodes }}&amp;quot;
-  tasks:
-  - name: ping-pong
-    ping:
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ---
+    - hosts:
+      - &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;{{&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;}}&amp;quot;&lt;/span&gt;
+      tasks:
+      - name: ping-pong
+        ping:
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;And test it with more complex tag combinations:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;ansible-playbook ping.yml \
--e nodes=&#39;tag_Name_DEADBEEF001:&amp;amp;security_group_ElasticMapReduce-slave&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #003333&#34;&gt;$ &lt;/span&gt;ansible-playbook ping.yml &lt;span style=&#34;color: #CC3300; font-weight: bold&#34;&gt;\&lt;/span&gt;
+    -e &lt;span style=&#34;color: #003333&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;tag_Name_DEADBEEF001:&amp;amp;security_group_ElasticMapReduce-slave&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;h1 id=&#34;more:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;More&lt;/h1&gt;
 
