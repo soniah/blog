@@ -37,7 +37,7 @@ if [[ $REPLY =~ ^[Yy]$ ]] ; then
 cat > $file_name <<EOF
 ---
 author: sonia
-draft: true
+draft: false
 date: $fecha_dash
 url: $url
 title: $title

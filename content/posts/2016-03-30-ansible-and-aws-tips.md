@@ -1,6 +1,6 @@
 ---
 author: sonia
-draft: true
+draft: false
 date: 2016-03-30
 url: /2016/03/30/ansible-and-aws-tips/
 title: Ansible and AWS Tips

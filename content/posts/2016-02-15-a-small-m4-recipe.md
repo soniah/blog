@@ -1,6 +1,6 @@
 ---
 author: sonia
-draft: true
+draft: false
 date: 2016-02-15
 url: /2016/02/15/a-small-m4-recipe/
 title: A Small m4 Recipe
