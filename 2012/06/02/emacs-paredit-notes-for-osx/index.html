@@ -125,22 +125,22 @@
 
 <p>I wrote this elisp for my <strong>~/.emacs.d/sonia.el</strong> (I&rsquo;m using <a href="http://github.com/technomancy/emacs-starter-kit">Technomancy&rsquo;s Emacs Starter Kit</a>):</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">(</span><span style="color: #24909d">when </span><span style="color: #d0d0d0">(</span><span style="color: #447fcf">eq</span> <span style="color: #40ffff">system-type</span> <span style="color: #ed9d13">&#39;darwin</span><span style="color: #d0d0d0">)</span>
-  <span style="color: #d0d0d0">(</span><span style="color: #447fcf">eval-after-load</span> <span style="color: #ed9d13">&#39;paredit</span>
-    <span style="color: #d0d0d0">&#39;(</span><span style="color: #447fcf">progn</span>
-       <span style="color: #999999; font-style: italic">;; C-left</span>
-       <span style="color: #d0d0d0">(</span><span style="color: #447fcf">define-key</span> <span style="color: #40ffff">paredit-mode-map</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">kbd</span> <span style="color: #ed9d13">&quot;M-[ 5 d&quot;</span><span style="color: #d0d0d0">)</span>
-                   <span style="color: #ed9d13">&#39;paredit-forward-barf-sexp</span><span style="color: #d0d0d0">)</span>
-       <span style="color: #999999; font-style: italic">;; C-right</span>
-       <span style="color: #d0d0d0">(</span><span style="color: #447fcf">define-key</span> <span style="color: #40ffff">paredit-mode-map</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">kbd</span> <span style="color: #ed9d13">&quot;M-[ 5 c&quot;</span><span style="color: #d0d0d0">)</span>
-                   <span style="color: #ed9d13">&#39;paredit-forward-slurp-sexp</span><span style="color: #d0d0d0">)</span>
-       <span style="color: #999999; font-style: italic">;; ESC-C-left</span>
-       <span style="color: #d0d0d0">(</span><span style="color: #447fcf">define-key</span> <span style="color: #40ffff">paredit-mode-map</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">kbd</span> <span style="color: #ed9d13">&quot;ESC M-[ 5 d&quot;</span><span style="color: #d0d0d0">)</span>
-                   <span style="color: #ed9d13">&#39;paredit-backward-slurp-sexp</span><span style="color: #d0d0d0">)</span>
-       <span style="color: #999999; font-style: italic">;; ESC-C-right</span>
-       <span style="color: #d0d0d0">(</span><span style="color: #447fcf">define-key</span> <span style="color: #40ffff">paredit-mode-map</span> <span style="color: #d0d0d0">(</span><span style="color: #447fcf">kbd</span> <span style="color: #ed9d13">&quot;ESC M-[ 5 c&quot;</span><span style="color: #d0d0d0">)</span>
-                   <span style="color: #ed9d13">&#39;paredit-backward-barf-sexp</span><span style="color: #d0d0d0">)</span>
-     <span style="color: #d0d0d0">)))</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">(when (</span><span style="color: #a6e22e">eq</span> <span style="color: #f8f8f2">system-type</span> <span style="color: #e6db74">&#39;darwin</span><span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">eval-after-load</span> <span style="color: #e6db74">&#39;paredit</span>
+    <span style="color: #f92672">&#39;</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">progn</span>
+       <span style="color: #75715e">;; C-left</span>
+       <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">define-key</span> <span style="color: #f8f8f2">paredit-mode-map</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">kbd</span> <span style="color: #e6db74">&quot;M-[ 5 d&quot;</span><span style="color: #f8f8f2">)</span>
+                   <span style="color: #e6db74">&#39;paredit-forward-barf-sexp</span><span style="color: #f8f8f2">)</span>
+       <span style="color: #75715e">;; C-right</span>
+       <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">define-key</span> <span style="color: #f8f8f2">paredit-mode-map</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">kbd</span> <span style="color: #e6db74">&quot;M-[ 5 c&quot;</span><span style="color: #f8f8f2">)</span>
+                   <span style="color: #e6db74">&#39;paredit-forward-slurp-sexp</span><span style="color: #f8f8f2">)</span>
+       <span style="color: #75715e">;; ESC-C-left</span>
+       <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">define-key</span> <span style="color: #f8f8f2">paredit-mode-map</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">kbd</span> <span style="color: #e6db74">&quot;ESC M-[ 5 d&quot;</span><span style="color: #f8f8f2">)</span>
+                   <span style="color: #e6db74">&#39;paredit-backward-slurp-sexp</span><span style="color: #f8f8f2">)</span>
+       <span style="color: #75715e">;; ESC-C-right</span>
+       <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">define-key</span> <span style="color: #f8f8f2">paredit-mode-map</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">kbd</span> <span style="color: #e6db74">&quot;ESC M-[ 5 c&quot;</span><span style="color: #f8f8f2">)</span>
+                   <span style="color: #e6db74">&#39;paredit-backward-barf-sexp</span><span style="color: #f8f8f2">)</span>
+     <span style="color: #f8f8f2">)))</span>
 </pre></div>
 
 

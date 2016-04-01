@@ -120,9 +120,9 @@
 <p>If you selected the default Ubuntu encryption setup, the partitions will
 be laid out like this:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">/dev/sda1 * <span style="color: #3677a9">2048</span> <span style="color: #3677a9">499711</span> <span style="color: #3677a9">248832</span> <span style="color: #3677a9">83</span> Linux
-/dev/sda2 <span style="color: #3677a9">501758</span> <span style="color: #3677a9">976771071</span> <span style="color: #3677a9">488134657</span> <span style="color: #3677a9">5</span> Extended
-/dev/sda5 <span style="color: #3677a9">501760</span> <span style="color: #3677a9">976771071</span> <span style="color: #3677a9">488134656</span> <span style="color: #3677a9">83</span> Linux
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">/dev/sda1 * <span style="color: #ae81ff">2048</span> <span style="color: #ae81ff">499711</span> <span style="color: #ae81ff">248832</span> <span style="color: #ae81ff">83</span> Linux
+/dev/sda2 <span style="color: #ae81ff">501758</span> <span style="color: #ae81ff">976771071</span> <span style="color: #ae81ff">488134657</span> <span style="color: #ae81ff">5</span> Extended
+/dev/sda5 <span style="color: #ae81ff">501760</span> <span style="color: #ae81ff">976771071</span> <span style="color: #ae81ff">488134656</span> <span style="color: #ae81ff">83</span> Linux
 </pre></div>
 
 
@@ -140,7 +140,7 @@ will be encrypted with a second level of encryption if you chose
 <li>confirm /dev/sda5 is the correct partition [1]:</li>
 </ul>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">cryptsetup -v luksDump /dev/sda5
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">cryptsetup -v luksDump /dev/sda5
 </pre></div>
 
 
@@ -148,14 +148,14 @@ will be encrypted with a second level of encryption if you chose
 <li>mount the encrypted partition containing the LVM volumes:</li>
 </ul>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">cryptsetup -v luksOpen /dev/sda5 sda5_crypt
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">cryptsetup -v luksOpen /dev/sda5 sda5_crypt
 vgdisplay
 </pre></div>
 
 
 <p>(you may need to rename the volume group using vgchange if it conflicts with an existing one. A good motivation for using different VG names on each machine)</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">lvdisplay <span style="color: #d0d0d0">|</span> less
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">lvdisplay <span style="color: #f8f8f2">|</span> less
 mkdir /mnt/home
 mount -t ext4 /dev/vg/home /mnt/home
 </pre></div>
@@ -183,9 +183,9 @@ mount -t ext4 /dev/vg/home /mnt/home
 
 <ul>
 <li>&ldquo;remount&rdquo; /mnt/home on home:
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">umount /mnt/home
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">umount /mnt/home
 mount -t ext4 /dev/vg/home /home
-<span style="color: #999999; font-style: italic"># add a user with the same name as the broken system</span>
+<span style="color: #75715e"># add a user with the same name as the broken system</span>
 adduser --no-create-home sonia
 su sonia
 ecryptfs-mount-private
@@ -199,7 +199,7 @@ ecryptfs-mount-private
 information [4]. These commands are copied from there, in case the page
 moves or disappears.</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">sudo ecryptfs-add-passphrase --fnek
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">sudo ecryptfs-add-passphrase --fnek
 </pre></div>
 
 
@@ -211,7 +211,7 @@ moves or disappears.</p>
 
 <p>Inserted auth tok with sig [76a9f69af69a86fa] into the user session keyring (write down the second value in the square brackets)</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">mkdir /mnt/Private
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">mkdir /mnt/Private
 mount -t ecryptfs /mnt/home/sonia/.Private /mnt/Private
 </pre></div>
 

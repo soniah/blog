@@ -107,14 +107,14 @@ new failing Server 2012 interface (I&rsquo;m not using a tablet, so why force
 a tablet interface down my throat? Sort of reminds me of Ubuntu Unity).
 Anyway, the solution is to first enable CLR using SQL:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">sp_configure</span> <span style="color: #ed9d13">&#39;show advanced options&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">;</span>
-<span style="color: #6ab825; font-weight: bold">GO</span>
-<span style="color: #d0d0d0">RECONFIGURE;</span>
-<span style="color: #6ab825; font-weight: bold">GO</span>
-<span style="color: #d0d0d0">sp_configure</span> <span style="color: #ed9d13">&#39;clr enabled&#39;</span><span style="color: #d0d0d0">,</span> <span style="color: #3677a9">1</span><span style="color: #d0d0d0">;</span>
-<span style="color: #6ab825; font-weight: bold">GO</span>
-<span style="color: #d0d0d0">RECONFIGURE;</span>
-<span style="color: #6ab825; font-weight: bold">GO</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">sp_configure</span> <span style="color: #e6db74">&#39;show advanced options&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<span style="color: #66d9ef">GO</span>
+<span style="color: #f8f8f2">RECONFIGURE;</span>
+<span style="color: #66d9ef">GO</span>
+<span style="color: #f8f8f2">sp_configure</span> <span style="color: #e6db74">&#39;clr enabled&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<span style="color: #66d9ef">GO</span>
+<span style="color: #f8f8f2">RECONFIGURE;</span>
+<span style="color: #66d9ef">GO</span>
 </pre></div>
 
 

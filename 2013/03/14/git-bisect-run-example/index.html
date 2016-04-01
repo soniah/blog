@@ -109,31 +109,31 @@
 
 <p>So I had an elusive bug in a long running process (an snmp poller, calculator and aggregator for a large network). I had a point where the program was <strong>good</strong>, but I&rsquo;d added more features since good and now results were <strong>bad</strong>. The first step was to write a shell script to be called from <strong>git bisect run</strong>:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">% cat bisect.sh
-<span style="color: #999999; font-style: italic">#!/bin/bash</span>
-<span style="color: #999999; font-style: italic"># copy this to ~ before running with `git bisect run ~/bisect.sh`</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">% cat bisect.sh
+<span style="color: #75715e">#!/bin/bash</span>
+<span style="color: #75715e"># copy this to ~ before running with `git bisect run ~/bisect.sh`</span>
 
 cp ~/Makefile .
 make clean
 
-<span style="color: #999999; font-style: italic"># make modifies manpage output, so stash after build</span>
-<span style="color: #6ab825; font-weight: bold">if</span> make <span style="color: #d0d0d0">&amp;</span>&gt; /dev/null <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+<span style="color: #75715e"># make modifies manpage output, so stash after build</span>
+<span style="color: #66d9ef">if</span> make <span style="color: #f8f8f2">&amp;</span>&gt; /dev/null <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
 	git stash
 	git stash clear
-<span style="color: #6ab825; font-weight: bold">else</span>
+<span style="color: #66d9ef">else</span>
 	git stash
 	git stash clear
-	<span style="color: #24909d">exit </span>125
-<span style="color: #6ab825; font-weight: bold">fi</span>
+	<span style="color: #f8f8f2">exit </span>125
+<span style="color: #66d9ef">fi</span>
 
 sudo cat /var/tmp/empty &gt; /var/log/abc/abc-poller.log
-sudo ./abc-poller --tmp --once -d <span style="color: #3677a9">2</span> -c <span style="color: #3677a9">150</span> <span style="color: #d0d0d0">||</span> <span style="color: #24909d">exit </span>125
-<span style="color: #24909d">echo</span> <span style="color: #ed9d13">&quot;=== poller finished&quot;</span>
+sudo ./abc-poller --tmp --once -d <span style="color: #ae81ff">2</span> -c <span style="color: #ae81ff">150</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">exit </span>125
+<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;=== poller finished&quot;</span>
 
-<span style="color: #40ffff">percent</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">`</span><span style="color: #40ffff">godir</span><span style="color: #d0d0d0">=</span>/var/tmp/data/abcmon/poll_queue/new ~/checker <span style="color: #d0d0d0">|</span> <span style="color: #ed9d13">\</span>
-  tail -1 <span style="color: #d0d0d0">|</span> awk <span style="color: #ed9d13">&#39;{print $5}&#39;</span> <span style="color: #d0d0d0">|</span> awk -F. <span style="color: #ed9d13">&#39;{print $1}&#39;`</span>
-<span style="color: #24909d">echo</span> <span style="color: #ed9d13">&quot;=== percent is </span><span style="color: #40ffff">$percent</span><span style="color: #ed9d13">&quot;</span>
-<span style="color: #d0d0d0">((</span> percent &lt; <span style="color: #3677a9">5</span> <span style="color: #d0d0d0">))</span>
+<span style="color: #f8f8f2">percent</span><span style="color: #f92672">=</span><span style="color: #e6db74">`</span><span style="color: #f8f8f2">godir</span><span style="color: #f92672">=</span>/var/tmp/data/abcmon/poll_queue/new ~/checker <span style="color: #f8f8f2">|</span> <span style="color: #ae81ff">\</span>
+  tail -1 <span style="color: #f8f8f2">|</span> awk <span style="color: #e6db74">&#39;{print $5}&#39;</span> <span style="color: #f8f8f2">|</span> awk -F. <span style="color: #e6db74">&#39;{print $1}&#39;`</span>
+<span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;=== percent is </span><span style="color: #f8f8f2">$percent</span><span style="color: #e6db74">&quot;</span>
+<span style="color: #f92672">((</span> percent &lt; <span style="color: #ae81ff">5</span> <span style="color: #f92672">))</span>
 </pre></div>
 
 
@@ -200,9 +200,9 @@ bffd430 rules: add note about &quot;too many open files&quot;
 
 <p>I have a useful shell function <strong>gri()</strong> - I used that to interactively rebase and break up 557a5e3 into many small commits:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">gri <span style="color: #d0d0d0">()</span> <span style="color: #d0d0d0">{</span>
-  git rebase -i HEAD~<span style="color: #ed9d13">${</span><span style="color: #40ffff">1</span><span style="color: #6ab825; font-weight: bold">:-</span><span style="color: #40ffff">7</span><span style="color: #ed9d13">}</span>
-<span style="color: #d0d0d0">}</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">gri <span style="color: #f92672">()</span> <span style="color: #f92672">{</span>
+  git rebase -i HEAD~<span style="color: #e6db74">${</span><span style="color: #f8f8f2">1</span><span style="color: #66d9ef">:-</span><span style="color: #f8f8f2">7</span><span style="color: #e6db74">}</span>
+<span style="color: #f92672">}</span>
 </pre></div>
 
 

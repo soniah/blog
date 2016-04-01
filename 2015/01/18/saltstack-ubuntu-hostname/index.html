@@ -99,32 +99,32 @@
           <h5 id="date"> 18 Jan 2015 </h5>
           <p><a href="http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html">SaltStack</a> currently doesn&rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&rsquo;t work:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">system:</span>
-    <span style="color: #d0d0d0">network.system:</span>
-      <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">enabled:</span> <span style="color: #d0d0d0">True</span>
-      <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">hostname:</span> <span style="color: #d0d0d0">server1.example.com</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #ae81ff">system</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #ae81ff">network.system</span><span style="color: #f8f8f2">:</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">enabled</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">True</span>
+      <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">hostname</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">server1.example.com</span>
 </pre></div>
 
 
 <p>Here&rsquo;s a little shell script I wrote, to get around this problem:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">% cat set_hostname.sh 
-<span style="color: #999999; font-style: italic">#!/bin/bash</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%">% cat set_hostname.sh 
+<span style="color: #75715e">#!/bin/bash</span>
 
-<span style="color: #40ffff">hn</span><span style="color: #d0d0d0">=</span><span style="color: #40ffff">$1</span>
-hostname <span style="color: #40ffff">$hn</span>
-<span style="color: #24909d">echo</span> <span style="color: #40ffff">$hn</span> &gt; /etc/hostname
-sed -i <span style="color: #ed9d13">&quot;1s/.*/127.0.0.1 localhost </span><span style="color: #40ffff">$hn</span><span style="color: #ed9d13">/&quot;</span> /etc/hosts
+<span style="color: #f8f8f2">hn</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">$1</span>
+hostname <span style="color: #f8f8f2">$hn</span>
+<span style="color: #f8f8f2">echo</span> <span style="color: #f8f8f2">$hn</span> &gt; /etc/hostname
+sed -i <span style="color: #e6db74">&quot;1s/.*/127.0.0.1 localhost </span><span style="color: #f8f8f2">$hn</span><span style="color: #e6db74">/&quot;</span> /etc/hosts
 </pre></div>
 
 
 <p>Then apply it using cmd.script, for example:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">foo-hostname:</span>
-  <span style="color: #d0d0d0">cmd.script:</span>
-    <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">source:</span> <span style="color: #d0d0d0">salt://soe/set_hostname.sh</span>
-    <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">args:</span> <span style="color: #d0d0d0">foo.bar.com</span>
-    <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">unless:</span> <span style="color: #d0d0d0">grep -q &quot;foo.bar.com&quot; /etc/hosts</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #ae81ff">foo-hostname</span><span style="color: #f8f8f2">:</span>
+  <span style="color: #ae81ff">cmd.script</span><span style="color: #f8f8f2">:</span>
+    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">source</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">salt://soe/set_hostname.sh</span>
+    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">args</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">foo.bar.com</span>
+    <span style="color: #f8f8f2">-</span> <span style="color: #ae81ff">unless</span><span style="color: #f8f8f2">:</span> <span style="color: #ae81ff">grep -q &quot;foo.bar.com&quot; /etc/hosts</span>
 </pre></div>
 
 

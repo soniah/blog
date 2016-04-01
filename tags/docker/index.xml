@@ -92,17 +92,17 @@ EXPOSE&amp;rsquo;d ports can be automatically mapped using &lt;code&gt;-P&lt;/co
 
 &lt;h1 id=&#34;build-run-exec:62690b4e4e2be0f330c66d76376225a7&#34;&gt;Build, Run, Exec&lt;/h1&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# build the image &amp;amp; tag it; use current dir as context&lt;/span&gt;
-docker build -t&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;soniah/foo:1.0&amp;quot;&lt;/span&gt; .
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# run, automap ports. For dev, omit -D -- stdout is tailed and&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# container is automatically stopped on ctrl-c.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #75715e&#34;&gt;# build the image &amp;amp; tag it; use current dir as context&lt;/span&gt;
+docker build -t&lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;soniah/foo:1.0&amp;quot;&lt;/span&gt; .
+&lt;span style=&#34;color: #75715e&#34;&gt;# run, automap ports. For dev, omit -D -- stdout is tailed and&lt;/span&gt;
+&lt;span style=&#34;color: #75715e&#34;&gt;# container is automatically stopped on ctrl-c.&lt;/span&gt;
 docker run -P sonia/foo
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# get an interactive shell&lt;/span&gt;
-docker &lt;span style=&#34;color: #24909d&#34;&gt;exec&lt;/span&gt; -it random_name bash
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# remove all old images, except ubuntu &amp;quot;base&amp;quot; images&lt;/span&gt;
-docker rmi -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker images &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; tail -n +2 &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; grep -v &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;ubuntu&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color: #d0d0d0&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;print $3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# remove all containers, including stopped containers&lt;/span&gt;
-docker rm -f &lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;docker ps --no-trunc -aq&lt;span style=&#34;color: #ed9d13&#34;&gt;`&lt;/span&gt;
+&lt;span style=&#34;color: #75715e&#34;&gt;# get an interactive shell&lt;/span&gt;
+docker &lt;span style=&#34;color: #f8f8f2&#34;&gt;exec&lt;/span&gt; -it random_name bash
+&lt;span style=&#34;color: #75715e&#34;&gt;# remove all old images, except ubuntu &amp;quot;base&amp;quot; images&lt;/span&gt;
+docker rmi -f &lt;span style=&#34;color: #e6db74&#34;&gt;`&lt;/span&gt;docker images &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; tail -n +2 &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; grep -v &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;ubuntu&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;|&lt;/span&gt; awk &lt;span style=&#34;color: #f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;print $3&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;`&lt;/span&gt;
+&lt;span style=&#34;color: #75715e&#34;&gt;# remove all containers, including stopped containers&lt;/span&gt;
+docker rm -f &lt;span style=&#34;color: #e6db74&#34;&gt;`&lt;/span&gt;docker ps --no-trunc -aq&lt;span style=&#34;color: #e6db74&#34;&gt;`&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

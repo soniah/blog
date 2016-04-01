@@ -101,83 +101,83 @@
 
 <p>First you need to install <a href="http://en.wikipedia.org/wiki/Go_%28programming_language%29">Go</a>, I have a script for this that would be easy to adapt for your needs. It installs Go, but also downloads some common projects (<a href="https://github.com/jteeuwen/go-bindata">go-bindata</a>, <a href="https://github.com/jteeuwen/go-bindata">lint</a>) and my own projects (<a href="https://github.com/soniah/gosnmp">gosnmp</a>, <a href="https://github.com/soniah/evaler">evaler</a>).</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #999999; font-style: italic">#!/bin/bash</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #75715e">#!/bin/bash</span>
 
-<span style="color: #999999; font-style: italic">## install go</span>
+<span style="color: #75715e">## install go</span>
 
-<span style="color: #40ffff">tgz</span><span style="color: #d0d0d0">=</span>go1.3.3.linux-amd64.tar.gz
-<span style="color: #40ffff">url</span><span style="color: #d0d0d0">=</span>https://storage.googleapis.com/golang/<span style="color: #40ffff">$tgz</span>
+<span style="color: #f8f8f2">tgz</span><span style="color: #f92672">=</span>go1.3.3.linux-amd64.tar.gz
+<span style="color: #f8f8f2">url</span><span style="color: #f92672">=</span>https://storage.googleapis.com/golang/<span style="color: #f8f8f2">$tgz</span>
 
-<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -f /var/tmp/<span style="color: #40ffff">$tgz</span> <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
-	<span style="color: #24909d">cd</span> /var/tmp
-	wget <span style="color: #40ffff">$url</span>
-<span style="color: #6ab825; font-weight: bold">fi</span>
+<span style="color: #66d9ef">if</span> ! <span style="color: #f92672">[</span> -f /var/tmp/<span style="color: #f8f8f2">$tgz</span> <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+	<span style="color: #f8f8f2">cd</span> /var/tmp
+	wget <span style="color: #f8f8f2">$url</span>
+<span style="color: #66d9ef">fi</span>
 
-<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d /usr/local/go <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
-	sudo tar -C /usr/local -xzf /var/tmp/<span style="color: #40ffff">$tgz</span>
-<span style="color: #6ab825; font-weight: bold">fi</span>
+<span style="color: #66d9ef">if</span> ! <span style="color: #f92672">[</span> -d /usr/local/go <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+	sudo tar -C /usr/local -xzf /var/tmp/<span style="color: #f8f8f2">$tgz</span>
+<span style="color: #66d9ef">fi</span>
 
-<span style="color: #999999; font-style: italic">## setup dev directory structure</span>
+<span style="color: #75715e">## setup dev directory structure</span>
 
-mkdir -p ~/go/<span style="color: #d0d0d0">{</span>sonia,thirdparty<span style="color: #d0d0d0">}</span>/<span style="color: #d0d0d0">{</span>bin,pkg,src<span style="color: #d0d0d0">}</span>
+mkdir -p ~/go/<span style="color: #f92672">{</span>sonia,thirdparty<span style="color: #f92672">}</span>/<span style="color: #f92672">{</span>bin,pkg,src<span style="color: #f92672">}</span>
 
-<span style="color: #24909d">cd</span> ~/go/thirdparty/src
-<span style="color: #999999; font-style: italic">#---------------------</span>
+<span style="color: #f8f8f2">cd</span> ~/go/thirdparty/src
+<span style="color: #75715e">#---------------------</span>
 
-<span style="color: #24909d">read</span> -p <span style="color: #ed9d13">&quot;Install third party repos? (go-bindata, lint)&quot;</span>
-<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">[[</span> <span style="color: #40ffff">$REPLY</span> <span style="color: #d0d0d0">=</span>~ ^<span style="color: #d0d0d0">[</span>Yy<span style="color: #d0d0d0">]</span><span style="color: #40ffff">$ </span><span style="color: #d0d0d0">]]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
-	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d github.com/jteeuwen/go-bindata <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+<span style="color: #f8f8f2">read</span> -p <span style="color: #e6db74">&quot;Install third party repos? (go-bindata, lint)&quot;</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f92672">[[</span> <span style="color: #f8f8f2">$REPLY</span> <span style="color: #f92672">=</span>~ ^<span style="color: #f92672">[</span>Yy<span style="color: #f92672">]</span><span style="color: #f8f8f2">$ </span><span style="color: #f92672">]]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+	<span style="color: #66d9ef">if</span> ! <span style="color: #f92672">[</span> -d github.com/jteeuwen/go-bindata <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
 		go get github.com/jteeuwen/go-bindata/...
 		cp ~/go/thirdparty/bin/go-bindata ~/bin
-	<span style="color: #6ab825; font-weight: bold">fi</span>
+	<span style="color: #66d9ef">fi</span>
 
-	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d github.com/golang/lint <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
+	<span style="color: #66d9ef">if</span> ! <span style="color: #f92672">[</span> -d github.com/golang/lint <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
 		go get github.com/golang/lint/golint
 		cp ~/go/thirdparty/bin/golint ~/bin
-	<span style="color: #6ab825; font-weight: bold">fi</span>
-<span style="color: #6ab825; font-weight: bold">fi</span>
+	<span style="color: #66d9ef">fi</span>
+<span style="color: #66d9ef">fi</span>
 
-<span style="color: #24909d">cd</span> ~/go/sonia/src
-<span style="color: #999999; font-style: italic">#----------------</span>
+<span style="color: #f8f8f2">cd</span> ~/go/sonia/src
+<span style="color: #75715e">#----------------</span>
 
-<span style="color: #24909d">read</span> -p <span style="color: #ed9d13">&quot;Install soniah repos? (gosnmp, evaler)&quot;</span>
-<span style="color: #6ab825; font-weight: bold">if</span> <span style="color: #d0d0d0">[[</span> <span style="color: #40ffff">$REPLY</span> <span style="color: #d0d0d0">=</span>~ ^<span style="color: #d0d0d0">[</span>Yy<span style="color: #d0d0d0">]</span><span style="color: #40ffff">$ </span><span style="color: #d0d0d0">]]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
-	<span style="color: #999999; font-style: italic"># do &#39;git clone&#39; not &#39;go get&#39; so origin is writeable</span>
-	<span style="color: #40ffff">dir</span><span style="color: #d0d0d0">=</span>github.com/soniah
-	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d <span style="color: #40ffff">$dir</span>/evaler <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
-		mkdir -p <span style="color: #40ffff">$dir</span>
-		<span style="color: #24909d">cd</span> <span style="color: #40ffff">$dir</span>
+<span style="color: #f8f8f2">read</span> -p <span style="color: #e6db74">&quot;Install soniah repos? (gosnmp, evaler)&quot;</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f92672">[[</span> <span style="color: #f8f8f2">$REPLY</span> <span style="color: #f92672">=</span>~ ^<span style="color: #f92672">[</span>Yy<span style="color: #f92672">]</span><span style="color: #f8f8f2">$ </span><span style="color: #f92672">]]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+	<span style="color: #75715e"># do &#39;git clone&#39; not &#39;go get&#39; so origin is writeable</span>
+	<span style="color: #f8f8f2">dir</span><span style="color: #f92672">=</span>github.com/soniah
+	<span style="color: #66d9ef">if</span> ! <span style="color: #f92672">[</span> -d <span style="color: #f8f8f2">$dir</span>/evaler <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+		mkdir -p <span style="color: #f8f8f2">$dir</span>
+		<span style="color: #f8f8f2">cd</span> <span style="color: #f8f8f2">$dir</span>
 		git clone git@github.com:soniah/evaler.git
-		<span style="color: #24909d">cd</span> -
-	<span style="color: #6ab825; font-weight: bold">fi</span>
+		<span style="color: #f8f8f2">cd</span> -
+	<span style="color: #66d9ef">fi</span>
 
-	<span style="color: #40ffff">dir</span><span style="color: #d0d0d0">=</span>github.com/soniah
-	<span style="color: #6ab825; font-weight: bold">if</span> ! <span style="color: #d0d0d0">[</span> -d <span style="color: #40ffff">$dir</span>/gosnmp <span style="color: #d0d0d0">]</span> <span style="color: #d0d0d0">;</span> <span style="color: #6ab825; font-weight: bold">then</span>
-		mkdir -p <span style="color: #40ffff">$dir</span>
-		<span style="color: #24909d">cd</span> <span style="color: #40ffff">$dir</span>
+	<span style="color: #f8f8f2">dir</span><span style="color: #f92672">=</span>github.com/soniah
+	<span style="color: #66d9ef">if</span> ! <span style="color: #f92672">[</span> -d <span style="color: #f8f8f2">$dir</span>/gosnmp <span style="color: #f92672">]</span> <span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
+		mkdir -p <span style="color: #f8f8f2">$dir</span>
+		<span style="color: #f8f8f2">cd</span> <span style="color: #f8f8f2">$dir</span>
 		git clone git@github.com:soniah/gosnmp.git
-		<span style="color: #24909d">cd</span> -
-	<span style="color: #6ab825; font-weight: bold">fi</span>
-<span style="color: #6ab825; font-weight: bold">fi</span>
+		<span style="color: #f8f8f2">cd</span> -
+	<span style="color: #66d9ef">fi</span>
+<span style="color: #66d9ef">fi</span>
 </pre></div>
 
 
 <p>A common pattern in Go (which my setup script demonstrates) is to <a href="http://code.google.com/p/go-wiki/wiki/GOPATH">split your code from thirdparty code</a>. This requires configuring your shell (~/.zshrc, ~/.bashrc):</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">export </span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">=</span>~/go/thirdparty:~/go/sonia
-<span style="color: #24909d">export </span><span style="color: #40ffff">PATH</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">${</span><span style="color: #40ffff">GOPATH</span><span style="color: #d0d0d0">//://bin:</span><span style="color: #ed9d13">}</span>/bin:<span style="color: #40ffff">$PATH</span>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">export GOPATH</span><span style="color: #f92672">=</span>~/go/thirdparty:~/go/sonia
+<span style="color: #f8f8f2">export PATH</span><span style="color: #f92672">=</span><span style="color: #e6db74">${</span><span style="color: #f8f8f2">GOPATH//://bin:</span><span style="color: #e6db74">}</span>/bin:<span style="color: #f8f8f2">$PATH</span>
 </pre></div>
 
 
 <p>Then you need to follow the <a href="https://github.com/hashicorp/terraform">Terraform instructions</a> for building, that is:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #40ffff">$ </span><span style="color: #24909d">cd</span> ~/go/thirdparty/src
-<span style="color: #40ffff">$ </span>go get -u github.com/mitchellh/gox
-<span style="color: #40ffff">$ </span><span style="color: #24909d">cd</span> ~/go/thirdparty/src/github.com/hashicorp/terraform
-<span style="color: #40ffff">$ </span>make updatedeps
-<span style="color: #40ffff">$ </span>make dev
-<span style="color: #999999; font-style: italic"># put the binaries somewhere in your path, eg /usr/local/bin</span>
-<span style="color: #40ffff">$ </span>sudo cp bin/terraform* /usr/local/bin
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f8f8f2">$ cd</span> ~/go/thirdparty/src
+<span style="color: #f8f8f2">$ </span>go get -u github.com/mitchellh/gox
+<span style="color: #f8f8f2">$ cd</span> ~/go/thirdparty/src/github.com/hashicorp/terraform
+<span style="color: #f8f8f2">$ </span>make updatedeps
+<span style="color: #f8f8f2">$ </span>make dev
+<span style="color: #75715e"># put the binaries somewhere in your path, eg /usr/local/bin</span>
+<span style="color: #f8f8f2">$ </span>sudo cp bin/terraform* /usr/local/bin
 </pre></div>
 
 
