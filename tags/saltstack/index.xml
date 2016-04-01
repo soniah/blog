@@ -16,32 +16,32 @@
       <guid>http://www.snowfrog.net/2015/01/18/saltstack-ubuntu-hostname/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.network.html&#34;&gt;SaltStack&lt;/a&gt; currently doesn&amp;rsquo;t set the hostname correctly on Debian/Ubuntu. For example, this won&amp;rsquo;t work:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;system:&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;network.system:&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;enabled:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;True&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;hostname:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;server1.example.com&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;system:
+    network.system:
+      - enabled: True
+      - hostname: server1.example.com
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here&amp;rsquo;s a little shell script I wrote, to get around this problem:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat set_hostname.sh 
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% cat set_hostname.sh 
+&lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;#!/bin/bash&lt;/span&gt;
 
-&lt;span style=&#34;color: #40ffff&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$1&lt;/span&gt;
-hostname &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;
-&lt;span style=&#34;color: #24909d&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
-sed -i &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
+&lt;span style=&#34;color: #003333&#34;&gt;hn&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;$1&lt;/span&gt;
+hostname &lt;span style=&#34;color: #003333&#34;&gt;$hn&lt;/span&gt;
+&lt;span style=&#34;color: #336666&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #003333&#34;&gt;$hn&lt;/span&gt; &amp;gt; /etc/hostname
+sed -i &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;1s/.*/127.0.0.1 localhost &lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;$hn&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;/&amp;quot;&lt;/span&gt; /etc/hosts
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then apply it using cmd.script, for example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;foo-hostname:&lt;/span&gt;
-  &lt;span style=&#34;color: #d0d0d0&#34;&gt;cmd.script:&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;source:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;salt://soe/set_hostname.sh&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;args:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;foo.bar.com&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;unless:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;grep -q &amp;quot;foo.bar.com&amp;quot; /etc/hosts&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;foo-hostname:
+  cmd.script:
+    - source: salt://soe/set_hostname.sh
+    - args: foo.bar.com
+    - unless: grep -q &amp;quot;foo.bar.com&amp;quot; /etc/hosts
 &lt;/pre&gt;&lt;/div&gt;
 
 </description>

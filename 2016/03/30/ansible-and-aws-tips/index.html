@@ -184,20 +184,20 @@ everywhere, deep down in roles.</p>
 playbooks, giving flexibility but keeping clarity. But I wouldn&rsquo;t use
 them <em>within</em> a role. For example:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    ansible-playbook config.yml --tags<span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&quot;java,splunk&quot;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ansible-playbook config.yml --tags<span style="color: #555555">=</span><span style="color: #CC3300">&quot;java,splunk&quot;</span>
 </pre></div>
 
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #d0d0d0">---</span>
-    <span style="color: #d0d0d0">- name:</span> <span style="color: #d0d0d0">base setup</span>
-      <span style="color: #d0d0d0">hosts:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">myhosts</span>
-      <span style="color: #d0d0d0">roles:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
-      <span style="color: #d0d0d0">tags:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">java</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">splunk</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ---
+    - name: base setup
+      hosts:
+        - myhosts
+      roles:
+        - base
+      tags:
+        - base
+        - java
+        - splunk
 </pre></div>
 
 
@@ -207,8 +207,8 @@ them <em>within</em> a role. For example:</p>
 development versus a &lsquo;real&rsquo; environment.  Using different <code>ansible.cfg</code> files
 can help here, and you swap using environment variables. For example:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #24909d">export </span><span style="color: #40ffff">ANSIBLE_CONFIG</span><span style="color: #d0d0d0">=</span>ansible.cfg.dev
-    <span style="color: #24909d">export </span><span style="color: #40ffff">ANSIBLE_CONFIG</span><span style="color: #d0d0d0">=</span>ansible.cfg.uat
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    <span style="color: #336666">export </span><span style="color: #003333">ANSIBLE_CONFIG</span><span style="color: #555555">=</span>ansible.cfg.dev
+    <span style="color: #336666">export </span><span style="color: #003333">ANSIBLE_CONFIG</span><span style="color: #555555">=</span>ansible.cfg.uat
 </pre></div>
 
 
@@ -219,37 +219,37 @@ can help here, and you swap using environment variables. For example:</p>
 <p>Variable files can be included in your yaml files to load blocks of variables.
 You can get <em>more</em> flexibility by dynamically loading your var files:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #d0d0d0">---</span>
-    <span style="color: #d0d0d0">- name:</span> <span style="color: #d0d0d0">base setup</span>
-      <span style="color: #d0d0d0">become:</span> <span style="color: #d0d0d0">true</span>
-      <span style="color: #d0d0d0">hosts:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">myhosts</span>
-      <span style="color: #d0d0d0">vars_files:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #ed9d13">&quot;vars/{{</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">vf</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">}}.yml&quot;</span>
-      <span style="color: #d0d0d0">roles:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ---
+    - name: base setup
+      become: true
+      hosts:
+        - myhosts
+      vars_files:
+        - <span style="color: #CC3300">&quot;vars/{{</span><span style="color: #003333"> </span><span style="color: #CC3300">vf</span><span style="color: #003333"> </span><span style="color: #CC3300">}}.yml&quot;</span>
+      roles:
+        - base
 </pre></div>
 
 
 <p>Then run your playbook with the <em>dev</em> set of variables:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #40ffff">vf</span><span style="color: #d0d0d0">=</span>dev
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #003333">vf</span><span style="color: #555555">=</span>dev
 </pre></div>
 
 
 <p>A similar technique is also useful for AWS tags (AWS is discussed further below):</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #d0d0d0">---</span>
-    <span style="color: #d0d0d0">- name:</span> <span style="color: #d0d0d0">base setup</span>
-      <span style="color: #d0d0d0">become:</span> <span style="color: #d0d0d0">true</span>
-      <span style="color: #d0d0d0">hosts:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #ed9d13">&quot;{{</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">nodes</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">}}&quot;</span>
-      <span style="color: #d0d0d0">roles:</span>
-        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ---
+    - name: base setup
+      become: true
+      hosts:
+        - <span style="color: #CC3300">&quot;{{</span><span style="color: #003333"> </span><span style="color: #CC3300">nodes</span><span style="color: #003333"> </span><span style="color: #CC3300">}}&quot;</span>
+      roles:
+        - base
 </pre></div>
 
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #40ffff">nodes</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&#39;tag_Owner_sonia&#39;</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #003333">nodes</span><span style="color: #555555">=</span><span style="color: #CC3300">&#39;tag_Owner_sonia&#39;</span>
 </pre></div>
 
 

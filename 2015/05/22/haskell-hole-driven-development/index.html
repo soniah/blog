@@ -107,29 +107,29 @@ help you write a function.</p>
 allow code to compile (without producing error messages) while you&rsquo;re
 working on other parts. The two placeholders are:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #bbbbbb">error</span> <span style="color: #ed9d13">&quot;todo&quot;</span> <span style="color: #d0d0d0">(or</span> <span style="color: #d0d0d0">any</span> <span style="color: #d0d0d0">string)</span>
-<span style="color: #447fcf">undefined</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #CC0000; font-weight: bold">error</span> <span style="color: #CC3300">&quot;todo&quot;</span> (or any string)
+<span style="color: #CC00FF">undefined</span>
 </pre></div>
 
 
 <p>The &ldquo;hole driven&rdquo; part involves using the underscore to get the
 compiler to print types:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #447fcf">_undefined</span>
-<span style="color: #447fcf">_x</span>
-<span style="color: #447fcf">_foo</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #CC00FF">_undefined</span>
+<span style="color: #CC00FF">_x</span>
+<span style="color: #CC00FF">_foo</span>
 </pre></div>
 
 
 <p>For example if I used <code>_x</code> then re-loaded my code in ghci, I would get
 output like:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #6ab825; font-weight: bold">Found</span> <span style="color: #d0d0d0">hole</span> <span style="color: #a61717; background-color: #e3d2d2">‘</span><span style="color: #d0d0d0">_x</span><span style="color: #a61717; background-color: #e3d2d2">’</span> <span style="color: #d0d0d0">with</span> <span style="color: #6ab825; font-weight: bold">type:</span> <span style="color: #d0d0d0">a</span>
-<span style="color: #d0d0d0">...</span>
-<span style="color: #447fcf">g2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">31</span><span style="color: #d0d0d0">)</span>
-<span style="color: #447fcf">s2</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">a</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">a</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">28</span><span style="color: #d0d0d0">)</span>
-<span style="color: #447fcf">g1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">18</span><span style="color: #d0d0d0">)</span>
-<span style="color: #447fcf">s1</span> <span style="color: #6ab825; font-weight: bold">::</span> <span style="color: #d0d0d0">b</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">c</span> <span style="color: #6ab825; font-weight: bold">-&gt;</span> <span style="color: #d0d0d0">b</span> <span style="color: #d0d0d0">(bound</span> <span style="color: #d0d0d0">at</span> <span style="color: #6ab825; font-weight: bold">GetSetLens</span><span style="color: #d0d0d0">.hs</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">312</span><span style="color: #6ab825; font-weight: bold">:</span><span style="color: #3677a9">15</span><span style="color: #d0d0d0">)</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #007788; font-weight: bold">Found</span> hole <span style="color: #AA0000; background-color: #FFAAAA">‘</span>_x<span style="color: #AA0000; background-color: #FFAAAA">’</span> with <span style="color: #006699; font-weight: bold">type</span><span style="color: #007788; font-weight: bold">:</span> a
+<span style="color: #555555">...</span>
+<span style="color: #CC00FF">g2</span> <span style="color: #000000; font-weight: bold">::</span> a <span style="color: #000000; font-weight: bold">-&gt;</span> b (bound at <span style="color: #007788; font-weight: bold">GetSetLens</span><span style="color: #555555">.</span>hs<span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">312</span><span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">31</span>)
+<span style="color: #CC00FF">s2</span> <span style="color: #000000; font-weight: bold">::</span> a <span style="color: #000000; font-weight: bold">-&gt;</span> b <span style="color: #000000; font-weight: bold">-&gt;</span> a (bound at <span style="color: #007788; font-weight: bold">GetSetLens</span><span style="color: #555555">.</span>hs<span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">312</span><span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">28</span>)
+<span style="color: #CC00FF">g1</span> <span style="color: #000000; font-weight: bold">::</span> b <span style="color: #000000; font-weight: bold">-&gt;</span> c (bound at <span style="color: #007788; font-weight: bold">GetSetLens</span><span style="color: #555555">.</span>hs<span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">312</span><span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">18</span>)
+<span style="color: #CC00FF">s1</span> <span style="color: #000000; font-weight: bold">::</span> b <span style="color: #000000; font-weight: bold">-&gt;</span> c <span style="color: #000000; font-weight: bold">-&gt;</span> b (bound at <span style="color: #007788; font-weight: bold">GetSetLens</span><span style="color: #555555">.</span>hs<span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">312</span><span style="color: #007788; font-weight: bold">:</span><span style="color: #FF6600">15</span>)
 </pre></div>
 
 

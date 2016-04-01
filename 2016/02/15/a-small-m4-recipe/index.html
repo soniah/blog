@@ -122,9 +122,9 @@ Host SLAVEX
 
 <p>In <code>ruby</code> use it like this:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">m4cmd</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;m4 -Dslavex=#{</span><span style="color: #d0d0d0">row[</span><span style="color: #ed9d13">:ip</span><span style="color: #d0d0d0">]</span><span style="color: #ed9d13">} -Duserx=#{</span><span style="color: #d0d0d0">row[</span><span style="color: #ed9d13">:jump_user</span><span style="color: #d0d0d0">]</span><span style="color: #ed9d13">}</span>
-<span style="color: #ed9d13">  -Dmasterx=#{</span><span style="color: #d0d0d0">row[</span><span style="color: #ed9d13">:jump_ip</span><span style="color: #d0d0d0">]</span><span style="color: #ed9d13">} ssh_config.m4 &gt; ../ssh_config.toll&quot;</span>
-<span style="color: #ed9d13">`#{</span><span style="color: #d0d0d0">m4cmd</span><span style="color: #ed9d13">}`</span>
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">m4cmd <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;m4 -Dslavex=</span><span style="color: #AA0000">#{</span>row<span style="color: #555555">[</span><span style="color: #FFCC33">:ip</span><span style="color: #555555">]</span><span style="color: #AA0000">}</span><span style="color: #CC3300"> -Duserx=</span><span style="color: #AA0000">#{</span>row<span style="color: #555555">[</span><span style="color: #FFCC33">:jump_user</span><span style="color: #555555">]</span><span style="color: #AA0000">}</span><span style="color: #CC3300"></span>
+<span style="color: #CC3300">  -Dmasterx=</span><span style="color: #AA0000">#{</span>row<span style="color: #555555">[</span><span style="color: #FFCC33">:jump_ip</span><span style="color: #555555">]</span><span style="color: #AA0000">}</span><span style="color: #CC3300"> ssh_config.m4 &gt; ../ssh_config.toll&quot;</span>
+<span style="color: #CC3300">`</span><span style="color: #AA0000">#{</span>m4cmd<span style="color: #AA0000">}</span><span style="color: #CC3300">`</span>
 </pre></div>
 
 

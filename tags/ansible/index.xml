@@ -101,20 +101,20 @@ everywhere, deep down in roles.&lt;/p&gt;
 playbooks, giving flexibility but keeping clarity. But I wouldn&amp;rsquo;t use
 them &lt;em&gt;within&lt;/em&gt; a role. For example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml --tags&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;java,splunk&amp;quot;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml --tags&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;java,splunk&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #d0d0d0&#34;&gt;---&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;- name:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base setup&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;hosts:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;myhosts&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;roles:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;tags:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;java&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;splunk&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ---
+    - name: base setup
+      hosts:
+        - myhosts
+      roles:
+        - base
+      tags:
+        - base
+        - java
+        - splunk
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -124,8 +124,8 @@ them &lt;em&gt;within&lt;/em&gt; a role. For example:&lt;/p&gt;
 development versus a &amp;lsquo;real&amp;rsquo; environment.  Using different &lt;code&gt;ansible.cfg&lt;/code&gt; files
 can help here, and you swap using environment variables. For example:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;ansible.cfg.dev
-    &lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;ansible.cfg.uat
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #336666&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;ansible.cfg.dev
+    &lt;span style=&#34;color: #336666&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;ansible.cfg.uat
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -136,37 +136,37 @@ can help here, and you swap using environment variables. For example:&lt;/p&gt;
 &lt;p&gt;Variable files can be included in your yaml files to load blocks of variables.
 You can get &lt;em&gt;more&lt;/em&gt; flexibility by dynamically loading your var files:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #d0d0d0&#34;&gt;---&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;- name:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base setup&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;become:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;true&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;hosts:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;myhosts&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;vars_files:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;vars/{{&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}}.yml&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;roles:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ---
+    - name: base setup
+      become: true
+      hosts:
+        - myhosts
+      vars_files:
+        - &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;vars/{{&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;}}.yml&amp;quot;&lt;/span&gt;
+      roles:
+        - base
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Then run your playbook with the &lt;em&gt;dev&lt;/em&gt; set of variables:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #40ffff&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;dev
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #003333&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;dev
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;A similar technique is also useful for AWS tags (AWS is discussed further below):&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #d0d0d0&#34;&gt;---&lt;/span&gt;
-    &lt;span style=&#34;color: #d0d0d0&#34;&gt;- name:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base setup&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;become:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;true&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;hosts:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;{{&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}}&amp;quot;&lt;/span&gt;
-      &lt;span style=&#34;color: #d0d0d0&#34;&gt;roles:&lt;/span&gt;
-        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ---
+    - name: base setup
+      become: true
+      hosts:
+        - &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;{{&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;}}&amp;quot;&lt;/span&gt;
+      roles:
+        - base
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #40ffff&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;tag_Owner_sonia&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #003333&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #CC3300&#34;&gt;&amp;#39;tag_Owner_sonia&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

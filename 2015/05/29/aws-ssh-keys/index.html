@@ -102,8 +102,8 @@
 <p>AWS distributes their ssh keys as <strong>.pem</strong> certificates. The usual process with
 working with them is:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%">mv ~/Downloads/foo.pem ~/.ssh
-chmod <span style="color: #3677a9">0600</span> ~/.ssh/foo.pem
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%">mv ~/Downloads/foo.pem ~/.ssh
+chmod <span style="color: #FF6600">0600</span> ~/.ssh/foo.pem
 ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
 </pre></div>
 
@@ -113,7 +113,7 @@ ssh -i ~/.ssh/foo.pem 1.2.3.4 -l ubuntu
 <a href="http://en.wikipedia.org/wiki/Seahorse_%28software%29">Seahorse</a> key
 manager easier:</p>
 
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #24909d">cd</span> ~/.ssh
+<div class="highlight" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~/.ssh
 mv foo.pem foo
 ssh-keygen -y -f ~/.ssh/foo &gt; ~/.ssh/foo.pub
 </pre></div>

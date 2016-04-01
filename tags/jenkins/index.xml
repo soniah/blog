@@ -45,8 +45,8 @@
 
 &lt;p&gt;With this directory structure I set &lt;strong&gt;GOPATH&lt;/strong&gt; on the command line or in a Makefile:&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% &lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~go/project2/src/github.com/soniah/gosnmp
-% &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;~go/project2 go build
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;% &lt;span style=&#34;color: #336666&#34;&gt;cd&lt;/span&gt; ~go/project2/src/github.com/soniah/gosnmp
+% &lt;span style=&#34;color: #003333&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;~go/project2 go build
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -54,30 +54,30 @@
 
 &lt;p&gt;For smaller projects you can just produce a binary using &lt;strong&gt;go run&lt;/strong&gt; or &lt;strong&gt;go build&lt;/strong&gt;. But a Makefile will be needed for larger projects, as they will have other deliverables besides a binary - for example manpages or an operating system installer like a .deb for Ubuntu/Debian.&lt;/p&gt;
 
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/lib/go
-GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /var/lib/jenkins/workspace/go/project2
+&lt;div class=&#34;highlight&#34; style=&#34;background: #f0f3f3&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;GOROOT :&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; /usr/lib/go
+GOPATH :&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; /var/lib/jenkins/workspace/go/project2
 
-myhostname :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;shell hostname&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt;
-ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, laptop&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/sonia/go/project2
-&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;else&lt;/span&gt; ifeq &lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;, testmachine&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;
-    GOPATH :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /home/u1234/go/project2
-    GOROOT :&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; /usr/local/go
+myhostname :&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;$(&lt;/span&gt;shell hostname&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;)&lt;/span&gt;
+ifeq &lt;span style=&#34;color: #555555&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;}&lt;/span&gt;, laptop&lt;span style=&#34;color: #555555&#34;&gt;)&lt;/span&gt;
+    GOPATH :&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; /home/sonia/go/project2
+&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;else&lt;/span&gt; ifeq &lt;span style=&#34;color: #555555&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color: #003333&#34;&gt;myhostname&lt;/span&gt;&lt;span style=&#34;color: #AA0000&#34;&gt;}&lt;/span&gt;, testmachine&lt;span style=&#34;color: #555555&#34;&gt;)&lt;/span&gt;
+    GOPATH :&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; /home/u1234/go/project2
+    GOROOT :&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt; /usr/local/go
 endif
 
 build: build-stamp
 build-stamp: file1.go file2.go file3.go
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# always format code&lt;/span&gt;
-    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go fmt &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# binary&lt;/span&gt;
-    &lt;span style=&#34;color: #40ffff&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #6ab825; font-weight: bold&#34;&gt;)&lt;/span&gt; go build -o project2 -v &lt;span style=&#34;color: #40ffff&#34;&gt;$^&lt;/span&gt;
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# docs&lt;/span&gt;
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# always format code&lt;/span&gt;
+    &lt;span style=&#34;color: #003333&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;)&lt;/span&gt; go fmt &lt;span style=&#34;color: #003333&#34;&gt;$^&lt;/span&gt;
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# binary&lt;/span&gt;
+    &lt;span style=&#34;color: #003333&#34;&gt;GOPATH&lt;/span&gt;&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;$(&lt;/span&gt;GOPATH&lt;span style=&#34;color: #006699; font-weight: bold&#34;&gt;)&lt;/span&gt; go build -o project2 -v &lt;span style=&#34;color: #003333&#34;&gt;$^&lt;/span&gt;
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# docs&lt;/span&gt;
     markdown README.mkd &amp;gt; README.html
-    help2man --no-info --include&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;help2man.roff --name &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;Project2&amp;quot;&lt;/span&gt; ./project2 &amp;gt; project2.roff
+    help2man --no-info --include&lt;span style=&#34;color: #555555&#34;&gt;=&lt;/span&gt;help2man.roff --name &lt;span style=&#34;color: #CC3300&#34;&gt;&amp;quot;Project2&amp;quot;&lt;/span&gt; ./project2 &amp;gt; project2.roff
     man -Tps -l project2.roff &amp;gt; project2-man.ps
     ps2pdf project2-man.ps project2-man.pdf
-    &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# mark as done&lt;/span&gt;
-    touch &lt;span style=&#34;color: #40ffff&#34;&gt;$@&lt;/span&gt;
+    &lt;span style=&#34;color: #0099FF; font-style: italic&#34;&gt;# mark as done&lt;/span&gt;
+    touch &lt;span style=&#34;color: #003333&#34;&gt;$@&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
