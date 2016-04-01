@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>M4 on Sonia Hamilton - Blog</title>
+    <link>http://www.snowfrog.net/tags/m4/</link>
+    <description>Recent content in M4 on Sonia Hamilton - Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 15 Feb 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://www.snowfrog.net/tags/m4/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Small m4 Recipe</title>
+      <link>http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/</link>
+      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/</guid>
+      <description>&lt;p&gt;&amp;ldquo;They&amp;rdquo; say that &lt;a href=&#34;https://en.wikipedia.org/wiki/M4_%28computer_language%29&#34;&gt;Linux m4 is a useful
+tool&lt;/a&gt; but
+I&amp;rsquo;ve never had the time to get my head around it. This is a small recipe.&lt;/p&gt;
+
+&lt;p&gt;I find &lt;code&gt;m4&lt;/code&gt; difficult because the examples are more complex than what I
+need, therefore I never use it, therefore I never get better at it.
+Here&amp;rsquo;s a starter example, which could&amp;rsquo;ve been done with any number of
+other tools (&lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;perl&lt;/code&gt;, etc). But why &lt;code&gt;m4&lt;/code&gt;?  Because it does the
+job and no installation is required on (locked down) Linux servers.&lt;/p&gt;
+
+&lt;p&gt;This snippet dynamically generates an ssh config file (with
+&lt;code&gt;ProxyCommand&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;divert(-1)dnl
+define(`SLAVEX&#39;,slavex)
+define(`USERX&#39;,userx)
+define(`MASTERX&#39;,masterx)
+divert(0)dnl
+StrictHostKeyChecking no
+Host SLAVEX
+  ProxyCommand ssh -W %h:%p USERX@MASTERX
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In &lt;code&gt;ruby&lt;/code&gt; use it like this:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;m4cmd&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;m4 -Dslavex=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:ip&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;} -Duserx=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:jump_user&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #ed9d13&#34;&gt;  -Dmasterx=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:jump_ip&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;} ssh_config.m4 &amp;gt; ../ssh_config.toll&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ed9d13&#34;&gt;`#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;m4cmd&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I use variables like &lt;code&gt;userx&lt;/code&gt; so they don&amp;rsquo;t accidently get &lt;strong&gt;rescanned&lt;/strong&gt; by &lt;code&gt;m4&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;m4 copies its input (from files or standard input) to standard output.
+It checks each token (a name, a quoted string, or any single character
+that’s not a part of either a name or a string) to see if it’s the name
+of a macro. If so, the token is replaced by the macro’s value, and then
+that text is pushed back onto the input to be rescanned. (&lt;strong&gt;If you’re new
+to m4, this repeated scanning may surprise you&lt;/strong&gt;, but it’s one key to m4&amp;rsquo;s
+power.)&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

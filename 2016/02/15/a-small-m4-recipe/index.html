@@ -7,8 +7,8 @@
 <head>
     <meta charset="utf-8">
     <base href="http://www.snowfrog.net">
-    <title> Haskell Folds </title>
-    <link rel="canonical" href="http://www.snowfrog.net/2015/09/04/haskell-folds/">
+    <title> A Small m4 Recipe </title>
+    <link rel="canonical" href="http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/">
     
 
 <link rel="stylesheet" href="http://www.snowfrog.net/css/poole.css">
@@ -94,45 +94,49 @@
 
     
     <div class="container content">
-      <h1 class="post-title">Haskell Folds</h1>
+      <h1 class="post-title">A Small m4 Recipe</h1>
         <section id="main">
-          <h5 id="date"> 4 Sep 2015 </h5>
-          
+          <h5 id="date"> 15 Feb 2016 </h5>
+          <p>&ldquo;They&rdquo; say that <a href="https://en.wikipedia.org/wiki/M4_%28computer_language%29">Linux m4 is a useful
+tool</a> but
+I&rsquo;ve never had the time to get my head around it. This is a small recipe.</p>
 
-<p>Notes on Haskell Folds.</p>
+<p>I find <code>m4</code> difficult because the examples are more complex than what I
+need, therefore I never use it, therefore I never get better at it.
+Here&rsquo;s a starter example, which could&rsquo;ve been done with any number of
+other tools (<code>sed</code>, <code>perl</code>, etc). But why <code>m4</code>?  Because it does the
+job and no installation is required on (locked down) Linux servers.</p>
 
-<h1 id="foldr:a5bf4925444d0c7b3dca48c3539f5c97">foldr</h1>
+<p>This snippet dynamically generates an ssh config file (with
+<code>ProxyCommand</code>):</p>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Right-fold-transformation.png" alt="foldr" /></p>
+<pre><code>divert(-1)dnl
+define(`SLAVEX',slavex)
+define(`USERX',userx)
+define(`MASTERX',masterx)
+divert(0)dnl
+StrictHostKeyChecking no
+Host SLAVEX
+  ProxyCommand ssh -W %h:%p USERX@MASTERX
+</code></pre>
 
-<p>&ldquo;It is best to think of foldr non-recursively as
-simultaneously replacing each (:) in a list by a
-given function, and [] by a given value.&rdquo; &ndash;
-<a href="http://www.cs.nott.ac.uk/~gmh/book.html">Programming in
-Haskell</a></p>
+<p>In <code>ruby</code> use it like this:</p>
 
-<h1 id="foldl:a5bf4925444d0c7b3dca48c3539f5c97">foldl</h1>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Left-fold-transformation.png" alt="foldl" /></p>
-
-<p>&ldquo;It is best to think of the behaviour of foldl in
-a non-recursive manner, in terms of a left
-associative operator ⊕ starting from a given
-value.&rdquo; &ndash; <a href="http://www.cs.nott.ac.uk/~gmh/book.html">Programming in
-Haskell</a></p>
-
-<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">((((</span> z ⊕ x1 <span style="color: #d0d0d0">)</span> ⊕ x2 <span style="color: #d0d0d0">)</span> ... ⊕ xn
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%"><span style="color: #d0d0d0">m4cmd</span> <span style="color: #d0d0d0">=</span> <span style="color: #ed9d13">&quot;m4 -Dslavex=#{</span><span style="color: #d0d0d0">row[</span><span style="color: #ed9d13">:ip</span><span style="color: #d0d0d0">]</span><span style="color: #ed9d13">} -Duserx=#{</span><span style="color: #d0d0d0">row[</span><span style="color: #ed9d13">:jump_user</span><span style="color: #d0d0d0">]</span><span style="color: #ed9d13">}</span>
+<span style="color: #ed9d13">  -Dmasterx=#{</span><span style="color: #d0d0d0">row[</span><span style="color: #ed9d13">:jump_ip</span><span style="color: #d0d0d0">]</span><span style="color: #ed9d13">} ssh_config.m4 &gt; ../ssh_config.toll&quot;</span>
+<span style="color: #ed9d13">`#{</span><span style="color: #d0d0d0">m4cmd</span><span style="color: #ed9d13">}`</span>
 </pre></div>
 
 
-<h1 id="links:a5bf4925444d0c7b3dca48c3539f5c97">Links</h1>
+<p>I use variables like <code>userx</code> so they don&rsquo;t accidently get <strong>rescanned</strong> by <code>m4</code>:</p>
 
-<ul>
-<li><a href="https://wiki.haskell.org/Fold">Haskell Wiki - Folds</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Fold_%28higher-order_function%29">Wikipedia - Folds</a></li>
-<li><a href="http://www.cs.nott.ac.uk/~gmh/chapter7.ppt">Programming in Haskell Slides - Chapter 7
-Higher Order Functions</a></li>
-</ul>
+<p><em>m4 copies its input (from files or standard input) to standard output.
+It checks each token (a name, a quoted string, or any single character
+that’s not a part of either a name or a string) to see if it’s the name
+of a macro. If so, the token is replaced by the macro’s value, and then
+that text is pushed back onto the input to be rescanned. (<strong>If you’re new
+to m4, this repeated scanning may surprise you</strong>, but it’s one key to m4&rsquo;s
+power.)</em></p>
 
           <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -161,13 +165,13 @@ Higher Order Functions</a></li>
   <hr />
   
     <span class="left">
-    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/">A Small m4 Recipe</a>
+    &nbsp; <em>&laquo; Previous:</em> <a class="next" href="http://www.snowfrog.net/2016/03/30/ansible-and-aws-tips/">Ansible and AWS Tips</a>
     </span>
   
 
   
     <span class="right">
-    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2015/08/07/awsenv-aws-environment-config-loader/"> &nbsp; awsenv AWS environment config loader</a> &raquo;
+    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2015/09/04/haskell-folds/"> &nbsp; Haskell Folds</a> &raquo;
     </span>
   
   <br />
@@ -190,7 +194,11 @@ Higher Order Functions</a></li>
   <ul class="catlist">
     <li><em>Tags: </em></li>
     
-      <li><a href="http://www.snowfrog.net/tags/haskell">Haskell</a> </li>
+      <li><a href="http://www.snowfrog.net/tags/linux">Linux</a> </li>
+    
+      <li><a href="http://www.snowfrog.net/tags/m4">m4</a> </li>
+    
+      <li><a href="http://www.snowfrog.net/tags/ruby">Ruby</a> </li>
     
   </ul>
 </div>

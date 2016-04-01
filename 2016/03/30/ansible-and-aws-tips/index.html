@@ -1,0 +1,434 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <base href="http://www.snowfrog.net">
+    <title> Ansible and AWS Tips </title>
+    <link rel="canonical" href="http://www.snowfrog.net/2016/03/30/ansible-and-aws-tips/">
+    
+
+<link rel="stylesheet" href="http://www.snowfrog.net/css/poole.css">
+
+<link rel="stylesheet" href="http://www.snowfrog.net/css/lanyon.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28700908-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+<body class="theme-base-0b">
+  
+
+
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="http://www.snowfrog.net/">Home</a>
+    <a class="sidebar-nav-item" href="http://www.snowfrog.net/posts">Posts by Date</a>
+    <a class="sidebar-nav-item" href="http://www.snowfrog.net/categories">Posts by Category</a>
+    <a class="sidebar-nav-item" href="http://www.snowfrog.net/tags">Posts by Tag</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      My name is Sonia Hamilton, I live in <a
+        href="http://en.wikipedia.org/wiki/Sydney">Sydney Australia</a>. I work
+      in IT and previously I've been at companies like Optus, News Digital and
+      Google.
+    </p>
+    <p>
+      I'm interested in all things <a
+        href="http://en.wikipedia.org/wiki/Linux">Linux</a> and <a
+        href="http://en.wikipedia.org/wiki/Open_source">Open Source</a>, and I
+      also enjoy martial arts - <a
+        href="http://en.wikipedia.org/wiki/Balintawak_Eskrima">Balintawak
+        Arnis</a> (Filipino stick fighting) and <a
+        href="http://en.wikipedia.org/wiki/Bjj">BJJ</a> (Brazilian Jiu Jitsu).
+      After all that training, I do <a
+        href="http://www.baronbaptiste.com/">Vinyasa Yoga</a> to stretch out
+      and relax.
+    </p>
+    <p>
+      Email me at <a
+        href="mailto:sonia@snowfrog.net">sonia@snowfrog.net</a>; find me on <a
+        href="http://au.linkedin.com/in/soniahamilton">LinkedIn</a>; follow me
+      on <a href="http://twitter.com/sonia_hamilton">Twitter</a>; fork my <a
+      href="https://github.com/soniah">Github</a> code; see my questions on <a
+      href="http://stackoverflow.com/users/658270/sonia-hamilton">Stack
+      Overflow</a>; watch my <a
+      href="http://www.youtube.com/user/savannacat">Youtube Videos</a>.
+    </p>
+    <p>
+      &copy; 2005-2015 Sonia Hamilton, <a
+        href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+      Powered by <a href="http://hugo.spf13.com">Hugo</a>.
+    </p>
+  </div>
+</div>
+
+
+  
+  <div class="wrap">
+    <div class="masthead">
+      <div class="container">
+        <h3 class="masthead-title">
+          <a href="http://www.snowfrog.net/" title="Sonia Hamilton - Blog">Sonia Hamilton - Blog</a>
+        </h3>
+      </div>
+    </div>
+
+    
+    <div class="container content">
+      <h1 class="post-title">Ansible and AWS Tips</h1>
+        <section id="main">
+          <h5 id="date"> 30 Mar 2016 </h5>
+          
+
+<p>I&rsquo;ve been using Ansible to provision resources on AWS. Here is a
+collection of tips and things I wish I&rsquo;d know before starting.</p>
+
+<p>Previously I&rsquo;ve worked with Puppet, SaltStack and Terraform for
+provisioning and configuration management. I understand <a href="https://www.theodo.fr/blog/2015/10/best-practices-to-build-great-ansible-playbooks/">Maxime
+Thoonsen&rsquo;s comment</a> about Puppet giving nightmares:</p>
+
+<pre><code>I remember my first times doing some provisioning, it was running with
+Puppet. It was brilliant but also very complex. I had a really hard time
+understanding how it worked and debugging it wasn’t the funniest part in
+my life. I hated working with provisioning at that time. I still make
+those nightmares about it…
+</code></pre>
+
+<p>I find Ansible more useful and easier to understand than those tools,
+however it&rsquo;s great flexibility and power makes it hard to know where to
+start.</p>
+
+<h1 id="useful-resources:1faa7ee1a0c9f5e2153fb57be082cdf4">Useful Resources</h1>
+
+<p>Here are some resources I found useful for learning Ansible (and Ansible
+with AWS). However like any tool one of the best ways to learn is just
+start with some simple projects, for example using Ansible to:</p>
+
+<ul>
+<li>configure a &ldquo;hello world&rdquo; web page on a manually provisioned AWS Linux host</li>
+<li>provision a Linux host on AWS</li>
+<li>combine the two previous plays into one playbook</li>
+</ul>
+
+<p>The <a href="http://docs.ansible.com/ansible/index.html">Ansible Documentation</a>
+is actually good for learning Ansible.</p>
+
+<p>I also referred to the following books - I learned something different
+from each one:</p>
+
+<ul>
+<li>Mastering Ansible, Jesse Keating</li>
+<li>Learning Ansible, Madhurranjan Mohaan; Ramesh Raithatha</li>
+<li>Ansible Configuration Management - Second Edition, Daniel Hall</li>
+<li>Ansible Playbook Essentials, Gourav Shah</li>
+</ul>
+
+<p>Here are some links I found useful:</p>
+
+<ul>
+<li><a href="http://docs.ansible.com/ansible/playbooks_best_practices.html#directory-layout">Directory Layout</a></li>
+<li><a href="https://gist.github.com/klen/ff85fe443735afb2410d">Ansible Summary</a></li>
+<li><a href="https://github.com/ansible/ansible-examples/">Ansible Examples</a></li>
+<li><a href="http://tomoconnor.eu/blogish/getting-started-ansible/#.VkFVRqIwFHJ">Getting Started with Ansible, I, II, and
+III</a></li>
+<li><a href="http://serverfault.com/questions/tagged/ansible">Server Fault Ansible
+Questions</a></li>
+<li><a href="https://gist.github.com/phred/2897937">pedantically_commented_playbook.yml</a></li>
+<li><a href="https://gist.github.com/marcusphi/6791404">ansible_conditionals_examples.yaml</a></li>
+</ul>
+
+<h1 id="some-foundations:1faa7ee1a0c9f5e2153fb57be082cdf4">Some foundations</h1>
+
+<ul>
+<li><p>I use the <a href="http://docs.ansible.com/ansible/intro_installation.html#running-from-source">source
+version</a> of Ansible, as the versions distributed with
+Linux distros can be old</p></li>
+
+<li><p>Use <code>-vvvv</code> for debugging. For example <code>ansible-playbook foo.yml
+-vvvv</code></p></li>
+
+<li><p>in addition to the configuration file <code>ansible.cfg</code>, other files and
+environment variables can be used. If something just won&rsquo;t work when
+you know it <em>should</em> work, check your env: <code>env | grep -i ansible</code> and
+<code>env | grep -i aws</code></p></li>
+</ul>
+
+<h1 id="tags:1faa7ee1a0c9f5e2153fb57be082cdf4">Tags</h1>
+
+<p><a href="http://docs.ansible.com/ansible/playbooks_tags.html">Ansible Tags</a> allow you
+to run a specific part of a configuration without running the whole playbook.
+However <em>whether</em> to use them is controversial, some people say they should
+<em>never be used</em> as they cause too much confusion. Others want to tag
+everywhere, deep down in roles.</p>
+
+<p>My preference is to only use tags to select roles in top level
+playbooks, giving flexibility but keeping clarity. But I wouldn&rsquo;t use
+them <em>within</em> a role. For example:</p>
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    ansible-playbook config.yml --tags<span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&quot;java,splunk&quot;</span>
+</pre></div>
+
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #d0d0d0">---</span>
+    <span style="color: #d0d0d0">- name:</span> <span style="color: #d0d0d0">base setup</span>
+      <span style="color: #d0d0d0">hosts:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">myhosts</span>
+      <span style="color: #d0d0d0">roles:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
+      <span style="color: #d0d0d0">tags:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">java</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">splunk</span>
+</pre></div>
+
+
+<h1 id="dev-sit-uat-prod:1faa7ee1a0c9f5e2153fb57be082cdf4">Dev, SIT, UAT, Prod, &hellip;</h1>
+
+<p>Often you need a whole set of different variables and configurations for laptop
+development versus a &lsquo;real&rsquo; environment.  Using different <code>ansible.cfg</code> files
+can help here, and you swap using environment variables. For example:</p>
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #24909d">export </span><span style="color: #40ffff">ANSIBLE_CONFIG</span><span style="color: #d0d0d0">=</span>ansible.cfg.dev
+    <span style="color: #24909d">export </span><span style="color: #40ffff">ANSIBLE_CONFIG</span><span style="color: #d0d0d0">=</span>ansible.cfg.uat
+</pre></div>
+
+
+<p>You can also combine this with dynamic vars files and dynamic nodes (below).</p>
+
+<h1 id="dynamic-vars-files:1faa7ee1a0c9f5e2153fb57be082cdf4">Dynamic Vars Files</h1>
+
+<p>Variable files can be included in your yaml files to load blocks of variables.
+You can get <em>more</em> flexibility by dynamically loading your var files:</p>
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #d0d0d0">---</span>
+    <span style="color: #d0d0d0">- name:</span> <span style="color: #d0d0d0">base setup</span>
+      <span style="color: #d0d0d0">become:</span> <span style="color: #d0d0d0">true</span>
+      <span style="color: #d0d0d0">hosts:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">myhosts</span>
+      <span style="color: #d0d0d0">vars_files:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #ed9d13">&quot;vars/{{</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">vf</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">}}.yml&quot;</span>
+      <span style="color: #d0d0d0">roles:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
+</pre></div>
+
+
+<p>Then run your playbook with the <em>dev</em> set of variables:</p>
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #40ffff">vf</span><span style="color: #d0d0d0">=</span>dev
+</pre></div>
+
+
+<p>A similar technique is also useful for AWS tags (AWS is discussed further below):</p>
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    <span style="color: #d0d0d0">---</span>
+    <span style="color: #d0d0d0">- name:</span> <span style="color: #d0d0d0">base setup</span>
+      <span style="color: #d0d0d0">become:</span> <span style="color: #d0d0d0">true</span>
+      <span style="color: #d0d0d0">hosts:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #ed9d13">&quot;{{</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">nodes</span><span style="color: #40ffff"> </span><span style="color: #ed9d13">}}&quot;</span>
+      <span style="color: #d0d0d0">roles:</span>
+        <span style="color: #d0d0d0">-</span> <span style="color: #d0d0d0">base</span>
+</pre></div>
+
+
+<div class="highlight" style="background: #202020"><pre style="line-height: 125%">    ansible-playbook config.yml -e <span style="color: #40ffff">nodes</span><span style="color: #d0d0d0">=</span><span style="color: #ed9d13">&#39;tag_Owner_sonia&#39;</span>
+</pre></div>
+
+
+<h1 id="aws-dynamic-inventory:1faa7ee1a0c9f5e2153fb57be082cdf4">AWS Dynamic Inventory</h1>
+
+<p>There&rsquo;s many examples on the web demonstrating <a href="http://docs.ansible.com/ansible/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script">AWS Dynamic Inventory</a>, here&rsquo;s some more interesting ideas</p>
+
+<h2 id="aws-and-dev-uat-etc:1faa7ee1a0c9f5e2153fb57be082cdf4">AWS and Dev/UAT/etc</h2>
+
+<p>Previously I mentioned using different <code>ansible.cfg</code> files for dev/uat/etc -
+for switching AWS inventory this can be really useful.</p>
+
+<p>Your dev <code>ansible.cfg</code>:</p>
+
+<pre><code>[defaults]
+inventory = inventory.dev
+</code></pre>
+
+<p>Your prod <code>ansible.cfg</code>:</p>
+
+<pre><code>[defaults]
+inventory = inventory.prod
+</code></pre>
+
+<p>Some things you may want to change:</p>
+
+<ul>
+<li>laptop dev: short caching (instances changing regularly), public ip addresses (using your own AWS account)</li>
+<li>production: long caching (instances stable), private ip addresses (vpc&rsquo;s being used)</li>
+</ul>
+
+<h2 id="aws-inventory-spelunking:1faa7ee1a0c9f5e2153fb57be082cdf4">AWS Inventory Spelunking</h2>
+
+<p>You can use AWS Dynamic Inventory Tags to match your hosts, but it can be
+difficult to work out the syntax. Is it:</p>
+
+<p><code>security_group_ElasticMapReduce_master</code></p>
+
+<p>or</p>
+
+<p><code>security_group_ElasticMapReduce-master</code></p>
+
+<p>??</p>
+
+<p>The solution is to use the lines at the end of the <code>ansible-ec2.cache</code> file, it will show the <em>exact</em> tags available, and which hosts they match:</p>
+
+<pre><code>&quot;security_group_ElasticMapReduce-master&quot;: [
+  &quot;10.666.666.253&quot;,
+  &quot;10.666.666.229&quot;,
+  &quot;10.666.666.210&quot;,
+  &quot;10.666.666.9&quot;,
+  &quot;10.666.666.239&quot;
+],
+</code></pre>
+
+<h2 id="aws-inventory-ping:1faa7ee1a0c9f5e2153fb57be082cdf4">AWS Inventory Ping</h2>
+
+<p>Even after Spelunking the cache, it can <em>still</em> be difficult to determine <em>how</em>
+to target hosts. I use the following <code>ping.yml</code></p>
+
+<pre><code>---
+- hosts:
+  - &quot;{{ nodes }}&quot;
+  tasks:
+  - name: ping-pong
+    ping:
+</code></pre>
+
+<p>And test it with more complex tag combinations:</p>
+
+<pre><code>ansible-playbook ping.yml \
+-e nodes='tag_Name_DEADBEEF001:&amp;security_group_ElasticMapReduce-slave'
+</code></pre>
+
+<h1 id="more:1faa7ee1a0c9f5e2153fb57be082cdf4">More</h1>
+
+<p>Other things I haven&rsquo;t covered yet:</p>
+
+<ul>
+<li>md5 checksums</li>
+<li>everything as a template not a file</li>
+<li>complex config files: template to /var/tmp/foo, then assemble</li>
+<li>your own deploy script, for troubleshooting</li>
+</ul>
+
+          <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'soniahamiltonblog'; 
+
+    (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        </section>
+    </div>
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  
+
+<div class="container">
+  <hr />
+  
+
+  
+    <span class="right">
+    <em>Next: </em><a class="next" href="http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/"> &nbsp; A Small m4 Recipe</a> &raquo;
+    </span>
+  
+  <br />
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Categories: </em></li>
+    
+      <li><a href="http://www.snowfrog.net/categories/linux">Linux</a> </li>
+    
+  </ul>
+</div>
+
+  <br />
+  
+<div class="container">
+  <ul class="catlist">
+    <li><em>Tags: </em></li>
+    
+      <li><a href="http://www.snowfrog.net/tags/ansible">Ansible</a> </li>
+    
+      <li><a href="http://www.snowfrog.net/tags/puppet">Puppet</a> </li>
+    
+  </ul>
+</div>
+
+
+  
+  
+
+<div class="container content">
+<footer>
+  <div>
+    <p class="right credit">
+    <a href="http://www.snowfrog.net/">Home</a>&nbsp;&nbsp;
+    <a href="http://www.snowfrog.net/posts">Posts by Date</a>&nbsp;&nbsp;
+    <a href="http://www.snowfrog.net/categories">Posts by Category</a>&nbsp;&nbsp;
+    <a href="http://www.snowfrog.net/tags">Posts by Tag</a>&nbsp;&nbsp;
+    <a href="http://www.snowfrog.net/privacy">Privacy</a>&nbsp;&nbsp;
+    </p>
+  </div>
+</footer>
+</div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  
+  
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

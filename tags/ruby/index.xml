@@ -5,8 +5,57 @@
     <link>http://www.snowfrog.net/tags/ruby/</link>
     <description>Recent content in Ruby on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 28 May 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Feb 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Small m4 Recipe</title>
+      <link>http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/</link>
+      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/</guid>
+      <description>&lt;p&gt;&amp;ldquo;They&amp;rdquo; say that &lt;a href=&#34;https://en.wikipedia.org/wiki/M4_%28computer_language%29&#34;&gt;Linux m4 is a useful
+tool&lt;/a&gt; but
+I&amp;rsquo;ve never had the time to get my head around it. This is a small recipe.&lt;/p&gt;
+
+&lt;p&gt;I find &lt;code&gt;m4&lt;/code&gt; difficult because the examples are more complex than what I
+need, therefore I never use it, therefore I never get better at it.
+Here&amp;rsquo;s a starter example, which could&amp;rsquo;ve been done with any number of
+other tools (&lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;perl&lt;/code&gt;, etc). But why &lt;code&gt;m4&lt;/code&gt;?  Because it does the
+job and no installation is required on (locked down) Linux servers.&lt;/p&gt;
+
+&lt;p&gt;This snippet dynamically generates an ssh config file (with
+&lt;code&gt;ProxyCommand&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;divert(-1)dnl
+define(`SLAVEX&#39;,slavex)
+define(`USERX&#39;,userx)
+define(`MASTERX&#39;,masterx)
+divert(0)dnl
+StrictHostKeyChecking no
+Host SLAVEX
+  ProxyCommand ssh -W %h:%p USERX@MASTERX
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In &lt;code&gt;ruby&lt;/code&gt; use it like this:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;m4cmd&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;m4 -Dslavex=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:ip&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;} -Duserx=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:jump_user&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #ed9d13&#34;&gt;  -Dmasterx=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:jump_ip&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;} ssh_config.m4 &amp;gt; ../ssh_config.toll&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ed9d13&#34;&gt;`#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;m4cmd&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I use variables like &lt;code&gt;userx&lt;/code&gt; so they don&amp;rsquo;t accidently get &lt;strong&gt;rescanned&lt;/strong&gt; by &lt;code&gt;m4&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;m4 copies its input (from files or standard input) to standard output.
+It checks each token (a name, a quoted string, or any single character
+that’s not a part of either a name or a string) to see if it’s the name
+of a macro. If so, the token is replaced by the macro’s value, and then
+that text is pushed back onto the input to be rescanned. (&lt;strong&gt;If you’re new
+to m4, this repeated scanning may surprise you&lt;/strong&gt;, but it’s one key to m4&amp;rsquo;s
+power.)&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Eloquent Ruby</title>
@@ -520,24 +569,6 @@ end
       <description>&lt;p&gt;A good summary (for my reference) of the assertions that can be used with Test::Unit (&lt;a href=&#34;http://www.pragprog.com/titles/ruby/programming-ruby&#34;&gt;from Pragmatic Programmers&amp;rsquo; Programming Ruby&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;&lt;img class=&#34;alignleft size-full wp-image-553&#34; title=&#34;test unit assertions&#34; src=&#34;http://www.snowfrog.net/wp-content/uploads/2009/10/test-unit-assertions.png&#34; alt=&#34;test unit assertions&#34; width=&#34;433&#34; height=&#34;611&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Ruby here document example</title>
-      <link>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</link>
-      <pubDate>Thu, 01 Oct 2009 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2009/10/01/ruby-here-document-example/</guid>
-      <description>&lt;p&gt;A nice ruby example (for my reference) of using here documents to load data/logic. From &lt;a href=&#34;http://www.pragprog.com/titles/fr_quiz/best-of-ruby-quiz&#34;&gt;Pragmattic Programmers&amp;rsquo; Best of Ruby Quiz&lt;/a&gt;:&lt;/p&gt;
-
-&lt;pre&gt;DIGITS = &amp;lt;&amp;lt;END_DIGITS.split(&#34;n&#34;).map { |row| row.split(&#34; # &#34;) }.transpose
- -  #     #  -  #  -  #     #  -  #  -  #  -  #  -  #  -
-| | #   | #   | #   | # | | # |   # |   #   | # | | # | |
-    #     #  -  #  -  #  -  #  -  #  -  #     #  -  #  -
-| | #   | # |   #   | #   | #   | # | | #   | # | | #   |
- -  #     #  -  #  -  #     #  -  #  -  #     #  -  #  -
-END_DIGITS&lt;/pre&gt;
 </description>
     </item>
     

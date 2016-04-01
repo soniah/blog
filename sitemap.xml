@@ -3,8 +3,18 @@
   
   <url>
     <loc>http://www.snowfrog.net/</loc>
-    <lastmod>2015-09-04T00:00:00+00:00</lastmod>
+    <lastmod>2016-03-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.snowfrog.net/2016/03/30/ansible-and-aws-tips/</loc>
+    <lastmod>2016-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/</loc>
+    <lastmod>2016-02-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>

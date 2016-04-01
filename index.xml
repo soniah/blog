@@ -5,8 +5,303 @@
     <link>http://www.snowfrog.net/</link>
     <description>Recent content on Sonia Hamilton - Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Mar 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.snowfrog.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ansible and AWS Tips</title>
+      <link>http://www.snowfrog.net/2016/03/30/ansible-and-aws-tips/</link>
+      <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2016/03/30/ansible-and-aws-tips/</guid>
+      <description>
+
+&lt;p&gt;I&amp;rsquo;ve been using Ansible to provision resources on AWS. Here is a
+collection of tips and things I wish I&amp;rsquo;d know before starting.&lt;/p&gt;
+
+&lt;p&gt;Previously I&amp;rsquo;ve worked with Puppet, SaltStack and Terraform for
+provisioning and configuration management. I understand &lt;a href=&#34;https://www.theodo.fr/blog/2015/10/best-practices-to-build-great-ansible-playbooks/&#34;&gt;Maxime
+Thoonsen&amp;rsquo;s comment&lt;/a&gt; about Puppet giving nightmares:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;I remember my first times doing some provisioning, it was running with
+Puppet. It was brilliant but also very complex. I had a really hard time
+understanding how it worked and debugging it wasn’t the funniest part in
+my life. I hated working with provisioning at that time. I still make
+those nightmares about it…
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I find Ansible more useful and easier to understand than those tools,
+however it&amp;rsquo;s great flexibility and power makes it hard to know where to
+start.&lt;/p&gt;
+
+&lt;h1 id=&#34;useful-resources:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;Useful Resources&lt;/h1&gt;
+
+&lt;p&gt;Here are some resources I found useful for learning Ansible (and Ansible
+with AWS). However like any tool one of the best ways to learn is just
+start with some simple projects, for example using Ansible to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;configure a &amp;ldquo;hello world&amp;rdquo; web page on a manually provisioned AWS Linux host&lt;/li&gt;
+&lt;li&gt;provision a Linux host on AWS&lt;/li&gt;
+&lt;li&gt;combine the two previous plays into one playbook&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://docs.ansible.com/ansible/index.html&#34;&gt;Ansible Documentation&lt;/a&gt;
+is actually good for learning Ansible.&lt;/p&gt;
+
+&lt;p&gt;I also referred to the following books - I learned something different
+from each one:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Mastering Ansible, Jesse Keating&lt;/li&gt;
+&lt;li&gt;Learning Ansible, Madhurranjan Mohaan; Ramesh Raithatha&lt;/li&gt;
+&lt;li&gt;Ansible Configuration Management - Second Edition, Daniel Hall&lt;/li&gt;
+&lt;li&gt;Ansible Playbook Essentials, Gourav Shah&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here are some links I found useful:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.ansible.com/ansible/playbooks_best_practices.html#directory-layout&#34;&gt;Directory Layout&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/klen/ff85fe443735afb2410d&#34;&gt;Ansible Summary&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ansible/ansible-examples/&#34;&gt;Ansible Examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tomoconnor.eu/blogish/getting-started-ansible/#.VkFVRqIwFHJ&#34;&gt;Getting Started with Ansible, I, II, and
+III&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://serverfault.com/questions/tagged/ansible&#34;&gt;Server Fault Ansible
+Questions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/phred/2897937&#34;&gt;pedantically_commented_playbook.yml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/marcusphi/6791404&#34;&gt;ansible_conditionals_examples.yaml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;some-foundations:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;Some foundations&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I use the &lt;a href=&#34;http://docs.ansible.com/ansible/intro_installation.html#running-from-source&#34;&gt;source
+version&lt;/a&gt; of Ansible, as the versions distributed with
+Linux distros can be old&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Use &lt;code&gt;-vvvv&lt;/code&gt; for debugging. For example &lt;code&gt;ansible-playbook foo.yml
+-vvvv&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;in addition to the configuration file &lt;code&gt;ansible.cfg&lt;/code&gt;, other files and
+environment variables can be used. If something just won&amp;rsquo;t work when
+you know it &lt;em&gt;should&lt;/em&gt; work, check your env: &lt;code&gt;env | grep -i ansible&lt;/code&gt; and
+&lt;code&gt;env | grep -i aws&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;tags:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;Tags&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.ansible.com/ansible/playbooks_tags.html&#34;&gt;Ansible Tags&lt;/a&gt; allow you
+to run a specific part of a configuration without running the whole playbook.
+However &lt;em&gt;whether&lt;/em&gt; to use them is controversial, some people say they should
+&lt;em&gt;never be used&lt;/em&gt; as they cause too much confusion. Others want to tag
+everywhere, deep down in roles.&lt;/p&gt;
+
+&lt;p&gt;My preference is to only use tags to select roles in top level
+playbooks, giving flexibility but keeping clarity. But I wouldn&amp;rsquo;t use
+them &lt;em&gt;within&lt;/em&gt; a role. For example:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml --tags&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;java,splunk&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #d0d0d0&#34;&gt;---&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;- name:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base setup&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;hosts:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;myhosts&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;roles:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;tags:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;java&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;splunk&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id=&#34;dev-sit-uat-prod:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;Dev, SIT, UAT, Prod, &amp;hellip;&lt;/h1&gt;
+
+&lt;p&gt;Often you need a whole set of different variables and configurations for laptop
+development versus a &amp;lsquo;real&amp;rsquo; environment.  Using different &lt;code&gt;ansible.cfg&lt;/code&gt; files
+can help here, and you swap using environment variables. For example:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;ansible.cfg.dev
+    &lt;span style=&#34;color: #24909d&#34;&gt;export &lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt;ANSIBLE_CONFIG&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;ansible.cfg.uat
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can also combine this with dynamic vars files and dynamic nodes (below).&lt;/p&gt;
+
+&lt;h1 id=&#34;dynamic-vars-files:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;Dynamic Vars Files&lt;/h1&gt;
+
+&lt;p&gt;Variable files can be included in your yaml files to load blocks of variables.
+You can get &lt;em&gt;more&lt;/em&gt; flexibility by dynamically loading your var files:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #d0d0d0&#34;&gt;---&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;- name:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base setup&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;become:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;true&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;hosts:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;myhosts&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;vars_files:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;vars/{{&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}}.yml&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;roles:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then run your playbook with the &lt;em&gt;dev&lt;/em&gt; set of variables:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #40ffff&#34;&gt;vf&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;dev
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A similar technique is also useful for AWS tags (AWS is discussed further below):&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    &lt;span style=&#34;color: #d0d0d0&#34;&gt;---&lt;/span&gt;
+    &lt;span style=&#34;color: #d0d0d0&#34;&gt;- name:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base setup&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;become:&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;true&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;hosts:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;{{&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #40ffff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}}&amp;quot;&lt;/span&gt;
+      &lt;span style=&#34;color: #d0d0d0&#34;&gt;roles:&lt;/span&gt;
+        &lt;span style=&#34;color: #d0d0d0&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;base&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;    ansible-playbook config.yml -e &lt;span style=&#34;color: #40ffff&#34;&gt;nodes&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;#39;tag_Owner_sonia&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id=&#34;aws-dynamic-inventory:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;AWS Dynamic Inventory&lt;/h1&gt;
+
+&lt;p&gt;There&amp;rsquo;s many examples on the web demonstrating &lt;a href=&#34;http://docs.ansible.com/ansible/intro_dynamic_inventory.html#example-aws-ec2-external-inventory-script&#34;&gt;AWS Dynamic Inventory&lt;/a&gt;, here&amp;rsquo;s some more interesting ideas&lt;/p&gt;
+
+&lt;h2 id=&#34;aws-and-dev-uat-etc:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;AWS and Dev/UAT/etc&lt;/h2&gt;
+
+&lt;p&gt;Previously I mentioned using different &lt;code&gt;ansible.cfg&lt;/code&gt; files for dev/uat/etc -
+for switching AWS inventory this can be really useful.&lt;/p&gt;
+
+&lt;p&gt;Your dev &lt;code&gt;ansible.cfg&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[defaults]
+inventory = inventory.dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Your prod &lt;code&gt;ansible.cfg&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[defaults]
+inventory = inventory.prod
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Some things you may want to change:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;laptop dev: short caching (instances changing regularly), public ip addresses (using your own AWS account)&lt;/li&gt;
+&lt;li&gt;production: long caching (instances stable), private ip addresses (vpc&amp;rsquo;s being used)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aws-inventory-spelunking:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;AWS Inventory Spelunking&lt;/h2&gt;
+
+&lt;p&gt;You can use AWS Dynamic Inventory Tags to match your hosts, but it can be
+difficult to work out the syntax. Is it:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;security_group_ElasticMapReduce_master&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;security_group_ElasticMapReduce-master&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;??&lt;/p&gt;
+
+&lt;p&gt;The solution is to use the lines at the end of the &lt;code&gt;ansible-ec2.cache&lt;/code&gt; file, it will show the &lt;em&gt;exact&lt;/em&gt; tags available, and which hosts they match:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;security_group_ElasticMapReduce-master&amp;quot;: [
+  &amp;quot;10.666.666.253&amp;quot;,
+  &amp;quot;10.666.666.229&amp;quot;,
+  &amp;quot;10.666.666.210&amp;quot;,
+  &amp;quot;10.666.666.9&amp;quot;,
+  &amp;quot;10.666.666.239&amp;quot;
+],
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aws-inventory-ping:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;AWS Inventory Ping&lt;/h2&gt;
+
+&lt;p&gt;Even after Spelunking the cache, it can &lt;em&gt;still&lt;/em&gt; be difficult to determine &lt;em&gt;how&lt;/em&gt;
+to target hosts. I use the following &lt;code&gt;ping.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+- hosts:
+  - &amp;quot;{{ nodes }}&amp;quot;
+  tasks:
+  - name: ping-pong
+    ping:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And test it with more complex tag combinations:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ansible-playbook ping.yml \
+-e nodes=&#39;tag_Name_DEADBEEF001:&amp;amp;security_group_ElasticMapReduce-slave&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;more:1faa7ee1a0c9f5e2153fb57be082cdf4&#34;&gt;More&lt;/h1&gt;
+
+&lt;p&gt;Other things I haven&amp;rsquo;t covered yet:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;md5 checksums&lt;/li&gt;
+&lt;li&gt;everything as a template not a file&lt;/li&gt;
+&lt;li&gt;complex config files: template to /var/tmp/foo, then assemble&lt;/li&gt;
+&lt;li&gt;your own deploy script, for troubleshooting&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Small m4 Recipe</title>
+      <link>http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/</link>
+      <pubDate>Mon, 15 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.snowfrog.net/2016/02/15/a-small-m4-recipe/</guid>
+      <description>&lt;p&gt;&amp;ldquo;They&amp;rdquo; say that &lt;a href=&#34;https://en.wikipedia.org/wiki/M4_%28computer_language%29&#34;&gt;Linux m4 is a useful
+tool&lt;/a&gt; but
+I&amp;rsquo;ve never had the time to get my head around it. This is a small recipe.&lt;/p&gt;
+
+&lt;p&gt;I find &lt;code&gt;m4&lt;/code&gt; difficult because the examples are more complex than what I
+need, therefore I never use it, therefore I never get better at it.
+Here&amp;rsquo;s a starter example, which could&amp;rsquo;ve been done with any number of
+other tools (&lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;perl&lt;/code&gt;, etc). But why &lt;code&gt;m4&lt;/code&gt;?  Because it does the
+job and no installation is required on (locked down) Linux servers.&lt;/p&gt;
+
+&lt;p&gt;This snippet dynamically generates an ssh config file (with
+&lt;code&gt;ProxyCommand&lt;/code&gt;):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;divert(-1)dnl
+define(`SLAVEX&#39;,slavex)
+define(`USERX&#39;,userx)
+define(`MASTERX&#39;,masterx)
+divert(0)dnl
+StrictHostKeyChecking no
+Host SLAVEX
+  ProxyCommand ssh -W %h:%p USERX@MASTERX
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In &lt;code&gt;ruby&lt;/code&gt; use it like this:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;m4cmd&lt;/span&gt; &lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #ed9d13&#34;&gt;&amp;quot;m4 -Dslavex=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:ip&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;} -Duserx=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:jump_user&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #ed9d13&#34;&gt;  -Dmasterx=#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;row[&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;:jump_ip&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;} ssh_config.m4 &amp;gt; ../ssh_config.toll&amp;quot;&lt;/span&gt;
+&lt;span style=&#34;color: #ed9d13&#34;&gt;`#{&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;m4cmd&lt;/span&gt;&lt;span style=&#34;color: #ed9d13&#34;&gt;}`&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I use variables like &lt;code&gt;userx&lt;/code&gt; so they don&amp;rsquo;t accidently get &lt;strong&gt;rescanned&lt;/strong&gt; by &lt;code&gt;m4&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;m4 copies its input (from files or standard input) to standard output.
+It checks each token (a name, a quoted string, or any single character
+that’s not a part of either a name or a string) to see if it’s the name
+of a macro. If so, the token is replaced by the macro’s value, and then
+that text is pushed back onto the input to be rescanned. (&lt;strong&gt;If you’re new
+to m4, this repeated scanning may surprise you&lt;/strong&gt;, but it’s one key to m4&amp;rsquo;s
+power.)&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Haskell Folds</title>
@@ -661,80 +956,6 @@ hg push bbgit
 hggitpush foogit      &lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# defaults to pushing to master&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>SaltStack Essential Reading</title>
-      <link>http://www.snowfrog.net/2014/09/23/saltstack-essential-reading/</link>
-      <pubDate>Tue, 23 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2014/09/23/saltstack-essential-reading/</guid>
-      <description>&lt;p&gt;A list of &amp;lsquo;Essential Reading&amp;rsquo; for SaltStack. A collection of useful links, mostly for myself but possibly helpful to others.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html&#34;&gt;How Do I Use Salt State&lt;/a&gt;s,  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/states_pt1.html&#34;&gt;States tutorial&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/tutorials/pillar.html&#34;&gt;Pillar Walkthrough&lt;/a&gt; - the tutorials&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/highstate.html&#34;&gt;Highstate data structure definitions&lt;/a&gt; and  &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/yaml/index.html&#34;&gt;Understanding YAML&lt;/a&gt; - helpful for understanding statefile layout - when to use a colon, as dash, double indents, etc&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/requisites.html&#34;&gt;Requisites and Other Global State Arguments&lt;/a&gt; - do something before something else, restart a service if a file changes, etc&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html&#34;&gt;salt.states.file&lt;/a&gt; - most config management is going to involve working with files&amp;hellip;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.jinja.html&#34;&gt;salt.renderers.jinja&lt;/a&gt; and &lt;a href=&#34;http://docs.saltstack.com/en/latest/topics/best_practices.html&#34;&gt;Salt Best Practices&lt;/a&gt; - working with Jinja&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Setup Arduino on Debian</title>
-      <link>http://www.snowfrog.net/2014/02/26/setup-arduino-on-debian/</link>
-      <pubDate>Wed, 26 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.snowfrog.net/2014/02/26/setup-arduino-on-debian/</guid>
-      <description>&lt;p&gt;Some notes on setting up Arduino on Debian.&lt;/p&gt;
-
-&lt;p&gt;Add yourself to the required groups - dialout and tty.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; dialout
-sudo adduser &lt;span style=&#34;color: #40ffff&#34;&gt;$USER&lt;/span&gt; tty
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Confirm the port &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt; is being used by Arduino - tail messages then plug in the Arduino.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo tail -f /var/log/messages
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
-FTDI USB Serial Device converter now attached to ttyUSB0
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# out of interest, inspect permissions on port&lt;/span&gt;
-ls -al /dev/ttyUSB0
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Logout and login (or run a login shell). Confirm permissions.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;zsh -l
-id
-
-&lt;span style=&#34;color: #999999; font-style: italic&#34;&gt;# you should see something like:&lt;/span&gt;
-&lt;span style=&#34;color: #40ffff&#34;&gt;groups&lt;/span&gt;&lt;span style=&#34;color: #d0d0d0&#34;&gt;=&lt;/span&gt;1000&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;sonia&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,5&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;tty&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,20&lt;span style=&#34;color: #d0d0d0&#34;&gt;(&lt;/span&gt;dialout&lt;span style=&#34;color: #d0d0d0&#34;&gt;)&lt;/span&gt;,...
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Install Arduino pre-requisites.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;sudo aptitude install arduino arduino-core
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;If preferred, download the &lt;strong&gt;latest&lt;/strong&gt; Arduino environment, run the shell script to start it.&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34; style=&#34;background: #202020&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span style=&#34;color: #24909d&#34;&gt;cd&lt;/span&gt; ~/arduino-1.0.5
-./arduino&lt;span style=&#34;color: #d0d0d0&#34;&gt;&amp;amp;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Set the serial port (Tools -&amp;gt; Serial Port) to &lt;strong&gt;/dev/ttyUSB0&lt;/strong&gt;. Any problems doing this, edit the serial port setting in  &lt;strong&gt;~/.arduino/preferences.txt&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Hello World&lt;/strong&gt; - upload Blink (File -&amp;gt; Examples -&amp;gt; 01.Basics -&amp;gt; Blink) to your Arduino, go crazy with that flashing LED!&lt;/p&gt;
 </description>
     </item>
     
