@@ -18,4 +18,6 @@ github-pages.
 
 * config.yml, e.g. pygmentsstyle: "manni"
 * see https://help.farbox.com/pygments.html for samples
+* http://pygments.org/docs/lexers/
+
 * how to add other styles??

@@ -90,7 +90,7 @@ playbooks, giving flexibility but keeping clarity. But I wouldn't use
 them *within* a role. For example:
 
 {{< highlight bash >}}
-    ansible-playbook config.yml --tags="java,splunk"
+    $ ansible-playbook config.yml --tags="java,splunk"
 {{< /highlight >}}
 
 {{< highlight yaml >}}
@@ -113,8 +113,8 @@ development versus a 'real' environment.  Using different `ansible.cfg` files
 can help here, and you swap using environment variables. For example:
 
 {{< highlight bash >}}
-    export ANSIBLE_CONFIG=ansible.cfg.dev
-    export ANSIBLE_CONFIG=ansible.cfg.uat
+    $ export ANSIBLE_CONFIG=ansible.cfg.dev
+    $ export ANSIBLE_CONFIG=ansible.cfg.uat
 {{< /highlight >}}
 
 You can also combine this with dynamic vars files and dynamic nodes (below).
@@ -139,7 +139,7 @@ You can get *more* flexibility by dynamically loading your var files:
 Then run your playbook with the *dev* set of variables:
 
 {{< highlight bash >}}
-    ansible-playbook config.yml -e vf=dev
+    $ ansible-playbook config.yml -e vf=dev
 {{< /highlight >}}
 
 A similar technique is also useful for AWS tags (AWS is discussed further below):
@@ -155,7 +155,7 @@ A similar technique is also useful for AWS tags (AWS is discussed further below)
 {{< /highlight >}}
 
 {{< highlight bash >}}
-    ansible-playbook config.yml -e nodes='tag_Owner_sonia'
+    $ ansible-playbook config.yml -e nodes='tag_Owner_sonia'
 {{< /highlight >}}
 
 # AWS Dynamic Inventory
@@ -169,13 +169,17 @@ for switching AWS inventory this can be really useful.
 
 Your dev `ansible.cfg`:
 
+{{< highlight ini >}}
     [defaults]
     inventory = inventory.dev
+{{< /highlight >}}
 
 Your prod `ansible.cfg`:
 
+{{< highlight ini >}}
     [defaults]
     inventory = inventory.prod
+{{< /highlight >}}
 
 Some things you may want to change:
 
@@ -197,30 +201,36 @@ or
 
 The solution is to use the lines at the end of the `ansible-ec2.cache` file, it will show the *exact* tags available, and which hosts they match:
 
+{{< highlight yaml >}}
     "security_group_ElasticMapReduce-master": [
       "10.666.666.253",
       "10.666.666.229",
       "10.666.666.210",
       "10.666.666.9",
       "10.666.666.239"
-    ],
+    ]
+{{< /highlight >}}
 
 ## AWS Inventory Ping
 
 Even after Spelunking the cache, it can *still* be difficult to determine *how*
 to target hosts. I use the following `ping.yml`
 
+{{< highlight yaml >}}
     ---
     - hosts:
       - "{{ nodes }}"
       tasks:
       - name: ping-pong
         ping:
+{{< /highlight >}}
 
 And test it with more complex tag combinations:
 
-    ansible-playbook ping.yml \
+{{< highlight bash >}}
+    $ ansible-playbook ping.yml \
     -e nodes='tag_Name_DEADBEEF001:&security_group_ElasticMapReduce-slave'
+{{< /highlight >}}
 
 # More
 
@@ -230,4 +240,3 @@ Other things I haven't covered yet:
 * everything as a template not a file
 * complex config files: template to /var/tmp/foo, then assemble
 * your own deploy script, for troubleshooting
-
