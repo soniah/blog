@@ -17,6 +17,8 @@ title=$1
 title_url=`echo $title | tr '[:upper:]' '[:lower:]'`
 title_url=`echo $title_url | tr ' ' '-'`
 
+# "fecha" means "date" is Spanish - I couldn't be bothered
+# thinking of a better variable name
 fecha_dash=`date "+%Y-%m-%d"`
 fecha_slash=`date "+%Y/%m/%d"`
 file_name="content/posts/${fecha_dash}-${title_url}.md"
